@@ -1,0 +1,23 @@
+mentorAI | Image Generation Tool Demo
+https://www.youtube.com/watch?v=VIYWKbfKGWY
+
+[0.2s] Hey, what's going on? This is Jeremy at
+[1.6s] IBLAI and today I'm showing you one of
+[3.8s] our newest features, our image
+[5.8s] generation tool. So, coming into the
+[9.0s] mentor,
+[11.0s] we can see
+[13.3s] that the image generation tool has been
+[15.8s] toggled on and I'm going to ask it to
+[19.8s] create or rather generate an image of a
+[24.8s] happy puppy.
+[35.4s] And very quickly, the mentor ju does
+[37.8s] just that. So for any input that you
+[41.1s] would put in here to create an image,
+[43.6s] you would just enter the desired image
+[46.2s] description here in the lower prompt
+[48.2s] tab, hit send, and very quickly, the
+[51.8s] mentor will put that image together for
+[53.6s] you. Thank you so much for taking the
+[55.9s] time to view this, and
+[58.1s] As always, learn more at ibl.ai.

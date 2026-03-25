@@ -1,0 +1,102 @@
+Analytics | Course Creation Tool
+https://www.youtube.com/watch?v=WDeBBuDwqs8
+
+[0.9s] I'm going to walk you through the new
+[2.2s] course creation tool that we've just
+[4.1s] deployed to staging so you'll go to the
+[6.8s] authoring tab and select courses and
+[8.9s] when you hit add new course it'll now
+[11.2s] take you to this wizard to create a
+[13.2s] course rather than taking you directly
+[15.2s] to Studio Tena Ammons will still be able
+[17.5s] to access studio and make any additional
+[19.3s] edits or modifications to their course
+[21.4s] as they see
+[23.5s] fit but this is what it'll look like
+[26.7s] when creating a basic course um so the
+[29.5s] first thing you'll do enter a
+[36.1s] name and then we'll give a
+[39.8s] description so I'm just going to
+[41.4s] basically just give the same name and
+[42.5s] then put
+[43.4s] test duration we can put whatever
+[46.4s] duration the course is and then for the
+[48.8s] course card image this is the image that
+[50.4s] Learners will see in the catalog so what
+[52.2s] we'll do is just upload an image file
+[54.8s] and you can see that's been attached
+[56.0s] right here and then we'll add topics and
+[59.6s] tag
+[60.7s] so that's some additional metadata to
+[62.0s] the course all you'll do is enter the
+[63.4s] name hit enter and it'll add this um to
+[68.0s] these
+[71.4s] fields so once we hit enter we've got
+[73.8s] this first page filled out and this is
+[75.4s] basically a settings the the metadata
+[77.8s] for the course creating that course
+[79.2s] shell um in terms of the start dates
+[82.3s] that are entered for the course we have
+[84.4s] those um predetermined so the learn the
+[87.0s] T amen doesn't have to worry about going
+[88.4s] in and entering dates to make sure
+[89.6s] everything is
+[90.9s] published um then to add content to the
+[93.9s] course this is you'll hit the next
+[95.7s] button up here and you'll see a couple
+[98.4s] of bits of information you're going to
+[99.5s] create a standard outline structure so
+[101.8s] we'll call this section one
+[105.6s] subsection 1.1 and unit unit
+[110.2s] 1.1.1 and you have the option of
+[111.9s] entering a YouTube url um for the time
+[115.2s] being and then for scorm you can select
+[118.2s] this and upload a file Direct
+[121.0s] corly and once you have all this
+[122.9s] information you'll just hit
+[125.3s] submit and this will create the course
+[128.1s] and it might take a little bit longer
+[129.2s] depending on you know the file size for
+[131.3s] instance scorm is going to be a lot
+[132.4s] bigger than uploading a URL so we are
+[136.2s] going to be
+[138.4s] using um both options but one might take
+[141.1s] a little bit longer than the other and
+[143.0s] you'll see that this scorm course has
+[144.4s] been created we'll see the course over
+[147.4s] here um in analytics so you can see
+[149.9s] that's been created you know you can go
+[151.4s] into Studio edit from here add
+[152.9s] credentials assign skill points or even
+[154.8s] assign a user but if we want to go to
+[157.0s] the skills
+[158.8s] side um and then we'll go to discover
+[161.7s] tab there's quite a handful of courses
+[163.3s] in this tenant but just to show you
+[164.9s] where it is found without having to
+[166.4s] search for it I do want to be able to
+[169.4s] give you guys that view so we'll go it
+[173.5s] might take just a second here to find
+[174.9s] the exact course
+[188.6s] see all
+[191.2s] right once we find that course which is
+[193.9s] going to be right here um you'll see
+[196.4s] this it's on
+[198.2s] the um we have the overview page right
+[200.6s] here if we hit access course it'll open
+[202.6s] up the course and we can see the
+[205.4s] scor um that being said when we go back
+[208.3s] into analytics the the format that
+[210.2s] you're seeing here is just the first
+[211.9s] iteration um there going to be a handful
+[214.4s] of updates coming but what we're really
+[216.6s] trying to do is limit the amount that
+[218.8s] course authors um can decide upon and
+[221.4s] have to learn how to do um just to make
+[224.1s] this process as simple as possible um
+[227.2s] again uh we have discussed with Mike a
+[229.4s] handful of times just you know getting a
+[230.9s] first iteration out that's simple and we
+[232.8s] can make modifications and add new
+[235.0s] features to it um after this all right
+[238.9s] thank you guys

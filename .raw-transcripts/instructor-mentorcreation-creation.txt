@@ -1,0 +1,164 @@
+mentorAI | Creation
+https://www.youtube.com/watch?v=QnZ9Crvl9ao
+
+[0.6s] Creating a mentor, a mentor AI, is quite
+[3.4s] simple and I'm going to walk you through
+[4.7s] how to do this. Once you're logged in,
+[6.8s] you'll see this create button.
+[9.9s] You'll see that this pops up a create
+[12.0s] mentor screen and it's going to start
+[13.4s] with the settings. You can upload an
+[15.1s] image um which is like kind of like a
+[17.0s] profile image for the mentor. You can
+[19.0s] also provide the mentor name. I'm going
+[20.6s] to do bio AI.
+[22.7s] Um, and I'm going to say this is a
+[25.2s] biology tutor
+[28.8s] that assists
+[31.3s] learners
+[36.4s] with their intro to biology course. Now,
+[41.8s] the category is going to be the category
+[43.9s] that the mentor fit into. In this case,
+[45.9s] it's a biology mentor. So we could do uh
+[49.0s] let's see here
+[51.0s] learning for example we could use that
+[52.7s] as a category it could be biology it
+[54.2s] could be science you know anything that
+[55.9s] this is related to and then mentor
+[57.8s] visibility is going to be who this is
+[59.0s] visible to. So if it's set to
+[60.8s] administrators this means only
+[62.1s] instructors would be able to use this.
+[63.6s] This might be used for you know a mentor
+[65.7s] that creates assessments or coursework
+[67.8s] for learners. Um or it could be
+[70.7s] something like an admissions mentor
+[72.3s] where you're that mentor is guiding
+[74.2s] learners through the admissions process.
+[77.0s] um
+[78.9s] or you know it could be data related if
+[81.4s] it's it's institutional data you can get
+[83.2s] data from here but you don't want
+[84.6s] learners to see that that would be
+[85.5s] another reason administrators um would
+[87.7s] be visible uh to be visible to
+[89.8s] administrators only and then students
+[91.5s] would be to basically this just means
+[93.4s] everybody within your organization. Um
+[97.0s] so this also could be like you know your
+[99.2s] tutoring your uh informational so on and
+[102.8s] so forth mentors and then the base here
+[105.0s] is you can you can select from the
+[106.2s] default open AI or Gemini bases. I'm
+[109.6s] going to stick with the default here and
+[111.7s] then under the prompts category this is
+[113.4s] where you're going to define a lot of
+[114.5s] the mentor. Um you're going to have the
+[117.2s] system prompt which defines the mentor's
+[118.9s] personality and purpose. uh you know if
+[121.0s] it's a biology mentor like we're
+[122.6s] creating now um you would direct this to
+[124.8s] say you know you are a biology mentor
+[127.4s] you're going to be helping learners
+[128.6s] through this. If you want it to be more
+[130.3s] socratic and not get the learners
+[132.6s] answers directly you could direct the
+[134.4s] mentor to do that through a system
+[135.9s] prompt as well. Um this basically is
+[138.6s] very open-ended. Whatever the purpose
+[140.4s] and personality of your mentor you want
+[142.4s] it to be that's where you would put this
+[144.1s] in. It doesn't necessarily have to just
+[145.6s] be, you know, tutoring style or um
+[148.7s] admissions related or data related.
+[150.9s] Whatever it is that you want this mentor
+[152.7s] for, that's where you would put the
+[154.0s] purpose in. Now, the proactive message
+[157.0s] is the message that learners initially
+[159.3s] see when the mentor hops into the chat
+[161.5s] and they hop into the chat um before the
+[164.0s] learner starts messaging. It's just
+[165.4s] basically a greeting. Now, the guided
+[167.5s] prompts are going to be the prompts that
+[169.2s] are AI generated based off the
+[171.0s] conversation. there suggested uh prompts
+[173.4s] that a learner can select from to
+[175.3s] basically kind of keep the conversation
+[176.9s] going or get the conversation started
+[179.0s] without the learner uh feeling too
+[181.2s] uneasy about where to start here. It
+[183.0s] gives them a starting point. Now once
+[185.5s] you have the mentor created you'll have
+[187.1s] a couple of other settings that you can
+[188.6s] see here. Um you'll be able to select
+[190.9s] your LLM of choice. There are also a
+[193.7s] couple of tools that we have. you know,
+[195.3s] for instance, web search. You can enable
+[196.9s] this and this will allow you to search
+[198.4s] the web um from the mentor. You don't
+[201.7s] have to go anywhere else for this. You
+[203.2s] also have safety, which helps you, you
+[205.4s] know, make sure that the mentors
+[206.8s] responding appropriately to questions
+[209.0s] that may not be appropriately asked by
+[211.7s] the learner. You know, it could be
+[212.8s] something like, uh, here's my social
+[214.7s] security number. Uh, do you have my
+[216.5s] application information? Well, we don't
+[218.5s] want to answer that question. So, this
+[219.8s] is where you would set those guidelines.
+[221.7s] You can also set this exact response.
+[224.1s] So, uh, if somebody asks a question
+[226.4s] that's inappropriate in terms of the
+[228.2s] guidelines that have been set, you can
+[230.9s] tell the mentor to respond in a given
+[232.6s] way.
+[234.3s] Next, we also have the history tab. This
+[237.0s] will show you the history of everybody
+[239.3s] who's communicated with this mentor. If
+[241.0s] you click on one of these guys, you can
+[243.0s] actually look through the conversation.
+[245.9s] You're also able to export it, view the
+[247.8s] sentiments, filter by date, uh, topic,
+[250.2s] and even the categories. Now, data sets
+[253.3s] are where you're going to upload your
+[254.5s] materials for the mentor. This will
+[256.4s] serve as its knowledge base. You'll have
+[258.4s] a variety of different options from file
+[260.4s] types to URLs, even to uh places where
+[263.2s] you host materials such as drive, uh
+[265.9s] Dropbox, or even Microsoft One Drive.
+[270.3s] Now, the embed tab is if you want to use
+[273.0s] this anywhere else other than on the
+[275.4s] platform or integrated via LTI into your
+[278.2s] own LMS. Um, so for instance, if you
+[280.2s] wanted this on the homepage of your your
+[283.0s] uh institution's website, you could use
+[284.8s] this, customize it, select the mode,
+[287.3s] which will be defaults, which you're
+[289.0s] seeing now. Advanced view is a little
+[290.7s] bit different. Um, there's a couple more
+[292.6s] tabs. You can select whether this is
+[294.5s] anonymous, meaning whether or not um the
+[297.3s] person using this needs to be logged in
+[299.8s] um and trackable uh via username. You
+[302.8s] also have the website URL. So, this is
+[304.3s] where you'll put in exactly where this
+[305.8s] is going to be integrated. you can
+[308.0s] generate a token and then you can also
+[310.5s] make this context aware which basically
+[312.0s] means that a mentor can read the
+[313.8s] information on the page and respond
+[315.3s] about it. There's also a safety
+[317.0s] disclaimer that can be added and another
+[319.4s] option is to whether or not this mentor
+[321.6s] opens up by default. So you can enable
+[323.0s] it to be always open by default or you
+[325.4s] can have it close by default um and then
+[327.8s] a little icon that you can select and
+[329.2s] open it up where wherever this is
+[330.6s] embedded. And whenever you're ready to
+[332.3s] embed it, all you'll do is hit create
+[333.7s] embed. It'll provide you with a code and
+[335.5s] then you can use that code to embed this
+[337.4s] on any platform you'd like.

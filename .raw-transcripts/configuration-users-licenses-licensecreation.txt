@@ -1,0 +1,101 @@
+ibl.ai | Content Provider | Launch Tenant, Create Content, and Generate Content License
+https://www.youtube.com/watch?v=6XnUAQ9ISAo
+
+[0.3s] I'm going to be showing you how to
+[1.7s] create a content provider and how to add
+[4.0s] content um to a Content provider's
+[6.3s] tenant the first step you're going to do
+[8.4s] is hit
+[9.8s] platforms and we'll hit create a
+[12.2s] platform so we'll call this one
+[15.9s] license
+[19.5s] demo um and then we'll do licensing demo
+[22.8s] as the key the key is the platform key
+[26.0s] and the name is just the display name
+[28.8s] and then we have we can enter
+[30.5s] um credentials here for a user so I'm
+[33.6s] just creating myself um a tenant admin
+[40.6s] account all right so once we have this
+[43.0s] set
+[46.9s] up we can hit
+[51.4s] save and now we have that tenant created
+[54.6s] now that we have our content provider
+[56.2s] and our content provider tenant admin
+[58.3s] set up uh we can now log in as that
+[60.6s] tenant admin so I'm going to do
+[65.4s] that and once we log in it'll take us to
+[68.8s] the skills platform to
+[73.9s] start and from here because we are
+[76.4s] attendant admin we'll have ai analytics
+[79.6s] access we'll go to studio and then hit
+[84.5s] authoring we'll go to courses and what
+[87.0s] we're doing now is creating uh content
+[88.8s] for the content provider
+[90.6s] uh so that we can later add it to a
+[92.2s] license so we'll hit add new course and
+[94.9s] this will take you to studio and we
+[97.4s] won't see any courses here yet because
+[99.8s] you know this is the first time you're
+[101.4s] entering so if we hit create new course
+[104.6s] we'll do um licensing demo and the
+[109.3s] organization's already going to be
+[110.7s] pre-populated or the only option um
+[114.3s] that's available as a tenant admin
+[116.4s] because these courses are not going to
+[118.3s] live in the main tenant so we'll hit
+[120.2s] create
+[121.2s] course we'll hit you know just add some
+[123.9s] random content in here for now uh we'll
+[126.9s] do problem multiple choice something
+[130.5s] like that hit publish just quickly
+[132.8s] setting up a course um and making sure
+[136.0s] those dates
+[137.0s] are uh the dates of the course are set
+[139.2s] to be um in the past so that way this
+[141.1s] course is
+[142.2s] accessible so now we have this created
+[145.3s] and saved we can now create a program to
+[148.8s] um start Crea creating program licenses
+[151.4s] this you can have as many courses as you
+[153.2s] want um but you'll hit add new program
+[156.5s] and then we'll do
+[158.1s] licensing program and again that
+[160.5s] organization's already be filled out so
+[162.4s] we'll hit
+[163.4s] create and now we'll add course IDs so
+[167.6s] when we have a we'll just take the
+[169.4s] course ID from the that course we just
+[173.5s] created and we'll hit save if we have
+[176.5s] more courses we could hit add more
+[177.9s] course like that uh um and so you can
+[181.4s] keep just adding courses as many as you
+[183.3s] need so I'm going to hit save here and
+[186.0s] now we've created the
+[188.3s] content so now we're in data manager as
+[191.0s] a super admin who's going to be able to
+[192.7s] create the program licenses so we're
+[196.0s] going to look for program
+[197.9s] license and so what we'll do now is hit
+[201.1s] add program license we'll give this a
+[203.6s] display name um you know licensing demo
+[207.9s] the count is required and we're going to
+[209.5s] just get this a number of uh 10 it's
+[211.8s] basically the number of seats that a
+[213.3s] tenant admin has purchased we can also
+[215.1s] add started and expired dates for uh
+[218.0s] license access so I'll just add today um
+[221.9s] and then I'm going to change this to
+[223.1s] expire a year from now uh you can put in
+[225.2s] whatever you know time frame you'd like
+[227.1s] this will always be marked as um enabled
+[230.3s] active whether the license is valid uh
+[232.2s] by default when you're creating a new
+[234.2s] license now we'll select the platform
+[237.1s] it'll pop up um here or little module
+[242.5s] that like lets you select which platform
+[244.8s] and then you also have the program and
+[247.0s] we're going to select the program that
+[248.3s] we just
+[249.3s] created and we'll hit
+[252.6s] save so now we have the the content
+[256.4s] provider license created

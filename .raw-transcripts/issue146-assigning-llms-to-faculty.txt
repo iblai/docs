@@ -1,0 +1,86 @@
+mentorAI | LLM Assignment
+https://www.youtube.com/watch?v=VLKQ_tX2L9k
+
+[1.9s] I'm going to show you how you can assign
+[3.8s] an LLM to a particular user who has
+[7.4s] mentor editing access. So in this case,
+[10.2s] if we go to the access tab, you can see
+[12.4s] this editor role. And if we click on
+[14.2s] actions, you can see that this user has
+[16.7s] been assigned the ability to edit. Now,
+[18.9s] this doesn't automatically grant
+[20.2s] permissions to all LLMs that you see
+[23.1s] here as a tenant admin. Um, but it does,
+[27.0s] you know, give them the ability to edit
+[28.9s] mentors in other areas like the prompts,
+[31.0s] data set, so on and so forth. Now, if we
+[33.8s] want somebody to be only limited to a
+[36.2s] particular LLM, the way we would do this
+[38.7s] is create a role. You can see that we've
+[40.8s] already created this role here, and this
+[43.6s] is just basically saying what actions
+[45.5s] this role has the ability to take. So,
+[47.8s] in this case, it's reading all the LLMs
+[50.1s] and being able to select from them. Now,
+[53.4s] once we have this role created, we'll go
+[55.5s] to the policies tab
+[58.6s] and click on LLM model access. This is
+[61.1s] one we've already set up, but if this
+[62.5s] doesn't already exist, you would just
+[63.8s] hit new policy. Um, in this case, we are
+[67.3s] giving this platform um to a particular
+[70.0s] user access to um an OpenAI GPT40 mini,
+[74.4s] but we're not limited to just that. So,
+[76.3s] for example, if we go to
+[80.1s] see
+[82.5s] this perplexity in Google LLM access. So
+[84.9s] if we click on edit here, you can see
+[86.7s] the policy name, the role this is
+[88.6s] connected to. So this is the LLM model
+[90.4s] access role. That role is just basically
+[92.6s] saying, you know, this is what actions
+[94.7s] can be taken, but it's not giving a
+[96.6s] particular resource. In this case, you
+[99.5s] know, we are saying that the platform
+[102.6s] is, you know, the the tenant you're in,
+[104.8s] the LLM that you should have access to.
+[106.9s] In this case, it's both Google and
+[108.2s] Perplexity. And then you can assign
+[110.2s] users or groups. Now you can group users
+[112.5s] together to easily just assign you know
+[114.9s] one particular group um access to an LLM
+[117.8s] or you can do a particular user. So I'm
+[120.2s] going to do the same user we've already
+[121.4s] given access to
+[123.6s] um to edit mentors and then
+[129.3s] oops we're going to exit out of that and
+[131.0s] then we're going to hit save policy. So
+[133.4s] we'll open this back up just so you can
+[134.9s] take a look again. There's this user
+[136.6s] right here which we're about to log in
+[138.2s] with. Um, and this is saying that I have
+[140.2s] access to Google and Perplexity models.
+[143.2s] Now, let's log out of here.
+[150.6s] So, we're going to log in.
+[160.6s] All righty.
+[166.1s] And once we log in, we're actually
+[167.8s] already on the mentor that we have
+[169.1s] editing access over. And if we click on
+[171.5s] LLMs here, um since we already have the
+[174.1s] OpenAI model in one of the other
+[175.9s] policies, I have access to those. And
+[177.6s] again, you can see the GPT40 mini. Um
+[180.3s] you also see that we can access the
+[182.1s] Google models as well as the the
+[184.7s] Perplexity models here. I only have
+[187.0s] these options whereas tenant admins will
+[188.8s] have access to all LLMs. Um and this is
+[192.6s] essentially how you can limit access to
+[194.1s] particular LMS on a per mentor basis per
+[197.0s] user basis. Um this can also be um on
+[200.2s] platformwide. So any other mentor um I
+[203.0s] would only have access to these but we
+[204.5s] could also limit it down to a particular
+[206.2s] mentor itself. Um saying these are the
+[209.0s] only two while other mentors can have
+[211.2s] access to additional models.

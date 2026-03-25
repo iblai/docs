@@ -1,0 +1,51 @@
+mentorAI | APIs
+https://www.youtube.com/watch?v=KrB3R5nhBDM
+
+[0.0s] [Music]
+[0.7s] Mentor AI is based off of an APIdriven
+[3.4s] architecture. This makes it really easy
+[6.0s] to integrate very seamlessly with
+[8.4s] existing systems using our comprehensive
+[10.5s] APIs.
+[12.0s] You can actually do this from our mentor
+[13.9s] platform. And the way you would do this
+[16.2s] is by selecting the mentor name. And
+[19.1s] you'll see this tab that's called API.
+[22.1s] You'll click on this. And as you can
+[24.1s] see, we don't currently have any of
+[25.7s] these. So, what I'm going to do is hit
+[27.8s] create new. And then I'm just going to
+[30.5s] give this a name.
+[38.2s] And you can also set the expiration
+[39.9s] date. So, I'm just going to set it for
+[41.7s] about a month from now and hit submit.
+[44.6s] You'll also get your your API key here.
+[47.9s] You can copy and paste it. Um, please
+[51.3s] make sure you save this somewhere secure
+[53.0s] because this will disappear and you
+[54.6s] won't be able to see it again. So if you
+[56.5s] ever need to go back and use it, um you
+[59.4s] just need to make sure you have that
+[60.6s] ready to go. All right. And then if we
+[64.2s] want to see what it looks like to call
+[65.7s] one of our APIs, what we'll do is go to
+[69.2s] our API platform.
+[71.9s] So here you can see all of our APIs. And
+[74.2s] what you'll need to do is hit authorize.
+[77.6s] So you'll put in that API key that you
+[80.7s] got from the previous screen on the
+[82.2s] Mentor AI uh API tab. You'll hit
+[85.1s] authorize
+[87.0s] and then you'll hit close. And from
+[89.5s] there you can select any of these APIs
+[93.2s] to call. So I'm just going to select a
+[95.4s] random one here.
+[97.5s] Let's see.
+[102.0s] And you can see that we can get the the
+[105.2s] API response and all this other
+[107.1s] information about the parameters so on
+[109.3s] and so forth. Super simple to use, very
+[111.8s] easy to integrate with any existing
+[113.7s] system uh using our APIs. And that's
+[117.0s] really all you need to do to uh connect
+[118.9s] to our APIs.

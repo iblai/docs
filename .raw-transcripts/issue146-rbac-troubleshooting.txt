@@ -1,0 +1,126 @@
+mentorAI | RBAC Troubleshooting
+https://www.youtube.com/watch?v=BAExpMFykEw
+
+[1.4s] All right, I'm going to show you how to
+[3.0s] troubleshoot with Arbback. While this is
+[5.1s] not fully comprehensive, it'll give you
+[7.4s] a good idea of a starting point,
+[9.0s] especially when it comes to um any
+[11.0s] issues with mentor editors um not being
+[14.4s] able to see certain settings within
+[17.2s] the, you know, this part right here for
+[19.9s] a mentor. Um the first thing I do is go
+[22.8s] to the access tab and see if a role has
+[25.0s] been created. Now if there's no role
+[28.2s] created in in this case there's only
+[30.0s] editor at the u at this moment meaning
+[32.8s] people can edit this mentor they can't
+[34.4s] create um and generally speaking a
+[36.3s] student role is assigned here. Now, if
+[39.2s] somebody is assigned this editor role
+[41.8s] and they're missing some of these
+[43.2s] settings, for instance, in the Sunni
+[44.7s] Empire case where
+[47.1s] um the data sets tab is not appearing
+[50.3s] um then you would, you know, just
+[52.6s] basically create a student user that you
+[54.2s] add to the access tab over here. Same
+[56.5s] role um and see what settings um for the
+[60.2s] mentor are available. That would be
+[62.2s] arbback if they have mentor editor
+[64.2s] permissions but can't access certain
+[65.8s] things like data sets. The other thing
+[69.0s] here is with
+[72.0s] the ROS tab and the policies tab.
+[76.1s] Um, so once this loads up, I can show
+[78.1s] you here. Um, so let's see here. This
+[81.3s] one, there's no access. So we're going
+[84.3s] to take a look at this one where I have
+[86.9s] access set up.
+[90.0s] Okay, let's see who's got these roles.
+[92.3s] So there's me. Um, and then what we're
+[95.1s] going to do is come over to the tenant
+[98.2s] settings under management and under
+[100.6s] roles, you'll see that there's not a
+[101.8s] mentor editor role. That's because we've
+[104.0s] assigned it through this access tab. Uh,
+[107.2s] so the role exists. It's just on that
+[109.0s] access tab rather than here. But to see
+[112.2s] what policies people have assigned, um,
+[114.6s] for instance, we can look up this one.
+[117.4s] Um, now you have the platform number and
+[119.8s] the mentor number here. And the way you
+[121.6s] can check this just to make sure it's
+[123.1s] pointed to the right mentor um if
+[125.0s] somebody has any issues here. Um what
+[127.7s] I'll do is open up the network tab and
+[129.4s] you'll want to search for check. Um but
+[132.2s] I'm going to clear this first and then
+[133.6s] we're going to refresh.
+[137.4s] And once we've refreshed we can look for
+[139.0s] the check endpoint. Now this endpoint
+[141.3s] right here, the first one that you're
+[142.6s] going to see is going to give you um
+[144.6s] information on the tenant itself.
+[148.6s] Um, but then with the second one here,
+[151.8s] this is where you can actually see which
+[153.0s] mentor the number is associated with. So
+[154.9s] 720 or 722.
+[158.2s] So I'm going to come back over here,
+[159.8s] management
+[161.8s] 1722.
+[164.2s] Oh, I'm under user. So we got to go back
+[166.2s] to policies
+[167.8s] 1722.
+[170.6s] And you can see here that the mentor um
+[173.8s] editor access has been created because
+[175.4s] that these users right here including
+[177.4s] the one that of my own that you saw on
+[179.7s] the access tab um has this mentor editor
+[182.6s] access role um and policy associated.
+[186.6s] Um so essentially this platform number
+[190.3s] you can get from
+[192.6s] let's see here you can get from looking
+[195.0s] at any of these other policies that are
+[196.8s] default.
+[199.6s] So like let's see where is one that so
+[202.6s] this one here um you can see here that
+[204.9s] that that will be the number you'll use
+[206.6s] for the platform as part of the
+[207.8s] resources and in the case of uh mentor
+[211.6s] editor chat in this um particular
+[214.2s] instance
+[216.0s] um we can look at let's see
+[219.9s] go page
+[225.4s] 1772
+[228.4s] or 22
+[230.2s] You can look at this right here and
+[231.8s] confirm this number matches with this.
+[234.3s] Um, so just make sure the resource is
+[236.2s] set up right with the proper roll. Um,
+[238.3s] let's see if I can move this down. Okay.
+[241.4s] Um, so the RO um, in this case is not
+[244.2s] going to show up in the drop down
+[245.4s] because we've given it through the
+[246.6s] access tab. Um, but once additional
+[249.0s] roles are created, you have a list of
+[251.4s] drop or a list of roles that will appear
+[253.2s] in this drop down here. Um, and if
+[257.0s] anybody has any issues with the
+[258.6s] assumption that they've been added to a
+[260.1s] particular policy, you would just check
+[261.4s] under this users here or if there is a
+[263.5s] group,
+[265.4s] there's this group tabs over here um
+[267.8s] which will list every member in the
+[269.2s] group. So, you can also double check
+[270.4s] here to see if they're a part of a given
+[272.0s] group um that has been assigned a
+[273.7s] particular policy. Um and if there are
+[277.7s] any additional issues uh in terms of
+[280.6s] arback assignments
+[282.8s] um this is the best place to start. Uh
+[285.8s] if you don't see any issues here with
+[287.2s] the setup um then we'll dig a little bit
+[290.2s] deeper to see where the issue is
+[291.5s] actually coming from.

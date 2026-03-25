@@ -1,0 +1,47 @@
+skillsAI | Enrollment Manager
+https://www.youtube.com/watch?v=7P49vajFL70
+
+[1.6s] to give somebody the ability to enroll
+[4.7s] um folks into you know courses or
+[7.6s] programs via invites or even invite
+[9.4s] people to the platform. The way you
+[11.4s] would do this is go by going to the
+[13.4s] management tab and you have a couple of
+[17.2s] different options but the easiest way to
+[20.0s] globally give this invitation permission
+[23.1s] is by setting specific policy on this
+[26.1s] user management tab by clicking
+[27.8s] enrollment manager. that's going to give
+[30.2s] me the ability to enroll folks um into
+[34.5s] programs, courses, and even invite them
+[36.6s] to the platform. So, I can show you how
+[39.3s] this looks for this user that we
+[41.0s] selected here.
+[47.4s] All righty.
+[53.6s] I have logged in as the user that I have
+[55.8s] given that enrollment access to. Um,
+[58.7s] this person is also able to access
+[61.4s] teams, see who's in a team, um, and even
+[65.3s] add folks to teams that they've created
+[67.1s] themselves. Now, under this teams tab,
+[69.3s] we can hit the invite button,
+[71.7s] and you can see that this is very
+[73.5s] similar to, you know, a tenant admin
+[75.8s] view. Um, but the difference here is
+[78.1s] that they don't have access to course
+[79.7s] editing. Um, being able to modify really
+[83.4s] much other than just being able to
+[85.0s] invite folks. Um, so you have courses,
+[88.2s] programs, and users. It's a very similar
+[91.7s] process. You can throw an email address
+[93.4s] in here to hit invite. You can even use
+[95.4s] the CSV templates for each of these tabs
+[97.8s] as well.
+[101.5s] This will also allow you to see who who
+[104.0s] you've sent invites to, who's still
+[105.5s] pending. Um, and even once they're in
+[109.3s] the platform, you can create a new team
+[111.3s] and add them to, you know, whatever
+[114.1s] company or team that they belong to, or
+[116.4s] add them to previously created teams as
+[118.6s] well.

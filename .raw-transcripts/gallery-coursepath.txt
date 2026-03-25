@@ -1,0 +1,57 @@
+mentorAI | CoursePath Planner
+https://www.youtube.com/watch?v=iRun3GBwIL0
+
+[1.3s] I'm going to be showing you our course
+[2.8s] path mentor, which is a mentor that's
+[5.3s] meant to help students understand their
+[7.2s] degree requirements, prerequisites for
+[9.9s] their degree, um, and even course
+[11.6s] sequencing, for example. Um, it can
+[13.9s] answer questions such as, you know, what
+[15.4s] classes do I need to register for next
+[17.3s] semester to stay on track or what
+[19.8s] electives will satisfy my degree plan?
+[22.2s] Just essentially this is reinforcing the
+[23.9s] official degree planning tools uh by
+[26.9s] pulling directly in from the curriculum
+[28.6s] data um from a given university. In this
+[31.4s] case, the system prompt is going to look
+[32.9s] something like this.
+[35.0s] Uh you know, it's a program/deree
+[37.7s] planning adviser helping students
+[39.4s] understanding requirements essentially
+[41.0s] what I was just describing here. Um and
+[43.4s] it's making sure that the responses are
+[44.7s] grounded in specific curriculum mapping
+[47.4s] um for a given degree path. All right.
+[50.2s] So, this is the way this is going to
+[51.6s] work for a user. I want to say I am a
+[54.3s] freshman
+[56.4s] at Alfred State University.
+[61.9s] I am studying
+[65.3s] political science.
+[71.0s] What are my degree requirements?
+[79.2s] And so what it's doing now is taking
+[80.8s] into account what university I go to, um
+[83.4s] the courses that the university itself
+[85.8s] offers and what's also required by my
+[87.8s] degree. So you can see here we're
+[90.5s] getting a couple of different options.
+[92.2s] Um we're even seeing how many required
+[94.2s] credits there are. Uh the actual
+[97.1s] requirements for the liberal arts core.
+[99.5s] Um then the concentration courses as
+[102.4s] well as electives and graduation
+[104.2s] requirements. It also gives you next
+[106.1s] steps and we'll actually send you a link
+[109.5s] to where you can actually review courses
+[111.8s] if if you need that as well.
+[115.4s] Let's see here. I'm going to ask
+[119.4s] what elective options are available.
+[123.0s] And this will tell me exactly what
+[124.6s] political science electives there are or
+[126.3s] related, you know, elective classes that
+[128.3s] I could take that would be great for my
+[130.2s] degree. And that's basically how this
+[133.0s] this course path course path mentor
+[135.1s] works.

@@ -1,0 +1,50 @@
+ibl.ai | Canvas | Screensharing
+https://www.youtube.com/watch?v=By2oyDTlq2k
+
+[1.4s] Hi guys. I am going to be recording the
+[3.8s] most recent updates for the screen
+[6.3s] sharing feature from my phone just so I
+[8.1s] can use my microphone on my laptop. Um,
+[10.8s] but we'll go through how this is now
+[12.8s] working. So, I'm going to go to the
+[15.1s] modules tab,
+[17.5s] click on
+[19.4s] mentor LTI, and open up it in a new
+[22.8s] window.
+[24.4s] Once it loads up, what we'll do is click
+[26.9s] enable screen share.
+[30.4s] and it'll ask me for permissions to use
+[32.0s] my microphone as well as select the tab
+[35.1s] that I would like to to use
+[37.9s] um for the screen share. So, we're going
+[39.3s] to hit share.
+[42.7s] >> Can you see my screen?
+[46.0s] >> Yes, I can see your screen. It looks
+[48.0s] like you're on the homepage of a Canvas
+[49.6s] course. What can I help you with today?
+[52.3s] >> How do I submit a good discussion post?
+[57.1s] I can definitely help you with that. To
+[59.9s] submit a good discussion post, you'll
+[61.9s] want to make sure you're following a few
+[63.5s] key steps. First, you'll want to clearly
+[66.5s] address the prompt and provide
+[68.2s] thoughtful insights. It's also important
+[70.2s] to support your points with evidence or
+[72.0s] examples when appropriate. Don't forget
+[74.2s] to use proper grammar and spelling and
+[76.3s] always be respectful in your tone when
+[78.1s] responding to classmates. Would you like
+[79.8s] me to walk you through how to find the
+[81.2s] discussion board in Canvas? Or perhaps
+[83.1s] how to create a video discussion post if
+[85.4s] that's an option for your assignment?
+[87.7s] >> No, thank you. Can you tell me how to
+[90.7s] find my modules?
+[94.2s] >> Of course. To find your modules, you'll
+[96.8s] want to look at the lefthand navigation
+[98.3s] menu on your Canvas course page. You
+[101.0s] should see a link labeled modules. Click
+[103.4s] on that and it will take you to all the
+[105.6s] course modules. Please let me know if
+[107.4s] you have any trouble finding it. You're
+[109.0s] doing great.

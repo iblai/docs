@@ -1,0 +1,73 @@
+skillsAI | Team Manager
+https://www.youtube.com/watch?v=3l7oPOtcogI
+
+[1.4s] Let's say you have a company who
+[2.9s] purchases courses from you. You don't
+[5.2s] want them to see other, you know,
+[7.1s] folks's data. You only want them to see
+[9.0s] the data for their subset of learners
+[11.3s] that they have purchased courses for.
+[13.8s] [snorts] The way to set this up is under
+[17.6s] this management tab in the tenant
+[19.3s] settings. Now we already have this set
+[21.5s] up and this is the model that you can
+[23.1s] follow um for subsequent uh
+[27.4s] mentor/manager roles that are only
+[29.4s] overseeing um a specific team. Um in
+[32.9s] this case we have the role setup for
+[35.4s] this which is the company analytics
+[38.1s] viewer and you can see in the actions
+[40.5s] here we have the ability to read um
+[43.0s] reports analytics and including uh the
+[46.9s] ability to read specific user groups.
+[49.3s] Now, where this be becomes connected to
+[51.9s] an actual user group and to specific
+[53.9s] users is under policies. You'll see
+[56.3s] [snorts] that we we have a couple of
+[57.5s] different types of policies here. In
+[60.1s] this case, company A. This should be say
+[61.9s] company B, but we'll leave it as is for
+[65.5s] now. Um, and you'll see here that we
+[67.7s] have the role assigned where we have
+[69.6s] those specific actions um set up for
+[72.9s] them to be able to view analytics.
+[75.7s] And
+[77.3s] we also have a couple of others. So
+[78.7s] we'll just click on company teams and
+[80.3s] then the resource here is what we're
+[81.8s] saying is a specific group. So the
+[84.1s] platform is you know this uh particular
+[86.5s] platform we're in and the user groups uh
+[90.0s] number here is referencing a specific
+[92.0s] group. Now [snorts] you can add folks
+[94.3s] here either by user or by a specific
+[96.9s] group.
+[98.4s] Um so we have you know company A u in
+[101.5s] this particular user here we'll just say
+[105.6s] company A again. Um, and then you can
+[108.1s] add as many folks to this group as you'd
+[109.8s] like. And then once you had hit save,
+[114.2s] the folks that you have in those either
+[115.9s] the groups or that you add individually
+[118.3s] will have edit act or not addit access,
+[120.6s] but apologies. Um, they'll have access
+[123.1s] to analytics for their particular users.
+[125.7s] Um, they won't see anybody else's and
+[127.4s] I'll show you what that perspective
+[128.4s] looks like here in a minute.
+[132.2s] So I'm currently logged into somebody
+[133.8s] who has access to group B um that we set
+[136.5s] up in the first half as a tenant admin
+[139.4s] when creating that group um to oversee
+[143.5s] you know a particular set of folks and
+[145.9s] you can see here that we have analytics
+[147.6s] and we can filter by the two groups we
+[149.2s] have access to. Um that being said,
+[151.4s] these are mentor related dashboards
+[153.4s] which will be um enhanced later with
+[156.3s] course dashboards. So you can visualize
+[158.2s] the data that you have access to in
+[160.5s] these reports. These reports will only
+[162.6s] be limited to the users in the groups/
+[165.3s] teams that you oversee and you will not
+[167.2s] see anybody else's data.

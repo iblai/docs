@@ -1,0 +1,46 @@
+mentorAI | Platform Invitation Validation
+https://www.youtube.com/watch?v=ok2Db9Kt1bQ
+
+[1.2s] Hi everybody. Today what we're going to
+[3.3s] be walking through is how we've extended
+[5.3s] our platform invitations which allow you
+[8.2s] to invite users to your specific tenant.
+[11.7s] In this case, what we'll do is click on
+[14.6s] this little drop down by your profile
+[16.4s] and select the tenant name. From there,
+[19.8s] you'll go to management
+[22.3s] and click on invite. Now, this update
+[25.3s] that we're going to be talking about is
+[27.4s] when you bulk upload a list of users via
+[30.0s] CSV file. Um, you know, maybe you typed
+[32.9s] in something wrong or need to add
+[35.3s] additional users uh that you left out of
+[37.7s] your initial CSV. Um, by the way, you
+[40.5s] can download a very template right here,
+[42.7s] this download CSV template that you can
+[44.5s] use to fill out and then later on
+[46.2s] submit. I've already got a sample CSV
+[49.0s] template uh ready to go. So, what I'll
+[50.8s] do is click on upload CSV,
+[53.9s] select the one that I'd like to upload,
+[55.9s] and you can see that you can update any
+[58.7s] values here and also add a row. So, if I
+[61.6s] wanted to include
+[63.8s] the same
+[68.4s] information, but for a different user,
+[72.5s] I can we'll go to IBLAI. And you can add
+[76.4s] rows, delete rows, um, anything like
+[79.4s] that. in addition to being able to edit
+[81.5s] the the columns and the rows themselves,
+[83.9s] the values that are input there. Um, so
+[86.6s] this is just a convenient way to make
+[88.1s] sure you can validate your invitations
+[90.6s] and that everything looks good and you
+[92.7s] can make any changes as needed.
+[96.2s] All right. And then once you have that
+[97.6s] ready to go, you can submit. And you'll
+[99.6s] see that we actually have all those
+[101.5s] folks that we uploaded in the CSV added
+[104.3s] to this list. And they're going to be
+[106.6s] pending until they decide to register.
+[109.0s] All right. And that's it.

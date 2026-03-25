@@ -1,0 +1,47 @@
+mentorAI | Financial Analytics
+https://www.youtube.com/watch?v=0GztbtwwnDA
+
+[0.9s] As an instructor or as an admin, you
+[3.0s] might want to know how much your the
+[5.2s] financial cost of your mentor is. And a
+[8.3s] way to do that is by going to this
+[9.7s] analytics tab. You'll see that there's a
+[12.0s] financial tab here. And this will break
+[14.5s] down the costs for you. Now, you'll see
+[16.7s] this little bar up at the top that has
+[19.0s] weekly costs, monthly costs, and the
+[20.9s] total costs of the mentor usage. This
+[24.0s] will cover also a comparison of the past
+[26.7s] month and the past week. The the other
+[30.1s] piece here is that this will show you
+[31.6s] the cost per day. You can even filter,
+[33.5s] you know, from today, a week, or even a
+[36.6s] custom time frame. Now, right now, what
+[39.0s] you're seeing is the the cost for a
+[40.7s] given month. And you can hover over a
+[43.0s] day to see what date it was and the
+[45.0s] actual cost. Another really cool piece
+[47.4s] here is that you're able to see the cost
+[49.0s] per provider. Let's say that you have
+[51.3s] OpenAI for in use for a little bit of
+[53.8s] time and you switch to another provider
+[55.8s] like Gemini. This will break down the
+[58.2s] exact costs, you know, per provider.
+[61.4s] And then on the cost by LLM, this will
+[63.4s] actually cover the costs of the provider
+[65.8s] LLM selection. So in this case, we're
+[67.8s] looking at chat GBT5 latest, but we also
+[71.3s] have, you know, chat GPT40 mini. Um, and
+[74.6s] this will also again show you the total
+[76.2s] cost of the specific LLM. You can also
+[79.4s] filter this by a given time frame as
+[81.4s] well. The other really cool piece here
+[83.5s] is you can actually see the cost per
+[85.0s] user over a given time frame. This will
+[87.2s] allow you to see who the user is, the
+[89.0s] total cost, how many sessions, and the
+[91.3s] last time that they were active. This
+[92.7s] will also give you a bit of insight of
+[94.1s] who is using your mentor more frequently
+[96.2s] than others, and how much it's actually
+[98.4s] costing. And that covers financials.

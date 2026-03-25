@@ -1,0 +1,57 @@
+skillsAI | Team Sharing
+https://www.youtube.com/watch?v=3I2Ozruusgw
+
+[1.4s] In addition to being able to create
+[3.4s] teams and team managers via the CSV
+[5.9s] upload for platform invitations, we've
+[8.5s] also added a new way under this
+[10.1s] management tab to share teams to people
+[12.7s] who have not created them. So in this
+[15.4s] example, we'll say that you know me as a
+[18.1s] an account executive
+[20.2s] um creates a team for company A. I want
+[23.8s] to give company A
+[26.6s] um a manager that you know exists on the
+[29.9s] platform but is currently just a
+[32.2s] student. The way we would do that is by
+[34.6s] editing the team itself
+[37.0s] and giving this person the view
+[39.2s] analytics permission in addition to the
+[42.1s] read permission. What this is going to
+[44.0s] do is allow them to oversee their users
+[46.0s] and their data without being able to
+[47.9s] make edits on the platform, send
+[49.6s] invitations, send out notifications or
+[52.3s] anything like that.
+[54.7s] So, you can do the read permission like
+[57.0s] I said and then we'll just add a user
+[59.0s] here
+[64.9s] and we're just going to add a random
+[66.4s] student of mine. Um, you can also add a
+[69.4s] collection of users. You can create a
+[71.0s] group. Um, so this will provide them
+[73.4s] with, you know, if you you can bundle
+[76.3s] people together in case you need a
+[78.1s] multiple managers per team, that's
+[80.6s] totally okay. You just add them to a
+[82.4s] single group to kind of simplify the
+[83.9s] process. Um, and what this basically
+[86.5s] does is say this user gets read access
+[91.0s] um for this specific team.
+[94.4s] So if we wanted to also give analytics
+[97.9s] access or sorry the view analytics
+[100.4s] access role then you would do the same
+[102.2s] thing you would add the same user here
+[104.2s] for anybody who needs to oversee a group
+[106.2s] of users data you know their enrollments
+[109.2s] progress so on and so forth you need to
+[111.4s] make sure that they receive both the
+[112.9s] view analytics and this
+[116.6s] read permission. Once that's set,
+[119.0s] they'll be able to log in and see just
+[121.4s] the the data for the students inside of
+[123.8s] their own team. They won't see anybody
+[125.4s] else's.
+[127.0s] And that's basically how you set this up
+[128.6s] through the UI rather than the the CSV
+[130.6s] file.

@@ -1,0 +1,99 @@
+mentorAI | Safety
+https://www.youtube.com/watch?v=NWKwbKtzfpE
+
+[0.6s] The mentor AI platform allows you to
+[2.7s] moderate the mentor's responses in case
+[4.7s] a learner asks a question that might be
+[7.0s] deemed inappropriate or unacceptable in
+[9.6s] some way, shape, or form. Um, the way
+[11.9s] you would do this is through the safety
+[14.2s] tab. Now, you're going to have two
+[15.8s] safety prompt options. You're going to
+[17.3s] have the moderation prompt and the
+[18.7s] safety prompt. The moderation prompt is
+[21.0s] going to act like a filter um of the
+[23.6s] user's incoming messages to the mentor.
+[25.9s] It's going to determine whether or not
+[27.5s] it's an appropriate enough message to
+[29.4s] pass to the main AI system. Um, this
+[33.0s] type of prompt will allow administrators
+[35.2s] to set the criteria for identifying any
+[37.3s] potentially harmful, inappropriate or
+[39.8s] non-compliant information or content.
+[43.0s] Um, it is fashion fast and efficient.
+[46.1s] Um, but a clever user might be able to
+[50.0s] jailbreak this or bypass this for lack
+[52.2s] of a better phrase. Um, so we also have
+[55.4s] implemented a stronger safety net here,
+[58.9s] which is the safety prompt. It's a
+[60.9s] little bit more secure. Um, and it is
+[64.0s] slightly less fast, but it's just
+[65.5s] because it has a little bit of extra
+[67.0s] time it needs to process. This is
+[69.3s] because it acts as a filter of the AI's
+[71.8s] outbound message to the learner, um,
+[74.0s] determining whether or not it's
+[76.1s] appropriate to return to the end user.
+[77.8s] So perhaps whatever the user said might
+[79.8s] have gotten through that moderation
+[81.2s] layer, but that safety layer with a
+[84.3s] safety prompt is going to stop the
+[85.8s] mentor from even being able to respond
+[87.9s] to that specific message um in the way
+[91.0s] that you know the learner might be
+[94.3s] trying to get you know if they're asking
+[95.6s] about cheating things like that. Um so
+[100.2s] this will basically change the message
+[102.2s] back to the end user. Um, this prompt
+[105.3s] allows administrators to also set
+[107.0s] criteria for, you know, identifying the
+[109.0s] potentially harmful information. Um,
+[112.6s] and before outputting a response to the
+[115.0s] user, it will actually finish streaming
+[116.7s] it and analyzing the response in its
+[118.9s] entirety before sending it back to the
+[120.6s] user. If it's deemed inappropriate, the
+[122.6s] response is going to look a little bit
+[123.9s] different.
+[125.8s] So on if we're looking at this screen
+[128.3s] over here um with the two different
+[130.8s] prompts, this is where in the prompt
+[133.1s] box, you'll actually be able to, you
+[135.4s] know, put in your customized version of
+[137.0s] how you want the safety to work. Um you
+[139.7s] can also customize the exact response
+[141.3s] that the mentor gives to the learner
+[143.2s] with these responses. So if something is
+[145.8s] flagged during the moderation prompt,
+[147.9s] you know, review, then
+[150.9s] this is what the mentor will say. Please
+[152.4s] keep the conversation within the bounds
+[154.0s] of what the agent is tasked to do and
+[156.6s] the platform rules. Similar with the
+[158.6s] safety response, you can actually tell
+[160.6s] mentor to say exactly this. Sorry, the
+[162.6s] AI model generated an inappropriate
+[164.7s] response. Uh, kindly try a different
+[166.6s] prompt. This will pop up to the learner
+[168.7s] if they do end up asking question uh
+[171.0s] that's deemed inappropriate.
+[173.4s] So to see what this looks like,
+[176.6s] you can we'll try
+[180.0s] how can I cheat on my exam
+[184.8s] without
+[186.8s] my
+[188.7s] professor knowing.
+[192.6s] And you can see that there's a little
+[193.8s] popup right here that just tells you to
+[195.4s] keep uh the conversation with the bounds
+[197.4s] of the rules of the platform and what
+[199.0s] this mentor is meant to do. And again,
+[201.1s] those responses can be customized. So,
+[202.9s] if you wanted to make this more tailored
+[204.2s] to uh you know, your own ways of
+[207.5s] working, thinking, um how you
+[209.8s] colloquially speak, anything like that,
+[212.2s] you could definitely edit those to uh
+[214.4s] meet your needs. And that's basically it
+[217.0s] when it comes down to moderation and
+[218.6s] safety.

@@ -1,0 +1,72 @@
+mentorAI | Transfer Navigator Mentor
+https://www.youtube.com/watch?v=5iP4N9hX9rQ
+
+[1.2s] I'm going to be showing you our transfer
+[2.9s] navigation mentor which is focusing on
+[6.0s] credit transfers, articulation
+[7.9s] agreements and any sort of requirements
+[10.2s] related to transferring. In this case,
+[12.6s] if we look at the system prompt here,
+[16.6s] you can see that this will allow you to
+[19.4s] ask the mentor about your own, you know,
+[21.4s] credits, your own transcript and compare
+[24.1s] it against, you know, the requirements
+[26.7s] for transferring and how it'll also
+[29.8s] answer questions about how, you know,
+[31.7s] students can transfer, what credits will
+[33.5s] transfer, which ones won't, and how they
+[35.4s] apply to current degree requirements at
+[37.2s] their given campus.
+[39.8s] So, in this case, what I'm going to do
+[41.7s] is upload a sample transcript um from a
+[44.6s] a sample student,
+[47.8s] and I'm going to ask I
+[51.4s] want to transfer
+[54.7s] to Empire State
+[58.7s] University.
+[61.2s] How will actually, let's say, will my
+[64.5s] credits transfer? That's our starting
+[66.5s] point.
+[71.6s] And so the mentor is going to basically
+[73.0s] analyze the transcript of this example
+[75.2s] student um and you know give it
+[77.8s] information. In this case this is
+[79.1s] actually um a a sample transcript from a
+[81.4s] university in the UK. So it's actually
+[83.8s] going to break down the conversions
+[85.9s] between the UK standards for credits and
+[88.7s] also uh for this specific campus.
+[92.3s] So you can see here we get the
+[93.7s] evaluation process, credit conversion,
+[96.2s] minimum grade requirements, and degree
+[98.0s] applicability.
+[100.0s] Now, it's going to give us some next
+[101.2s] steps we can follow um to help us
+[103.4s] continue throughout the process to get
+[104.6s] our our credits transferred over and be
+[107.0s] able to attend our Empire State
+[108.9s] University.
+[112.7s] I'm going to say yes, map
+[115.6s] the equivalent here.
+[125.3s] So, what this is basically going to do
+[126.7s] is just mapping the current credits that
+[129.0s] they see um and the courses that they
+[130.5s] see from the example transcript and
+[132.8s] align it with Empire State's standards
+[135.4s] here. So, you can see that this is
+[138.2s] giving us a table of courses that map to
+[140.6s] what we previously took at Bath
+[143.3s] University and what the equivalence
+[145.0s] would be at Empire State.
+[150.9s] All righty. And that's basically how
+[152.5s] this works. You'll also get that which
+[154.3s] is really great. This little conversion
+[156.7s] um even with you know some course
+[158.9s] universities in the US some credits
+[160.9s] might be three for a course and some
+[162.9s] might be four depending on where you're
+[164.5s] where you're at. So this is great to
+[166.4s] have that conversion example as well.
+[168.3s] And again it continues with the next
+[169.8s] steps and essentially that's how this
+[171.8s] credit transfer process works.

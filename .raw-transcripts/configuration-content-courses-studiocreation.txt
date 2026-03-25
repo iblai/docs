@@ -1,0 +1,64 @@
+skillAI | Creating Courses and Assessments
+https://www.youtube.com/watch?v=kBY42Mkw5SY
+
+[0.2s] map those competencies. The first piece
+[2.6s] here is going to be creating the courses
+[4.6s] and assessments. Um, these will later be
+[7.2s] linked to roles and skills and I'll show
+[8.9s] you that piece as well. We actually
+[11.3s] already have a course here. So, we're
+[13.7s] going to go to this
+[16.2s] course. And once we're in the course,
+[18.6s] you can see that the edex structure um
+[21.0s] just to give a little bit of background
+[22.2s] on the course authoring um there's going
+[24.6s] to be three levels. So, you have your
+[26.5s] section, subsection, and unit. units are
+[28.8s] where the course content's going to
+[30.3s] live. So, that being said, I'm going to
+[33.0s] scroll down to module three here where
+[36.7s] there's an
+[39.5s] assessment. So, this is a unit that
+[41.7s] contains assessments. You can see here
+[44.1s] there are a couple of multiple choice
+[45.4s] questions. And just so you can get an
+[46.8s] idea of how this actually works when it
+[49.7s] comes down to the authoring of
+[51.2s] assessment questions, how to do that,
+[53.5s] you'll click on problems and you click
+[56.0s] on multiple choice. Then you'll hit
+[58.4s] edit. And Edex is really great at
+[61.4s] providing templates to guide you through
+[63.3s] the assessment creation process. Um, so
+[66.4s] the first thing I'll do here is remove
+[68.1s] this. And I actually have a
+[70.5s] question that I have in the back here.
+[74.8s] Let me just add this in. So this acid
+[77.4s] base uh equilibrium course. So what I'm
+[79.7s] basically doing is just adding in
+[81.0s] questions related to this. Um, and you
+[84.6s] can see this little X right here will
+[86.6s] indicate which one's the correct answer.
+[88.2s] In this case, the first answer choice is
+[90.2s] actually going to be the correct answer.
+[91.9s] So, we'll put these answer choices
+[96.8s] in and then from
+[99.6s] there we'll
+[102.4s] do we'll
+[106.8s] save. You can see it populates here. And
+[109.2s] then once that's done um and you feel
+[111.4s] ready to publish the course uh or the
+[114.1s] specific unit after you've completed it,
+[116.0s] there'll be a publish button here and
+[117.3s] you'll hit
+[118.9s] publish. Now after hitting publish, that
+[121.7s] means the course content is now live. If
+[124.6s] you have current date set for your
+[126.3s] course, meaning the day it is now or
+[128.5s] before, if the course is set to start on
+[131.1s] a certain date, um this will be live to
+[133.6s] learners. If you have dates that are set
+[135.9s] in the future, that won't be the case.
+[138.6s] Now, we'll take a look at how we connect
+[141.4s] roles and skills uh to map competency
+[144.6s] competencies to this course.

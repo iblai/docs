@@ -1,0 +1,46 @@
+mentorAI | Career Launch Mentor
+https://www.youtube.com/watch?v=1S2x1EBepVE
+
+[1.2s] In this demo, I'm going to be showing
+[2.6s] you our career launch mentor. This is a
+[5.3s] mentor that helps connect students to
+[7.8s] internships and career affairs. It can
+[10.6s] help with resume and cover letter
+[12.6s] writing and even help search for jobs.
+[16.0s] So if we take a look at the system
+[17.4s] prompt,
+[21.7s] you can see that this is designed to
+[23.1s] help, you know, help develop the career
+[25.6s] of the student while in in university or
+[28.8s] even post university, kind of getting
+[30.7s] them prepped for a career. Um, in this
+[33.4s] case, what I'm going to do to test this
+[36.3s] is I'm going to say I am a computer
+[40.3s] science major
+[43.8s] at
+[45.9s] Buffalo
+[47.4s] State
+[49.1s] University.
+[51.8s] What internships
+[55.2s] are available for my major?
+[62.6s] So now the mentor is actually directing
+[64.0s] us to where we can actually find
+[65.1s] resources on what specific internships
+[67.4s] are available for the specific major.
+[69.5s] It'll even ask you know additional next
+[71.3s] steps uh questions you know would you
+[73.5s] like a current list? Uh it'll even give
+[75.6s] you steps for you to take um outside of
+[78.3s] chatting with the mentor. You know maybe
+[79.8s] that's going into a portal and seeing
+[82.2s] what what internships are available on
+[84.8s] that specific portal meant for
+[86.2s] internships attending job fairs. um even
+[89.4s] meeting with career coaches at at their
+[92.0s] campus. And so this is basically how the
+[94.6s] the career launch mentor works. And it
+[96.3s] goes even further like I mentioned
+[97.5s] earlier. It can help with cover letter
+[99.0s] and resume writing or even helping you
+[101.7s] find specific jobs, you know, after you
+[104.6s] graduate.

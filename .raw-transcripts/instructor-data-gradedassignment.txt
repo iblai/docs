@@ -1,0 +1,40 @@
+mentorAI | Canvas | Submitting a Graded Assignment
+https://www.youtube.com/watch?v=8UwlrhjRVuM
+
+[0.2s] showing you how if our mentor is
+[2.0s] integrated via LTI into an LMS, in this
+[5.0s] case Canvas, can actually pass back
+[7.2s] grades to the LMS. So, you can see here
+[10.5s] uh we don't have a grade for this user.
+[13.1s] So, what we'll do is pop over to
+[16.8s] assignments. Once we go to assignments,
+[19.0s] we'll see this mentor
+[22.2s] grading and we'll open up this
+[25.3s] page. And now you can see that the
+[27.4s] mentor is here. And this is just going
+[29.8s] to be a very simple example.
+[32.0s] Um, so we're going to do 5 + 5 equals
+[34.8s] 10. Now, in the future, you're going to
+[36.9s] be able to add feedback to the responses
+[39.1s] via a new prompt type. Um, so that
+[42.2s] basically means uh the mentor will
+[43.9s] respond with a grade, but also provide
+[45.5s] the learner feedback. In addition to
+[47.4s] this, you'll be able to upload different
+[49.0s] file types such as PDFs, Excel, um, Word
+[53.0s] documents, so on and so forth. Now, if
+[55.9s] we want to see uh that the grade has
+[58.2s] actually been passed back to Canvas in
+[60.0s] this case, go over to
+[62.4s] grades and you can see that we have a 10
+[64.8s] out of 10 score. Now, if we want to go
+[66.6s] back to the
+[72.4s] assignment, we can actually have the
+[74.5s] grade updated every time a user
+[76.6s] responds. So, if we say 5 + 5= 9, we
+[81.6s] should get a 0% score back.
+[85.2s] And now if we go back to the
+[88.8s] grades, you'll see my score has changed
+[91.0s] to a zero. So whatever the last input
+[93.5s] from the user is is what their grade's
+[95.0s] going to be.

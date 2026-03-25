@@ -1,0 +1,39 @@
+mentorAI | LLMs
+https://www.youtube.com/watch?v=pPpfyhh-43s
+
+[0.7s] One of the key features of Mentor AI is
+[3.2s] the ability to customize your LLM
+[5.4s] integrations and having this be a
+[7.8s] completely LLM agnostic platform. You
+[10.4s] can select that LLM on a permentor
+[12.3s] basis. And we have a couple of ways of
+[14.0s] doing this. You can select this part
+[16.3s] right here, which actually says the LLM
+[18.5s] model name that's currently in place.
+[20.8s] And if we open this up, it'll take you
+[22.4s] to a page with all the different LLM
+[24.2s] providers. Now, another way of getting
+[26.6s] there is if you select the mentor name
+[29.0s] and then you'll see a dropown and this
+[31.6s] LLM tab will take you to the exact same
+[33.7s] place.
+[35.2s] Now, if you open up one of the
+[36.5s] providers, you'll be able to see all the
+[38.9s] different LLM options. This allows you
+[41.0s] to choose any language model that fits
+[43.0s] your needs and you can also integrate uh
+[45.5s] a variety of different LLMs, even custom
+[47.4s] ones uh that may not exist here now, but
+[50.2s] you have the ability of adding to the
+[51.8s] platform. All you need to do to change
+[53.8s] it is select the LLM uh that you would
+[57.4s] like to use and you'll see success
+[59.0s] message. And I'll go back to this one so
+[61.2s] you can see that success message again.
+[63.4s] And this applies for all the different
+[65.4s] LLM types. So if we go to Google, you
+[67.4s] can see the same thing here.
+[70.6s] And this just allows you, like I said,
+[72.5s] to select an LLM that meets your needs.
+[75.0s] And if it doesn't already exist here, it
+[77.1s] can also be added.

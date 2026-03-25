@@ -1,0 +1,118 @@
+mentorAI | Phone Calls
+https://www.youtube.com/watch?v=9NKX8KJJ184
+
+[0.9s] Mentor AI allows you to have
+[2.9s] voice-tovoice interactions with a mentor
+[5.0s] like you were having a conversation over
+[6.9s] the phone with a friend. So this
+[9.5s] basically means that there's going to be
+[11.0s] a more natural humanlike interaction for
+[13.1s] the learners when they communicate with
+[14.9s] voice to the mentor. You can have that
+[16.9s] kind of back and forth you would in a
+[18.6s] traditional conversation with another
+[20.4s] person. This also improves um
+[23.2s] accessibility to the mentor platform um
+[25.6s] as a whole as this allows people who
+[28.1s] might be visually impaired, have reading
+[30.0s] difficulties or any sort of other
+[32.4s] challenges that prevent them from being
+[34.0s] able to read a whole bunch of text, um
+[36.7s] they can have these kinds of
+[37.8s] conversations with the mentor via voice
+[40.2s] instead. It also allows for faster
+[42.9s] communication and more onthe-go style
+[45.0s] learning
+[46.7s] um because you can ask, you know, a
+[48.1s] whole lot of things at one time and just
+[50.2s] keep speaking with the mentor. Like I
+[52.5s] said, as if you're having a conversation
+[54.0s] with like a tutor.
+[56.2s] This can also help you with things like
+[58.5s] language development. you know, you can
+[60.1s] ask the mentor how to pronounce certain
+[62.2s] things if, you know, you're learning a
+[63.8s] new language or are struggling um with
+[66.8s] like a scientific term that's a little
+[68.3s] bit more complex um for the average
+[70.5s] reader. Um this also helps lower
+[73.4s] cognitive load because learners won't
+[75.2s] have to read and process long blocks of
+[77.4s] text. All they have to do is simply
+[79.0s] listen and focus on understanding the
+[80.6s] material.
+[82.5s] That being said, let's hop into seeing
+[84.2s] what this looks like.
+[86.4s] So, if we want to chat with the mentor,
+[88.9s] we'll click on the voice input button
+[90.9s] here.
+[93.7s] And you'll see that this pops up a phone
+[95.8s] call.
+[97.6s] Now, I'm going to start chatting with
+[98.6s] the mentor.
+[101.4s] Great. IBLAI's mentor AI is designed to
+[105.8s] provide 247 support acting as a personal
+[109.3s] tutor or teaching assistant based on the
+[111.6s] material provided by your institution.
+[114.1s] Feel free to ask questions or engage in
+[116.9s] learning paths and mentor AI will assist
+[120.2s] you. If you have any specific questions
+[123.2s] or need further guidance, let me know.
+[127.3s] Hi, Mentor AI. Can you help me practice
+[129.4s] ordering food in Spanish?
+[133.0s] Of course. Let's practice ordering food
+[135.9s] in Spanish. I'll start by giving you an
+[138.2s] example and then you can try ordering
+[140.5s] something yourself. Example.
+[145.8s] I would like a pizza, please. Now you
+[148.7s] can try ordering something. What would
+[150.7s] you like to order?
+[158.1s] Perfecto
+[161.6s] means I would like an ice cream, please.
+[164.8s] Would you like to continue practicing or
+[166.8s] try ordering something else in Spanish?
+[169.8s] No, thank you. I do have another
+[171.5s] question for you about a different
+[173.0s] topic.
+[174.6s] Can you help me understand the
+[177.0s] difference between mitosis and meiosis?
+[181.2s] Certainly. Mitosis and meiosis are two
+[184.6s] different types of cell division.
+[186.8s] Mitosis is the process by which a single
+[189.2s] cell divides to produce two genetically
+[192.4s] identical daughter cells, each with the
+[195.0s] same number of chromosomes as the parent
+[197.2s] cell. It is essential for growth,
+[200.2s] repair, and asexual reproduction.
+[203.3s] Miosis, on the other hand, is a
+[205.7s] specialized form of cell division that
+[208.2s] produces four genetically diverse
+[210.7s] daughter cells, each with half the
+[213.1s] number of chromosomes of the parent
+[215.0s] cell. It's crucial for sexual
+[217.4s] reproduction, and ensures genetic
+[219.8s] diversity in offspring. Would you like
+[222.6s] more details on either process? No,
+[225.8s] thank you. I do have a history test
+[228.0s] tomorrow. Could you give me a quiz
+[229.7s] question on World War II?
+[233.0s] Sure. Here's a quiz question for your
+[235.3s] World War II test question. Which event
+[238.5s] is commonly considered the starting
+[240.2s] point of World War II? A. The bombing of
+[243.4s] Pearl Harbor. B. The signing of the
+[245.8s] Treaty of Versailles. C. The invasion of
+[248.5s] Poland by Germany. D. The Battle of
+[251.2s] Britain. What's your answer? C.
+[257.3s] Correct. The invasion of Poland by
+[260.1s] Germany in 1939 is commonly considered
+[263.7s] the starting point of World War II. If
+[266.8s] you need more questions or further
+[268.7s] assistance, feel free to ask. That's all
+[272.4s] for now. Thanks, Mentor AI.
+[276.2s] And basically, that's all you need to do
+[277.7s] to have a conversation. Uh it's very
+[279.6s] similar to, you know, how you would
+[281.4s] message the mentor or have a
+[282.8s] conversation with another person. Um and
+[285.4s] yeah.

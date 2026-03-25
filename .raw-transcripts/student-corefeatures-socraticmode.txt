@@ -1,0 +1,130 @@
+mentorAI | Socratic Mode Demo
+https://www.youtube.com/watch?v=1_E4rFHK-No
+
+[0.3s] Hey, what's going on everybody? This is
+[1.9s] Jeremy at IBLAI and today I wanted to
+[4.9s] show you one of the features that comes
+[6.8s] up most frequently when we're talking
+[8.5s] with people about how to best implement
+[11.1s] AI at the university level and that is
+[15.1s] focus on critical thinking. So most of
+[18.5s] us who work within education especially
+[20.8s] public education are aware that
+[23.5s] promoting wrote memorization has been
+[26.1s] you know pretty popular over the past 15
+[29.3s] 20 years at a detriment to highquality
+[32.0s] learning. Now there's a shift back
+[34.2s] towards focusing on critical thinking
+[36.6s] and promoting a rich deep dive into
+[41.5s] knowledge instead of just memorizing
+[43.9s] core facts that you can regurgitate
+[46.2s] later. So a very common question that we
+[49.0s] get is how through these mentors are you
+[53.0s] able to promote critical thinking and
+[55.4s] the way that we are able to do this is
+[57.7s] through Socratic mode so to speak. What
+[61.8s] I mean by this is within the system
+[64.6s] prompt for each one of these mentors,
+[66.4s] which you can think of as the
+[67.8s] instruction manual, you can kind of
+[71.3s] design the mentor's personality, its
+[74.0s] style of communication, and more. So,
+[76.6s] within the system prompt, you can let
+[78.2s] the mentor know that you shouldn't be
+[80.6s] sharing an entire answer with students.
+[83.0s] That's not helping them. That's actually
+[84.6s] hurting them in the long run. What you
+[86.6s] should instead do is provide a piece of
+[89.6s] the information that they're looking for
+[91.7s] and then follow that up with a series of
+[93.6s] prompting guiding questions to allow
+[97.0s] students to kind of continue down that
+[98.8s] knowledge path on their own and build on
+[101.4s] that foundation of knowledge instead of
+[103.7s] just memorizing,
+[106.3s] you know, rope facts. So, what I'm
+[109.0s] showing you here is a political science
+[111.0s] 101 mentor. It's trained on the open
+[115.5s] stacks uh open resource introductory to
+[118.6s] political science textbook
+[121.0s] and within the system prompt
+[123.9s] I will show you
+[126.6s] basically how we set this up. So the
+[128.6s] core interaction style should be
+[130.5s] socratic by default meaning that the
+[132.6s] mentor should not provide full
+[134.5s] exhaustive answers by default. In each
+[137.7s] reply, share a small high lever piece of
+[140.8s] the answer, no more than one to three
+[142.8s] sentences, and then add two to four
+[145.1s] guiding questions that prompt the
+[146.6s] student to reason, apply, or compare
+[149.4s] concepts within the system prompts for
+[151.9s] the mentors that we have. You can come
+[153.5s] back and make any changes at any time
+[155.3s] that you see fit just by editing what's
+[157.8s] already there, uh, copying and pasting
+[160.3s] something that you may have written
+[161.7s] somewhere else, uh, or just deleting
+[164.1s] portions of the system prompt that
+[165.4s] aren't working for you. So, if you don't
+[169.0s] have a Socratic style communicating
+[171.8s] mentor, it's as simple as just going
+[173.9s] into the system prompt and letting it
+[175.8s] know that that's how it should
+[177.1s] communicate with students. Once we've
+[179.5s] saved that,
+[181.4s] the mentor now knows that's how I'm
+[183.8s] going to communicate. So, what we have
+[185.8s] down here are a number of starter
+[188.3s] templates, so to speak. These are
+[190.3s] questions that students can just select
+[192.2s] to kick off a conversation. If they come
+[194.3s] into the mentor and know that they need
+[197.0s] help, but don't really know where to get
+[198.6s] that conversation started, this is just
+[200.9s] one way to kick that off. So, for the
+[203.7s] purpose of this demo, I'm going to
+[205.0s] select one of these. What factors impact
+[207.8s] civil liberties in democracies?
+[211.5s] So, the mentor like I uh have instructed
+[214.2s] it within the system prompt is going to
+[216.6s] provide that quick high-level one to
+[219.1s] three sentence overview response for the
+[222.0s] question that I asked, but then follow
+[224.0s] that up with a number of questions such
+[225.7s] as how might changes in public opinion
+[228.0s] influence the protection of civil
+[229.5s] liberties? In what ways can judicial
+[231.9s] decisions either enhance or restrict
+[233.7s] civil liberties? And more. And that's
+[235.9s] how it's going to communicate throughout
+[237.3s] this entire conversation. Basically,
+[240.2s] giving a piece of that information,
+[242.2s] citing within the textbook where it got
+[244.4s] that information, and then following it
+[246.6s] up with a number of guiding questions
+[249.1s] that kind of continue this conversation
+[251.0s] and allow the student to think on think
+[253.8s] of this on a deeper level and kind of
+[256.9s] develop their own knowledge. It will
+[259.2s] also ask if you'd like a hint on a
+[261.5s] relevant case study or an example from
+[263.5s] the text would which would just allow
+[265.6s] students to go directly into that
+[267.7s] section of the textbook and get more of
+[270.5s] that information that they're looking
+[271.8s] for. But just to show you one more
+[275.4s] example, I'm going to ask another guided
+[277.4s] question here. Can you explain political
+[279.4s] legitimacy further? And again, the
+[281.6s] mentor does exactly what I want it to
+[283.3s] do. It's citing where it pulled the
+[285.5s] information from, giving me a very
+[287.8s] quick, high-level overview for the
+[290.0s] question that I've asked, and then
+[291.6s] following that up with three guiding
+[293.8s] questions to continue that line of
+[295.7s] reasoning. Thank you so much for tuning
+[297.8s] in, and as always, learn more at ibl.ai.
+[300.3s] AI.

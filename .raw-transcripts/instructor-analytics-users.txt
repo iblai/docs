@@ -1,0 +1,49 @@
+mentorAI | User Analytics
+https://www.youtube.com/watch?v=R8igyis9Oho
+
+[1.4s] In a previous video, we discussed how to
+[3.8s] find analytics as administrators or
+[6.7s] instructors for a particular mentor and
+[9.1s] how the overview page on on the
+[11.1s] analytics tab works. Now, we're going to
+[13.3s] dive into the next tab, which is users.
+[16.7s] So, again, you'll click on this little
+[18.3s] analytics button here, and then we'll
+[21.0s] click on the users tab. This is very
+[23.8s] similar in terms of being able to filter
+[26.1s] um you know based on certain time frames
+[27.7s] for these tables and you'll get a little
+[30.0s] bit more insight about how the users are
+[31.9s] actually using the platform in terms of
+[34.4s] you know how often they've accessed and
+[36.1s] who those users are. So you can see
+[38.2s] right now we've got about two users
+[40.5s] logged in, how many have logged in over
+[42.6s] the past 30 days and the total number of
+[45.1s] registered users uh according to this
+[47.4s] you know mentor here. Um, so you'll
+[50.2s] again be able to filter by, you know,
+[52.0s] the a specific time frame for these
+[53.8s] tables here. You'll be able to see an
+[55.6s] active users count within a a specified
+[59.0s] time frame. So that could be today, uh,
+[61.0s] within the past week, within the past
+[62.8s] month, or even a custom time frame. Now,
+[66.1s] this access times table is going to show
+[67.6s] you when your mentor is most accessed
+[69.5s] or, you know, when people are accessing
+[71.2s] it. You can see here that darker shades
+[73.8s] of blue are going to indicate more users
+[75.9s] during a specific time frame. And again,
+[78.2s] this is something that you can filter by
+[79.5s] time frame.
+[81.4s] Now, we also have user details down
+[83.4s] here, and I'm just going to show you
+[85.0s] those. Again, filtering by time frame,
+[87.4s] you'll be able to see who that user is,
+[88.8s] what their username is, and how many
+[90.6s] messages they have sent for this
+[92.4s] specific mentor in addition to the last
+[94.5s] time that they were active. And that
+[96.9s] really covers all that's on the users
+[98.3s] tab.

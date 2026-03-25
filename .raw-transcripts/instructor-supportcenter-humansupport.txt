@@ -1,0 +1,126 @@
+mentorAI | Human Support
+https://www.youtube.com/watch?v=Eba_udWT0iI
+
+[0.9s] One of the features that mentor AI
+[2.6s] offers is the ability to get human
+[4.4s] support. The mentor that you're chatting
+[6.6s] with, um, if the human support tool is
+[9.0s] enabled, and I'll show you how to do
+[10.4s] that. Um, what this will do is create a
+[13.8s] support ticket for the user who's asking
+[15.4s] a question um, and needs a little extra
+[17.5s] help. Um, you can also get the details
+[20.2s] of the support ticket. Uh, as an admin,
+[22.3s] you know, you can have a visibility into
+[25.3s] what, you know, the issue is itself and
+[27.0s] how to contact that learner. uh you know
+[29.6s] so on and so forth but also if the
+[31.5s] learner asks what tickets have I you
+[33.4s] know had created for me um or you know
+[36.6s] what's the status whatever it is we can
+[38.8s] get those details just by asking this
+[40.6s] mentor
+[42.2s] when it can also update the details of
+[44.2s] the support ticket. So to enable this
+[48.1s] tool, you would just go to the tools
+[50.6s] list under the mentor settings and you
+[53.1s] can see right here there's a little
+[54.3s] toggle and we already have that on.
+[60.2s] All righty. And now if we're chatting
+[61.6s] with the mentor as a user who's having
+[63.8s] an issue, we can say, I want to change
+[67.8s] the email address
+[70.6s] associated with my account.
+[74.8s] Can you please create a support ticket
+[79.5s] for me? Now, granted, this platform does
+[82.2s] allow you to change your email yourself,
+[83.8s] but just for the sake of this demo, uh,
+[86.2s] that's the question I'm going to ask.
+[88.2s] The mentor is going to take that in um,
+[90.7s] and the agent behind this is going to
+[93.0s] create a support ticket for this user
+[95.1s] with their information
+[97.6s] um, and you know, their their contact
+[99.6s] information and what the actual issue
+[101.0s] they're having is at hand.
+[104.0s] All right. So, now we have that support
+[105.7s] ticket created. Um, and it says, "Please
+[108.1s] confirm the new email address you'd like
+[109.8s] to use, and I'll add it to the ticket so
+[111.5s] the team can proceed." So, this is a
+[113.6s] great way of me showing you how the
+[115.4s] details of a support ticket can actually
+[117.3s] get updated um after the initial support
+[120.2s] ticket was created. So, we'll say
+[124.2s] the email I would like to use is
+[131.8s] this one.
+[140.0s] All right. And now once we go and take a
+[141.9s] look at the support ticket, we should
+[143.2s] see that new email address um as part of
+[146.7s] the details of this ticket.
+[150.3s] All righty. Now our ticket has been
+[152.1s] updated with this new information. Uh if
+[154.2s] we have anything else we want to add um
+[156.2s] as part of the details or questions or
+[158.1s] whatever it may be for the support
+[159.5s] ticket um we can do so as we continue
+[162.1s] chatting with the mentor. Now I'm going
+[164.6s] to also show you uh you know how you can
+[167.9s] see as a user what tickets you have
+[169.7s] already open. Um what tickets
+[173.9s] say what support tickets
+[177.8s] have been created for me.
+[185.7s] All right. And now we can see that there
+[187.2s] have been a handful of tickets I've
+[188.6s] already created. Um you know we can see
+[190.8s] that I've had password reset issues.
+[193.2s] Can't remember my username. Um or I'm
+[195.6s] unable to log in for whatever reason. Uh
+[198.1s] these are just example tickets. Uh but
+[200.5s] you can see that as a user we're even
+[202.6s] able to track you know what we've had
+[204.3s] issues with and what we've been looking
+[206.3s] for some additional support on.
+[209.0s] Now on the admin side if you know you
+[212.1s] have the ability to designate a specific
+[214.7s] user within your tenant um to receive
+[217.1s] these support emails like I mentioned
+[218.6s] earlier.
+[221.2s] And if we want to take a look at what
+[223.0s] this looks like on the admin side, what
+[225.8s] they see when they look at a support
+[227.0s] ticket,
+[229.8s] you can see here we've got a couple of
+[231.5s] different ones in here and the request
+[234.1s] to change email address, which we can
+[235.9s] see under the subject line. We can also
+[237.8s] see the user, the description, and what
+[240.5s] the status is of that ticket. But in
+[242.4s] this case, this is the one that we're
+[244.1s] going to be using because this is the
+[245.8s] chat that we just had.
+[254.2s] All right. So, you can see here um on
+[257.2s] the full page for the specific support
+[259.0s] ticket that we just created. Um we've
+[261.4s] got the user who who this person is. Um
+[264.6s] and we can see how to contact them by
+[266.1s] clicking on their username. Uh which
+[268.7s] specific session they were using. So,
+[270.7s] this is you know the specific time that
+[272.2s] they were chatting when they had started
+[274.0s] a new chat. That's a new session. Um it
+[277.5s] also gives you subject which is
+[278.9s] basically a brief overview of what the
+[281.3s] actual support ticket is. Um and then we
+[283.9s] have the description which describes
+[285.6s] exactly what the issue is that the user
+[287.8s] is having. You can also see the status
+[290.3s] here. We have uh open in progress and
+[293.4s] closed. So just so you can see that and
+[297.0s] we also have a a resolved at so you have
+[301.0s] a time stamp of when something was
+[302.4s] resolved. Um and then you can also add
+[305.0s] ticket messages.
+[306.9s] And that's how this works. This is how
+[309.2s] you can get some human support for
+[310.9s] mentor AI.

@@ -1,0 +1,126 @@
+skillsAI | Adjusting Grades
+https://www.youtube.com/watch?v=SZTeEaGSqnk
+
+[2.4s] I'm going to be showing you how you can
+[3.8s] adjust learner grades from inside of a
+[6.4s] course on the skills platform.
+[9.0s] So, we're already inside of a course
+[11.1s] where there we're looking at a quiz. And
+[13.0s] if I hit staff debug info, if I know a
+[15.6s] learner has taken a particular question.
+[17.4s] In this case, this question is coming
+[19.1s] from a problem bank. So, it's a little
+[20.9s] bit different. And I'll I'll show you a
+[22.6s] better way of handling problem bank
+[24.6s] questions here in a bit. But when you
+[27.2s] click on staff debug info, you can put
+[28.7s] in a user's username and you can do a
+[31.7s] score override. Reset a learner's
+[34.1s] attempts meaning you know they can
+[35.8s] retake the question again. Delete
+[37.9s] learner state meaning everything gets
+[39.4s] wiped out including their score. You can
+[41.8s] rescore a learner submission.
+[45.1s] Rescore only if points or scores improve
+[47.9s] or override scores. So you can see here
+[49.9s] this is the override um particular
+[51.8s] field.
+[53.2s] Now, if you want to look at this um for
+[56.1s] a problem bank and adjust learner
+[57.8s] scores, you always have the option of
+[59.4s] coming to the to the instructor panel,
+[61.9s] going to the student admin, and we'll
+[63.5s] come back to the grade book because you
+[64.8s] can also do this there. Um so, if we
+[68.2s] scroll down, we can also view a
+[70.6s] learner's grades in progress. Um so, you
+[72.9s] can kind of see where they're at in the
+[74.1s] course and what their scores are across
+[77.1s] the exams inside the course. Now, if you
+[79.4s] want to adjust a learner's grade for a
+[81.0s] specific problem, you'll just put in
+[82.4s] their email or username and the location
+[84.6s] of the block. Now, the way you would get
+[86.0s] the location of the block is coming over
+[88.1s] here. And again, staff debug info
+[91.8s] is where you would be able to gather
+[93.4s] this. That's the location. Now, going
+[96.3s] back to the instructor panel,
+[99.1s] student admin,
+[101.2s] then scrolling back down.
+[104.2s] So once you have the user's email or
+[106.2s] username entered and the location of the
+[108.0s] particular problem, you can reset
+[110.0s] attempts to zero. Meaning it if a user
+[112.6s] has used all their attempts up, but they
+[114.6s] want to retake the the question again or
+[117.4s] you for whatever reason want to give
+[118.9s] them an an additional attempt or however
+[121.0s] many attempts are set for that question,
+[123.1s] you can reset attempts to zero. Now you
+[126.2s] can also rescore a submission or only
+[128.5s] rescore if it improves. Meaning you can
+[130.6s] change the score. you know, if it's zero
+[132.6s] out of one point, you can just come here
+[134.1s] and add in, you know, the new score out
+[136.2s] of the total points available for the
+[137.6s] problem. If you know, again, if the
+[139.8s] question is out of one point, you would
+[141.2s] put one here. Um, and you also have the
+[145.9s] option of the problem history completely
+[148.4s] deleting the learner state for a spec
+[150.3s] specified problem. Um, and you also can
+[154.4s] show the test status of rescoring. Um,
+[157.8s] so you can keep a track of, you know,
+[160.4s] has the has the overrides gone through
+[162.3s] or has the rescoring gone through, so on
+[164.1s] and so forth. And then if you would
+[166.7s] prefer to adjust the learner's grades
+[169.6s] for that every enrolled learner's
+[171.5s] grades, you would simply just put in the
+[173.4s] location of the problem. And then you
+[175.7s] have the same options as an individual
+[177.8s] learner. You know, attempts, rescore,
+[180.1s] and the task status. You can also see
+[182.6s] the task status here. Uh, no tasks are
+[184.7s] currently running. But if we go to the
+[187.3s] grade book,
+[189.2s] which is up here, view grade book. We'll
+[192.2s] just go ahead and plop that here.
+[198.1s] You can see each of the domains, which
+[199.8s] is the subsection level of what exams
+[201.9s] were taken. And if for instance, I
+[203.8s] wanted to rescore one of my my students
+[206.6s] exams, um you can see that there are
+[208.3s] four total points because there are four
+[209.6s] questions within the subsection. Um you
+[211.8s] can add a reason and then put as many
+[213.6s] points as you would like to get them.
+[214.9s] And so if you want to give them 100 in
+[216.6s] this particular subsection, you would
+[218.6s] put four out of four because you can see
+[220.2s] the little four here. And then you would
+[222.7s] just hit save grade.
+[228.7s] And you can see now that I have 100% um
+[231.4s] in the grade book for this particular
+[233.3s] student um in this particular subsection
+[235.4s] with an exam.
+[237.6s] This would be the best way for doing it
+[239.0s] with problem banks. Um just because uh
+[241.8s] every person is getting different
+[243.4s] questions pulled from the problem bank
+[244.9s] if it is set to you know let's say you
+[246.7s] have 20 questions in a problem bank. Um
+[249.8s] but then you also have only four
+[251.9s] displayed to the learner. So there
+[253.1s] there's a chance that you know
+[254.0s] everyone's seeing something different.
+[255.5s] Um and you can get the actual responses
+[258.1s] and grades from the data downloads tab
+[259.8s] in the instructor panel. um if you just
+[261.9s] want to validate whether or not you'd
+[263.3s] like to actually make those changes from
+[265.5s] so this data downloads tab and you can
+[268.1s] either do um a problem response report
+[270.6s] or generate a grade report or problem g
+[273.0s] grade report and there you have it.

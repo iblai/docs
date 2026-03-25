@@ -1,0 +1,98 @@
+mentorAI | Guided Mentor
+https://www.youtube.com/watch?v=ghHbq3EYDRQ
+
+[1.0s] Hello, this is Joseph Utivatin from
+[3.8s] ibl.ai.
+[5.5s] Um, and I will be showing you how you
+[9.6s] can configure a mentor that guides a
+[12.2s] student through an existing course on
+[15.1s] our LMS. Okay. So for this we are just
+[18.0s] going to call it guided mentor because
+[19.8s] it guides a student.
+[22.6s] Um, first thing first we need to have
+[26.0s] our course. Now I have already created a
+[29.1s] dummy course on studio. Um that's just
+[32.9s] an introduction to computer science.
+[35.3s] Nothing too standard. We just have
+[38.8s] a welcome unit welcome session with the
+[42.4s] unit. Um welcome to the course. We have
+[45.4s] a definition of computers and then unit
+[49.5s] one. Well, the only unit we just uh the
+[53.5s] only section we just have um early
+[57.4s] computing devices and then generation of
+[59.4s] computers something very simple. This is
+[61.2s] not a complete course. This is just for
+[63.6s] a demo.
+[67.2s] Now with the course here and I have my
+[69.4s] mentor here. The things we need in order
+[71.6s] to make sure that this mentor follows
+[73.4s] the guided principle is that we need to
+[76.3s] first make sure that the mentor has his
+[78.9s] guided mentor turned to true. That's the
+[82.5s] first thing. And then the second thing
+[85.8s] in the mentor's memory component
+[87.8s] settings memory component here so that
+[89.8s] we can point the mentor to have
+[93.1s] knowledge about the student for a
+[95.0s] particular course. Now we define we
+[97.9s] choose the mentor and we specify the
+[99.8s] course. This item here corresponds to
+[103.7s] the course on the um LMS platform and
+[108.8s] then we choose which algorithms we want
+[110.9s] this mentor to be operating under space
+[113.0s] repetition. It keeps pinging the qu the
+[115.1s] student with a particular question until
+[117.6s] the student gets it right. And at each
+[121.3s] interval it's of course going to throw
+[123.9s] in hints maybe some tutorials u some
+[127.0s] hints so that the student gets it. Then
+[129.4s] we have instruction mode where the
+[132.3s] mentor is basically going to turn into a
+[135.0s] full-blown tutor. So it just gives like
+[137.6s] a teacher teaching a course. We also
+[139.8s] have socratic mode and then you can also
+[142.6s] configure
+[144.2s] um some metrics on advancement. How many
+[147.4s] questions that the student get at each
+[149.4s] unit before they advance to the next
+[151.1s] session? And um uh what percentage of
+[155.0s] questions do you need to get in order to
+[157.4s] be considered a pass? Okay. Now with
+[160.8s] these two configured as you see I have
+[163.7s] let's go try this mentor out. Um just to
+[167.3s] get a bit of quick responses let's go
+[170.0s] with a non-thinking model. Okay. You
+[172.9s] could go for a thinking model like GB5.
+[175.9s] um for obviously higher quality but
+[180.6s] this does it quite well. So I just want
+[184.2s] this mentor to respond in two phases. We
+[186.5s] have the usual chat response and then
+[188.6s] the tutorial mode. So I'm going to turn
+[191.1s] on canvas and I'll ask it to start and
+[193.7s] listen.
+[198.2s] Okay.
+[203.6s] Now, it does give me a bit of
+[206.5s] information and then it asks me a
+[208.9s] question um uh inside the computer unit.
+[213.1s] So, I'm just going to pick like any
+[215.4s] random question. Okay.
+[219.0s] Let me just choose something wrong. Um
+[221.4s] like power supply.
+[225.2s] Oh, it it it is wrong by the way. And
+[229.0s] then the agent is of course well knowing
+[232.9s] that I have chosen something wrong try
+[236.2s] to give me a bit of hints. Well
+[241.1s] like it does now it tells me the correct
+[243.3s] answer is C storage devices. And then
+[245.8s] you would see it would give me a new
+[247.4s] question and at some point it's going to
+[250.0s] come back and try to quiz me again on
+[252.9s] this question that I got wrong and make
+[255.0s] sure I get it entirely. Of course, you
+[258.0s] could also choose not to do this in this
+[259.8s] canvas mode and have everything just be
+[261.9s] in the plain um chat window, but that's
+[265.2s] to your preference. I like it this way.
+[266.9s] It feels better. I get some separation
+[268.9s] of concern and I think you'll love it,
+[271.8s] too. Have a nice day.

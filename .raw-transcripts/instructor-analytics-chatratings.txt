@@ -1,0 +1,38 @@
+mentorAI | Chat Ratings
+https://www.youtube.com/watch?v=EG7cuQ8GhiU
+
+[1.5s] Hi everybody. I'm going to be talking
+[3.5s] about how we have actually extended both
+[6.2s] our history and memory features to
+[9.0s] actually give you an understanding of
+[10.7s] how people are viewing your mentor. So
+[13.5s] in this case we have mentor AI here and
+[15.9s] then we're going to go to memory. We can
+[18.1s] see that memory is enabled and we can
+[21.1s] you know see who's who has what memory
+[23.8s] stored. This is basically a way for the
+[25.8s] mentor itself to remember information
+[27.8s] about particular users while also being
+[30.8s] able to reference the the memories about
+[32.9s] the user to personalize responses um if
+[35.9s] that's enabled which in this case it is.
+[38.5s] Now we've connected this memory to the
+[40.9s] history tab to provide you as an
+[43.0s] instructor with a rating of how people
+[45.3s] are viewing you know their experience
+[47.4s] with their mentor. Um, in this case, we
+[50.3s] have um this set to be at a 24-hour uh,
+[54.1s] you know, chat history/memory input and
+[56.9s] then using that to to determine what the
+[59.4s] rating is. So, this will change every 24
+[61.4s] hours. Um, assuming that people are
+[64.0s] chatting and are having, you know,
+[65.8s] different experiences,
+[67.6s] um, which would, you know, change this
+[70.0s] rating here. Um, but essentially that's
+[72.5s] how this works and it's a really cool
+[74.1s] feature. It helps you understand, you
+[75.7s] know, how learners are doing, you know,
+[77.5s] how they're using the mentor, what's
+[79.3s] working well and what's not. And that's
+[81.5s] basically it.

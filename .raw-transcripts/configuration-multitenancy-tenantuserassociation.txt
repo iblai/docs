@@ -1,0 +1,64 @@
+ibl.ai | Set Up Tenant Admin to Manage Multiple Tenants
+https://www.youtube.com/watch?v=fdWCEHqy5-w
+
+[0.6s] all right I'm going to show you how to
+[1.8s] set up a tenant admin to manage multiple
+[4.3s] tenants um as a super admin user so
+[8.3s] we're going to start from the data
+[9.6s] manager and now let's just say that the
+[11.9s] user doesn't already exist we want to
+[14.4s] create a new user who's going to manage
+[16.1s] multiple tenants the first thing we're
+[18.3s] going to do is come down to where it
+[20.4s] says IBL AI
+[21.9s] Services clect uh click on new tenant
+[25.0s] users and we're just going to create
+[28.6s] another user so we're going to put
+[31.9s] in the user's name that we're
+[35.3s] entering we're going to also create
+[37.8s] their username email or username and
+[40.9s] password at the same time here um so
+[43.8s] let's just do Ashlin
+[47.5s] B12 um and then we do need to have the
+[50.1s] email as
+[55.4s] well so we have that entered and we want
+[59.5s] them to be an admin because this person
+[61.6s] is going to manage multiple tenants so
+[63.1s] if the edex RO needs to be or instructor
+[65.4s] which it is by default and web Ro needs
+[67.6s] to be IBL admin which it is by default
+[69.5s] as well now what we're going to do is
+[71.6s] select the
+[72.7s] platform um and we already have a
+[74.7s] handful of tenants created so we're
+[76.2s] going to go ahead and select a tenant
+[78.0s] and then enter a password for
+[86.0s] them so now that we have the new admin
+[89.4s] user created
+[90.5s] we'll see some green messages saying
+[92.7s] everything looks good we'll come back to
+[94.8s] the home over
+[96.3s] here and then what we're going to do now
+[99.6s] is go to user platform
+[101.5s] links you'll see that the user id/ user
+[104.5s] object is 129 so when we add a new user
+[108.5s] platform link we'll search for that um
+[111.0s] and that one's since it's just recently
+[112.5s] created going to be right on the top
+[114.0s] there and then we're going to select a
+[116.0s] different
+[117.0s] platform so in this case we'll do
+[119.0s] editech
+[121.0s] um so we've got that platform selected
+[123.1s] and then we would just need to make sure
+[124.4s] that is admin is marked and is staff is
+[127.4s] marked if we want them to have ATX
+[131.4s] access for course authoring purposes and
+[134.7s] now we'll just hit save now this user is
+[137.8s] a part of two separate tenants so we
+[141.4s] have ashl this tenant right here where
+[144.5s] this user
+[145.9s] 129 is a tenant admin and then on under
+[150.0s] editech same thing they're going to be a
+[151.8s] ten an admin here as
+[154.9s] well

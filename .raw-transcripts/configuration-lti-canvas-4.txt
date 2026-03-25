@@ -1,0 +1,19 @@
+mentorAI | Canvas | Chat Persistence
+https://www.youtube.com/watch?v=8aThK8xJFNc
+
+[1.2s] I'm going to be showing you an update
+[2.6s] today where I walk you through how in
+[5.1s] canvas the side panel now is chat
+[7.8s] persistent. So we can say what is the
+[12.5s] war of 1812.
+[16.2s] And after this message is sent, what
+[18.2s] we'll do next is go to a different page
+[20.0s] inside this canvas course.
+[23.0s] So, we'll click on this page,
+[28.7s] and you'll actually be able to see that
+[30.3s] the mentor remembers where you left off
+[32.6s] with your conversation, pulls it back
+[34.2s] up, and you can continue to chat with
+[36.3s] the mentor without it resetting when you
+[38.2s] change the page. And that's essentially
+[40.2s] how this chat persistency works.

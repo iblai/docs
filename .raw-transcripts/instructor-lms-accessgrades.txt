@@ -1,0 +1,111 @@
+skillsAI | Access Learner Grades
+https://www.youtube.com/watch?v=hfmSv6JH85Y
+
+[1.8s] I'm going to be showing you how to find
+[3.7s] specific learner grades within a given
+[7.0s] course. Now, there are a couple ways you
+[8.9s] can do this. One of which is by going to
+[10.6s] this instructor panel
+[13.4s] and hitting the data download tab.
+[16.5s] Once you're here,
+[18.9s] you can select either a full course
+[21.4s] section or specific even down to the
+[24.0s] specific problem. So, if you wanted to
+[26.3s] do the full course, you would just
+[27.4s] select the course name up at the top.
+[29.4s] But for instance, if you wanted to
+[30.6s] capture the exit evaluation responses,
+[33.7s] um this is a section level. So we'll go
+[35.6s] down one further and go to the
+[37.2s] subsection. Now again, you can go down
+[39.5s] to the unit level, which is this right
+[41.4s] here. And then the specific question
+[43.7s] itself that students are taking um that
+[46.5s] you're looking for, you know, their
+[47.8s] specific responses for. Now, let's just
+[50.3s] say we want to do just the exit
+[51.5s] evaluation in full this whole section.
+[54.0s] We hit this and then hit create a
+[55.8s] problem or report of problem responses.
+[58.9s] Once that's done, it'll have your report
+[60.9s] has been su successfully generated and
+[62.6s] then you'll be able to download the
+[63.8s] report, seeing each and every learner's
+[65.4s] responses to that specific problem that
+[67.6s] you've selected or subsection section or
+[70.3s] even the full course. The other way you
+[72.8s] can do this is by viewing the course as
+[74.7s] a specific student. And the best way to
+[76.2s] do that would be going to the
+[78.7s] uh the student admin tab here. And under
+[81.6s] this view specific learner grades and
+[83.9s] progress um you can enter this learner
+[87.0s] the learner specific email that you'd
+[89.0s] want to see. Um you know what their
+[91.4s] questions that they saw are or um you
+[94.1s] know just kind of view what the student
+[95.4s] is seeing. So in this case we'll use
+[97.4s] we're going to use somebody we know
+[99.0s] that's enrolled in this course and we'll
+[100.5s] hit generate progress link. And once
+[102.2s] this comes up, you'll be able to open up
+[105.3s] in a new tab the learner's progress
+[107.8s] page.
+[109.8s] So to show you what this looks like,
+[113.7s] we're going to open it up.
+[117.0s] You can see up here that we're viewing
+[118.4s] this course as the specific learner.
+[121.0s] Now, this is specifically their grade
+[122.6s] book where you can even see their scores
+[124.4s] per exam. But if you want to see what
+[127.2s] actual questions that the learner is
+[128.5s] taking from their perspective, you'll
+[130.2s] click the course outline button at the
+[131.6s] bottom here. And you can see that we're
+[133.7s] already viewing this course. But
+[135.1s] sometimes if it says staff like this,
+[138.1s] you'll be viewing as you know the user
+[140.2s] you're logged in with. So if it says
+[141.8s] staff, you'll just select specific
+[143.0s] learner or student and then put in the
+[145.6s] learner's
+[147.7s] name. So we'll have put or their
+[149.4s] username or email address. So we'll put
+[151.2s] in their username.
+[154.4s] And now we can see what the student is
+[156.6s] seeing from their end. So we can see
+[157.8s] what their completion looks like. And if
+[159.7s] we want to go into one of the exams that
+[161.6s] they've answered questions in, we can
+[163.8s] actually see what ex specific questions
+[166.1s] from a grade book, a problem bank using
+[169.0s] a library that they're seeing. So this
+[172.2s] is going to be the fourth out of the
+[173.5s] however many were um in the problem bank
+[176.5s] that they've completed. You can see how
+[178.1s] many attempts that they've used um what
+[180.6s] answer choice they selected. And then
+[182.2s] you even with submission history, this
+[184.2s] would actually allow you to put in an
+[185.7s] email um or a username of a learner to
+[188.6s] see, you know, whether or not they've
+[190.7s] submitted, what their score was, so on
+[192.0s] and so forth. I would say for problem
+[194.1s] banks though, uh I would stick with
+[195.8s] either using this view or the the data
+[197.6s] downloads like I had shown previously.
+[199.8s] um purely because we're not quite sure
+[201.5s] you know at a first glance um without
+[204.8s] you know going and viewing as a student
+[206.6s] whether or not they've taken a specific
+[208.6s] question because they are seeing you
+[210.5s] know a randomized selection um from from
+[214.5s] the problem bank you also have a couple
+[217.4s] of other options about seeing you know
+[219.0s] their submission status and whether or
+[220.6s] not you want to reset their attempts uh
+[223.1s] rescore things like that. So that's
+[226.1s] basically how you can figure out exactly
+[228.3s] how to see a learner specific answer
+[230.4s] choices whether via report or even
+[232.2s] viewing the course as a student.

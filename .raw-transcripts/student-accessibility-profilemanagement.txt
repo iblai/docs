@@ -1,0 +1,64 @@
+mentorAI | User Profile
+https://www.youtube.com/watch?v=EwxEElHjH-c
+
+[0.9s] Hello. I'm going to be showing you a few
+[2.6s] updates that we have made to the user
+[4.3s] profile section of Mentor AI. Now, to
+[7.1s] see what this looks like, what you'll do
+[8.5s] is click your little profile icon, and
+[10.2s] you'll see this drop down. You'll click
+[12.1s] on the profile, and it'll pull up a
+[14.1s] couple of different tabs where you can
+[15.7s] make edits to your profile. Now, you
+[17.8s] have your basic information, you know,
+[19.2s] like your first name, full name
+[20.9s] actually, um your email, title, and
+[23.4s] about information. Um you can also
+[25.6s] select your preferred language. So if
+[27.1s] you selected Spanish or French for
+[28.6s] example, the platform would adjust
+[30.2s] accordingly to your language
+[31.6s] preferences.
+[33.1s] Next we have social which allows users
+[35.0s] to put in their social information such
+[36.9s] as Facebook, LinkedIn X. You know, this
+[39.5s] is a way for people to be able to
+[41.3s] connect outside the platform if they so
+[43.2s] choose.
+[45.1s] We've also added this education tab
+[47.2s] which allows users to input their
+[49.5s] academic achievement such as degrees.
+[52.2s] Um, what this looks like is, you know,
+[53.7s] you can add in the type of degree you're
+[55.1s] getting, the field of study, where you
+[57.4s] studied, and, you know, when this
+[59.8s] happened. So, you can add in the start
+[61.5s] date if the end date for your degree
+[64.2s] hasn't already happened. You can also
+[66.0s] just mark as IO here. Um, you can also
+[69.7s] put in your GPA as well. And this will
+[72.4s] be shared with mentor as long and
+[74.2s] administrators as well. Um, similarly
+[77.1s] with the experience for um, this is for
+[80.1s] professional journeys. This is where you
+[81.9s] can put information about, you know,
+[83.2s] where you've worked in the past or where
+[85.4s] you're currently working. And it looks
+[87.1s] very similar to that education tab when
+[89.7s] you're adding a new experience. Um,
+[91.8s] again, you can also select whether or
+[93.8s] not you currently work here. And then
+[95.4s] you'll just put in some information
+[96.6s] about the company itself.
+[99.8s] All right. And then we also have resume,
+[101.5s] which you can just simply upload a
+[102.8s] resume that's shared with admins and the
+[105.2s] mentor. Um, so we can tailor responses.
+[108.6s] And you know, this is just a simple
+[110.3s] upload of a document and then you have
+[112.2s] your resume uploaded. Lastly, we have
+[114.4s] security, which just allows you to reset
+[116.7s] your password while logged in if needed.
+[119.0s] This will trigger an email sent to the
+[120.6s] user and they can reset their password
+[122.3s] from there. And that's it.

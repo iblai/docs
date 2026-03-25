@@ -1,0 +1,75 @@
+mentorAI | Canvas | Chat, Summary, Expand and Translate
+https://www.youtube.com/watch?v=lJB2SJIPOBU
+
+[0.2s] is already integrated on the side. So
+[2.2s] this mentor is context aware. So
+[4.2s] whatever you know content is inside
+[6.5s] these pages within the course the mentor
+[8.8s] can actually answer about. So we'll
+[10.0s] select the first one
+[16.2s] here. And once we have the PDF open for
+[19.7s] this we can start asking the mentor
+[21.3s] questions about it. And again since this
+[23.0s] is contextaware we can uh ask it
+[25.4s] anything about the content on this
+[26.9s] specific page. In this case, I'm going
+[28.7s] to use one of the pre-selected options
+[30.6s] in these little buttons. So, I'll hit
+[32.6s] summarize key
+[35.2s] takeaways. And what this is going to do
+[37.2s] is evaluate the contents of this PDF and
+[40.1s] provide you
+[41.2s] with information that summarizes the
+[44.6s] page. So now, if we want to summarize
+[47.3s] the entirety of this specific
+[49.6s] page, we can get that information as
+[52.0s] well. Um, again, that first tab there
+[54.6s] had a couple of different options. You
+[56.0s] can also chat with the mentor directly
+[57.5s] without having to select a prompt. And
+[59.4s] you can see here this summarizes the
+[61.0s] page. Now, if we wanted to translate the
+[63.3s] page, uh there are a couple different
+[65.1s] options we can translate from. I'm going
+[66.7s] to select French
+[68.0s] here. And what this is going to do is
+[70.0s] take the contents of the page and
+[71.4s] translate it into French. This might be
+[73.1s] helpful for, you know, users who are not
+[75.9s] um speaking English as their first
+[77.4s] language. Um and or if they're taking an
+[80.6s] English or a different language class
+[82.5s] and they don't really understand
+[83.5s] materials, they can translate it into
+[84.9s] English. so on and so
+[86.4s] forth. Now, after this, we can go to the
+[89.2s] expand tab. And what this is going to do
+[90.7s] is expand on the materials that we we
+[93.0s] find in this course tab. Um, so in this
+[96.4s] case, we're going to be expanding upon
+[98.5s] uh this colliding cultures deck that we
+[101.0s] have here. And you can see that this is
+[104.5s] providing an expanded version of what
+[106.2s] we're learning.
+[109.9s] Now again, we can also chat with the
+[112.2s] mentor um as a normal learner would
+[114.8s] without having to select one of these
+[116.1s] prompts. You can also use a suggested
+[120.0s] prompt. Um you can select from these
+[122.5s] suggested prompts which are essentially
+[123.8s] prompts that have been pre-created that
+[125.8s] the user can select from um in case they
+[128.4s] don't know exactly where to
+[130.5s] start. And here you can see that they've
+[132.9s] provided an answer from one of those
+[134.1s] suggested prompts.
+[138.5s] And then if we want to go down to the
+[140.2s] end here, there's also what we call
+[141.6s] guided prompts. These are generated
+[143.5s] based on the conversation history. Um,
+[145.5s] we can also select one of these and we
+[148.6s] can get an answer back essentially the
+[150.1s] same way we do with these other
+[153.6s] tabs. All righty. And that's basically
+[156.2s] how this mentor integration works in
+[157.8s] Canvas.

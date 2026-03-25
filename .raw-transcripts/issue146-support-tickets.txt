@@ -1,0 +1,72 @@
+mentorAI | Support Tickets
+https://www.youtube.com/watch?v=ur81lQ8SmGE
+
+[4.5s] First off, we need to make sure that we
+[6.7s] have enabled
+[8.4s] um human support ticket notifications.
+[11.8s] And of course, if we need to edit
+[13.8s] anything about the notifications, we can
+[16.1s] do that here. And then we save.
+[20.0s] Now, in order for our mentor
+[23.4s] to send support notifications, of
+[26.2s] course, we need to make sure that human
+[28.8s] support here is enabled and then in our
+[32.7s] system prompt in the prompts tab
+[37.1s] we tell the agent the condition of which
+[40.6s] we need this support to be created so
+[43.8s] I'm just going to start with
+[47.0s] um
+[52.2s] human support request
+[56.1s] something straightforward that
+[61.8s] when the user expresses
+[66.7s] frustration
+[69.4s] about using any part of the platform
+[75.0s] or understanding
+[79.8s] and or requesting
+[83.4s] human assistance
+[86.5s] Create a support ticket
+[90.6s] detailing
+[92.1s] their needs so a human
+[97.7s] can turn to them. Let the user know that
+[103.3s] a ticket has been created and that human
+[109.6s] representative
+[111.9s] will attend
+[113.8s] to them.
+[117.0s] tell me a summary of the created
+[122.0s] tickets just so we
+[125.4s] have this here. Okay, so this is saved
+[129.1s] and all I need to do after create a new
+[132.6s] chat under this mentor. Um then I'll
+[136.9s] come here.
+[139.4s] I have been having
+[142.6s] a hard time using this platform.
+[148.2s] Some of the icons are confusing
+[152.5s] and the buttons
+[155.4s] worry me. I am color blind
+[160.5s] so I have a hard time
+[164.4s] telling some
+[168.8s] perhaps it will
+[172.6s] I speak with a human.
+[176.6s] Okay, now this should do it. Um so I
+[180.4s] expressed my frustration using the
+[182.2s] platform till what issues I have. Um and
+[187.7s] then I need to speak to a human. Of
+[189.4s] course, this is not necessary that I
+[191.4s] have to say I need to speak to a human.
+[193.3s] And because I ask the agent to present
+[195.4s] to the user a summary of the ticket is
+[197.9s] created. We should see that here. Now,
+[201.4s] as a admin, I can jump into my mailbox.
+[206.2s] Okay. And I can see a ticket here. We
+[211.1s] can confirm from here a summary. you're
+[214.1s] experiencing difficulty with uh the
+[218.6s] platform color blind and we have our
+[221.4s] support ticket here. Um accessibility
+[224.3s] and UI assistance requests. Okay, so
+[227.4s] user reports difficulty using the
+[229.3s] platform UI icons are confusing and some
+[232.2s] buttons are concerning to click. So this
+[234.7s] is how you use the support ticket
+[236.4s] system. Um,
+[240.2s] and that's that's it. Have a nice day.
+[246.4s] See you.

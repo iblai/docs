@@ -1,0 +1,119 @@
+ibl.ai | Blackboard | Course Integration
+https://www.youtube.com/watch?v=k91vOq4CANg
+
+[0.0s] Hello, this is Joseph from iBL.ai and I
+[3.1s] will be showing our integration to
+[6.0s] Blackboard.
+[7.8s] So um over here on the Blackboard
+[11.3s] developer panel just to showcase created
+[15.4s] just a sample application over here. Um
+[18.9s] of course in production this would be
+[20.6s] different but this is a test
+[22.8s] application.
+[24.4s] Now if we have an application like this,
+[26.4s] all we need here is this application ID
+[29.5s] which will be shared for installations
+[32.7s] and then the platform admin um would
+[36.7s] install this REST API extension into
+[41.2s] their Blackboard instance. So take for
+[43.8s] example I am here at Blackboard.ai.
+[48.2s] I need to go into the admin panel then
+[51.0s] search for REST API integrations. Let me
+[54.1s] zoom in. REST API integrations. Okay.
+[59.3s] Now that I am here, I will click on
+[61.8s] create an integration and then I would
+[64.8s] specify
+[66.3s] um the application ID. Okay. Now I need
+[71.0s] to specify a user for which I am going
+[74.3s] to um
+[77.5s] use. I think my user here will be
+[80.8s] administrator. Yep, I have my Blackboard
+[84.2s] administrator account here that I would
+[87.3s] link to this application. Of course, you
+[90.7s] could narrow down the permissions you
+[92.9s] want. In our case, all we need is the
+[95.4s] ability to read the content of the
+[97.5s] course and to download any files
+[100.0s] attached to it. So, best you choose a
+[102.8s] user who has access to that course.
+[106.6s] Okay. Um, so authorized to act as the
+[111.0s] user. We don't need that um any user
+[113.7s] access. Yes. And then we submit. And
+[117.0s] with that, we have successfully
+[119.4s] integrated this test test application.
+[122.8s] And that's it right here. IVL test.
+[125.3s] Good. Now, we want to be able to use
+[128.5s] this test course, a test course from um
+[134.4s] our system. So, what we would do, we
+[137.0s] would come on to our Blackboard
+[140.2s] um panel, search for the course we are
+[143.4s] trying to set up. Now, just copy the
+[147.3s] link to this course from the top of my
+[151.0s] browser here.
+[152.6s] come back and then navigate into my data
+[156.3s] set. I am going to load this um in as
+[162.5s] data source. For this I will choose um
+[166.1s] Blackboard as my
+[169.7s] data source here and I will paste the
+[173.0s] URL to this set course. Okay. Now let's
+[177.3s] submit this. And yes, the document is Q
+[179.9s] for training. Oh, I could submit that
+[182.5s] but no need. Let's um so let's let's go
+[188.1s] back and then I would um go back here.
+[192.7s] Oh, it's already trained. That was quite
+[196.2s] sharp. So you can see it over here and I
+[200.8s] am marking it as visible just so I can
+[203.0s] see the contents. Now I can go back. Um,
+[207.2s] not necessary, but just in case, let me
+[209.7s] refresh on my screen here. Now, you can
+[214.7s] check. Let's double check. This is the
+[217.4s] only content trained on this course.
+[219.8s] Okay.
+[221.4s] And
+[223.0s] we have this course here. It's just a
+[225.6s] dummy course. Okay. You just open it.
+[229.2s] There is um a dummy assessment. There is
+[234.5s] a PDF file attached. Okay. Our main
+[238.5s] focus will be on the attached files and
+[241.8s] then text content of the course. Okay.
+[245.3s] So, we are going to have our agent be
+[247.5s] able to answer questions based on this
+[250.4s] information. So let me ask it something
+[254.5s] um
+[256.2s] about uh
+[259.3s] um
+[261.8s] let me say
+[267.4s] grab some content here. Uh Lascasa's
+[270.2s] writing about Spanian's horrific
+[272.6s] treatment. Um so let me just ask
+[275.6s] something about this guys statement.
+[279.7s] Okay. So what did Lascas write
+[286.2s] about the uh Spaniards
+[290.2s] pronounced that wrong?
+[294.7s] And then we see um
+[299.2s] he wrote about the
+[301.8s] uh horrific treatment of the indigenous
+[304.3s] people by Spanish colonists over here.
+[308.6s] Okay. which if we go back to the horse
+[312.3s] that is exactly what we see you know
+[316.0s] about blackboard legend how it treated
+[319.8s] Indians.
+[324.0s] Now back here we can also see snippets
+[328.1s] from the documents attached where this
+[332.2s] um information were gotten from. Okay.
+[336.2s] So we can see about um
+[340.4s] uh the nations yearning to break free
+[343.2s] from the Spanish influence. We can see
+[346.6s] uh the snippets about black legends um
+[350.9s] and more. Okay, so we have all this
+[353.4s] information that the agent got fed in
+[356.6s] straight from the Blackboard course
+[358.4s] without us needing to manually re-upload
+[361.0s] them. Now this content, okay, can be
+[365.0s] configured and by default it is
+[366.9s] configured to auto retrain every 7 days.
+[370.9s] Okay, you could reshadow it to train in
+[374.7s] any number of days that you want. And
+[378.8s] well, I think that's one of the coolest
+[382.4s] things you could have
+[385.9s] for your course. Thank you very much. C.

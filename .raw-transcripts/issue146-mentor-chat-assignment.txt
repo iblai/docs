@@ -1,0 +1,69 @@
+mentorAI | RBAC | Mentor Chat Access
+https://www.youtube.com/watch?v=jt8fL7vROcI
+
+[1.8s] I'll be quickly demoing how you can set
+[3.8s] up access to a particular mentor for a
+[7.0s] group of students or a given student
+[8.8s] without letting them see anything else.
+[11.4s] So, as an admin, what you'll do is go to
+[13.9s] your tenant settings and then the
+[15.8s] management tab. Now, we've already set
+[18.0s] up this role here for this particular
+[19.6s] mentor with particular actions and data
+[22.2s] actions. This is basically saying that
+[24.0s] these people who will be added to the
+[26.2s] policy that this role is associated with
+[28.0s] will be able to chat with the mentor and
+[30.2s] read you know any outputs you know the
+[32.0s] metro name anything like that that they
+[33.8s] would need to be able to see to
+[35.0s] efficiently chat. This data action is
+[37.4s] very similar. It's just basically saying
+[38.7s] that you're able to read um you know
+[41.3s] what data actions are needed for being
+[43.9s] able to chat with a particular mentor.
+[46.4s] Now, this is just for students who
+[48.5s] should not be seeing any other mentors
+[50.2s] on the platform, but need to be able to
+[52.0s] chat with just one or a couple that
+[54.9s] they've been assigned access to. Now,
+[57.4s] since we have this role already set up
+[59.7s] for you, and we do also have the policy
+[61.6s] set up as well,
+[64.0s] um the only thing you'll need to do is
+[65.5s] go and hit edit. And once somebody has
+[68.0s] registered, you'll just put them in the
+[69.9s] user section here. Or you can create a
+[72.5s] group from the groups tab, kind of group
+[74.4s] everybody together and add a specific
+[76.8s] group. Um, in this particular case, it
+[79.0s] might be easier just to add users as
+[80.6s] they register here. Um, so that way, you
+[83.7s] know, once they're registered, we assign
+[85.6s] them this particular policy and then
+[87.3s] they can start chatting as soon as they
+[88.8s] get that policy assigned to them. And
+[91.0s] again, this is already set up. You just
+[92.6s] give this a name, connect it to the
+[93.8s] role, and provide it a particular
+[95.2s] resource. In this case, it's the Empire
+[97.5s] State tenant and the um particular
+[100.2s] mentor that we want folks to be
+[101.7s] accessing. So, that's basically all you
+[104.2s] have to do to add people to to a
+[107.4s] particular mentor for accessing the
+[109.3s] chat, not settings or anything else.
+[116.2s] Now, I've gone ahead and logged in as a
+[118.3s] particular user who who only has access
+[121.3s] to this one mentor. So when I click on
+[122.9s] the mentors list, I only see this
+[124.6s] mentor. I click on this dropown and my
+[127.2s] only option is new chat. And even going
+[129.0s] to the explore page shows just the no
+[132.4s] mentors at this point because the mentor
+[134.0s] itself is set to admin access only. And
+[137.0s] so if we go back, we can see if we click
+[139.5s] on one of these, we're able to chat with
+[141.4s] the mentor, no problem. And but this is
+[143.4s] the only one we're actually able to chat
+[145.0s] with.

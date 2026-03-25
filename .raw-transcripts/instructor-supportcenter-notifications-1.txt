@@ -1,0 +1,82 @@
+ibl.ai | Notifications
+https://www.youtube.com/watch?v=eD5d9prlu-c
+
+[1.7s] Hi everyone, it's Ashlin here at IBLAI
+[3.9s] again and I'm going to be showing you
+[5.5s] our latest notification updates. So, as
+[8.9s] an instructor/tenant admin, you'll
+[11.0s] actually have the ability to send out
+[12.4s] custom notifications and adjust
+[14.0s] notification preferences for your
+[15.5s] learners. To do this, what you'll do is
+[18.2s] click this little bell icon and you'll
+[19.9s] actually be able to see the
+[20.9s] notifications you've received um via
+[22.9s] push notification. And some of these are
+[25.4s] actually connected via email, so you've
+[26.9s] likely received an email for this as
+[28.6s] well. The first thing you'll do to
+[30.4s] actually be able to send out custom
+[31.7s] notifications is click on view all. And
+[34.5s] this will take you to a place where you
+[36.2s] actually can see uh notifications that
+[38.6s] you have received but also as a like I
+[41.1s] said an instructor/tenant admin send out
+[43.9s] notifications yourself. Um and these are
+[46.5s] all custom notifications. So these can
+[48.2s] be more ad hoc. Um but the way this
+[51.0s] works is you'll have the preview field
+[52.4s] which is
+[55.4s] the subject line and then the content
+[57.5s] here. This is going to be the body of
+[58.6s] the email. We're going to say, "Hello,
+[61.0s] checking in on your
+[64.3s] mentor AI experience.
+[67.4s] Is there anything we can do to assist
+[73.0s] or improve
+[75.4s] your
+[77.0s] experience
+[78.6s] with the platform?"
+[82.5s] And then you can sign this however you'd
+[84.1s] like. And then if you'd like to send
+[86.6s] this immediately, you can. Or you can
+[88.4s] also schedule for a later time. Um, so
+[91.1s] you know, you could schedule this for a
+[92.4s] week from now or, you know, send it
+[95.3s] again immediately. And then for
+[98.6s] selecting the recipients, you know, you
+[100.1s] can click on one, two,
+[103.3s] and then however many you want from
+[104.6s] here. And then you'll hit send now. So
+[106.8s] once you hit send now, um, that will
+[108.9s] actually go to the inbox of whoever
+[110.7s] you've, you know, sent the email to.
+[113.5s] Now, under this alerts tab, this is
+[115.4s] where you can pre, you know, manage your
+[117.8s] your alerts. You can decide which
+[119.5s] notifications you want active and which
+[121.2s] ones you don't. And you can even
+[123.3s] actually edit the ones that are on the
+[125.6s] platform already. So, you have uh the
+[129.1s] ability to edit templates yourself to
+[131.3s] make sure it aligns with, you know, your
+[133.4s] language, your branding, so on and so
+[135.9s] forth. Um, and again, these can be
+[138.3s] toggled on and off as you please. And
+[140.7s] these are these specific notification
+[142.4s] templates are actually going to be
+[143.4s] triggered by default when a certain
+[144.9s] action happens. So for instance, if you
+[147.0s] want somebody to join your
+[148.2s] tenant/platform,
+[149.8s] you have this platform invitation right
+[152.1s] here. So that's already active and
+[154.2s] that'll go ahead and send out an email.
+[156.1s] Um and then for instance, this learner
+[158.2s] progress email that's sent out on a
+[160.4s] weekly cadence. Um so there are
+[163.0s] different triggers based off of what
+[164.5s] actions you are taking as an admin or
+[166.5s] the learner is taking. um as long as
+[169.1s] these email templates are active. And
+[170.8s] it's as simple as that.

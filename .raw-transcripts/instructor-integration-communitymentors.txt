@@ -1,0 +1,70 @@
+mentorAI | Community Mentors Feature
+https://www.youtube.com/watch?v=0RONqCuQ-AQ
+
+[0.1s] Hey, what's going on? This is Jeremy at
+[1.7s] IBLAI. Today I'm showing you one of our
+[3.8s] newest features, the community mentors
+[6.4s] feature, which allows uh admins within
+[9.4s] their own environment on the mentor AI
+[11.3s] platform to connect all of the community
+[13.9s] mentors that we make available on our
+[16.5s] main environment within their private
+[19.0s] environment to all learners who might
+[21.3s] like to communicate with them. This
+[23.4s] includes uh a number of mentors we've
+[25.8s] created using the open stacks open
+[28.2s] resource textbooks
+[30.6s] um for a range of college level uh
+[34.0s] courses and subjects. So in order to do
+[38.4s] that if you are an admin within your own
+[41.2s] environment what you would do is you
+[43.3s] would navigate to the user icon in the
+[45.8s] upper right hand corner here. Once you
+[48.8s] do that, it's going to open this
+[50.0s] drop-own menu with your profile, the
+[52.4s] environment that you're in, uh a help
+[55.1s] icon, and log out. You're going to
+[57.3s] select the name of the environment that
+[59.5s] you're in, which is going to open this
+[62.3s] organization window, uh for different
+[65.6s] types of management features you have
+[67.7s] available to you as an admin. You're
+[70.8s] going to come down to advanced and this
+[73.0s] community mentors tab right here. You're
+[75.4s] going to toggle this on. Now, once
+[78.6s] you've had that enabled, you come over
+[80.4s] to the explore column.
+[84.0s] And from here, you'll see the entire
+[86.8s] fleet of community mentors that we make
+[89.9s] available to anybody on the platform
+[92.9s] within your private environment,
+[94.6s] including all of these OpenStacks
+[96.6s] textbooks, and then a number of agents
+[99.4s] and mentors for a range of use cases for
+[102.4s] you to explore.
+[104.6s] Now, if you enable this, the learners in
+[107.8s] your environment will have the ability
+[110.2s] to communicate with any of these
+[112.2s] mentors, but will not have the ability
+[114.2s] to make any changes to these mentors.
+[116.8s] However, you as an admin will have the
+[120.4s] ability to make changes to these
+[121.8s] mentors. Say you're teaching an
+[123.8s] introductory to statistics course. If
+[126.6s] you select on this mentor, one of the
+[128.6s] community mentors that you've just made
+[130.2s] available within your environment, you
+[132.5s] can come to this drop-own menu in the
+[134.6s] upper left hand portion of the screen
+[137.4s] where you see the name of the mentor and
+[140.2s] you can come in and add your own data
+[142.9s] sets, edit the system prompt, change the
+[146.9s] model that the mentor is connected to,
+[149.8s] um, and even embed this directly into
+[152.9s] your LMS or student information system,
+[155.4s] wherever you like the mentor to reside.
+[158.2s] And that's a very quick overview of the
+[160.8s] uh community mentors feature that we've
+[162.8s] just made available. As always, thank
+[165.2s] you so much for tuning in and learn more
+[167.1s] at ibl.ai.

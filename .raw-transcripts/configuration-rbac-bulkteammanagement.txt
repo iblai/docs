@@ -1,0 +1,72 @@
+skillsAI | Bulk Team Management
+https://www.youtube.com/watch?v=1tGZBe1kxsw
+
+[1.6s] I'm going to be showing you how to
+[3.1s] create a team at the same time that
+[5.6s] you're sending a platform invitation.
+[7.8s] Now, this is going to be available to
+[9.8s] tenant admins as well as anybody who has
+[13.1s] um the enrollment manager role, meaning
+[15.5s] they can invite people to content the
+[17.4s] platform, so on and so forth. Now,
+[21.1s] you're going to be using the platform
+[22.5s] invitation here. If you click on invite,
+[25.8s] I already have a CSV downloaded uh that
+[28.7s] I'll show you here in a second, but I
+[30.5s] want to go ahead and show you that under
+[32.1s] teams, we're going to be adding to this
+[33.6s] team, team 2. And you can already see
+[35.8s] there's one user in here. So, if we go
+[38.6s] back to users, we'll hit invite, upload
+[41.8s] CSV. And when you upload the CSV, you'll
+[44.2s] be able to validate the information
+[45.6s] that's in here. Make sure everything
+[47.0s] looks good. We already And you can see
+[49.1s] right here we have the user group. This
+[51.8s] is the group that that user is going to
+[53.4s] be part of and overseen by a particular
+[56.0s] manager. In this case, the user group
+[58.6s] owner email is creating that link to the
+[62.1s] owner of the group um to said group. So,
+[65.3s] this user right here is going to be
+[66.7s] managing team 2.
+[69.2s] Now, what we'll do is hit save. And what
+[72.3s] this will do is trigger a platform
+[73.9s] invitation.
+[75.9s] So, I'm going to go register as this
+[78.2s] user. And the user doesn't really know
+[80.0s] what group they're a part of. they won't
+[81.3s] see it. But I'm going to go register
+[82.9s] real quick. Pause this and then I'll
+[84.6s] show you what it looks like once once
+[86.9s] the folks who are in that invitation
+[89.2s] have registered because if they have not
+[92.2s] show, you know, registered an account on
+[94.6s] the platform, they won't show up as a
+[96.6s] team member yet. But as soon as they do,
+[98.6s] they will. So I'm going to again pause
+[100.8s] this and we'll come back and refresh um
+[103.3s] so you can see those changes applied
+[104.8s] once once I have registered this other
+[106.9s] user.
+[108.5s] All righty. So I have just created the
+[110.2s] account for the the team member. If we
+[112.5s] go under management and hit invite, you
+[114.6s] can even see that that invite has been
+[116.2s] accepted. Now when we go to the team
+[120.6s] as a tenant admin, we'll be able to see
+[122.1s] all teams created. Um similarly with um
+[125.1s] anybody who has a high level um you know
+[128.8s] enrollment manager role. um the the
+[131.8s] folks who have, you know, tenant level
+[134.4s] access, tenant admin level access will
+[136.2s] be able to see analytics about these
+[137.5s] users. And if you decide to allow um
+[140.3s] enrollment managers to see analytics,
+[143.4s] they'll also be able to see the same
+[144.9s] thing as tenant admins. They just want
+[146.4s] to be able to, you know, create or edit
+[148.2s] any course content um so on and so forth
+[151.2s] or, you know, access tenant settings.
+[153.9s] But now you can see that the team member
+[155.4s] is here.

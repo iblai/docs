@@ -1,0 +1,67 @@
+mentorAI | User Memory
+https://www.youtube.com/watch?v=QFta20kyDQY
+
+[1.0s] Hello. Today we're going to be talking
+[2.6s] about memory and how you can use the
+[5.0s] memory of a user to be referenced uh via
+[8.1s] the mentor app. So by default your
+[11.0s] mentors will have memory on. This means
+[13.0s] that whenever somebody says something
+[14.7s] about themselves um the mentor can use
+[18.1s] or stores that information about the
+[19.7s] user. You can also include referencing
+[22.9s] saved memories. So you can see here that
+[26.0s] with save memories, if this is toggled
+[27.8s] on,
+[30.0s] the mentor will actually be able to use
+[31.9s] the memories about the user when
+[34.0s] responding to tailor the responses to
+[35.8s] them directly. This can be something
+[38.4s] like personal information, knowledge
+[41.4s] gaps, help requests, and lessons
+[43.5s] learned. And we're just going to take a
+[45.0s] quick look at my user. You can also
+[47.3s] search for specific users of course um
+[49.8s] in case you want to look at a particular
+[51.7s] user who is you know struggling with a
+[54.7s] certain topic in your course or needs
+[57.4s] assistance in some way shape or form or
+[59.1s] you even just want to see if people are
+[61.3s] dressing while they're continuing their
+[63.1s] educational journey. And you can see
+[65.5s] here that I I've asked a handful of
+[68.2s] questions that things um more on the
+[70.5s] technical side. What is Linux? What is
+[72.9s] its purpose? And this can be used um to
+[76.8s] essentially you know again tailor
+[78.3s] responses to the user but also as an
+[81.3s] instructor it's really helpful to
+[82.8s] understand you know where people are
+[84.8s] struggling. You can also edit this um as
+[88.2s] attendant admin
+[90.6s] uh and you can also add memories.
+[93.8s] So you can, you know, select a category
+[102.2s] and it can be even arbit even be just as
+[104.6s] arbitrary as somebody mentioning their
+[106.3s] favorite color or you know adding that
+[108.6s] memory for a specific user in this case.
+[112.8s] Now
+[114.5s] what we'll do now is take a pause and
+[117.6s] I'm going to log in as one of my test
+[119.4s] users so we can see how the memory
+[121.0s] actually is getting tailored.
+[123.8s] So, now we're logged in as a regular
+[125.4s] user um that has no access to any of the
+[128.5s] admin capabilities that instructors
+[130.2s] have. You can tell because I don't have
+[131.7s] the instructor to learn or toggle and I
+[133.9s] also don't have the ability to create
+[135.4s] members. I'm going to ask the mentor to
+[138.9s] summarize
+[141.4s] my progress and knowledge
+[145.8s] gaps.
+[151.0s] And you can see here this is actually
+[152.3s] pulling information from the memory um
+[154.5s] from previous chats that this particular
+[156.7s] user has had with the mentor.
+[161.6s] And there you have it. Simple as that.

@@ -1,0 +1,66 @@
+AI Skills | Course Authors | Creating A Program in the edX Studio
+https://www.youtube.com/watch?v=yzU2Tid16io
+
+[0.4s] hi team I'm going to show you guys how
+[1.9s] to create programs inside of edex
+[4.3s] programs are essentially a bundle of
+[5.6s] courses um packaged together so if we
+[8.4s] want to create a new
+[9.9s] program we'll hit this green button
+[11.9s] right here at the top that says new
+[13.8s] program um the program name is just the
+[17.3s] program or the overarching name for the
+[20.4s] bundle of courses um so let's just say
+[23.2s] that there's four biology courses um we
+[26.4s] might just want to call this program
+[27.8s] biology and each course under there's bi
+[30.2s] 101 102 and so on and so forth the
+[33.2s] organization is going to be the creators
+[38.3s] of the course um that is associated so
+[40.9s] for instance in our case since we're IBL
+[42.7s] we're that organization the program ID
+[45.4s] is going to be an ID to indicate what
+[47.9s] the program is but it also is what's
+[50.4s] going to show up in the URL um for a
+[53.3s] learner so we'll do biology
+[56.8s] here um and just add IBL just this can
+[60.5s] be anything that you really want it to
+[61.8s] be
+[63.2s] though so we hit
+[65.7s] create and now you'll see a page that
+[67.6s] looks like this to add a course what we
+[70.5s] can do is come back find the course that
+[73.2s] we want let's just say it's this one and
+[75.6s] in the URL you will see a course ID that
+[78.9s] will
+[82.2s] look like this when we go into that
+[88.5s] program so that's our first course if we
+[91.2s] want to add more we can so let's just
+[94.6s] say we want to add a second we're going
+[96.0s] to come back over
+[98.2s] to here to find another course so let's
+[100.9s] just say it's this one grab that course
+[104.6s] ID come back to the program plop this
+[108.7s] [Music]
+[110.5s] in and then we hit
+[115.9s] save from there if we want to add some
+[118.1s] additional details like the start date
+[119.6s] of the program we can do that if we just
+[121.7s] want to back dat it for to yesterday we
+[124.1s] definitely can do that as well if
+[126.0s] there's a description for the
+[128.4s] [Music]
+[129.9s] program then you can enter it there um
+[132.6s] and there's also a couple pieces of
+[133.8s] metadata like the language the level of
+[135.6s] the
+[136.7s] course
+[138.9s] um or the skill level apologies the
+[142.6s] display price and the duration of the
+[145.4s] program you can also Mark whether or not
+[147.5s] this program will have credentials uh
+[150.0s] and you can also set the banner and
+[151.9s] course card image that Learners will see
+[153.4s] in the catalog on and on the course
+[155.1s] about pages from
+[160.1s] here

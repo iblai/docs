@@ -1,0 +1,26 @@
+mentorAI | Customize Chat Box Width
+https://www.youtube.com/watch?v=z0aAukIUzh4
+
+[1.2s] As a tenant admin, you have the ability
+[3.0s] of customizing the chat box width. So,
+[5.2s] where it says ask anything, this little
+[6.8s] box right here, if you want to change
+[8.8s] this from the default, which is the
+[10.5s] smallest size possible, um you can
+[12.6s] increase the width from the tenant
+[14.0s] settings. The way you would do this is
+[15.5s] finding your tenant settings and
+[16.9s] navigating to advanced.
+[19.0s] Once you're here, you'll see the chat
+[20.7s] area width field and you'll see the
+[22.7s] settings um that are the default and
+[24.3s] what the max size is right here by click
+[26.6s] hovering over that eye icon. We're going
+[28.6s] to increase this to 1,00
+[31.0s] and then we'll exit out of this. And now
+[32.8s] you can see that that width has
+[34.7s] increased. If we go back and re uh put
+[38.6s] the settings back to the default,
+[42.0s] you can see that that goes back to the
+[43.5s] default size. And that's how you
+[45.1s] customize the width of your chat box.

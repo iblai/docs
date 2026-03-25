@@ -1,0 +1,70 @@
+mentorAI | Proactive Learning Recommendations
+https://www.youtube.com/watch?v=YLpfRmpVEz4
+
+[1.9s] Hi everybody. Today I'm going to be
+[3.5s] showing you an enhancement that we have
+[4.7s] made to our notifications feature. So
+[7.1s] this is going to be a notification that
+[9.2s] you can set at a certain frequency to
+[11.5s] send to learners um for learning
+[13.8s] recommendations. So what you'll first do
+[16.2s] is go to this alerts tab under
+[17.8s] notifications and then you'll see this
+[19.8s] proactive learning recommendations
+[21.8s] notification. To enable it, you'll just
+[24.2s] toggle it on and this will toggle on
+[26.9s] this notification throughout the whole
+[28.9s] tenant. But a really cool piece here
+[30.8s] that we'll talk about here in a second
+[32.7s] is that you can actually choose which
+[34.2s] mentors us, you know, the this uh
+[37.5s] notification for learning
+[38.6s] recommendations relates to. So this is
+[41.2s] going to be the template that you're
+[42.2s] seeing for this proactive learning
+[43.6s] recommendations.
+[45.5s] And the message body here is going to be
+[48.1s] based off of which mentors you select.
+[50.5s] Um and then we'll provide
+[51.6s] recommendations based off of that. Now
+[54.5s] the way that works on a per mentor basis
+[57.1s] is
+[59.3s] you have the option of selecting which
+[61.4s] mentor. So we can say AI career path
+[63.5s] planner and then we can also edit this
+[67.7s] with a prompt so that the prompt uh
+[70.1s] informs the notification of what should
+[72.4s] be included. So we can say this is a
+[75.4s] career
+[77.5s] path planner. Now, this can be anything
+[81.6s] related to your mentor or any, you know,
+[83.8s] sort of information you'd like to put in
+[86.5s] this prompt to be accounted for within
+[89.2s] those recommendation emails. So, we'll
+[91.2s] hit save prompt. And you can also add
+[93.9s] additional mentors um and edit them as
+[96.8s] you please.
+[99.4s] So, for example, this is the first one
+[101.4s] we did and then we just added the second
+[103.3s] one here for assessment creator. The
+[107.0s] other piece here is that you can choose
+[109.0s] who the learners that will be receiving
+[111.0s] this are on what frequency and at what
+[113.6s] time period. So you can do either all
+[116.0s] active learner or all learners or active
+[118.1s] learners. Active learners are going to
+[119.4s] be folks who have logged in within the
+[120.8s] past 30 days. Um you can also change the
+[123.4s] frequency to daily, weekly, monthly or
+[125.9s] even a custom time frame. And again you
+[128.7s] can also choose exactly which time and
+[131.1s] the time zone.
+[133.0s] All right. And then what this will do
+[134.8s] after you save, make sure this is
+[136.2s] active. This will trigger notifications
+[138.6s] on that frequency that you put into the
+[140.7s] the template here and provide learners
+[143.5s] with recommendations based off of what
+[145.3s] the mentor knows and uh you know the
+[147.6s] prompt that you put in for that
+[149.1s] recommendation.
