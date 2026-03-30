@@ -1,0 +1,327 @@
+# Chat Metadata Pass-Through
+
+Pass arbitrary context alongside chat messages to any AI Mentor so it can tailor responses to the user's exact situation.
+
+---
+
+## Overview
+
+The chat metadata feature lets you pass arbitrary context alongside chat messages to any IBL Mentor. This context (e.g., product group, licensing level, state) is automatically injected into the mentor's awareness, allowing it to tailor responses to the user's exact situation without the user having to explain their context manually.
+
+**Key points:**
+- The `metadata` field is a **free-form JSON object** — any key-value pairs are accepted, no enforced schema
+- **Optional** — if omitted, the mentor behaves as before
+- **Persistent per session** — send it once and it sticks for the entire conversation
+- **Available in analytics** — stored with the conversation for reporting and data exports
+
+---
+
+## How It Works
+
+```
+Frontend Application
+    |
+    |  Sends: { prompt, metadata: { productGroup, stateCode, ... } }
+    |
+    v
+IBL Mentor Backend
+    |
+    ├─ Caches metadata for the session (reused on subsequent messages)
+    ├─ Persists metadata to the session record (for analytics/reporting)
+    |
+    v
+Mentor (LLM) receives the user's message with context appended:
+
+    "What are the licensing requirements?"
+
+    <CONTEXT METADATA> Here is additional context metadata for this conversation:
+    productGroup: LICENSING
+    productLevel: LH
+    stateCode: CA
+    </END CONTEXT METADATA>
+```
+
+The mentor sees this context and responds accordingly — e.g., answering about Health insurance licensing in California rather than generic insurance topics.
+
+---
+
+## Sending Metadata
+
+### WebSocket (`/ws/chat/`)
+
+Include the `metadata` field in the JSON payload:
+
+```javascript
+ws.send(JSON.stringify({
+  session_id: sessionId,
+  prompt: userMessage,
+  page_content: pageContent,       // optional
+  metadata: {                       // optional
+    productGroup: 'LICENSING',
+    productLevel: 'LH',
+    productLevelDisplay: 'Life & Health',
+    productFamily: 'INSURANCE',
+    stateCode: 'CA',
+    name: 'Health'
+  },
+  flow: { name: mentorId, tenant: tenantKey }
+}));
+```
+
+### HTTP SSE (`POST /api/mentor/chat/`)
+
+Same `metadata` field in the request body:
+
+```http
+POST /api/mentor/chat/
+Content-Type: application/json
+
+{
+  "session_id": "uuid",
+  "prompt": "What are the requirements?",
+  "metadata": {
+    "productGroup": "LICENSING",
+    "stateCode": "CA"
+  },
+  "flow": { "name": "mentor-slug", "tenant": "tenant-key" }
+}
+```
+
+### Embedded iframe (postMessage)
+
+If the mentor is embedded via iframe, the host page passes metadata through the `postMessage` channel:
+
+```javascript
+iframe.contentWindow.postMessage({
+  type: 'context',
+  page_content: '<html content of current page>',
+  metadata: {
+    productGroup: 'LICENSING',
+    productLevel: 'LH',
+    stateCode: 'CA'
+  }
+}, '*');
+```
+
+The chat widget should:
+1. Listen for `postMessage` events with `type: 'context'`
+2. Store the `metadata` object
+3. Include it in every WebSocket payload sent to the backend
+
+---
+
+## Session Behavior
+
+Metadata is **cached per session** and only needs to be sent once. Here's how it behaves across multiple messages:
+
+| Message | `metadata` sent | What the mentor sees |
+|---------|-----------------|----------------------|
+| #1 | `{ productGroup: "LICENSING", stateCode: "CA" }` | User's prompt + LICENSING / CA context |
+| #2 | _(not sent)_ | User's prompt + LICENSING / CA context (reused from #1) |
+| #3 | `{ productGroup: "CE", stateCode: "NY" }` | User's prompt + CE / NY context (replaced) |
+| #4 | _(not sent)_ | User's prompt + CE / NY context (reused from #3) |
+
+**Rules:**
+- **Send once** — metadata persists automatically for the rest of the session
+- **Replace, not merge** — sending new metadata replaces the previous value entirely
+- **Null or omitted = no change** — the previously cached metadata continues to be used
+- **Cache TTL** — metadata is cached for 2 hours; it is also persisted to the database so it survives cache expiration
+
+---
+
+## Metadata Structure
+
+The metadata field accepts **any** JSON object. There is no enforced schema — use whatever keys make sense for your application.
+
+**Example: Insurance education platform**
+```json
+{
+  "productGroup": "LICENSING",
+  "productLevel": "LH",
+  "productLevelDisplay": "Life & Health",
+  "productFamily": "INSURANCE",
+  "productFamilyDisplay": null,
+  "stateCode": "CA",
+  "name": "Health"
+}
+```
+
+**Example: Corporate training platform**
+```json
+{
+  "department": "Engineering",
+  "courseId": "SEC-201",
+  "courseName": "Security Fundamentals",
+  "employeeLevel": "Senior"
+}
+```
+
+**Example: K-12 education**
+```json
+{
+  "gradeLevel": 10,
+  "subject": "Biology",
+  "unit": "Cell Division",
+  "standard": "NGSS HS-LS1-4"
+}
+```
+
+---
+
+## Customizing Mentor Behavior with Metadata
+
+The metadata is appended to the user's prompt as context. The mentor's **system prompt** determines how it uses this context. If the mentor isn't responding the way you expect based on the metadata, you can edit the system prompt to reference the metadata fields explicitly.
+
+**Example system prompt excerpt:**
+```
+You are a licensing exam preparation assistant. When the user's context
+includes a stateCode, always tailor your answers to that state's specific
+licensing requirements. When productLevel is provided, focus your answers
+on that specific license type.
+```
+
+---
+
+## Reading Metadata from APIs
+
+Once metadata is sent with a conversation, it's available through several APIs for analytics, reporting, and data exports.
+
+### Conversation Detail
+
+```http
+GET /api/v2/messages/details/?session_id={session_id}
+```
+
+Response:
+```json
+{
+  "summary": {
+    "client_context": {
+      "productGroup": "LICENSING",
+      "stateCode": "CA",
+      "productLevel": "LH"
+    }
+  }
+}
+```
+
+### Session List
+
+```http
+GET /api/v1/{org}/{mentor}/{user_id}/sessions/
+```
+
+Response includes `client_context` on each session.
+
+### Analytics Conversations
+
+```http
+GET /api/v1/analytics/conversations/
+```
+
+The full `Session.metadata` object is included, which contains the `client_context` key.
+
+### Data Exports
+
+| Export method | Where metadata appears |
+|---------------|----------------------|
+| CSV export (downloadable chat history) | `client_context` column |
+| Chat history export task | `client_context` field per message |
+| Analytics export (DataFrame) | `client_context` column |
+
+---
+
+## Example: Single Mentor Serving Multiple Contexts
+
+**Scenario:** One mentor handles all insurance licensing questions, but users are on different product/state pages.
+
+**Page: Health Insurance Licensing in California**
+
+The frontend sends:
+```json
+{
+  "metadata": {
+    "productGroup": "LICENSING",
+    "productLevel": "LH",
+    "productLevelDisplay": "Life & Health",
+    "stateCode": "CA",
+    "name": "Health"
+  }
+}
+```
+
+**User asks:** "What topics are on the exam?"
+
+**Mentor responds** with California-specific Life & Health exam topics — not generic insurance information.
+
+**Page: Property & Casualty in New York**
+
+The frontend sends:
+```json
+{
+  "metadata": {
+    "productGroup": "LICENSING",
+    "productLevel": "PC",
+    "productLevelDisplay": "Property & Casualty",
+    "stateCode": "NY",
+    "name": "Property & Casualty"
+  }
+}
+```
+
+**Same mentor** now responds with New York-specific P&C content.
+
+If the mentor's responses don't align with the expected behavior, adjust the **system prompt** to instruct the mentor on how to use the metadata fields.
+
+---
+
+## Architecture Reference
+
+```
+Client payload
+    |
+    v
+BaseConsumerPayload (pydantic validation)
+    |
+    v
+BaseLLMRunnerConsumer.process_text_data()
+    |
+    ├─► Redis Cache: session_{session_id}_metadata  (2-hour TTL, fast access)
+    ├─► Session.metadata["client_context"]           (persistent DB storage)
+    |
+    v
+LLMRunner.asetup_user_prompt()
+    |
+    ├─ 1. Add greeting instructions
+    ├─ 2. Append page_content (if provided)
+    └─ 3. Append metadata (formatted as key: value pairs)
+    |
+    v
+LLM receives the composed prompt
+    |
+    v
+Response returned to user
+    |
+    v
+Message saved to chat history
+(metadata markers remain in saved messages)
+```
+
+**Storage layers:**
+
+| Layer | Location | Purpose |
+|-------|----------|---------|
+| Cache | Redis `session_{id}_metadata` | Fast access during active conversation (2h TTL) |
+| Session DB | `Session.metadata["client_context"]` | Persistent storage, used by analytics APIs and exports |
+| Message DB | `ChatMessageHistoryExtra.metadata` | Per-message snapshot (captures metadata at time of each message) |
+
+**Transport:** Both WebSocket (`/ws/chat/`) and HTTP SSE (`POST /api/mentor/chat/`) share the same pipeline. The metadata field works identically on both.
+
+---
+
+## Notes
+
+- The metadata structure is **generic** — not tied to any specific client's data model. Use whatever keys make sense for your application.
+- Metadata is stored at the **session level**. All messages in a conversation share the same metadata unless the frontend sends an update.
+- Metadata is **not stripped** from chat history (unlike `page_content`, which is stripped before saving). The `<CONTEXT METADATA>` markers remain in the stored messages.
+- If the mentor's behavior doesn't reflect the metadata context as expected, update the mentor's **system prompt** to explicitly reference the metadata fields.
