@@ -2,8 +2,6 @@
 
 Step-by-step instructions for deploying an OpenClaw gateway on a Hetzner Cloud server and connecting it to ibl-dm-pro as a chat runner.
 
-> **Ref**: [iblai/iblai-platform#575](https://github.com/iblai/iblai-platform/issues/575)
-
 ---
 
 ## Architecture
@@ -25,7 +23,7 @@ Student (browser) → ibl-dm-pro (Django Channels / ASGI)
 
 **Why Caddy on the host (not Docker)**: Caddy must run directly on the host so that TCP connections to OpenClaw arrive from `127.0.0.1`. This preserves loopback auto-approval for device identity — the same mechanism that made moltworker work without explicit device signing on Cloudflare. If Caddy ran in a Docker container, it would connect via Docker bridge (172.x.x.x) and OpenClaw would treat it as a remote connection.
 
-**Why device identity signing**: On vanilla OpenClaw (unlike moltworker), the gateway requires Ed25519 device identity in the WebSocket connect handshake. Without it, connections succeed but the gateway grants **zero scopes** — effectively treating the client as unauthenticated. This was the root cause of the "missing scope: operator.read" failure encountered during initial deployments. The DM backend now signs each connect with its own Ed25519 keypair (PR #2467).
+**Why device identity signing**: On vanilla OpenClaw (unlike moltworker), the gateway requires Ed25519 device identity in the WebSocket connect handshake. Without it, connections succeed but the gateway grants **zero scopes** — effectively treating the client as unauthenticated. This was the root cause of the "missing scope: operator.read" failure encountered during initial deployments. The DM backend now signs each connect with its own Ed25519 keypair.
 
 ---
 
@@ -633,7 +631,7 @@ These are the issues encountered during initial deployments, collected here for 
 | 4 | Control UI "pairing required" | Browser device not auto-approved through reverse proxy | `openclaw devices approve <requestId>` (one-time per browser) |
 | 5 | Browser `ERR_CONNECTION_TIMED_OUT` | Hetzner Cloud Firewall restricting port 443; user IP not in allowlist | Add IP to Hetzner firewall allowlist |
 | 6 | `OPENCLAW_GATEWAY_TOKEN` not found in new SSH sessions | Token only exported in original shell | Add `export OPENCLAW_GATEWAY_TOKEN=...` to `~/.bashrc` |
-| 7 | Config push "missing scope: operator.read" | `OpenClawClient` was omitting device identity from connect handshake | Implement Ed25519 device signing (PR #2467, now merged) |
+| 7 | Config push "missing scope: operator.read" | `OpenClawClient` was omitting device identity from connect handshake | Implement Ed25519 device signing |
 | 8 | Dev container can't reach Hetzner server | Hetzner Cloud Firewall restricts port 443; dev IP not allowlisted | Connect via VPN with allowlisted IP, or broaden firewall rule |
 | 9 | Model ID mismatch | OpenClaw normalizes `claude-sonnet-4-20250514` → `claude-sonnet-4-6` | Use short alias in Django agent_config |
 | 10 | DM backend `NOT_PAIRED` after gateway update | OpenClaw update/restart wiped paired devices; Caddy forwards `X-Forwarded-For` so auto-approval doesn't work | Manual re-pair (see "Device Re-Pairing" section); long-term: see "Solution options" in same section |
