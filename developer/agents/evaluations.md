@@ -1,4 +1,4 @@
-# Mentor Evaluation System
+# Evaluation System
 
 Measure and improve mentor quality by running structured experiments against datasets and grading results through human annotations or automated LLM-as-Judge scoring.
 
