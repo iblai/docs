@@ -6,7 +6,7 @@ Pass arbitrary context alongside chat messages to any AI Mentor so it can tailor
 
 ## Overview
 
-The chat metadata feature lets you pass arbitrary context alongside chat messages to any IBL Mentor. This context (e.g., product group, licensing level, state) is automatically injected into the mentor's awareness, allowing it to tailor responses to the user's exact situation without the user having to explain their context manually.
+The chat metadata feature lets you pass arbitrary context alongside chat messages to any IBL Mentor. This context (e.g., product name, plan tier, user role) is automatically injected into the mentor's awareness, allowing it to tailor responses to the user's exact situation without the user having to explain their context manually.
 
 **Key points:**
 - The `metadata` field is a **free-form JSON object** — any key-value pairs are accepted, no enforced schema
@@ -21,7 +21,7 @@ The chat metadata feature lets you pass arbitrary context alongside chat message
 ```
 Frontend Application
     |
-    |  Sends: { prompt, metadata: { productGroup, stateCode, ... } }
+    |  Sends: { prompt, metadata: { product, planTier, ... } }
     |
     v
 IBL Mentor Backend
@@ -32,16 +32,17 @@ IBL Mentor Backend
     v
 Mentor (LLM) receives the user's message with context appended:
 
-    "What are the licensing requirements?"
+    "How do I set up SSO?"
 
     <CONTEXT METADATA> Here is additional context metadata for this conversation:
-    productGroup: LICENSING
-    productLevel: LH
-    stateCode: CA
+    product: Analytics
+    planTier: Enterprise
+    userRole: Admin
+    region: EU
     </END CONTEXT METADATA>
 ```
 
-The mentor sees this context and responds accordingly — e.g., answering about Health insurance licensing in California rather than generic insurance topics.
+The mentor sees this context and responds accordingly — e.g., answering with Enterprise-tier SSO setup steps for the Analytics product with EU data-residency considerations, rather than generic help.
 
 ---
 
@@ -57,12 +58,10 @@ ws.send(JSON.stringify({
   prompt: userMessage,
   page_content: pageContent,       // optional
   metadata: {                       // optional
-    productGroup: 'LICENSING',
-    productLevel: 'LH',
-    productLevelDisplay: 'Life & Health',
-    productFamily: 'INSURANCE',
-    stateCode: 'CA',
-    name: 'Health'
+    product: 'Analytics',
+    planTier: 'Enterprise',
+    userRole: 'Admin',
+    region: 'EU'
   },
   flow: { name: mentorId, tenant: tenantKey }
 }));
@@ -78,10 +77,12 @@ Content-Type: application/json
 
 {
   "session_id": "uuid",
-  "prompt": "What are the requirements?",
+  "prompt": "How do I set up SSO?",
   "metadata": {
-    "productGroup": "LICENSING",
-    "stateCode": "CA"
+    "product": "Analytics",
+    "planTier": "Enterprise",
+    "userRole": "Admin",
+    "region": "EU"
   },
   "flow": { "name": "mentor-slug", "tenant": "tenant-key" }
 }
@@ -96,9 +97,10 @@ iframe.contentWindow.postMessage({
   type: 'context',
   page_content: '<html content of current page>',
   metadata: {
-    productGroup: 'LICENSING',
-    productLevel: 'LH',
-    stateCode: 'CA'
+    product: 'Analytics',
+    planTier: 'Enterprise',
+    userRole: 'Admin',
+    region: 'EU'
   }
 }, '*');
 ```
@@ -116,10 +118,10 @@ Metadata is **cached per session** and only needs to be sent once. Here's how it
 
 | Message | `metadata` sent | What the mentor sees |
 |---------|-----------------|----------------------|
-| #1 | `{ productGroup: "LICENSING", stateCode: "CA" }` | User's prompt + LICENSING / CA context |
-| #2 | _(not sent)_ | User's prompt + LICENSING / CA context (reused from #1) |
-| #3 | `{ productGroup: "CE", stateCode: "NY" }` | User's prompt + CE / NY context (replaced) |
-| #4 | _(not sent)_ | User's prompt + CE / NY context (reused from #3) |
+| #1 | `{ product: "Analytics", planTier: "Enterprise" }` | User's prompt + Analytics / Enterprise context |
+| #2 | _(not sent)_ | User's prompt + Analytics / Enterprise context (reused from #1) |
+| #3 | `{ product: "Payments", planTier: "Starter" }` | User's prompt + Payments / Starter context (replaced) |
+| #4 | _(not sent)_ | User's prompt + Payments / Starter context (reused from #3) |
 
 **Rules:**
 - **Send once** — metadata persists automatically for the rest of the session
@@ -133,16 +135,13 @@ Metadata is **cached per session** and only needs to be sent once. Here's how it
 
 The metadata field accepts **any** JSON object. There is no enforced schema — use whatever keys make sense for your application.
 
-**Example: Insurance education platform**
+**Example: SaaS customer support**
 ```json
 {
-  "productGroup": "LICENSING",
-  "productLevel": "LH",
-  "productLevelDisplay": "Life & Health",
-  "productFamily": "INSURANCE",
-  "productFamilyDisplay": null,
-  "stateCode": "CA",
-  "name": "Health"
+  "product": "Analytics",
+  "planTier": "Enterprise",
+  "userRole": "Admin",
+  "region": "EU"
 }
 ```
 
@@ -156,13 +155,13 @@ The metadata field accepts **any** JSON object. There is no enforced schema — 
 }
 ```
 
-**Example: K-12 education**
+**Example: E-commerce product advisor**
 ```json
 {
-  "gradeLevel": 10,
-  "subject": "Biology",
-  "unit": "Cell Division",
-  "standard": "NGSS HS-LS1-4"
+  "category": "Laptops",
+  "brand": "ThinkPad",
+  "priceRange": "1000-2000",
+  "customerSegment": "Business"
 }
 ```
 
@@ -174,10 +173,10 @@ The metadata is appended to the user's prompt as context. The mentor's **system 
 
 **Example system prompt excerpt:**
 ```
-You are a licensing exam preparation assistant. When the user's context
-includes a stateCode, always tailor your answers to that state's specific
-licensing requirements. When productLevel is provided, focus your answers
-on that specific license type.
+You are a product support assistant. When the user's context includes a
+product name, tailor your answers to that specific product's features and
+documentation. When planTier is provided, only suggest features available
+on that plan. When region is EU, highlight GDPR and data-residency details.
 ```
 
 ---
@@ -197,9 +196,10 @@ Response:
 {
   "summary": {
     "client_context": {
-      "productGroup": "LICENSING",
-      "stateCode": "CA",
-      "productLevel": "LH"
+      "product": "Analytics",
+      "planTier": "Enterprise",
+      "userRole": "Admin",
+      "region": "EU"
     }
   }
 }
@@ -233,43 +233,41 @@ The full `Session.metadata` object is included, which contains the `client_conte
 
 ## Example: Single Mentor Serving Multiple Contexts
 
-**Scenario:** One mentor handles all insurance licensing questions, but users are on different product/state pages.
+**Scenario:** One support mentor handles questions across your entire SaaS platform, but users are on different product pages with different plans.
 
-**Page: Health Insurance Licensing in California**
-
-The frontend sends:
-```json
-{
-  "metadata": {
-    "productGroup": "LICENSING",
-    "productLevel": "LH",
-    "productLevelDisplay": "Life & Health",
-    "stateCode": "CA",
-    "name": "Health"
-  }
-}
-```
-
-**User asks:** "What topics are on the exam?"
-
-**Mentor responds** with California-specific Life & Health exam topics — not generic insurance information.
-
-**Page: Property & Casualty in New York**
+**Page: Analytics product — Enterprise plan**
 
 The frontend sends:
 ```json
 {
   "metadata": {
-    "productGroup": "LICENSING",
-    "productLevel": "PC",
-    "productLevelDisplay": "Property & Casualty",
-    "stateCode": "NY",
-    "name": "Property & Casualty"
+    "product": "Analytics",
+    "planTier": "Enterprise",
+    "userRole": "Admin",
+    "region": "EU"
   }
 }
 ```
 
-**Same mentor** now responds with New York-specific P&C content.
+**User asks:** "How do I set up SSO?"
+
+**Mentor responds** with Enterprise-tier SSO setup steps for the Analytics product, noting EU data-residency requirements — not generic help docs.
+
+**Page: Payments product — Starter plan**
+
+The frontend sends:
+```json
+{
+  "metadata": {
+    "product": "Payments",
+    "planTier": "Starter",
+    "userRole": "Developer",
+    "region": "US"
+  }
+}
+```
+
+**Same mentor** now responds with Starter-plan Payments integration guides, and notes that SSO requires upgrading to the Pro plan.
 
 If the mentor's responses don't align with the expected behavior, adjust the **system prompt** to instruct the mentor on how to use the metadata fields.
 
