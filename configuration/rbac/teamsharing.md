@@ -27,10 +27,12 @@ Beyond CSV-based platform invitations, teams can now be shared directly from the
 
 ### Assign Permissions
 
-- **Read permission:** allows viewing the team and its members.  
-- **View Analytics permission:** allows viewing enrollments, progress, and analytics for that team.
+- **Read:** allows viewing the team and its members.
+- **Edit:** allows viewing and editing the team and its membership.
+- **View Analytics:** allows viewing enrollments, progress, and analytics for that team.
+- **Notification Manager:** allows managing alert settings for the tenant and sending notifications to the team.
 
-Assign **both permissions** to enable full oversight of team data (without edit powers).
+Assign **Read** and **View Analytics** together to enable full oversight of team data (without edit powers).
 
 ### Add Users or Groups
 
@@ -50,10 +52,10 @@ Assign **both permissions** to enable full oversight of team data (without edit 
 - View team membership.  
 - View analytics, enrollments, and learner progress for their team.
 
-### Cannot
+### Cannot (with Read + View Analytics only)
 
-- Edit platform settings.  
-- Send invitations or notifications.  
+- Edit the team or its membership.
+- Manage alert settings or send notifications.
 - Access other teams’ data.
 
 ---
