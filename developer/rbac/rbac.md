@@ -107,10 +107,6 @@ A user's effective permissions = union of all policies they belong to (directly 
 
 An **RBAC Group** (`RbacGroup`) is a collection of users. Assigning a group to a policy grants all group members that policy's permissions.
 
-Two built-in groups exist per platform:
-- **Tenant Admins**: Platform administrators
-- **Students**: Regular platform users
-
 ### Well-Known Roles
 
 **Well-Known Roles** (`RbacWellKnownRole`) are supplemental policies applied dynamically based on context (not stored as policy assignments):
