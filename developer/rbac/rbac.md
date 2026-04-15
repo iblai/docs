@@ -69,7 +69,7 @@ Built-in roles include:
 
 | Role | Purpose |
 |------|---------|
-| Tenant Admin | Full access (`Ibl.*`) |
+| Tenant Admin | Full access |
 | Students | Chat, read mentor settings, manage own artifacts |
 | Mentor Viewer | Read-only access to mentor settings, documents, prompts |
 | Mentor Editor | Full read/write to mentor settings, documents, prompts |
