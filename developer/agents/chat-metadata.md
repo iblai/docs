@@ -88,6 +88,31 @@ Content-Type: application/json
 }
 ```
 
+### Embedded iframe (postMessage)
+
+If the mentor is embedded via iframe, the host page passes metadata through the `postMessage` channel:
+
+```javascript
+iframe.contentWindow.postMessage({
+  type: 'MENTOR:CONTEXT_UPDATE',
+  hostInfo: {
+    title: document.title,
+    href: window.location.href
+  },
+  pageContent: bodyContent,
+  metadata: {
+    productGroup: 'LICENSING',
+    productLevel: 'LH',
+    stateCode: 'CA'
+  }
+}, '*');
+```
+
+The chat widget should:
+1. Listen for `postMessage` events with `type: 'MENTOR:CONTEXT_UPDATE'`
+2. Extract the `metadata` object from the message
+3. Include it in every WebSocket payload sent to the backend
+
 ---
 
 ## Session Behavior
@@ -165,8 +190,8 @@ Once metadata is sent with a conversation, it's available through several APIs f
 
 | Endpoint | Field |
 |----------|-------|
-| `GET /api/ai-mentor/orgs/{org}/users/{user_id}/sessions/{session_id}/` (v1 session detail) | `client_context` in the response body |
-| `GET /api/analytics/messages/details/?platform_key={platform_key}&session_id={session_id}` (v2 conversation detail) | `summary.client_context` |
+| `GET /api/ai-mentor/orgs/{org}/users/{user_id}/sessions/{session_id}/`  | `client_context` in the response body |
+| `GET /api/analytics/messages/details/?platform_key={platform_key}&session_id={session_id}` | `summary.client_context` |
 | `GET /api/ai-mentor/orgs/{org}/users/{user_id}/sessions/{session_id}/tasks/{task_id}/` (chat history export) | `client_context` column in CSV |
 | Analytics export (`get_chat_message_history`) | `client_context` column in DataFrame |
 
