@@ -271,10 +271,10 @@ POST /api/core/rbac/permissions/check/
 {
   "platform_key": "my-platform",
   "resources": [
-    "/platforms/1/mentors/",
-    "/platforms/1/mentors/42/",
-    "/platforms/1/mentors/42/documents/",
-    "/platforms/1/usergroups/"
+    "/mentors/",
+    "/mentors/42/",
+    "/mentors/42/documents/",
+    "/usergroups/"
   ]
 }
 ```
@@ -282,12 +282,12 @@ POST /api/core/rbac/permissions/check/
 **Response:**
 ```json
 {
-  "/platforms/1/mentors/": {
+  "/mentors/": {
     "list": true,
     "create": false,
     "chat": true
   },
-  "/platforms/1/mentors/42/": {
+  "/mentors/42/": {
     "read": true,
     "write": true,
     "delete": true,
@@ -297,11 +297,11 @@ POST /api/core/rbac/permissions/check/
     "view_prompts": true,
     "view_chat_history": true
   },
-  "/platforms/1/mentors/42/documents/": {
+  "/mentors/42/documents/": {
     "list": true,
     "create": true
   },
-  "/platforms/1/usergroups/": {
+  "/usergroups/": {
     "list": true,
     "create": false
   }
@@ -336,7 +336,9 @@ Checked against the mentor's resource path (`/platforms/{pk}/mentors/{mentor_id}
   "groups_to_add": [5],
   "groups_to_remove": [6]
 }
+
 ```
+You can optionally use `usernames_to_add` and `emails_to_add` instead of `users_to_add` if you don't have id's.
 
 Valid `role` values: `"chat"`, `"viewer"`, `"editor"`
 
