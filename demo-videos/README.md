@@ -2,6 +2,37 @@
 
 Product showcase videos for ibl.ai's AI platform. Three videos covering the Joseph chat assistant, MentorAI, and Agentic OS.
 
+---
+
+## Quickstart — Just Ask Claude
+
+The fastest way to create a new video is to open [Claude Code](https://claude.ai/code) and describe what you want. The skills in `.agents/skills/` (in the Remotion repo) handle the rest.
+
+**For a Remotion video (React-based, great for UI demos):**
+> "Use the Remotion skill to create a chat demo showing [product/feature]. Here's the content: [paste screenshots or descriptions]"
+
+**For a HyperFrames video (HTML+GSAP, great for cinematic showcases):**
+> "Use the hyperframes skill to create a $100k quality showcase video for [product]. Here's the site: [URL]"
+
+Claude will generate the composition, animate it, and give you the render command. You don't need to write any code.
+
+**To render after Claude generates it:**
+```bash
+# Remotion
+npx remotion render ChatDemo out/video.mp4
+
+# HyperFrames (Windows — see note below if npx render fails)
+npx hyperframes render
+```
+
+> **Windows FFmpeg note:** If `npx hyperframes render` says FFmpeg not found even after installing it, run via node directly:
+> ```bash
+> node "C:/Users/<you>/AppData/Local/npm-cache/_npx/<hash>/node_modules/hyperframes/dist/cli.js" render
+> ```
+> Find the hash by running `npx hyperframes doctor` once to cache the package.
+
+---
+
 ## Videos
 
 | File | Product | Tool | Duration |
