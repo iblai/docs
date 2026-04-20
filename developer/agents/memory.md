@@ -402,6 +402,15 @@ curl -X GET \
   -H "Authorization: Token <token>"
 ```
 
+**Query Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `session_id` | string | Filter memories by source session ID |
+| `content` | string | Case-insensitive search within memory content |
+| `start_date` | ISO 8601 date | Filter memories created on or after this date |
+| `end_date` | ISO 8601 date | Filter memories created on or before this date |
+
 **Response:**
 ```json
 {
@@ -421,6 +430,36 @@ curl -X GET \
     }
   ]
 }
+```
+
+**Filtering Examples:**
+
+**Filter by session:**
+```bash
+curl -X GET \
+  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?session_id=abc-123-def" \
+  -H "Authorization: Token <token>"
+```
+
+**Search by content:**
+```bash
+curl -X GET \
+  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?content=software%20engineer" \
+  -H "Authorization: Token <token>"
+```
+
+**Filter by date range:**
+```bash
+curl -X GET \
+  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?start_date=2024-01-01&end_date=2024-01-31" \
+  -H "Authorization: Token <token>"
+```
+
+**Combined filters:**
+```bash
+curl -X GET \
+  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?content=python&start_date=2024-01-01" \
+  -H "Authorization: Token <token>"
 ```
 
 #### Create Global Memory
@@ -693,7 +732,7 @@ curl -X DELETE \
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/orgs/{org}/users/{user_id}/global-memories/` | List global memories |
+| GET | `/orgs/{org}/users/{user_id}/global-memories/` | List global memories (supports filtering by session_id, content, start_date, end_date) |
 | POST | `/orgs/{org}/users/{user_id}/global-memories/` | Create global memory |
 | DELETE | `/orgs/{org}/users/{user_id}/global-memories/{id}/` | Delete global memory |
 | GET | `/orgs/{org}/users/{user_id}/mentor-memories/` | List all mentor memories |
