@@ -12,7 +12,7 @@ For client-facing API usage, see:
 
 - [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, attach to mentors.
 - [OAuth Connectors](/docs/developer/agents/mcp-authentication/oauth-connectors) — per-user OAuth authorization flow.
-- [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-events) — WebSocket/SSE events during a live chat.
+- [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events) — WebSocket/SSE events during a live chat.
 
 ---
 
@@ -117,7 +117,7 @@ When a resolution would fail *and* the server is configured with `auth_scope="us
 4. On success, emits `oauth_connection_resolved` and resumes chat processing.
 5. On timeout (`MCP_OAUTH_MAX_WAIT_SECONDS`, default 300s), raises a `ChatValidationError` which surfaces to the client as an `error` event.
 
-See [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-events) for the message schemas and recommended client handling.
+See [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events) for the message schemas and recommended client handling.
 
 ---
 

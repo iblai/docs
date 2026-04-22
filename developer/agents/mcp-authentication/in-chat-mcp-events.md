@@ -44,6 +44,39 @@ The `auth_scope` field on the MCP server controls whether the in-chat prompt fir
 | `mentor` | Uses mentor-scoped credentials. No prompt. |
 | `user` | **Each user authenticates individually.** The in-chat flow runs when no user-scoped connection exists. |
 
+### Admin setup checklist
+
+Before a frontend ever receives an `oauth_required` event, a tenant admin must have:
+
+1. **Created an `OauthProvider`** (e.g., `google`) with a valid `auth_url` and `token_url`.
+2. **Created an `OauthService`** (e.g., `drive`) linked to the provider with the required `scope`.
+3. **Stored client credentials** in the credential store:
+
+   ```
+   Key:    auth_google
+   Tenant: main
+   Value:  {
+     "client_id":     "your-client-id",
+     "client_secret": "your-client-secret",
+     "redirect_uri":  "https://your-app.com/api/ai-mentor/orgs/main/users/oauth/callback/"
+   }
+   ```
+4. **Registered an `MCPServer`** with `auth_type="oauth2"`, `auth_scope="user"`, `is_enabled=true`, and a linked `oauth_service`.
+5. **Attached the server** to the target mentor via `PATCH /mentors/{id}/settings/` with `"mcp_servers": [...]` and `"tools": ["mcp-tool"]`.
+
+`auth_scope` is set at server-creation time or updated later:
+
+```http
+PATCH /api/ai-mentor/orgs/{org}/users/{user_id}/mcp-servers/{server_id}/
+Content-Type: application/json
+
+{
+  "auth_scope": "user"
+}
+```
+
+Valid values: `"platform"` (default), `"mentor"`, `"user"`.
+
 ---
 
 ## Sequence Diagram
