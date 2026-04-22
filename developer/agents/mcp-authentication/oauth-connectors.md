@@ -9,9 +9,11 @@ Let learners and tenant admins grant the platform permission to act on their beh
 Front-end clients use the OAuth connector APIs to let a learner (or tenant admin) grant our platform permission to act on their behalf. This guide documents the discovery endpoints, the authorization handshake, and the post-connection management APIs.
 
 **Key terms:**
-- **OAuth Provider** -- A top-level vendor such as Google or Dropbox.
-- **OAuth Service** -- A concrete surface offered by a provider (e.g., Google Drive, Google Calendar). A `ConnectedService` references one service.
-- **ConnectedService** -- The persisted token bundle that represents a user's grant. These are always per user *and* per service.
+- **OAuth Provider** — A top-level vendor such as Google or Dropbox.
+- **OAuth Service** — A concrete surface offered by a provider (e.g., Google Drive, Google Calendar). A `ConnectedService` references one service.
+- **ConnectedService** — The persisted token bundle that represents a user's grant. These are always per user *and* per service.
+
+> **Next step:** Once a `ConnectedService` exists, wire it into an MCP server with the [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) guide, or let a learner connect inline via [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-events).
 
 ## API Summary
 
