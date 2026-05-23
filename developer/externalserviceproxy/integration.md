@@ -275,7 +275,7 @@ For details on what `body` parameters each upstream API expects, refer to their 
 | Service | Documentation |
 |---------|---------------|
 | ElevenLabs | [ElevenLabs API Docs](https://elevenlabs.io/docs/api-reference) |
-| HeyGen | [HeyGen API Docs](https://docs.heygen.com/reference/api-reference) |
+| HeyGen | [HeyGen API Docs](https://developers.heygen.com/) |
 
 ### Finding Required Body Parameters
 

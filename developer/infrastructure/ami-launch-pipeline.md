@@ -166,9 +166,9 @@ Each AMI is a snapshot of a fully configured staging environment:
 | Repository | Role |
 |------------|------|
 | [iblai-infra-cli](https://github.com/iblai/iblai-infra-cli) | CLI tool with `service-update` command, Ansible playbooks, Terraform templates |
-| [iblai-web-ops](https://github.com/iblai/iblai-web-ops) | Reusable GitHub Actions workflows (OCI test runner, Docker builds, domain locking) |
-| [iblai-prod-images](https://github.com/iblai/iblai-prod-images) | Container image version pins (DM, edX, SPAs) |
-| [mentorai](https://github.com/iblai/mentorai) | SPA source code, Playwright tests, PR validation workflows |
+| `iblai-web-ops` | Reusable GitHub Actions workflows (OCI test runner, Docker builds, domain locking) |
+| `iblai-prod-images` | Container image version pins (DM, edX, SPAs) |
+| `mentorai` | SPA source code, Playwright tests, PR validation workflows |
 
 ## Secrets & Variables
 
