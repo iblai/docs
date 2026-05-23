@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=LpdYOKA8xHU
 [93.9s] We've already got a few set up. So, I'll
 [95.7s] show you what this looks like. Um this
 [97.6s] course content tool is going to allow
-[99.7s] you to add uh the the agent as a course
+[99.7s] you to add uh the agent as a course
 [103.7s] content component. Um so it'll be inside
 [106.5s] the inner courseware. Here we also have
 [108.6s] deep linking and you also have the

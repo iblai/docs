@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Financials tab** shows the **real cost** of running a specific Agentic OS—broken down by **time period, provider, model, and even user**.  
+The **Financials tab** shows the **real cost** of running a specific agent—broken down by **time period, provider, model, and even user**.  
 Use it to monitor spending, compare weeks or months, and identify savings opportunities (e.g., switching models) without guesswork.
 
 ---

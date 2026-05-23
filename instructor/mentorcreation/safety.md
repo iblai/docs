@@ -101,7 +101,7 @@ Adjust prompts for **K‑12 deployments**, ensuring conversations stay developme
 Use customized warning text that reflects **school tone**—formal, friendly, or supportive—so messages feel on brand.
 
 
-***With Moderation and Safety prompts properly configured, Agentic OS blocks harmful questions before they reach the AI and prevents unsuitable responses from ever reaching learners—maintaining a safe, compliant, and trustworthy learning environment.***
+***With Moderation and Safety prompts properly configured, the agent blocks harmful questions before they reach the AI and prevents unsuitable responses from ever reaching learners—maintaining a safe, compliant, and trustworthy learning environment.***
 
 ---
 
@@ -112,7 +112,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-Flagged Prompts gives instructors/admins a clear view of potentially harmful, sensitive, or out-of-scope learner inputs that were stopped by an agent’s **Moderation Prompt**. When a learner asks something outside the agent’s allowed scope (or against policy), Agentic OS blocks the reply, shows the learner a warning, and records the input in the **Safety → Flagged Prompts** view for follow-up and auditing.
+Flagged Prompts gives instructors/admins a clear view of potentially harmful, sensitive, or out-of-scope learner inputs that were stopped by an agent’s **Moderation Prompt**. When a learner asks something outside the agent’s allowed scope (or against policy), the agent blocks the reply, shows the learner a warning, and records the input in the **Safety → Flagged Prompts** view for follow-up and auditing.
 
 
 ## Target Audience
@@ -126,7 +126,7 @@ Instructor · Administrator
 Inputs blocked by the Moderation Prompt (e.g., off-topic, policy-restricted) are saved as flagged items.
 
 #### No Response to Learner
-Agentic OS withholds an answer and displays a warning to keep the conversation safe and on task.
+The agent withholds an answer and displays a warning to keep the conversation safe and on task.
 
 #### Cohort-Level Visibility
 Instructors/admins can review flagged inputs across their cohort for safety, policy, or scope enforcement.

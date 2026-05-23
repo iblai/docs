@@ -37,7 +37,7 @@ One‑click prompts like **Summarize key takeaways** speed up common tasks.
 
 #### Seamless Chat Continuation
 
-Type any question at any time; Agentic OS responds in the **context of the page** you’re on.
+Type any question at any time; the agent responds in the **context of the page** you’re on.
 
 ---
 
@@ -51,7 +51,7 @@ Type any question at any time; Agentic OS responds in the **context of the page*
 #### Use the Course Tab
 
 - Click a quick‑action button such as **Summarize key takeaways**  
-- Agentic OS reads the current page and returns a **concise summary**  
+- The agent reads the current page and returns a **concise summary**  
 - Prefer typing? Skip the buttons and enter your own question
 
 #### Translate the Page
@@ -63,14 +63,14 @@ Type any question at any time; Agentic OS responds in the **context of the page*
 #### Expand the Content
 
 - Open the **Expand** tab  
-- Agentic OS delivers a **deeper explanation** of the selected material (e.g., a “Colliding Cultures” slide deck)  
+- The agent delivers a **deeper explanation** of the selected material (e.g., a “Colliding Cultures” slide deck)  
 - Continue chatting or click another quick prompt to explore further
 
 #### Leverage Suggested & Guided Prompts
 
 - **Suggested prompts** at the top provide instant ideas if you’re unsure what to ask  
 - **Guided prompts** at the bottom evolve from your conversation, nudging you toward the next logical question  
-- Click any prompt—or just type your own—and Agentic OS answers in **full context**
+- Click any prompt—or just type your own—and the agent answers in **full context**
 
 ---
 
@@ -99,4 +99,4 @@ Students with different language backgrounds or learning preferences receive **p
 
 ---
 
-With **Context Awareness**, Agentic OS meets you **right where you’re studying**—summarizing, translating, and expanding the exact content on your screen so you can learn **faster and more effectively**.
+With **Context Awareness**, the agent meets you **right where you’re studying**—summarizing, translating, and expanding the exact content on your screen so you can learn **faster and more effectively**.

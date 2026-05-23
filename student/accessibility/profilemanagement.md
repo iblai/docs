@@ -4,7 +4,7 @@
 
 ## Description
 
-The **User Profile** lets you manage the personal details that Agentic OS uses to personalize your experience—**name, contact info, preferred language, social links, education, work history, and résumé**. You can also **reset your password** from here.  
+The **User Profile** lets you manage the personal details that the agent uses to personalize your experience—**name, contact info, preferred language, social links, education, work history, and résumé**. You can also **reset your password** from here.  
 
 Profile updates help Agentic OS **tailor guidance** (e.g., career advice) and help **instructors/admins** understand learner context.
 
@@ -23,7 +23,7 @@ Edit your **full name, email, title**, and an **About blurb** summarizing your b
 
 #### Preferred Language
 Choose your **interface language** (e.g., Spanish, French).  
-Agentic OS adapts the UI and experience accordingly.
+The agent adapts the UI and experience accordingly.
 
 #### Social
 Add optional links (Facebook, LinkedIn, X) to make it easier to connect outside the platform.
@@ -99,7 +99,7 @@ Reset your password while logged in; a verification email is sent to complete th
 ## Pedagogical Use Cases
 
 #### Personalized Career Guidance
-Education/experience + résumé help Agentic OS suggest roles, skills to build, and tailored application tips.
+Education/experience + résumé help the agent suggest roles, skills to build, and tailored application tips.
 
 #### Language Accessibility
 The **Preferred Language** ensures the UI and responses match your preferred communication language.

@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-Guided Mode turns an Agentic OS chat into an interactive lesson engine that teaches, quizzes, and reinforces concepts automatically. Instructors link a course to an agent, choose a guide style—Spaced Repetition, Instruction Mode, or Socratic Mode—and Agentic OS takes over, presenting material, asking questions, and revisiting topics until mastery is reached. Meanwhile, instructors receive detailed analytics on every question‑and‑answer cycle to pinpoint learning gaps and celebrate student progress.
+Guided Mode turns an agent chat into an interactive lesson engine that teaches, quizzes, and reinforces concepts automatically. Instructors link a course to an agent, choose a guide style—Spaced Repetition, Instruction Mode, or Socratic Mode—and Agentic OS takes over, presenting material, asking questions, and revisiting topics until mastery is reached. Meanwhile, instructors receive detailed analytics on every question‑and‑answer cycle to pinpoint learning gaps and celebrate student progress.
 
 
 
@@ -33,7 +33,7 @@ Connect any course (e.g., Engineering Computations) to an existing agent with 
 
 #### Dynamic Learner Prompts
 
-Agentic OS adapts prompts on the fly—e.g.,  
+The agent adapts prompts on the fly—e.g.,  
 > “Can you explain loops in Python?” → “Quiz me on loops.”  
 —based on each learner’s performance.
 
@@ -64,7 +64,7 @@ View the exact questions asked, how many times they repeated, last/next review t
 #### Launch Learner Session
 
 - Students open the agent chat and type **“Start lesson.”**  
-- Agentic OS explains a topic, then poses a question  
+- The agent explains a topic, then poses a question  
 - Incorrect answers trigger future repetitions (**Spaced Repetition**) until the learner answers correctly
 
 #### Observe Adaptive Prompts

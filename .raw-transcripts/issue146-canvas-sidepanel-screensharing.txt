@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=M5HT9RXJyqI
 [82.9s] >> So, the first thing I'm going to do is
 [84.3s] show you the muted feature. Um, in this
 [86.8s] case, this is me muting my own audio so
-[88.7s] the the agent doesn't hear what I'm
+[88.7s] the agent doesn't hear what I'm
 [90.4s] saying. This is really helpful in case,
 [92.2s] you know, you're in an area with a lot
 [93.4s] of background noise, um, or you just

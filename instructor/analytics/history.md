@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The History panel records every conversation between an Agentic OS and its learners. Administrators can review transcripts, apply filters (date, sentiment, topic, category), and export data for deeper analysis—revealing learning trends, common pain points, and opportunities to improve both course content and agent behavior.
+The History panel records every conversation between an agent and its learners. Administrators can review transcripts, apply filters (date, sentiment, topic, category), and export data for deeper analysis—revealing learning trends, common pain points, and opportunities to improve both course content and agent behavior.
 
 
 ![](/images/history.png)

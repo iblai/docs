@@ -4,7 +4,7 @@
 
 ## Description
 
-**Chat Ratings** gives instructors a quick, rolling snapshot of how learners are experiencing a specific Agentic OS—by connecting the **History** (recent chats) and **Memory** (saved user context) features.
+**Chat Ratings** gives instructors a quick, rolling snapshot of how learners are experiencing a specific agent—by connecting the **History** (recent chats) and **Memory** (saved user context) features.
 
 The rating aggregates the past **24 hours** of learner interactions and **refreshes daily**, helping you see what’s working, what’s not, and where to intervene.
 
@@ -78,6 +78,6 @@ Combine **rating trends** with **Memory insights** (knowledge gaps, help request
 
 ---
 
-With **Chat Ratings**, you get a simple, always-current gauge of learner experience—grounded in the last day of real conversations—so you can keep each Agentic OS **effective, supportive, and on track**.
+With **Chat Ratings**, you get a simple, always-current gauge of learner experience—grounded in the last day of real conversations—so you can keep each agent **effective, supportive, and on track**.
 
 

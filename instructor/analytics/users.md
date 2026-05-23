@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Users tab** shows who is using a specific Agentic OS, how often they access it, and when activity peaks.  
+The **Users tab** shows who is using a specific agent, how often they access it, and when activity peaks.  
 Filter by time ranges, view **live and historical counts**, scan **access-time heatmaps**, and drill into **per-user details** (messages sent and last active) to guide outreach and support.
 
 ---

@@ -4,7 +4,7 @@
 
 ## Description
 
-**Disclaimers** let you present important information to learners **before they start chatting with an Agentic OS**.  
+**Disclaimers** let you present important information to learners **before they start chatting with an agent**.  
 
 You can require an explicit **User Agreement** (blocking modal that must be accepted to proceed) and/or display a **non-blocking Advisory** (informational notice). Copy is fully editable (**Markdown supported**), allowing instructors to align the language with **institutional policies**.
 
@@ -55,7 +55,7 @@ Use **Edit** to update the text; defaults are provided for quick setup.
 
 - **Title:** “Course Agent User Agreement”  
 - **Body (Markdown):**  
-  > “By continuing, you acknowledge that Agentic OS may make mistakes and that you will verify important information with official course materials or staff.”
+  > “By continuing, you acknowledge that the agent may make mistakes and that you will verify important information with official course materials or staff.”
 
 #### Save & Enable
 

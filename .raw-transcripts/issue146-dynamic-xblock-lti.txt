@@ -48,7 +48,7 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [107.2s] going to be the new placement you will
 [108.9s] add. Now with course navigation if you
 [112.5s] don't want learners to be clicking on
-[114.8s] both the the agent and the side
+[114.8s] both the agent and the side
 [117.4s] navigation and within the side panel
 [121.1s] itself in canvas then what I would
 [124.1s] recommend doing is under this method
@@ -124,7 +124,7 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [299.4s] Now, if we go back to the same course,
 [306.9s] now that we're back in the course, um
 [309.0s] before we hop into showing you how to
-[311.0s] hide the the agent integration from the
+[311.0s] hide the agent integration from the
 [314.0s] side panel over here, uh the course nav,
 [316.6s] we'll view this as a student
 [321.2s] and then click on the agent.

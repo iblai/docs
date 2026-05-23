@@ -48,7 +48,7 @@ After saving, a confirmation appears (e.g., *“Retrain interval successfully up
 2. Select a preset (**Daily**, **Weekly**, **Monthly**) or enter a custom **every-N-days** value.  
 3. Click **Save**—you should see a success message confirming the schedule.
 
-#### Let Agentic OS Auto-Update
+#### Let the agent Auto-Update
 - On the chosen cadence, the platform checks the page.  
 - If the content has changed, Agentic OS **re-trains automatically** on the updated version.
 

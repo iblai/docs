@@ -18,11 +18,11 @@ The Human Support tool lets learners request help straight from their Agentic 
 
 #### In‑Chat Ticket Creation
 
-Learners ask Agentic OS to open a ticket whenever they need extra assistance.
+Learners ask the agent to open a ticket whenever they need extra assistance.
 
 #### Real‑Time Ticket Updates
 
-During the same chat, students can add new details (e.g., updated email addresses), and Agentic OS appends them to the existing ticket.
+During the same chat, students can add new details (e.g., updated email addresses), and the agent appends them to the existing ticket.
 
 #### Ticket Lookup for Learners
 
@@ -50,21 +50,21 @@ Staff view each ticket’s subject, user info, description, status (Open / I
 **Prompt:**  
 > I want to change the email address associated with my account. Can you create a support ticket for me?
 
-Agentic OS confirms and opens a new ticket.
+The agent confirms and opens a new ticket.
 
 #### Add Details
 
 When prompted, the learner supplies more info:  
 > The email I’d like to use is example@domain.com.
 
-Agentic OS updates the existing ticket.
+The agent updates the existing ticket.
 
 #### Review Existing Tickets
 
 **Prompt:**  
 > What support tickets have been created for me?
 
-Agentic OS lists open and past tickets (e.g., password resets, login issues).
+The agent lists open and past tickets (e.g., password resets, login issues).
 
 ---
 

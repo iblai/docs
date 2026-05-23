@@ -10,7 +10,7 @@
 
 ## Description
 
-The Screen Share tool lets Agentic OS “see” the browser tab or window you choose to share. By viewing your screen in real time, the agent can provide context‑aware, step‑by‑step guidance—perfect for technical demos, troubleshooting, or walking through tasks like building a new AI agent.
+The Screen Share tool lets the agent “see” the browser tab or window you choose to share. By viewing your screen in real time, the agent can provide context‑aware, step‑by‑step guidance—perfect for technical demos, troubleshooting, or walking through tasks like building a new AI agent.
 
 ---
 
@@ -24,7 +24,7 @@ The Screen Share tool lets Agentic OS “see” the browser tab or window you 
 
 #### Real‑Time Context Awareness
 
-Agentic OS watches your shared screen, understands what you’re seeing, and tailors instructions accordingly.
+The agent watches your shared screen, understands what you’re seeing, and tailors instructions accordingly.
 
 #### Click‑by‑Click Guidance
 
@@ -117,7 +117,7 @@ Get live, click‑by‑click assistance when creating a new AI agent, configurin
 
 #### Coding & Debugging Sessions
 
-Share an **IDE tab** so Agentic OS can point out syntax errors or suggest refactors as you code.
+Share an **IDE tab** so the agent can point out syntax errors or suggest refactors as you code.
 
 #### Software Demonstrations
 

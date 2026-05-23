@@ -48,7 +48,7 @@ Use guided prompts to kick off a conversation when learners aren’t sure where 
 #### Ask a Question in Chat
 - Example:  
   > “What are key epidemiological study designs?”  
-- Agentic OS reads your query, searches trained resources, and composes an answer with inline citations  
+- The agent reads your query, searches trained resources, and composes an answer with inline citations  
 - Example citation:  
   > “These study designs are discussed in Lecture 2.10 of Prof. Quinlan’s course.”
 

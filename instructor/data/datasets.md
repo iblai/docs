@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Datasets tab is where you curate the knowledge base for an Agentic OS. Upload files, link cloud resources, toggle whether content is active for training, and decide if learners can view the original sources. This central dashboard gives you full control over what the agent “knows” and what students can see.
+The Datasets tab is where you curate the knowledge base for an agent. Upload files, link cloud resources, toggle whether content is active for training, and decide if learners can view the original sources. This central dashboard gives you full control over what the agent “knows” and what students can see.
 
 
 ![](/images/datasets.png)

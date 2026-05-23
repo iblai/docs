@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Tools tab allows you to expand (or limit) what an Agentic OS can do by toggling optional capabilities—such as live **Web Search**, **MCP** data connections, **Code Interpreter**, **Image Generation**, **Screen Share**, and more. By enabling the right tools for each agent, you tailor its powers to the course’s needs while keeping the interface uncluttered for learners.
+The Tools tab allows you to expand (or limit) what an agent can do by toggling optional capabilities—such as live **Web Search**, **MCP** data connections, **Code Interpreter**, **Image Generation**, **Screen Share**, and more. By enabling the right tools for each agent, you tailor its powers to the course’s needs while keeping the interface uncluttered for learners.
 
 
 ![](/images/tools.png)

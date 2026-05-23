@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Prompts panel lets you craft every layer of an Agentic OS’s dialogue—from its core personality to the greeting, guided suggestions, and always‑visible shortcuts. By mixing System, Proactive, Guided, and Suggested prompts, you can shape a tutor that mirrors your teaching voice, keeps learners on task, and delivers consistent, on‑brand support.
+The Prompts panel lets you craft every layer of an agent’s dialogue—from its core personality to the greeting, guided suggestions, and always‑visible shortcuts. By mixing System, Proactive, Guided, and Suggested prompts, you can shape a tutor that mirrors your teaching voice, keeps learners on task, and delivers consistent, on‑brand support.
 
 
 ![](/images/prompts.png)
@@ -51,7 +51,7 @@ The Prompts panel lets you craft every layer of an Agentic OS’s dialogue—fro
 
 #### Manage Guided Prompts
 
-- Leave **On** to let Agentic OS generate **topic‑aware suggestions**  
+- Leave **On** to let the agent generate **topic‑aware suggestions**  
 - These chips help learners ask on‑topic follow‑ups  
 - Turn **Off** if not needed
 

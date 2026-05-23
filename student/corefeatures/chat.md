@@ -27,11 +27,11 @@ Ask questions any time—day or night—and receive answers aligned with your co
 
 #### Proactive Guidance (Guided Prompts)
 
-After every response, Agentic OS suggests follow‑up questions that nudge you toward deeper understanding and topics you may not have considered.
+After every response, the agent suggests follow‑up questions that nudge you toward deeper understanding and topics you may not have considered.
 
 #### Adaptive Learning Paths
 
-Agentic OS continually gauges your knowledge and adjusts the depth and complexity of explanations so that every answer meets you where you are.
+The agent continually gauges your knowledge and adjusts the depth and complexity of explanations so that every answer meets you where you are.
 
 ---
 
@@ -69,15 +69,15 @@ You can also:
 
 #### Read the Answer & Follow Up
 
-Agentic OS replies with a tailored explanation. After each answer, new guided prompts appear so you can dive deeper or clarify anything confusing.
+The agent replies with a tailored explanation. After each answer, new guided prompts appear so you can dive deeper or clarify anything confusing.
 
 #### Continue the Conversation
 
-Keep clicking suggested prompts or type new questions. Agentic OS adapts in real time, remembering context and adjusting answers to your evolving understanding.
+Keep clicking suggested prompts or type new questions. The agent adapts in real time, remembering context and adjusting answers to your evolving understanding.
 
 #### Return Anytime
 
-Leave and come back whenever you like—the conversation history remains, so Agentic OS can pick up right where you left off.
+Leave and come back whenever you like—the conversation history remains, so the agent can pick up right where you left off.
 
 ---
 
@@ -91,7 +91,7 @@ Leave and come back whenever you like—the conversation history remains, so Age
 #### Self‑Assessment Quizzes
 
 > “Generate five practice questions on Chapter 3.”  
-→ Agentic OS creates custom questions; follow up with  
+→ the agent creates custom questions; follow up with  
 > “Show me the answers.”  
 for instant feedback.
 
@@ -108,7 +108,7 @@ to uncover underlying principles and related ideas.
 
 #### Continuous, Adaptive Learning
 
-Early in a semester, Agentic OS explains basics in simple terms; later, it offers advanced insights—ensuring support from introductory material to nuanced discussions.
+Early in a semester, the agent explains basics in simple terms; later, it offers advanced insights—ensuring support from introductory material to nuanced discussions.
 
 ---
 

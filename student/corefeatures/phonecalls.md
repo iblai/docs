@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Phone Calls feature lets you converse with Agentic OS by voice—hands‑free and in real time. Simply tap the microphone icon to start a voice session and speak your questions. Agentic OS responds aloud, creating a natural, human‑like interaction that supports accessibility, language practice, and on‑the‑go learning.
+The Phone Calls feature lets you converse with Agentic OS by voice—hands‑free and in real time. Simply tap the microphone icon to start a voice session and speak your questions. The agent responds aloud, creating a natural, human‑like interaction that supports accessibility, language practice, and on‑the‑go learning.
 
 
 ![](/images/phonecalls.png)
@@ -70,7 +70,7 @@ Simply ask a new question, such as:
 
 Example:  
 > Could you give me a quiz question on World War II
-Answer aloud; Agentic OS confirms or corrects you.
+Answer aloud; the agent confirms or corrects you.
 
 #### End the Session
 
@@ -104,4 +104,4 @@ Listen to explanations of complex theories, reducing eye strain and cognitive ov
 
 ---
 
-With **voice‑to‑voice enabled**, Agentic OS delivers rapid, conversational help that feels **personal** and is **accessible wherever you can speak and listen**—making learning easier, faster, and more engaging.
+With **voice‑to‑voice enabled**, the agent delivers rapid, conversational help that feels **personal** and is **accessible wherever you can speak and listen**—making learning easier, faster, and more engaging.

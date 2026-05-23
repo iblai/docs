@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-**Memory** lets Agentic OS **remember what you share about yourself**—then use it to **personalize future answers**. By default, **Memory is on**. When **Reference Saved Memories** is enabled by your school, the agent can actively draw on your saved memories (e.g., personal info, knowledge gaps, help requests, lessons learned) to tailor replies and progress checks.
+**Memory** lets the agent **remember what you share about yourself**—then use it to **personalize future answers**. By default, **Memory is on**. When **Reference Saved Memories** is enabled by your school, the agent can actively draw on your saved memories (e.g., personal info, knowledge gaps, help requests, lessons learned) to tailor replies and progress checks.
 
 ![](/images/memorystudent1.png)
 
@@ -24,7 +24,7 @@ Your agent remembers details you tell it during chat
 (e.g., “I’m new to Linux,” “I want help with citations”).
 
 #### Reference Saved Memories (Institution Toggle)
-When enabled, Agentic OS uses your saved memories to **customize answers** and **study plans**.
+When enabled, the agent uses your saved memories to **customize answers** and **study plans**.
 
 #### Memory Categories
 - **Personal Information** – major, interests, preferences  
@@ -51,7 +51,7 @@ Try asking:
 - “Remind me what I asked about Linux and why it matters.”
 
 #### Get Tailored Guidance
-Agentic OS pulls from your **previous chats** (and, when enabled, your **saved memories**) to provide **targeted suggestions, quizzes, and resources**.
+The agent pulls from your **previous chats** (and, when enabled, your **saved memories**) to provide **targeted suggestions, quizzes, and resources**.
 
 #### Keep It Up-to-Date
 If something changes—new major, goal, or challenge—

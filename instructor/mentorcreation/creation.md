@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Creation workflow lets you build a brand‑new Agentic OS from scratch. In a single guided flow you name the agent, set its personality, choose a language model, upload knowledge resources, and generate an embed code—so you can deploy a customized AI tutor anywhere learners need it.
+The Creation workflow lets you build a brand‑new agent from scratch. In a single guided flow you name the agent, set its personality, choose a language model, upload knowledge resources, and generate an embed code—so you can deploy a customized AI tutor anywhere learners need it.
 
 
 ![](/images/creation.png)

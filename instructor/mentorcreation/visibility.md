@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Visibility setting lets you control whether learners can open the exact source documents an Agentic OS retrieved to answer their questions. When visibility is on, the chat shows a **Retrieved Documents** side panel where students can click and read those files. When visibility is off, the agent still uses the resource for answers, but students cannot see or open it—ideal for proprietary, assessment, or advanced materials.
+The Visibility setting lets you control whether learners can open the exact source documents an agent retrieved to answer their questions. When visibility is on, the chat shows a **Retrieved Documents** side panel where students can click and read those files. When visibility is off, the agent still uses the resource for answers, but students cannot see or open it—ideal for proprietary, assessment, or advanced materials.
 
 
 ![](/images/visibility.png)

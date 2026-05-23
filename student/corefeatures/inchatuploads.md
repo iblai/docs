@@ -30,7 +30,7 @@ Use the **paper‑clip icon** to attach documents, spreadsheets, images, or PDFs
 
 #### Instant AI Grading & Feedback
 
-Agentic OS evaluates your submission against the instructor’s rubric and returns a **score with actionable comments**.
+The agent evaluates your submission against the instructor’s rubric and returns a **score with actionable comments**.
 
 #### Gradebook Integration (Instructor‑Configured)
 
@@ -67,7 +67,7 @@ Press **Send** (or hit **Enter**).
 
 #### Receive Feedback
 
-Agentic OS analyzes your work and replies with:
+The agent analyzes your work and replies with:
 
 - **Score / grade** (rubric‑based)  
 - **Strengths and areas for improvement**  
@@ -75,7 +75,7 @@ Agentic OS analyzes your work and replies with:
 
 #### Revise & Resubmit (Optional)
 
-Make improvements, upload the **new version**, and ask Agentic OS for an updated evaluation.
+Make improvements, upload the **new version**, and ask the agent for an updated evaluation.
 
 ---
 

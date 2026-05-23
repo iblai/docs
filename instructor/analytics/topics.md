@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Topics tab** shows what learners are talking about most with a specific Agentic OS.  
+The **Topics tab** shows what learners are talking about most with a specific agent.  
 Instructors and admins can view **topic volume, conversation counts, and message activity** over a selected time range—plus **month-over-month comparisons**—to identify trends, confusion clusters, and activity spikes (e.g., the week before a quiz).
 
 ---

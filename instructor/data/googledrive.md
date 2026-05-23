@@ -4,7 +4,7 @@
 
 ## Description
 
-**Drive Integration** connects an Agentic OS to **Google Docs** and **Google Slides**, enabling it to generate **living documents and slide decks directly from chat**.
+**Drive Integration** connects an agent to **Google Docs** and **Google Slides**, enabling it to generate **living documents and slide decks directly from chat**.
 
 Instructors enable the tools once, learners authenticate, and the agent returns a **shareable Google link** with the requested content (e.g., a curriculum gap-analysis template) in the desired format.
 
@@ -25,7 +25,7 @@ Enable **Google Docs** and/or **Google Slides** in the agent’s **Tools** tab.
 A secure **Google sign-in popup** allows learners to link their account for document creation.
 
 #### In-Chat Document Creation
-Ask for a **doc or slide deck**, and Agentic OS generates and returns a **Google Drive link** within the chat.
+Ask for a **doc or slide deck**, and the agent generates and returns a **Google Drive link** within the chat.
 
 #### Format Control via Prompting
 Output format follows your **System Prompt** (e.g., Markdown or rich text).
@@ -53,7 +53,7 @@ Then ask:
 > “Create this as a Google Doc and share the link.”
 
 #### Receive the Link
-- Agentic OS generates the file and returns a **Google Docs/Slides URL** in chat.  
+- The agent generates the file and returns a **Google Docs/Slides URL** in chat.  
 - Click to open and continue editing in **Google Workspace**.
 
 #### Control Formatting (Optional)

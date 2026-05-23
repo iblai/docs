@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Transcripts tab** lets instructors and admins review **real conversations** between learners and a specific Agentic OS—with **context and cost metrics**.
+The **Transcripts tab** lets instructors and admins review **real conversations** between learners and a specific agent—with **context and cost metrics**.
 
 
 See summary KPIs (messages per conversation, average rating, estimated cost), search by topic or user, and open any session to read the **exact learner inputs and agent replies**. 

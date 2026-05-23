@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-Dataset Visibility in Agentic OS lets instructors control whether learners can see and open the exact resources (“datasets”) that the agent used to generate an answer. When visibility is enabled, a Retrieved Documents side panel appears in chat so learners can explore the source material themselves. When visibility is disabled, Agentic OS still uses the dataset behind the scenes, but the source files remain hidden—useful when you want the AI to draw on proprietary, assessment, or advance material without revealing it.
+Dataset Visibility in Agentic OS lets instructors control whether learners can see and open the exact resources (“datasets”) that the agent used to generate an answer. When visibility is enabled, a Retrieved Documents side panel appears in chat so learners can explore the source material themselves. When visibility is disabled, the agent still uses the dataset behind the scenes, but the source files remain hidden—useful when you want the AI to draw on proprietary, assessment, or advance material without revealing it.
 
 
 
@@ -23,7 +23,7 @@ Dataset Visibility in Agentic OS lets instructors control whether learners can s
 
 #### Learner Transparency Toggle
 
-Decide, per dataset, whether students may open the exact resources Agentic OS retrieved.
+Decide, per dataset, whether students may open the exact resources the agent retrieved.
 
 #### Retrieved Documents Side Panel
 
@@ -39,7 +39,7 @@ An eye icon (👁️ = visible, 👁️‍🗨️ = hidden) in the Datas
 
 #### Automatic Retraining (if needed)
 
-When a dataset is made visible again after being hidden, Agentic OS seamlessly retrains on that content to ensure up‑to‑date retrieval.
+When a dataset is made visible again after being hidden, the agent seamlessly retrains on that content to ensure up‑to‑date retrieval.
 
 ---
 
@@ -66,7 +66,7 @@ Scroll or search to find the dataset whose visibility you want to adjust.
 
 Click the eye icon to switch states.
 
-- Turning off (👁️ → 👁️‍🗨️) hides the resource from students; Agentic OS still uses it to answer questions.  
+- Turning off (👁️ → 👁️‍🗨️) hides the resource from students; the agent still uses it to answer questions.  
 - Turning on (👁️‍🗨️ → 👁️) reveals the resource and retrains the agent if necessary.
 
 > **Note:** Visibility only affects learner access. The dataset remains in the agent’s knowledge base unless you explicitly remove it.
@@ -85,7 +85,7 @@ Start courses with visibility off to prevent information overload; toggle on lat
 
 #### Controlled Assessment Support
 
-Keep answer keys or formative‑assessment rubrics hidden while still letting Agentic OS reference them to provide feedback.
+Keep answer keys or formative‑assessment rubrics hidden while still letting the agent reference them to provide feedback.
 
 #### Encouraging Independent Research
 
@@ -100,4 +100,4 @@ Hide internal documents from external cohorts while maintaining the agent’s ab
 ## Quick Reference
 
 - **Visible resources:** learners see and can open them in the Retrieved Documents panel.  
-- **Hidden resources:** Agentic OS still uses them, but learners cannot access the files.
+- **Hidden resources:** the agent still uses them, but learners cannot access the files.

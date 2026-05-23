@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Web Search tool equips an Agentic OS with live internet access, allowing it to pull the most current information available—stock prices, breaking news, fresh research, policy deadlines, and more—directly into the chat. Instructors enable the tool from the agent’s Tools tab; learners then ask open‑ended queries and receive up‑to‑date answers without leaving the platform.
+The Web Search tool equips an agent with live internet access, allowing it to pull the most current information available—stock prices, breaking news, fresh research, policy deadlines, and more—directly into the chat. Instructors enable the tool from the agent’s Tools tab; learners then ask open‑ended queries and receive up‑to‑date answers without leaving the platform.
 
 
 ![](/images/websearch.png)
@@ -22,7 +22,7 @@ The Web Search tool equips an Agentic OS with live internet access, allowing i
 
 #### Live Internet Queries
 
-Agentic OS fetches the latest data—financial figures, leadership changes, release announcements, deadlines, etc.—in real time.
+The agent fetches the latest data—financial figures, leadership changes, release announcements, deadlines, etc.—in real time.
 
 #### MCP Integration (enabled by default)
 

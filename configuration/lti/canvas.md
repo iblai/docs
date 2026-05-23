@@ -21,7 +21,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
   - **Configuration Type**: Manual Entry.  
   - **Redirect URI**: paste the value supplied by Agentic OS.  
   - **Title / Description**: e.g., “Agentic OS – LTI 1.3 integration.”  
-  - **Target Link URI**: the agent link provided by Agentic OS.  
+  - **Target Link URI**: The agent link provided by Agentic OS.  
   - **OpenID Connect Initiation URL**: supplied by Agentic OS.  
   - **JWK Method**: select **JWK URL** and paste the URL from Agentic OS.  
   - **Placements**: enable **Account Navigation** (top-level link) and/or **Link Selection** (in-course content).

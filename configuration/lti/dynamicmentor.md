@@ -28,8 +28,8 @@ A dynamic agent integration using LTI 1.3 that allows different agents to appear
 
 Add **Course Navigation** as a placement:
 
-- **Default enabled**: the agent appears in every course's side navigation automatically
-- **Default disabled** (via Paste JSON): the agent does not appear in side navigation unless an instructor enables it
+- **Default enabled**: The agent appears in every course's side navigation automatically
+- **Default disabled** (via Paste JSON): The agent does not appear in side navigation unless an instructor enables it
 
 To disable by default, use Paste JSON and set `"default": "disabled"` under the course navigation placement.
 

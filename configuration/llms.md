@@ -45,7 +45,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 ## Adding New or Custom Models
 
 - If a provider or model isn’t visible, it can be added to the platform quickly.  
-- Agentic OS stays current by implementing new models as soon as they are released.
+- The agent stays current by implementing new models as soon as they are released.
 
 ---
 

@@ -4,7 +4,7 @@
 
 ## Description
 
-**Socratic Mode** helps agents teach **thinking—not just answers**. Instead of delivering full solutions, Agentic OS gives a concise nudge and follows up with guiding questions that drive **analysis, application, and comparison**.  
+**Socratic Mode** helps agents teach **thinking—not just answers**. Instead of delivering full solutions, the agent gives a concise nudge and follows up with guiding questions that drive **analysis, application, and comparison**.  
 It’s ideal for universities shifting away from rote memorization toward deeper **critical-thinking skills**.
 
 ---
