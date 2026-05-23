@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-**Memory** lets mentorAI **remember what you share about yourself**—then use it to **personalize future answers**. By default, **Memory is on**. When **Reference Saved Memories** is enabled by your school, the mentor can actively draw on your saved memories (e.g., personal info, knowledge gaps, help requests, lessons learned) to tailor replies and progress checks.
+**Memory** lets Agentic OS **remember what you share about yourself**—then use it to **personalize future answers**. By default, **Memory is on**. When **Reference Saved Memories** is enabled by your school, the agent can actively draw on your saved memories (e.g., personal info, knowledge gaps, help requests, lessons learned) to tailor replies and progress checks.
 
 ![](/images/memorystudent1.png)
 
@@ -20,11 +20,11 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 ## Features
 
 #### On by Default
-Your mentor remembers details you tell it during chat  
+Your agent remembers details you tell it during chat  
 (e.g., “I’m new to Linux,” “I want help with citations”).
 
 #### Reference Saved Memories (Institution Toggle)
-When enabled, mentorAI uses your saved memories to **customize answers** and **study plans**.
+When enabled, Agentic OS uses your saved memories to **customize answers** and **study plans**.
 
 #### Memory Categories
 - **Personal Information** – major, interests, preferences  
@@ -51,11 +51,11 @@ Try asking:
 - “Remind me what I asked about Linux and why it matters.”
 
 #### Get Tailored Guidance
-mentorAI pulls from your **previous chats** (and, when enabled, your **saved memories**) to provide **targeted suggestions, quizzes, and resources**.
+Agentic OS pulls from your **previous chats** (and, when enabled, your **saved memories**) to provide **targeted suggestions, quizzes, and resources**.
 
 #### Keep It Up-to-Date
 If something changes—new major, goal, or challenge—
-tell the mentor so Memory stays current.
+tell the agent so Memory stays current.
 
 #### See the Benefit Over Time
 As your history grows, replies become more specific to you  
@@ -69,7 +69,7 @@ As your history grows, replies become more specific to you
 Generate next-step study plans that reflect your **knowledge gaps** and **lessons learned**.
 
 #### Targeted Remediation
-Ask for drills or practice on **weak topics** the mentor already knows you struggle with.
+Ask for drills or practice on **weak topics** the agent already knows you struggle with.
 
 #### Progress Reviews
 Request periodic summaries of what you’ve asked, learned, and what to focus on next.
@@ -81,5 +81,5 @@ Small facts (even favorites) can be saved—useful for **examples, motivation, a
 
 ## Notes for Students
 
-- Memory helps mentorAI **personalize your experience**; you won’t see admin tools.  
-- If your school enables **Reference Saved Memories**, the mentor’s responses will more explicitly reflect your **saved profile**.
+- Memory helps Agentic OS **personalize your experience**; you won’t see admin tools.  
+- If your school enables **Reference Saved Memories**, the agent’s responses will more explicitly reflect your **saved profile**.

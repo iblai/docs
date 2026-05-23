@@ -8,7 +8,7 @@
 
 ## Description
 
-A mentor that guides students to **basic-needs and non-academic support** on their campus—food pantries, housing resources, emergency funds, wellness services, and more.  
+An agent that guides students to **basic-needs and non-academic support** on their campus—food pantries, housing resources, emergency funds, wellness services, and more.  
 
 It summarizes available options, explains **how to access them**, provides **eligibility and operating hours**, and lets students choose what’s most relevant.
 
@@ -24,11 +24,11 @@ It summarizes available options, explains **how to access them**, provides **eli
     “I’d like to focus on mental health.”
 
 ### 2. Review campus options
-  - Mentor lists the **range of available services** and summarizes each  
+  - Agent lists the **range of available services** and summarizes each  
   - Invites the student to **pick an area** to explore further
 
 #### 3. Drill into a service
-  - For mental health, the mentor describes:  
+  - For mental health, the agent describes:  
     - Counseling services  
     - Where to access them  
     - How to make an appointment  
@@ -36,7 +36,7 @@ It summarizes available options, explains **how to access them**, provides **eli
   - Includes **immediate-help information** when appropriate
 
 #### 4. Next steps
-  - Mentor offers **concrete actions**, such as:  
+  - Agent offers **concrete actions**, such as:  
     - Schedule an appointment  
     - Connect with a wellness coach  
 
@@ -52,6 +52,6 @@ It summarizes available options, explains **how to access them**, provides **eli
 
 Ready to give students fast, clear access to non-academic supports?
 
-Email **support@iblai.zendesk.com** and we’ll enable **Student Life Mentor** on your mentors—or help you build a solution tailored to your institution.
+Email **support@iblai.zendesk.com** and we’ll enable **Student Life Agent** on your agents—or help you build a solution tailored to your institution.
 
 

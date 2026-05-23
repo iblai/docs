@@ -1,8 +1,8 @@
-mentorAI | FAFSA Mentor
+Agentic OS | FAFSA Agent
 https://www.youtube.com/watch?v=h2CINrCaW-g
 
 [1.4s] In this demo, I'm going to be covering
-[2.9s] our FAA mentor, which is a mentor that
+[2.9s] our FAA agent, which is an agent that
 [4.8s] provides guidance um through the complex
 [7.6s] steps of the financial aid process.
 [9.5s] It'll explain FASA steps, deadlines, and

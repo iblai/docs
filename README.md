@@ -40,7 +40,7 @@ configuration/          # Platform setup and administration
 instructor/             # Instructor tools and analytics
   ├── analytics/        # Chat ratings, financials, reporting
   ├── data/             # Datasets, document retrieval, graded assignments
-  ├── integration/      # API access and community mentors
+  ├── integration/      # API access and community agents
   ├── lms/              # Grade access, course reports
   ├── mentorcreation/   # Prompts, safety, tools, visibility
   └── supportcenter/    # Human support and notifications

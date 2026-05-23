@@ -1,9 +1,9 @@
-mentorAI | User Profile
+Agentic OS | User Profile
 https://www.youtube.com/watch?v=EwxEElHjH-c
 
 [0.9s] Hello. I'm going to be showing you a few
 [2.6s] updates that we have made to the user
-[4.3s] profile section of Mentor AI. Now, to
+[4.3s] profile section of Agent AI. Now, to
 [7.1s] see what this looks like, what you'll do
 [8.5s] is click your little profile icon, and
 [10.2s] you'll see this drop down. You'll click
@@ -37,7 +37,7 @@ https://www.youtube.com/watch?v=EwxEElHjH-c
 [64.2s] hasn't already happened. You can also
 [66.0s] just mark as IO here. Um, you can also
 [69.7s] put in your GPA as well. And this will
-[72.4s] be shared with mentor as long and
+[72.4s] be shared with agent as long and
 [74.2s] administrators as well. Um, similarly
 [77.1s] with the experience for um, this is for
 [80.1s] professional journeys. This is where you
@@ -53,7 +53,7 @@ https://www.youtube.com/watch?v=EwxEElHjH-c
 [99.8s] All right. And then we also have resume,
 [101.5s] which you can just simply upload a
 [102.8s] resume that's shared with admins and the
-[105.2s] mentor. Um, so we can tailor responses.
+[105.2s] agent. Um, so we can tailor responses.
 [108.6s] And you know, this is just a simple
 [110.3s] upload of a document and then you have
 [112.2s] your resume uploaded. Lastly, we have

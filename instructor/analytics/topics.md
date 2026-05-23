@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Topics tab** shows what learners are talking about most with a specific mentorAI.  
+The **Topics tab** shows what learners are talking about most with a specific Agentic OS.  
 Instructors and admins can view **topic volume, conversation counts, and message activity** over a selected time range—plus **month-over-month comparisons**—to identify trends, confusion clusters, and activity spikes (e.g., the week before a quiz).
 
 ---
@@ -38,7 +38,7 @@ A **filterable list** of all topics discussed within the chosen period to reveal
 ## How to Use (step by step)
 
 #### Open Analytics → Topics
-- In the mentor header, click **Analytics**, then select the **Topics** tab.
+- In the agent header, click **Analytics**, then select the **Topics** tab.
 
 #### Set Your Timeframe
 - Choose **Today**, **7 Days**, **Past Month**, or use a **Custom date range** (e.g., the week before a major assessment).

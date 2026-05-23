@@ -1,4 +1,4 @@
-mentorAI | One Click In Chat File Uploads
+Agentic OS | One Click In Chat File Uploads
 https://www.youtube.com/watch?v=66PlfmIButM
 
 [0.3s] Hey, what's going on? This is Jeremy at
@@ -10,22 +10,22 @@ https://www.youtube.com/watch?v=66PlfmIButM
 [16.2s] assignment, uh maybe a work in progress,
 [20.2s] uh a resume, notes from a specific uh
 [24.1s] area that you're working on. you can
-[26.3s] feed them directly to the mentor that
+[26.3s] feed them directly to the agent that
 [28.2s] you're working with for context and then
 [30.4s] get specific feedback on those files in
 [33.6s] real time. So in order to showcase this
 [37.0s] uh what we're looking at here is our job
 [39.2s] interview and resume skills agent on the
-[41.5s] mentor AI platform. But again this
+[41.5s] agent AI platform. But again this
 [44.5s] feature can be used with any of the
-[45.9s] agents that we have on the mentor AI
+[45.9s] agents that we have on the agent AI
 [47.8s] platform, any of the agents that you
 [49.8s] create and any of the use cases for
 [52.4s] these agents. So, just to show you what
 [54.7s] this looks like in real time, I'm going
 [57.0s] to submit a um example resume that I
 [60.8s] just threw together to get a little bit
-[62.7s] of feedback and see how the mentor is
+[62.7s] of feedback and see how the agent is
 [65.0s] able to access the file that I upload in
 [67.3s] chat. So, in order to upload a file,
 [70.6s] you're going to navigate down here to
@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=66PlfmIButM
 [101.6s] be a standout
 [104.2s] candidate.
 [106.1s] [snorts]
-[106.9s] So, the mentor is going to take the
+[106.9s] So, the agent is going to take the
 [108.8s] prompt that I've given it as well as the
 [110.3s] file that I've shared with it. um in
 [112.6s] order to give me some very concrete and

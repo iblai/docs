@@ -1,16 +1,16 @@
-mentorAI | Learning Modalities Inventory Mentor for Student Onboarding
+Agentic OS | Learning Modalities Inventory Agent for Student Onboarding
 https://www.youtube.com/watch?v=3KeOnldbFVY
 
 [0.2s] Hey, what's going on? This is Jeremy at
 [1.6s] IBLAI and today I'm showing you one of
-[3.5s] our newest mentors, the AI learning
-[5.8s] modalities inventory mentor. Now, the
-[8.7s] purpose of this mentor is to basically
+[3.5s] our newest agents, the AI learning
+[5.8s] modalities inventory agent. Now, the
+[8.7s] purpose of this agent is to basically
 [11.9s] assist students in onboarding into a new
 [14.6s] course. In this case, a communications
 [16.6s] course oriented around cultures to
 [18.9s] cultures. The idea is students will come
-[21.5s] in and engage with this mentor and then
+[21.5s] in and engage with this agent and then
 [23.8s] conduct a liyker style 20 questionnaire
 [28.1s] to kind of build a learner profile that
 [31.5s] identifies learning strengths and
@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=3KeOnldbFVY
 [46.3s] feedback and mastery learning.
 [49.2s] So to kind of show you what we've done
 [51.9s] here, the initial system prompt I've put
-[55.0s] together for this mentor basically
+[55.0s] together for this agent basically
 [58.4s] explains the goal here. We're trying to
 [60.8s] identify students strengths and
 [62.5s] weaknesses and provide them basically a
@@ -32,30 +32,30 @@ https://www.youtube.com/watch?v=3KeOnldbFVY
 [71.5s] course. So an overview of the types of
 [74.0s] questions we would like to ask or the
 [76.3s] exact questions that we'd like to ask so
-[78.4s] the mentor has that readily available.
+[78.4s] the agent has that readily available.
 [80.8s] How it should rate students, how it
 [82.9s] should respond once students have
 [84.5s] completed the questionnaire and how that
 [87.7s] information should then be related to
 [89.9s] the overall structure of the course.
-[93.4s] So to show you an example of this mentor
+[93.4s] So to show you an example of this agent
 [96.3s] in action, here's a a quick
 [98.6s] questionnaire that I did as an example.
 [101.8s] So a student will come in, say to the
-[104.2s] mentor, "Hello, let's start the
-[105.8s] questionnaire." And the mentor will
+[104.2s] agent, "Hello, let's start the
+[105.8s] questionnaire." And the agent will
 [107.8s] begin right off the bat with the first
 [109.5s] question.
 [111.3s] So quickly, I'm just going to scroll
 [113.2s] through this for the sake of time. If
 [115.5s] you'd like to pause at any point and see
-[117.4s] the kind of questions that the mentor is
+[117.4s] the kind of questions that the agent is
 [119.1s] asking, how I'm responding, please feel
 [121.6s] free to just pause the video. But again,
 [124.4s] for the sake of time, we're just going
 [125.7s] to quickly come through here to the end
 [128.4s] of the questionnaire. So, now that I've
-[131.0s] completed the questionnaire, the mentor
+[131.0s] completed the questionnaire, the agent
 [132.9s] is going to do a number of things. one,
 [135.8s] it's going to give me a a quick
 [137.4s] introduction where it thanks me for
@@ -67,7 +67,7 @@ https://www.youtube.com/watch?v=3KeOnldbFVY
 [150.3s] engagement, informative feedback and
 [152.6s] mastery learning. Just so students
 [155.2s] understand what this means, the next
-[157.5s] thing the mentor is going to do is
+[157.5s] thing the agent is going to do is
 [159.2s] provide a summary of those four key
 [161.4s] learning modalities to kind of give a a
 [164.2s] much more scoped picture of what each
@@ -84,7 +84,7 @@ https://www.youtube.com/watch?v=3KeOnldbFVY
 [191.7s] that quick learner profile overview, the
 [194.8s] next thing that a student would do is
 [196.3s] say, how can I connect this learning
-[198.0s] profile to this course? The mentor is
+[198.0s] profile to this course? The agent is
 [201.2s] going to break down uh assignment
 [202.8s] strategies for each of the key
 [204.3s] assignments through this course and give
@@ -107,6 +107,6 @@ https://www.youtube.com/watch?v=3KeOnldbFVY
 [243.9s] those needs.
 [245.5s] So, as always, thank you so much for
 [247.9s] tuning in and learning about this new
-[249.8s] learning modalities mentor that we have
+[249.8s] learning modalities agent that we have
 [251.6s] for student onboarding. Uh, and as
 [254.7s] always, learn more at ibl.ai. AI.

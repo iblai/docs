@@ -1,14 +1,14 @@
-mentorAI | Canvas | Chat, Summary, Expand and Translate
+Agentic OS | Canvas | Chat, Summary, Expand and Translate
 https://www.youtube.com/watch?v=lJB2SJIPOBU
 
 [0.2s] is already integrated on the side. So
-[2.2s] this mentor is context aware. So
+[2.2s] this agent is context aware. So
 [4.2s] whatever you know content is inside
-[6.5s] these pages within the course the mentor
+[6.5s] these pages within the course the agent
 [8.8s] can actually answer about. So we'll
 [10.0s] select the first one
 [16.2s] here. And once we have the PDF open for
-[19.7s] this we can start asking the mentor
+[19.7s] this we can start asking the agent
 [21.3s] questions about it. And again since this
 [23.0s] is contextaware we can uh ask it
 [25.4s] anything about the content on this
@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=lJB2SJIPOBU
 [49.6s] page, we can get that information as
 [52.0s] well. Um, again, that first tab there
 [54.6s] had a couple of different options. You
-[56.0s] can also chat with the mentor directly
+[56.0s] can also chat with the agent directly
 [57.5s] without having to select a prompt. And
 [59.4s] you can see here this summarizes the
 [61.0s] page. Now, if we wanted to translate the
@@ -52,7 +52,7 @@ https://www.youtube.com/watch?v=lJB2SJIPOBU
 [104.5s] providing an expanded version of what
 [106.2s] we're learning.
 [109.9s] Now again, we can also chat with the
-[112.2s] mentor um as a normal learner would
+[112.2s] agent um as a normal learner would
 [114.8s] without having to select one of these
 [116.1s] prompts. You can also use a suggested
 [120.0s] prompt. Um you can select from these
@@ -71,5 +71,5 @@ https://www.youtube.com/watch?v=lJB2SJIPOBU
 [148.6s] can get an answer back essentially the
 [150.1s] same way we do with these other
 [153.6s] tabs. All righty. And that's basically
-[156.2s] how this mentor integration works in
+[156.2s] how this agent integration works in
 [157.8s] Canvas.

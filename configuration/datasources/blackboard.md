@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Connect a **Blackboard course** as a data source so a mentor can read course content and attached files, cite them, and answer questions from that material.
+Connect a **Blackboard course** as a data source so an agent can read course content and attached files, cite them, and answer questions from that material.
 
 ---
 
@@ -23,10 +23,10 @@ Connect a **Blackboard course** as a data source so a mentor can read course con
 
 ---
 
-## Part 2 — Add the Blackboard Course as a Data Source (Mentor Platform)
+## Part 2 — Add the Blackboard Course as a Data Source (Agent Platform)
 
 1. In Blackboard, open the **target course** and copy the **course URL** from your browser.  
-2. In the mentor’s **Datasets**, choose **Blackboard** as the data source.  
+2. In the agent’s **Datasets**, choose **Blackboard** as the data source.  
 3. Paste the **course URL** and click **Submit**.  
 4. The document queues for **training**; once trained, it appears in the list.  
 5. *(Optional)* Mark it **Visible** so you can see cited content.
@@ -35,7 +35,7 @@ Connect a **Blackboard course** as a data source so a mentor can read course con
 
 ## How It Works in Chat
 
-- The mentor can answer questions from the **course’s text content** and **attached files** (e.g., PDFs).  
+- The agent can answer questions from the **course’s text content** and **attached files** (e.g., PDFs).  
 - Source snippets appear, showing exactly **where the answer was drawn from**.  
 
 **Example (from the demo):**  
@@ -52,5 +52,5 @@ A question about **Las Casas’s writing** returns an answer about Spanish colon
 
 ## Result
 
-Your mentor now **ingests the specified Blackboard course and its attachments**, cites where answers come from, and stays **up to date via scheduled retraining**.
+Your agent now **ingests the specified Blackboard course and its attachments**, cites where answers come from, and stays **up to date via scheduled retraining**.
 

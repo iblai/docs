@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=u7gROD8zEXs
 [1.3s] Hi everybody. I'm going to be showing
 [3.0s] you how to use LTI deep linking in
 [5.3s] Brightpace so you can seamlessly
-[7.0s] integrate your mentors. The first thing
+[7.0s] integrate your agents. The first thing
 [9.6s] we're going to do is as an admin go to
 [11.7s] the manage extensibility section.
 [16.2s] Once you're here, you'll click on this
@@ -50,7 +50,7 @@ https://www.youtube.com/watch?v=u7gROD8zEXs
 [122.7s] Um instead, we're actually using this
 [124.5s] deep linking launch, which is actually
 [126.8s] going to allow you to select from
-[128.3s] different mentors um to to integrate
+[128.3s] different agents um to to integrate
 [131.0s] into your courses. You can also change
 [133.5s] the settings here in terms of height and
 [135.4s] width. Um, for the type here, it's uh
@@ -63,7 +63,7 @@ https://www.youtube.com/watch?v=u7gROD8zEXs
 [151.6s] just hit save and close. And then the
 [153.0s] next thing we'll do is go to a course.
 [155.4s] Now, we'll select a course that we
-[157.0s] wanted to integrate a mentor into.
+[157.0s] wanted to integrate an agent into.
 [161.0s] Once we're in the course content,
 [164.1s] um what we'll do is you see that there's
 [166.8s] already, you know, a unit created. So,
@@ -87,10 +87,10 @@ https://www.youtube.com/watch?v=u7gROD8zEXs
 [208.4s] Courtland or something like that. So,
 [210.0s] it'll be segmented based on the tenant
 [212.3s] that you know you want to integrate a
-[214.2s] mentor from. Um and you can see that
+[214.2s] agent from. Um and you can see that
 [216.8s] there's two here. it'll give you a
 [218.6s] display name uh so it's very clear what
-[220.9s] the mentor is actually called and you
+[220.9s] the agent is actually called and you
 [223.7s] know it just helps with the easy
 [225.0s] selection. So in this case I'm going to
 [226.9s] do right space one select content

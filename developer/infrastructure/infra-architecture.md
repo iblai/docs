@@ -56,7 +56,7 @@ flowchart TB
 
                     subgraph SPA["iblai-web-frontend"]
                         AUTH[Auth]
-                        MENTOR[Mentor]
+                        MENTOR[Agent]
                         SKILLS[Skills]
                     end
                 end
@@ -69,7 +69,7 @@ flowchart TB
         end
 
         subgraph ACM["ACM Certificates"]
-            CERT1[Certificate 1\napi.data, learn, studio.learn\napps.learn, preview.learn\nasgi.data, llm.data, mentor.data\napi, web.data, base.manager]
+            CERT1[Certificate 1\napi.data, learn, studio.learn\napps.learn, preview.learn\nasgi.data, llm.data, agent.data\napi, web.data, base.manager]
             CERT2[Certificate 2\nauth, mentorai, skillsai\nmonitor, flowise, platform\nprometheus, studio.learn\nmeilisearch.learn]
         end
 
@@ -136,7 +136,7 @@ flowchart TB
                         RP1[Reverse Proxy]
                         LMS1[iblai-edx-pro\nLMS + CMS + Workers]
                         DM1[iblai-dm-pro\nWeb + ASGI + Celery]
-                        SPA1[iblai-web-frontend\nAuth + Mentor + Skills]
+                        SPA1[iblai-web-frontend\nAuth + Agent + Skills]
                     end
                 end
 
@@ -146,7 +146,7 @@ flowchart TB
                         RP2[Reverse Proxy]
                         LMS2[iblai-edx-pro\nLMS + CMS + Workers]
                         DM2[iblai-dm-pro\nWeb + ASGI + Celery]
-                        SPA2[iblai-web-frontend\nAuth + Mentor + Skills]
+                        SPA2[iblai-web-frontend\nAuth + Agent + Skills]
                     end
                 end
 
@@ -311,7 +311,7 @@ flowchart LR
 
     subgraph SPA["Role 8: iblai-web-frontend"]
         AUTH[Auth SPA]
-        MENTOR[Mentor SPA]
+        MENTOR[Agent SPA]
         SKILLS[Skills SPA]
     end
 

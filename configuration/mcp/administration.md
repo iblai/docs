@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Configure MCP connectors so mentors can call external MCP tools and return results inside the chat.
+Configure MCP connectors so agents can call external MCP tools and return results inside the chat.
 
 ---
 
@@ -32,7 +32,7 @@ Configure MCP connectors so mentors can call external MCP tools and return resul
 3. Click **Connect** to save.  
    - The connector appears in your list.
 4. You can **enable/disable** any connector.  
-   - Disabling prevents mentors from using that MCP server in replies.
+   - Disabling prevents agents from using that MCP server in replies.
 
 ---
 
@@ -53,18 +53,18 @@ Configure MCP connectors so mentors can call external MCP tools and return resul
 ## Using MCP in Chat (Demo Flow)
 
 1. Grab a **project ID** from your MCP workspace.
-2. Ask the mentor, for example:
+2. Ask the agent, for example:
    - “List the workflows in the project `<PROJECT_ID>`.”
-3. The mentor lists active workflows (e.g., FAQ, webhook test, etc.).
+3. The agent lists active workflows (e.g., FAQ, webhook test, etc.).
 4. Run a workflow, for example:
    - “Execute the FAQ workflow and tell me: How do I reset my password?”
-5. The mentor includes your question in the workflow request body and returns the answer from the MCP server.
+5. The agent includes your question in the workflow request body and returns the answer from the MCP server.
 
 ---
 
 ## Result
 
-Your mentors can call **enabled MCP connectors** to list resources and execute workflows, returning **MCP-sourced answers** directly in the conversation.
+Your agents can call **enabled MCP connectors** to list resources and execute workflows, returning **MCP-sourced answers** directly in the conversation.
 
 ---
 
@@ -76,10 +76,10 @@ Model Context Protocol (MCP) servers that expose APIs as tools for AI agents lik
 
 | Server | Endpoint | Description |
 |--------|----------|-------------|
-| Analytics | `/mcp/analytics/` | Learning analytics, mentor usage, LMS metrics |
-| Search | `/mcp/search/` | Course catalog and mentor search (global only, personalized excluded) |
-| Agent Chat | `/mcp/agent-chat/` | Chat with AI mentors |
-| Agent Create | `/mcp/agent-create/` | Create and manage AI mentors |
+| Analytics | `/mcp/analytics/` | Learning analytics, agent usage, LMS metrics |
+| Search | `/mcp/search/` | Course catalog and agent search (global only, personalized excluded) |
+| Agent Chat | `/mcp/agent-chat/` | Chat with AI agents |
+| Agent Create | `/mcp/agent-create/` | Create and manage AI agents |
 
 ## Authentication
 
@@ -93,11 +93,11 @@ All servers require a **Platform API Key**:
 
 ## Analytics Server
 
-Get insights about learning activity, mentor usage, and costs.
+Get insights about learning activity, agent usage, and costs.
 
 ### Description (for MCP Setup)
 
-> The iblai-analytics MCP server enables AI agents to access detailed analytics about mentor-student interactions, conversation patterns, topic analysis, sentiment tracking, and cost reporting. This server provides comprehensive insights into learning activity, mentor usage, user engagement metrics, LLM costs, and platform effectiveness. Key features include: learner analytics, content analytics, message and session tracking, topic analysis, financial reporting, and time-based metrics.
+> The iblai-analytics MCP server enables AI agents to access detailed analytics about agent-student interactions, conversation patterns, topic analysis, sentiment tracking, and cost reporting. This server provides comprehensive insights into learning activity, agent usage, user engagement metrics, LLM costs, and platform effectiveness. Key features include: learner analytics, content analytics, message and session tracking, topic analysis, financial reporting, and time-based metrics.
 
 ### Setup
 
@@ -122,7 +122,7 @@ Once configured, ask your AI assistant:
 - "How many users are active in the acme platform?"
 - "What topics are students asking about most?"
 - "Show me conversation trends for the last month"
-- "What are the LLM costs broken down by mentor?"
+- "What are the LLM costs broken down by agent?"
 - "Which students have the most chat messages?"
 - "What's the average course grade?"
 
@@ -167,7 +167,7 @@ get_learner_details(
     username="ibl_user",
     platform_key="ibl"
 )
-# Returns: Consolidated learner analytics across catalog, mentor, and credential data
+# Returns: Consolidated learner analytics across catalog, agent, and credential data
 ```
 
 #### Content Analytics
@@ -200,11 +200,11 @@ get_content_details(
 
 > **⚠️ Temporarily Disabled**: The Search server is currently disabled while we clean up naming conventions. It will be re-enabled in a future update.
 
-Search for courses and mentors in the catalog.
+Search for courses and agents in the catalog.
 
 ### Description (for MCP Setup)
 
-> The iblai-search MCP server enables AI agents to search for courses, programs, pathways, and mentors in the learning catalog. This server provides global search capabilities for discovering educational content and AI mentors. Key features include: catalog search across courses, programs, pathways and skills; mentor search to find AI tutors by topic or expertise; and course recommendations based on user preferences.
+> The iblai-search MCP server enables AI agents to search for courses, programs, pathways, and agents in the learning catalog. This server provides global search capabilities for discovering educational content and AI agents. Key features include: catalog search across courses, programs, pathways and skills; agent search to find AI tutors by topic or expertise; and course recommendations based on user preferences.
 
 ### Setup
 
@@ -225,7 +225,7 @@ Search for courses and mentors in the catalog.
 ### Example Queries
 
 - "Find courses about machine learning"
-- "Search for mentors that teach Python"
+- "Search for agents that teach Python"
 - "What courses would you recommend for a beginner?"
 - "Show me the most popular courses in the catalog"
 
@@ -250,16 +250,16 @@ get_catalog_search(
 # Includes facets for filtering (topics, subjects, tags, etc.)
 ```
 
-#### Mentor Search
+#### Agent Search
 
 ```python
-# Search for mentors (requires platform_key for authenticated requests)
+# Search for agents (requires platform_key for authenticated requests)
 get_mentor_search(
     query="test",
     limit=5,
     platform_key="ibl"
 )
-# Returns: List of mentors matching the query with metadata
+# Returns: List of agents matching the query with metadata
 ```
 
 **Important Notes:**
@@ -276,18 +276,18 @@ get_recommendations(
     limit=3
 )
 # Returns: Personalized course recommendations based on RAG search
-# Can specify recommendation_type: "mentors", "courses", "programs", "resources", "pathways"
+# Can specify recommendation_type: "agents", "courses", "programs", "resources", "pathways"
 ```
 
 ---
 
 ## Agent Create Server
 
-Create and manage AI mentors, including CRUD operations, forking, and configuration.
+Create and manage AI agents, including CRUD operations, forking, and configuration.
 
 ### Description (for MCP Setup)
 
-> The iblai-agent-create MCP server enables AI agents to create, configure, and manage AI mentors. This server provides full mentor lifecycle management including creation from templates, settings configuration, and document training. Key features include: create mentors from templates; configure LLM settings (provider, model, temperature); manage display settings and feature flags; train mentors with documents, URLs, or text content; and update mentor prompts and permissions.
+> The iblai-agent-create MCP server enables AI agents to create, configure, and manage AI agents. This server provides full agent lifecycle management including creation from templates, settings configuration, and document training. Key features include: create agents from templates; configure LLM settings (provider, model, temperature); manage display settings and feature flags; train agents with documents, URLs, or text content; and update agent prompts and permissions.
 
 ### Setup
 
@@ -307,12 +307,12 @@ Create and manage AI mentors, including CRUD operations, forking, and configurat
 
 ### Example Queries
 
-- "Create a new mentor for data science"
-- "List all mentors in the platform"
-- "Update mentor settings for mentor ID 123"
-- "Fork mentor ID 456 with new name"
-- "Show me available mentor templates"
-- "What categories are available for mentors?"
+- "Create a new agent for data science"
+- "List all agents in the platform"
+- "Update agent settings for agent ID 123"
+- "Fork agent ID 456 with new name"
+- "Show me available agent templates"
+- "What categories are available for agents?"
 
 ### Working Examples
 
@@ -323,16 +323,16 @@ Create and manage AI mentors, including CRUD operations, forking, and configurat
 ping()  # Returns: "2026-01-12T22:57:37.066570+00:00"
 ```
 
-#### Get Mentor Settings
+#### Get Agent Settings
 
 ```python
-# Retrieve mentor settings
+# Retrieve agent settings
 get_mentor_settings(
     org="ibl",
     user_id="ibl_user",
-    mentor="ad2be335-5afa-4a9e-9298-8273b3d94e10"
+    agent="ad2be335-5afa-4a9e-9298-8273b3d94e10"
 )
-# Returns: Complete mentor configuration including:
+# Returns: Complete agent configuration including:
 # - Display settings (theme, colors, images)
 # - LLM configuration (provider, model, temperature)
 # - Feature flags (image generation, web browsing, code interpreter)
@@ -340,31 +340,31 @@ get_mentor_settings(
 # - Visibility and permissions
 ```
 
-#### Create Mentor from Template
+#### Create Agent from Template
 
 ```python
-# Create a new mentor from a template
+# Create a new agent from a template
 post_mentor_with_settings(
     org="ibl",
     user_id="ibl_user",
-    template_name="ai-mentor",
-    new_mentor_name="test-mentor-123"
+    template_name="ai-agent",
+    new_mentor_name="test-agent-123"
 )
-# Returns: Created mentor object with unique_id, settings, and configuration
+# Returns: Created agent object with unique_id, settings, and configuration
 # Optional parameters: display_name, description, system_prompt, llm_provider, etc.
 ```
 
-#### Update Mentor Settings
+#### Update Agent Settings
 
 ```python
-# Update existing mentor settings
+# Update existing agent settings
 put_mentor_settings(
     org="ibl",
     user_id="ibl_user",
-    mentor="ad2be335-5afa-4a9e-9298-8273b3d94e10",
+    agent="ad2be335-5afa-4a9e-9298-8273b3d94e10",
     mentor_description="Updated description for testing"
 )
-# Returns: Updated mentor settings object
+# Returns: Updated agent settings object
 # Can update: mentor_name, display_name, system_prompt, llm_provider,
 # enable_image_generation, enable_web_browsing, categories, types, subjects, etc.
 ```
@@ -394,7 +394,7 @@ post_train_document(
 
 **Important Notes:**
 - For `post_train_document` and `post_retriever_train`, use the **mentor_id** as the `pathway` parameter
-- The `pathway` parameter must be a valid mentor unique ID (UUID format)
+- The `pathway` parameter must be a valid agent unique ID (UUID format)
 - `post_train_document` supports multiple types: `"file"`, `"url"`, `"text"` (for Wikipedia), etc.
 - If URL is not accessible, you'll get: `"We couldn't reach the website. It may be offline or blocking access."`
 
@@ -402,11 +402,11 @@ post_train_document(
 
 ## Agent Chat Server
 
-Have conversations with AI mentors. Requires specifying which mentor to use.
+Have conversations with AI agents. Requires specifying which agent to use.
 
 ### Description (for MCP Setup)
 
-> The iblai-agent-chat MCP server enables AI agents to have conversations with configured AI mentors. This server acts as a bridge to interact with specialized mentors that have been trained on specific topics or documents. The mentor is specified via the X-Mentor-Unique-Id header, and responses are based on the mentor's system prompt, LLM configuration, and trained knowledge base.
+> The iblai-agent-chat MCP server enables AI agents to have conversations with configured AI agents. This server acts as a bridge to interact with specialized agents that have been trained on specific topics or documents. The agent is specified via the X-Agent-Unique-Id header, and responses are based on the agent's system prompt, LLM configuration, and trained knowledge base.
 
 ### Setup
 
@@ -418,7 +418,7 @@ Have conversations with AI mentors. Requires specifying which mentor to use.
       "transport": "streamable-http",
       "headers": {
         "Authorization": "Api-Token YOUR_API_KEY",
-        "X-Mentor-Unique-Id": "YOUR_MENTOR_ID"
+        "X-Agent-Unique-Id": "YOUR_MENTOR_ID"
       }
     }
   }
@@ -434,10 +434,10 @@ Have conversations with AI mentors. Requires specifying which mentor to use.
 
 ### Working Examples
 
-#### Chat with Mentor
+#### Chat with Agent
 
 ```python
-# Get a response from a mentor
+# Get a response from an agent
 get_mentor_response(
     prompt="hello"
 )
@@ -447,12 +447,12 @@ get_mentor_response(
 get_mentor_response(
     prompt="Can you explain machine learning in simple terms?"
 )
-# Returns: Detailed explanation from the mentor based on their configuration
+# Returns: Detailed explanation from the agent based on their configuration
 ```
 
 **Important Notes:**
-- The mentor is specified via the `X-Mentor-Unique-Id` header in the MCP server configuration
-- The mentor's response depends on their system prompt, LLM configuration, and any trained documents
+- The agent is specified via the `X-Agent-Unique-Id` header in the MCP server configuration
+- The agent's response depends on their system prompt, LLM configuration, and any trained documents
 - Simple prompts like "hello" work well for testing connectivity
 
 ---
@@ -476,7 +476,7 @@ To use all available servers together:
       "transport": "streamable-http",
       "headers": {
         "Authorization": "Api-Token YOUR_API_KEY",
-        "X-Mentor-Unique-Id": "YOUR_MENTOR_ID"
+        "X-Agent-Unique-Id": "YOUR_MENTOR_ID"
       }
     },
     "iblai-agent-create": {
@@ -497,7 +497,7 @@ To use all available servers together:
 }
 ```
 
-> **Note**: The `iblai-search` server excludes personalized search tools (personalized mentor search and personalized catalog search).
+> **Note**: The `iblai-search` server excludes personalized search tools (personalized agent search and personalized catalog search).
 
 Save this to:
 - **Claude Code**: `~/.claude/claude_desktop_config.json` or `.mcp.json` in your project
@@ -525,13 +525,13 @@ Where:
 
 ---
 
-### iblai-agent (Mentor Chat Server)
+### iblai-agent (Agent Chat Server)
 
 **Custom Tool** (not auto-generated from endpoints):
 
 | Tool Name | Endpoint | Method | Description |
 |-----------|----------|--------|-------------|
-| `get_mentor_response` | N/A (custom implementation) | N/A | Get a response from a mentor. Requires `X-Mentor-Unique-Id` header. |
+| `get_mentor_response` | N/A (custom implementation) | N/A | Get a response from an agent. Requires `X-Agent-Unique-Id` header. |
 
 **Note**: This is a custom tool that directly calls the LLM service, not generated from an API endpoint.
 
@@ -543,16 +543,16 @@ Where:
 
 | Tool Name | Endpoint | Method | URL Pattern Name |
 |-----------|----------|--------|------------------|
-| `post_mentor_with_settings` | `/api/ai-mentor/orgs/{org}/users/{user_id}/mentor-with-settings/` | POST | `mentor-with-settings` |
-| `get_mentor_settings` | `/api/ai-mentor/orgs/{org}/users/{user_id}/mentors/{mentor}/settings/` | GET | `mentor-settings` |
-| `put_mentor_settings` | `/api/ai-mentor/orgs/{org}/users/{user_id}/mentors/{mentor}/settings/` | PUT | `mentor-settings` |
+| `post_mentor_with_settings` | `/api/ai-agent/orgs/{org}/users/{user_id}/agent-with-settings/` | POST | `agent-with-settings` |
+| `get_mentor_settings` | `/api/ai-agent/orgs/{org}/users/{user_id}/agents/{agent}/settings/` | GET | `agent-settings` |
+| `put_mentor_settings` | `/api/ai-agent/orgs/{org}/users/{user_id}/agents/{agent}/settings/` | PUT | `agent-settings` |
 | `post_train_document` | `/api/ai-index/orgs/{org}/users/{user_id}/documents/train/` | POST | `ai_index_orgs_users_documents_train` |
 | `post_retriever_train` | `/api/ai-index/orgs/{org}/users/{user_id}/documents/train/retriever/` | POST | `ai_index_orgs_users_documents_train_retriever` |
 | `ping` | N/A (custom tool) | N/A | Health check tool |
 
 **Tool Name Generation Examples**:
-- `mentor-with-settings` → `post_mentor_with_settings` (hyphen → underscore, method prefix added)
-- `mentor-settings` → `get_mentor_settings` / `put_mentor_settings` (different methods create different tools)
+- `agent-with-settings` → `post_mentor_with_settings` (hyphen → underscore, method prefix added)
+- `agent-settings` → `get_mentor_settings` / `put_mentor_settings` (different methods create different tools)
 - `ai_index_orgs_users_documents_train` → `post_train_document` (prefixes removed, simplified)
 
 ---
@@ -563,13 +563,13 @@ Where:
 
 | Tool Name | Endpoint | Method | Description |
 |-----------|----------|--------|-------------|
-| `get_mentor_search` | `/api/ai-search/mentors/` | GET | Global mentor search (personalized excluded) |
+| `get_mentor_search` | `/api/ai-search/agents/` | GET | Global agent search (personalized excluded) |
 | `get_catalog_search` | `/api/search/catalog/` | GET | Global catalog search (personalized excluded) |
 | `get_recommendations` | `/api/ai-search/recommendations/` | GET | Course recommendations |
 | `ping` | N/A (custom tool) | N/A | Health check tool |
 
 **Excluded Tools** (personalized endpoints):
-- `get_personalized_mentors` - Personalized mentor recommendations
+- `get_personalized_mentors` - Personalized agent recommendations
 - `get_personalized_catalog_search` - Personalized catalog search
 
 **Tool Name Generation**:
@@ -628,7 +628,7 @@ All endpoints under `/api/analytics/` are automatically included. Examples:
 
 **"Unauthorized" errors**: Check your API key is correct and hasn't expired.
 
-**"Could not authenticate mentor"**: Verify the `X-Mentor-Unique-Id` header is set correctly.
+**"Could not authenticate agent"**: Verify the `X-Agent-Unique-Id` header is set correctly.
 
 **Connection issues**: Ensure the instance URL is correct and accessible.
 
@@ -643,9 +643,9 @@ All endpoints under `/api/analytics/` are automatically included. Examples:
 - `get_mentor_search` requires `platform_key` for authenticated requests
 - Use either `platform_key` or `tenant` parameter (both serve the same purpose)
 
-**"Document pathway is not a valid mentor unique id"** (Agent Create):
-- When using `post_train_document` or `post_retriever_train`, the `pathway` parameter must be a valid mentor UUID
-- Use the mentor's unique ID (not the mentor name or slug)
+**"Document pathway is not a valid agent unique id"** (Agent Create):
+- When using `post_train_document` or `post_retriever_train`, the `pathway` parameter must be a valid agent UUID
+- Use the agent's unique ID (not the agent name or slug)
 - Example: `pathway="ad2be335-5afa-4a9e-9298-8273b3d94e10"`
 
 **"We couldn't reach the website"** (Agent Create):
@@ -662,7 +662,7 @@ All endpoints under `/api/analytics/` are automatically included. Examples:
 ### Best Practices
 
 1. **Always include `platform_key`** for analytics and search operations
-2. **Use mentor UUIDs** (not names) for pathway parameters in document training
+2. **Use agent UUIDs** (not names) for pathway parameters in document training
 3. **Test with simple prompts first** (e.g., "hello") before complex queries
 4. **Check URL accessibility** before training documents from external sources
 5. **Use health check tools** (`ping`) to verify server connectivity

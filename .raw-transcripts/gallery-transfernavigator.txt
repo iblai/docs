@@ -1,14 +1,14 @@
-mentorAI | Transfer Navigator Mentor
+Agentic OS | Transfer Navigator Agent
 https://www.youtube.com/watch?v=5iP4N9hX9rQ
 
 [1.2s] I'm going to be showing you our transfer
-[2.9s] navigation mentor which is focusing on
+[2.9s] navigation agent which is focusing on
 [6.0s] credit transfers, articulation
 [7.9s] agreements and any sort of requirements
 [10.2s] related to transferring. In this case,
 [12.6s] if we look at the system prompt here,
 [16.6s] you can see that this will allow you to
-[19.4s] ask the mentor about your own, you know,
+[19.4s] ask the agent about your own, you know,
 [21.4s] credits, your own transcript and compare
 [24.1s] it against, you know, the requirements
 [26.7s] for transferring and how it'll also
@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=5iP4N9hX9rQ
 [61.2s] How will actually, let's say, will my
 [64.5s] credits transfer? That's our starting
 [66.5s] point.
-[71.6s] And so the mentor is going to basically
+[71.6s] And so the agent is going to basically
 [73.0s] analyze the transcript of this example
 [75.2s] student um and you know give it
 [77.8s] information. In this case this is

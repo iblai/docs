@@ -1,8 +1,8 @@
-mentorAI | Student Life Mentor
+Agentic OS | Student Life Agent
 https://www.youtube.com/watch?v=N2xQ5hRXxo0
 
 [2.3s] I'll be walking you through our student
-[4.0s] life mentor, which is a mentor that
+[4.0s] life agent, which is an agent that
 [5.8s] provides guidance on basic needs and
 [7.7s] non-academic support. This can direct
 [10.0s] students to things like food pantries,

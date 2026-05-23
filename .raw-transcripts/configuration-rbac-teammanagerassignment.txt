@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=3l7oPOtcogI
 [19.3s] settings. Now we already have this set
 [21.5s] up and this is the model that you can
 [23.1s] follow um for subsequent uh
-[27.4s] mentor/manager roles that are only
+[27.4s] agent/manager roles that are only
 [29.4s] overseeing um a specific team. Um in
 [32.9s] this case we have the role setup for
 [35.4s] this which is the company analytics
@@ -63,7 +63,7 @@ https://www.youtube.com/watch?v=3l7oPOtcogI
 [145.9s] you can see here that we have analytics
 [147.6s] and we can filter by the two groups we
 [149.2s] have access to. Um that being said,
-[151.4s] these are mentor related dashboards
+[151.4s] these are agent related dashboards
 [153.4s] which will be um enhanced later with
 [156.3s] course dashboards. So you can visualize
 [158.2s] the data that you have access to in

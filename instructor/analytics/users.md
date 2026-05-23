@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Users tab** shows who is using a specific mentorAI, how often they access it, and when activity peaks.  
+The **Users tab** shows who is using a specific Agentic OS, how often they access it, and when activity peaks.  
 Filter by time ranges, view **live and historical counts**, scan **access-time heatmaps**, and drill into **per-user details** (messages sent and last active) to guide outreach and support.
 
 ---
@@ -18,14 +18,14 @@ Filter by time ranges, view **live and historical counts**, scan **access-time h
 ## Features
 
 #### Live & Historical Counts
-View **currently logged-in users**, users active in the **last 30 days**, and the **total registered users** for the mentor.
+View **currently logged-in users**, users active in the **last 30 days**, and the **total registered users** for the agent.
 
 #### Flexible Time Filters
 Switch between **Today**, **Past 7 Days**, **Past Month**, or a **Custom Date Range**.  
 All tables and charts automatically update to match your selection.
 
 #### Active Users Over Time
-Track how many **unique users** engaged with the mentor within the selected period.
+Track how many **unique users** engaged with the agent within the selected period.
 
 #### Access Times Heatmap
 See a **time-of-day/day-of-week grid** where darker shades indicate higher user activity—helping you quickly spot **peak hours**.
@@ -33,7 +33,7 @@ See a **time-of-day/day-of-week grid** where darker shades indicate higher user 
 #### User Details Table
 For each user, view:
 - **Name/Username**  
-- **Messages sent** (specific to this mentor)  
+- **Messages sent** (specific to this agent)  
 - **Last active timestamp**
 
 ---
@@ -41,7 +41,7 @@ For each user, view:
 ## How to Use (step by step)
 
 #### Open Analytics → Users
-- In the mentor header, click the **Analytics** button.  
+- In the agent header, click the **Analytics** button.  
 - Select the **Users tab**.
 
 #### Set Your Timeframe
@@ -74,7 +74,7 @@ Filter for **inactive or low-activity learners** and send personalized reminders
 Use the **heatmap** to time **office hours** or **content releases** when most learners are active.
 
 #### Cohort Health Check
-Track **30-day activity** and **active-user trends** to confirm adoption following new mentor launches or updates.
+Track **30-day activity** and **active-user trends** to confirm adoption following new agent launches or updates.
 
 #### Intervention Prioritization
 Combine **messages sent** and **last active** to identify learners who need help (e.g., those with high activity but low success rates or long inactivity).

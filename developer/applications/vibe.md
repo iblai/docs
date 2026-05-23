@@ -181,7 +181,7 @@ get_component_info("ChatWidget")              # Props, usage, examples for any c
 get_hook_info("useAdvancedChat")              # Hook parameters and return types
 get_api_query_info("useGetUserMetadataQuery") # RTK Query endpoint details
 get_provider_setup("auth")                    # Provider hierarchy and setup code
-create_page_template("Dashboard", "mentor")   # Generate a page following ibl.ai patterns
+create_page_template("Dashboard", "agent")   # Generate a page following ibl.ai patterns
 ```
 
 ---

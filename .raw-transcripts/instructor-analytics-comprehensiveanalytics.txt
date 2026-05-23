@@ -1,11 +1,11 @@
-mentorAI | Analytics Overview
+Agentic OS | Analytics Overview
 https://www.youtube.com/watch?v=t0oPlMFYFjU
 
 [1.2s] For admins and administrators, we really
 [3.5s] value having your insights available to
 [6.7s] you and your analytics available to you
 [9.0s] as well. One way you can find your
-[11.3s] analytics for for your particular mentor
+[11.3s] analytics for for your particular agent
 [14.0s] is with this little analytics button
 [15.5s] right here. So, we'll click on this
 [18.0s] and I'm going to specifically be
@@ -16,16 +16,16 @@ https://www.youtube.com/watch?v=t0oPlMFYFjU
 [27.4s] many users over the past month have uh
 [30.4s] been active, how many uh messages over
 [33.0s] the past month um have been sent to the
-[35.3s] mentor. And you can even see a
+[35.3s] agent. And you can even see a
 [37.0s] comparison against the last month's
 [38.9s] data. You also can see the topics for
 [41.2s] the month and the number of
 [42.5s] conversations that have been held with
-[44.2s] this particular mentor for that month as
+[44.2s] this particular agent for that month as
 [46.3s] well. Now, in this little sessions
 [48.6s] graph, you'll be able to see exactly,
 [50.3s] you know, how many individual sessions.
-[52.5s] So that's a user chatting with a mentor
+[52.5s] So that's a user chatting with an agent
 [54.6s] for you know a certain length of time.
 [56.2s] They might have exchanged multiple
 [57.4s] messages or they might have just sent
@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=t0oPlMFYFjU
 [73.6s] have the same options with filtering by
 [74.9s] a certain time. This will cover topics
 [76.9s] that have been specifically spoken about
-[79.1s] um with the mentor. any sort of
+[79.1s] um with the agent. any sort of
 [80.7s] questions um you know looking for
 [83.4s] information whatever it may be these are
 [85.0s] going to be the topics that have been
@@ -55,7 +55,7 @@ https://www.youtube.com/watch?v=t0oPlMFYFjU
 [107.3s] specific time frame that you've selected
 [108.6s] up here. And that's how this overview
 [110.7s] tab's going to work. And this will give
-[113.4s] you great insights on how your mentor is
+[113.4s] you great insights on how your agent is
 [115.2s] being used, how frequently it's being
 [116.7s] used, and we'll be covering the other
 [118.7s] analytics tabs here in a future video.

@@ -4,9 +4,9 @@
 
 ## Description
 
-The **User Profile** lets you manage the personal details that mentorAI uses to personalize your experience—**name, contact info, preferred language, social links, education, work history, and résumé**. You can also **reset your password** from here.  
+The **User Profile** lets you manage the personal details that Agentic OS uses to personalize your experience—**name, contact info, preferred language, social links, education, work history, and résumé**. You can also **reset your password** from here.  
 
-Profile updates help mentorAI **tailor guidance** (e.g., career advice) and help **instructors/admins** understand learner context.
+Profile updates help Agentic OS **tailor guidance** (e.g., career advice) and help **instructors/admins** understand learner context.
 
 ---
 
@@ -23,7 +23,7 @@ Edit your **full name, email, title**, and an **About blurb** summarizing your b
 
 #### Preferred Language
 Choose your **interface language** (e.g., Spanish, French).  
-mentorAI adapts the UI and experience accordingly.
+Agentic OS adapts the UI and experience accordingly.
 
 #### Social
 Add optional links (Facebook, LinkedIn, X) to make it easier to connect outside the platform.
@@ -36,7 +36,7 @@ Record details such as:
 - Start/End dates (or mark *In progress*)  
 - GPA (optional)
 
-This data is shared with **mentorAI and administrators** to contextualize support.
+This data is shared with **Agentic OS and administrators** to contextualize support.
 
 #### Experience
 Capture professional roles (past/current):
@@ -46,7 +46,7 @@ Capture professional roles (past/current):
 - Role dates (*mark Currently work here* when applicable)
 
 #### Resume
-Upload a résumé/CV (file) for mentors and admins to reference—useful for **career guidance** and **tailored recommendations**.
+Upload a résumé/CV (file) for agents and admins to reference—useful for **career guidance** and **tailored recommendations**.
 
 #### Security
 Reset your password while logged in; a verification email is sent to complete the change.
@@ -84,7 +84,7 @@ Reset your password while logged in; a verification email is sent to complete th
 
 #### Upload Your Resume
 - Go to **Resume** → click **Upload** to add your résumé (PDF/DOC)  
-- The file is shared with admins and mentorAI to personalize support
+- The file is shared with admins and Agentic OS to personalize support
 
 #### Reset Your Password (If Needed)
 - Open **Security** → click **Reset password**  
@@ -92,14 +92,14 @@ Reset your password while logged in; a verification email is sent to complete th
 
 #### Save & Verify
 - Ensure each tab’s changes are **Saved**  
-- Reopen your mentor chat to benefit from updated personalization
+- Reopen your agent chat to benefit from updated personalization
 
 ---
 
 ## Pedagogical Use Cases
 
 #### Personalized Career Guidance
-Education/experience + résumé help mentorAI suggest roles, skills to build, and tailored application tips.
+Education/experience + résumé help Agentic OS suggest roles, skills to build, and tailored application tips.
 
 #### Language Accessibility
 The **Preferred Language** ensures the UI and responses match your preferred communication language.
@@ -112,4 +112,4 @@ A complete profile (GPA, projects, roles) improves the relevance of **scholarshi
 
 ---
 
-Keep your **User Profile** current to get the most **accurate, relevant, and personalized help** from mentorAI—across courses, career prep, and daily learning.
+Keep your **User Profile** current to get the most **accurate, relevant, and personalized help** from Agentic OS—across courses, career prep, and daily learning.

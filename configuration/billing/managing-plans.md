@@ -123,7 +123,7 @@ Returns a paginated list of credit transactions (top-ups, deductions, refunds, e
       "status": "completed",
       "credits_amount": "0.03",
       "credits_balance_after": "42.47",
-      "description": "AI Mentor session — Premium Tutor",
+      "description": "AI Agent session — Premium Tutor",
       "created_at": "2026-04-17T09:15:00Z"
     },
     {

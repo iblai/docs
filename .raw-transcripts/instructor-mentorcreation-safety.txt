@@ -1,4 +1,4 @@
-mentorAI | Flagged Prompts
+Agentic OS | Flagged Prompts
 https://www.youtube.com/watch?v=lMIrI5sYIXA
 
 [0.4s] Hey, what's going on? This is Jeremy at
@@ -6,44 +6,44 @@ https://www.youtube.com/watch?v=lMIrI5sYIXA
 [4.1s] our newest features, the flagged prompt
 [7.3s] feature. This basically allows uh
 [9.7s] administrators, faculty, whoever may be
-[12.1s] overseeing the mentor AI platform for
+[12.1s] overseeing the agent AI platform for
 [14.9s] the users within their cohort to see any
 [18.8s] potentially harmful, sensitive or policy
 [22.2s] relevant inputs that users may have
-[24.6s] submitted to the mentor that fall
+[24.6s] submitted to the agent that fall
 [27.0s] outside the bounds of the moderation
-[30.4s] prompt for this mentor. So any
+[30.4s] prompt for this agent. So any
 [33.0s] information that would be potentially
 [35.0s] harmful to the institution, potentially
 [37.2s] harmful uh just in general in nature, or
 [40.3s] something that just falls outside the
-[42.4s] scope of what the mentor is supposed to
+[42.4s] scope of what the agent is supposed to
 [44.3s] do and the questions that it's supposed
 [46.2s] to answer. So for the purpose of this
 [49.2s] demonstration, I'm showing you the email
-[51.2s] writer AI uh mentor. This is one that I
+[51.2s] writer AI uh agent. This is one that I
 [54.4s] use very frequently to put together new
 [57.0s] emails for people that we're currently
 [58.8s] speaking with. So, I've gone ahead and
 [61.4s] edited the moderation prompt, which you
 [63.3s] can do by selecting the drop-down menu
 [66.2s] in the lefthand corner where you see the
-[68.3s] mentor's name that you're currently
+[68.3s] agent's name that you're currently
 [69.8s] interacting with. This will open the
 [72.3s] entire drop-down menu of uh backend
-[75.4s] settings for this mentor. So, we're
+[75.4s] settings for this agent. So, we're
 [77.5s] going to open safety.
 [80.7s] And when we do that, you can see that
 [82.3s] the moderation prompt for this agent has
 [85.0s] been enabled. It is active and on. And
 [87.9s] within the moderation prompt, I said to
-[90.2s] the mentor, "Any prompt that is not
+[90.2s] the agent, "Any prompt that is not
 [93.5s] specifically related to crafting
 [95.4s] follow-up emails is deemed
 [97.3s] inappropriate. Otherwise, it is deemed
 [99.8s] appropriate."
 [101.4s] So, basically, any question that I ask
-[103.8s] this mentor that falls beyond the scope
+[103.8s] this agent that falls beyond the scope
 [106.1s] of just crafting emails, be it
 [109.1s] follow-ups, new outreach, whatever it
 [111.2s] may be, um, is outside the scope of
@@ -53,7 +53,7 @@ https://www.youtube.com/watch?v=lMIrI5sYIXA
 [121.1s] question that falls outside the scope of
 [123.0s] email writing. What is the weather like
 [127.7s] in Boston today?
-[133.0s] Perfect. So the mentor is not going to
+[133.0s] Perfect. So the agent is not going to
 [134.9s] respond to this. It falls beyond the
 [136.6s] scope. And you'll see a notification
 [138.4s] right here in the lower right hand
@@ -61,7 +61,7 @@ https://www.youtube.com/watch?v=lMIrI5sYIXA
 [142.3s] the conversation within the bounds of
 [143.8s] what the agent is tasked to do and per
 [146.2s] your platform's rules, please try again
-[148.4s] or contact us. So mentors not
+[148.4s] or contact us. So agents not
 [151.9s] responding. That's the first key in this
 [153.8s] operation.
 [155.3s] But you as an administrator can then

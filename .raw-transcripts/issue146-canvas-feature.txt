@@ -1,4 +1,4 @@
-mentorAI | Canvas
+Agentic OS | Canvas
 https://www.youtube.com/watch?v=-nDjxfTaPBI
 
 [1.5s] I will be walking you through one of our
@@ -16,8 +16,8 @@ https://www.youtube.com/watch?v=-nDjxfTaPBI
 [25.4s] basically create a document for you
 [28.4s] based off of whatever you prompt it
 [29.8s] with. In this case, I'm using a lesson
-[31.3s] planner mentor. So, I'm going to ask
-[33.5s] this mentor to create a lesson plan in
+[31.3s] planner agent. So, I'm going to ask
+[33.5s] this agent to create a lesson plan in
 [35.5s] Canvas. Create a lesson plan for high
 [39.8s] school
 [42.1s] students who are taking an AP liter
@@ -31,7 +31,7 @@ https://www.youtube.com/watch?v=-nDjxfTaPBI
 [65.7s] up.
 [71.3s] So,
 [72.8s] all right. So you can see that the
-[74.7s] mentor is has responded just telling you
+[74.7s] agent is has responded just telling you
 [77.0s] that you know there's a AP uh literature
 [79.8s] lesson plan uh right down below and
 [82.9s] it'll also give you this open canvas
@@ -44,7 +44,7 @@ https://www.youtube.com/watch?v=-nDjxfTaPBI
 [97.3s] open it later. And once it's done
 [99.9s] generating, you'll actually be able to
 [103.1s] make edits to this document, ask the
-[104.8s] mentor to make edits for you, and even
+[104.8s] agent to make edits for you, and even
 [106.9s] export your document.
 [109.9s] So, it's still writing up the doc, but
 [112.5s] once it's done, I'll show you those
@@ -56,7 +56,7 @@ https://www.youtube.com/watch?v=-nDjxfTaPBI
 [137.0s] generating uh message down below has is
 [139.8s] no longer there because it has been
 [142.3s] updated or completed. And this the
-[145.0s] mentor will also ask you if you want to
+[145.0s] agent will also ask you if you want to
 [146.3s] adapt anything to a specific schedule or
 [148.6s] you know whatever it is related to the
 [150.0s] document you're asking it to create.
@@ -64,14 +64,14 @@ https://www.youtube.com/watch?v=-nDjxfTaPBI
 [153.9s] also have the ability to format the
 [155.4s] document as you please and export while
 [158.2s] also having the ability to ask the
-[160.5s] mentor to make updates. So, let's say
+[160.5s] agent to make updates. So, let's say
 [164.0s] duration 60 minutes and maybe that is,
 [166.8s] you know, the average for most high
 [168.2s] school classes, but let's say update
 [172.2s] the duration to 65 minutes.
 [180.9s] You can see here that that message that
 [182.5s] we just typed inside of Canvas actually
-[184.3s] appears over here in the mentor chat.
+[184.3s] appears over here in the agent chat.
 [188.6s] And you'll see that it's updating the
 [190.2s] content while, you know, well, doing
 [194.2s] whatever you've asked it to do. And you

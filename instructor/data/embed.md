@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Embed feature lets you place a fully‑functional mentorAI widget on any website or LMS page. Customize its look, choose which tabs it offers, control user‑tracking options, and enable smart extras (context awareness, safety disclaimer, auto‑open). Once configured, a code snippet drops the mentor directly into your site—no separate login required for end users.
+The Embed feature lets you place a fully‑functional Agentic OS widget on any website or LMS page. Customize its look, choose which tabs it offers, control user‑tracking options, and enable smart extras (context awareness, safety disclaimer, auto‑open). Once configured, a code snippet drops the agent directly into your site—no separate login required for end users.
 
 
 ![](/images/embed.png)
@@ -22,7 +22,7 @@ The Embed feature lets you place a fully‑functional mentorAI widget on any web
 
 #### Live Preview & Custom CSS
 
-See exactly how the mentor will appear and tweak colors, fonts, or brand styling with optional CSS.
+See exactly how the agent will appear and tweak colors, fonts, or brand styling with optional CSS.
 
 #### Two Embed Modes
 
@@ -35,7 +35,7 @@ Allow public use without login, or require user tracking with a **website URL** 
 
 #### Context Aware Toggle
 
-Let the mentor read **on‑page content** (PDFs, articles) and answer in context.
+Let the agent read **on‑page content** (PDFs, articles) and answer in context.
 
 #### Safety Disclaimer
 
@@ -53,10 +53,10 @@ Create the embed snippet (and token if needed) ready to paste into any site or L
 
 ## How to Use (step by step)
 
-#### Locate the Mentor
+#### Locate the Agent
 
-- Sign in to the **mentorAI web app**  
-- Open the desired **mentor’s chat window**  
+- Sign in to the **Agentic OS web app**  
+- Open the desired **agent’s chat window**  
 - Click the dropdown next to its name and select **Embed**
 
 #### Preview & Style
@@ -76,7 +76,7 @@ Create the embed snippet (and token if needed) ready to paste into any site or L
 
 #### Enable Extra Options (as needed)
 
-- **Context Aware** → mentor reads page content  
+- **Context Aware** → agent reads page content  
 - **Safety Disclaimer** → adds a cautionary note  
 - **Open by Default** → widget starts open on page load  
 - **Icon** → choose a launcher icon
@@ -90,7 +90,7 @@ Create the embed snippet (and token if needed) ready to paste into any site or L
 #### Deploy
 
 - Paste the snippet (and token, if required) into your **website or LMS page**  
-- Save and publish. The mentor is live!
+- Save and publish. The agent is live!
 
 ---
 
@@ -98,11 +98,11 @@ Create the embed snippet (and token if needed) ready to paste into any site or L
 
 #### Course‑Page Tutors
 
-Embed a mentor on weekly modules so students get in‑context help, summaries, and translations without leaving the LMS.
+Embed an agent on weekly modules so students get in‑context help, summaries, and translations without leaving the LMS.
 
 #### Public FAQ Bots
 
-Use **Anonymous mode** to place a “Campus Help Desk” mentor on the university website—no login hurdles for visitors.
+Use **Anonymous mode** to place a “Campus Help Desk” agent on the university website—no login hurdles for visitors.
 
 #### Context‑Aware Reading Aids
 
@@ -114,8 +114,8 @@ Turn **Context Aware** on for pages hosting PDFs or slide decks; students rece
 
 #### Safety‑Conscious Deployments
 
-Add a **Safety Disclaimer** when embedding mentors that offer medical, legal, or financial guidance to encourage verification.
+Add a **Safety Disclaimer** when embedding agents that offer medical, legal, or financial guidance to encourage verification.
 
 ---
 
-With the **Embed** tool, you can deliver **mentorAI exactly where learners need it**—styled to match your site, configured for your privacy requirements, and equipped with the features that best serve your audience.
+With the **Embed** tool, you can deliver **Agentic OS exactly where learners need it**—styled to match your site, configured for your privacy requirements, and equipped with the features that best serve your audience.

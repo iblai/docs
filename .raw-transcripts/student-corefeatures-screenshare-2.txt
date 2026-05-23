@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=By2oyDTlq2k
 [12.8s] working. So, I'm going to go to the
 [15.1s] modules tab,
 [17.5s] click on
-[19.4s] mentor LTI, and open up it in a new
+[19.4s] agent LTI, and open up it in a new
 [22.8s] window.
 [24.4s] Once it loads up, what we'll do is click
 [26.9s] enable screen share.

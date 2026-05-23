@@ -8,11 +8,11 @@ Full transparency, help-desk and training. Proven by the best universities and c
 
 Based in New York, NY and family-owned.
 
-## Get started with mentorAI
+## Get started with Agentic OS
 
-Get started with [mentorAI](https://mentorai.iblai.app) by chatting with an extensive catalog of mentors or create your own.
+Get started with [Agentic OS](https://mentorai.iblai.app) by chatting with an extensive catalog of agents or create your own.
 
-You'll also be able to create your mentors and display them on external sites like [Syracuse University](https://its.syr.edu/) and [Fordham University](https://fordham.edu/undergraduate-admission/apply/what-were-looking-for/).
+You'll also be able to create your agents and display them on external sites like [Syracuse University](https://its.syr.edu/) and [Fordham University](https://fordham.edu/undergraduate-admission/apply/what-were-looking-for/).
 
 Explore SaaS or enterprise partnerships at [ibl.ai/pricing](https://ibl.ai/pricing).
 

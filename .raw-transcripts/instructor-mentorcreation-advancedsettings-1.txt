@@ -1,9 +1,9 @@
-mentorAI | Tenant Settings
+Agentic OS | Tenant Settings
 https://www.youtube.com/watch?v=UnkafAWUToU
 
 [1.0s] Hello, I'll be walking you through some
 [3.4s] new tenant management settings that we
-[5.4s] have implemented on Mentor AI. So, the
+[5.4s] have implemented on Agent AI. So, the
 [7.9s] first thing you'll do is click the
 [9.6s] dropown by your profile and click on the
 [12.2s] tenant name. In this case, it's going to
@@ -20,8 +20,8 @@ https://www.youtube.com/watch?v=UnkafAWUToU
 [34.0s] case, this is linking to our docs
 [35.4s] platform. You can also include which
 [38.0s] tenant logo you'd like to use. So, in
-[40.2s] our case, we obviously have mentor uh
-[42.2s] the IBL logo here for mentor AI, but you
+[40.2s] our case, we obviously have agent uh
+[42.2s] the IBL logo here for agent AI, but you
 [45.0s] can change this again to be whatever
 [46.8s] your preferred logo is.
 [49.3s] Under the managements tab, we have
@@ -62,14 +62,14 @@ https://www.youtube.com/watch?v=UnkafAWUToU
 [124.3s] um which will open up accessibility
 [126.2s] features for users to use. We also have
 [129.5s] a couple of other options including
-[131.4s] community mentors. This means if your
-[133.2s] mentors visibility is set to viewable by
-[135.3s] anybody. These mentors can be shared
+[131.4s] community agents. This means if your
+[133.2s] agents visibility is set to viewable by
+[135.3s] anybody. These agents can be shared
 [137.4s] across tenants.
 [139.8s] Now we also have public registration. If
 [141.9s] this is toggled on, this will allow
 [143.8s] users to register through a direct link
-[145.9s] to this mentor or this tenant um and
+[145.9s] to this agent or this tenant um and
 [148.6s] automatically be added as soon as they
 [150.7s] register. Then we also have DNS
 [153.4s] configuration. If you'd like to add your

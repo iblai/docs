@@ -1,8 +1,8 @@
-mentorAI | URL Dataset Auto-Retraining
+Agentic OS | URL Dataset Auto-Retraining
 https://www.youtube.com/watch?v=-kopLzUyExI
 
 [0.1s] how we can autoupdate data sets that are
-[3.0s] URL based. So in this case of mentor AI,
+[3.0s] URL based. So in this case of agent AI,
 [6.2s] I'm going to go to the data sets tab and
 [8.2s] you can see we have quite a few URLs
 [10.0s] here. Now let's say that you update your
@@ -28,5 +28,5 @@ https://www.youtube.com/watch?v=-kopLzUyExI
 [59.0s] updated the retrain interval. And so now
 [61.4s] every one day um if it'll check to see
 [64.1s] if the the page has been updated and if
-[66.0s] it has been updated the mentor will now
+[66.0s] it has been updated the agent will now
 [68.4s] account for that.

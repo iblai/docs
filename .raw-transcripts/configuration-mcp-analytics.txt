@@ -1,9 +1,9 @@
-mentorAI | Analytics MCP
+Agentic OS | Analytics MCP
 https://www.youtube.com/watch?v=Q88dvtE3wVQ
 
 [1.7s] Today I'll be walking you through how to
 [3.2s] connect an Analytics MCP server with a
-[5.8s] mentor or an agent. Now the first piece
+[5.8s] agent or an agent. Now the first piece
 [8.9s] here is making sure that the system
 [10.2s] prompt is set appropriately. And you can
 [11.7s] see here we've set this up so it's an
@@ -34,7 +34,7 @@ https://www.youtube.com/watch?v=Q88dvtE3wVQ
 [63.9s] anything that's happening within the
 [65.2s] platform itself. We even provide a
 [67.2s] couple of answers directly here as a
-[69.8s] couple of examples that the mentor can
+[69.8s] couple of examples that the agent can
 [72.0s] understand and pull from when it's
 [73.5s] pulling data from this MCP connection.
 [76.2s] Now, with the transport, you'll just
@@ -47,7 +47,7 @@ https://www.youtube.com/watch?v=Q88dvtE3wVQ
 [91.0s] The reason this is blank is because we
 [92.4s] hide the key. Um but if you enter anyone
 [94.6s] it'll replace. Now if we want to chat
-[97.0s] with the mentor we can say you know show
+[97.0s] with the agent we can say you know show
 [98.1s] me a graph of last logged in users over
 [100.8s] the past seven days.
 [104.0s] Now, there are a couple steps that
@@ -62,11 +62,11 @@ https://www.youtube.com/watch?v=Q88dvtE3wVQ
 [123.8s] activity or users who have logged in the
 [125.4s] past seven days, how many that has been.
 [127.8s] And then I'll ask
-[130.2s] what mentor has the highest usage over
+[130.2s] what agent has the highest usage over
 [134.8s] the past
 [138.4s] seven days as well.
-[144.2s] All right. So, the mentor with the
-[145.4s] highest usage is our analytics mentor,
+[144.2s] All right. So, the agent with the
+[145.4s] highest usage is our analytics agent,
 [147.1s] which is what we're actually chatting
 [148.2s] with. And it even gives us that LLM cost
 [151.0s] um associated.

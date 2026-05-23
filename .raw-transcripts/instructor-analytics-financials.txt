@@ -1,16 +1,16 @@
-mentorAI | Financial Analytics
+Agentic OS | Financial Analytics
 https://www.youtube.com/watch?v=0GztbtwwnDA
 
 [0.9s] As an instructor or as an admin, you
 [3.0s] might want to know how much your the
-[5.2s] financial cost of your mentor is. And a
+[5.2s] financial cost of your agent is. And a
 [8.3s] way to do that is by going to this
 [9.7s] analytics tab. You'll see that there's a
 [12.0s] financial tab here. And this will break
 [14.5s] down the costs for you. Now, you'll see
 [16.7s] this little bar up at the top that has
 [19.0s] weekly costs, monthly costs, and the
-[20.9s] total costs of the mentor usage. This
+[20.9s] total costs of the agent usage. This
 [24.0s] will cover also a comparison of the past
 [26.7s] month and the past week. The the other
 [30.1s] piece here is that this will show you
@@ -42,6 +42,6 @@ https://www.youtube.com/watch?v=0GztbtwwnDA
 [89.0s] total cost, how many sessions, and the
 [91.3s] last time that they were active. This
 [92.7s] will also give you a bit of insight of
-[94.1s] who is using your mentor more frequently
+[94.1s] who is using your agent more frequently
 [96.2s] than others, and how much it's actually
 [98.4s] costing. And that covers financials.

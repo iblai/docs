@@ -8,7 +8,7 @@
 
 ## Description
 
-A mentor that guides students through the **financial aid process**—explaining FAFSA steps, deadlines, documentation requirements, and troubleshooting common issues like verification holds.  
+An agent that guides students through the **financial aid process**—explaining FAFSA steps, deadlines, documentation requirements, and troubleshooting common issues like verification holds.  
 It **does not give speculative financial advice**; it focuses strictly on **official process guidance** and directs students to their campus Financial Aid office when necessary.
 
 ---
@@ -49,5 +49,5 @@ It **does not give speculative financial advice**; it focuses strictly on **offi
 
 Ready to give students a reliable, process-accurate guide for FAFSA?
 
-Email **support@iblai.zendesk.com** and we’ll enable **FAFSA Mentor** on your mentors—or help you build a solution tailored to your institution.
+Email **support@iblai.zendesk.com** and we’ll enable **FAFSA Agent** on your agents—or help you build a solution tailored to your institution.
 

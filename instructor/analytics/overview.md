@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Overview tab** gives instructors and admins a **quick pulse on mentor usage**—showing **active users, message volume, topics, and session trends**. 
+The **Overview tab** gives instructors and admins a **quick pulse on agent usage**—showing **active users, message volume, topics, and session trends**. 
 
 
 Compare activity against last month, filter by time range, and spot engagement patterns to guide instructional and operational decisions.
@@ -20,10 +20,10 @@ Compare activity against last month, filter by time range, and spot engagement p
 ## Features
 
 #### Active Users (Past Month + Trend)
-See how many learners engaged with the mentor and compare to the previous month.
+See how many learners engaged with the agent and compare to the previous month.
 
 #### Messages (Past Month + Trend)
-Track total messages exchanged with the mentor and view month-over-month changes.
+Track total messages exchanged with the agent and view month-over-month changes.
 
 #### Topics for the Period
 Identify which subjects or questions were discussed most during the selected timeframe.
@@ -42,7 +42,7 @@ See per-day engagement counts within the chosen period to spot **spikes and lull
 ## How to Use (step by step)
 
 #### Open Analytics
-- In a mentor’s header, click the **Analytics** button to open the analytics panel.
+- In an agent’s header, click the **Analytics** button to open the analytics panel.
 
 #### Select the Overview Tab
 - You’ll land on (or switch to) **Overview** to see headline metrics and charts.
@@ -70,7 +70,7 @@ See per-day engagement counts within the chosen period to spot **spikes and lull
 ## Pedagogical Use Cases
 
 #### Engagement Monitoring
-Validate adoption after launching a mentor or new module; plan engagement nudges on low-usage days.
+Validate adoption after launching an agent or new module; plan engagement nudges on low-usage days.
 
 #### Curriculum Focus
 Topic frequency highlights where to add examples, FAQs, or short micro-lessons.
@@ -82,9 +82,9 @@ Identify busy periods (e.g., around assignments or exams) to anticipate support 
 Compare analytics before and after prompt or dataset changes to measure their impact.
 
 #### Stakeholder Reporting
-Share month-over-month trends to demonstrate mentor usage, engagement growth, and instructional value.
+Share month-over-month trends to demonstrate agent usage, engagement growth, and instructional value.
 
 ---
 
-The **Overview tab** is your **at-a-glance dashboard** for mentor usage—helping you understand **who is engaging, how often, and what they need**, so you can respond quickly and effectively.
+The **Overview tab** is your **at-a-glance dashboard** for agent usage—helping you understand **who is engaging, how often, and what they need**, so you can respond quickly and effectively.
 

@@ -1,10 +1,10 @@
-mentorAI | ProfessionalNarrativeAI Mentor Demo
+Agentic OS | ProfessionalNarrativeAI Agent Demo
 https://www.youtube.com/watch?v=sj9EiLrmB64
 
 [0.4s] Hey, what's going on? This is Jeremy at
 [1.8s] IBLAI and today I'm showing you our
-[4.4s] professional narrative AI mentor. So, in
-[7.7s] a nutshell, what this mentor is designed
+[4.4s] professional narrative AI agent. So, in
+[7.7s] a nutshell, what this agent is designed
 [9.6s] to do is help students who may be close
 [13.1s] to completing their college journey. Uh,
 [15.5s] might be getting their feet wet in terms
@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [63.5s] with a resume, and also being able to
 [67.0s] craft that professional narrative around
 [69.6s] a specific audience.
-[71.8s] So the way that the mentor works is I've
+[71.8s] So the way that the agent works is I've
 [75.0s] basically given it a series of questions
 [79.2s] that it's meant to ask students, collect
 [82.5s] their information that they share and
@@ -37,7 +37,7 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [90.2s] here are a number of the
 [92.7s] questions within the sequence what we're
 [94.8s] looking for from the user instructions
-[97.6s] about how the mentor should engage.
+[97.6s] about how the agent should engage.
 [99.8s] Right? We want this to be very engaging
 [102.1s] and friendly because getting into the
 [105.1s] job force is incredibly stressful,
@@ -49,12 +49,12 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [119.9s] So basically the system prompt is just
 [122.7s] containing you know what kind of
 [124.0s] questions it is, what the overall goal
-[126.0s] of this mentor is, how it should
+[126.0s] of this agent is, how it should
 [128.1s] communicate with students, things of
 [130.2s] that nature. I've also trained this
-[132.9s] mentor on uh a professional narrative
+[132.9s] agent on uh a professional narrative
 [136.2s] series of questions here.
-[139.0s] So, the mentor now has a a very specific
+[139.0s] So, the agent now has a a very specific
 [142.0s] set of questions that it's going to ask
 [144.2s] in order in order to put together that
 [147.6s] professional profile to craft that
@@ -62,9 +62,9 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [152.2s] thing a user is going to do is come in
 [154.0s] and just simply say, "I need help
 [155.7s] crafting my professional narrative." The
-[158.8s] mentor is going to introduce itself
+[158.8s] agent is going to introduce itself
 [161.0s] saying, you know, "I'm the professional
-[162.7s] narrative mentor. I'll guide you step by
+[162.7s] narrative agent. I'll guide you step by
 [164.6s] step through a few short questions to
 [166.4s] help you create a professional narrative
 [168.4s] that reflects your goals, values, and
@@ -74,13 +74,13 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [176.2s] this conversation, but I did want to
 [178.8s] work through the entire interaction from
 [181.0s] a user perspective just to test the
-[183.7s] efficacy of this mentor. Um, so what the
-[186.2s] mentor is doing, and please feel free to
+[183.7s] efficacy of this agent. Um, so what the
+[186.2s] agent is doing, and please feel free to
 [188.1s] pause at any point if you'd like uh to
 [189.8s] read in a bit more depth, but it's going
 [192.2s] through this questionnaire, so to speak,
 [194.6s] this series of questions that I've
-[196.0s] shared with the mentor to get an idea of
+[196.0s] shared with the agent to get an idea of
 [199.0s] who I am, what I've done so far, what
 [201.7s] I'm looking to do in the future, both in
 [203.5s] the short or long term, what motivates
@@ -88,16 +88,16 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [208.9s] create this unified picture of the
 [212.6s] individual student as a professional.
 [215.9s] So once we get to the end of the
-[218.3s] questions, the mentor is going to be
+[218.3s] questions, the agent is going to be
 [220.5s] very supportive and encouraging in its
 [222.2s] words, "Excellent. You've demonstrated
 [223.9s] continuous learning, initiative, and
 [225.8s] thoughtful career planning. Here's your
 [228.3s] draft professional narrative." And the
-[230.5s] way that I've structured the mentor is
+[230.5s] way that I've structured the agent is
 [232.5s] to just kind of create a baseline
 [235.0s] narrative, right? So, we don't want the
-[236.9s] mentor to spit something out that's four
+[236.9s] agent to spit something out that's four
 [238.6s] pages long that's going to take us a
 [240.2s] very long time to sit back and edit. We
 [242.9s] also don't want something that's way too
@@ -117,18 +117,18 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [276.5s] quick 30 second elevator pitch. Tell me
 [278.8s] who you are. A very common question that
 [280.8s] comes up in job interviews.
-[283.4s] So, the mentor is going to basically
+[283.4s] So, the agent is going to basically
 [286.1s] say, uh, you know, I'm really glad you
 [287.9s] like it. You've built a powerful story.
 [289.8s] I can help create a shorter version
 [291.5s] around 75 to 125 words. Here it is. Uh,
 [296.1s] I can also create an even shorter one.
 [298.4s] We also want to make sure that the
-[299.7s] mentor is capable of creating a longer
-[301.6s] one. So I asked the mentor, I'd like to
+[299.7s] agent is capable of creating a longer
+[301.6s] one. So I asked the agent, I'd like to
 [304.9s] put together a longer version, maybe
 [306.5s] around 2,000 words.
-[309.0s] So the mentor says that's a great idea.
+[309.0s] So the agent says that's a great idea.
 [311.2s] A 2,000word version will let you explore
 [313.8s] your experiences and motivations in more
 [315.7s] depth. But in order to do that together,
@@ -151,6 +151,6 @@ https://www.youtube.com/watch?v=sj9EiLrmB64
 [354.9s] experiences to really craft that
 [357.0s] highlevel professional narrative. And in
 [360.2s] a nutshell, that is it. That is the
-[363.0s] professional narrative AI mentor. Thank
+[363.0s] professional narrative AI agent. Thank
 [365.5s] you so much for tuning in and as always,
 [367.7s] learn more at IBLAI.

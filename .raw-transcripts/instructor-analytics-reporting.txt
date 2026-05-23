@@ -1,25 +1,25 @@
-mentorAI | Reporting
+Agentic OS | Reporting
 https://www.youtube.com/watch?v=a8PETKB2i8U
 
 [1.1s] Hello. I'm going to be showing you the
-[3.4s] new reporting features we have in Mentor
+[3.4s] new reporting features we have in Agent
 [6.1s] AI. Now, the way you'll get there is as
 [8.4s] a tenant admin, once you're logged in,
 [9.9s] you should see this analytics button.
 [11.9s] When you click on this, you'll be taken
 [14.5s] to a page that looks like this, which
 [16.7s] covers a handful of different analytics
-[19.0s] points about you, the specific mentor's
+[19.0s] points about you, the specific agent's
 [21.4s] usage. You can see right here I have
-[22.6s] mentor AI selected. You can also change
-[24.8s] the mentor from this list.
+[22.6s] agent AI selected. You can also change
+[24.8s] the agent from this list.
 [27.4s] All right. So to get to the data
 [29.4s] reports, what we'll do is click data
 [30.8s] reports and you'll see that there are a
 [32.9s] few different reports. You you'll get
 [35.0s] user reports, which is just basically
 [36.6s] information about the users inside this
-[38.2s] tenant who have used the mentors.
+[38.2s] tenant who have used the agents.
 [41.6s] And then we also have metadata
 [43.4s] information. This is going to be a
 [45.6s] little bit more informative of who the
@@ -35,7 +35,7 @@ https://www.youtube.com/watch?v=a8PETKB2i8U
 [67.8s] another way of downloading this
 [69.2s] information. You'll get to see the
 [71.2s] reports for you know the conversations
-[74.2s] between users and the mentor. You'll see
+[74.2s] between users and the agent. You'll see
 [75.8s] the inputs and outputs um and exactly
 [78.2s] who that user is. All right. And that's
 [81.0s] basically the new updates for reporting.

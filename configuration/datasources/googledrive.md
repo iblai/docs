@@ -4,15 +4,15 @@
 
 ## Purpose
 
-Link **Google Drive files or folders** to a mentor so its knowledge base can include those materials.
+Link **Google Drive files or folders** to an agent so its knowledge base can include those materials.
 
 ---
 
 ## Steps
 
-### Open the Mentor’s Datasets
+### Open the Agent’s Datasets
 
-- Click the **mentor’s name**  
+- Click the **agent’s name**  
 - Select the **Datasets** tab
 
 ### Add a Resource from Google Drive
@@ -22,13 +22,13 @@ Link **Google Drive files or folders** to a mentor so its knowledge base can inc
 - When prompted, **connect your Google account** and follow the steps  
 - After connecting, pick any **file or folder** in your Drive
 
-### Train the Mentor
+### Train the Agent
 
-- After selecting the file or folder, the mentor can be **trained** on that material
+- After selecting the file or folder, the agent can be **trained** on that material
 
 ---
 
 ## Result
 
-The mentor now includes content from **Google Drive** in its knowledge base.
+The agent now includes content from **Google Drive** in its knowledge base.
 

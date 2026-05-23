@@ -1,25 +1,25 @@
-mentorAI | Mentor Editor
+Agentic OS | Agent Editor
 https://www.youtube.com/watch?v=WpJBhNB-2xs
 
 [1.4s] I'm going to be walking you through how
 [3.8s] you can give edit access to a given user
-[6.6s] within your tenant um to a mentor that
+[6.6s] within your tenant um to an agent that
 [9.9s] you as an instructor have created or if
-[12.1s] you're a tenant admin um any mentor that
+[12.1s] you're a tenant admin um any agent that
 [14.7s] exists on the platform. So I'm going to
 [16.8s] be showing you from the perspective of a
-[19.0s] person we want to edit a mentor before
+[19.0s] person we want to edit an agent before
 [21.3s] we apply the role. So if we see here
 [24.2s] under our profile this person's just
 [25.8s] considered a student. they have no
 [28.5s] ability to access um any editing
-[31.6s] settings um across any of the mentors
+[31.6s] settings um across any of the agents
 [34.6s] within this given space.
 [37.0s] So what I'm going to do is go back to
-[39.4s] the Socratic mentor
+[39.4s] the Socratic agent
 [44.4s] and what we'll do now is look at the
 [47.0s] tenant admin perspective um or the owner
-[50.4s] of a given mentor's perspective to show
+[50.4s] of a given agent's perspective to show
 [52.6s] you how you can give edit access to
 [54.4s] other people.
 [56.8s] So now we're going to take a look at the
@@ -29,14 +29,14 @@ https://www.youtube.com/watch?v=WpJBhNB-2xs
 [65.2s] see here on my profile that it says
 [66.6s] admin. So this person is going to have
 [69.3s] access to edit and create as many
-[71.3s] mentors as they want. Um also edit any
-[74.2s] mentors within the given platform as it
+[71.3s] agents as they want. Um also edit any
+[74.2s] agents within the given platform as it
 [76.1s] stands. Now if you're an instructor and
 [78.2s] you want to give somebody access um to a
-[80.9s] mentor you've created, you would only be
-[83.0s] able to do that for mentors that are
+[80.9s] agent you've created, you would only be
+[83.0s] able to do that for agents that are
 [84.7s] under your ownership.
-[87.2s] Now you can see here um under the mentor
+[87.2s] Now you can see here um under the agent
 [89.9s] settings we have this access tab. You
 [94.1s] can create different roles and even add
 [97.0s] people to roles that already exist. In
@@ -44,15 +44,15 @@ https://www.youtube.com/watch?v=WpJBhNB-2xs
 [100.9s] we'll click on actions. Now we're going
 [103.4s] to add the same user that we saw that
 [107.6s] was just a normal student and had no
-[109.2s] edit rights to any given mentor on the
+[109.2s] edit rights to any given agent on the
 [111.3s] platform. This is going to give them
 [113.3s] access exclusively to this singular
-[115.9s] mentor within this dedicated space. So
+[115.9s] agent within this dedicated space. So
 [118.8s] now we're going to exit out of this. And
 [121.1s] now we're going to go back to the
 [122.6s] perspective of this individual user. Um
 [125.8s] so you can see that they'll be able to
-[127.1s] edit this mentor but nobody else's.
+[127.1s] edit this agent but nobody else's.
 [132.4s] Now we are back to the individual user
 [134.9s] role. You can see here that this is
 [137.0s] still considered a student user. Um and
@@ -60,18 +60,18 @@ https://www.youtube.com/watch?v=WpJBhNB-2xs
 [142.1s] settings for example. Now if we click on
 [144.8s] this little drop down you can actually
 [146.3s] see that we are able to actually edit
-[148.0s] this mentor.
+[148.0s] this agent.
 [149.8s] Um so you know if we wanted to change
 [151.5s] the LLM we can always select a different
-[154.3s] mentor here. Um you have settings
+[154.3s] agent here. Um you have settings
 [158.5s] you can even edit the prompts and add
 [161.4s] data sets
 [163.4s] enable tools so on and so forth.
 [167.6s] So now if we wanted to
-[171.1s] look at another mentor to see if we can
+[171.1s] look at another agent to see if we can
 [173.0s] actually edit it, we shouldn't be able
 [174.7s] to. So if we click on this, you can see
 [177.8s] that we only have the new chat. We don't
 [180.2s] have access to edit this one because we
 [181.8s] were only given permissions to edit that
-[183.9s] singular mentor, that Socratic mentor.
+[183.9s] singular agent, that Socratic agent.

@@ -4,13 +4,13 @@
 
 ## Description
 
-The **Transcripts tab** lets instructors and admins review **real conversations** between learners and a specific mentorAI—with **context and cost metrics**.
+The **Transcripts tab** lets instructors and admins review **real conversations** between learners and a specific Agentic OS—with **context and cost metrics**.
 
 
-See summary KPIs (messages per conversation, average rating, estimated cost), search by topic or user, and open any session to read the **exact learner inputs and mentor replies**. 
+See summary KPIs (messages per conversation, average rating, estimated cost), search by topic or user, and open any session to read the **exact learner inputs and agent replies**. 
 
 
-Use these insights to improve instruction and tune your mentor’s **prompts, datasets, and tools**.
+Use these insights to improve instruction and tune your agent’s **prompts, datasets, and tools**.
 
 ---
 
@@ -37,14 +37,14 @@ Find transcripts by **topic** (e.g., “mitosis”) or by **user** when you need
 #### Per-Conversation Details
 For each transcript, view:  
 - **User name/username** (or *Anonymous*)  
-- **Mentor name**  
+- **Agent name**  
 - **LLM model**  
 - **Messages exchanged**  
 - **Estimated cost**  
 - **Timestamp**
 
 #### Full Conversation Viewer
-Read the **exact learner questions** and the **mentor’s responses** to evaluate **clarity, tone, and accuracy**.
+Read the **exact learner questions** and the **agent’s responses** to evaluate **clarity, tone, and accuracy**.
 
 #### Exports Available Elsewhere
 Download conversation data from **Data Reports → Chat History** when you need spreadsheets or BI analysis;  
@@ -55,7 +55,7 @@ quick viewing is also available in **Chat History**.
 ## How to Use (step by step)
 
 #### Open Analytics → Transcripts
-- In the mentor header, click **Analytics**, then select the **Transcripts tab**.
+- In the agent header, click **Analytics**, then select the **Transcripts tab**.
 
 #### Review Summary Metrics
 - Scan **avg messages/conversation**, **avg cost**, and **avg rating** to gauge conversation quality and efficiency.
@@ -69,8 +69,8 @@ quick viewing is also available in **Chat History**.
 #### Open a Transcript
 Click any session to view:
 - **User identity** (or *Anonymous*) and **username** (if login is required)  
-- **Mentor**, **LLM model**, **messages exchanged**, **estimated cost**, and **timestamp**  
-- The **exact Q&A exchange** between learner and mentor
+- **Agent**, **LLM model**, **messages exchanged**, **estimated cost**, and **timestamp**  
+- The **exact Q&A exchange** between learner and agent
 
 #### Decide Follow-Ups
 - If you see **confusion** or **low ratings**, adjust:  
@@ -103,5 +103,5 @@ Topics that dominate transcripts may indicate where **lecture materials or assig
 
 ---
 
-Use **Transcripts** to move beyond surface metrics—**read the conversations themselves**, understand learner needs, and continuously improve both your **teaching** and your **mentorAI**.
+Use **Transcripts** to move beyond surface metrics—**read the conversations themselves**, understand learner needs, and continuously improve both your **teaching** and your **Agentic OS**.
 

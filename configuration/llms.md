@@ -3,17 +3,17 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6_s7E7oB6ds" 
 title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
-## Why mentorAI Is LLM-Agnostic
+## Why Agentic OS Is LLM-Agnostic
 
 ![](/images/llms.png)
 
-- Let each mentor use the language model best suited to its subject.
+- Let each agent use the language model best suited to its subject.
 
-  - **Math mentor**: choose a model optimized for symbolic reasoning and step-by-step solutions.  
-  - **English composition mentor**: switch to a model fine-tuned on rhetoric or literary analysis.
+  - **Math agent**: choose a model optimized for symbolic reasoning and step-by-step solutions.  
+  - **English composition agent**: switch to a model fine-tuned on rhetoric or literary analysis.
 
 - Improves clarity, accuracy, and learning outcomes within each domain.  
-- Future-proofs your mentors as specialized models continue to appear.
+- Future-proofs your agents as specialized models continue to appear.
 
 ---
 
@@ -21,12 +21,12 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ### Click the Model Name
 
-- In the mentor card, click the current LLM’s name.  
+- In the agent card, click the current LLM’s name.  
 - The list of all LLM providers appears.
 
-### Use the Mentor Dropdown
+### Use the Agent Dropdown
 
-- Click the mentor’s name.  
+- Click the agent’s name.  
 - Select **LLM** from the dropdown menu.  
 - You land on the same provider list.
 
@@ -45,15 +45,15 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 ## Adding New or Custom Models
 
 - If a provider or model isn’t visible, it can be added to the platform quickly.  
-- mentorAI stays current by implementing new models as soon as they are released.
+- Agentic OS stays current by implementing new models as soon as they are released.
 
 ---
 
 ## Final Step: API Keys (If Required)
 
 - Some models may need you to supply your own LLM keys.  
-- Enter the keys when prompted; afterward, the mentor will run on the chosen model.
+- Enter the keys when prompted; afterward, the agent will run on the chosen model.
 
 ---
 
-That’s all it takes—select, confirm, and your mentor is now powered by the model that best fits its subject.
+That’s all it takes—select, confirm, and your agent is now powered by the model that best fits its subject.

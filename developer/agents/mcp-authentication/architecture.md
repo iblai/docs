@@ -10,7 +10,7 @@ This document targets backend engineers extending or operating the MCP server an
 
 For client-facing API usage, see:
 
-- [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, attach to mentors.
+- [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, attach to agents.
 - [OAuth Connectors](/docs/developer/agents/mcp-authentication/oauth-connectors) — per-user OAuth authorization flow.
 - [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events) — WebSocket/SSE events during a live chat.
 
@@ -22,7 +22,7 @@ For client-facing API usage, see:
 | --- | --- | --- |
 | Persistence | Store providers, services, connections, and user tokens | `OauthProvider`, `OauthService`, `ConnectedService`, `MCPServer`, `MCPServerConnection` |
 | API (Accounts) | Orchestrate OAuth flows, expose discovery endpoints, manage connected services | Account views and URLs |
-| API (Mentor) | CRUD for MCP servers and connections | `MCPServerViewSet`, `MCPServerConnectionViewSet` |
+| API (Agent) | CRUD for MCP servers and connections | `MCPServerViewSet`, `MCPServerConnectionViewSet` |
 | Chat Consumer | Detect missing credentials, drive the in-chat OAuth handshake | Chat WebSocket/SSE consumer, `MCPOAuthCoordinator` |
 | LangChain Runtime | Resolve connections at inference time, build headers | `MCPServer.resolve_connection`, LangChain tools |
 | Utilities | Credential store access, token refresh logic | `get_cred`, connected services utilities |
@@ -34,7 +34,7 @@ For client-facing API usage, see:
 - `OauthProvider` exposes one or more `OauthService` entries.
 - `OauthService` grants `ConnectedService` records (per user, per platform).
 - `MCPServer` is registered on a `Platform` and has one or more `MCPServerConnection` entries.
-- `MCPServerConnection` optionally uses a `ConnectedService` (for OAuth-backed auth) and can be scoped to a `Mentor`.
+- `MCPServerConnection` optionally uses a `ConnectedService` (for OAuth-backed auth) and can be scoped to a `Agent`.
 - `ConnectedService` has a unique constraint on `(user, provider, platform, service)` to enforce one connection per surface.
 
 ### `auth_type` vs `auth_scope` on `MCPServer`
@@ -44,7 +44,7 @@ Two orthogonal fields drive credential selection:
 | Field | Values | Semantics |
 | --- | --- | --- |
 | `auth_type` | `none`, `token`, `oauth2` | *How* credentials are presented on the wire. |
-| `auth_scope` | `platform`, `mentor`, `user` | *Whose* credentials are used. Controls whether the chat prompts for in-chat OAuth. |
+| `auth_scope` | `platform`, `agent`, `user` | *Whose* credentials are used. Controls whether the chat prompts for in-chat OAuth. |
 
 `auth_scope="user"` combined with `auth_type="oauth2"` is the trigger for the real-time in-chat OAuth handshake.
 
@@ -52,7 +52,7 @@ Two orthogonal fields drive credential selection:
 
 - `scope="platform"` — `platform` is auto-filled from the server's platform (unless the server is featured).
 - `scope="user"` — requires `user` or `connected_service`.
-- `scope="mentor"` — requires a mentor; optionally reuses platform-level credentials when no mentor-specific ones exist.
+- `scope="agent"` — requires an agent; optionally reuses platform-level credentials when no agent-specific ones exist.
 - `auth_type="oauth2"` — always requires `connected_service`.
 
 ---
@@ -82,13 +82,13 @@ Error handling is intentionally strict: multiple services per connection raise `
 ## MCP Server Runtime Resolution
 
 ```
-LangChain Tool -> MCPServer.resolve_connection(platform, user, mentor)
+LangChain Tool -> MCPServer.resolve_connection(platform, user, agent)
                    |
                    |- User-scoped connection exists?
                    |    YES -> Load connection -> Optional ConnectedService (if oauth2)
                    |
-                   |- Mentor-scoped connection exists?
-                   |    YES -> Use mentor credentials
+                   |- Agent-scoped connection exists?
+                   |    YES -> Use agent credentials
                    |
                    |- Platform-scoped connection exists?
                    |    YES -> Use stored platform credentials

@@ -1,11 +1,11 @@
-mentorAI | ItalianMentorAI
+Agentic OS | Italian Agent
 https://www.youtube.com/watch?v=Xa4-2FedAQw
 
 [0.1s] Hey, what's going on? This is Jeremy at
 [1.4s] IBLAI. Today I'm showing you one of our
-[3.6s] newest mentors, the Italian mentor AI.
-[6.2s] Now, very similar to the Spanish mentor
-[8.6s] AI that you saw previously, this mentor
+[3.6s] newest agents, the Italian agent AI.
+[6.2s] Now, very similar to the Spanish agent
+[8.6s] AI that you saw previously, this agent
 [11.6s] is designed to assist users as they
 [14.3s] begin their journey learning the Italian
 [16.2s] language, either by having a texttoext
@@ -26,9 +26,9 @@ https://www.youtube.com/watch?v=Xa4-2FedAQw
 [56.2s] give you a quick example of what that
 [57.8s] looks like, I'm going to open this voice
 [59.8s] call tab, which you can find at the
-[61.4s] bottom of the mentor AI screen as you
-[63.9s] are communicating with a mentor. As soon
-[66.5s] as I do, the mentor is going to be able
+[61.4s] bottom of the agent AI screen as you
+[63.9s] are communicating with an agent. As soon
+[66.5s] as I do, the agent is going to be able
 [68.4s] to hear everything I'm saying. So keep
 [69.9s] that in mind and let's watch.
 [85.5s] I was actually hoping today that you
@@ -55,20 +55,20 @@ https://www.youtube.com/watch?v=Xa4-2FedAQw
 [170.7s] Perfecto.
 [194.3s] Hi or hello.
 [200.3s] >> Awesome. Well, thank you so much for
-[201.6s] your help today, mentor.
+[201.6s] your help today, agent.
 [203.9s] And that's a very quick run through of
-[205.5s] the Italian language mentor. It can get
+[205.5s] the Italian language agent. It can get
 [207.9s] much more complicated than that. It can
 [210.0s] stay in a very 100 level area if that's
 [213.1s] what you needed to do. It will respond
 [215.0s] in English. It will respond in Italian.
-[217.4s] You can text with this mentor. You can
+[217.4s] You can text with this agent. You can
 [219.4s] have a verbal conversation with this
-[221.4s] mentor. We want to make learning as
+[221.4s] agent. We want to make learning as
 [223.7s] flexible and as approachable and
 [226.5s] accurate as possible. Um, so this is
-[230.0s] just another mentor in a series of
-[231.7s] language mentors we'll be creating. So,
+[230.0s] just another agent in a series of
+[231.7s] language agents we'll be creating. So,
 [233.6s] thank you so much for tuning in. Stay
-[235.5s] tuned for more language mentors and as
+[235.5s] tuned for more language agents and as
 [237.8s] always, learn more at ibl.ai.

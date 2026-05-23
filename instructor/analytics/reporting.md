@@ -4,9 +4,9 @@
 
 ## Description
 
-**Reporting** gives instructors and tenant admins **downloadable, analysis-ready datasets** from mentorAI.  
+**Reporting** gives instructors and tenant admins **downloadable, analysis-ready datasets** from Agentic OS.  
 
-From a single screen, you can select a mentor, open **Data Reports**, and export **User Reports**, **Metadata**, and **Chat History**—making it easy to **audit activity**, **measure engagement**, and **support outcomes research**.
+From a single screen, you can select an agent, open **Data Reports**, and export **User Reports**, **Metadata**, and **Chat History**—making it easy to **audit activity**, **measure engagement**, and **support outcomes research**.
 
 ---
 
@@ -18,20 +18,20 @@ From a single screen, you can select a mentor, open **Data Reports**, and export
 
 ## Features
 
-#### Mentor Selector
-Pick the mentor you want to analyze from a drop-down (e.g., *“mentorAI”* or any other mentor in your tenant).
+#### Agent Selector
+Pick the agent you want to analyze from a drop-down (e.g., *“Agentic OS”* or any other agent in your tenant).
 
 #### Data Reports Hub
 One centralized location to access all exports related to usage and conversations.
 
 #### User Reports
-Basic account/usage fields for users who engaged with the mentor (e.g., **email**, **login**, **activity details**).
+Basic account/usage fields for users who engaged with the agent (e.g., **email**, **login**, **activity details**).
 
 #### Metadata Reports
 Expanded profile context (e.g., **organization/company**, or additional attributes where available) for deeper segmentation.
 
 #### Chat History Reports
-Conversation-level exports showing **inputs** (learner messages), **outputs** (mentor responses), and **user identifiers**.
+Conversation-level exports showing **inputs** (learner messages), **outputs** (agent responses), and **user identifiers**.
 
 #### Downloadable Formats
 Exports are **ready for spreadsheets or BI tools**, enabling deeper analysis and visualization.
@@ -43,8 +43,8 @@ Exports are **ready for spreadsheets or BI tools**, enabling deeper analysis and
 #### Open Analytics
 - After logging in, click the **Analytics** button (visible to tenant admins and instructors with access).
 
-#### Choose a Mentor
-- Use the **mentor selector** at the top to pick the specific mentor you want to report on.
+#### Choose an Agent
+- Use the **agent selector** at the top to pick the specific agent you want to report on.
 
 #### Open Data Reports
 - Click **Data Reports** to view available report types.

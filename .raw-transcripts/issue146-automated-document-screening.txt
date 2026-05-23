@@ -1,14 +1,14 @@
-mentorAI | Automated Document Screening
+Agentic OS | Automated Document Screening
 https://www.youtube.com/watch?v=4IjsTNUv4ps
 
 [1.4s] Hi. Um this is Joseph from IBLAI. Um I
 [5.2s] will be demonstrating
-[7.3s] um using our mentors, our agents um to
+[7.3s] um using our agents, our agents um to
 [11.3s] perform some form of automated document
 [14.0s] screening. Okay. So I'm showing this
 [16.2s] from a UI perspective. Um you the tenant
-[19.4s] admin comes you have a mentor. You can
-[22.3s] pass in instructions telling the mentor
+[19.4s] admin comes you have an agent. You can
+[22.3s] pass in instructions telling the agent
 [24.8s] what to do. Of course, instructions are
 [26.8s] all like almost everything when it comes
 [29.8s] to agents. So, you tell the agent um
@@ -39,7 +39,7 @@ https://www.youtube.com/watch?v=4IjsTNUv4ps
 [102.7s] weren't. Okay, I only have three, so not
 [105.8s] anything um
 [108.6s] weird. Okay, now let's go back to the
-[113.1s] mentor just to test. I am going to use a
+[113.1s] agent just to test. I am going to use a
 [115.8s] canvas view which is um just a cool
 [118.9s] feature to show the results in a side
 [122.8s] panel. Something that I would actually

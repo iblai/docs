@@ -1,9 +1,9 @@
-mentorAI | Completion Coach Mentor
+Agentic OS | Completion Coach Agent
 https://www.youtube.com/watch?v=0zP_PLgfvm4
 
 [1.3s] In this demo, I'm going to be walking
-[2.6s] you through our completion coach mentor,
-[4.5s] which is a mentor designed to keep
+[2.6s] you through our completion coach agent,
+[4.5s] which is an agent designed to keep
 [5.9s] students on track for on-time degree
 [8.4s] completion. It can monitor things like
 [10.5s] credit momentum, any potential risks or
@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=0zP_PLgfvm4
 [26.1s] this is a way to support retention and
 [27.8s] graduation by surfing surfacing
 [29.9s] proactive alerts, [laughter] which is
-[31.5s] exactly how this mentor's system prompt
+[31.5s] exactly how this agent's system prompt
 [33.7s] is set up. So, if we take a look at
 [35.3s] that, that's what this is looking like.
 [39.0s] All right. Now, if we were to ask as a

@@ -97,4 +97,4 @@
 - **Start/Expire dates** define the license window  
 - **Tenant admins** assign seats via **Analytics → Licenses** to groups or users  
 
-You’ve now created a content-provider tenant, authored courses, bundled them into a program, issued a license pool, and assigned seats—all within mentorAI.
+You’ve now created a content-provider tenant, authored courses, bundled them into a program, issued a license pool, and assigned seats—all within Agentic OS.

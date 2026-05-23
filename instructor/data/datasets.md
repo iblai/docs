@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Datasets tab is where you curate the knowledge base for a mentorAI. Upload files, link cloud resources, toggle whether content is active for training, and decide if learners can view the original sources. This central dashboard gives you full control over what the mentor “knows” and what students can see.
+The Datasets tab is where you curate the knowledge base for an Agentic OS. Upload files, link cloud resources, toggle whether content is active for training, and decide if learners can view the original sources. This central dashboard gives you full control over what the agent “knows” and what students can see.
 
 
 ![](/images/datasets.png)
@@ -26,7 +26,7 @@ Columns show **Name**, **Type** (file, URL, etc.), **Tokens** (size contribution
 
 #### Training Toggle
 
-Switch a resource **On** to include it in the mentor’s knowledge base, or **Off** to exclude it without deleting.
+Switch a resource **On** to include it in the agent’s knowledge base, or **Off** to exclude it without deleting.
 
 #### Visibility Toggle
 
@@ -46,7 +46,7 @@ Remove outdated items with a **trash‑can icon**, or add fresh resources anytim
 
 #### Open the Datasets Tab
 
-- Click the **mentor name dropdown**  
+- Click the **agent name dropdown**  
 - Select **Datasets** from the settings list
 
 #### Review the Dataset List
@@ -66,7 +66,7 @@ Remove outdated items with a **trash‑can icon**, or add fresh resources anytim
 - Toggle **Visible**:
 
   - **On** → learners see and can open the source  
-  - **Off** → mentor uses it, but learners can’t access it
+  - **Off** → agent uses it, but learners can’t access it
 
 #### Delete a Resource (if necessary)
 
@@ -94,13 +94,13 @@ Remove outdated items with a **trash‑can icon**, or add fresh resources anytim
 
 #### Curriculum Updates
 
-Toggle **Off** outdated lecture slides while adding new editions—keeping the mentor current without losing historical material.
+Toggle **Off** outdated lecture slides while adding new editions—keeping the agent current without losing historical material.
 
 #### Selective Source Sharing
 
 Hide proprietary PDFs but keep public articles **Visible** so learners can read primary sources.
 
-#### Thematic Mentors
+#### Thematic Agents
 
 Upload domain‑specific datasets (e.g., nursing guidelines, legal cases) to create specialized tutors.
 
@@ -110,8 +110,8 @@ Add draft materials as **Training Off** for internal testing, then flip **On**
 
 #### Compliance & Quality Control
 
-Regularly review the dataset table to ensure only vetted, up‑to‑date documents feed the mentor’s answers.
+Regularly review the dataset table to ensure only vetted, up‑to‑date documents feed the agent’s answers.
 
 ---
 
-With the **Datasets tab**, you have precise, granular control over the mentor’s knowledge and learner access—ensuring **accurate guidance** and **transparent sourcing** throughout the course.
+With the **Datasets tab**, you have precise, granular control over the agent’s knowledge and learner access—ensuring **accurate guidance** and **transparent sourcing** throughout the course.

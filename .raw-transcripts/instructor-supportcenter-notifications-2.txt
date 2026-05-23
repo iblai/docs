@@ -1,4 +1,4 @@
-mentorAI | Proactive Learning Recommendations
+Agentic OS | Proactive Learning Recommendations
 https://www.youtube.com/watch?v=YLpfRmpVEz4
 
 [1.9s] Hi everybody. Today I'm going to be
@@ -17,32 +17,32 @@ https://www.youtube.com/watch?v=YLpfRmpVEz4
 [28.9s] tenant. But a really cool piece here
 [30.8s] that we'll talk about here in a second
 [32.7s] is that you can actually choose which
-[34.2s] mentors us, you know, the this uh
+[34.2s] agents us, you know, the this uh
 [37.5s] notification for learning
 [38.6s] recommendations relates to. So this is
 [41.2s] going to be the template that you're
 [42.2s] seeing for this proactive learning
 [43.6s] recommendations.
 [45.5s] And the message body here is going to be
-[48.1s] based off of which mentors you select.
+[48.1s] based off of which agents you select.
 [50.5s] Um and then we'll provide
 [51.6s] recommendations based off of that. Now
-[54.5s] the way that works on a per mentor basis
+[54.5s] the way that works on a per agent basis
 [57.1s] is
 [59.3s] you have the option of selecting which
-[61.4s] mentor. So we can say AI career path
+[61.4s] agent. So we can say AI career path
 [63.5s] planner and then we can also edit this
 [67.7s] with a prompt so that the prompt uh
 [70.1s] informs the notification of what should
 [72.4s] be included. So we can say this is a
 [75.4s] career
 [77.5s] path planner. Now, this can be anything
-[81.6s] related to your mentor or any, you know,
+[81.6s] related to your agent or any, you know,
 [83.8s] sort of information you'd like to put in
 [86.5s] this prompt to be accounted for within
 [89.2s] those recommendation emails. So, we'll
 [91.2s] hit save prompt. And you can also add
-[93.9s] additional mentors um and edit them as
+[93.9s] additional agents um and edit them as
 [96.8s] you please.
 [99.4s] So, for example, this is the first one
 [101.4s] we did and then we just added the second
@@ -65,6 +65,6 @@ https://www.youtube.com/watch?v=YLpfRmpVEz4
 [138.6s] on that frequency that you put into the
 [140.7s] the template here and provide learners
 [143.5s] with recommendations based off of what
-[145.3s] the mentor knows and uh you know the
+[145.3s] the agent knows and uh you know the
 [147.6s] prompt that you put in for that
 [149.1s] recommendation.

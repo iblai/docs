@@ -1,19 +1,19 @@
-mentorAI | User Memory
+Agentic OS | User Memory
 https://www.youtube.com/watch?v=QFta20kyDQY
 
 [1.0s] Hello. Today we're going to be talking
 [2.6s] about memory and how you can use the
 [5.0s] memory of a user to be referenced uh via
-[8.1s] the mentor app. So by default your
-[11.0s] mentors will have memory on. This means
+[8.1s] the agent app. So by default your
+[11.0s] agents will have memory on. This means
 [13.0s] that whenever somebody says something
-[14.7s] about themselves um the mentor can use
+[14.7s] about themselves um the agent can use
 [18.1s] or stores that information about the
 [19.7s] user. You can also include referencing
 [22.9s] saved memories. So you can see here that
 [26.0s] with save memories, if this is toggled
 [27.8s] on,
-[30.0s] the mentor will actually be able to use
+[30.0s] the agent will actually be able to use
 [31.9s] the memories about the user when
 [34.0s] responding to tailor the responses to
 [35.8s] them directly. This can be something
@@ -56,12 +56,12 @@ https://www.youtube.com/watch?v=QFta20kyDQY
 [130.2s] have. You can tell because I don't have
 [131.7s] the instructor to learn or toggle and I
 [133.9s] also don't have the ability to create
-[135.4s] members. I'm going to ask the mentor to
+[135.4s] members. I'm going to ask the agent to
 [138.9s] summarize
 [141.4s] my progress and knowledge
 [145.8s] gaps.
 [151.0s] And you can see here this is actually
 [152.3s] pulling information from the memory um
 [154.5s] from previous chats that this particular
-[156.7s] user has had with the mentor.
+[156.7s] user has had with the agent.
 [161.6s] And there you have it. Simple as that.

@@ -1,17 +1,17 @@
-mentorAI | Learner Survey
+Agentic OS | Learner Survey
 https://www.youtube.com/watch?v=bISbLUNoJTc
 
 [1.7s] I'm going to be walking you through how
-[4.2s] to have a mentor that can trigger a
+[4.2s] to have an agent that can trigger a
 [7.0s] certain message at a certain time. Um
 [10.7s] that could be, you know, after five
 [12.6s] messages or within the third chat
-[15.1s] session um with a given mentor. In this
+[15.1s] session um with a given agent. In this
 [18.2s] case, we're using a survey link. And you
 [21.0s] can see here we just have our default
 [22.6s] system prompt um as per usual but we
 [26.1s] actually have added this survey rule um
-[29.0s] which is essentially telling the mentor
+[29.0s] which is essentially telling the agent
 [31.3s] at some point during the conversations
 [33.8s] you're having with a particular student
 [36.2s] uh you're going to provide them with a a
@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=bISbLUNoJTc
 [40.7s] this set up to be a test mode. So, it's
 [43.6s] not going to be, you know, 30 messages
 [46.1s] down the road or, you know, after their
-[48.5s] fifth or sixth session with the mentor
+[48.5s] fifth or sixth session with the agent
 [50.8s] or conversation. [snorts]
 [53.0s] Um, just for test purposes, but that can
 [55.1s] obviously be modified um to your
@@ -32,19 +32,19 @@ https://www.youtube.com/watch?v=bISbLUNoJTc
 [72.1s] um that is when the learner will be
 [74.7s] prompted with the link to the survey.
 [77.6s] And another thing that we tell the
-[79.0s] mentor here is uh you know you're only
+[79.0s] agent here is uh you know you're only
 [81.6s] sending the link to the survey one time
 [84.3s] to the specific student not multiple
 [86.6s] times. Um, you don't want them to
 [89.2s] re-evaluate the survey link. Um, once
-[91.8s] the mentor said this to the student, we
+[91.8s] the agent said this to the student, we
 [93.8s] don't mention it again. Um, and this is
 [97.0s] just a one-time event.
 [99.7s] Another thing we have here is the survey
 [102.2s] link. Um, just to include alongside, you
 [105.8s] know, the conversation being held. One
 [108.0s] of the things that happens here when a
-[110.4s] student is talking to the mentor is it's
+[110.4s] student is talking to the agent is it's
 [112.9s] going to be at the end of a message to
 [115.2s] the to the student just essentially
 [117.4s] trying to prevent any sort of issues
@@ -58,7 +58,7 @@ https://www.youtube.com/watch?v=bISbLUNoJTc
 [129.4s] Another thing here is that we say we can
 [131.1s] have the learner reply with done or skip
 [133.4s] if they decline. Uh but regardless of
-[136.6s] their response, the mentor should not
+[136.6s] their response, the agent should not
 [138.9s] prompt the user again with this link.
 [143.1s] Now let's dive into the learner side. So
 [146.2s] we'll just start asking some questions.

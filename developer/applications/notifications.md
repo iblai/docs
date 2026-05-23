@@ -795,7 +795,7 @@ Returns full content and configuration of a single template. If you have a custo
 | `custom_interval_days` | integer or null | Interval when frequency is `CUSTOM` |
 | `execution_time` | string | `HH:MM` (24-hour) |
 | `timezone` | string | Timezone name |
-| `mentors` | array | Mentor configs: `[{"unique_id", "prompt", "name"}]` |
+| `agents` | array | Agent configs: `[{"unique_id", "prompt", "name"}]` |
 | `last_execution_date` | string or null | ISO 8601 date of last run |
 | `next_execution_date` | string or null | ISO 8601 date of next run |
 
@@ -845,7 +845,7 @@ Customize a notification template. On the first PATCH for a given type, the syst
 | `periodic_custom_interval_days` | integer (1–365) | Interval for `CUSTOM` |
 | `periodic_execution_time` | string | `HH:MM` format |
 | `periodic_timezone` | string | Timezone name |
-| `periodic_mentors` | array | Mentor configs |
+| `periodic_mentors` | array | Agent configs |
 
 **Policy config fields** (for `POLICY_ASSIGNMENT`)
 
@@ -1567,11 +1567,11 @@ Templates use Django template syntax. The rendering pipeline auto-loads the `not
 | `HUMAN_SUPPORT_NOTIFICATION` | `ticket_status` | Ticket status |
 | `HUMAN_SUPPORT_NOTIFICATION` | `user_name` | User who created the ticket |
 | `HUMAN_SUPPORT_NOTIFICATION` | `user_email` | User's email |
-| `HUMAN_SUPPORT_NOTIFICATION` | `mentor_name` | Mentor name |
+| `HUMAN_SUPPORT_NOTIFICATION` | `mentor_name` | Agent name |
 | `HUMAN_SUPPORT_NOTIFICATION` | `platform_key` | Platform identifier |
 | `HUMAN_SUPPORT_NOTIFICATION` | `session_id` | Chat session UUID |
 | `HUMAN_SUPPORT_NOTIFICATION` | `chat_link` | URL to chat transcript |
-| `HUMAN_SUPPORT_NOTIFICATION` | `mentor_unique_id` | Unique identifier of the mentor |
+| `HUMAN_SUPPORT_NOTIFICATION` | `mentor_unique_id` | Unique identifier of the agent |
 | `HUMAN_SUPPORT_NOTIFICATION` | `template_content` | Optional custom content (rendered if provided) |
 
 **AI / Proactive Learner**
@@ -1580,11 +1580,11 @@ Templates use Django template syntax. The rendering pipeline auto-loads the `not
 |---|---|---|
 | `PROACTIVE_LEARNER_NOTIFICATION` | `student_name` | Learner's display name |
 | `PROACTIVE_LEARNER_NOTIFICATION` | `student_email` | Learner's email |
-| `PROACTIVE_LEARNER_NOTIFICATION` | `mentor_name` | Mentor name |
+| `PROACTIVE_LEARNER_NOTIFICATION` | `mentor_name` | Agent name |
 | `PROACTIVE_LEARNER_NOTIFICATION` | `ai_recommendation` | AI-generated recommendation text |
 | `PROACTIVE_LEARNER_NOTIFICATION` | `username` | Learner's username |
 | `PROACTIVE_LEARNER_NOTIFICATION` | `platform_key` | Platform identifier |
-| `PROACTIVE_LEARNER_NOTIFICATION` | `mentor_unique_id` | Unique identifier of the mentor |
+| `PROACTIVE_LEARNER_NOTIFICATION` | `mentor_unique_id` | Unique identifier of the agent |
 
 **Report**
 
@@ -1776,7 +1776,7 @@ Three notification types have specialized behavior and configuration that differ
 
 ### 9.1 Human Support Notifications
 
-Alerts designated recipients when a learner on your platform opens a human support ticket from an AI mentor session. The notification delivers ticket details and a direct link to the chat transcript.
+Alerts designated recipients when a learner on your platform opens a human support ticket from an AI agent session. The notification delivers ticket details and a direct link to the chat transcript.
 
 **Requires:** AI features enabled. If not available, the callback exits without sending.
 
@@ -1797,9 +1797,9 @@ Configure this through the template's PATCH endpoint using the fields below.
 
 | Value | Recipients |
 |---|---|
-| `platform_admins_and_mentor_owner` | Active platform admins and the user whose username matches the mentor's creator |
+| `platform_admins_and_mentor_owner` | Active platform admins and the user whose username matches the agent's creator |
 | `platform_admins_only` | Active platform admins only |
-| `mentor_owner_only` | The mentor's creator only |
+| `mentor_owner_only` | The agent's creator only |
 | `custom` | Resolved from the `custom_recipients` list |
 
 **`custom_recipients`** (required when mode is `custom`)
@@ -1831,7 +1831,7 @@ Invalid entries are silently dropped during resolution.
 | `ticket_status` | Ticket status (will be `"open"`) |
 | `user_name` | Learner's display name |
 | `user_email` | Learner's email address |
-| `mentor_name` | Mentor display name |
+| `mentor_name` | Agent display name |
 | `platform_key` | Platform identifier |
 | `session_id` | Chat session UUID |
 | `chat_link` | URL to session transcript |
@@ -1850,7 +1850,7 @@ flowchart TD
 
     F -- platform_admins_and_mentor_owner --> G[Platform admins +\nmentor owner]
     F -- platform_admins_only --> H[Platform admins]
-    F -- mentor_owner_only --> I[Mentor owner]
+    F -- mentor_owner_only --> I[Agent owner]
     F -- custom --> J[Resolve custom_recipients\nusers + groups + policies]
 
     G & H & I & J --> K{Any recipients?}
@@ -1907,7 +1907,7 @@ When `enabled_policies` is empty, the global flags apply to all roles. When non-
       "subject": "You have been granted Analytics Viewer access"
     },
     {
-      "role_name": "Mentor Chat",
+      "role_name": "Agent Chat",
       "enabled": true
     }
   ]
@@ -1926,7 +1926,7 @@ When `enabled_policies` is empty, the global flags apply to all roles. When non-
 
 ### 9.3 Proactive Learner Notifications (AI-Powered)
 
-Delivers AI-generated, personalized learning recommendations to learners on a recurring schedule. For each configured mentor, the system retrieves a recommendation specific to the learner and sends it by email.
+Delivers AI-generated, personalized learning recommendations to learners on a recurring schedule. For each configured agent, the system retrieves a recommendation specific to the learner and sends it by email.
 
 **Requires:** AI features enabled. If not available, the system records a failed execution and exits.
 
@@ -1943,7 +1943,7 @@ Stored in `metadata` under `periodic_config`.
 | `execution_time` | string | `"09:00"` | `HH:MM` (24-hour) |
 | `timezone` | string | `"UTC"` | Standard timezone names |
 | `learner_scope` | string | `"ACTIVE_LEARNERS"` | `"ACTIVE_LEARNERS"`, `"ALL_LEARNERS"` |
-| `mentors` | array | `[]` | Mentor config objects |
+| `agents` | array | `[]` | Agent config objects |
 | `custom_interval_days` | integer | `7` | 1–365 (used when frequency is `CUSTOM`) |
 | `is_active` | boolean | `false` | — |
 
@@ -1960,11 +1960,11 @@ Stored in `metadata` under `periodic_config`.
 - `ACTIVE_LEARNERS`: Learners with activity within the past `report_period_days` days.
 - `ALL_LEARNERS`: All users linked to the platform.
 
-**Mentor configuration:**
+**Agent configuration:**
 
 ```json
 {
-  "mentors": [
+  "agents": [
     {
       "unique_id": "550e8400-e29b-41d4-a716-446655440000",
       "prompt": "Summarize {{student_name}}'s recent learning and suggest next steps.",
@@ -1976,11 +1976,11 @@ Stored in `metadata` under `periodic_config`.
 
 | Field | Required | Description |
 |---|---|---|
-| `unique_id` | Yes | UUID of the mentor |
+| `unique_id` | Yes | UUID of the agent |
 | `prompt` | No | Custom prompt template (supports `student_name`, `student_email`, `username`, `platform_key`) |
-| `name` | No | Display name (enriched from mentor record if omitted) |
+| `name` | No | Display name (enriched from agent record if omitted) |
 
-If `mentors` is empty, all mentors for the platform are used.
+If `agents` is empty, all agents for the platform are used.
 
 #### Template Variables
 
@@ -1988,7 +1988,7 @@ If `mentors` is empty, all mentors for the platform are used.
 |---|---|
 | `student_name` | Learner's display name |
 | `student_email` | Learner's email |
-| `mentor_name` | Mentor display name |
+| `mentor_name` | Agent display name |
 | `ai_recommendation` | AI-generated recommendation text |
 
 #### Duplicate Prevention
@@ -2006,7 +2006,7 @@ flowchart TD
     C -- Yes --> D[Identify learners by scope]
     D --> E{Any learners?}
     E -- No --> F([Record success — 0 processed])
-    E -- Yes --> G[For each learner × mentor]
+    E -- Yes --> G[For each learner × agent]
     G --> H[Generate AI recommendation]
     H --> I{Duplicate hash?}
     I -- Yes --> J([Skip])

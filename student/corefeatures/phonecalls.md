@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Phone Calls feature lets you converse with mentorAI by voice—hands‑free and in real time. Simply tap the microphone icon to start a voice session and speak your questions. mentorAI responds aloud, creating a natural, human‑like interaction that supports accessibility, language practice, and on‑the‑go learning.
+The Phone Calls feature lets you converse with Agentic OS by voice—hands‑free and in real time. Simply tap the microphone icon to start a voice session and speak your questions. Agentic OS responds aloud, creating a natural, human‑like interaction that supports accessibility, language practice, and on‑the‑go learning.
 
 
 ![](/images/phonecalls.png)
@@ -22,7 +22,7 @@ The Phone Calls feature lets you converse with mentorAI by voice—hands‑free 
 
 #### Human‑Like Voice Interaction
 
-Chat with mentorAI as if you’re on the phone with a tutor—no typing required.
+Chat with Agentic OS as if you’re on the phone with a tutor—no typing required.
 
 #### Accessibility Support
 
@@ -44,22 +44,22 @@ Listening to answers reduces screen fatigue and makes complex content easier to 
 
 ## How to Use (step by step)
 
-#### Open Your Mentor Chat
+#### Open Your Agent Chat
 
-Navigate to the mentorAI chat for your course.
+Navigate to the Agentic OS chat for your course.
 
 #### Start a Voice Session
 
-Click the **microphone icon** (voice‑input button). A **phone‑call–style window** opens, and the mentor greets you.
+Click the **microphone icon** (voice‑input button). A **phone‑call–style window** opens, and the agent greets you.
 
 #### Ask Your Question Aloud
 
 Speak naturally—for example:  
-> Hi mentorAI, can you help me practice ordering food in Spanish?
+> Hi Agentic OS, can you help me practice ordering food in Spanish?
 
-#### Listen to mentorAI’s Response
+#### Listen to Agentic OS’s Response
 
-The mentor replies with spoken guidance and may prompt you to respond or practice.
+The agent replies with spoken guidance and may prompt you to respond or practice.
 
 #### Switch Topics Anytime
 
@@ -70,12 +70,12 @@ Simply ask a new question, such as:
 
 Example:  
 > Could you give me a quiz question on World War II
-Answer aloud; mentorAI confirms or corrects you.
+Answer aloud; Agentic OS confirms or corrects you.
 
 #### End the Session
 
 Say something like:  
-> That’s all for now, thanks mentorAI.  
+> That’s all for now, thanks Agentic OS.  
 Then close the call window.
 
 ---
@@ -104,4 +104,4 @@ Listen to explanations of complex theories, reducing eye strain and cognitive ov
 
 ---
 
-With **voice‑to‑voice enabled**, mentorAI delivers rapid, conversational help that feels **personal** and is **accessible wherever you can speak and listen**—making learning easier, faster, and more engaging.
+With **voice‑to‑voice enabled**, Agentic OS delivers rapid, conversational help that feels **personal** and is **accessible wherever you can speak and listen**—making learning easier, faster, and more engaging.

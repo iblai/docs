@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-Guided Mode turns a mentorAI chat into an interactive lesson engine that teaches, quizzes, and reinforces concepts automatically. Instructors link a course to a mentor, choose a guide style—Spaced Repetition, Instruction Mode, or Socratic Mode—and mentorAI takes over, presenting material, asking questions, and revisiting topics until mastery is reached. Meanwhile, instructors receive detailed analytics on every question‑and‑answer cycle to pinpoint learning gaps and celebrate student progress.
+Guided Mode turns an Agentic OS chat into an interactive lesson engine that teaches, quizzes, and reinforces concepts automatically. Instructors link a course to an agent, choose a guide style—Spaced Repetition, Instruction Mode, or Socratic Mode—and Agentic OS takes over, presenting material, asking questions, and revisiting topics until mastery is reached. Meanwhile, instructors receive detailed analytics on every question‑and‑answer cycle to pinpoint learning gaps and celebrate student progress.
 
 
 
@@ -21,9 +21,9 @@ Guided Mode turns a mentorAI chat into an interactive lesson engine that teach
 
 ## Features
 
-#### Course‑to‑Mentor Linking
+#### Course‑to‑Agent Linking
 
-Connect any course (e.g., Engineering Computations) to an existing mentor with just a few clicks in the Admin Panel.
+Connect any course (e.g., Engineering Computations) to an existing agent with just a few clicks in the Admin Panel.
 
 #### Three Guide Styles
 
@@ -33,7 +33,7 @@ Connect any course (e.g., Engineering Computations) to an existing mentor with
 
 #### Dynamic Learner Prompts
 
-mentorAI adapts prompts on the fly—e.g.,  
+Agentic OS adapts prompts on the fly—e.g.,  
 > “Can you explain loops in Python?” → “Quiz me on loops.”  
 —based on each learner’s performance.
 
@@ -43,17 +43,17 @@ Every attempt, repetition count, and review interval is logged, giving a precise
 
 #### Instructor Dashboards
 
-View the exact questions asked, how many times they repeated, last/next review timestamps, and which student/mentor/course they belong to.
+View the exact questions asked, how many times they repeated, last/next review timestamps, and which student/agent/course they belong to.
 
 ---
 
 ## How to Use (step by step)
 
-#### Connect a Course to a Mentor
+#### Connect a Course to an Agent
 
 - In the **Admin Panel**, open **Memory Component Settings**  
 - Choose the target course (e.g., **Engineering Computations**)  
-- Link it to an existing mentor (e.g., **Engineering Comp Mentor**)  
+- Link it to an existing agent (e.g., **Engineering Comp Agent**)  
 - Select a **Catalog Guide**—typically the same course content
 
 #### Pick a Guide Style
@@ -63,8 +63,8 @@ View the exact questions asked, how many times they repeated, last/next review t
 
 #### Launch Learner Session
 
-- Students open the mentor chat and type **“Start lesson.”**  
-- mentorAI explains a topic, then poses a question  
+- Students open the agent chat and type **“Start lesson.”**  
+- Agentic OS explains a topic, then poses a question  
 - Incorrect answers trigger future repetitions (**Spaced Repetition**) until the learner answers correctly
 
 #### Observe Adaptive Prompts
@@ -81,7 +81,7 @@ In the Admin dashboard, inspect logs showing:
 - Exact question text  
 - Repetition count and interval spacing  
 - Last/next review times  
-- Linked student, mentor, and course
+- Linked student, agent, and course
 
 #### Iterate & Refine
 

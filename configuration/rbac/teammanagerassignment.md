@@ -53,7 +53,7 @@ Anyone added here gains analytics access **only** for the selected group.
 - Ability to **filter reports** by the groups they oversee.
 - Reports and dashboards show **only their assigned learners**.
 - **No visibility** into other companies’ users or data.
-- Current dashboards focus on **mentor analytics**; course dashboards will be added later.
+- Current dashboards focus on **agent analytics**; course dashboards will be added later.
 
 ---
 

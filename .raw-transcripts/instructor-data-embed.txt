@@ -1,14 +1,14 @@
-mentorAI | Embed a Mentor
+Agentic OS | Embed an Agent
 https://www.youtube.com/watch?v=DqctkB3xwuM
 
-[0.6s] Using the Mentor AI platform is not
+[0.6s] Using the Agent AI platform is not
 [2.5s] limited to just our web app, which is
 [4.6s] what you're seeing here. You can
 [6.2s] actually embed this anywhere you'd like
 [8.6s] on any website. And what we're going to
 [11.5s] do today is show you how that can be
 [13.3s] done. So once you're in the platform,
-[16.1s] you're going to find the mentor that you
+[16.1s] you're going to find the agent that you
 [17.5s] want to embed. Um once you have that,
 [19.8s] you'll select it. You'll see a chat
 [21.4s] screen similar to this. And then you'll
@@ -30,7 +30,7 @@ https://www.youtube.com/watch?v=DqctkB3xwuM
 [55.4s] advanced option which is going to have a
 [57.5s] couple more tabs that learners can use
 [59.4s] um while they're you know communicating
-[61.0s] with the mentor. You have your chat
+[61.0s] with the agent. You have your chat
 [62.6s] which is the standard uh default version
 [64.7s] that we previously saw. Summarize is
 [67.4s] going to take the content and summarize
@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=DqctkB3xwuM
 [87.8s] Anonymous. If we toggle this on, you'll
 [89.8s] see a couple of things disappear. This
 [91.8s] means that learners do not need to be
-[93.5s] logged in to be able to use this mentor.
+[93.5s] logged in to be able to use this agent.
 [96.2s] Now, if you have this in LTI format
 [98.5s] embedded into your LMS somewhere, uh the
 [101.4s] LTI component will automatically, you
@@ -67,8 +67,8 @@ https://www.youtube.com/watch?v=DqctkB3xwuM
 [135.0s] content on the page and be able to
 [136.5s] answer based on that. So for instance,
 [138.1s] if a learner is looking at a PDF of the
-[140.6s] war on of 1812 um but the mentor has not
-[144.4s] been trained on it, the mentor can
+[140.6s] war on of 1812 um but the agent has not
+[144.4s] been trained on it, the agent can
 [145.7s] actually read that PDF as it's on the
 [148.2s] screen and respond based on that. Now
 [151.0s] the safety disclaimer is going to pop up
@@ -76,7 +76,7 @@ https://www.youtube.com/watch?v=DqctkB3xwuM
 [155.0s] says, you know, be cautious when you're
 [156.5s] using any answers for AI. And then open
 [159.0s] by default is going to say whether the
-[161.9s] not the mentor that you have embedded on
+[161.9s] not the agent that you have embedded on
 [163.7s] a particular page is already open when
 [165.8s] somebody accesses that page or if it's
 [168.1s] off.
@@ -88,5 +88,5 @@ https://www.youtube.com/watch?v=DqctkB3xwuM
 [182.0s] non-anmous users and then you'll get
 [183.8s] this embed code that you can copy and
 [185.4s] paste and implement. And that's how
-[188.0s] you're going to embed a mentor on a new
+[188.0s] you're going to embed an agent on a new
 [189.4s] site.

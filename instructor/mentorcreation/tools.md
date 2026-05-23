@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Tools tab allows you to expand (or limit) what a mentorAI can do by toggling optional capabilities—such as live **Web Search**, **MCP** data connections, **Code Interpreter**, **Image Generation**, **Screen Share**, and more. By enabling the right tools for each mentor, you tailor its powers to the course’s needs while keeping the interface uncluttered for learners.
+The Tools tab allows you to expand (or limit) what an Agentic OS can do by toggling optional capabilities—such as live **Web Search**, **MCP** data connections, **Code Interpreter**, **Image Generation**, **Screen Share**, and more. By enabling the right tools for each agent, you tailor its powers to the course’s needs while keeping the interface uncluttered for learners.
 
 
 ![](/images/tools.png)
@@ -29,16 +29,16 @@ The Tools tab allows you to expand (or limit) what a mentorAI can do by toggling
 
 - **Code Interpreter** – run Python code and display graphs  
 - **Image Generation** – create custom visuals from text prompts  
-- **Screen Share** – let the mentor view a shared browser tab for step‑by‑step guidance  
+- **Screen Share** – let the agent view a shared browser tab for step‑by‑step guidance  
 - **Human Support** – in‑chat ticket creation for extra help
 
 #### Instant Activation & Deactivation
 
 Flip a switch to grant or revoke tool access—**changes apply immediately**
 
-#### Per‑Mentor Customization
+#### Per‑Agent Customization
 
-Each mentor can have a **unique tool set**, optimizing capability without overwhelming students
+Each agent can have a **unique tool set**, optimizing capability without overwhelming students
 
 ---
 
@@ -46,7 +46,7 @@ Each mentor can have a **unique tool set**, optimizing capability without overwh
 
 #### Open the Tools Tab
 
-- Click the **mentor’s name** at the top of the chat  
+- Click the **agent’s name** at the top of the chat  
 - From the dropdown, select **Tools**
 
 #### Review Default Tools
@@ -57,7 +57,7 @@ Each mentor can have a **unique tool set**, optimizing capability without overwh
 
 - Locate a tool’s **toggle switch**  
 - **On** → tool becomes available to learners immediately  
-- **Off** → tool disappears from the mentor’s capabilities
+- **Off** → tool disappears from the agent’s capabilities
 
 #### Test a Newly Enabled Tool (Web Search examples)
 
@@ -69,7 +69,7 @@ Ask in chat:
 - “What’s the latest guidance on FA deadlines?”  
 - “Compare tuition fees for online bachelor’s degrees in 2025.”
 
-- Confirm the mentor returns **up‑to‑date answers**
+- Confirm the agent returns **up‑to‑date answers**
 
 #### Adjust as Needed
 
@@ -89,7 +89,7 @@ Use **MCP** to pull proprietary datasets—e.g., hospital records for nursing co
 
 #### STEM Visualization
 
-Enable **Code Interpreter** for math or data‑science mentors so learners can see plots of integrals, histograms, or regressions instantly.
+Enable **Code Interpreter** for math or data‑science agents so learners can see plots of integrals, histograms, or regressions instantly.
 
 #### Creative Projects
 
@@ -101,4 +101,4 @@ Activate **Screen Share** when learners need real‑time, context‑aware guid
 
 ---
 
-By selecting the right combination of tools, you empower each **mentorAI** to deliver exactly the functionality your learners need—**no more, no less**.
+By selecting the right combination of tools, you empower each **Agentic OS** to deliver exactly the functionality your learners need—**no more, no less**.

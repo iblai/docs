@@ -1,16 +1,16 @@
 # Chat Metadata Pass-Through
 
-Pass arbitrary context alongside chat messages to any AI Mentor so it can tailor responses to the user's exact situation.
+Pass arbitrary context alongside chat messages to any AI Agent so it can tailor responses to the user's exact situation.
 
 ---
 
 ## Overview
 
-The chat metadata feature lets you pass arbitrary context alongside chat messages to any IBL Mentor. This context (e.g., product name, plan tier, user role) is automatically injected into the mentor's awareness, allowing it to tailor responses to the user's exact situation without the user having to explain their context manually.
+The chat metadata feature lets you pass arbitrary context alongside chat messages to any IBL Agent. This context (e.g., product name, plan tier, user role) is automatically injected into the agent's awareness, allowing it to tailor responses to the user's exact situation without the user having to explain their context manually.
 
 **Key points:**
 - The `metadata` field is a **free-form JSON object** — any key-value pairs are accepted, no enforced schema
-- **Optional** — if omitted, the mentor behaves as before
+- **Optional** — if omitted, the agent behaves as before
 - **Persistent per session** — send it once and it sticks for the entire conversation
 - **Available in analytics** — stored with the conversation for reporting and data exports
 
@@ -24,13 +24,13 @@ Frontend Application
     |  Sends: { prompt, metadata: { product, planTier, ... } }
     |
     v
-IBL Mentor Backend
+IBL Agent Backend
     |
     ├─ Caches metadata for the session (reused on subsequent messages)
     ├─ Persists metadata to the session record (for analytics/reporting)
     |
     v
-Mentor (LLM) receives the user's message with context appended:
+Agent (LLM) receives the user's message with context appended:
 
     "How do I set up SSO?"
 
@@ -42,7 +42,7 @@ Mentor (LLM) receives the user's message with context appended:
     </END CONTEXT METADATA>
 ```
 
-The mentor sees this context and responds accordingly — e.g., answering with Enterprise-tier SSO setup steps for the Analytics product with EU data-residency considerations, rather than generic help.
+The agent sees this context and responds accordingly — e.g., answering with Enterprise-tier SSO setup steps for the Analytics product with EU data-residency considerations, rather than generic help.
 
 ---
 
@@ -67,12 +67,12 @@ ws.send(JSON.stringify({
 }));
 ```
 
-### HTTP SSE (`POST /api/mentor/chat/`)
+### HTTP SSE (`POST /api/agent/chat/`)
 
 Same `metadata` field in the request body:
 
 ```http
-POST /api/mentor/chat/
+POST /api/agent/chat/
 Content-Type: application/json
 
 {
@@ -84,13 +84,13 @@ Content-Type: application/json
     "userRole": "Admin",
     "region": "EU"
   },
-  "flow": { "name": "mentor-slug", "tenant": "tenant-key" }
+  "flow": { "name": "agent-slug", "tenant": "tenant-key" }
 }
 ```
 
 ### Embedded iframe (postMessage)
 
-If the mentor is embedded via iframe, the host page passes metadata through the `postMessage` channel:
+If the agent is embedded via iframe, the host page passes metadata through the `postMessage` channel:
 
 ```javascript
 iframe.contentWindow.postMessage({
@@ -119,7 +119,7 @@ The chat widget should:
 
 Metadata is **cached per session** and only needs to be sent once. Here's how it behaves across multiple messages:
 
-| Message | `metadata` sent | What the mentor sees |
+| Message | `metadata` sent | What the agent sees |
 |---------|-----------------|----------------------|
 | #1 | `{ product: "Analytics", planTier: "Enterprise" }` | User's prompt + Analytics / Enterprise context |
 | #2 | _(not sent)_ | User's prompt + Analytics / Enterprise context (reused from #1) |
@@ -170,9 +170,9 @@ The metadata field accepts **any** JSON object. There is no enforced schema — 
 
 ---
 
-## Customizing Mentor Behavior with Metadata
+## Customizing Agent Behavior with Metadata
 
-The metadata is appended to the user's prompt as context. The mentor's **system prompt** determines how it uses this context. If the mentor isn't responding the way you expect based on the metadata, you can edit the system prompt to reference the metadata fields explicitly.
+The metadata is appended to the user's prompt as context. The agent's **system prompt** determines how it uses this context. If the agent isn't responding the way you expect based on the metadata, you can edit the system prompt to reference the metadata fields explicitly.
 
 **Example system prompt excerpt:**
 ```
@@ -190,9 +190,9 @@ Once metadata is sent with a conversation, it's available through several APIs f
 
 | Endpoint | Field |
 |----------|-------|
-| `GET /api/ai-mentor/orgs/{org}/users/{user_id}/sessions/{session_id}/`  | `client_context` in the response body |
+| `GET /api/ai-agent/orgs/{org}/users/{user_id}/sessions/{session_id}/`  | `client_context` in the response body |
 | `GET /api/analytics/messages/details/?platform_key={platform_key}&session_id={session_id}` | `summary.client_context` |
-| `GET /api/ai-mentor/orgs/{org}/users/{user_id}/sessions/{session_id}/tasks/{task_id}/` (chat history export) | `client_context` column in CSV |
+| `GET /api/ai-agent/orgs/{org}/users/{user_id}/sessions/{session_id}/tasks/{task_id}/` (chat history export) | `client_context` column in CSV |
 | Analytics export (`get_chat_message_history`) | `client_context` column in DataFrame |
 
 ### Data Exports
@@ -205,9 +205,9 @@ Once metadata is sent with a conversation, it's available through several APIs f
 
 ---
 
-## Example: Single Mentor Serving Multiple Contexts
+## Example: Single Agent Serving Multiple Contexts
 
-**Scenario:** One support mentor handles questions across your entire SaaS platform, but users are on different product pages with different plans.
+**Scenario:** One support agent handles questions across your entire SaaS platform, but users are on different product pages with different plans.
 
 **Page: Analytics product — Enterprise plan**
 
@@ -225,7 +225,7 @@ The frontend sends:
 
 **User asks:** "How do I set up SSO?"
 
-**Mentor responds** with Enterprise-tier SSO setup steps for the Analytics product, noting EU data-residency requirements — not generic help docs.
+**Agent responds** with Enterprise-tier SSO setup steps for the Analytics product, noting EU data-residency requirements — not generic help docs.
 
 **Page: Payments product — Starter plan**
 
@@ -241,9 +241,9 @@ The frontend sends:
 }
 ```
 
-**Same mentor** now responds with Starter-plan Payments integration guides, and notes that SSO requires upgrading to the Pro plan.
+**Same agent** now responds with Starter-plan Payments integration guides, and notes that SSO requires upgrading to the Pro plan.
 
-If the mentor's responses don't align with the expected behavior, adjust the **system prompt** to instruct the mentor on how to use the metadata fields.
+If the agent's responses don't align with the expected behavior, adjust the **system prompt** to instruct the agent on how to use the metadata fields.
 
 ---
 
@@ -287,7 +287,7 @@ Message saved to chat history
 | Session DB | `Session.metadata["client_context"]` | Persistent storage, used by analytics APIs and exports |
 | Message DB | `ChatMessageHistoryExtra.metadata` | Per-message snapshot (captures metadata at time of each message) |
 
-**Transport:** Both WebSocket (`/ws/chat/`) and HTTP SSE (`POST /api/mentor/chat/`) share the same pipeline. The metadata field works identically on both.
+**Transport:** Both WebSocket (`/ws/chat/`) and HTTP SSE (`POST /api/agent/chat/`) share the same pipeline. The metadata field works identically on both.
 
 ---
 
@@ -296,4 +296,4 @@ Message saved to chat history
 - The metadata structure is **generic** — not tied to any specific client's data model. Use whatever keys make sense for your application.
 - Metadata is stored at the **session level**. All messages in a conversation share the same metadata unless the frontend sends an update.
 - Metadata is **not stripped** from chat history (unlike `page_content`, which is stripped before saving). The `<CONTEXT METADATA>` markers remain in the stored messages.
-- If the mentor's behavior doesn't reflect the metadata context as expected, update the mentor's **system prompt** to explicitly reference the metadata fields.
+- If the agent's behavior doesn't reflect the metadata context as expected, update the agent's **system prompt** to explicitly reference the metadata fields.

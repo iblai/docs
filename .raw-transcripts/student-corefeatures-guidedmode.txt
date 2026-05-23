@@ -1,11 +1,11 @@
-mentorAI | Guided Mode
+Agentic OS | Guided Mode
 https://www.youtube.com/watch?v=txmcwbxPsOs
 
 [1.0s] I'm going to be showing you how guided
-[2.6s] mode for mentor AI works on our
+[2.6s] mode for agent AI works on our
 [5.1s] platform. The first piece here is having
 [7.5s] a course that you're going to connect to
-[8.9s] your mentor. Here we have an engineering
+[8.9s] your agent. Here we have an engineering
 [11.1s] computations course. And just so you can
 [13.1s] kind of get an idea of what this looks
 [14.5s] like in terms of the course content,
@@ -23,25 +23,25 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [42.9s] settings. I've already set this one up
 [44.8s] to be guided. You can see that I've
 [46.7s] connected it to this engineering comp uh
-[49.4s] mentor that we already have created and
+[49.4s] agent that we already have created and
 [51.7s] a catalog guide which is actually the
 [53.3s] course we were just looking at. Now
 [55.4s] there are a couple of different options
-[58.1s] in terms of what type of guide mentor
+[58.1s] in terms of what type of guide agent
 [60.2s] you can have. Um we have space
 [62.1s] repetition which will repeat quiz
 [63.7s] questions based on the space repetition
 [65.8s] algorithm. Meaning if you ask or the
-[68.9s] mentor asks the learner a question, the
+[68.9s] agent asks the learner a question, the
 [70.6s] learner gets it wrong. Later down the
-[72.9s] road, the mentor is going to repeat that
+[72.9s] road, the agent is going to repeat that
 [74.5s] same question until they get it right.
 [76.3s] Um if there are no issues with the way
 [79.7s] the learner answered that question, then
 [81.5s] you know the questions will change as
 [83.4s] they continue throughout their learning
 [85.0s] journey. Um as the me memory of the
-[87.8s] mentor knows where that learner is at.
+[87.8s] agent knows where that learner is at.
 [89.7s] It can kind of customize the questions
 [92.3s] um to exactly where the learner is in
 [94.8s] their learning journey.
@@ -52,17 +52,17 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [104.2s] then ask a question based off that
 [105.8s] specific topic. Now Socratic mode is
 [108.9s] going to be more discussion focused. Uh
-[111.2s] the mentor is going to talk about the
+[111.2s] the agent is going to talk about the
 [112.6s] question with a with the learner um and
 [115.1s] a step-by-step approach. For the
 [117.4s] purposes of this demo, we're going to do
 [118.6s] space prepetition in instruction mode.
 [121.0s] And we can actually hop over to the
-[123.0s] mentor.
+[123.0s] agent.
 [132.0s] So now that you've seen the guided
-[133.5s] mentor configuration process, we're
+[133.5s] agent configuration process, we're
 [135.5s] actually now going to chat with that
-[137.2s] guided mentor. This is really helpful
+[137.2s] guided agent. This is really helpful
 [140.0s] for learners who need a little push to
 [142.2s] get, you know, further in their course
 [143.9s] journey, their learning journey, etc.
@@ -73,13 +73,13 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [153.8s] also that instruction mode, if I'm
 [156.4s] getting these questions wrong, as I
 [158.6s] continue my conversation with this
-[159.8s] mentor, it's going to actually ask me
+[159.8s] agent, it's going to actually ask me
 [161.2s] the same questions over and over again.
 [163.0s] This is really helpful when it comes to
 [165.2s] addressing learning gaps for the learner
 [166.8s] and proactively teaching them. So, to
 [169.6s] start the lesson, I'm just going to tell
-[170.9s] the mentor, start lesson.
+[170.9s] the agent, start lesson.
 [175.4s] Now it's giving me um a little bit of
 [177.4s] information but also asking me to answer
 [180.0s] a question to get started here. Um let's
@@ -90,7 +90,7 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [192.2s] All right so I'm going to go with
 [198.2s] I'm not quite sure about the answer. I'm
 [199.8s] just selecting one here. Um, and what
-[203.0s] you can see is the mentor is actually
+[203.0s] you can see is the agent is actually
 [204.8s] telling me, you know, it's a good try,
 [206.7s] but you know, this is actually what the
 [208.6s] correct answer is. And now I'm
@@ -107,7 +107,7 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [238.4s] Python? I'm just selecting one of the
 [240.3s] guided prompts, which are AI generated
 [242.0s] prompts based off of the conversation
-[243.8s] history with this mentor.
+[243.8s] history with this agent.
 [248.6s] All right. So, we get that little bit of
 [250.1s] explanation that I asked for. So, I'm
 [253.2s] going to say quiz me on loops.
@@ -120,19 +120,19 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [278.7s] materials. It's going to be asking them
 [280.6s] questions, making them think critically
 [282.6s] as they continue to have conversations
-[284.5s] with this mentor.
-[286.7s] A really cool piece about guided mentors
+[284.5s] with this agent.
+[286.7s] A really cool piece about guided agents
 [288.9s] is as as an admin, you're actually going
 [291.1s] to be able to see what questions your
 [292.8s] learners are being asked, how well
 [294.1s] they're performing on them. You can see
 [296.1s] that we're taking a look at the question
 [297.6s] cards that I was personally asked uh
-[299.9s] while communicating with this mentor.
+[299.9s] while communicating with this agent.
 [302.6s] And if we select just one of these guys,
 [306.8s] you can see this is the same question
 [308.3s] that I was asked while chatting with the
-[310.1s] mentor. This really helps admins or
+[310.1s] agent. This really helps admins or
 [313.0s] instructors understand you know where
 [315.6s] learner gaps are where what kind of
 [317.9s] questions are causing issues in terms of
@@ -146,7 +146,7 @@ https://www.youtube.com/watch?v=txmcwbxPsOs
 [333.0s] and when it was asked again.
 [335.9s] And you can see again when it was last
 [337.9s] reviewed, next review, the specific
-[340.2s] student, the mentor, and the course
+[340.2s] student, the agent, and the course
 [342.6s] associated with it. So this really helps
 [345.2s] instructors and addins get a higher
 [347.3s] level understanding of exactly what

@@ -1,9 +1,9 @@
-mentorAI | Tools | Web Search
+Agentic OS | Tools | Web Search
 https://www.youtube.com/watch?v=uhhTxbeYfQw
 
-[1.0s] One of the features of Mentor AI is the
+[1.0s] One of the features of Agent AI is the
 [3.1s] ability to enable tools. Um to get to
-[5.9s] the tools, you'll go to the mentor name
+[5.9s] the tools, you'll go to the agent name
 [8.6s] right here and you'll see a drop down.
 [11.4s] On this dropown, you'll select the tools
 [13.0s] tab
@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=uhhTxbeYfQw
 [53.8s] of Nvidia.
 [56.3s] And this will pull the most up-to-date
 [58.2s] information. You can see that the date
-[60.5s] that the mentor said is June 25th, which
+[60.5s] that the agent said is June 25th, which
 [62.6s] is the day I that I'm recording this. We
 [65.5s] can say, let's see what tool what the
 [68.6s] latest AI tools are this month. What are
@@ -37,7 +37,7 @@ https://www.youtube.com/watch?v=uhhTxbeYfQw
 [82.2s] like you know what's what's going on in
 [84.0s] the world um in the world of AI
 [85.5s] specifically. Um and you can see that
-[87.3s] the mentor is actually giving us
+[87.3s] the agent is actually giving us
 [88.5s] information about all the latest
 [89.7s] releases for this month. Now it doesn't
 [92.4s] have to be just you know related to
@@ -72,7 +72,7 @@ https://www.youtube.com/watch?v=uhhTxbeYfQw
 [174.9s] bachelor's
 [176.8s] degrees
 [178.5s] in 2025.
-[181.8s] So again, the mentor is going to search
+[181.8s] So again, the agent is going to search
 [183.9s] the web for this and provide us with a
 [186.5s] bit of information. Um, it's even
 [188.4s] pulling specific universities for what

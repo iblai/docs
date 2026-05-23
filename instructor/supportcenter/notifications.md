@@ -4,7 +4,7 @@
 
 ## Description
 
-**Notifications** let instructors and tenant admins send **custom messages** to learners and manage all **automated alert templates** in mentorAI. 
+**Notifications** let instructors and tenant admins send **custom messages** to learners and manage all **automated alert templates** in Agentic OS. 
 
 You can compose **ad-hoc announcements** (sent by push and email), schedule them, choose recipients, and control which **system-triggered emails** are active—editing their wording to match your tone, voice, and institutional branding.
 
@@ -44,7 +44,7 @@ Turn individual templates **on or off**. When active, they fire automatically ba
 1. Click **View All → New Notification**.  
 2. Fill **Preview (Subject)** and **Content (Body)**, e.g.:
 
-   > “Hello—checking in on your mentorAI experience. Is there anything we can do to assist or improve your time on the platform?”
+   > “Hello—checking in on your Agentic OS experience. Is there anything we can do to assist or improve your time on the platform?”
 
 3. **Recipients:** Select one or multiple learners.  
 4. **Timing:** Choose **Send Now** or **Schedule** for later.  
@@ -93,7 +93,7 @@ Experiment with different **subject lines or message styles** in custom notifica
 
 ## Description
 
-Proactive Learning Recommendations is a notifications enhancement that automatically sends mentor-generated study suggestions to learners on a schedule you control. Enable the template once, choose which mentors power the recommendations, add an optional per-mentor prompt to steer the guidance, and target who receives the emails and how often they’re sent.
+Proactive Learning Recommendations is a notifications enhancement that automatically sends agent-generated study suggestions to learners on a schedule you control. Enable the template once, choose which agents power the recommendations, add an optional per-agent prompt to steer the guidance, and target who receives the emails and how often they’re sent.
 
 
 ## Target Audience
@@ -103,11 +103,11 @@ Instructor · Administrator
 
 ## Features
 
-#### Tenant-Wide Template, Mentor-Scoped Content  
-Toggle one template On for your tenant, then pick the specific mentors that will supply recommendations.
+#### Tenant-Wide Template, Agent-Scoped Content  
+Toggle one template On for your tenant, then pick the specific agents that will supply recommendations.
 
-#### Per-Mentor Prompting  
-Add a short prompt per mentor (e.g., “This is a career path planner”) to shape the recommendations learners receive.
+#### Per-Agent Prompting  
+Add a short prompt per agent (e.g., “This is a career path planner”) to shape the recommendations learners receive.
 
 #### Recipient Targeting  
 Send to All Learners or Active Learners (logged in within the last 30 days).
@@ -116,7 +116,7 @@ Send to All Learners or Active Learners (logged in within the last 30 days).
 Set delivery to Daily, Weekly, Monthly, or a Custom cadence; choose the time and time zone.
 
 #### Automated Delivery  
-Once active and saved, messages are sent on your schedule with recommendations based on the selected mentors and prompts.
+Once active and saved, messages are sent on your schedule with recommendations based on the selected agents and prompts.
 
 
 ## How to Use (step by step)
@@ -128,10 +128,10 @@ Once active and saved, messages are sent on your schedule with recommendations b
 #### Enable the Template  
 - Toggle On to activate across the tenant.
 
-#### Choose Mentors & Add Prompts  
-- Click Select Mentors and add one or more (e.g., AI Career Path Planner, Assessment Creator).
-- For each mentor, click Edit Prompt and enter guidance that should inform recommendations.  
-- Save Prompt for each mentor you configure.
+#### Choose Agents & Add Prompts  
+- Click Select Agents and add one or more (e.g., AI Career Path Planner, Assessment Creator).
+- For each agent, click Edit Prompt and enter guidance that should inform recommendations.  
+- Save Prompt for each agent you configure.
 
 #### Select Recipients  
 - Pick All Learners or Active Learners (last 30 days).
@@ -151,15 +151,15 @@ Once active and saved, messages are sent on your schedule with recommendations b
 Send weekly nudges with reading targets, practice problems, or reflection prompts aligned to the course week.
 
 #### Career-Aligned Guidance  
-Use a mentor like AI Career Path Planner with a custom prompt to deliver role-specific resource suggestions.
+Use an agent like AI Career Path Planner with a custom prompt to deliver role-specific resource suggestions.
 
 #### Assessment Readiness  
-Pair with an Assessment Creator mentor to push practice items or rubric tips before deadlines.
+Pair with an Assessment Creator agent to push practice items or rubric tips before deadlines.
 
 #### Re-Engagement  
 Target Active Learners for steady cadence, or switch to All Learners before exams to reach everyone.
 
 
-***With Proactive Learning Recommendations, you can set it once and deliver timely, mentor-informed guidance—keeping learners on track with the right suggestions at the right time.***
+***With Proactive Learning Recommendations, you can set it once and deliver timely, agent-informed guidance—keeping learners on track with the right suggestions at the right time.***
 
 

@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Chat feature of mentorAI is your personal AI tutor, available 24 / 7. It lets you hold a natural conversation with an AI mentor who provides instant, tailored feedback on coursework, assignments, and exam prep. Ask questions, request step‑by‑step explanations, get study tips, or have the AI quiz you—all in one friendly chat interface.
+The Chat feature of Agentic OS is your personal AI tutor, available 24 / 7. It lets you hold a natural conversation with an AI agent who provides instant, tailored feedback on coursework, assignments, and exam prep. Ask questions, request step‑by‑step explanations, get study tips, or have the AI quiz you—all in one friendly chat interface.
 
 
 
@@ -27,31 +27,31 @@ Ask questions any time—day or night—and receive answers aligned with your co
 
 #### Proactive Guidance (Guided Prompts)
 
-After every response, mentorAI suggests follow‑up questions that nudge you toward deeper understanding and topics you may not have considered.
+After every response, Agentic OS suggests follow‑up questions that nudge you toward deeper understanding and topics you may not have considered.
 
 #### Adaptive Learning Paths
 
-mentorAI continually gauges your knowledge and adjusts the depth and complexity of explanations so that every answer meets you where you are.
+Agentic OS continually gauges your knowledge and adjusts the depth and complexity of explanations so that every answer meets you where you are.
 
 ---
 
 ## How to Use (step by step)
 
-#### Log In to mentorAI
+#### Log In to Agentic OS
 
 Sign in with your credentials. You’ll land on the main workspace dashboard.
 
 #### Open Explore
 
-Click Explore in the sidebar to see all available AI mentors.
+Click Explore in the sidebar to see all available AI agents.
 
-- One course → one mentor.  
-- Multiple courses → multiple mentors.  
+- One course → one agent.  
+- Multiple courses → multiple agents.  
 - *(Optional)* Use the category filter to narrow the list.
 
-#### Select a Mentor
+#### Select a Agent
 
-Click a mentor card—this guide uses the baseline mentorAI as an example. The chat window opens.
+Click an agent card—this guide uses the baseline Agentic OS as an example. The chat window opens.
 
 #### Start with Guided Prompts (Optional)
 
@@ -69,15 +69,15 @@ You can also:
 
 #### Read the Answer & Follow Up
 
-mentorAI replies with a tailored explanation. After each answer, new guided prompts appear so you can dive deeper or clarify anything confusing.
+Agentic OS replies with a tailored explanation. After each answer, new guided prompts appear so you can dive deeper or clarify anything confusing.
 
 #### Continue the Conversation
 
-Keep clicking suggested prompts or type new questions. mentorAI adapts in real time, remembering context and adjusting answers to your evolving understanding.
+Keep clicking suggested prompts or type new questions. Agentic OS adapts in real time, remembering context and adjusting answers to your evolving understanding.
 
 #### Return Anytime
 
-Leave and come back whenever you like—the conversation history remains, so mentorAI can pick up right where you left off.
+Leave and come back whenever you like—the conversation history remains, so Agentic OS can pick up right where you left off.
 
 ---
 
@@ -91,7 +91,7 @@ Leave and come back whenever you like—the conversation history remains, so men
 #### Self‑Assessment Quizzes
 
 > “Generate five practice questions on Chapter 3.”  
-→ mentorAI creates custom questions; follow up with  
+→ Agentic OS creates custom questions; follow up with  
 > “Show me the answers.”  
 for instant feedback.
 
@@ -108,8 +108,8 @@ to uncover underlying principles and related ideas.
 
 #### Continuous, Adaptive Learning
 
-Early in a semester, mentorAI explains basics in simple terms; later, it offers advanced insights—ensuring support from introductory material to nuanced discussions.
+Early in a semester, Agentic OS explains basics in simple terms; later, it offers advanced insights—ensuring support from introductory material to nuanced discussions.
 
 ---
 
-Log in, open a mentor, and start learning—mentorAI is ready whenever you are!
+Log in, open an agent, and start learning—Agentic OS is ready whenever you are!

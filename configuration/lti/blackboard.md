@@ -8,7 +8,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Prerequisites
 
-- Obtain the **Client ID** and the **Target Link URI** (tool launch link) from the **mentorAI** team.  
+- Obtain the **Client ID** and the **Target Link URI** (tool launch link) from the **Agentic OS** team.  
 - Obtain the **LTI launch URL** (and any other parameters) if you’ll add the tool directly at the course level.  
 - Be an **instructor (or admin)** with permission to add **LTI tools** in your Blackboard course.
 
@@ -21,8 +21,8 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 5. Optionally, choose user info to send (e.g., name, email).  
    - Grade services, membership services, and user acknowledgment are optional in this demo.  
 6. **Create Placements** for how the tool appears in courses:
-   - **Course Content Tool** – adds the mentor inside courseware.  
-   - **Deep Linking** – opens a content picker to choose specific mentors/resources.  
+   - **Course Content Tool** – adds the agent inside courseware.  
+   - **Deep Linking** – opens a content picker to choose specific agents/resources.  
    - **Course Tool** – adds an always-available course-level entry point.  
 
    For each placement:
@@ -37,10 +37,10 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 ## Blackboard Ultra – Workflow A (Teaching Tools with LTI Connection)
 
 1. Open your course in **Blackboard Ultra**.  
-2. Navigate to the folder/area where you want the mentor.  
+2. Navigate to the folder/area where you want the agent.  
 3. Click **Create → Teaching Tools with LTI Connection**.  
 4. Fill the form:
-   - **URL:** paste the mentorAI launch URL.  
+   - **URL:** paste the Agentic OS launch URL.  
    - **Name:** e.g., “EN Comp AI”.  
    - **Description:** short friendly description.  
    - **Open in a New Window:** enable if you prefer a separate tab.  
@@ -52,15 +52,15 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 1. Open the course.  
 2. Click **Add Content → Content Market**.  
 3. Select your **Course Content Tool placement** (created in Admin Setup).  
-4. The item is added; launch it to start chatting with the mentor.
+4. The item is added; launch it to start chatting with the agent.
 
 ## Blackboard Original (Legacy Interface)
 
 1. Open the classic-layout course.  
 2. Go to **Build Content → Web Link**.  
 3. Provide:
-   - **Name** of your AI mentor.  
-   - **URL** (mentorAI launch link).  
+   - **Name** of your AI agent.  
+   - **URL** (Agentic OS launch link).  
    - Check **This link is a tool provider** (marks it as LTI).  
    - Optional **Description**.  
 4. **Submit** and launch from the new link.
@@ -71,7 +71,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 - **Ultra:** Use **Teaching Tools with LTI Connection (Workflow A)** or **Content Market with your placement (Workflow B)**.  
 - **Original:** Build Content → Web Link → Tool Provider.  
 
-Always use the **URLs/IDs provided by mentorAI** and make the item **visible** so students can access the assistant.
+Always use the **URLs/IDs provided by Agentic OS** and make the item **visible** so students can access the assistant.
 
 ---
 
@@ -82,17 +82,17 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Purpose
 
-Set up a **mentor for LTI Deep Linking** so you can add it to your **LMS** (e.g., Blackboard) yourself—assuming the base integration exists and deep linking is enabled.
+Set up a **agent for LTI Deep Linking** so you can add it to your **LMS** (e.g., Blackboard) yourself—assuming the base integration exists and deep linking is enabled.
 
-## 1) Get the Mentor ID
+## 1) Get the Agent ID
 
-1. Open the mentor you want to integrate.  
-2. Copy the **unique identifier** from the mentor’s URL.
+1. Open the agent you want to integrate.  
+2. Copy the **unique identifier** from the agent’s URL.
 
 ## 2) Create the Course in Studio
 
 1. Go to **[ibl.ai Studio](https://studio.learn.iblai.app)**.  
-2. Create a new course (e.g., “Socratic Mentor”) and choose the organization.
+2. Create a new course (e.g., “Socratic Agent”) and choose the organization.
 
 ### Settings → Schedule & Details
 
@@ -103,19 +103,19 @@ Set up a **mentor for LTI Deep Linking** so you can add it to your **LMS** (e.g.
 ### Settings → Advanced Settings
 
 - In the **advanced modules list**, add: `"ibl mentor_xlog"`  
-  *(This enables the mentor component.)*  
+  *(This enables the agent component.)*  
 - **Save** changes.
 
-## 3) Add the Mentor Component
+## 3) Add the Agent Component
 
 1. Go to **Outline → add Section → Subsection → Unit**.  
-2. Click **Advanced → Add New Component → Mentor**.  
-3. Click **Edit** and paste the mentor’s **unique ID** you copied earlier.  
-4. Set the **Display Name** (e.g., “Socratic Mentor”).
+2. Click **Advanced → Add New Component → Agent**.  
+3. Click **Edit** and paste the agent’s **unique ID** you copied earlier.  
+4. Set the **Display Name** (e.g., “Socratic Agent”).
 
 ### Optional Settings (from the demo)
 
-- **Context Awareness:** Enter your LMS domain; copy it into the **Mentor Domain** and **Domain** fields.  
+- **Context Awareness:** Enter your LMS domain; copy it into the **Agent Domain** and **Domain** fields.  
 - **Anonymous:** Toggle if you want users to chat without authentication.  
 - **Advanced View:** Enable tabs like **Summarize, Translate, Expand**.  
 
@@ -123,4 +123,4 @@ Click **Save** and **Publish** the unit.
 
 ## Result
 
-Your mentor is **published in Studio** and **selectable via deep linking** in your LMS—letting you add mentors to courses on your own.
+Your agent is **published in Studio** and **selectable via deep linking** in your LMS—letting you add agents to courses on your own.

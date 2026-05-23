@@ -54,7 +54,7 @@ Each AMI is a snapshot of a fully configured staging environment:
 - **Services** (Docker containers):
   - iblai-dm-pro (Django, PostgreSQL, Redis, Celery, Langfuse, ClickHouse, MinIO)
   - iblai-edx-pro (LMS, CMS, MySQL, MongoDB, Redis, Elasticsearch, MFE)
-  - Auth SPA, Mentor SPA, Skills SPA
+  - Auth SPA, Agent SPA, Skills SPA
   - Nginx reverse proxy
 - **Data**: Test platforms, users, RBAC, analytics views pre-seeded
 - **Config**: S3 buckets, AWS credentials, TimescaleDB enabled
@@ -67,7 +67,7 @@ Each AMI is a snapshot of a fully configured staging environment:
 
 **Where**: GitHub Actions runner (ubuntu-latest) → OCIR
 
-**Image**: `iad.ocir.io/idcwyla5j5cr/ibl-mentor-playwright:{tag}`
+**Image**: `iad.ocir.io/idcwyla5j5cr/ibl-agent-playwright:{tag}`
 
 **Contents**: Playwright browsers (Chromium, Firefox, WebKit), test specs from `e2e/journeys/`, page objects, test utilities, AWS CLI for S3 log upload.
 
@@ -106,7 +106,7 @@ Each AMI is a snapshot of a fully configured staging environment:
 7. **Ensure DM containers running** — `docker compose up -d` in background (avoids timeout on collectstatic)
 8. **Wait for DM** — curl `localhost:8400` (60 retries × 15s = 15 min max for collectstatic)
 9. **Run DM migrations** — `docker compose exec web ./manage.py migrate --noinput`
-10. **Restart SPAs** — `docker compose down; docker compose up -d` for auth, mentor, skills (with auto-restart for Mentor empty reply)
+10. **Restart SPAs** — `docker compose down; docker compose up -d` for auth, agent, skills (with auto-restart for Agent empty reply)
 11. **OAuth/OIDC integrations** — `ibl launch --ibl-oauth --ibl-oidc --ibl-edx-manager` + `ibl dm auth-setup`
 12. **Sync edX users** — `ibl edx sync-with-manager --users`
 13. **Sync SSO credentials** — reads `spa-sso` and `ibl_web` client IDs from LMS database, writes to config, restarts Auth SPA
@@ -226,8 +226,8 @@ Repeat for STG2, STG3, STG4.
 ### DM collectstatic (15-20 min cold boot)
 The DM container entrypoint runs `collectstatic --noinput` before starting gunicorn. This takes 15-20 minutes on a fresh AMI boot at 100% CPU. The service-update flow uses `docker compose up -d` (idempotent, no recreate) to avoid triggering collectstatic unnecessarily.
 
-### Mentor SPA empty reply
-Mentor SPA occasionally returns empty HTTP replies for 60-90s after startup despite reporting "Ready". The service-update role detects this and auto-restarts the container, with `ignore_errors` so the pipeline continues.
+### Agent SPA empty reply
+Agent SPA occasionally returns empty HTTP replies for 60-90s after startup despite reporting "Ready". The service-update role detects this and auto-restarts the container, with `ignore_errors` so the pipeline continues.
 
 ### ALB split-brain routing
 If old EC2 instances remain registered in the ALB target group, the ALB load-balances between old and new instances with different OAuth credentials — causing intermittent 409 auth errors. The pipeline deregisters all existing targets before registering the new instance.

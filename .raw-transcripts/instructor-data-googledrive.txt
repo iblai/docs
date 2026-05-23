@@ -1,14 +1,14 @@
-mentorAI | Google Drive
+Agentic OS | Google Drive
 https://www.youtube.com/watch?v=UYJ8ddtAmBE
 
 [1.7s] Hi everybody. I'm going to be showing
 [3.5s] you one of our latest integrations um
-[6.4s] that can be enabled with your mentors.
-[9.0s] Now for this mentor, what we're going to
+[6.4s] that can be enabled with your agents.
+[9.0s] Now for this agent, what we're going to
 [10.7s] do is go to this tools tab under the
-[13.7s] mentor settings. We have both Google
+[13.7s] agent settings. We have both Google
 [16.4s] Docs and Google Slides now enabled um
-[19.6s] which will actually connect your mentor
+[19.6s] which will actually connect your agent
 [21.6s] to either Google Slides or Google Docs
 [23.7s] or both depending on you select and this
 [26.4s] can actually output a document. So, in
@@ -22,14 +22,14 @@ https://www.youtube.com/watch?v=UYJ8ddtAmBE
 [44.5s] just can't see it on my screen at the
 [45.7s] moment.
 [47.4s] And this will actually connect the
-[49.5s] device or your your mentor to your
+[49.5s] device or your your agent to your
 [52.6s] Google Docs um account. So, um what
 [56.0s] we'll do now is put in a question. And
 [58.7s] I'm just going to say suggest a template
 [60.6s] for documenting um gap identifications.
 [63.2s] This is specifically within um a course
 [65.1s] curriculum. And then from here, what
-[67.3s] we're going to do is ask the mentor to
+[67.3s] we're going to do is ask the agent to
 [69.0s] actually provide an example of this
 [70.3s] template in a Google doc.
 [73.6s] So this might take a few seconds just

@@ -1,8 +1,8 @@
-mentorAI | Canvas | Configuring LTI
+Agentic OS | Canvas | Configuring LTI
 https://www.youtube.com/watch?v=pmiFXWWQL3g
 
 [0.3s] I'm going to be showing you how to LTI
-[2.0s] integrate our Mentor AI platform into a
+[2.0s] integrate our Agent AI platform into a
 [4.3s] canvas environment you do have to be an
 [6.6s] admin but if you are what you'll do
 [8.7s] first is select your admin portal here
@@ -16,19 +16,19 @@ https://www.youtube.com/watch?v=pmiFXWWQL3g
 [30.7s] like so we have a couple different
 [33.5s] options and you'll select LTI key uh to
 [36.4s] add and then you'll give it a name in
-[38.4s] this case it'll be Mentor AI you'll put
+[38.4s] this case it'll be Agent AI you'll put
 [40.5s] in an owner's
 [45.0s] email and you'll make sure this is
 [47.3s] manual entry over here on the
 [49.2s] configuration side now the redirect URI
 [52.2s] will come from the provider side um and
 [54.9s] it'll look something like
-[57.2s] this we'll give this a title Mentor AI a
+[57.2s] this we'll give this a title Agent AI a
 [61.6s] quick description and we're just going
 [63.2s] to call it an LTI 1.3
 [65.4s] integration um the target link Ur is
 [68.8s] exactly the content that we want to show
-[71.0s] so it'll be you know whatever Mentor
+[71.0s] so it'll be you know whatever Agent
 [73.0s] you'd like to integrate into your course
 [74.7s] that's what will come from this target
 [76.7s] link and again all these parameters are
@@ -70,7 +70,7 @@ https://www.youtube.com/watch?v=pmiFXWWQL3g
 [164.3s] you'll go to view app configurations so
 [167.4s] once you're under view app
 [168.5s] configurations you can already see that
-[170.1s] we've got the mentor AI here but what
+[170.1s] we've got the agent AI here but what
 [171.8s] you'll do is hit add app and select by
 [175.3s] client ID and now that client ID that
 [177.4s] you saw on the developer key page is
@@ -89,12 +89,12 @@ https://www.youtube.com/watch?v=pmiFXWWQL3g
 [208.6s] send that back to them
 [210.4s] now assuming that's all well and done
 [212.7s] we'll go to courses and find the course
-[214.8s] we want to integrate the mentor
+[214.8s] we want to integrate the agent
 [217.5s] into and what we'll do next is find the
 [222.6s] modules
 [227.1s] page you can already see that we have
-[229.4s] the mentor added here but to add another
-[232.3s] uh Mentor integration we'd hit add
+[229.4s] the agent added here but to add another
+[232.3s] uh Agent integration we'd hit add
 [234.2s] module give it a name I'm just going to
 [236.4s] give it a slightly different name so
 [238.7s] that way we can see it very easily on
@@ -102,10 +102,10 @@ https://www.youtube.com/watch?v=pmiFXWWQL3g
 [242.4s] that module is added you'll hit the plus
 [244.2s] sign
 [245.0s] here and when you are adding an item to
-[248.2s] Mentor or the in this case the module
+[248.2s] Agent or the in this case the module
 [251.0s] what you'll do is hit external tool and
 [253.9s] then from the uh tool list you'll be
-[255.8s] able to select Mentor AI it'll
+[255.8s] able to select Agent AI it'll
 [257.8s] pre-populate the URL and the name page
 [261.1s] uh and then you can decide whether or
 [262.2s] not this is loaded in new tab we don't
@@ -116,4 +116,4 @@ https://www.youtube.com/watch?v=pmiFXWWQL3g
 [274.6s] accessible to
 [276.1s] Learners that's when they'll be able to
 [278.0s] see the same thing and so you can see
-[280.2s] here the mentor has been integrated
+[280.2s] here the agent has been integrated

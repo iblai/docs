@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Creation workflow lets you build a brand‑new mentorAI from scratch. In a single guided flow you name the mentor, set its personality, choose a language model, upload knowledge resources, and generate an embed code—so you can deploy a customized AI tutor anywhere learners need it.
+The Creation workflow lets you build a brand‑new Agentic OS from scratch. In a single guided flow you name the agent, set its personality, choose a language model, upload knowledge resources, and generate an embed code—so you can deploy a customized AI tutor anywhere learners need it.
 
 
 ![](/images/creation.png)
@@ -20,25 +20,25 @@ The Creation workflow lets you build a brand‑new mentorAI from scratch. In a s
 
 ## Features
 
-#### Create Mentor Wizard
+#### Create Agent Wizard
 
 A streamlined interface (Settings ➜ Prompts ➜ Tools ➜ Datasets ➜ Embed) that takes you step by step from concept to launch.
 
 #### Rich Settings Panel
 
-Upload profile images, set visibility (Administrator‑only or Student‑facing), pick a base LLM (OpenAI or Gemini), and categorize the mentor for easy search.
+Upload profile images, set visibility (Administrator‑only or Student‑facing), pick a base LLM (OpenAI or Gemini), and categorize the agent for easy search.
 
 #### Prompt Configuration
 
-Define a **System Prompt** (mentor persona), **Proactive Greeting**, and **Guided Prompts** that appear as starter questions.
+Define a **System Prompt** (agent persona), **Proactive Greeting**, and **Guided Prompts** that appear as starter questions.
 
 #### Tool Toggles & Safety Controls
 
-Enable features like **Web Search** or **Screen Share**, and specify how the mentor should respond to inappropriate queries.
+Enable features like **Web Search** or **Screen Share**, and specify how the agent should respond to inappropriate queries.
 
 #### Dataset Uploads
 
-Add **PDFs**, **URLs**, **Google Drive**, **Dropbox**, or **OneDrive** files to form the mentor’s knowledge base.
+Add **PDFs**, **URLs**, **Google Drive**, **Dropbox**, or **OneDrive** files to form the agent’s knowledge base.
 
 #### Conversation History Analytics
 
@@ -55,16 +55,16 @@ Produce a code snippet with options for anonymous or trackable usage, context aw
 #### Start the Creation Process
 
 - Log in and click **Create**  
-- The **Create Mentor** screen opens on the **Settings** tab
+- The **Create Agent** screen opens on the **Settings** tab
 
 #### Fill Out the Settings Tab
 
-- **Profile Image** – upload an avatar for the mentor  
-- **Mentor Name** – e.g., “Bio AI”  
+- **Profile Image** – upload an avatar for the agent  
+- **Agent Name** – e.g., “Bio AI”  
 - **Description** – short phrase like “Biology tutor that assists learners with Intro to Biology”  
 - **Category** – choose relevant tags (biology, science, learning)
 
-**Mentor Visibility –**
+**Agent Visibility –**
 
 - **Administrators** → only staff can see/use (assessments, admissions, internal data)  
 - **Students** → everyone can access (general tutoring)
@@ -82,7 +82,7 @@ Produce a code snippet with options for anonymous or trackable usage, context aw
 
 - **LLM Selection** – choose the specific model version  
 - **Tools** – toggle extras (Web Search, Code Interpreter, Image Generation, etc.)  
-- **Safety** – set rules for inappropriate content and define the mentor’s fallback response
+- **Safety** – set rules for inappropriate content and define the agent’s fallback response
 
 #### Review the History Tab (post‑launch)
 
@@ -90,9 +90,9 @@ Inspect all conversations, export chats, and filter by sentiment, date, or topic
 
 #### Upload Knowledge in Datasets
 
-Add files, folders, or cloud links. These resources train the mentor’s retrieval system.
+Add files, folders, or cloud links. These resources train the agent’s retrieval system.
 
-#### Embed the Mentor Elsewhere
+#### Embed the Agent Elsewhere
 
 - Open the **Embed** tab  
 - Choose **Default** or **Advanced** view  
@@ -104,8 +104,8 @@ Add files, folders, or cloud links. These resources train the mentor’s retriev
 
 #### Go Live
 
-Deploy the embed code or share the mentor link.  
-Learners (or administrators) can now chat with the mentor immediately.
+Deploy the embed code or share the agent link.  
+Learners (or administrators) can now chat with the agent immediately.
 
 ---
 
@@ -113,24 +113,24 @@ Learners (or administrators) can now chat with the mentor immediately.
 
 #### Course‑Specific Tutors
 
-Build mentors like “Bio AI” or “Macro Econ Coach” that draw on syllabus PDFs and lecture slides.
+Build agents like “Bio AI” or “Macro Econ Coach” that draw on syllabus PDFs and lecture slides.
 
 #### Admissions & Advising Assistants
 
-Create Administrator‑visible mentors to handle FAQs, application guidance, or scholarship queries.
+Create Administrator‑visible agents to handle FAQs, application guidance, or scholarship queries.
 
 #### Assessment Authoring Helpers
 
-Generate mentors restricted to instructors that draft quiz questions or grading rubrics.
+Generate agents restricted to instructors that draft quiz questions or grading rubrics.
 
 #### Research Support Bots
 
-Upload journal articles and datasets so the mentor can summarize findings and suggest next steps for student projects.
+Upload journal articles and datasets so the agent can summarize findings and suggest next steps for student projects.
 
 #### Campus‑Wide FAQ Bots
 
-Embed a general “Campus Help Desk” mentor across the LMS to answer policy, tech, or financial‑aid questions 24/7.
+Embed a general “Campus Help Desk” agent across the LMS to answer policy, tech, or financial‑aid questions 24/7.
 
 ---
 
-Once you complete these steps, your mentor is fully configured—ready to guide learners or staff, depending on the visibility you selected.
+Once you complete these steps, your agent is fully configured—ready to guide learners or staff, depending on the visibility you selected.

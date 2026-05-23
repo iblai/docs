@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Accessibility menu** lets you tailor the **mentorAI interface** to your needs—without leaving the chat.
+The **Accessibility menu** lets you tailor the **Agentic OS interface** to your needs—without leaving the chat.
 
 Once enabled by your school’s admin, you can adjust **contrast, text size, alignment, tooltips, and more**. Your choices are **user-specific**, so settings stay with you until you change or reset them.
 
@@ -40,7 +40,7 @@ Your settings apply to your account and can be reset anytime.
 ## How to Use (step by step)
 
 #### Find the Accessibility Icon
-If your admin has enabled the feature, an **Accessibility icon** will appear in the mentorAI interface.
+If your admin has enabled the feature, an **Accessibility icon** will appear in the Agentic OS interface.
 
 #### Open the Menu
 Click the icon to view available options (**contrast, text size, tooltips, alignment**, and more).

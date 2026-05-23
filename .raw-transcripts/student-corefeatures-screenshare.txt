@@ -1,12 +1,12 @@
-mentorAI | Screensharing | In-Chat Transcripts
+Agentic OS | Screensharing | In-Chat Transcripts
 https://www.youtube.com/watch?v=dSJO3_jjAc4
 
-[1.9s] When screen sharing with the mentor um
+[1.9s] When screen sharing with the agent um
 [4.6s] on a given page, this could be embedded
 [6.3s] in a course like you see here with the
 [7.9s] side panel. We now show the chat
 [10.3s] transcript, the conversation you have
-[12.0s] voice to voice with the mentor inside
+[12.0s] voice to voice with the agent inside
 [13.8s] the chat after screen sharing ends. So
 [16.7s] this is what that will look like. First,
 [18.3s] we'll do screen sharing. And then I'm

@@ -4,7 +4,7 @@
 
 ## Description
 
-The Human Support tool lets learners request help straight from their mentorAI chat by creating a support ticket—without leaving the conversation. The ticket collects all relevant details, can be updated in real time, and appears in the admin dashboard where staff can track status, assign ownership, and resolve issues efficiently.
+The Human Support tool lets learners request help straight from their Agentic OS chat by creating a support ticket—without leaving the conversation. The ticket collects all relevant details, can be updated in real time, and appears in the admin dashboard where staff can track status, assign ownership, and resolve issues efficiently.
 
 ---
 
@@ -18,15 +18,15 @@ The Human Support tool lets learners request help straight from their mentorAI
 
 #### In‑Chat Ticket Creation
 
-Learners ask mentorAI to open a ticket whenever they need extra assistance.
+Learners ask Agentic OS to open a ticket whenever they need extra assistance.
 
 #### Real‑Time Ticket Updates
 
-During the same chat, students can add new details (e.g., updated email addresses), and mentorAI appends them to the existing ticket.
+During the same chat, students can add new details (e.g., updated email addresses), and Agentic OS appends them to the existing ticket.
 
 #### Ticket Lookup for Learners
 
-Students can ask the mentor to list their open or past tickets to keep track of progress.
+Students can ask the agent to list their open or past tickets to keep track of progress.
 
 #### Comprehensive Admin Dashboard
 
@@ -38,7 +38,7 @@ Staff view each ticket’s subject, user info, description, status (Open / I
 
 #### Enable the Tool (Instructor/Admin)
 
-- Open the mentor’s **Settings**  
+- Open the agent’s **Settings**  
 - Select the **Tools list**  
 - Locate **Human Support (ticketing)**  
 - Toggle it **On**
@@ -50,21 +50,21 @@ Staff view each ticket’s subject, user info, description, status (Open / I
 **Prompt:**  
 > I want to change the email address associated with my account. Can you create a support ticket for me?
 
-mentorAI confirms and opens a new ticket.
+Agentic OS confirms and opens a new ticket.
 
 #### Add Details
 
 When prompted, the learner supplies more info:  
 > The email I’d like to use is example@domain.com.
 
-mentorAI updates the existing ticket.
+Agentic OS updates the existing ticket.
 
 #### Review Existing Tickets
 
 **Prompt:**  
 > What support tickets have been created for me?
 
-mentorAI lists open and past tickets (e.g., password resets, login issues).
+Agentic OS lists open and past tickets (e.g., password resets, login issues).
 
 ---
 
@@ -90,7 +90,7 @@ Students quickly raise tickets for login problems or account changes without lea
 
 #### Course‑Specific Technical Support
 
-Learners report broken links, assignment upload errors, or software‑tool glitches directly from the mentorAI chat.
+Learners report broken links, assignment upload errors, or software‑tool glitches directly from the Agentic OS chat.
 
 #### Instructor Workload Management
 

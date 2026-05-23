@@ -1,4 +1,4 @@
-mentorAI | Screen Sharing with Context Awareness
+Agentic OS | Screen Sharing with Context Awareness
 https://www.youtube.com/watch?v=eimzO8YJ5nc
 
 [0.2s] Hey, how's it going? This is Jeremy at
@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [3.8s] newest features, the screen sharing with
 [6.1s] context awareness feature. So, the idea
 [9.1s] here is we are enabling the custom AI
-[13.3s] mentors in the platform to be able to
+[13.3s] agents in the platform to be able to
 [16.2s] view a user's screen as they're working
 [18.8s] through whatever it may be. Uh,
 [21.4s] sometimes this could be, you know,
@@ -17,18 +17,18 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [33.1s] provide recommendations based on what it
 [35.0s] sees. So, what I've gone ahead and done
 [37.1s] to share this feature is I've created
-[39.7s] this AI mentor creation guide that has
+[39.7s] this AI agent creation guide that has
 [42.6s] the screen sharing feature enabled,
 [44.7s] which you can see down here. Basically,
-[47.4s] the idea here is this mentor is designed
-[49.7s] to help users on the mentor AI platform
+[47.4s] the idea here is this agent is designed
+[49.7s] to help users on the agent AI platform
 [52.9s] work through the creation of their own
-[54.6s] custom AI mentors. So, the best way to
+[54.6s] custom AI agents. So, the best way to
 [57.5s] demonstrate this is actually to have the
-[59.5s] mentor AI platform open in another
+[59.5s] agent AI platform open in another
 [63.1s] window or even an incognito tab or
 [66.3s] another browser so that we can share
-[68.2s] this screen with this mentor. So to
+[68.2s] this screen with this agent. So to
 [72.1s] enable the screen sharing feature,
 [73.6s] you'll come down here to the bottom of
 [75.0s] the enter a prompt here box and you'll
@@ -38,40 +38,40 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [84.1s] mouse over that, you should see that it
 [85.9s] is the screen sharing feature. So once I
 [88.6s] click this, it's going to ask me what
-[91.8s] window I want to share with the mentor.
-[93.7s] And once I share that window, the mentor
+[91.8s] window I want to share with the agent.
+[93.7s] And once I share that window, the agent
 [95.8s] will be listening to everything that I
 [97.4s] say and responding to me in
 [99.6s] conversation.
 [112.6s] Hello.
 [114.2s] >> Hello there. Are you planning on
-[115.5s] creating a new AI mentor today?
+[115.5s] creating a new AI agent today?
 [117.7s] >> I am. But before we do that, can you
-[119.6s] tell me what the name of the mentor on
+[119.6s] tell me what the name of the agent on
 [121.6s] my screen right now is?
-[124.2s] >> The name of the mentor on your screen
-[125.7s] right now is mentor AI. Would you like
-[128.8s] assistance creating a new AI mentor now?
+[124.2s] >> The name of the agent on your screen
+[125.7s] right now is agent AI. Would you like
+[128.8s] assistance creating a new AI agent now?
 [132.0s] >> Yeah, that would be great. How do I
 [133.5s] start?
 [135.8s] >> Okay, let's start by clicking the plus
 [137.9s] create button at the top of the screen.
 [140.4s] After that, you'll need to fill out the
-[142.2s] new mentor's name, description, and
+[142.2s] new agent's name, description, and
 [144.2s] visibility settings. Do you want to go
 [146.4s] ahead and do that now?
 [148.6s] >> Yeah, sounds good. Is there anything I
 [151.0s] should be aware of in terms of creating
-[152.9s] the description for this mentor?
+[152.9s] the description for this agent?
 [155.9s] When writing the description for your
-[157.7s] mentor, it's important to be clear and
-[159.8s] concise about the mentor's purpose and
+[157.7s] agent, it's important to be clear and
+[159.8s] concise about the agent's purpose and
 [161.6s] the type of assistance it can provide.
 [163.7s] This helps users understand what the
-[165.4s] mentor is designed for and how it can be
+[165.4s] agent is designed for and how it can be
 [167.5s] most helpful to them.
 [170.8s] Okay, great. So, I'm going to call this
-[173.1s] mentor test mentor test for the purpose
+[173.1s] agent test agent test for the purpose
 [176.2s] of this demo. And I think that's also
 [178.6s] what I'm going to include in the
 [180.7s] description box here. And the visibility
@@ -86,7 +86,7 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [202.9s] prompt. You can either stick with the
 [204.5s] default system prompt or you can create
 [206.6s] a custom prompt to define how the AI
-[208.8s] mentor behaves and interacts.
+[208.8s] agent behaves and interacts.
 [211.1s] >> Awesome. How do I get to the prompts
 [213.0s] page from here?
 [216.1s] >> You can get to the prompts page by
@@ -110,14 +110,14 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [254.9s] purpose of this demo, the default system
 [256.9s] prompt will work fine. I've just hit
 [259.7s] save and it looks like I am now uh in a
-[263.8s] in a chat log with this new mentor.
+[263.8s] in a chat log with this new agent.
 [266.8s] What's the next step for me here?
 [272.2s] Now that you saved the system prompt,
 [274.1s] the next step is to add data sets as
-[276.2s] training resources to your mentor. To do
+[276.2s] training resources to your agent. To do
 [278.6s] this, navigate to the drop- down menu at
 [280.7s] the top of your screen next to the
-[282.2s] mentor's name. This will open up all the
+[282.2s] agent's name. This will open up all the
 [284.7s] backend settings tabs, including data
 [287.1s] sets. Okay, I see it. I've selected data
 [290.5s] sets and opened it. Now, how do I add my
@@ -137,29 +137,29 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [323.0s] asking me to browse my files. So, I'm
 [325.4s] going to open that and select the
 [328.5s] resource I want to
-[331.0s] add to the mentor. So, now that I've
+[331.0s] add to the agent. So, now that I've
 [332.9s] done that, do I just hit submit?
 [336.3s] >> Yes, go ahead and hit submit.
 [339.0s] >> Okay.
 [342.8s] And with that, you've successfully added
-[344.8s] a training resource to your AI mentor.
+[344.8s] a training resource to your AI agent.
 [348.0s] >> Okay. Phenomenal. Um, before I move
-[350.6s] forward with this mentor, can you just
-[352.7s] can you confirm to me that the mentor AI
+[350.6s] forward with this agent, can you just
+[352.7s] can you confirm to me that the agent AI
 [355.5s] instructions I've just added to this
-[357.4s] mentor have successfully trained?
-[362.2s] >> Yes, I can confirm that the mentor AI
+[357.4s] agent have successfully trained?
+[362.2s] >> Yes, I can confirm that the agent AI
 [365.8s] instructions you just added have
 [367.8s] successfully trained. Is there anything
 [369.7s] else I can help you with regarding this
-[371.4s] mentor? I don't think so. But if just in
+[371.4s] agent? I don't think so. But if just in
 [375.3s] case I want to explore the additional
 [377.6s] settings here, uh, is there anything
 [379.5s] else that I should consider when
-[381.7s] creating this mentor?
+[381.7s] creating this agent?
 [384.8s] Now that you've added a data set, you
 [386.8s] can explore the other settings to
-[388.5s] further customize your AI mentor. Some
+[388.5s] further customize your AI agent. Some
 [390.6s] areas you might want to explore are the
 [392.3s] LLM, large language model settings,
 [395.0s] where you can adjust the model's
@@ -169,10 +169,10 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [402.4s] Okay, awesome. Um, what's this tools tab
 [406.4s] right here?
 [408.7s] >> The tools tab allows you to configure
-[411.0s] tools and integrations for your mentor,
+[411.0s] tools and integrations for your agent,
 [413.3s] such as web search, code interpreter,
 [415.8s] image generation, and more. These tools
-[418.2s] can enhance the mentor's capabilities
+[418.2s] can enhance the agent's capabilities
 [420.2s] and allow it to provide more
 [421.9s] comprehensive and interactive
 [423.4s] assistance.
@@ -181,16 +181,16 @@ https://www.youtube.com/watch?v=eimzO8YJ5nc
 [431.3s] That's right. You can toggle those on or
 [433.0s] off as needed. Do you have any other
 [435.1s] questions about setting up your AI
-[436.6s] mentor?
+[436.6s] agent?
 [437.8s] >> No, this was uh this was fantastic.
 [440.2s] Thank you so much.
 [442.6s] >> You're welcome. I'm glad I could help.
 [445.1s] If you have any more questions in the
 [446.7s] future, feel free to ask.
 [451.7s] And with that, I've created a brand new
-[454.1s] mentor that this mentor has walked me
+[454.1s] agent that this agent has walked me
 [457.1s] through and explained the entire process
 [459.8s] and any considerations a new user might
-[462.7s] have when setting up their mentor. Thank
+[462.7s] have when setting up their agent. Thank
 [465.4s] you so much for tuning in and as always,
 [467.8s] learn more at IBLAI.

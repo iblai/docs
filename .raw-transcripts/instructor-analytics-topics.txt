@@ -1,18 +1,18 @@
-mentorAI | Topics Analytics
+Agentic OS | Topics Analytics
 https://www.youtube.com/watch?v=auVd5lMOn6A
 
 [1.1s] In previous demos, we've covered a
 [3.0s] handful of analytics topics such as
 [4.7s] overview of highle analytics across a
-[7.2s] specific mentor as well as user
+[7.2s] specific agent as well as user
 [9.5s] analytics. Now, we're going to be
 [11.4s] talking about topic analytics for a
-[14.5s] particular mentor. As an administrator
+[14.5s] particular agent. As an administrator
 [17.3s] or an instructor, you'll have access to
 [19.2s] this, and this will give you insight
 [21.8s] about what specific topics are being
 [23.4s] talked about the most within a given
-[25.0s] mentor. So, what we'll do now is
+[25.0s] agent. So, what we'll do now is
 [28.4s] navigate to this topics tab. And you'll
 [30.3s] see this little bar at the top that'll
 [32.2s] cover a couple different pieces. You'll
@@ -27,21 +27,21 @@ https://www.youtube.com/watch?v=auVd5lMOn6A
 [50.2s] month's. We'll also have this
 [52.3s] conversations tab which will count how
 [54.1s] many conversations have been with the
-[56.0s] mentor on a particular day. You have the
+[56.0s] agent on a particular day. You have the
 [58.3s] option of selecting a specific time
 [60.2s] frame. So if you want to hone in on, you
 [61.9s] know, a week before a quiz, that's a
 [64.1s] great way to see, you know, what topics
 [65.3s] have been covered and how many
 [66.3s] conversations students are having with
-[68.2s] their mentors. And then down here you'll
+[68.2s] their agents. And then down here you'll
 [70.9s] see topic details. And again, you have
 [73.0s] the ability to filter by whatever time
 [74.9s] frame that you select. In this case,
 [77.0s] this is going to be over the past 30
 [78.6s] days. And this will show you a list of
 [80.8s] all the topics that have been talked
-[82.5s] about with the mentor. So you can kind
+[82.5s] about with the agent. So you can kind
 [84.3s] of get an idea of, you know, where
 [86.0s] people might be having questions or what
 [88.0s] they're most interested in, so on and so

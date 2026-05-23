@@ -4,7 +4,7 @@ Connect your claw server to ibl.ai and manage it through the platform's APIs and
 
 > Source: [github.com/iblai/iblai-claw-setup](https://github.com/iblai/iblai-claw-setup)
 
-Once connected, your claw instance is accessible from all ibl.ai applications -- Mentor AI, Skills AI, and any custom integration using the REST API. You register the server, bind mentors, configure agent identities and skills, and push configuration -- all through the same API that powers the ibl.ai platform UI.
+Once connected, your claw instance is accessible from all ibl.ai applications -- Agent AI, Skills AI, and any custom integration using the REST API. You register the server, bind agents, configure agent identities and skills, and push configuration -- all through the same API that powers the ibl.ai platform UI.
 
 ---
 
@@ -15,14 +15,14 @@ Once connected, your claw instance is accessible from all ibl.ai applications --
 2. Test connectivity        POST claw/instances/<id>/test-connectivity/
 3. Add model providers      POST claw/model-providers/
 4. Push providers           POST claw/instances/<id>/push-providers/
-5. Bind mentor              POST claw/mentor-configs/
+5. Bind agent              POST claw/agent-configs/
 6. Configure agent          PATCH agent-configs/<id>/
 7. Create skills            POST agent-skills/  +  POST agent-skill-resources/
-8. Assign skills            POST mentor-skill-assignments/
-9. Push config              POST claw/mentor-configs/<id>/push-config/
+8. Assign skills            POST agent-skill-assignments/
+9. Push config              POST claw/agent-configs/<id>/push-config/
 ```
 
-All API calls use base path `/api/ai-mentor/orgs/<your-org>/` and require authentication.
+All API calls use base path `/api/ai-agent/orgs/<your-org>/` and require authentication.
 
 ---
 
@@ -31,7 +31,7 @@ All API calls use base path `/api/ai-mentor/orgs/<your-org>/` and require authen
 ### Register your instance
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/claw/instances/
+POST /api/ai-agent/orgs/<your-org>/claw/instances/
 Content-Type: application/json
 
 {
@@ -91,7 +91,7 @@ Write-only fields (`gateway_token`, `auth_headers`, `connection_params`) are nev
 ### Test connectivity
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/claw/instances/<id>/test-connectivity/
+POST /api/ai-agent/orgs/<your-org>/claw/instances/<id>/test-connectivity/
 ```
 
 **Response (200 OK):**
@@ -129,14 +129,14 @@ If `health_check` fails: check that the OpenClaw gateway is running (`systemctl 
 
 ## Part 2: Configure and Call from ibl.ai
 
-Once your server is registered, you manage everything through the ibl.ai API. This means all ibl.ai applications -- Mentor AI chat, Skills AI, custom integrations -- can use your claw instance. Configuration, agent identities, skills, and model providers are all pushed from the platform to your server.
+Once your server is registered, you manage everything through the ibl.ai API. This means all ibl.ai applications -- Agent AI chat, Skills AI, custom integrations -- can use your claw instance. Configuration, agent identities, skills, and model providers are all pushed from the platform to your server.
 
 ### Set up a model provider (optional)
 
 If you want to use a different LLM provider (e.g. OpenRouter) instead of the default Anthropic:
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/claw/model-providers/
+POST /api/ai-agent/orgs/<your-org>/claw/model-providers/
 Content-Type: application/json
 
 {
@@ -169,7 +169,7 @@ Content-Type: application/json
 Then push providers to the instance:
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/claw/instances/<id>/push-providers/
+POST /api/ai-agent/orgs/<your-org>/claw/instances/<id>/push-providers/
 ```
 
 **Response (202 Accepted):**
@@ -180,27 +180,27 @@ POST /api/ai-mentor/orgs/<your-org>/claw/instances/<id>/push-providers/
 
 The `credential_resolved` field in provider responses indicates whether an LLMCredential with the given `credential_name` exists on the platform.
 
-### Bind a mentor to the instance
+### Bind an agent to the instance
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/claw/mentor-configs/
+POST /api/ai-agent/orgs/<your-org>/claw/agent-configs/
 Content-Type: application/json
 
 {
-  "mentor": "<mentor-unique-id>",
+  "agent": "<agent-unique-id>",
   "server": 1,
   "enabled": true
 }
 ```
 
-This automatically creates an `AgentConfig` for the mentor if one doesn't exist.
+This automatically creates an `AgentConfig` for the agent if one doesn't exist.
 
 **Response (201 Created):**
 
 ```json
 {
   "id": 1,
-  "mentor": "6f29a5eb-c657-4a76-8a19-4ea58175d008",
+  "agent": "6f29a5eb-c657-4a76-8a19-4ea58175d008",
   "server": 1,
   "server_name": "My OpenClaw Instance",
   "agent_config": {},
@@ -214,18 +214,18 @@ This automatically creates an `AgentConfig` for the mentor if one doesn't exist.
 
 | Endpoint | Method | Description |
 |---|---|---|
-| `claw/mentor-configs/` | GET | List bindings. Filter: `enabled`. |
-| `claw/mentor-configs/<id>/` | GET | Retrieve binding |
-| `claw/mentor-configs/<id>/` | PATCH | Update binding |
-| `claw/mentor-configs/<id>/` | DELETE | Delete binding |
-| `claw/mentor-configs/<id>/push-config/` | POST | Push configuration to the instance |
+| `claw/agent-configs/` | GET | List bindings. Filter: `enabled`. |
+| `claw/agent-configs/<id>/` | GET | Retrieve binding |
+| `claw/agent-configs/<id>/` | PATCH | Update binding |
+| `claw/agent-configs/<id>/` | DELETE | Delete binding |
+| `claw/agent-configs/<id>/push-config/` | POST | Push configuration to the instance |
 
 ### Configure the agent
 
 Agent configuration defines the workspace files and settings that get pushed to the claw instance. Each text field maps to a markdown file in the agent's workspace:
 
 ```http
-PATCH /api/ai-mentor/orgs/<your-org>/agent-configs/<id>/
+PATCH /api/ai-agent/orgs/<your-org>/agent-configs/<id>/
 Content-Type: application/json
 
 {
@@ -255,7 +255,7 @@ All text fields are optional and default to empty string. The `config` field def
 ### Push configuration to the instance
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/claw/mentor-configs/<id>/push-config/
+POST /api/ai-agent/orgs/<your-org>/claw/agent-configs/<id>/push-config/
 ```
 
 **Response (202 Accepted):**
@@ -280,12 +280,12 @@ This only needs to be done once per platform connection. See [Device Re-Pairing]
 
 ## Skills Management
 
-Skills are reusable capabilities that can be assigned to mentors. When config is pushed, enabled skill assignments are sent to the instance.
+Skills are reusable capabilities that can be assigned to agents. When config is pushed, enabled skill assignments are sent to the instance.
 
 ### Create a skill
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/agent-skills/
+POST /api/ai-agent/orgs/<your-org>/agent-skills/
 Content-Type: application/json
 
 {
@@ -317,7 +317,7 @@ Skills can have attached files -- scripts, references, or binary assets:
 **For scripts and references (text content):**
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/agent-skill-resources/
+POST /api/ai-agent/orgs/<your-org>/agent-skill-resources/
 Content-Type: application/json
 
 {
@@ -336,20 +336,20 @@ Content-Type: application/json
 | `reference` | text (`content` field) | Reference documents |
 | `asset` | binary (`file` field) | Binary assets |
 
-### Assign skills to mentors
+### Assign skills to agents
 
 ```http
-POST /api/ai-mentor/orgs/<your-org>/mentor-skill-assignments/
+POST /api/ai-agent/orgs/<your-org>/agent-skill-assignments/
 Content-Type: application/json
 
 {
-  "mentor": "<mentor-unique-id>",
+  "agent": "<agent-unique-id>",
   "skill": 1,
   "enabled": true
 }
 ```
 
-A mentor can only be assigned to the same skill once. Enabled assignments are pushed as `skills.entries` when you push config.
+An agent can only be assigned to the same skill once. Enabled assignments are pushed as `skills.entries` when you push config.
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -357,19 +357,19 @@ A mentor can only be assigned to the same skill once. Enabled assignments are pu
 | `agent-skills/<id>/` | GET/PATCH/DELETE | Manage a skill |
 | `agent-skill-resources/` | GET | List resources. Filters: `file_type`, `skill`. |
 | `agent-skill-resources/<id>/` | GET/PATCH/DELETE | Manage a resource |
-| `mentor-skill-assignments/` | GET | List assignments. Filters: `enabled`, `skill`, `mentor`. |
-| `mentor-skill-assignments/<id>/` | GET/PATCH/DELETE | Manage an assignment |
+| `agent-skill-assignments/` | GET | List assignments. Filters: `enabled`, `skill`, `agent`. |
+| `agent-skill-assignments/<id>/` | GET/PATCH/DELETE | Manage an assignment |
 
 ---
 
 ## Complete Example
 
-Here's a full walkthrough: register a server, bind a mentor, configure it, and push.
+Here's a full walkthrough: register a server, bind an agent, configure it, and push.
 
 ### 1. Register the instance
 
 ```bash
-curl -X POST https://platform.ibl.ai/api/ai-mentor/orgs/my-org/claw/instances/ \
+curl -X POST https://platform.ibl.ai/api/ai-agent/orgs/my-org/claw/instances/ \
   -H "Content-Type: application/json" \
   -H "Authorization: Token YOUR_API_TOKEN" \
   -d '{
@@ -384,19 +384,19 @@ curl -X POST https://platform.ibl.ai/api/ai-mentor/orgs/my-org/claw/instances/ \
 ### 2. Test connectivity
 
 ```bash
-curl -X POST https://platform.ibl.ai/api/ai-mentor/orgs/my-org/claw/instances/1/test-connectivity/ \
+curl -X POST https://platform.ibl.ai/api/ai-agent/orgs/my-org/claw/instances/1/test-connectivity/ \
   -H "Authorization: Token YOUR_API_TOKEN"
 # Both checks should pass
 ```
 
-### 3. Bind a mentor
+### 3. Bind an agent
 
 ```bash
-curl -X POST https://platform.ibl.ai/api/ai-mentor/orgs/my-org/claw/mentor-configs/ \
+curl -X POST https://platform.ibl.ai/api/ai-agent/orgs/my-org/claw/agent-configs/ \
   -H "Content-Type: application/json" \
   -H "Authorization: Token YOUR_API_TOKEN" \
   -d '{
-    "mentor": "6f29a5eb-c657-4a76-8a19-4ea58175d008",
+    "agent": "6f29a5eb-c657-4a76-8a19-4ea58175d008",
     "server": 1,
     "enabled": true
   }'
@@ -406,7 +406,7 @@ curl -X POST https://platform.ibl.ai/api/ai-mentor/orgs/my-org/claw/mentor-confi
 ### 4. Configure the agent
 
 ```bash
-curl -X PATCH https://platform.ibl.ai/api/ai-mentor/orgs/my-org/agent-configs/1/ \
+curl -X PATCH https://platform.ibl.ai/api/ai-agent/orgs/my-org/agent-configs/1/ \
   -H "Content-Type: application/json" \
   -H "Authorization: Token YOUR_API_TOKEN" \
   -d '{
@@ -423,7 +423,7 @@ curl -X PATCH https://platform.ibl.ai/api/ai-mentor/orgs/my-org/agent-configs/1/
 ### 5. Push config
 
 ```bash
-curl -X POST https://platform.ibl.ai/api/ai-mentor/orgs/my-org/claw/mentor-configs/1/push-config/ \
+curl -X POST https://platform.ibl.ai/api/ai-agent/orgs/my-org/claw/agent-configs/1/push-config/ \
   -H "Authorization: Token YOUR_API_TOKEN"
 # Response: {"queued": true, "message": "Config push queued."}
 ```
@@ -439,13 +439,13 @@ openclaw devices approve <requestId>
 
 ### 7. Chat
 
-Open the mentor in any ibl.ai application and send a message. Responses stream from your OpenClaw instance through the platform to the user.
+Open the agent in any ibl.ai application and send a message. Responses stream from your OpenClaw instance through the platform to the user.
 
 ---
 
 ## API Reference Summary
 
-All endpoints are tenant-scoped under `/api/ai-mentor/orgs/<org>/`. Responses are JSON. List endpoints support `limit` and `offset` pagination.
+All endpoints are tenant-scoped under `/api/ai-agent/orgs/<org>/`. Responses are JSON. List endpoints support `limit` and `offset` pagination.
 
 ### Claw Instances
 
@@ -462,16 +462,16 @@ All endpoints are tenant-scoped under `/api/ai-mentor/orgs/<org>/`. Responses ar
 | POST | `claw/instances/<id>/security-audit/` | Security audit (OpenClaw only) |
 | POST | `claw/instances/<id>/refresh-version/` | Detect claw version |
 
-### Mentor Configs
+### Agent Configs
 
 | Method | Endpoint | Description |
 |---|---|---|
-| POST | `claw/mentor-configs/` | Create binding |
-| GET | `claw/mentor-configs/` | List bindings |
-| GET | `claw/mentor-configs/<id>/` | Retrieve binding |
-| PATCH | `claw/mentor-configs/<id>/` | Update binding |
-| DELETE | `claw/mentor-configs/<id>/` | Delete binding |
-| POST | `claw/mentor-configs/<id>/push-config/` | Push configuration |
+| POST | `claw/agent-configs/` | Create binding |
+| GET | `claw/agent-configs/` | List bindings |
+| GET | `claw/agent-configs/<id>/` | Retrieve binding |
+| PATCH | `claw/agent-configs/<id>/` | Update binding |
+| DELETE | `claw/agent-configs/<id>/` | Delete binding |
+| POST | `claw/agent-configs/<id>/push-config/` | Push configuration |
 
 ### Agent Configs
 
@@ -503,15 +503,15 @@ All endpoints are tenant-scoped under `/api/ai-mentor/orgs/<org>/`. Responses ar
 | PATCH | `agent-skill-resources/<id>/` | Update resource |
 | DELETE | `agent-skill-resources/<id>/` | Delete resource |
 
-### Mentor Skill Assignments
+### Agent Skill Assignments
 
 | Method | Endpoint | Description |
 |---|---|---|
-| POST | `mentor-skill-assignments/` | Create assignment |
-| GET | `mentor-skill-assignments/` | List assignments |
-| GET | `mentor-skill-assignments/<id>/` | Retrieve assignment |
-| PATCH | `mentor-skill-assignments/<id>/` | Update assignment |
-| DELETE | `mentor-skill-assignments/<id>/` | Delete assignment |
+| POST | `agent-skill-assignments/` | Create assignment |
+| GET | `agent-skill-assignments/` | List assignments |
+| GET | `agent-skill-assignments/<id>/` | Retrieve assignment |
+| PATCH | `agent-skill-assignments/<id>/` | Update assignment |
+| DELETE | `agent-skill-assignments/<id>/` | Delete assignment |
 
 ### Model Providers
 

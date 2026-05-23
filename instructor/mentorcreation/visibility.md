@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Visibility setting lets you control whether learners can open the exact source documents a mentorAI retrieved to answer their questions. When visibility is on, the chat shows a **Retrieved Documents** side panel where students can click and read those files. When visibility is off, the mentor still uses the resource for answers, but students cannot see or open it—ideal for proprietary, assessment, or advanced materials.
+The Visibility setting lets you control whether learners can open the exact source documents an Agentic OS retrieved to answer their questions. When visibility is on, the chat shows a **Retrieved Documents** side panel where students can click and read those files. When visibility is off, the agent still uses the resource for answers, but students cannot see or open it—ideal for proprietary, assessment, or advanced materials.
 
 
 ![](/images/visibility.png)
@@ -26,11 +26,11 @@ An eye icon (**👁️ = visible**, **👁️‍🗨️ = hidden**) next
 
 #### Side‑Panel Source List
 
-Visible resources appear in a **side panel** after the mentor answers, giving learners direct access to primary materials.
+Visible resources appear in a **side panel** after the agent answers, giving learners direct access to primary materials.
 
 #### Non‑Destructive Control
 
-Hiding a document never removes it from the mentor’s training; it only affects learner visibility.
+Hiding a document never removes it from the agent’s training; it only affects learner visibility.
 
 #### Instant Updates
 
@@ -42,7 +42,7 @@ Changes to the eye icon apply **immediately**—no retraining required unless yo
 
 #### Open the Datasets Tab
 
-- Click the mentor’s name → **Settings** → **Datasets**
+- Click the agent’s name → **Settings** → **Datasets**
 
 #### Locate the Resource
 
@@ -55,7 +55,7 @@ Changes to the eye icon apply **immediately**—no retraining required unless yo
 
 Click the icon to switch states:
 
-- Turning **Off** hides the resource (mentor still uses it)  
+- Turning **Off** hides the resource (agent still uses it)  
 - Turning **On** reveals it again in the side panel
 
 #### Verify in Chat (Optional)
@@ -78,7 +78,7 @@ Start a unit with visibility **off** to prevent spoilers, then toggle **on** for
 
 #### Assessment Security
 
-Hide **answer keys or test banks** while still letting the mentor reference them for feedback.
+Hide **answer keys or test banks** while still letting the agent reference them for feedback.
 
 #### Proprietary Material Control
 
@@ -90,4 +90,4 @@ Reveal supplementary readings only to **learners who ask advanced questions**, p
 
 ---
 
-By deciding which datasets are **visible**, you strike the perfect balance between **learner transparency** and **content control**—all while keeping the mentor’s full knowledge base intact.
+By deciding which datasets are **visible**, you strike the perfect balance between **learner transparency** and **content control**—all while keeping the agent’s full knowledge base intact.

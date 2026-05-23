@@ -1,8 +1,8 @@
-mentorAI | Safety
+Agentic OS | Safety
 https://www.youtube.com/watch?v=NWKwbKtzfpE
 
-[0.6s] The mentor AI platform allows you to
-[2.7s] moderate the mentor's responses in case
+[0.6s] The agent AI platform allows you to
+[2.7s] moderate the agent's responses in case
 [4.7s] a learner asks a question that might be
 [7.0s] deemed inappropriate or unacceptable in
 [9.6s] some way, shape, or form. Um, the way
@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=NWKwbKtzfpE
 [17.3s] have the moderation prompt and the
 [18.7s] safety prompt. The moderation prompt is
 [21.0s] going to act like a filter um of the
-[23.6s] user's incoming messages to the mentor.
+[23.6s] user's incoming messages to the agent.
 [25.9s] It's going to determine whether or not
 [27.5s] it's an appropriate enough message to
 [29.4s] pass to the main AI system. Um, this
@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=NWKwbKtzfpE
 [79.8s] have gotten through that moderation
 [81.2s] layer, but that safety layer with a
 [84.3s] safety prompt is going to stop the
-[85.8s] mentor from even being able to respond
+[85.8s] agent from even being able to respond
 [87.9s] to that specific message um in the way
 [91.0s] that you know the learner might be
 [94.3s] trying to get you know if they're asking
@@ -62,16 +62,16 @@ https://www.youtube.com/watch?v=NWKwbKtzfpE
 [135.4s] know, put in your customized version of
 [137.0s] how you want the safety to work. Um you
 [139.7s] can also customize the exact response
-[141.3s] that the mentor gives to the learner
+[141.3s] that the agent gives to the learner
 [143.2s] with these responses. So if something is
 [145.8s] flagged during the moderation prompt,
 [147.9s] you know, review, then
-[150.9s] this is what the mentor will say. Please
+[150.9s] this is what the agent will say. Please
 [152.4s] keep the conversation within the bounds
 [154.0s] of what the agent is tasked to do and
 [156.6s] the platform rules. Similar with the
 [158.6s] safety response, you can actually tell
-[160.6s] mentor to say exactly this. Sorry, the
+[160.6s] agent to say exactly this. Sorry, the
 [162.6s] AI model generated an inappropriate
 [164.7s] response. Uh, kindly try a different
 [166.6s] prompt. This will pop up to the learner
@@ -87,7 +87,7 @@ https://www.youtube.com/watch?v=NWKwbKtzfpE
 [193.8s] popup right here that just tells you to
 [195.4s] keep uh the conversation with the bounds
 [197.4s] of the rules of the platform and what
-[199.0s] this mentor is meant to do. And again,
+[199.0s] this agent is meant to do. And again,
 [201.1s] those responses can be customized. So,
 [202.9s] if you wanted to make this more tailored
 [204.2s] to uh you know, your own ways of

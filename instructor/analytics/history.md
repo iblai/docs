@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The History panel records every conversation between a mentorAI and its learners. Administrators can review transcripts, apply filters (date, sentiment, topic, category), and export data for deeper analysis—revealing learning trends, common pain points, and opportunities to improve both course content and mentor behavior.
+The History panel records every conversation between an Agentic OS and its learners. Administrators can review transcripts, apply filters (date, sentiment, topic, category), and export data for deeper analysis—revealing learning trends, common pain points, and opportunities to improve both course content and agent behavior.
 
 
 ![](/images/history.png)
@@ -22,11 +22,11 @@ The History panel records every conversation between a mentorAI and its learners
 
 #### Complete Chat Log
 
-View every session the mentor has had, with user identifiers or **Anonymous** labels if the mentor is set to anonymous.
+View every session the agent has had, with user identifiers or **Anonymous** labels if the agent is set to anonymous.
 
 #### Transcript Viewer
 
-Click any session to open the full **learner question and mentor response** thread.
+Click any session to open the full **learner question and agent response** thread.
 
 #### Multi‑Facet Filters
 
@@ -46,8 +46,8 @@ Identify **frequent questions**, **learning gaps**, and **tone alignment** to gu
 
 #### Open the History Panel
 
-- Sign in to **mentorAI**  
-- Click the **mentor’s name dropdown**  
+- Sign in to **Agentic OS**  
+- Click the **agent’s name dropdown**  
 - Select **History**
 
 #### Review the History List
@@ -57,7 +57,7 @@ Identify **frequent questions**, **learning gaps**, and **tone alignment** to gu
 #### Inspect an Individual Chat
 
 - Click a session in the left‑hand list  
-- The full **transcript** appears, showing the learner’s questions and mentor’s responses
+- The full **transcript** appears, showing the learner’s questions and agent’s responses
 
 #### Apply Filters
 
@@ -83,9 +83,9 @@ Filter by **negative sentiment** or **repeated questions** to spot concepts that
 
 High‑frequency topics may indicate areas needing **clearer explanations** or **additional resources**.
 
-#### Assess Mentor Tone & Style
+#### Assess Agent Tone & Style
 
-Review transcripts to ensure the mentor’s language aligns with **institutional guidelines** and **learner expectations**.
+Review transcripts to ensure the agent’s language aligns with **institutional guidelines** and **learner expectations**.
 
 #### Prompt & Dataset Optimization
 
@@ -97,4 +97,4 @@ Exported histories provide evidence of **learner support** and **instructional e
 
 ---
 
-By accessing, filtering, and exporting chat histories, administrators gain **actionable insights** to continuously improve both the **mentorAI** and the **educational experience** it supports.
+By accessing, filtering, and exporting chat histories, administrators gain **actionable insights** to continuously improve both the **Agentic OS** and the **educational experience** it supports.

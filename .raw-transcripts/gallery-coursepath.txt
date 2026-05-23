@@ -1,8 +1,8 @@
-mentorAI | CoursePath Planner
+Agentic OS | CoursePath Planner
 https://www.youtube.com/watch?v=iRun3GBwIL0
 
 [1.3s] I'm going to be showing you our course
-[2.8s] path mentor, which is a mentor that's
+[2.8s] path agent, which is an agent that's
 [5.3s] meant to help students understand their
 [7.2s] degree requirements, prerequisites for
 [9.9s] their degree, um, and even course
@@ -53,5 +53,5 @@ https://www.youtube.com/watch?v=iRun3GBwIL0
 [126.3s] related, you know, elective classes that
 [128.3s] I could take that would be great for my
 [130.2s] degree. And that's basically how this
-[133.0s] this course path course path mentor
+[133.0s] this course path course path agent
 [135.1s] works.

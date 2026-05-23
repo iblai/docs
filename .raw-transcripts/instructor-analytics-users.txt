@@ -1,9 +1,9 @@
-mentorAI | User Analytics
+Agentic OS | User Analytics
 https://www.youtube.com/watch?v=R8igyis9Oho
 
 [1.4s] In a previous video, we discussed how to
 [3.8s] find analytics as administrators or
-[6.7s] instructors for a particular mentor and
+[6.7s] instructors for a particular agent and
 [9.1s] how the overview page on on the
 [11.1s] analytics tab works. Now, we're going to
 [13.3s] dive into the next tab, which is users.
@@ -21,7 +21,7 @@ https://www.youtube.com/watch?v=R8igyis9Oho
 [40.5s] logged in, how many have logged in over
 [42.6s] the past 30 days and the total number of
 [45.1s] registered users uh according to this
-[47.4s] you know mentor here. Um, so you'll
+[47.4s] you know agent here. Um, so you'll
 [50.2s] again be able to filter by, you know,
 [52.0s] the a specific time frame for these
 [53.8s] tables here. You'll be able to see an
@@ -30,7 +30,7 @@ https://www.youtube.com/watch?v=R8igyis9Oho
 [61.0s] within the past week, within the past
 [62.8s] month, or even a custom time frame. Now,
 [66.1s] this access times table is going to show
-[67.6s] you when your mentor is most accessed
+[67.6s] you when your agent is most accessed
 [69.5s] or, you know, when people are accessing
 [71.2s] it. You can see here that darker shades
 [73.8s] of blue are going to indicate more users
@@ -43,7 +43,7 @@ https://www.youtube.com/watch?v=R8igyis9Oho
 [87.4s] you'll be able to see who that user is,
 [88.8s] what their username is, and how many
 [90.6s] messages they have sent for this
-[92.4s] specific mentor in addition to the last
+[92.4s] specific agent in addition to the last
 [94.5s] time that they were active. And that
 [96.9s] really covers all that's on the users
 [98.3s] tab.

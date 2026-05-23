@@ -388,8 +388,8 @@ Verify in Sentry/logs that the task completed without "missing scope" errors. A 
 
 ### 5.4 — Test chat through the SPA
 
-1. Open the mentor SPA in a browser
-2. Select the Claw-backed mentor
+1. Open the agent SPA in a browser
+2. Select the Claw-backed agent
 3. Send a test message (e.g. "Hello, say hi in 5 words")
 4. Verify:
    - "Connected." acknowledgment appears
@@ -502,15 +502,15 @@ systemctl --user restart openclaw-gateway
 
 ### The problem
 
-OpenClaw gateway updates (`npm install -g openclaw@latest`) or gateway restarts can wipe the paired devices list. When this happens, the DM backend's device identity is no longer recognized by the gateway, and **all mentors** on that server fail with `PAIRING_REQUIRED` / `NOT_PAIRED` errors.
+OpenClaw gateway updates (`npm install -g openclaw@latest`) or gateway restarts can wipe the paired devices list. When this happens, the DM backend's device identity is no longer recognized by the gateway, and **all agents** on that server fail with `PAIRING_REQUIRED` / `NOT_PAIRED` errors.
 
-Users see: *"The mentor is starting up, please wait..."* → *"The mentor is currently unavailable. Please try again later."*
+Users see: *"The agent is starting up, please wait..."* → *"The agent is currently unavailable. Please try again later."*
 
-This affects **all mentors** linked to the server — the device identity is per claw instance, not per mentor. One re-pairing fixes all mentors on that server.
+This affects **all agents** linked to the server — the device identity is per claw instance, not per agent. One re-pairing fixes all agents on that server.
 
 ### How to re-pair manually
 
-1. **Trigger a connection attempt** — send any message to any mentor linked to the affected server. This creates a pending pairing request on the gateway.
+1. **Trigger a connection attempt** — send any message to any agent linked to the affected server. This creates a pending pairing request on the gateway.
 
 2. **SSH into the OpenClaw server** and approve:
 
@@ -522,7 +522,7 @@ openclaw devices list
 openclaw devices approve <requestId>
 ```
 
-3. **Retry the chat** — the next message should connect successfully. All mentors on this server are now fixed.
+3. **Retry the chat** — the next message should connect successfully. All agents on this server are now fixed.
 
 ### Why loopback auto-approval doesn't work
 
@@ -613,8 +613,8 @@ The goal is a **robust, non-fragile solution** so that gateway restarts and Open
 ### Device identity scope
 
 - Device identity is per **ClawInstance** (stored in `server.connection_params.device_identity.private_key_pem`)
-- All mentors linked to the same server share the same device
-- One re-pairing approval covers all mentors on that server
+- All agents linked to the same server share the same device
+- One re-pairing approval covers all agents on that server
 - Each server with a different keypair needs its own pairing
 
 ---
@@ -635,4 +635,4 @@ These are the issues encountered during initial deployments, collected here for 
 | 8 | Dev container can't reach Hetzner server | Hetzner Cloud Firewall restricts port 443; dev IP not allowlisted | Connect via VPN with allowlisted IP, or broaden firewall rule |
 | 9 | Model ID mismatch | OpenClaw normalizes `claude-sonnet-4-20250514` → `claude-sonnet-4-6` | Use short alias in Django agent_config |
 | 10 | DM backend `NOT_PAIRED` after gateway update | OpenClaw update/restart wiped paired devices; Caddy forwards `X-Forwarded-For` so auto-approval doesn't work | Manual re-pair (see "Device Re-Pairing" section); long-term: see "Solution options" in same section |
-| 11 | Gateway dies when SSH session ends — mentor replies *"The mentor is starting up, please wait..."* then *"The mentor is currently unavailable."* Gateway appears healthy while SSH'd in, silently dies after disconnect. | `loginctl enable-linger root` was skipped during manual setup. Without lingering, systemd kills user services when the last SSH session closes. | Run `loginctl enable-linger root` (Step 1.6). The onboard wizard handles this automatically; manual setups must do it explicitly. Verify with `loginctl show-user root 2>/dev/null | grep Linger` — should show `Linger=yes`. |
+| 11 | Gateway dies when SSH session ends — agent replies *"The agent is starting up, please wait..."* then *"The agent is currently unavailable."* Gateway appears healthy while SSH'd in, silently dies after disconnect. | `loginctl enable-linger root` was skipped during manual setup. Without lingering, systemd kills user services when the last SSH session closes. | Run `loginctl enable-linger root` (Step 1.6). The onboard wizard handles this automatically; manual setups must do it explicitly. Verify with `loginctl show-user root 2>/dev/null | grep Linger` — should show `Linger=yes`. |

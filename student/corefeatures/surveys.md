@@ -4,7 +4,7 @@
 
 ## Description
 
-Surveys allow mentorAI to politely ask for your feedback at the right moment during a conversation—without interrupting your learning. Based on simple rules set by your instructor (for example, after a few messages or during a later chat session), the mentor shares a one-time survey link so you can help improve the experience.
+Surveys allow Agentic OS to politely ask for your feedback at the right moment during a conversation—without interrupting your learning. Based on simple rules set by your instructor (for example, after a few messages or during a later chat session), the agent shares a one-time survey link so you can help improve the experience.
 
 ---
 
@@ -20,13 +20,13 @@ Surveys allow mentorAI to politely ask for your feedback at the right moment dur
 Surveys appear only after specific conditions are met (e.g., after 5 messages or during your 3rd chat session).
 
 #### Non-Interruptive Delivery
-The mentor continues answering your question and adds the survey link at the end of a message, so your flow isn’t disrupted.
+The agent continues answering your question and adds the survey link at the end of a message, so your flow isn’t disrupted.
 
 #### One-Time Prompt
 Each survey link is shown only once per student—no repeated reminders.
 
 #### Optional Participation
-You can complete the survey, reply “done”, or “skip”. Either way, the mentor won’t ask again.
+You can complete the survey, reply “done”, or “skip”. Either way, the agent won’t ask again.
 
 #### Context-Aware Feedback
 Because the prompt is triggered after real interaction, your feedback reflects an authentic experience.
@@ -35,14 +35,14 @@ Because the prompt is triggered after real interaction, your feedback reflects a
 
 ## How to Use (step by step)
 
-#### 1. Chat with Your Mentor
+#### 1. Chat with Your Agent
 Start a normal conversation and ask questions as usual. You may also click guided prompts to continue.
 
 #### 2. Reach the Survey Trigger
 After a certain number of messages or sessions (set by your instructor), the survey rule activates automatically.
 
 #### 3. Receive the Survey Link
-The mentor responds to your current question and then adds a short note like:
+The agent responds to your current question and then adds a short note like:
 
 > “If you have a moment, I’d appreciate your feedback.”
 
@@ -54,17 +54,17 @@ A clickable survey link appears at the end of the message.
 - Reply **“skip”** if you don’t want to participate.
 
 #### 5. Continue Learning
-No matter what you choose, the mentor will not show the survey again and the conversation continues normally.
+No matter what you choose, the agent will not show the survey again and the conversation continues normally.
 
 ---
 
 ## Pedagogical Use Cases
 
-#### Improving Mentor Quality
+#### Improving Agent Quality
 Your feedback helps instructors fine-tune explanations, prompts, and learning resources.
 
 #### Course Experience Insights
-Surveys give instructors insight into how helpful the mentor is for real coursework.
+Surveys give instructors insight into how helpful the agent is for real coursework.
 
 #### Low-Pressure Feedback
 Because the survey appears naturally within chat—and only once—it’s easy to respond without feeling interrupted or overwhelmed.
@@ -74,4 +74,4 @@ Even if you skip, the option ensures learners are invited (not forced) to share 
 
 ---
 
-Surveys are designed to be respectful, optional, and well-timed, giving you a voice while keeping mentorAI focused on what matters most—your learning.
+Surveys are designed to be respectful, optional, and well-timed, giving you a voice while keeping Agentic OS focused on what matters most—your learning.

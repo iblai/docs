@@ -4,15 +4,15 @@
 
 ## Purpose
 
-Link **Microsoft OneDrive files** to a mentor so its knowledge base can include those materials.
+Link **Microsoft OneDrive files** to an agent so its knowledge base can include those materials.
 
 ---
 
 ## Steps
 
-### Open the Mentor’s Datasets
+### Open the Agent’s Datasets
 
-- Click the **mentor’s name**  
+- Click the **agent’s name**  
 - Select the **Datasets** tab
 
 ### Add a Resource from OneDrive
@@ -22,14 +22,14 @@ Link **Microsoft OneDrive files** to a mentor so its knowledge base can include 
 - If already connected, your drive opens; otherwise, **log in and approve access**  
 - Choose the desired **file**
 
-### Train the Mentor
+### Train the Agent
 
-- After selecting the file, the mentor can be **trained** on that material
+- After selecting the file, the agent can be **trained** on that material
 
 ---
 
 ## Result
 
-The mentor now includes content from **OneDrive** in its knowledge base.
+The agent now includes content from **OneDrive** in its knowledge base.
 
 

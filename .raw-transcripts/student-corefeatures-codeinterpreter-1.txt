@@ -1,18 +1,18 @@
-mentorAI | Code Interpreter Demo
+Agentic OS | Code Interpreter Demo
 https://www.youtube.com/watch?v=7awkSGqW1iE
 
 [0.2s] Hey, what's going on? This is Jeremy at
 [1.7s] IBLAI. Right now, I'm showing you one of
 [4.3s] our newest features, uh, the code
-[6.5s] interpreter tool. This allows the mentor
+[6.5s] interpreter tool. This allows the agent
 [9.5s] to create and plot graphs, uh, and other
 [13.0s] types of visualizations that are
 [14.6s] particularly useful for math use cases,
 [19.0s] anything that involves plotting a graph.
 [21.8s] So to demonstrate, I'm going to ask the
-[24.9s] mentor to plot an integral of x^2 from 1
+[24.9s] agent to plot an integral of x^2 from 1
 [30.2s] to 100.
-[41.2s] And what the mentor is going to do is
+[41.2s] And what the agent is going to do is
 [43.4s] basically describe the task that I've
 [45.8s] given it and then actually create a
 [49.4s] plotted graph for the integral that I

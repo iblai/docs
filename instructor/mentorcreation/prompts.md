@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Prompts panel lets you craft every layer of a mentorAI’s dialogue—from its core personality to the greeting, guided suggestions, and always‑visible shortcuts. By mixing System, Proactive, Guided, and Suggested prompts, you can shape a tutor that mirrors your teaching voice, keeps learners on task, and delivers consistent, on‑brand support.
+The Prompts panel lets you craft every layer of an Agentic OS’s dialogue—from its core personality to the greeting, guided suggestions, and always‑visible shortcuts. By mixing System, Proactive, Guided, and Suggested prompts, you can shape a tutor that mirrors your teaching voice, keeps learners on task, and delivers consistent, on‑brand support.
 
 
 ![](/images/prompts.png)
@@ -20,7 +20,7 @@ The Prompts panel lets you craft every layer of a mentorAI’s dialogue—from i
 
 ## Features
 
-- **System Prompt** – defines the mentor’s personality, tone, and mission (e.g., playful helper or Socratic tutor)  
+- **System Prompt** – defines the agent’s personality, tone, and mission (e.g., playful helper or Socratic tutor)  
 - **Proactive Prompt** – first greeting that appears before the learner types—great for welcomes, rules, or quick capability overviews  
 - **Guided Prompts** – AI‑generated chips beneath the chat box that evolve from conversation history and current topic  
 - **Suggested Prompts** – admin‑written prompts that remain visible as hard‑coded shortcuts for common tasks  
@@ -33,7 +33,7 @@ The Prompts panel lets you craft every layer of a mentorAI’s dialogue—from i
 
 #### Open the Prompt Editor
 
-- Click the **mentor’s name** in the header  
+- Click the **agent’s name** in the header  
 - From the dropdown, select **Prompts**
 
 #### Configure the System Prompt
@@ -51,7 +51,7 @@ The Prompts panel lets you craft every layer of a mentorAI’s dialogue—from i
 
 #### Manage Guided Prompts
 
-- Leave **On** to let mentorAI generate **topic‑aware suggestions**  
+- Leave **On** to let Agentic OS generate **topic‑aware suggestions**  
 - These chips help learners ask on‑topic follow‑ups  
 - Turn **Off** if not needed
 
@@ -67,7 +67,7 @@ The Prompts panel lets you craft every layer of a mentorAI’s dialogue—from i
 #### Save & Test
 
 - Update prompts regularly as **course content** or **policies** change  
-- Chat with the mentor to verify **tone**, **greeting**, and **prompt chips** show correctly
+- Chat with the agent to verify **tone**, **greeting**, and **prompt chips** show correctly
 
 ---
 
@@ -97,4 +97,4 @@ Combine a **Socratic System Prompt** with **Guided Prompts** to encourage **deep
 
 ---
 
-With the **Prompts editor**, you control every conversational layer—ensuring your mentorAI greets learners warmly, stays on message, and offers helpful nudges exactly when needed.
+With the **Prompts editor**, you control every conversational layer—ensuring your Agentic OS greets learners warmly, stays on message, and offers helpful nudges exactly when needed.

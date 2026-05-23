@@ -8,7 +8,7 @@
 
 ## Description
 
-A 24/7 mentor that connects students to on-campus study supports—tutoring centers, writing labs, academic workshops, and more. It answers availability questions (including nights/weekends), provides location and hours, suggests after-hours alternatives, and can walk students through booking in-person or virtual sessions. Responses are tailored to the student’s university (e.g., Buffalo State University).
+A 24/7 agent that connects students to on-campus study supports—tutoring centers, writing labs, academic workshops, and more. It answers availability questions (including nights/weekends), provides location and hours, suggests after-hours alternatives, and can walk students through booking in-person or virtual sessions. Responses are tailored to the student’s university (e.g., Buffalo State University).
 
 ---
 
@@ -26,15 +26,15 @@ A 24/7 mentor that connects students to on-campus study supports—tutoring cent
 
 #### 2. Get availability & details
 
-  - Mentor replies yes/no on availability, plus: location, typical hours, and options if the center is closed.
+  - Agent replies yes/no on availability, plus: location, typical hours, and options if the center is closed.
 
 #### 3. Book support
 
-  - Ask for steps to schedule; the mentor provides how to book a meeting or session (in-person or virtual).
+  - Ask for steps to schedule; the agent provides how to book a meeting or session (in-person or virtual).
 
 #### 4. Follow-ups
 
-  - Continue with specifics (e.g., “Any workshops this week?”) and the mentor guides you to the right resource.
+  - Continue with specifics (e.g., “Any workshops this week?”) and the agent guides you to the right resource.
 
 ---
 
@@ -48,7 +48,7 @@ Student · Instructor · Administrator
 
 Ready to offer equitable, 24/7 access to campus study supports?
 
-Email **support@iblai.zendesk.com** and we’ll enable **Study Support Mentor** on your mentors—or help you build a solution tailored to your institution.
+Email **support@iblai.zendesk.com** and we’ll enable **Study Support Agent** on your agents—or help you build a solution tailored to your institution.
 
 
 

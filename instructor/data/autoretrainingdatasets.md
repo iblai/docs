@@ -4,11 +4,11 @@
 
 ## Description
 
-**Auto-Retraining Datasets** keeps **URL-based sources** in your mentorAI up to date—automatically.  
+**Auto-Retraining Datasets** keeps **URL-based sources** in your Agentic OS up to date—automatically.  
 
 For any dataset that points to a **live web page** (e.g., documentation sites, LMS pages, LinkedIn articles), you can schedule periodic checks.  
 
-If the page changes, the mentor re-trains on the new content at your chosen interval—**no manual uploads required**.
+If the page changes, the agent re-trains on the new content at your chosen interval—**no manual uploads required**.
 
 ---
 
@@ -27,7 +27,7 @@ Set retraining intervals for **individual URL resources** directly from the **Da
 Choose from **Daily**, **Weekly**, or **Monthly**, or set a **custom every-N-days** cadence (e.g., every 2 or 4 days).
 
 #### Change-Aware Updates
-At each interval, mentorAI checks the page; if it’s been updated, the dataset is **automatically re-trained** on the latest content.
+At each interval, Agentic OS checks the page; if it’s been updated, the dataset is **automatically re-trained** on the latest content.
 
 #### Status Feedback
 After saving, a confirmation appears (e.g., *“Retrain interval successfully updated”*) to verify your schedule has been applied.
@@ -37,7 +37,7 @@ After saving, a confirmation appears (e.g., *“Retrain interval successfully up
 ## How to Use (step by step)
 
 #### Open Datasets
-1. In the mentor header, open the dropdown → **Datasets**.  
+1. In the agent header, open the dropdown → **Datasets**.  
 2. You’ll see your dataset list, including any **URL sources**.
 
 #### Pick a URL Resource
@@ -48,9 +48,9 @@ After saving, a confirmation appears (e.g., *“Retrain interval successfully up
 2. Select a preset (**Daily**, **Weekly**, **Monthly**) or enter a custom **every-N-days** value.  
 3. Click **Save**—you should see a success message confirming the schedule.
 
-#### Let mentorAI Auto-Update
+#### Let Agentic OS Auto-Update
 - On the chosen cadence, the platform checks the page.  
-- If the content has changed, mentorAI **re-trains automatically** on the updated version.
+- If the content has changed, Agentic OS **re-trains automatically** on the updated version.
 
 #### Adjust Anytime
 - Reopen the **interval control** to modify or remove the schedule as your content cadence evolves.
@@ -60,10 +60,10 @@ After saving, a confirmation appears (e.g., *“Retrain interval successfully up
 ## Pedagogical Use Cases
 
 #### Living Syllabi & Course Pages
-Keep mentors aligned with **frequently updated syllabi, schedules, or module content** without manual refreshes.
+Keep agents aligned with **frequently updated syllabi, schedules, or module content** without manual refreshes.
 
 #### Policy & Procedure Updates
-Ensure the latest **academic integrity**, **financial aid**, or **IT policies** are reflected in mentor responses automatically.
+Ensure the latest **academic integrity**, **financial aid**, or **IT policies** are reflected in agent responses automatically.
 
 #### Research & Reading Lists
 Track **evolving bibliographies** or **lab protocols** hosted on departmental or institutional websites.
@@ -76,4 +76,4 @@ Keep **onboarding guides and how-tos** updated each term without repeated upload
 
 ---
 
-With **Auto-Retraining Datasets**, your mentor stays synchronized with **changing web sources**—so learners always receive answers grounded in the **latest, most accurate materials**.
+With **Auto-Retraining Datasets**, your agent stays synchronized with **changing web sources**—so learners always receive answers grounded in the **latest, most accurate materials**.

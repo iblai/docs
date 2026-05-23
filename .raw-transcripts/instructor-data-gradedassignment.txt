@@ -1,23 +1,23 @@
-mentorAI | Canvas | Submitting a Graded Assignment
+Agentic OS | Canvas | Submitting a Graded Assignment
 https://www.youtube.com/watch?v=8UwlrhjRVuM
 
-[0.2s] showing you how if our mentor is
+[0.2s] showing you how if our agent is
 [2.0s] integrated via LTI into an LMS, in this
 [5.0s] case Canvas, can actually pass back
 [7.2s] grades to the LMS. So, you can see here
 [10.5s] uh we don't have a grade for this user.
 [13.1s] So, what we'll do is pop over to
 [16.8s] assignments. Once we go to assignments,
-[19.0s] we'll see this mentor
+[19.0s] we'll see this agent
 [22.2s] grading and we'll open up this
 [25.3s] page. And now you can see that the
-[27.4s] mentor is here. And this is just going
+[27.4s] agent is here. And this is just going
 [29.8s] to be a very simple example.
 [32.0s] Um, so we're going to do 5 + 5 equals
 [34.8s] 10. Now, in the future, you're going to
 [36.9s] be able to add feedback to the responses
 [39.1s] via a new prompt type. Um, so that
-[42.2s] basically means uh the mentor will
+[42.2s] basically means uh the agent will
 [43.9s] respond with a grade, but also provide
 [45.5s] the learner feedback. In addition to
 [47.4s] this, you'll be able to upload different

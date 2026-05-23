@@ -8,7 +8,7 @@
 
 ## Description
 
-A mentor that guides students—especially those nearing graduation or seeking internships/entry-level roles—to craft a clear, confident professional narrative: who you are, what you’ve done, what motivates you, and what you hope to accomplish. It collects your answers through a friendly, supportive Q&A and produces drafts suited for interviews, resumes, or LinkedIn.
+An agent that guides students—especially those nearing graduation or seeking internships/entry-level roles—to craft a clear, confident professional narrative: who you are, what you’ve done, what motivates you, and what you hope to accomplish. It collects your answers through a friendly, supportive Q&A and produces drafts suited for interviews, resumes, or LinkedIn.
 
 ---
 
@@ -16,7 +16,7 @@ A mentor that guides students—especially those nearing graduation or seeking i
 
 1. **Start the session**
     - Say: “I need help crafting my professional narrative.”
-    - The mentor introduces itself and explains it will ask a few short questions to shape your story.
+    - The agent introduces itself and explains it will ask a few short questions to shape your story.
 
 2. **Answer the guided questions**
     - Shares a sequenced set of prompts to learn: who you are, what you’ve done so far, short- and long-term goals, motivations, and skills.
@@ -45,4 +45,4 @@ Student
 
 Ready to craft confident, interview-ready professional stories?
 
-Email **support@iblai.zendesk.com** and we’ll enable **Professional Narrative AI** on your mentors—or help you build a solution tailored to your institution.
+Email **support@iblai.zendesk.com** and we’ll enable **Professional Narrative AI** on your agents—or help you build a solution tailored to your institution.

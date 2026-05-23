@@ -1,12 +1,12 @@
-mentorAI | Spanish Speaking Mentor Demo
+Agentic OS | Spanish Speaking Agent Demo
 https://www.youtube.com/watch?v=5B_4oHHzRQo
 
 [0.3s] Hey, what's going on? This is Jeremy at
 [1.8s] IBLAI and today I'm showing you uh the
-[4.7s] first of many mentors that we'll be
+[4.7s] first of many agents that we'll be
 [7.3s] creating for uh multilingual users. What
 [10.5s] you're looking at here is the Spanish
-[12.1s] mentor AI. Now, this mentor is designed
+[12.1s] agent AI. Now, this agent is designed
 [15.6s] to communicate with users verbally on
 [18.4s] the platform who may be Spanish speakers
 [22.2s] who may be learning Spanish um and is
@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=5B_4oHHzRQo
 [34.4s] like in practice, we have this voice
 [37.4s] call feature right here. So, I'm going
 [39.8s] to select this. Once I've opened this,
-[42.3s] the mentor is going to be able to hear
+[42.3s] the agent is going to be able to hear
 [43.8s] everything that I'm saying and will
 [45.6s] communicate with me.
 [50.7s] >> Hello.
@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=5B_4oHHzRQo
 [116.6s] I'll go back to Spanish for any next
 [118.5s] questions.
 [120.1s] >> Thank you very much.
-[122.2s] So, as you can see, the mentor is
+[122.2s] So, as you can see, the agent is
 [125.3s] working exactly as the way that I want
 [126.9s] it to. Um, it is able to communicate and
 [129.6s] basically hold a conversation in
@@ -49,6 +49,6 @@ https://www.youtube.com/watch?v=5B_4oHHzRQo
 [140.6s] if you ask it uh, for that one prompt
 [144.0s] and then immediately return to Spanish.
 [146.6s] So, that's a very quick overview of the
-[149.2s] Spanish mentor AI that we have.
-[151.0s] available on the Mentor AI platform. And
+[149.2s] Spanish agent AI that we have.
+[151.0s] available on the Agent AI platform. And
 [153.7s] as always, learn more at ibl.ai.

@@ -10,12 +10,12 @@ Configure MCP connectors with different authentication methods and scopes to con
 
 ## Adding a Custom MCP Connector
 
-1. Go to the **MCP** tab on a mentor.
+1. Go to the **MCP** tab on an agent.
 2. Click **Add Custom MCP Connector**.
 3. Provide the **connector URL**.
 4. Select the **connector scope**:
-   - **This mentor only**: the connector is available only for this mentor
-   - **All mentors**: the connector is available for every mentor in the tenant
+   - **This agent only**: the connector is available only for this agent
+   - **All agents**: the connector is available for every agent in the tenant
 
 ---
 
@@ -38,9 +38,9 @@ For OAuth-based connectors (e.g., Notion), choose the **OAuth** authentication m
 
 | Scope | Behavior |
 |-------|----------|
-| **Tenant** | Authenticate once — the authentication is shared across all tenant members and all mentors |
-| **Mentor** | Authenticate once — the authentication applies to this mentor only but is shared across all users |
-| **User** | Each user must authenticate individually when they first interact with the mentor |
+| **Tenant** | Authenticate once — the authentication is shared across all tenant members and all agents |
+| **Agent** | Authenticate once — the authentication applies to this agent only but is shared across all users |
+| **User** | Each user must authenticate individually when they first interact with the agent |
 
 ---
 
@@ -48,8 +48,8 @@ For OAuth-based connectors (e.g., Notion), choose the **OAuth** authentication m
 
 1. Admin adds the OAuth MCP connector with **User** scope.
 2. Admin authenticates first (completes the OAuth flow).
-3. The connector is enabled on the mentor.
-4. When a different user (e.g., a student) chats with the mentor:
+3. The connector is enabled on the agent.
+4. When a different user (e.g., a student) chats with the agent:
    - An authentication prompt appears: "Authentication required for [service]. Please complete the login in the open window."
    - The user completes the OAuth flow in a popup window.
    - Upon success, the chat continues with the connector active.
@@ -59,15 +59,15 @@ For OAuth-based connectors (e.g., Notion), choose the **OAuth** authentication m
 ## Enable/Disable Connectors
 
 - After adding a connector, use the **toggle** to enable or disable it.
-- **Enabled**: the mentor can use the MCP connector in responses.
-- **Disabled**: the mentor cannot access the connector.
+- **Enabled**: the agent can use the MCP connector in responses.
+- **Disabled**: the agent cannot access the connector.
 
 ---
 
 ## Key Takeaways
 
 - **Tenant** scope: authenticate once, everyone benefits
-- **Mentor** scope: authenticate once per mentor, shared across users
+- **Agent** scope: authenticate once per agent, shared across users
 - **User** scope: every user authenticates individually (most secure)
-- Connectors can be scoped to a **single mentor** or **all mentors** in the tenant
+- Connectors can be scoped to a **single agent** or **all agents** in the tenant
 - Use the toggle to quickly enable/disable connectors without removing them

@@ -1,24 +1,24 @@
 # MCP Server Connections
 
-Register MCP servers, wire them to a mentor, and create authentication bindings so AI mentors can securely invoke external tools at runtime.
+Register MCP servers, wire them to an agent, and create authentication bindings so AI agents can securely invoke external tools at runtime.
 
 ---
 
 ## Overview
 
-The Model Context Protocol (MCP) lets an AI mentor call external tools — anything from a Google Drive search to a custom workflow engine — as part of a conversation. The ibl.ai platform models MCP with three objects:
+The Model Context Protocol (MCP) lets an AI agent call external tools — anything from a Google Drive search to a custom workflow engine — as part of a conversation. The ibl.ai platform models MCP with three objects:
 
 | Term | Description |
 | --- | --- |
 | **MCP Server** | Metadata describing an external MCP endpoint (name, URL, transport, auth type, auth scope). Tenants can register any number of servers. |
-| **MCP Server Connection** | An authentication binding between a tenant, mentor, or user and an MCP server. Stores the token or the reference to an OAuth-connected service. |
-| **Connection Scope** | Whether the connection applies tenant-wide (`platform`), to a specific mentor (`mentor`), or to a single user (`user`). |
+| **MCP Server Connection** | An authentication binding between a tenant, agent, or user and an MCP server. Stores the token or the reference to an OAuth-connected service. |
+| **Connection Scope** | Whether the connection applies tenant-wide (`platform`), to a specific agent (`agent`), or to a single user (`user`). |
 
 A working MCP integration requires three things:
 
 1. A **registered server** record.
 2. At least one **connection** providing credentials at the desired scope.
-3. A **mentor** that has the MCP tool enabled and the server attached.
+3. A **agent** that has the MCP tool enabled and the server attached.
 
 > **Related guides:** OAuth-backed servers need a `ConnectedService` — see [OAuth Connectors](/docs/developer/agents/mcp-authentication/oauth-connectors). Per-user OAuth servers can also authenticate learners mid-chat — see [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events).
 
@@ -37,14 +37,14 @@ A working MCP integration requires three things:
    │  2. Create connection          │◀───────│  (OAuth only)            │
    │     POST /mcp-server-          │        │  Complete OAuth flow to  │
    │         connections/           │        │  get a ConnectedService  │
-   │     scope: platform/mentor/    │        └──────────────────────────┘
+   │     scope: platform/agent/    │        └──────────────────────────┘
    │            user                │
    └──────────────┬─────────────────┘
                   │
                   ▼
    ┌────────────────────────────────┐
-   │  3. Enable mcp-tool on mentor  │
-   │     PUT /mentors/{id}/settings/│
+   │  3. Enable mcp-tool on agent  │
+   │     PUT /agents/{id}/settings/│
    │     • tools: ["mcp-tool"]      │
    │     • mcp_servers: [9, 14]     │
    └──────────────┬─────────────────┘
@@ -61,7 +61,7 @@ A working MCP integration requires three things:
 
 ## API Summary
 
-All endpoints live under `/api/ai-mentor/orgs/{org}/users/{user_id}/`.
+All endpoints live under `/api/ai-agent/orgs/{org}/users/{user_id}/`.
 
 | Capability | Endpoint | Method |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ All endpoints live under `/api/ai-mentor/orgs/{org}/users/{user_id}/`.
 | Create connection | `/mcp-server-connections/` | `POST` |
 | Update connection | `/mcp-server-connections/{id}/` | `PUT` / `PATCH` |
 | Delete connection | `/mcp-server-connections/{id}/` | `DELETE` |
-| Enable tool + attach servers | `/mentors/{mentor_id}/settings/` | `PUT` / `PATCH` |
+| Enable tool + attach servers | `/agents/{mentor_id}/settings/` | `PUT` / `PATCH` |
 
 Use `Authorization: Token ...` authentication. Only tenant admins may create or update servers and connections.
 
@@ -86,11 +86,11 @@ Before registering anything, decide *whose* credentials should be used. The `aut
 | Pattern | `auth_scope` | Who sets it up | When to use |
 | --- | --- | --- | --- |
 | **Per-tenant (platform)** | `platform` | Admin creates one connection | A single API key or shared OAuth token serves the whole organization. |
-| **Per-mentor** | `mentor` | Admin creates one connection per mentor | Different mentors need different access levels to the same service. |
+| **Per-agent** | `agent` | Admin creates one connection per agent | Different agents need different access levels to the same service. |
 | **Per-user (pre-provisioned)** | `user` | Admin creates a connection per user (bulk) | Credentials are known ahead of time for each learner. |
 | **Per-user (in-chat OAuth)** | `user` | Each learner authenticates mid-chat | Users hold their own identity (e.g., their personal Google Drive). |
 
-The first three patterns never prompt the user. The fourth — `auth_scope="user"` combined with `auth_type="oauth2"` — triggers the [in-chat OAuth flow](/docs/developer/agents/mcp-authentication/in-chat-mcp-events) the first time a learner uses the mentor.
+The first three patterns never prompt the user. The fourth — `auth_scope="user"` combined with `auth_type="oauth2"` — triggers the [in-chat OAuth flow](/docs/developer/agents/mcp-authentication/in-chat-mcp-events) the first time a learner uses the agent.
 
 ---
 
@@ -99,7 +99,7 @@ The first three patterns never prompt the user. The fourth — `auth_scope="user
 The server record describes *how* to reach the MCP endpoint and *what kind* of credentials it expects.
 
 ```http
-POST /api/ai-mentor/orgs/acme/users/alice/mcp-servers/ HTTP/1.1
+POST /api/ai-agent/orgs/acme/users/alice/mcp-servers/ HTTP/1.1
 Authorization: Token {{TOKEN}}
 Content-Type: application/json
 
@@ -140,7 +140,7 @@ Response:
 | --- | --- | --- |
 | `transport` | `sse`, `websocket`, `streamable_http` | Wire protocol used to talk to the MCP endpoint. |
 | `auth_type` | `none`, `token`, `oauth2` | How the request is authenticated. |
-| `auth_scope` | `platform` (default), `mentor`, `user` | Whose credentials are used at resolution time. |
+| `auth_scope` | `platform` (default), `agent`, `user` | Whose credentials are used at resolution time. |
 | `is_featured` | `true` / `false` | If `true`, other tenants can create their own connections to this server. |
 | `is_enabled` | `true` / `false` | Hard off-switch — disabled servers are skipped at runtime. |
 
@@ -151,7 +151,7 @@ Two fields, two different questions:
 | Field | Answers |
 | --- | --- |
 | `auth_type` | *How* is the call authenticated? (no auth, static token, or OAuth2) |
-| `auth_scope` | *Whose* credentials are used? (shared platform, mentor-specific, or each user's own) |
+| `auth_scope` | *Whose* credentials are used? (shared platform, agent-specific, or each user's own) |
 
 `auth_type="oauth2"` + `auth_scope="user"` is the only combination that enables the in-chat OAuth prompt.
 
@@ -168,7 +168,7 @@ The simplest case — a single API key shared by everyone on the tenant.
 **Request**
 
 ```http
-POST /api/ai-mentor/orgs/acme/users/alice/mcp-server-connections/ HTTP/1.1
+POST /api/ai-agent/orgs/acme/users/alice/mcp-server-connections/ HTTP/1.1
 Authorization: Token {{TOKEN}}
 Content-Type: application/json
 
@@ -179,7 +179,7 @@ Content-Type: application/json
   "credentials": "super-secret-api-key",
   "authorization_scheme": "Bearer",
   "extra_headers": {
-    "x-mcp-client": "mentor-ui"
+    "x-mcp-client": "agent-ui"
   }
 }
 ```
@@ -196,13 +196,13 @@ Content-Type: application/json
   "platform": 42,
   "platform_key": "acme",
   "user": null,
-  "mentor": null,
+  "agent": null,
   "connected_service": null,
   "connected_service_summary": null,
   "credentials": "sup****key",
   "authorization_scheme": "Bearer",
   "extra_headers": {
-    "x-mcp-client": "mentor-ui"
+    "x-mcp-client": "agent-ui"
   },
   "is_active": true,
   "created_at": "2025-11-12T12:20:00Z",
@@ -214,24 +214,24 @@ Content-Type: application/json
 - `extra_headers` is an arbitrary JSON object merged into every request.
 - `credentials` is **always masked on read**; never echo the masked value back on update.
 
-### Mentor scope (token)
+### Agent scope (token)
 
-Different mentors on the same tenant can present different credentials to the same server (e.g., a Finance Mentor with read/write access and a General Mentor with read-only access).
+Different agents on the same tenant can present different credentials to the same server (e.g., a Finance Agent with read/write access and a General Agent with read-only access).
 
 ```json
 {
   "server": 9,
-  "scope": "mentor",
+  "scope": "agent",
   "auth_type": "token",
-  "mentor": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "credentials": "mentor-specific-key",
+  "agent": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "credentials": "agent-specific-key",
   "authorization_scheme": "Bearer"
 }
 ```
 
-- `mentor` is the mentor's `unique_id` (UUID).
-- The mentor's `platform_key` must match the current tenant.
-- `platform` is inferred from the mentor when omitted.
+- `agent` is the agent's `unique_id` (UUID).
+- The agent's `platform_key` must match the current tenant.
+- `platform` is inferred from the agent when omitted.
 
 ### User scope (OAuth2)
 
@@ -277,9 +277,9 @@ The platform automatically refreshes the OAuth tokens as they approach expiry �
 
 | Scope | Required fields | Forbidden fields |
 | --- | --- | --- |
-| `platform` | `server`, `auth_type`, (credentials or `connected_service`) | `user`, `mentor` |
-| `mentor` | `server`, `auth_type`, `mentor`, (credentials or `connected_service`) | `user` |
-| `user` | `server`, `auth_type`, (`user` or `connected_service`) | `mentor` |
+| `platform` | `server`, `auth_type`, (credentials or `connected_service`) | `user`, `agent` |
+| `agent` | `server`, `auth_type`, `agent`, (credentials or `connected_service`) | `user` |
+| `user` | `server`, `auth_type`, (`user` or `connected_service`) | `agent` |
 
 For any `auth_type="oauth2"` connection, `connected_service` is required regardless of scope.
 
@@ -290,19 +290,19 @@ For any `auth_type="oauth2"` connection, `connected_service` is required regardl
 
 ---
 
-## 3. Enable the MCP Tool on a Mentor
+## 3. Enable the MCP Tool on an Agent
 
-Registering a server and its connection is only half the story. The mentor must also:
+Registering a server and its connection is only half the story. The agent must also:
 
 1. Have the MCP tool enabled.
 2. Know which server IDs it is allowed to call.
 
-Both are set through the mentor settings endpoint.
+Both are set through the agent settings endpoint.
 
 ### Enable the tool
 
 ```http
-PATCH /api/ai-mentor/orgs/acme/users/alice/mentors/{mentor_id}/settings/ HTTP/1.1
+PATCH /api/ai-agent/orgs/acme/users/alice/agents/{mentor_id}/settings/ HTTP/1.1
 Authorization: Token {{TOKEN}}
 Content-Type: application/json
 
@@ -311,10 +311,10 @@ Content-Type: application/json
 }
 ```
 
-### Attach servers to the mentor
+### Attach servers to the agent
 
 ```http
-PATCH /api/ai-mentor/orgs/acme/users/alice/mentors/{mentor_id}/settings/ HTTP/1.1
+PATCH /api/ai-agent/orgs/acme/users/alice/agents/{mentor_id}/settings/ HTTP/1.1
 Authorization: Token {{TOKEN}}
 Content-Type: application/json
 
@@ -328,7 +328,7 @@ Content-Type: application/json
 > - `[]` clears all enabled tools / attached servers.
 > - `null` leaves the existing value untouched.
 
-Once the tool is enabled and at least one server is attached, the mentor will discover MCP tools from the attached servers and call them as part of its responses.
+Once the tool is enabled and at least one server is attached, the agent will discover MCP tools from the attached servers and call them as part of its responses.
 
 ---
 
@@ -338,7 +338,7 @@ A complete walkthrough for a tenant admin setting up a shared, tenant-wide token
 
 ```bash
 # 1. Register the server
-curl -X POST "https://base.manager.iblai.app/api/ai-mentor/orgs/acme/users/alice/mcp-servers/" \
+curl -X POST "https://base.manager.iblai.app/api/ai-agent/orgs/acme/users/alice/mcp-servers/" \
   -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -352,7 +352,7 @@ curl -X POST "https://base.manager.iblai.app/api/ai-mentor/orgs/acme/users/alice
 # → returns {"id": 9, ...}
 
 # 2. Create a platform-scoped connection with the shared API key
-curl -X POST "https://base.manager.iblai.app/api/ai-mentor/orgs/acme/users/alice/mcp-server-connections/" \
+curl -X POST "https://base.manager.iblai.app/api/ai-agent/orgs/acme/users/alice/mcp-server-connections/" \
   -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -363,8 +363,8 @@ curl -X POST "https://base.manager.iblai.app/api/ai-mentor/orgs/acme/users/alice
     "authorization_scheme": "Bearer"
   }'
 
-# 3. Enable mcp-tool on the mentor and attach the server
-curl -X PATCH "https://base.manager.iblai.app/api/ai-mentor/orgs/acme/users/alice/mentors/$MENTOR_ID/settings/" \
+# 3. Enable mcp-tool on the agent and attach the server
+curl -X PATCH "https://base.manager.iblai.app/api/ai-agent/orgs/acme/users/alice/agents/$MENTOR_ID/settings/" \
   -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -373,19 +373,19 @@ curl -X PATCH "https://base.manager.iblai.app/api/ai-mentor/orgs/acme/users/alic
   }'
 ```
 
-Any learner chatting with the mentor now transparently uses the shared Workflow MCP token.
+Any learner chatting with the agent now transparently uses the shared Workflow MCP token.
 
 ---
 
 ## Runtime Resolution
 
-When a mentor invokes an MCP server, the platform resolves credentials in this order:
+When an agent invokes an MCP server, the platform resolves credentials in this order:
 
 ```
 ┌────────────────────────────────────────────────────────────┐
 │  1. User-scoped connection for (server, user)              │
 │     ────────────────────────────────────────────────────── │
-│     2. Mentor-scoped connection for (server, mentor)       │
+│     2. Agent-scoped connection for (server, agent)       │
 │        ──────────────────────────────────────────────────  │
 │        3. Platform-scoped connection for (server, tenant)  │
 │           ───────────────────────────────────────────────  │
@@ -400,7 +400,7 @@ The first match wins. For OAuth connections, the linked `ConnectedService` is tr
 If `auth_scope="user"` and no user-scoped connection is found at resolution time, the platform either:
 
 - **Triggers the in-chat OAuth prompt** (see [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events)), or
-- **Falls back to lower scopes** if `auth_scope` is `mentor` or `platform`.
+- **Falls back to lower scopes** if `auth_scope` is `agent` or `platform`.
 
 ---
 
@@ -412,9 +412,9 @@ If `auth_scope="user"` and no user-scoped connection is found at resolution time
   - `none` — no credential fields.
   - `token` — inputs for `authorization_scheme`, `credentials`, and optional header key/value pairs.
   - `oauth2` — a `ConnectedService` picker filtered by provider and service.
-- **Scope-aware fields.** Show / hide `user` and `mentor` inputs based on the selected `scope`.
+- **Scope-aware fields.** Show / hide `user` and `agent` inputs based on the selected `scope`.
 - **Masked credentials.** Track whether the user changed the field locally; only send a new value when they explicitly rotate the secret.
-- **Mentor wiring reminder.** After saving a connection, prompt the admin to enable `mcp-tool` and attach the server on the mentor settings screen — otherwise it will not be called in chat.
+- **Agent wiring reminder.** After saving a connection, prompt the admin to enable `mcp-tool` and attach the server on the agent settings screen — otherwise it will not be called in chat.
 
 ### Field-level validation errors
 
@@ -422,7 +422,7 @@ The API returns actionable, per-field errors — render them inline:
 
 ```json
 {
-  "mentor": ["Mentor scoped connections require a mentor."],
+  "agent": ["Agent scoped connections require an agent."],
   "connected_service": ["OAuth2 connections require a connected service."]
 }
 ```
@@ -436,6 +436,6 @@ The API returns actionable, per-field errors — render them inline:
 | `400 Selected MCP server is not available to the current tenant.` | Bind a server scoped to the current tenant, or mark the source server `is_featured=true`. |
 | `400 OAuth2 connections require a connected service.` | Complete the OAuth connector flow first; pass the resulting `connected_service` ID. |
 | Connection falls back to platform credentials unexpectedly | Confirm the user connection's `is_active` flag and that `ConnectedService.user` matches the chat user. |
-| Mentor ignores the configured server | Verify `mcp-tool` is in the mentor's `tools` list and the server ID is in `mcp_servers`. |
+| Agent ignores the configured server | Verify `mcp-tool` is in the agent's `tools` list and the server ID is in `mcp_servers`. |
 | No OAuth prompt appears for a per-user server | Set the server's `auth_scope` to `user`. `auth_type="oauth2"` alone is not enough. |
 | `400 No credentials found` during connection create | Tenant admin must install `auth_{provider}` credentials before OAuth connections can be created. |

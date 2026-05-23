@@ -1,8 +1,8 @@
-mentorAI | Data Visualizations
+Agentic OS | Data Visualizations
 https://www.youtube.com/watch?v=8gidWuxYszo
 
 [1.3s] I'm going to be showing you how you can
-[2.8s] use a mentor to create visualizations of
+[2.8s] use an agent to create visualizations of
 [6.2s] data. Now, we're going to start by just
 [8.3s] showing you how
 [10.3s] to enable this ability. You'll enable
@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=8gidWuxYszo
 [69.7s] So now we can see here that we get this
 [72.2s] graph plotting the most uh or the
 [74.3s] campuses with the most incidents. Um,
-[77.5s] and in fact, this specific mentor is
+[77.5s] and in fact, this specific agent is
 [80.9s] complying with privacy guardrails and
 [82.8s] anonymizing any any information that
 [84.7s] should be anonymized. Now, I'm just

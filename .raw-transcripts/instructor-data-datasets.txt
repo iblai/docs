@@ -1,23 +1,23 @@
-mentorAI | Datasets
+Agentic OS | Datasets
 https://www.youtube.com/watch?v=kvhDpVdRAOw
 
-[0.6s] As an instructor on the mentor AI
+[0.6s] As an instructor on the agent AI
 [2.5s] platform, you have the ability to define
-[4.2s] the knowledge base that your mentor is
+[4.2s] the knowledge base that your agent is
 [5.8s] trained on. Now, to see what this looks
 [7.8s] like, you'll select the dropown where
-[9.3s] you see the mentor name. This will show
+[9.3s] you see the agent name. This will show
 [11.0s] you a list of different settings that
 [12.6s] you can edit, make adjustments to, so on
 [14.6s] and so forth. You have the data sets tab
 [17.2s] here, which is where you'll upload your
 [18.7s] knowledge base. You can see that we've
-[21.2s] already trained this specific mentor on
+[21.2s] already trained this specific agent on
 [22.7s] a few different things. Um, you'll get
 [24.6s] the name, the type of file it is, if
 [26.7s] it's a file or if it's a URL, things
 [28.2s] like that. how many tokens this takes uh
-[31.0s] to train the mentor. Um where that
+[31.0s] to train the agent. Um where that
 [34.0s] content is going to be stored. So if
 [36.2s] it's, you know, a file that you upload,
 [37.8s] it'll be stored in our system, but you
@@ -45,8 +45,8 @@ https://www.youtube.com/watch?v=kvhDpVdRAOw
 [79.4s] accessible to learners as a resource
 [81.6s] when they're asking questions. So, if
 [83.5s] since you can see this one's toggled
-[85.0s] off, if a mentor or a learner asks the
-[87.4s] mentor a question specifically about
+[85.0s] off, if an agent or a learner asks the
+[87.4s] agent a question specifically about
 [88.9s] this file, it'll respond based off the
 [90.8s] knowledge base, but won't provide that
 [92.9s] as a resource the learner can access.
@@ -76,4 +76,4 @@ https://www.youtube.com/watch?v=kvhDpVdRAOw
 [146.1s] will be a URL whereas PowerPoint will be
 [149.4s] a file that you can select from.
 [152.2s] And that's basically how you train your
-[154.1s] your mentor on its knowledge base.
+[154.1s] your agent on its knowledge base.

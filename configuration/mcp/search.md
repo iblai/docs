@@ -6,16 +6,16 @@
 
 ## Purpose
 
-Connect a Search MCP to a mentor so it can search your platform for courses, programs, and mentors—and return grounded, recommendation-ready results without hallucinations.
+Connect a Search MCP to an agent so it can search your platform for courses, programs, and agents—and return grounded, recommendation-ready results without hallucinations.
 
 ---
 
 ## Overview
 
-The Search MCP uses an MCP server (in this demo, ibl.ai’s own search MCP) to power a mentor that acts as a search assistant. It can:
+The Search MCP uses an MCP server (in this demo, ibl.ai’s own search MCP) to power an agent that acts as a search assistant. It can:
 
 - Search the course catalog (courses/programs).
-- Find and recommend mentors.
+- Find and recommend agents.
 - Ask follow-up filters (subject, level, format, language).
 - Enforce guardrails via the system prompt.
 
@@ -23,22 +23,22 @@ The Search MCP uses an MCP server (in this demo, ibl.ai’s own search MCP) to p
 
 ## Prerequisites
 
-- A mentor with a Search Assistant system prompt.
-- MCP Tool enabled for the mentor.
+- An agent with a Search Assistant system prompt.
+- MCP Tool enabled for the agent.
 - An API key for the Search MCP server.
 
 ---
 
 ## Setup Steps
 
-#### 1) Prepare the Mentor
+#### 1) Prepare the Agent
 
-- Open the mentor you want to use for search.
-- Set the system prompt to a search-focused assistant (catalog + mentor search, recommendations, guardrails).
+- Open the agent you want to use for search.
+- Set the system prompt to a search-focused assistant (catalog + agent search, recommendations, guardrails).
 
 #### 2) Enable the MCP Tool
 
-- Go to the mentor’s **Tools** tab.
+- Go to the agent’s **Tools** tab.
 - Ensure **MCP** is enabled.
 
 #### 3) Add the Search MCP Connector
@@ -48,7 +48,7 @@ The Search MCP uses an MCP server (in this demo, ibl.ai’s own search MCP) to p
   - **Connector name**
   - **Server location** (Search MCP server URL)
   - **Description**  
-     - Acts like instructions for the connection (what the mentor can pull and how to respond).
+     - Acts like instructions for the connection (what the agent can pull and how to respond).
   - **Transport:** Streamable HTTP
   - **Authentication:** API Key
      - **Token type:** API Key
@@ -70,19 +70,19 @@ The Search MCP uses an MCP server (in this demo, ibl.ai’s own search MCP) to p
 - Returns a subset of courses from the tenant (even if the catalog is large).
 - Asks if you want to filter by subject, level, format, or language.
 
-#### Search Mentors
+#### Search Agents
 
 **Prompt example:**
 
-> “What mentors can help me become a better student?”
+> “What agents can help me become a better student?”
 
 **Result:**
 
-- Lists relevant mentors (e.g., study tips, quizzes, Socratic support).
+- Lists relevant agents (e.g., study tips, quizzes, Socratic support).
 - Offers to filter further or show more results (based on system-prompt limits).
 
 ---
 
 ## Result
 
-With Search MCP connected, mentors can reliably discover courses and mentors across your platform, guide users with filters and recommendations, and return accurate, grounded results from your own data.
+With Search MCP connected, agents can reliably discover courses and agents across your platform, guide users with filters and recommendations, and return accurate, grounded results from your own data.

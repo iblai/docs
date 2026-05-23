@@ -10,7 +10,7 @@ Assign platform-wide capabilities to individual users without building custom ro
 
 ### Analytics Viewer
 
-Grants access to the AI Analytics dashboard on skills.iblai.app. The user can see aggregate analytics for teams they have analytics access to through [team sharing](teamsharing.md). This does **not** grant access to analytics for specific mentors.
+Grants access to the AI Analytics dashboard on skills.iblai.app. The user can see aggregate analytics for teams they have analytics access to through [team sharing](teamsharing.md). This does **not** grant access to analytics for specific agents.
 
 ### Billing Manager
 
@@ -36,17 +36,17 @@ Can list teams the current user has access to. Typically used in conjunction wit
 
 Can list users on the platform. Typically used in conjunction with other permissions that require selecting users, such as when creating teams.
 
-### Mentor Chat
+### Agent Chat
 
-Can chat with **any** mentor in the tenant. See [Mentor Chat](mentorchataccess.md) for scoped, per-mentor chat access.
+Can chat with **any** agent in the tenant. See [Agent Chat](mentorchataccess.md) for scoped, per-agent chat access.
 
-### Mentor Editor
+### Agent Editor
 
-Can chat with any mentor and view/edit all settings and information about **all** mentors in the tenant. See [Mentor Editor](mentoreditor.md) for scoped, per-mentor editor access.
+Can chat with any agent and view/edit all settings and information about **all** agents in the tenant. See [Agent Editor](mentoreditor.md) for scoped, per-agent editor access.
 
-### Mentor Viewer
+### Agent Viewer
 
-Can chat with any mentor and view all settings and information about all mentors in the tenant (read-only).
+Can chat with any agent and view all settings and information about all agents in the tenant (read-only).
 
 ### Notification Manager
 

@@ -4,15 +4,15 @@
 
 ## Purpose
 
-Link **Dropbox files** to a mentor so its knowledge base can include those materials.
+Link **Dropbox files** to an agent so its knowledge base can include those materials.
 
 ---
 
 ## Steps
 
-### Open the Mentor’s Datasets
+### Open the Agent’s Datasets
 
-- Click the **mentor’s name**  
+- Click the **agent’s name**  
 - Select the **Datasets** tab
 
 ### Add a Resource from Dropbox
@@ -20,14 +20,14 @@ Link **Dropbox files** to a mentor so its knowledge base can include those mater
 - Click **Add Resource**  
 - Pick **Dropbox**, then follow the **connect-and-select flow**
 
-### Train the Mentor
+### Train the Agent
 
-- After selecting the file, the mentor can be **trained** on that material
+- After selecting the file, the agent can be **trained** on that material
 
 ---
 
 ## Result
 
-The mentor now includes content from **Dropbox** in its knowledge base.
+The agent now includes content from **Dropbox** in its knowledge base.
 
 

@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Web Search tool equips a mentorAI with live internet access, allowing it to pull the most current information available—stock prices, breaking news, fresh research, policy deadlines, and more—directly into the chat. Instructors enable the tool from the mentor’s Tools tab; learners then ask open‑ended queries and receive up‑to‑date answers without leaving the platform.
+The Web Search tool equips an Agentic OS with live internet access, allowing it to pull the most current information available—stock prices, breaking news, fresh research, policy deadlines, and more—directly into the chat. Instructors enable the tool from the agent’s Tools tab; learners then ask open‑ended queries and receive up‑to‑date answers without leaving the platform.
 
 
 ![](/images/websearch.png)
@@ -22,7 +22,7 @@ The Web Search tool equips a mentorAI with live internet access, allowing it t
 
 #### Live Internet Queries
 
-mentorAI fetches the latest data—financial figures, leadership changes, release announcements, deadlines, etc.—in real time.
+Agentic OS fetches the latest data—financial figures, leadership changes, release announcements, deadlines, etc.—in real time.
 
 #### MCP Integration (enabled by default)
 
@@ -38,7 +38,7 @@ Answers include citations or summaries so students can verify sources and dig de
 
 #### Expandable Toolset
 
-Additional tools—**Code Interpreter**, **Image Generation**, **Screen Share**, etc.—can be enabled from the same **Tools** tab for richer mentor capabilities.
+Additional tools—**Code Interpreter**, **Image Generation**, **Screen Share**, etc.—can be enabled from the same **Tools** tab for richer agent capabilities.
 
 ---
 
@@ -46,7 +46,7 @@ Additional tools—**Code Interpreter**, **Image Generation**, **Screen Sh
 
 #### Open the Tools Tab
 
-- Click the **mentor’s name** in the header  
+- Click the **agent’s name** in the header  
 - From the drop‑down, select **Tools**
 
 #### Review Default Tools
@@ -58,7 +58,7 @@ Additional tools—**Code Interpreter**, **Image Generation**, **Screen Sh
 #### Enable or Disable Web Search
 
 - Flip the **switch** next to **Web Search**  
-- Changes take effect **immediately** for that mentor
+- Changes take effect **immediately** for that agent
 
 #### Guide Learners on Usage (examples they can try)
 
@@ -99,4 +99,4 @@ Retrieve the latest guidance on regulations, grants, or financial‑aid deadline
 
 ---
 
-With **Web Search enabled**, mentorAI becomes a **live research assistant**—delivering **current, hard‑to‑find answers** right inside the chat and empowering learners to **stay informed** in a rapidly changing world.
+With **Web Search enabled**, Agentic OS becomes a **live research assistant**—delivering **current, hard‑to‑find answers** right inside the chat and empowering learners to **stay informed** in a rapidly changing world.

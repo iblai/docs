@@ -8,7 +8,7 @@
 
 ## Description
 
-A mentor designed to help students **stay on track for on-time degree completion**. 
+An agent designed to help students **stay on track for on-time degree completion**. 
 
 It monitors **credit momentum**, flags **registration risks/holds**, answers questions like *“Am I on track to graduate by X term?”*, and explains **major + university requirements**.
 
@@ -26,7 +26,7 @@ The system supports **proactive alerts**, ensuring students know what’s missin
 
 #### 2. Review requirements
 
-- Mentor breaks down:
+- Agent breaks down:
   - **University requirements**  
   - **Major-specific requirements**  
   - **Additional notes**  
@@ -42,7 +42,7 @@ Ask follow-up questions such as:
      “Do I have any holds to clear before I can register?”  
      “Which remaining courses do I need for my major?”
 
-  - Mentor surfaces:
+  - Agent surfaces:
     - Potential **gaps**  
     - **Holds** or administrative blockers  
     - **Registration issues**  
@@ -50,7 +50,7 @@ Ask follow-up questions such as:
 
 #### 4. Stay proactive
 
-Mentor can be configured to issue **proactive alerts** when something could delay on-time completion—guiding the student to resolve issues early.
+Agent can be configured to issue **proactive alerts** when something could delay on-time completion—guiding the student to resolve issues early.
 
 ---
 
@@ -64,7 +64,7 @@ Mentor can be configured to issue **proactive alerts** when something could dela
 
 Ready to improve retention and on-time graduation with proactive, requirement-aware guidance?
 
-Email us at **support@iblai.zendesk.com** and we’ll enable the **Completion Coach Mentor** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
+Email us at **support@iblai.zendesk.com** and we’ll enable the **Completion Coach Agent** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
 
 
 

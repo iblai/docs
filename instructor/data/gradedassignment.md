@@ -4,7 +4,7 @@
 
 ## Description
 
-When mentorAI is embedded in Canvas as an LTI tool, it can grade learner responses inside an Assignment and automatically pass the score back to the Canvas gradebook. Learners type their answers directly in the mentor chat, receive an instant score (and, soon, AI-generated feedback), and watch their grade update in real time—no manual grading steps required.
+When Agentic OS is embedded in Canvas as an LTI tool, it can grade learner responses inside an Assignment and automatically pass the score back to the Canvas gradebook. Learners type their answers directly in the agent chat, receive an instant score (and, soon, AI-generated feedback), and watch their grade update in real time—no manual grading steps required.
 
 ---
 
@@ -18,7 +18,7 @@ When mentorAI is embedded in Canvas as an LTI tool, it can grade learner respons
 
 #### Instant AI Scoring
 
-The mentor evaluates each submitted answer and returns a numeric grade (e.g., 10 / 10).
+The agent evaluates each submitted answer and returns a numeric grade (e.g., 10 / 10).
 
 #### Automatic Grade Passback
 
@@ -31,7 +31,7 @@ Every new answer replaces the previous score (e.g., a perfect 10 drops to 0 if t
 #### Future Enhancements (preview)
 
 - AI-generated feedback accompanying each grade  
-- Support for file uploads (PDF, Word, Excel, etc.) that the mentor can grade
+- Support for file uploads (PDF, Word, Excel, etc.) that the agent can grade
 
 ---
 
@@ -40,16 +40,16 @@ Every new answer replaces the previous score (e.g., a perfect 10 drops to 0 if t
 #### Open the Assignment
 
 - In Canvas, navigate to **Assignments**  
-- Click the task labeled (for example) **Mentor Grading**
+- Click the task labeled (for example) **Agent Grading**
 
-#### Interact with the Mentor
+#### Interact with the Agent
 
-- The mentor chat loads on the assignment page  
+- The agent chat loads on the assignment page  
 - Type your answer (e.g., `5 + 5 = 10`) into the chat and press **Send**
 
 #### Receive Your Score
 
-- The mentor instantly replies with a grade (e.g., **10 / 10**)  
+- The agent instantly replies with a grade (e.g., **10 / 10**)  
 - *(Future)* Feedback text will appear alongside the score
 
 #### Verify Grade Passback
@@ -61,7 +61,7 @@ Every new answer replaces the previous score (e.g., a perfect 10 drops to 0 if t
 
 - Return to the assignment page  
 - Enter a new answer (e.g., `5 + 5 = 9`)  
-- The mentor re-grades and returns **0 / 10**  
+- The agent re-grades and returns **0 / 10**  
 - Check **Grades** again to see the new score reflected
 
 ---
@@ -86,4 +86,4 @@ Upload **lab worksheets, essays, or spreadsheets** for AI scoring once file-grad
 
 ---
 
-With mentorAI’s Canvas integration, learners receive **live grades** (and soon feedback) while instructors enjoy **automatic score passback**—streamlining assessment and reinforcing learning in real time.
+With Agentic OS’s Canvas integration, learners receive **live grades** (and soon feedback) while instructors enjoy **automatic score passback**—streamlining assessment and reinforcing learning in real time.

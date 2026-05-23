@@ -4,7 +4,7 @@
 
 ## Description
 
-**Advanced Settings** gives tenant administrators full control over institution-level configuration in mentorAI—from **branding and user management** to **integrations, public registration, community mentors, custom domains (DNS), and SMTP email**.  
+**Advanced Settings** gives tenant administrators full control over institution-level configuration in Agentic OS—from **branding and user management** to **integrations, public registration, community agents, custom domains (DNS), and SMTP email**.  
 
 Use this panel to tailor your tenant’s **experience, security, and governance**—all without engineering work.
 
@@ -40,13 +40,13 @@ Use this panel to tailor your tenant’s **experience, security, and governance*
 
 - Add your own **LLM API keys**  
 - Configure **third-party data-source credentials**  
-- Register **external application APIs** your mentors can call
+- Register **external application APIs** your agents can call
 
 #### Advanced Tab (Admin-Configurable Toggles)
 
 - **Help Menu:** show/hide the in-app help dropdown; link target set under Organization  
 - **Accessibility Menu:** enable an accessibility panel for end-users  
-- **Community Mentors:** allow mentors with public visibility to be shared across tenants  
+- **Community Agents:** allow agents with public visibility to be shared across tenants  
 - **Public Registration:** let users self-register via a direct link; new users are auto-added on sign-up  
 - **DNS Configuration:** connect a custom domain; complete verification after updating  
 - **SMTP Credentials:** send platform emails from your own domain instead of the default
@@ -78,21 +78,21 @@ Use this panel to tailor your tenant’s **experience, security, and governance*
 
 - Add **LLM keys** (per provider)  
 - Add **third-party data-source credentials** for secure retrieval  
-- Register **external APIs** your mentors can use
+- Register **external APIs** your agents can use
 
 #### Configure Advanced Controls (Advanced tab)
 
 - **Help Menu:** toggle On/Off; ensure Help Center URL is set under Organization  
 - **Accessibility Menu:** toggle to surface accessibility features to users  
-- **Community Mentors:** toggle to allow publicly visible mentors to be shared across tenants  
-- **Public Registration:** toggle On to allow self-sign-up via a direct link to the tenant or mentor  
+- **Community Agents:** toggle to allow publicly visible agents to be shared across tenants  
+- **Public Registration:** toggle On to allow self-sign-up via a direct link to the tenant or agent  
 - **DNS Configuration:** enter your custom domain; complete verification steps afterward  
 - **SMTP Configuration:** enter SMTP host/port/credentials so all platform emails originate from your domain
 
 #### Review & Save
 
 - Confirm changes and click **Save** on each tab as needed  
-- Test affected flows (**sign-up, emails, help menu, accessibility, community mentors**) in a separate session
+- Test affected flows (**sign-up, emails, help menu, accessibility, community agents**) in a separate session
 
 ---
 
@@ -138,7 +138,7 @@ Enable **Public Registration** for open pilots, events, or community programs; d
 
 #### Scalable Content Strategy
 
-Turn on **Community Mentors** to reuse high-quality mentors across programs while retaining local admin control.
+Turn on **Community Agents** to reuse high-quality agents across programs while retaining local admin control.
 
 #### Reliable Access Points
 
@@ -146,4 +146,4 @@ Map a **custom domain (DNS)** for learner familiarity and SSO consistency.
 
 ---
 
-With **Advanced Settings**, tenant admins can fine-tune **branding, access, integrations, and governance**—so mentorAI fits seamlessly into your institution’s **policies, identity, and workflows**.
+With **Advanced Settings**, tenant admins can fine-tune **branding, access, integrations, and governance**—so Agentic OS fits seamlessly into your institution’s **policies, identity, and workflows**.

@@ -361,8 +361,8 @@ Verify in logs that the push completed without "missing scope" errors. A success
 
 ### 5.4 -- Test chat through the platform
 
-1. Open the mentor in any ibl.ai application (Mentor AI, Skills AI, etc.)
-2. Select the claw-backed mentor
+1. Open the agent in any ibl.ai application (Agent AI, Skills AI, etc.)
+2. Select the claw-backed agent
 3. Send a test message (e.g. "Hello, say hi in 5 words")
 4. Verify:
    - "Connected." acknowledgment appears
@@ -473,15 +473,15 @@ systemctl --user restart openclaw-gateway
 
 ### The problem
 
-OpenClaw gateway updates (`npm install -g openclaw@latest`) or gateway restarts can wipe the paired devices list. When this happens, the platform backend's device identity is no longer recognized by the gateway, and **all mentors** on that server fail with `PAIRING_REQUIRED` / `NOT_PAIRED` errors.
+OpenClaw gateway updates (`npm install -g openclaw@latest`) or gateway restarts can wipe the paired devices list. When this happens, the platform backend's device identity is no longer recognized by the gateway, and **all agents** on that server fail with `PAIRING_REQUIRED` / `NOT_PAIRED` errors.
 
-Users see: _"The mentor is starting up, please wait..."_ → _"The mentor is currently unavailable. Please try again later."_
+Users see: _"The agent is starting up, please wait..."_ → _"The agent is currently unavailable. Please try again later."_
 
-This affects **all mentors** linked to the server -- the device identity is per claw instance, not per mentor. One re-pairing fixes all mentors on that server.
+This affects **all agents** linked to the server -- the device identity is per claw instance, not per agent. One re-pairing fixes all agents on that server.
 
 ### How to re-pair manually
 
-1. **Trigger a connection attempt** -- send any message to any mentor linked to the affected server. This creates a pending pairing request on the gateway.
+1. **Trigger a connection attempt** -- send any message to any agent linked to the affected server. This creates a pending pairing request on the gateway.
 
 2. **SSH into the OpenClaw server** and approve:
 
@@ -493,7 +493,7 @@ openclaw devices list
 openclaw devices approve <requestId>
 ```
 
-3. **Retry the chat** -- the next message should connect successfully. All mentors on this server are now fixed.
+3. **Retry the chat** -- the next message should connect successfully. All agents on this server are now fixed.
 
 ### Why loopback auto-approval doesn't work
 
@@ -529,8 +529,8 @@ The goal is a **robust, non-fragile solution** so that gateway restarts and Open
 ### Device identity scope
 
 - Device identity is per **claw instance** (stored in `connection_params.device_identity.private_key_pem`)
-- All mentors linked to the same server share the same device
-- One re-pairing approval covers all mentors on that server
+- All agents linked to the same server share the same device
+- One re-pairing approval covers all agents on that server
 - Each server with a different keypair needs its own pairing
 
 ---

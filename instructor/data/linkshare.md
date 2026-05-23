@@ -4,7 +4,7 @@
 
 ## Description
 
-The Link Share feature generates a public URL that lets anyone chat with your mentorAI—no login required. Toggle the link on to invite open access, refresh it to rotate the URL, or switch it off to revoke access instantly. Perfect for demos, outreach, or quick external support.
+The Link Share feature generates a public URL that lets anyone chat with your Agentic OS—no login required. Toggle the link on to invite open access, refresh it to rotate the URL, or switch it off to revoke access instantly. Perfect for demos, outreach, or quick external support.
 
 ---
 
@@ -42,7 +42,7 @@ Verify the link in an **incognito window** to ensure it works exactly as intende
 
 #### Enable Anonymous Access
 
-- Open the mentor’s **Embed** tab  
+- Open the agent’s **Embed** tab  
 - Locate the **Sharable Link** section  
 - Toggle the switch **On** to activate anonymous chatting  
 - *(Optional)* Click the **refresh icon** to generate a new URL  
@@ -52,7 +52,7 @@ Verify the link in an **incognito window** to ensure it works exactly as intende
 
 - Paste the URL into an **incognito/private‑browsing window**  
 - Confirm you are **not logged in**  
-- The mentor chat should load and respond normally for **anonymous users**
+- The agent chat should load and respond normally for **anonymous users**
 
 #### Disable Anonymous Access
 
@@ -68,7 +68,7 @@ Verify the link in an **incognito window** to ensure it works exactly as intende
 
 #### Open‑House Demos
 
-Share a public link during **webinars or campus tours** so prospective students can try the mentor without creating accounts.
+Share a public link during **webinars or campus tours** so prospective students can try the agent without creating accounts.
 
 #### Community Outreach & Marketing
 
@@ -76,11 +76,11 @@ Post the URL on **social channels** to showcase your **AI tutoring capabilities*
 
 #### Conference or Workshop Support
 
-Provide attendees with instant access to a **specialized mentor** for live Q&A during events.
+Provide attendees with instant access to a **specialized agent** for live Q&A during events.
 
 #### Quick External Feedback
 
-Invite **industry partners or subject‑matter experts** to interact with a mentor and suggest improvements—no onboarding required.
+Invite **industry partners or subject‑matter experts** to interact with an agent and suggest improvements—no onboarding required.
 
 #### Emergency Helpdesk
 
@@ -88,4 +88,4 @@ Temporarily open access during **downtime or high‑traffic periods**, then disa
 
 ---
 
-With **Link Share**, you control whether outsiders can interact with your mentor—**turn the link On for open access**, or **flip it Off to lock things down instantly**.
+With **Link Share**, you control whether outsiders can interact with your agent—**turn the link On for open access**, or **flip it Off to lock things down instantly**.

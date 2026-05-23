@@ -1,4 +1,4 @@
-mentorAI | Canvas | Screen Sharing Enhancements
+Agentic OS | Canvas | Screen Sharing Enhancements
 https://www.youtube.com/watch?v=M5HT9RXJyqI
 
 [0.8s] Hi everybody. I'm going to be showing
@@ -6,15 +6,15 @@ https://www.youtube.com/watch?v=M5HT9RXJyqI
 [3.7s] screen sharing side panel experience
 [5.5s] within Canvas using our LTI 1.3
 [8.5s] integration. Um, and you can see here
-[10.7s] this is where the mentor is in the side
+[10.7s] this is where the agent is in the side
 [12.2s] panel. Now I'm going to be going through
 [14.3s] the screen sharing process now um to
 [16.8s] show you these new UI UX updates to make
 [19.8s] the the flow easier for students and so
 [22.4s] that they can understand the state of
-[23.8s] the mentor as well. Now I'll be silent
+[23.8s] the agent as well. Now I'll be silent
 [26.5s] for the first part just so that I can
-[28.2s] let the mentor um start talking when I
+[28.2s] let the agent um start talking when I
 [30.6s] when I start screen sharing.
 [57.2s] Hi there. I'm here to help. It looks
 [59.4s] like I can't see your screen at the
@@ -28,19 +28,19 @@ https://www.youtube.com/watch?v=M5HT9RXJyqI
 [82.9s] >> So, the first thing I'm going to do is
 [84.3s] show you the muted feature. Um, in this
 [86.8s] case, this is me muting my own audio so
-[88.7s] the the mentor doesn't hear what I'm
+[88.7s] the the agent doesn't hear what I'm
 [90.4s] saying. This is really helpful in case,
 [92.2s] you know, you're in an area with a lot
 [93.4s] of background noise, um, or you just
 [95.9s] need to take a pause from the
-[97.0s] conversation with the mentor. You can
+[97.0s] conversation with the agent. You can
 [98.9s] also see in the side panel where the
-[101.4s] mentor lives when you're not screen
+[101.4s] agent lives when you're not screen
 [103.0s] sharing. you're able to see the status
 [105.1s] in the screen sharing um and also adjust
 [107.5s] the the audio controls both for yourself
-[109.5s] and the mentor.
-[111.8s] Now, I'm going to ask the mentor a
+[109.5s] and the agent.
+[111.8s] Now, I'm going to ask the agent a
 [113.4s] question and I'm going to mute its audio
 [115.8s] so you can actually see the the
 [117.3s] conversation being streamed down below
@@ -50,7 +50,7 @@ https://www.youtube.com/watch?v=M5HT9RXJyqI
 [133.7s] I'm also going to mute myself just while
 [135.4s] it's it's streaming the the response.
 [137.3s] You can see right here that we can't
-[138.9s] hear the mentor, but we're still able to
+[138.9s] hear the agent, but we're still able to
 [141.0s] communicate via voice while receiving
 [143.5s] the text back.
 [145.5s] Now, another thing we have is the these
@@ -63,10 +63,10 @@ https://www.youtube.com/watch?v=M5HT9RXJyqI
 [160.4s] hit stop.
 [165.9s] So you can see here that this is the
 [167.8s] exact conversation that we were having
-[170.0s] with the mentor. And essentially these
+[170.0s] with the agent. And essentially these
 [172.0s] updates just make it easier for you know
-[174.2s] you to control what the mentor is
-[176.6s] hearing when you want the mentor to
+[174.2s] you to control what the agent is
+[176.6s] hearing when you want the agent to
 [178.4s] verbally respond or you know have the
 [180.9s] response inside the the preview. Um, and
 [184.4s] you also have track of the conversation

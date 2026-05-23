@@ -1,9 +1,9 @@
-mentorAI | Accessibility Menu
+Agentic OS | Accessibility Menu
 https://www.youtube.com/watch?v=YcdP57CUC2s
 
 [0.9s] Hello, I'm going to be showing you today
 [2.8s] a new accessibility feature that we have
-[4.8s] on Mentor AI. Now, this platform in and
+[4.8s] on Agent AI. Now, this platform in and
 [7.6s] of itself follows accessibility
 [9.4s] guidelines, but what we have done is
 [11.6s] added a way of allowing users to

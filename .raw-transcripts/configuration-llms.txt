@@ -1,32 +1,32 @@
-mentorAI | LLM Configuration
+Agentic OS | LLM Configuration
 https://www.youtube.com/watch?v=6_s7E7oB6ds
 
 [0.5s] AI is an LLM agnostic platform. Being
 [3.4s] LLM agnostic lets instructors match the
 [5.8s] large language model strengths uh to the
 [8.1s] sub subject matter rather than forcing
-[10.1s] every single mentor into a
+[10.1s] every single agent into a
 [12.3s] one-sizefits-all engine. For example, um
-[15.2s] a math mentor can tap into a model
+[15.2s] a math agent can tap into a model
 [17.0s] optimized for symbolic reasoning and
 [19.0s] step-by-step equation solving, while an
-[22.0s] English composition mentor um can switch
+[22.0s] English composition agent um can switch
 [24.8s] to a model fine-tuned uh on rhetorical
 [27.2s] structures or literary analysis or both.
 [30.3s] Um each would be delivering more clear,
 [32.7s] more accurate feedback within its own
 [34.2s] domain by selecting an LLM that meets
-[36.6s] the needs for that specific mentor. Um
+[36.6s] the needs for that specific agent. Um
 [39.6s] this flexibility not only lists learning
 [41.8s] outcomes but also futurep proofs uh you
-[44.5s] know your mentors with these specialized
-[46.9s] models. Now to switch your mentors model
+[44.5s] know your agents with these specialized
+[46.9s] models. Now to switch your agents model
 [50.4s] you have a couple of different ways of
 [51.7s] doing this. You can select the LLM model
 [53.8s] here which will pull up the list of LLM
 [56.3s] providers we currently have. Now we also
-[59.0s] can go to mentor AI right here which is
-[61.2s] the mentor we're currently using and
+[59.0s] can go to agent AI right here which is
+[61.2s] the agent we're currently using and
 [63.4s] select LLM. This will take you to the
 [65.3s] same page. Now, this is going to show
 [67.2s] you the providers. Um, now if if there's

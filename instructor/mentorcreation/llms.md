@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The LLMs panel lets you choose which large‑language model powers each mentor. mentorAI is model‑agnostic, so every tutor can run on the LLM that best fits its purpose—OpenAI GPT‑4 for nuanced writing help, Gemini for advanced reasoning, or even a custom model you integrate yourself.
+The LLMs panel lets you choose which large‑language model powers each agent. Agentic OS is model‑agnostic, so every tutor can run on the LLM that best fits its purpose—OpenAI GPT‑4 for nuanced writing help, Gemini for advanced reasoning, or even a custom model you integrate yourself.
 
 
 ![](/images/llms.png)
@@ -20,13 +20,13 @@ The LLMs panel lets you choose which large‑language model powers each mentor. 
 
 ## Features
 
-#### Per‑Mentor Flexibility
+#### Per‑Agent Flexibility
 
-Assign different LLMs to different mentors, tailoring performance, cost, and capabilities to each use case.
+Assign different LLMs to different agents, tailoring performance, cost, and capabilities to each use case.
 
 #### Two Quick Access Paths
 
-Open the provider list either by clicking the **model name** on the mentor card or by selecting the **LLM tab** from the mentor dropdown.
+Open the provider list either by clicking the **model name** on the agent card or by selecting the **LLM tab** from the agent dropdown.
 
 #### One‑Click Switching
 
@@ -46,12 +46,12 @@ Add **new or proprietary LLMs** at any time; they appear alongside built‑in op
 
 #### Open LLM Settings (Method 1)
 
-- On the **mentor card**, click the text showing the current LLM name  
+- On the **agent card**, click the text showing the current LLM name  
 - The provider list opens
 
 #### Open LLM Settings (Method 2)
 
-- Click the **mentor’s name** to open its dropdown  
+- Click the **agent’s name** to open its dropdown  
 - Select the **LLM tab**—arrives at the same provider list
 
 #### Pick a Provider & Model
@@ -76,17 +76,17 @@ Add **new or proprietary LLMs** at any time; they appear alongside built‑in op
 
 #### Domain‑Specific Tutors
 
-Connect a **healthcare mentor** to a medically fine‑tuned model while keeping a **literature mentor** on a more creative LLM.
+Connect a **healthcare agent** to a medically fine‑tuned model while keeping a **literature agent** on a more creative LLM.
 
 #### Cost Management
 
-Run high‑traffic, low‑stakes mentors on a **budget‑friendly model** and reserve premium models for **advanced courses**.
+Run high‑traffic, low‑stakes agents on a **budget‑friendly model** and reserve premium models for **advanced courses**.
 
 #### Experimental Research
 
 Quickly swap models to **compare answer quality, reasoning depth, or speed**—useful for instructional design studies.
 
-#### Language‑Focused Mentors
+#### Language‑Focused Agents
 
 Choose a **multilingual model** for language courses, ensuring better translation and pronunciation guidance.
 
@@ -96,4 +96,4 @@ Integrate an **on‑premise or proprietary LLM** for sensitive data scenarios, k
 
 ---
 
-With simple, **per‑mentor switching** and support for **custom models**, the **LLMs feature** ensures each tutor runs on the engine that best meets its educational goals.
+With simple, **per‑agent switching** and support for **custom models**, the **LLMs feature** ensures each tutor runs on the engine that best meets its educational goals.

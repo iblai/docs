@@ -1,7 +1,7 @@
-mentorAI | Chat History
+Agentic OS | Chat History
 https://www.youtube.com/watch?v=qtKPKlcxCjs
 
-[1.3s] One of the cool features of Mentor AI is
+[1.3s] One of the cool features of Agent AI is
 [3.3s] that you're actually able to track your
 [5.0s] learner's conversation history. Now,
 [6.9s] this is really great because a lot of
@@ -9,26 +9,26 @@ https://www.youtube.com/watch?v=qtKPKlcxCjs
 [10.2s] courses, you don't exactly know what's
 [12.0s] going on behind the scenes because you
 [13.4s] just don't have that visibility. Now,
-[15.3s] with Mentor AI, we give you that
+[15.3s] with Agent AI, we give you that
 [16.9s] visibility and that really, really helps
 [19.0s] with, you know, understanding what
 [20.4s] learners are asking, where they're
 [21.8s] struggling the most, so on and so forth.
 [24.8s] And I'm going to show you how to take a
-[26.1s] look at your chat history um on Mentor
-[28.9s] AI. So once you're in Mentor AI, you'll
-[31.8s] see this mentor name. We're going to
+[26.1s] look at your chat history um on Agent
+[28.9s] AI. So once you're in Agent AI, you'll
+[31.8s] see this agent name. We're going to
 [33.6s] click that dropdown and you'll see a
 [35.9s] couple of different tabs. Now what we're
 [37.6s] going to select is the history tab.
 [40.7s] Once you're here, what this is going to
 [42.2s] do is pull up all the chat history from
 [44.7s] each session that uh users have, you
-[47.8s] know, messaged mentor um and show you
+[47.8s] know, messaged agent um and show you
 [50.2s] here. So on this side, you can see all
-[53.0s] the chat history uh that this mentor has
+[53.0s] the chat history uh that this agent has
 [55.9s] had with various different learners.
-[58.8s] Now, if you have your mentor set to
+[58.8s] Now, if you have your agent set to
 [60.3s] anonymous, you would see anonymous
 [62.1s] instead of the user's actual name or
 [64.3s] username or email. And now, if you want
@@ -36,7 +36,7 @@ https://www.youtube.com/watch?v=qtKPKlcxCjs
 [69.1s] chat, you can. You'll just select the
 [70.5s] message that you want to dive deeper
 [71.8s] into. And what you'll see here is how
-[76.2s] the mentor responded and what that
+[76.2s] the agent responded and what that
 [78.1s] question was that the learner asked. So,
 [80.2s] this really helps you figure out, you
 [82.2s] know, if there's a specific topic that
@@ -55,19 +55,19 @@ https://www.youtube.com/watch?v=qtKPKlcxCjs
 [108.4s] do that. You can also filter by
 [110.2s] sentiment to see, you know, how learners
 [112.6s] are interpreting the responses from the
-[114.5s] mentor, whether they like them or not.
+[114.5s] agent, whether they like them or not.
 [116.4s] Um, and that'll also help you as an
 [118.6s] instructor define the system prompt a
-[120.6s] little bit more. If the mentor isn't
+[120.6s] little bit more. If the agent isn't
 [122.5s] responding in a way that makes sense to
 [124.3s] learners, maybe the system prompt needs
 [126.1s] a little bit of adjustment or maybe we
-[128.0s] need to train the mentor on additional
+[128.0s] need to train the agent on additional
 [129.8s] materials. It it really depends. Um but
 [133.5s] essentially this will give you an
 [134.6s] oversight of not only like where your
 [136.2s] learning gaps are or but where the
-[137.9s] mentor can even be improved. You can
+[137.9s] agent can even be improved. You can
 [139.8s] filter by topics as well. Um like I was
 [142.2s] saying earlier you can see you know
 [143.6s] what's being asked about most frequently
@@ -84,5 +84,5 @@ https://www.youtube.com/watch?v=qtKPKlcxCjs
 [167.4s] deeper evaluation,
 [169.4s] you would just simply hit this export
 [170.9s] button and download the file. And that's
-[173.8s] basically it. When it comes to uh mentor
+[173.8s] basically it. When it comes to uh agent
 [175.8s] chatistry,

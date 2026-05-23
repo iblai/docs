@@ -1,8 +1,8 @@
-mentorAI | Brightspace | Configuring LTI
+Agentic OS | Brightspace | Configuring LTI
 https://www.youtube.com/watch?v=xePQv8VC8Cc
 
 [0.9s] I'm going to be showing you how to
-[2.4s] integrate Mentor AI as an LTI 1.3
+[2.4s] integrate Agent AI as an LTI 1.3
 [5.4s] component in Brightpace. So, the first
 [8.5s] thing you're going to need to do is log
 [10.3s] in with your uh system admin account
@@ -38,12 +38,12 @@ https://www.youtube.com/watch?v=xePQv8VC8Cc
 [90.0s] basically remain the same for your
 [91.5s] organization um per LTI integration. But
 [94.6s] this target link URI will determine
-[97.0s] which exact mentor is being displayed.
+[97.0s] which exact agent is being displayed.
 [99.9s] So this one will change per LTI
 [101.9s] integration.
 [103.8s] Um you can use the assignments and grade
 [106.1s] services if you are using a grade
-[108.2s] passback mentor but in this case you
+[108.2s] passback agent but in this case you
 [110.5s] won't necessarily need
 [112.3s] it. And again you can see that we don't
 [115.5s] have any substitution parameters custom
@@ -68,7 +68,7 @@ https://www.youtube.com/watch?v=xePQv8VC8Cc
 [161.8s] necessary. And then for the
 [163.4s] configuration settings, again, if you do
 [165.2s] have any grading going on with this
-[167.4s] mentor, uh you'll select these two for
+[167.4s] agent, uh you'll select these two for
 [170.3s] grade
 [171.6s] passback. And then you will want to make
 [173.8s] the tool available to the org. Uh so
@@ -83,10 +83,10 @@ https://www.youtube.com/watch?v=xePQv8VC8Cc
 [193.4s] you know, what kind of description, URL,
 [195.7s] name, kind of launch it is, and all of
 [197.7s] that. So, I'm going to hit cancel here.
-[200.6s] We'll click on mentor AI.
+[200.6s] We'll click on agent AI.
 [204.0s] Now you'll see here we have the name,
 [206.2s] the URL which is going to be the same
-[208.1s] target URI that indicates which mentor
+[208.1s] target URI that indicates which agent
 [210.6s] is going to be displayed and the type of
 [212.9s] launch you're going to use is
 [215.1s] basic. So now that we have everything
@@ -98,11 +98,11 @@ https://www.youtube.com/watch?v=xePQv8VC8Cc
 [233.2s] We'll select a
 [235.8s] course. Going to click on course
 [240.8s] information. And then if we want to add
-[243.6s] new integration, specifically the mentor
+[243.6s] new integration, specifically the agent
 [245.8s] that we just set up, add existing. And
 [248.7s] you'll click on external tool
 [251.0s] activity. It'll show you what external
 [254.0s] tools you can uh add to that specific
 [256.8s] page in the course. You'll click on
-[258.0s] mentor AI.
-[261.3s] And you will have the mentor.
+[258.0s] agent AI.
+[261.3s] And you will have the agent.

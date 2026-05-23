@@ -1,36 +1,36 @@
-mentorAI | Phone Calls
+Agentic OS | Phone Calls
 https://www.youtube.com/watch?v=9NKX8KJJ184
 
-[0.9s] Mentor AI allows you to have
-[2.9s] voice-tovoice interactions with a mentor
+[0.9s] Agent AI allows you to have
+[2.9s] voice-tovoice interactions with an agent
 [5.0s] like you were having a conversation over
 [6.9s] the phone with a friend. So this
 [9.5s] basically means that there's going to be
 [11.0s] a more natural humanlike interaction for
 [13.1s] the learners when they communicate with
-[14.9s] voice to the mentor. You can have that
+[14.9s] voice to the agent. You can have that
 [16.9s] kind of back and forth you would in a
 [18.6s] traditional conversation with another
 [20.4s] person. This also improves um
-[23.2s] accessibility to the mentor platform um
+[23.2s] accessibility to the agent platform um
 [25.6s] as a whole as this allows people who
 [28.1s] might be visually impaired, have reading
 [30.0s] difficulties or any sort of other
 [32.4s] challenges that prevent them from being
 [34.0s] able to read a whole bunch of text, um
 [36.7s] they can have these kinds of
-[37.8s] conversations with the mentor via voice
+[37.8s] conversations with the agent via voice
 [40.2s] instead. It also allows for faster
 [42.9s] communication and more onthe-go style
 [45.0s] learning
 [46.7s] um because you can ask, you know, a
 [48.1s] whole lot of things at one time and just
-[50.2s] keep speaking with the mentor. Like I
+[50.2s] keep speaking with the agent. Like I
 [52.5s] said, as if you're having a conversation
 [54.0s] with like a tutor.
 [56.2s] This can also help you with things like
 [58.5s] language development. you know, you can
-[60.1s] ask the mentor how to pronounce certain
+[60.1s] ask the agent how to pronounce certain
 [62.2s] things if, you know, you're learning a
 [63.8s] new language or are struggling um with
 [66.8s] like a scientific term that's a little
@@ -43,22 +43,22 @@ https://www.youtube.com/watch?v=9NKX8KJJ184
 [80.6s] material.
 [82.5s] That being said, let's hop into seeing
 [84.2s] what this looks like.
-[86.4s] So, if we want to chat with the mentor,
+[86.4s] So, if we want to chat with the agent,
 [88.9s] we'll click on the voice input button
 [90.9s] here.
 [93.7s] And you'll see that this pops up a phone
 [95.8s] call.
 [97.6s] Now, I'm going to start chatting with
-[98.6s] the mentor.
-[101.4s] Great. IBLAI's mentor AI is designed to
+[98.6s] the agent.
+[101.4s] Great. IBLAI's agent AI is designed to
 [105.8s] provide 247 support acting as a personal
 [109.3s] tutor or teaching assistant based on the
 [111.6s] material provided by your institution.
 [114.1s] Feel free to ask questions or engage in
-[116.9s] learning paths and mentor AI will assist
+[116.9s] learning paths and agent AI will assist
 [120.2s] you. If you have any specific questions
 [123.2s] or need further guidance, let me know.
-[127.3s] Hi, Mentor AI. Can you help me practice
+[127.3s] Hi, Agent AI. Can you help me practice
 [129.4s] ordering food in Spanish?
 [133.0s] Of course. Let's practice ordering food
 [135.9s] in Spanish. I'll start by giving you an
@@ -109,10 +109,10 @@ https://www.youtube.com/watch?v=9NKX8KJJ184
 [263.7s] the starting point of World War II. If
 [266.8s] you need more questions or further
 [268.7s] assistance, feel free to ask. That's all
-[272.4s] for now. Thanks, Mentor AI.
+[272.4s] for now. Thanks, Agent AI.
 [276.2s] And basically, that's all you need to do
 [277.7s] to have a conversation. Uh it's very
 [279.6s] similar to, you know, how you would
-[281.4s] message the mentor or have a
+[281.4s] message the agent or have a
 [282.8s] conversation with another person. Um and
 [285.4s] yeah.

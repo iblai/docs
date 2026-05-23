@@ -4,7 +4,7 @@
 
 ## Description
 
-The **Financials tab** shows the **real cost** of running a specific mentorAI—broken down by **time period, provider, model, and even user**.  
+The **Financials tab** shows the **real cost** of running a specific Agentic OS—broken down by **time period, provider, model, and even user**.  
 Use it to monitor spending, compare weeks or months, and identify savings opportunities (e.g., switching models) without guesswork.
 
 ---
@@ -28,7 +28,7 @@ Filter by **Today**, **7 Days**, **Past Month**, or a **Custom Range**.
 Breaks out spending across **LLM providers** (e.g., *OpenAI → Gemini*), especially useful when evaluating provider switches.
 
 #### Cost by LLM
-Shows cost per **specific model** (e.g., *GPT-5 Latest*, *GPT-4.0 Mini*)—ideal for optimizing mentorAI’s **LLM-agnostic configuration**.
+Shows cost per **specific model** (e.g., *GPT-5 Latest*, *GPT-4.0 Mini*)—ideal for optimizing Agentic OS’s **LLM-agnostic configuration**.
 
 #### Cost per User
 A table listing **User**, **Total Cost**, **Sessions**, and **Last Active**—revealing heavy usage patterns and cost drivers.
@@ -41,7 +41,7 @@ All charts and tables automatically respect your **selected timeframe**.
 ## How to Use (step by step)
 
 #### Open Analytics → Financials
-- In the mentor header, click **Analytics**, then select **Financials**.
+- In the agent header, click **Analytics**, then select **Financials**.
 
 #### Read Headline Metrics
 - Review **Weekly**, **Monthly**, and **Total Costs**, and note the **week-over-week** or **month-over-month** comparisons.
@@ -61,7 +61,7 @@ All charts and tables automatically respect your **selected timeframe**.
 - Confirm that high usage aligns with course goals and expected outcomes.
 
 #### Decide & Iterate
-- Adjust your **mentor’s LLM/model**, **tools**, or **prompts** as needed.  
+- Adjust your **agent’s LLM/model**, **tools**, or **prompts** as needed.  
 - Recheck **Financials** after several days to verify savings and efficiency improvements.
 
 ---
@@ -72,7 +72,7 @@ All charts and tables automatically respect your **selected timeframe**.
 Monitor weekly and monthly spend to ensure programs stay within allocated budgets.
 
 #### Model Selection Strategy
-Use **Cost by LLM** to run high-stakes mentors on premium models and routine mentors on more cost-efficient ones.
+Use **Cost by LLM** to run high-stakes agents on premium models and routine agents on more cost-efficient ones.
 
 #### Cohort Management
 **Cost per User** helps highlight outliers for targeted guidance—encourage efficient usage among high-spending learners.
@@ -85,6 +85,6 @@ Compare **daily costs** before and after switching models or tools to validate s
 
 ---
 
-Use **Financials** to make **data-driven decisions** about providers, models, and usage—ensuring your mentors remain both **effective and fiscally responsible**.
+Use **Financials** to make **data-driven decisions** about providers, models, and usage—ensuring your agents remain both **effective and fiscally responsible**.
 
 

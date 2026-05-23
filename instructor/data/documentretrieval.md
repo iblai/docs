@@ -4,8 +4,8 @@
 
 ## Description
 
-**Document Retrieval** makes every mentorAI answer **transparent and verifiable**.  
-When a learner asks a question, the mentor:
+**Document Retrieval** makes every Agentic OS answer **transparent and verifiable**.  
+When a learner asks a question, the agent:
 
 1. **Cites** the exact source inside the reply (e.g., *“Lecture 11 — Slides 35–36”*)  
 2. **Shows** a dynamic **Source Panel** with the documents it used, ranked by relevance  
@@ -48,7 +48,7 @@ Use guided prompts to kick off a conversation when learners aren’t sure where 
 #### Ask a Question in Chat
 - Example:  
   > “What are key epidemiological study designs?”  
-- mentorAI reads your query, searches trained resources, and composes an answer with inline citations  
+- Agentic OS reads your query, searches trained resources, and composes an answer with inline citations  
 - Example citation:  
   > “These study designs are discussed in Lecture 2.10 of Prof. Quinlan’s course.”
 
@@ -65,10 +65,10 @@ Use guided prompts to kick off a conversation when learners aren’t sure where 
 - Select a listed document (lecture, slide deck, PDF) to view full context and deepen understanding
 
 #### (Admin) Control Visibility of Sources
-- Go to **Settings → Datasets** for the mentor  
+- Go to **Settings → Datasets** for the agent  
 - Use the **eye icon** in the Visible column to show or hide individual files:  
   - **Visible On** → learners can see/click the source in the panel  
-  - **Visible Off** → the mentor can still use the file for answers, but it won’t appear in the panel  
+  - **Visible Off** → the agent can still use the file for answers, but it won’t appear in the panel  
 - Changes apply instantly; **no retraining is required**
 
 ---
@@ -82,12 +82,12 @@ Teach students to verify claims and cite original materials—great for research
 Learners jump straight from an answer to the exact slide/page for fuller context.
 
 #### Instructor QA & Content Gaps
-Instructors can confirm the mentor cites the right sources and spot where additional materials are needed.
+Instructors can confirm the agent cites the right sources and spot where additional materials are needed.
 
 #### Assessment Support
 Link explanations to specific readings so students revisit core texts before quizzes or exams.
 
 #### Scaffolded Disclosure
-Keep some documents hidden (**Visible Off**) for assessments or proprietary content, while still letting the mentor draw on them to answer.
+Keep some documents hidden (**Visible Off**) for assessments or proprietary content, while still letting the agent draw on them to answer.
 
 ---

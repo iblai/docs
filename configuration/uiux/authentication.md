@@ -4,8 +4,8 @@
 
 ## Purpose
 
-Customize what appears on your **login page** for the **Mentor**, **Analytics**, and **Skills** platforms.  
-*(Example below uses Mentor.)*
+Customize what appears on your **login page** for the **Agent**, **Analytics**, and **Skills** platforms.  
+*(Example below uses Agent.)*
 
 ---
 
@@ -22,14 +22,14 @@ Customize what appears on your **login page** for the **Mentor**, **Analytics**,
 
 #### Edit Login Content
 
-- **Title:** e.g., *Ashland’s mentors*  
-- **Description:** e.g., *mentor AI for education*  
+- **Title:** e.g., *Ashland’s agents*  
+- **Description:** e.g., *agent AI for education*  
 - **Display Logo:** upload an image file or paste an image URL  
 - **Legal Links:** add URLs for *Privacy Policy* and *Terms of Service*  
 
 **Carousel Images:**  
 - Add one or more display images (upload or URL).  
-- *(Optional)* Add **alt text** for accessibility (e.g., *mentor chat*).
+- *(Optional)* Add **alt text** for accessibility (e.g., *agent chat*).
 
 #### Save
 

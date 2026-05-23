@@ -8,7 +8,7 @@
 
 ## Description
 
-The Code Interpreter tool lets mentorAI run Python code in-chat and display the resulting graphs, charts, tables, and other visualizations instantly. It’s ideal for math, statistics, data analysis, and any scenario where seeing the data makes concepts clearer—such as integrals, functions, distributions, or real-world datasets—directly alongside the explanation.
+The Code Interpreter tool lets Agentic OS run Python code in-chat and display the resulting graphs, charts, tables, and other visualizations instantly. It’s ideal for math, statistics, data analysis, and any scenario where seeing the data makes concepts clearer—such as integrals, functions, distributions, or real-world datasets—directly alongside the explanation.
 
 ---
 
@@ -21,52 +21,52 @@ The Code Interpreter tool lets mentorAI run Python code in-chat and display the 
 ## Features
 
 #### In-Chat Graphs & Visualizations
-Ask mentorAI to plot functions, integrals, histograms, bar charts, scatterplots, and more. Visuals appear directly below the AI’s response.
+Ask Agentic OS to plot functions, integrals, histograms, bar charts, scatterplots, and more. Visuals appear directly below the AI’s response.
 
 #### Python Sandbox Execution
-mentorAI safely runs Python code behind the scenes, enabling calculations, filtering, aggregation, and visualization without leaving the chat.
+Agentic OS safely runs Python code behind the scenes, enabling calculations, filtering, aggregation, and visualization without leaving the chat.
 
 #### Automatic Task Restatement
-Before executing, mentorAI restates your request (e.g., “Plot the integral of x² from 1 to 100”) so you can confirm it understood correctly.
+Before executing, Agentic OS restates your request (e.g., “Plot the integral of x² from 1 to 100”) so you can confirm it understood correctly.
 
 #### Immediate, Context-Aware Explanations
-After rendering a visualization, mentorAI explains what you’re seeing—highlighting trends, key values, comparisons, or anomalies.
+After rendering a visualization, Agentic OS explains what you’re seeing—highlighting trends, key values, comparisons, or anomalies.
 
 #### File-Based Data Analysis
-Upload spreadsheets or datasets (CSV, Excel, etc.) and ask mentorAI to:
+Upload spreadsheets or datasets (CSV, Excel, etc.) and ask Agentic OS to:
 - Analyze the data
 - Generate charts
 - Summarize patterns
 - Extract specific records
 
 #### Privacy-Aware Processing
-When datasets contain sensitive information, mentorAI follows privacy guardrails—automatically anonymizing or omitting restricted fields when generating outputs.
+When datasets contain sensitive information, Agentic OS follows privacy guardrails—automatically anonymizing or omitting restricted fields when generating outputs.
 
 #### Downloadable Results
-For certain requests, mentorAI can generate CSV outputs you can download and review outside the platform.
+For certain requests, Agentic OS can generate CSV outputs you can download and review outside the platform.
 
 ---
 
 ## How to Use (step by step)
 
 #### Verify the Tool Is Enabled
-In the mentor sidebar, confirm Code Interpreter is toggled On.
+In the agent sidebar, confirm Code Interpreter is toggled On.
 
 #### Enter Your Request
 Type a prompt in the chat, such as:
 
 > ”Plot the integral of x² from 1 to 100.”
 
-#### MentorAI Restates the Task
+#### Agentic OS Restates the Task
 The AI echoes your request to confirm understanding, for example:
 
 > “Sure — plotting ∫ x² dx from 1 to 100.”
 
 #### View the Generated Output
-mentorAI runs the code and displays the visualization directly in the chat.
+Agentic OS runs the code and displays the visualization directly in the chat.
 
 #### Review the Explanation
-Beneath the output, mentorAI explains what the graph or table represents and why it matters.
+Beneath the output, Agentic OS explains what the graph or table represents and why it matters.
 
 #### Iterate or Refine
 You can ask follow-up prompts such as:
@@ -74,7 +74,7 @@ You can ask follow-up prompts such as:
 > ”Zoom into x = 1 to 10.”  
 > ”Overlay y = x³ for comparison.”  
 
-mentorAI updates the visualization accordingly.
+Agentic OS updates the visualization accordingly.
 
 ---
 
@@ -88,7 +88,7 @@ For example:
 
 > “Show me a graph of the campuses with the most incidents reported.“
 
-mentorAI will:
+Agentic OS will:
 - Analyze the uploaded data  
 - Aggregate values as needed  
 - Render a chart (e.g., bar graph)  
@@ -101,7 +101,7 @@ You can also request specific subsets of the data, for example:
 
 > ”Show me all records involving hydrochloric acid.”
 
-In this case, mentorAI may:
+In this case, Agentic OS may:
 - Provide a short executive summary  
 - Generate a CSV file containing only the relevant records  
 - Include a download link so you can open the data externally  
@@ -130,4 +130,4 @@ Replicate textbook graphs or lab figures to verify understanding or test “what
 
 ---
 
-With Code Interpreter enabled, you can move seamlessly from raw data or abstract equations to clear visuals, summaries, and downloadable results—all inside mentorAI.
+With Code Interpreter enabled, you can move seamlessly from raw data or abstract equations to clear visuals, summaries, and downloadable results—all inside Agentic OS.

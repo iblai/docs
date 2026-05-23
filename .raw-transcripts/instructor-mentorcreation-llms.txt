@@ -1,7 +1,7 @@
-mentorAI | LLMs
+Agentic OS | LLMs
 https://www.youtube.com/watch?v=pPpfyhh-43s
 
-[0.7s] One of the key features of Mentor AI is
+[0.7s] One of the key features of Agent AI is
 [3.2s] the ability to customize your LLM
 [5.4s] integrations and having this be a
 [7.8s] completely LLM agnostic platform. You
@@ -13,7 +13,7 @@ https://www.youtube.com/watch?v=pPpfyhh-43s
 [20.8s] And if we open this up, it'll take you
 [22.4s] to a page with all the different LLM
 [24.2s] providers. Now, another way of getting
-[26.6s] there is if you select the mentor name
+[26.6s] there is if you select the agent name
 [29.0s] and then you'll see a dropown and this
 [31.6s] LLM tab will take you to the exact same
 [33.7s] place.

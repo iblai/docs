@@ -18,43 +18,43 @@ Resources are identified by hierarchical paths rooted at a platform:
 
 ```
 /platforms/{platform_pk}/                              ← platform root
-/platforms/{platform_pk}/mentors/                      ← mentor collection
-/platforms/{platform_pk}/mentors/{mentor_id}/          ← specific mentor
-/platforms/{platform_pk}/mentors/{id}/documents/       ← nested collection
-/platforms/{platform_pk}/mentors/{id}/documents/{id}/  ← nested instance
+/platforms/{platform_pk}/agents/                      ← agent collection
+/platforms/{platform_pk}/agents/{mentor_id}/          ← specific agent
+/platforms/{platform_pk}/agents/{id}/documents/       ← nested collection
+/platforms/{platform_pk}/agents/{id}/documents/{id}/  ← nested instance
 /platforms/{platform_pk}/llms/openai/models/gpt-4o/    ← LLM model resource
 /platforms/{platform_pk}/usergroups/                    ← teams collection
 ```
 
-Matching is **hierarchical**: a policy's roles apply to the target resource and all its children. For example, a policy scoped to `/platforms/1/mentors/5/` also applies to `/platforms/1/mentors/5/documents/`, `/platforms/1/mentors/5/prompts/`, etc. A policy scoped to `/platforms/1/` applies to every resource under that platform.
+Matching is **hierarchical**: a policy's roles apply to the target resource and all its children. For example, a policy scoped to `/platforms/1/agents/5/` also applies to `/platforms/1/agents/5/documents/`, `/platforms/1/agents/5/prompts/`, etc. A policy scoped to `/platforms/1/` applies to every resource under that platform.
 
 ### Actions
 
 Actions follow the format `{Provider}.{Namespace}/{Resource}/{Operation}`:
 
 ```
-Ibl.Mentor/Mentors/read       ← read a mentor
-Ibl.Mentor/Mentors/list       ← list mentors
-Ibl.Mentor/Mentors/write      ← update a mentor
-Ibl.Mentor/Mentors/action     ← create a mentor
-Ibl.Mentor/Mentors/delete     ← delete a mentor
-Ibl.Mentor/Chat/action        ← chat with a mentor
-Ibl.Mentor/Settings/read      ← read mentor settings
+Ibl.Agent/Agents/read       ← read an agent
+Ibl.Agent/Agents/list       ← list agents
+Ibl.Agent/Agents/write      ← update an agent
+Ibl.Agent/Agents/action     ← create an agent
+Ibl.Agent/Agents/delete     ← delete an agent
+Ibl.Agent/Chat/action        ← chat with an agent
+Ibl.Agent/Settings/read      ← read agent settings
 Ibl.Core/UserGroups/list      ← list teams
 Ibl.Analytics/CanViewAnalytics/action ← view analytics
 ```
 
-Wildcards are supported: `Ibl.Mentor/*` matches all mentor actions. `Ibl.*` matches everything.
+Wildcards are supported: `Ibl.Agent/*` matches all agent actions. `Ibl.*` matches everything.
 
 ### Data Actions
 
 Data actions control **field-level** access. Format: `{Provider}.{Namespace}/{Resource}/{field_name}/{operation}`:
 
 ```
-Ibl.Mentor/Settings/display_name/read    ← can read the display_name field
-Ibl.Mentor/Settings/display_name/write   ← can write the display_name field
-Ibl.Mentor/Settings/*/read               ← can read all settings fields
-Ibl.Mentor/Mentors/*                     ← full field access on mentors
+Ibl.Agent/Settings/display_name/read    ← can read the display_name field
+Ibl.Agent/Settings/display_name/write   ← can write the display_name field
+Ibl.Agent/Settings/*/read               ← can read all settings fields
+Ibl.Agent/Agents/*                     ← full field access on agents
 ```
 
 When a user lacks read permission on a field, the API returns an empty value (empty string, empty list, or empty dict) for that field. When a user lacks write permission, the API rejects the update with a 403 permission error..
@@ -70,11 +70,11 @@ Built-in roles include:
 | Role | Purpose |
 |------|---------|
 | Tenant Admin | Full access |
-| Students | Chat, read mentor settings, manage own artifacts |
-| Mentor Viewer | Read-only access to mentor settings, documents, prompts |
-| Mentor Editor | Full read/write to mentor settings, documents, prompts |
-| Mentor Chat | Chat access (same actions as Students) |
-| Student Mentor Creators | Can create mentors |
+| Students | Chat, read agent settings, manage own artifacts |
+| Agent Viewer | Read-only access to agent settings, documents, prompts |
+| Agent Editor | Full read/write to agent settings, documents, prompts |
+| Agent Chat | Chat access (same actions as Students) |
+| Student Agent Creators | Can create agents |
 | Analytics Viewer | Can view analytics for teams they have the analytics permissions on|
 | Notification Manager | Can send notifications to teams they have the notifications permission on, manage templates |
 | Enrollment Manager | Course/program/pathway enrollments; can invite users to the platform |
@@ -113,11 +113,11 @@ An **RBAC Group** (`RbacGroup`) is a collection of users. Assigning a group to a
 
 **Owner roles** — applied automatically when the requesting user owns the resource in question:
 
-`mentor-owner`, `document-owner`, `prompt-owner`, `user-group-owner`, `artifact-owner`, `memory-owner`, `workflow-owner`, `mcp-server-owner`, `mcp-server-connection-owner`, `connected-service-owner`
+`agent-owner`, `document-owner`, `prompt-owner`, `user-group-owner`, `artifact-owner`, `memory-owner`, `workflow-owner`, `mcp-server-owner`, `mcp-server-connection-owner`, `connected-service-owner`
 
-For nested resources (documents, prompts), ownership of the parent mentor also grants the owner role.
+For nested resources (documents, prompts), ownership of the parent agent also grants the owner role.
 
-Owner roles give the creator full control over their resources without requiring explicit policy assignments. For example, a student with the `Students` role who creates a mentor automatically gets `mentor-owner` permissions on that mentor so can fully manage it.
+Owner roles give the creator full control over their resources without requiring explicit policy assignments. For example, a student with the `Students` role who creates an agent automatically gets `agent-owner` permissions on that agent so can fully manage it.
 
 ### Permission Evaluation Flow
 
@@ -163,8 +163,8 @@ Manage role definitions. Action prefix: `Ibl.Core/Roles/`
 {
   "name": "Custom Role",
   "platform_key": "my-platform",
-  "actions": ["Ibl.Mentor/Mentors/read", "Ibl.Mentor/Chat/action"],
-  "data_actions": ["Ibl.Mentor/Settings/*/read"]
+  "actions": ["Ibl.Agent/Agents/read", "Ibl.Agent/Chat/action"],
+  "data_actions": ["Ibl.Agent/Settings/*/read"]
 }
 ```
 
@@ -174,8 +174,8 @@ Manage role definitions. Action prefix: `Ibl.Core/Roles/`
   "id": 42,
   "name": "Custom Role",
   "platform": 1,
-  "actions": ["Ibl.Mentor/Mentors/read", "Ibl.Mentor/Chat/action"],
-  "data_actions": ["Ibl.Mentor/Settings/*/read"]
+  "actions": ["Ibl.Agent/Agents/read", "Ibl.Agent/Chat/action"],
+  "data_actions": ["Ibl.Agent/Settings/*/read"]
 }
 ```
 
@@ -211,7 +211,7 @@ Manage policy assignments. Action prefix: `Ibl.Core/Policies/`
   "platform_key": "my-platform",
   "name": "My Policy",
   "role_id": 42,
-  "resources": ["/platforms/1/mentors/"],
+  "resources": ["/platforms/1/agents/"],
   "user_ids": [101, 102],
   "group_ids": [5]
 }
@@ -271,9 +271,9 @@ POST /api/core/rbac/permissions/check/
 {
   "platform_key": "my-platform",
   "resources": [
-    "/mentors/",
-    "/mentors/42/",
-    "/mentors/42/documents/",
+    "/agents/",
+    "/agents/42/",
+    "/agents/42/documents/",
     "/usergroups/"
   ]
 }
@@ -282,12 +282,12 @@ POST /api/core/rbac/permissions/check/
 **Response:**
 ```json
 {
-  "/mentors/": {
+  "/agents/": {
     "list": true,
     "create": false,
     "chat": true
   },
-  "/mentors/42/": {
+  "/agents/42/": {
     "read": true,
     "write": true,
     "delete": true,
@@ -297,7 +297,7 @@ POST /api/core/rbac/permissions/check/
     "view_prompts": true,
     "view_chat_history": true
   },
-  "/mentors/42/documents/": {
+  "/agents/42/documents/": {
     "list": true,
     "create": true
   },
@@ -310,26 +310,26 @@ POST /api/core/rbac/permissions/check/
 
 The permissions returned depend on the resource type. See the [Supported Resource Types](#supported-resource-types) section for what each resource type returns.
 
-This endpoint accounts for ownership: if the user owns a mentor, the owner well-known role is applied automatically.
+This endpoint accounts for ownership: if the user owns an agent, the owner well-known role is applied automatically.
 
 ---
 
-### Mentor Access Management
+### Agent Access Management
 
-Grant/revoke user access to specific mentors.
+Grant/revoke user access to specific agents.
 
 | Method | Path | Required Action |
 |--------|------|-----------------|
-| POST | `/api/core/rbac/mentor-access/` | `Ibl.Mentor/ShareMentor/action` |
-| GET | `/api/core/rbac/mentor-access/?platform_key={key}&mentor_id={id}` | `Ibl.Mentor/ShareMentor/read` |
+| POST | `/api/core/rbac/agent-access/` | `Ibl.Agent/ShareMentor/action` |
+| GET | `/api/core/rbac/agent-access/?platform_key={key}&mentor_id={id}` | `Ibl.Agent/ShareMentor/read` |
 
-Checked against the mentor's resource path (`/platforms/{pk}/mentors/{mentor_id}/`). Owner role applies if the user created the mentor.
+Checked against the agent's resource path (`/platforms/{pk}/agents/{mentor_id}/`). Owner role applies if the user created the agent.
 
 **POST body:**
 ```json
 {
   "platform_key": "my-platform",
-  "mentor_id": "unique-mentor-uuid",
+  "mentor_id": "unique-agent-uuid",
   "role": "viewer",
   "users_to_add": [101, 102],
   "users_to_remove": [103],
@@ -342,7 +342,7 @@ You can optionally use `usernames_to_add` and `emails_to_add` instead of `users_
 
 Valid `role` values: `"chat"`, `"viewer"`, `"editor"`
 
-**GET response:** Returns all access policies for the mentor.
+**GET response:** Returns all access policies for the agent.
 
 ---
 
@@ -390,7 +390,7 @@ Bulk add/remove/replace named policies for users.
   {
     "user_id": 101,
     "platform_key": "my-platform",
-    "policies_to_add": ["Analytics Viewer", "Mentor Chat"],
+    "policies_to_add": ["Analytics Viewer", "Agent Chat"],
     "policies_to_remove": ["Notification Manager"]
   }
 ]
@@ -404,13 +404,13 @@ Only policies from the platform's assignable list are allowed.
 
 ---
 
-### Student Mentor Creation Toggle
+### Student Agent Creation Toggle
 
-Control whether students can create mentors on a platform. Requires platform admin access (no additional RBAC action).
+Control whether students can create agents on a platform. Requires platform admin access (no additional RBAC action).
 
 ```
-POST /api/core/rbac/student-mentor-creation/set/
-GET  /api/core/rbac/student-mentor-creation/status/?platform_key={key}
+POST /api/core/rbac/student-agent-creation/set/
+GET  /api/core/rbac/student-agent-creation/status/?platform_key={key}
 ```
 
 **POST body:**
@@ -421,7 +421,7 @@ GET  /api/core/rbac/student-mentor-creation/status/?platform_key={key}
 }
 ```
 
-This adds/removes the Students group from the Mentor Creator policy.
+This adds/removes the Students group from the Agent Creator policy.
 
 ---
 
@@ -456,7 +456,7 @@ API responses typically include a `permissions` object:
 ```json
 {
   "id": 42,
-  "display_name": "My Mentor",
+  "display_name": "My Agent",
   "description": "",
   "permissions": {
     "field": {
@@ -486,11 +486,11 @@ This metadata enables UIs to:
 ## Supported Resource Types
 
 ### Collection-level operations
-Resources ending in a type name (e.g., `/platforms/1/mentors/`):
+Resources ending in a type name (e.g., `/platforms/1/agents/`):
 
 | Resource Type | Operations |
 |---------------|-----------|
-| `mentors` | list, create, chat, web_search, attach_document, voice_record, voice_call, export_chat_history, view_chat_history, view_analytics, view_prompts, share, sell_mentor |
+| `agents` | list, create, chat, web_search, attach_document, voice_record, voice_call, export_chat_history, view_chat_history, view_analytics, view_prompts, share, sell_mentor |
 | `prompts` | list, create |
 | `documents` | list, create |
 | `tools` | list, create |
@@ -504,11 +504,11 @@ Resources ending in a type name (e.g., `/platforms/1/mentors/`):
 | `roles` | list, create |
 
 ### Instance-level operations
-Resources ending in an ID (e.g., `/platforms/1/mentors/42/`):
+Resources ending in an ID (e.g., `/platforms/1/agents/42/`):
 
 | Resource Type | Operations |
 |---------------|-----------|
-| `mentors` | read, write, delete, chat, web_search, attach_document, voice_record, voice_call, export_chat_history, view_chat_history, view_analytics, view_prompts, show_settings, share_mentor, read_shared_mentor, sell_mentor, can_use_embed, view_moderation_logs, view_safety_logs, view_disclaimers, view_prompts_menu, view_tools_menu, view_disclaimers_menu |
+| `agents` | read, write, delete, chat, web_search, attach_document, voice_record, voice_call, export_chat_history, view_chat_history, view_analytics, view_prompts, show_settings, share_mentor, read_shared_mentor, sell_mentor, can_use_embed, view_moderation_logs, view_safety_logs, view_disclaimers, view_prompts_menu, view_tools_menu, view_disclaimers_menu |
 | `prompts` | read, write, delete |
 | `documents` | read, write, delete |
 | `tools` | read, write, delete |
@@ -524,9 +524,9 @@ Resources ending in an ID (e.g., `/platforms/1/mentors/42/`):
 
 Permissions are **additive**. If any policy grants an action, it's allowed.
 
-Example: A user in the "Students" group with an additional "Mentor Editor" policy on `/platforms/1/mentors/5/` gets:
-- Student-level permissions on all platform resources (chat, list mentors, etc.)
-- Editor-level permissions on mentor 5 specifically (write settings, manage documents, etc.)
+Example: A user in the "Students" group with an additional "Agent Editor" policy on `/platforms/1/agents/5/` gets:
+- Student-level permissions on all platform resources (chat, list agents, etc.)
+- Editor-level permissions on agent 5 specifically (write settings, manage documents, etc.)
 
 ## Action Pattern Matching
 
@@ -534,15 +534,15 @@ Actions support `*` as a wildcard to match any segment:
 
 | Pattern | Matches |
 |---------|---------|
-| `Ibl.Mentor/Settings/read` | Exactly `Ibl.Mentor/Settings/read` |
-| `Ibl.Mentor/Settings/*` | `Ibl.Mentor/Settings/read`, `Ibl.Mentor/Settings/write`, etc. |
-| `Ibl.Mentor/*` | Any mentor action |
+| `Ibl.Agent/Settings/read` | Exactly `Ibl.Agent/Settings/read` |
+| `Ibl.Agent/Settings/*` | `Ibl.Agent/Settings/read`, `Ibl.Agent/Settings/write`, etc. |
+| `Ibl.Agent/*` | Any agent action |
 | `Ibl.*` | Everything (Tenant Admin) |
 
 Data action wildcards work the same way:
 
 | Pattern | Matches |
 |---------|---------|
-| `Ibl.Mentor/Settings/display_name/read` | Read the display_name field |
-| `Ibl.Mentor/Settings/*/read` | Read any settings field |
-| `Ibl.Mentor/Settings/*` | Read and write any settings field |
+| `Ibl.Agent/Settings/display_name/read` | Read the display_name field |
+| `Ibl.Agent/Settings/*/read` | Read any settings field |
+| `Ibl.Agent/Settings/*` | Read and write any settings field |

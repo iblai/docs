@@ -4,7 +4,7 @@
 
 ## Description
 
-**Socratic Mode** helps mentors teach **thinking—not just answers**. Instead of delivering full solutions, mentorAI gives a concise nudge and follows up with guiding questions that drive **analysis, application, and comparison**.  
+**Socratic Mode** helps agents teach **thinking—not just answers**. Instead of delivering full solutions, Agentic OS gives a concise nudge and follows up with guiding questions that drive **analysis, application, and comparison**.  
 It’s ideal for universities shifting away from rote memorization toward deeper **critical-thinking skills**.
 
 ---
@@ -25,7 +25,7 @@ Each response gives a **1–3 sentence high-leverage insight**, then **2–4 gui
 When paired with **Document Retrieval**, replies can cite the exact section/page (e.g., *“Intro to Political Science — Ch. 3, civil liberties”*) and offer hints or case studies from the text.
 
 #### Simple Setup
-In any mentor’s **System Prompt**, set the interaction style to *“Socratic by default.”* Save changes—edit anytime.
+In any agent’s **System Prompt**, set the interaction style to *“Socratic by default.”* Save changes—edit anytime.
 
 #### Starter Templates for Students
 Add **built-in question starters** so learners can begin even when they’re unsure how to ask.
@@ -38,7 +38,7 @@ Admins/instructors refine **tone, question patterns, and citation behavior**; st
 ## How to Use (step by step)
 
 #### Open the Prompt Editor
-- Click the mentor’s name → **Prompts → System Prompt**
+- Click the agent’s name → **Prompts → System Prompt**
 
 #### Set the Socratic Style
 Add language such as:
@@ -54,7 +54,7 @@ Enable **Document Retrieval** so replies cite specific sections/pages and the **
 In **Prompts**, create **Suggested/Guided starters** to help students begin.
 
 #### Test the Experience (Student View)
-- Use (for example) a **Political Science 101 mentor** trained on an OpenStax text  
+- Use (for example) a **Political Science 101 agent** trained on an OpenStax text  
 - Ask:  
   > “What factors impact civil liberties in democracies?”  
 - Expect a concise **1–3 sentence overview** plus guiding questions like:  
@@ -65,7 +65,7 @@ In **Prompts**, create **Suggested/Guided starters** to help students begin.
 #### Continue with Follow-Ups
 - Example:  
   > “Can you explain political legitimacy further?”  
-- The mentor again provides a **high-level nudge**, cites source(s) if enabled, and follows with **2–4 new guiding questions**
+- The agent again provides a **high-level nudge**, cites source(s) if enabled, and follows with **2–4 new guiding questions**
 
 #### Iterate & Refine
 - Adjust the **System Prompt wording, tone, or number of guiding questions** as you review outcomes in **History**
@@ -97,4 +97,4 @@ Works for:
 
 ---
 
-**Socratic Mode** turns mentorAI into a **coach for thinking**: concise cues, targeted questions, and source-aware nudges that help students build **durable understanding**—without reverting to rote memorization.
+**Socratic Mode** turns Agentic OS into a **coach for thinking**: concise cues, targeted questions, and source-aware nudges that help students build **durable understanding**—without reverting to rote memorization.

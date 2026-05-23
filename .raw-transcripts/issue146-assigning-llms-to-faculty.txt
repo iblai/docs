@@ -1,9 +1,9 @@
-mentorAI | LLM Assignment
+Agentic OS | LLM Assignment
 https://www.youtube.com/watch?v=VLKQ_tX2L9k
 
 [1.9s] I'm going to show you how you can assign
 [3.8s] an LLM to a particular user who has
-[7.4s] mentor editing access. So in this case,
+[7.4s] agent editing access. So in this case,
 [10.2s] if we go to the access tab, you can see
 [12.4s] this editor role. And if we click on
 [14.2s] actions, you can see that this user has
@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=VLKQ_tX2L9k
 [20.2s] permissions to all LLMs that you see
 [23.1s] here as a tenant admin. Um, but it does,
 [27.0s] you know, give them the ability to edit
-[28.9s] mentors in other areas like the prompts,
+[28.9s] agents in other areas like the prompts,
 [31.0s] data set, so on and so forth. Now, if we
 [33.8s] want somebody to be only limited to a
 [36.2s] particular LLM, the way we would do this
@@ -52,7 +52,7 @@ https://www.youtube.com/watch?v=VLKQ_tX2L9k
 [117.8s] or you can do a particular user. So I'm
 [120.2s] going to do the same user we've already
 [121.4s] given access to
-[123.6s] um to edit mentors and then
+[123.6s] um to edit agents and then
 [129.3s] oops we're going to exit out of that and
 [131.0s] then we're going to hit save policy. So
 [133.4s] we'll open this back up just so you can
@@ -64,7 +64,7 @@ https://www.youtube.com/watch?v=VLKQ_tX2L9k
 [150.6s] So, we're going to log in.
 [160.6s] All righty.
 [166.1s] And once we log in, we're actually
-[167.8s] already on the mentor that we have
+[167.8s] already on the agent that we have
 [169.1s] editing access over. And if we click on
 [171.5s] LLMs here, um since we already have the
 [174.1s] OpenAI model in one of the other
@@ -76,11 +76,11 @@ https://www.youtube.com/watch?v=VLKQ_tX2L9k
 [187.0s] these options whereas tenant admins will
 [188.8s] have access to all LLMs. Um and this is
 [192.6s] essentially how you can limit access to
-[194.1s] particular LMS on a per mentor basis per
+[194.1s] particular LMS on a per agent basis per
 [197.0s] user basis. Um this can also be um on
-[200.2s] platformwide. So any other mentor um I
+[200.2s] platformwide. So any other agent um I
 [203.0s] would only have access to these but we
 [204.5s] could also limit it down to a particular
-[206.2s] mentor itself. Um saying these are the
-[209.0s] only two while other mentors can have
+[206.2s] agent itself. Um saying these are the
+[209.0s] only two while other agents can have
 [211.2s] access to additional models.

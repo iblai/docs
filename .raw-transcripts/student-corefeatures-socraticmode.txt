@@ -1,4 +1,4 @@
-mentorAI | Socratic Mode Demo
+Agentic OS | Socratic Mode Demo
 https://www.youtube.com/watch?v=1_E4rFHK-No
 
 [0.3s] Hey, what's going on everybody? This is
@@ -19,18 +19,18 @@ https://www.youtube.com/watch?v=1_E4rFHK-No
 [41.5s] knowledge instead of just memorizing
 [43.9s] core facts that you can regurgitate
 [46.2s] later. So a very common question that we
-[49.0s] get is how through these mentors are you
+[49.0s] get is how through these agents are you
 [53.0s] able to promote critical thinking and
 [55.4s] the way that we are able to do this is
 [57.7s] through Socratic mode so to speak. What
 [61.8s] I mean by this is within the system
-[64.6s] prompt for each one of these mentors,
+[64.6s] prompt for each one of these agents,
 [66.4s] which you can think of as the
 [67.8s] instruction manual, you can kind of
-[71.3s] design the mentor's personality, its
+[71.3s] design the agent's personality, its
 [74.0s] style of communication, and more. So,
 [76.6s] within the system prompt, you can let
-[78.2s] the mentor know that you shouldn't be
+[78.2s] the agent know that you shouldn't be
 [80.6s] sharing an entire answer with students.
 [83.0s] That's not helping them. That's actually
 [84.6s] hurting them in the long run. What you
@@ -44,7 +44,7 @@ https://www.youtube.com/watch?v=1_E4rFHK-No
 [103.7s] just memorizing,
 [106.3s] you know, rope facts. So, what I'm
 [109.0s] showing you here is a political science
-[111.0s] 101 mentor. It's trained on the open
+[111.0s] 101 agent. It's trained on the open
 [115.5s] stacks uh open resource introductory to
 [118.6s] political science textbook
 [121.0s] and within the system prompt
@@ -52,7 +52,7 @@ https://www.youtube.com/watch?v=1_E4rFHK-No
 [126.6s] basically how we set this up. So the
 [128.6s] core interaction style should be
 [130.5s] socratic by default meaning that the
-[132.6s] mentor should not provide full
+[132.6s] agent should not provide full
 [134.5s] exhaustive answers by default. In each
 [137.7s] reply, share a small high lever piece of
 [140.8s] the answer, no more than one to three
@@ -60,7 +60,7 @@ https://www.youtube.com/watch?v=1_E4rFHK-No
 [145.1s] guiding questions that prompt the
 [146.6s] student to reason, apply, or compare
 [149.4s] concepts within the system prompts for
-[151.9s] the mentors that we have. You can come
+[151.9s] the agents that we have. You can come
 [153.5s] back and make any changes at any time
 [155.3s] that you see fit just by editing what's
 [157.8s] already there, uh, copying and pasting
@@ -69,25 +69,25 @@ https://www.youtube.com/watch?v=1_E4rFHK-No
 [164.1s] portions of the system prompt that
 [165.4s] aren't working for you. So, if you don't
 [169.0s] have a Socratic style communicating
-[171.8s] mentor, it's as simple as just going
+[171.8s] agent, it's as simple as just going
 [173.9s] into the system prompt and letting it
 [175.8s] know that that's how it should
 [177.1s] communicate with students. Once we've
 [179.5s] saved that,
-[181.4s] the mentor now knows that's how I'm
+[181.4s] the agent now knows that's how I'm
 [183.8s] going to communicate. So, what we have
 [185.8s] down here are a number of starter
 [188.3s] templates, so to speak. These are
 [190.3s] questions that students can just select
 [192.2s] to kick off a conversation. If they come
-[194.3s] into the mentor and know that they need
+[194.3s] into the agent and know that they need
 [197.0s] help, but don't really know where to get
 [198.6s] that conversation started, this is just
 [200.9s] one way to kick that off. So, for the
 [203.7s] purpose of this demo, I'm going to
 [205.0s] select one of these. What factors impact
 [207.8s] civil liberties in democracies?
-[211.5s] So, the mentor like I uh have instructed
+[211.5s] So, the agent like I uh have instructed
 [214.2s] it within the system prompt is going to
 [216.6s] provide that quick high-level one to
 [219.1s] three sentence overview response for the
@@ -118,7 +118,7 @@ https://www.youtube.com/watch?v=1_E4rFHK-No
 [275.4s] example, I'm going to ask another guided
 [277.4s] question here. Can you explain political
 [279.4s] legitimacy further? And again, the
-[281.6s] mentor does exactly what I want it to
+[281.6s] agent does exactly what I want it to
 [283.3s] do. It's citing where it pulled the
 [285.5s] information from, giving me a very
 [287.8s] quick, high-level overview for the

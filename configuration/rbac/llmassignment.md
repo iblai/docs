@@ -4,13 +4,13 @@
 
 ## Purpose
 
-Assign specific LLMs to individual users or groups so mentor editors only see the models they are authorized to use, rather than every model available to tenant admins.
+Assign specific LLMs to individual users or groups so agent editors only see the models they are authorized to use, rather than every model available to tenant admins.
 
 ---
 
 ## Prerequisites
 
-- The user must already have **mentor editor** access (visible on the mentor's **Access** tab)
+- The user must already have **agent editor** access (visible on the agent's **Access** tab)
 - A role with LLM-related actions must exist (or you will create one)
 
 ---
@@ -42,7 +42,7 @@ Assign specific LLMs to individual users or groups so mentor editors only see th
 ## Verify as the User
 
 1. Log in as the assigned user.
-2. Open a mentor and click the **LLMs** tab.
+2. Open an agent and click the **LLMs** tab.
 3. Confirm that only the assigned models appear (e.g., GPT-4o Mini, Google, Perplexity).
 4. Tenant admins will still see all LLMs; restricted users see only their assigned models.
 
@@ -50,8 +50,8 @@ Assign specific LLMs to individual users or groups so mentor editors only see th
 
 ## Scope Options
 
-- **Platform-wide**: the user sees the same limited LLM set across all mentors
-- **Per-mentor**: restrict LLM access to specific mentors by adjusting the policy resource to a particular mentor rather than the whole platform
+- **Platform-wide**: the user sees the same limited LLM set across all agents
+- **Per-agent**: restrict LLM access to specific agents by adjusting the policy resource to a particular agent rather than the whole platform
 
 ---
 

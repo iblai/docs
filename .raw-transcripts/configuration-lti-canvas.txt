@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=vw1hrcZWsRU
 [49.1s] and that'll bring up a content selection
 [50.7s] menu so you can choose the content you
 [52.6s] want to integrate with. We'll select the
-[55.5s] career path mentor
+[55.5s] career path agent
 [58.2s] and then we'll get the target link URI
 [60.0s] returned for us and then also a
 [61.4s] suggested title. So, we can add the item

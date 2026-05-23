@@ -1,15 +1,15 @@
-mentorAI | Study Support Mentor
+Agentic OS | Study Support Agent
 https://www.youtube.com/watch?v=c1XS52kKus4
 
 [1.3s] I'm going to be showing you our study
-[2.9s] support mentor that helps connect
+[2.9s] support agent that helps connect
 [5.1s] students with different study supports
 [8.2s] on their given uh university's campus.
 [10.8s] So, for example, this could connect
 [12.5s] learners to tutoring centers, to writing
 [16.4s] labs, academic workshops, so on and so
 [18.7s] forth. Um, this is going to be a 247
-[21.7s] mentor. So, this is really great for
+[21.7s] agent. So, this is really great for
 [23.7s] ensuring equitable access to academic
 [25.9s] support even after business hours.
 [29.0s] So, we can see a couple example

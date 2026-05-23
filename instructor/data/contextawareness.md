@@ -4,7 +4,7 @@
 
 ## Description
 
-The Context Awareness feature embeds mentorAI directly beside any Canvas page or PDF you open. Because the mentor “sees” the material on screen, it can summarize, translate, expand, or answer questions about that exact content—giving you lightning‑fast, page‑specific support without switching tabs.
+The Context Awareness feature embeds Agentic OS directly beside any Canvas page or PDF you open. Because the agent “sees” the material on screen, it can summarize, translate, expand, or answer questions about that exact content—giving you lightning‑fast, page‑specific support without switching tabs.
 
 ---
 
@@ -18,7 +18,7 @@ The Context Awareness feature embeds mentorAI directly beside any Canvas page 
 
 #### Auto‑Detect Page Content
 
-The mentor panel loads with full awareness of the Canvas page, slide deck, or PDF you’re viewing.
+The agent panel loads with full awareness of the Canvas page, slide deck, or PDF you’re viewing.
 
 #### Quick‑Action Buttons
 
@@ -37,7 +37,7 @@ One‑click prompts like **Summarize key takeaways** speed up common tasks.
 
 #### Seamless Chat Continuation
 
-Type any question at any time; mentorAI responds in the **context of the page** you’re on.
+Type any question at any time; Agentic OS responds in the **context of the page** you’re on.
 
 ---
 
@@ -46,31 +46,31 @@ Type any question at any time; mentorAI responds in the **context of the page** 
 #### Open a Course Page
 
 - In **Canvas**, navigate to any **page or PDF**  
-- The mentor panel appears on the side—already **context‑aware** of what you’re viewing
+- The agent panel appears on the side—already **context‑aware** of what you’re viewing
 
 #### Use the Course Tab
 
 - Click a quick‑action button such as **Summarize key takeaways**  
-- mentorAI reads the current page and returns a **concise summary**  
+- Agentic OS reads the current page and returns a **concise summary**  
 - Prefer typing? Skip the buttons and enter your own question
 
 #### Translate the Page
 
 - Switch to the **Translate** tab  
 - Choose a **target language** (e.g., French)  
-- mentorAI **rewrites the entire page** in that language—great for multilingual learners
+- Agentic OS **rewrites the entire page** in that language—great for multilingual learners
 
 #### Expand the Content
 
 - Open the **Expand** tab  
-- mentorAI delivers a **deeper explanation** of the selected material (e.g., a “Colliding Cultures” slide deck)  
+- Agentic OS delivers a **deeper explanation** of the selected material (e.g., a “Colliding Cultures” slide deck)  
 - Continue chatting or click another quick prompt to explore further
 
 #### Leverage Suggested & Guided Prompts
 
 - **Suggested prompts** at the top provide instant ideas if you’re unsure what to ask  
 - **Guided prompts** at the bottom evolve from your conversation, nudging you toward the next logical question  
-- Click any prompt—or just type your own—and mentorAI answers in **full context**
+- Click any prompt—or just type your own—and Agentic OS answers in **full context**
 
 ---
 
@@ -99,4 +99,4 @@ Students with different language backgrounds or learning preferences receive **p
 
 ---
 
-With **Context Awareness**, mentorAI meets you **right where you’re studying**—summarizing, translating, and expanding the exact content on your screen so you can learn **faster and more effectively**.
+With **Context Awareness**, Agentic OS meets you **right where you’re studying**—summarizing, translating, and expanding the exact content on your screen so you can learn **faster and more effectively**.

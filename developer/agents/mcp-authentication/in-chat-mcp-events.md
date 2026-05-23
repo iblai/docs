@@ -1,6 +1,6 @@
 # In-Chat MCP Events
 
-Handle the real-time WebSocket and SSE events the mentor runtime emits when an MCP server needs attention during a live chat — per-user OAuth prompts, tool-retrieval recoveries, and graceful failures.
+Handle the real-time WebSocket and SSE events the agent runtime emits when an MCP server needs attention during a live chat — per-user OAuth prompts, tool-retrieval recoveries, and graceful failures.
 
 ---
 
@@ -27,7 +27,7 @@ For a full walkthrough of server configuration and connection provisioning, see 
 
 | Requirement | Detail |
 | --- | --- |
-| **MCP Server** | Registered with `is_enabled=true` and attached to the mentor |
+| **MCP Server** | Registered with `is_enabled=true` and attached to the agent |
 | **`auth_type`** | Must be `"oauth2"` |
 | **`auth_scope`** | Must be `"user"` for the in-chat flow |
 | **`oauth_service`** | Must link to a valid `OauthService` → `OauthProvider` |
@@ -41,7 +41,7 @@ The `auth_scope` field on the MCP server controls whether the in-chat prompt fir
 | Value | Behavior |
 | --- | --- |
 | `platform` (default) | Uses shared, pre-provisioned platform credentials. No prompt. |
-| `mentor` | Uses mentor-scoped credentials. No prompt. |
+| `agent` | Uses agent-scoped credentials. No prompt. |
 | `user` | **Each user authenticates individually.** The in-chat flow runs when no user-scoped connection exists. |
 
 ### Admin setup checklist
@@ -58,16 +58,16 @@ Before a frontend ever receives an `oauth_required` event, a tenant admin must h
    Value:  {
      "client_id":     "your-client-id",
      "client_secret": "your-client-secret",
-     "redirect_uri":  "https://your-app.com/api/ai-mentor/orgs/main/users/oauth/callback/"
+     "redirect_uri":  "https://your-app.com/api/ai-agent/orgs/main/users/oauth/callback/"
    }
    ```
 4. **Registered an `MCPServer`** with `auth_type="oauth2"`, `auth_scope="user"`, `is_enabled=true`, and a linked `oauth_service`.
-5. **Attached the server** to the target mentor via `PATCH /mentors/{id}/settings/` with `"mcp_servers": [...]` and `"tools": ["mcp-tool"]`.
+5. **Attached the server** to the target agent via `PATCH /agents/{id}/settings/` with `"mcp_servers": [...]` and `"tools": ["mcp-tool"]`.
 
 `auth_scope` is set at server-creation time or updated later:
 
 ```http
-PATCH /api/ai-mentor/orgs/{org}/users/{user_id}/mcp-servers/{server_id}/
+PATCH /api/ai-agent/orgs/{org}/users/{user_id}/mcp-servers/{server_id}/
 Content-Type: application/json
 
 {
@@ -75,7 +75,7 @@ Content-Type: application/json
 }
 ```
 
-Valid values: `"platform"` (default), `"mentor"`, `"user"`.
+Valid values: `"platform"` (default), `"agent"`, `"user"`.
 
 ---
 
@@ -206,7 +206,7 @@ Every event arrives as a JSON string on the existing chat WebSocket/SSE connecti
 | --- | --- | --- |
 | `type` | `string` | Always `"mcp_tools_retrieved"`. |
 | `session_id` | `string` | Current chat session UUID. |
-| `mentor_id` | `string` | Mentor ID for the session. |
+| `mentor_id` | `string` | Agent ID for the session. |
 
 **Client guidance**
 
@@ -402,6 +402,6 @@ If the callback opens in a popup, you may auto-close it after the redirect compl
 
 ## Related Documentation
 
-- [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, and attach them to mentors.
+- [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, and attach them to agents.
 - [OAuth Connectors](/docs/developer/agents/mcp-authentication/oauth-connectors) — provider/service discovery and the standalone OAuth handshake used outside of chat.
 - [Architecture](/docs/developer/agents/mcp-authentication/architecture) — backend internals, data model, and the runtime resolution pipeline.

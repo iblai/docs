@@ -1,4 +1,4 @@
-mentorAI | Faculty Partner Demo
+Agentic OS | Faculty Partner Demo
 https://www.youtube.com/watch?v=P0Ku6ldwTZs
 
 [0.2s] Hey, what's going on? This is Jeremy at
@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=P0Ku6ldwTZs
 [59.1s] of style we want students to be citing
 [62.3s] their sources with, and any other
 [65.8s] consideration. ations for the assignment
-[67.4s] here. So the first thing that the mentor
+[67.4s] here. So the first thing that the agent
 [69.6s] is going to do is basically say, "All
 [72.0s] right, we're rethinking this assignment.
 [74.1s] You got a solid framework for your
@@ -57,7 +57,7 @@ https://www.youtube.com/watch?v=P0Ku6ldwTZs
 [133.2s] either of these two opt options that it
 [135.0s] suggests don't align with the goals of
 [137.6s] the project that we're trying to
-[139.3s] incorporate AI into. The mentor is going
+[139.3s] incorporate AI into. The agent is going
 [142.6s] to ask that question right here at the
 [144.6s] bottom of its response. And if they
 [146.4s] don't align, provide a couple of more
@@ -76,7 +76,7 @@ https://www.youtube.com/watch?v=P0Ku6ldwTZs
 [174.1s] for them and is instead assisting them
 [177.0s] as they put together uh an outline
 [179.6s] themselves.
-[181.1s] And the mentor is going to suggest a
+[181.1s] And the agent is going to suggest a
 [183.8s] number of ways to combat that to make
 [186.3s] sure that AI isn't doing the work for
 [188.6s] students and students are getting the
@@ -104,14 +104,14 @@ https://www.youtube.com/watch?v=P0Ku6ldwTZs
 [244.6s] better, um, and overall what their
 [247.4s] learning journey was for this. Um, and
 [251.3s] again, there are a couple other
-[252.8s] recommendations here. And the mentor is
+[252.8s] recommendations here. And the agent is
 [254.7s] always going to ask if these strategies
 [256.8s] help me feel more comfortable with the
 [258.6s] idea of integrating AI or should we
 [261.5s] discuss something else? So, for the
 [264.5s] purpose of this demo conversation, I say
 [266.4s] I think these strategies resonate with
-[268.0s] my objectives. And what the mentor is
+[268.0s] my objectives. And what the agent is
 [269.7s] going to do to finish that and wrap this
 [271.8s] conversation up is provide an overview
 [274.9s] breakdown of what we've discussed. the

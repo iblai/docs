@@ -1,4 +1,4 @@
-mentorAI | Support Tickets
+Agentic OS | Support Tickets
 https://www.youtube.com/watch?v=ur81lQ8SmGE
 
 [4.5s] First off, we need to make sure that we
@@ -7,7 +7,7 @@ https://www.youtube.com/watch?v=ur81lQ8SmGE
 [11.8s] And of course, if we need to edit
 [13.8s] anything about the notifications, we can
 [16.1s] do that here. And then we save.
-[20.0s] Now, in order for our mentor
+[20.0s] Now, in order for our agent
 [23.4s] to send support notifications, of
 [26.2s] course, we need to make sure that human
 [28.8s] support here is enabled and then in our
@@ -36,7 +36,7 @@ https://www.youtube.com/watch?v=ur81lQ8SmGE
 [122.0s] tickets just so we
 [125.4s] have this here. Okay, so this is saved
 [129.1s] and all I need to do after create a new
-[132.6s] chat under this mentor. Um then I'll
+[132.6s] chat under this agent. Um then I'll
 [136.9s] come here.
 [139.4s] I have been having
 [142.6s] a hard time using this platform.

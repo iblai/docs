@@ -4,7 +4,7 @@
 
 ## Description
 
-**Disclaimers** let you present important information to learners **before they start chatting with a mentorAI**.  
+**Disclaimers** let you present important information to learners **before they start chatting with an Agentic OS**.  
 
 You can require an explicit **User Agreement** (blocking modal that must be accepted to proceed) and/or display a **non-blocking Advisory** (informational notice). Copy is fully editable (**Markdown supported**), allowing instructors to align the language with **institutional policies**.
 
@@ -24,7 +24,7 @@ You can require an explicit **User Agreement** (blocking modal that must be acce
 - **Advisory** – Non-blocking banner/modal (e.g., *“AI can make mistakes.”*)
 
 #### Pre-Chat Enforcement
-When a **User Agreement** is enabled, the mentor will not allow chatting until it’s accepted.
+When a **User Agreement** is enabled, the agent will not allow chatting until it’s accepted.
 
 #### Markdown Support
 Write disclaimers in **Markdown** for headings, links, and emphasis.
@@ -42,7 +42,7 @@ Use **Edit** to update the text; defaults are provided for quick setup.
 
 #### Open Disclaimers
 
-- In the mentor header, open the dropdown → **Settings → Disclaimers**
+- In the agent header, open the dropdown → **Settings → Disclaimers**
 
 #### Add Content
 
@@ -53,9 +53,9 @@ Use **Edit** to update the text; defaults are provided for quick setup.
 
 **Example (User Agreement):**
 
-- **Title:** “Course Mentor User Agreement”  
+- **Title:** “Course Agent User Agreement”  
 - **Body (Markdown):**  
-  > “By continuing, you acknowledge that mentorAI may make mistakes and that you will verify important information with official course materials or staff.”
+  > “By continuing, you acknowledge that Agentic OS may make mistakes and that you will verify important information with official course materials or staff.”
 
 #### Save & Enable
 
@@ -64,7 +64,7 @@ Use **Edit** to update the text; defaults are provided for quick setup.
 
 #### Test the Flow
 
-- Start a new chat with the mentor  
+- Start a new chat with the agent  
 - Verify behavior:  
   - With **User Agreement** enabled, a modal appears and must be accepted to proceed  
   - You cannot click out of it  
@@ -80,10 +80,10 @@ Use **Edit** to update the text; defaults are provided for quick setup.
 ## Pedagogical Use Cases
 
 #### Academic Integrity & Policy Acknowledgment
-Require acceptance of **honor-code reminders** or **collaboration rules** before students use the mentor.
+Require acceptance of **honor-code reminders** or **collaboration rules** before students use the agent.
 
 #### Scope & Limitations
-Present an **Advisory** that clarifies the mentor’s boundaries (e.g., *“No medical/financial advice; verify critical info.”*)
+Present an **Advisory** that clarifies the agent’s boundaries (e.g., *“No medical/financial advice; verify critical info.”*)
 
 #### Accessibility & Support
 Link to **disability services**, **office hours**, or **help desk resources** in a brief pre-chat notice.
@@ -93,4 +93,4 @@ Use a blocking **User Agreement** to ensure students acknowledge **content warni
 
 ---
 
-By configuring **Disclaimers**, instructors keep mentorAI use **safe, transparent, and aligned** with institutional expectations—while preserving a smooth chat experience once learners accept.
+By configuring **Disclaimers**, instructors keep Agentic OS use **safe, transparent, and aligned** with institutional expectations—while preserving a smooth chat experience once learners accept.

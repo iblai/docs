@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The Safety panel lets you define two layers of content filtering—**Moderation** and **Safety prompts**—to keep mentorAI conversations compliant and appropriate. By screening both incoming learner questions and outgoing AI responses, you protect students, meet institutional policies, and reduce the risk of harmful or off‑topic exchanges.
+The Safety panel lets you define two layers of content filtering—**Moderation** and **Safety prompts**—to keep Agentic OS conversations compliant and appropriate. By screening both incoming learner questions and outgoing AI responses, you protect students, meet institutional policies, and reduce the risk of harmful or off‑topic exchanges.
 
 
 ![](/images/safety.png)
@@ -40,7 +40,7 @@ Tailor warning messages to match campus language, policies, or brand voice.
 
 #### Open the Safety Tab
 
-- Click the **mentor’s name** in the header  
+- Click the **agent’s name** in the header  
 - Select **Safety**
 
 #### Configure the Moderation Prompt
@@ -101,7 +101,7 @@ Adjust prompts for **K‑12 deployments**, ensuring conversations stay developme
 Use customized warning text that reflects **school tone**—formal, friendly, or supportive—so messages feel on brand.
 
 
-***With Moderation and Safety prompts properly configured, mentorAI blocks harmful questions before they reach the AI and prevents unsuitable responses from ever reaching learners—maintaining a safe, compliant, and trustworthy learning environment.***
+***With Moderation and Safety prompts properly configured, Agentic OS blocks harmful questions before they reach the AI and prevents unsuitable responses from ever reaching learners—maintaining a safe, compliant, and trustworthy learning environment.***
 
 ---
 
@@ -112,7 +112,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-Flagged Prompts gives instructors/admins a clear view of potentially harmful, sensitive, or out-of-scope learner inputs that were stopped by a mentor’s **Moderation Prompt**. When a learner asks something outside the mentor’s allowed scope (or against policy), mentorAI blocks the reply, shows the learner a warning, and records the input in the **Safety → Flagged Prompts** view for follow-up and auditing.
+Flagged Prompts gives instructors/admins a clear view of potentially harmful, sensitive, or out-of-scope learner inputs that were stopped by an agent’s **Moderation Prompt**. When a learner asks something outside the agent’s allowed scope (or against policy), Agentic OS blocks the reply, shows the learner a warning, and records the input in the **Safety → Flagged Prompts** view for follow-up and auditing.
 
 
 ## Target Audience
@@ -126,13 +126,13 @@ Instructor · Administrator
 Inputs blocked by the Moderation Prompt (e.g., off-topic, policy-restricted) are saved as flagged items.
 
 #### No Response to Learner
-mentorAI withholds an answer and displays a warning to keep the conversation safe and on task.
+Agentic OS withholds an answer and displays a warning to keep the conversation safe and on task.
 
 #### Cohort-Level Visibility
 Instructors/admins can review flagged inputs across their cohort for safety, policy, or scope enforcement.
 
 #### Scope Enforcement via Prompts
-Tighten a mentor’s focus (e.g., “Only craft follow-up emails”) to flag off-topic questions automatically.
+Tighten an agent’s focus (e.g., “Only craft follow-up emails”) to flag off-topic questions automatically.
 
 #### Actionable Oversight
 Use the list to identify patterns, contact specific users, and refine moderation text.
@@ -141,19 +141,19 @@ Use the list to identify patterns, contact specific users, and refine moderation
 ## How to Use (step by step)
 
 #### Open Safety Settings
-- Click the mentor’s name → **Safety**.  
+- Click the agent’s name → **Safety**.  
 - Ensure **Moderation Prompt** is On.
 
 #### Define Scope & Rules
 - In Moderation Prompt, spell out what’s appropriate vs inappropriate.
 
-**Example (Email Writer mentor):**
+**Example (Email Writer agent):**
 
 > Any prompt not related to crafting follow-up emails is inappropriate. All other prompts are appropriate.
 
 #### Learner Attempt (What Happens)
 - A learner sends an off-scope message (e.g., “What’s the weather in Boston today?”).  
-- mentorAI does **not** respond and shows a warning (e.g., “Please keep the conversation within the bounds of what the agent is tasked to do…”).  
+- Agentic OS does **not** respond and shows a warning (e.g., “Please keep the conversation within the bounds of what the agent is tasked to do…”).  
 - The input is stored as a **Flagged Prompt**.
 
 #### Review Flagged Prompts
@@ -163,7 +163,7 @@ Use the list to identify patterns, contact specific users, and refine moderation
 #### Take Action
 - Follow up with learners if the content raises concerns.  
 - Refine the moderation copy to clarify boundaries.  
-- Adjust mentor scope, datasets, or provide alternate resources if many learners seek off-scope help.
+- Adjust agent scope, datasets, or provide alternate resources if many learners seek off-scope help.
 
 
 ## Pedagogical Use Cases
@@ -172,10 +172,10 @@ Use the list to identify patterns, contact specific users, and refine moderation
 Catch and address inputs that may be harmful or violate institutional rules.
 
 #### Scope Discipline
-Keep single-purpose mentors (e.g., “Email Writer”) focused by flagging unrelated queries.
+Keep single-purpose agents (e.g., “Email Writer”) focused by flagging unrelated queries.
 
 #### Targeted Guidance
-If many flagged prompts show unmet needs (e.g., general research questions), spin up or link to the right mentor.
+If many flagged prompts show unmet needs (e.g., general research questions), spin up or link to the right agent.
 
 #### Instructor Outreach
 Use flagged items to initiate supportive check-ins (e.g., academic integrity reminders, resource referrals).
@@ -183,7 +183,7 @@ Use flagged items to initiate supportive check-ins (e.g., academic integrity rem
 #### Continuous Improvement
 Iterate on Moderation and Safety prompts based on patterns you observe in the flagged list.
 
-***Tip: Pair Flagged Prompts with clear Proactive/Advisory disclaimers and a well-scoped System Prompt so learners know what the mentor can and can’t do—reducing off-topic or risky inputs before they happen.***
+***Tip: Pair Flagged Prompts with clear Proactive/Advisory disclaimers and a well-scoped System Prompt so learners know what the agent can and can’t do—reducing off-topic or risky inputs before they happen.***
 
 ---
 
@@ -194,14 +194,14 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-Safety & Moderation Testing explains how mentorAI enforces institutional safety standards by screening both learner inputs and mentor outputs—and how instructors/admins can review flagged activity. Every mentor created on the platform uses these protections to prevent harmful information from being exchanged, even when requests are framed as academic or hypothetical.
+Safety & Moderation Testing explains how Agentic OS enforces institutional safety standards by screening both learner inputs and agent outputs—and how instructors/admins can review flagged activity. Every agent created on the platform uses these protections to prevent harmful information from being exchanged, even when requests are framed as academic or hypothetical.
 
 ## Features
 
 #### Two-Layer Safety System
 
 - **Moderation Prompt (Input Filtering):** Screens learner messages before they reach the AI.  
-- **Safety Prompt (Output Filtering):** Screens the mentor’s draft responses before anything is returned to the learner.
+- **Safety Prompt (Output Filtering):** Screens the agent’s draft responses before anything is returned to the learner.
 
 #### Coverage of High-Risk Topics
 
@@ -215,7 +215,7 @@ Built-in protections address:
 
 #### No Harmful Responses Delivered
 
-When triggered, the mentor does not respond with content and instead shows a platform warning.
+When triggered, the agent does not respond with content and instead shows a platform warning.
 
 #### Flagged Prompts Log
 
@@ -223,14 +223,14 @@ All blocked inputs are recorded and visible to instructors/admins for review and
 
 #### Institution-Wide Consistency
 
-These safety behaviors apply to every mentor created on the platform.
+These safety behaviors apply to every agent created on the platform.
 
 
 ## How It Works (step by step)
 
 #### Configure Safety Prompts
 
-1. Open a mentor’s **Safety** settings.  
+1. Open an agent’s **Safety** settings.  
 2. Review or customize:
    - **Moderation Prompt** → defines what learner inputs are inappropriate.  
    - **Safety Prompt** → defines what responses must never be generated.
@@ -244,7 +244,7 @@ Examples include:
 
 #### System Blocks the Interaction
 
-- The mentor does not answer.  
+- The agent does not answer.  
 - The learner sees a warning such as:
 
   > “Sorry about that. Please keep the conversation within the bounds of what the agent is designed to do and per your platform’s rules, please try again.”
@@ -276,7 +276,7 @@ Identify learners who may need support and initiate a check-in or referral.
 
 #### Policy Enforcement
 
-Align mentor behavior with campus guidelines on violence, self-harm, and prohibited content.
+Align agent behavior with campus guidelines on violence, self-harm, and prohibited content.
 
 #### Transparency & Accountability
 
@@ -284,9 +284,9 @@ Maintain an auditable record of flagged inputs for compliance and reporting.
 
 #### Instructor Confidence in AI Use
 
-Deploy mentors knowing robust safeguards are always active.
+Deploy agents knowing robust safeguards are always active.
 
 ## Key Takeaway
 
-mentorAI’s Safety & Moderation system blocks harmful content at both the input and output level, detects evasion attempts, and logs flagged prompts for instructor review—ensuring every mentor stays aligned with institutional guidelines and learner safety at all times.
+Agentic OS’s Safety & Moderation system blocks harmful content at both the input and output level, detects evasion attempts, and logs flagged prompts for instructor review—ensuring every agent stays aligned with institutional guidelines and learner safety at all times.
 

@@ -1,19 +1,19 @@
-mentorAI | RBAC | Mentor Chat Access
+Agentic OS | RBAC | Agent Chat Access
 https://www.youtube.com/watch?v=jt8fL7vROcI
 
 [1.8s] I'll be quickly demoing how you can set
-[3.8s] up access to a particular mentor for a
+[3.8s] up access to a particular agent for a
 [7.0s] group of students or a given student
 [8.8s] without letting them see anything else.
 [11.4s] So, as an admin, what you'll do is go to
 [13.9s] your tenant settings and then the
 [15.8s] management tab. Now, we've already set
 [18.0s] up this role here for this particular
-[19.6s] mentor with particular actions and data
+[19.6s] agent with particular actions and data
 [22.2s] actions. This is basically saying that
 [24.0s] these people who will be added to the
 [26.2s] policy that this role is associated with
-[28.0s] will be able to chat with the mentor and
+[28.0s] will be able to chat with the agent and
 [30.2s] read you know any outputs you know the
 [32.0s] metro name anything like that that they
 [33.8s] would need to be able to see to
@@ -21,9 +21,9 @@ https://www.youtube.com/watch?v=jt8fL7vROcI
 [37.4s] very similar. It's just basically saying
 [38.7s] that you're able to read um you know
 [41.3s] what data actions are needed for being
-[43.9s] able to chat with a particular mentor.
+[43.9s] able to chat with a particular agent.
 [46.4s] Now, this is just for students who
-[48.5s] should not be seeing any other mentors
+[48.5s] should not be seeing any other agents
 [50.2s] on the platform, but need to be able to
 [52.0s] chat with just one or a couple that
 [54.9s] they've been assigned access to. Now,
@@ -48,22 +48,22 @@ https://www.youtube.com/watch?v=jt8fL7vROcI
 [93.8s] role, and provide it a particular
 [95.2s] resource. In this case, it's the Empire
 [97.5s] State tenant and the um particular
-[100.2s] mentor that we want folks to be
+[100.2s] agent that we want folks to be
 [101.7s] accessing. So, that's basically all you
 [104.2s] have to do to add people to to a
-[107.4s] particular mentor for accessing the
+[107.4s] particular agent for accessing the
 [109.3s] chat, not settings or anything else.
 [116.2s] Now, I've gone ahead and logged in as a
 [118.3s] particular user who who only has access
-[121.3s] to this one mentor. So when I click on
-[122.9s] the mentors list, I only see this
-[124.6s] mentor. I click on this dropown and my
+[121.3s] to this one agent. So when I click on
+[122.9s] the agents list, I only see this
+[124.6s] agent. I click on this dropown and my
 [127.2s] only option is new chat. And even going
 [129.0s] to the explore page shows just the no
-[132.4s] mentors at this point because the mentor
+[132.4s] agents at this point because the agent
 [134.0s] itself is set to admin access only. And
 [137.0s] so if we go back, we can see if we click
 [139.5s] on one of these, we're able to chat with
-[141.4s] the mentor, no problem. And but this is
+[141.4s] the agent, no problem. And but this is
 [143.4s] the only one we're actually able to chat
 [145.0s] with.

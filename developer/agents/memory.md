@@ -1,6 +1,6 @@
 # Memory System
 
-The Memory System enables AI mentors to remember information about users across conversations. It stores user preferences, learning progress, knowledge gaps, and personal context, making interactions more personalized and contextual.
+The Memory System enables AI agents to remember information about users across conversations. It stores user preferences, learning progress, knowledge gaps, and personal context, making interactions more personalized and contextual.
 
 ---
 
@@ -10,10 +10,10 @@ The memory system supports two scopes of memory:
 
 | Memory Type | Scope | Description |
 |-------------|-------|-------------|
-| **Global User Memories** | All mentors | Facts about the user that apply everywhere (name, profession, preferences) |
-| **Mentor-Specific Memories** | Single mentor | Context specific to interactions with a particular mentor |
+| **Global User Memories** | All agents | Facts about the user that apply everywhere (name, profession, preferences) |
+| **Agent-Specific Memories** | Single agent | Context specific to interactions with a particular agent |
 
-**Default Memory Categories (Mentor-Specific):**
+**Default Memory Categories (Agent-Specific):**
 
 | Category | Slug | Description |
 |----------|------|-------------|
@@ -33,7 +33,7 @@ The memory system uses PGVector for semantic search and consists of four main co
 
 The data flows through two paths:
 
-1. **Extraction path (write):** A Chat Session feeds into a background Celery Task containing the Extraction Service, which processes conversations and writes to the Memory Store (PGVector) — storing global memories, mentor memories, and their embeddings.
+1. **Extraction path (write):** A Chat Session feeds into a background Celery Task containing the Extraction Service, which processes conversations and writes to the Memory Store (PGVector) — storing global memories, agent memories, and their embeddings.
 2. **Retrieval path (read):** When generating a new chat response, the Context Service queries the Memory Store via Semantic Search (cosine distance), retrieves relevant memories, and injects them into the AI's context to produce a personalized response.
 
 ### Components
@@ -74,7 +74,7 @@ When a user sends a message, the system automatically extracts relevant memories
 ┌──────────────────┐     ┌─────────────────┐
 │ Check settings   │────▶│ SKIP            │
 │ - Tenant enabled?│ No  │ (not enabled)   │
-│ - Mentor enabled?│     └─────────────────┘
+│ - Agent enabled?│     └─────────────────┘
 │ - User enabled?  │
 └────────┬─────────┘
          │ Yes
@@ -145,7 +145,7 @@ Categories:
 Existing memories (avoid duplicates):
 Global:
   - The user is a software engineer
-Mentor-specific:
+Agent-specific:
   - [learning_goals] The user wants to learn Python
 
 Latest Exchange:
@@ -188,7 +188,7 @@ When a user starts a new conversation, relevant memories are retrieved and injec
          │
          ▼
 ┌──────────────────┐     ┌─────────────────┐
-│ Check mentor     │────▶│ NO INJECTION    │
+│ Check agent     │────▶│ NO INJECTION    │
 │ memory enabled?  │ No  │                 │
 └────────┬─────────┘     └─────────────────┘
          │ Yes
@@ -211,7 +211,7 @@ When a user starts a new conversation, relevant memories are retrieved and injec
 │ Semantic search  │
 │                  │
 │ - Top 5 global   │
-│ - Top 5 mentor   │
+│ - Top 5 agent   │
 │                  │
 │ (ordered by      │
 │  cosine distance)│
@@ -272,7 +272,7 @@ Memory features require enablement at three levels:
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │                   MENTOR LEVEL                       │   │
 │  │                                                      │   │
-│  │  Mentor Settings → Memory Tab                        │   │
+│  │  Agent Settings → Memory Tab                        │   │
 │  │  ┌────────────────────────────────────────────┐     │   │
 │  │  │  Enable Memory: [ON/OFF]                    │     │   │
 │  │  │  Memory Categories: [Configure...]          │     │   │
@@ -305,33 +305,33 @@ To enable the memory feature for your entire platform:
 2. Select the **Memory** tab
 3. Toggle the memory configuration switch to **enabled**
 
-> **Note:** This is the master switch. Memory features will not work for any mentor or user until this is enabled.
+> **Note:** This is the master switch. Memory features will not work for any agent or user until this is enabled.
 
 ---
 
-### Enabling Memory for a Mentor
+### Enabling Memory for an Agent
 
-Each mentor can have memory features enabled or disabled individually:
+Each agent can have memory features enabled or disabled individually:
 
-1. Navigate to **Mentor Settings** for the specific mentor
+1. Navigate to **Agent Settings** for the specific agent
 2. Select the **Memory** tab
 3. Toggle memory to **enabled**
 
-Once enabled, the mentor will:
+Once enabled, the agent will:
 - Automatically extract memories from conversations
 - Use stored memories to personalize responses
 
-**Managing Mentor Memory Categories:**
+**Managing Agent Memory Categories:**
 
-From the Mentor Settings → Memory tab, administrators can:
+From the Agent Settings → Memory tab, administrators can:
 - View default memory categories
 - Create custom categories
 - Edit category names and descriptions
 - Deactivate categories (memories in that category will no longer be extracted)
 
-**Viewing User Memories for a Mentor:**
+**Viewing User Memories for an Agent:**
 
-The Mentor Settings → Memory tab also displays all memories stored for users interacting with that mentor, organized by category.
+The Agent Settings → Memory tab also displays all memories stored for users interacting with that agent, organized by category.
 
 ---
 
@@ -348,13 +348,13 @@ Users control their own memory preferences from their profile:
 | **Auto-capture memories** | When enabled, the system automatically extracts and saves memories from conversations |
 | **Use memories in responses** | When enabled, stored memories are used to personalize AI responses |
 
-> **Note:** Users can disable memory features entirely for privacy, even if the tenant and mentor have memory enabled.
+> **Note:** Users can disable memory features entirely for privacy, even if the tenant and agent have memory enabled.
 
 ---
 
 ### Managing Global User Memories
 
-Global memories are facts about the user that apply across all mentors (e.g., "The user is a software engineer").
+Global memories are facts about the user that apply across all agents (e.g., "The user is a software engineer").
 
 **Location:** User Profile page → Global Memories section
 
@@ -368,11 +368,11 @@ Global memories are facts about the user that apply across all mentors (e.g., "T
 
 ---
 
-### Managing Mentor-Specific Memories
+### Managing Agent-Specific Memories
 
-Mentor memories are specific to a user's interactions with a particular mentor.
+Agent memories are specific to a user's interactions with a particular agent.
 
-**Location:** Mentor Settings page → Memory tab → User Memories section
+**Location:** Agent Settings page → Memory tab → User Memories section
 
 **User/Admin Actions:**
 
@@ -388,7 +388,7 @@ Mentor memories are specific to a user's interactions with a particular mentor.
 
 ## API Reference
 
-Base URL: `/api/ai-mentor/`
+Base URL: `/api/ai-agent/`
 
 ### Global Memories API
 
@@ -398,7 +398,7 @@ Base URL: `/api/ai-mentor/`
 
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -437,28 +437,28 @@ curl -X GET \
 **Filter by session:**
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?session_id=abc-123-def" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/?session_id=abc-123-def" \
   -H "Authorization: Token <token>"
 ```
 
 **Search by content:**
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?content=software%20engineer" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/?content=software%20engineer" \
   -H "Authorization: Token <token>"
 ```
 
 **Filter by date range:**
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?start_date=2024-01-01&end_date=2024-01-31" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/?start_date=2024-01-01&end_date=2024-01-31" \
   -H "Authorization: Token <token>"
 ```
 
 **Combined filters:**
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/?content=python&start_date=2024-01-01" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/?content=python&start_date=2024-01-01" \
   -H "Authorization: Token <token>"
 ```
 
@@ -466,7 +466,7 @@ curl -X GET \
 
 ```bash
 curl -X POST \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/" \
   -H "Authorization: Token <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -488,7 +488,7 @@ curl -X POST \
 
 ```bash
 curl -X DELETE \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/global-memories/3/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/global-memories/3/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -496,15 +496,15 @@ curl -X DELETE \
 
 ---
 
-### Mentor Memories API
+### Agent Memories API
 
-**Endpoints:** `/orgs/{org}/users/{user_id}/mentors/{mentor_id}/mentor-memories/`
+**Endpoints:** `/orgs/{org}/users/{user_id}/agents/{mentor_id}/agent-memories/`
 
-#### List All Mentor Memories (All Mentors)
+#### List All Agent Memories (All Agents)
 
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/mentor-memories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/agent-memories/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -515,7 +515,7 @@ curl -X GET \
   "results": [
     {
       "id": 1,
-      "mentor": "python-tutor",
+      "agent": "python-tutor",
       "category": {
         "id": 1,
         "name": "Knowledge Gaps",
@@ -527,7 +527,7 @@ curl -X GET \
     },
     {
       "id": 2,
-      "mentor": "python-tutor",
+      "agent": "python-tutor",
       "category": {
         "id": 2,
         "name": "Learning Goals",
@@ -541,11 +541,11 @@ curl -X GET \
 }
 ```
 
-#### List Memories for Specific Mentor
+#### List Memories for Specific Agent
 
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/mentors/python-tutor/mentor-memories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/agents/python-tutor/agent-memories/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -553,15 +553,15 @@ curl -X GET \
 
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/mentors/python-tutor/mentor-memories/?category=knowledge_gaps" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/agents/python-tutor/agent-memories/?category=knowledge_gaps" \
   -H "Authorization: Token <token>"
 ```
 
-#### Create Mentor Memory
+#### Create Agent Memory
 
 ```bash
 curl -X POST \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/mentors/python-tutor/mentor-memories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/agents/python-tutor/agent-memories/" \
   -H "Authorization: Token <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -574,7 +574,7 @@ curl -X POST \
 ```json
 {
   "id": 4,
-  "mentor": "python-tutor",
+  "agent": "python-tutor",
   "category": {
     "id": 4,
     "name": "Progress Milestones",
@@ -586,11 +586,11 @@ curl -X POST \
 }
 ```
 
-#### Update Mentor Memory
+#### Update Agent Memory
 
 ```bash
 curl -X PATCH \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/mentors/python-tutor/mentor-memories/4/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/agents/python-tutor/agent-memories/4/" \
   -H "Authorization: Token <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -598,11 +598,11 @@ curl -X PATCH \
   }'
 ```
 
-#### Delete Mentor Memory
+#### Delete Agent Memory
 
 ```bash
 curl -X DELETE \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/mentors/python-tutor/mentor-memories/4/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/agents/python-tutor/agent-memories/4/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -618,7 +618,7 @@ curl -X DELETE \
 
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/memsearch-settings/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/memsearch-settings/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -635,7 +635,7 @@ curl -X GET \
 
 ```bash
 curl -X PUT \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/users/user123/memsearch-settings/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/users/user123/memsearch-settings/" \
   -H "Authorization: Token <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -657,13 +657,13 @@ curl -X PUT \
 
 ### Memory Categories API
 
-**Endpoints:** `/orgs/{org}/mentors/{mentor_id}/memory-categories/`
+**Endpoints:** `/orgs/{org}/agents/{mentor_id}/memory-categories/`
 
 #### List Memory Categories
 
 ```bash
 curl -X GET \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/mentors/python-tutor/memory-categories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/memory-categories/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -694,7 +694,7 @@ curl -X GET \
 
 ```bash
 curl -X POST \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/mentors/python-tutor/memory-categories/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/memory-categories/" \
   -H "Authorization: Token <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -708,7 +708,7 @@ curl -X POST \
 
 ```bash
 curl -X PATCH \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/mentors/python-tutor/memory-categories/6/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/memory-categories/6/" \
   -H "Authorization: Token <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -720,7 +720,7 @@ curl -X PATCH \
 
 ```bash
 curl -X DELETE \
-  "https://api.ibl.ai/api/ai-mentor/orgs/acme/mentors/python-tutor/memory-categories/6/" \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/memory-categories/6/" \
   -H "Authorization: Token <token>"
 ```
 
@@ -735,17 +735,17 @@ curl -X DELETE \
 | GET | `/orgs/{org}/users/{user_id}/global-memories/` | List global memories (supports filtering by session_id, content, start_date, end_date) |
 | POST | `/orgs/{org}/users/{user_id}/global-memories/` | Create global memory |
 | DELETE | `/orgs/{org}/users/{user_id}/global-memories/{id}/` | Delete global memory |
-| GET | `/orgs/{org}/users/{user_id}/mentor-memories/` | List all mentor memories |
-| GET | `/orgs/{org}/users/{user_id}/mentors/{mentor}/mentor-memories/` | List mentor-specific memories |
-| POST | `/orgs/{org}/users/{user_id}/mentors/{mentor}/mentor-memories/` | Create mentor memory |
-| PATCH | `/orgs/{org}/users/{user_id}/mentors/{mentor}/mentor-memories/{id}/` | Update mentor memory |
-| DELETE | `/orgs/{org}/users/{user_id}/mentors/{mentor}/mentor-memories/{id}/` | Delete mentor memory |
+| GET | `/orgs/{org}/users/{user_id}/agent-memories/` | List all agent memories |
+| GET | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/` | List agent-specific memories |
+| POST | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/` | Create agent memory |
+| PATCH | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/{id}/` | Update agent memory |
+| DELETE | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/{id}/` | Delete agent memory |
 | GET | `/orgs/{org}/users/{user_id}/memsearch-settings/` | Get user settings |
 | PUT | `/orgs/{org}/users/{user_id}/memsearch-settings/` | Update user settings |
-| GET | `/orgs/{org}/mentors/{mentor}/memory-categories/` | List categories |
-| POST | `/orgs/{org}/mentors/{mentor}/memory-categories/` | Create category |
-| PATCH | `/orgs/{org}/mentors/{mentor}/memory-categories/{id}/` | Update category |
-| DELETE | `/orgs/{org}/mentors/{mentor}/memory-categories/{id}/` | Deactivate category |
+| GET | `/orgs/{org}/agents/{agent}/memory-categories/` | List categories |
+| POST | `/orgs/{org}/agents/{agent}/memory-categories/` | Create category |
+| PATCH | `/orgs/{org}/agents/{agent}/memory-categories/{id}/` | Update category |
+| DELETE | `/orgs/{org}/agents/{agent}/memory-categories/{id}/` | Deactivate category |
 
 ---
 
@@ -784,7 +784,7 @@ Memory extraction uses a **cost-optimized small model** (e.g., `gpt-4o-mini`) to
 | Issue | Possible Cause | Solution |
 |-------|----------------|----------|
 | Memories not being captured | Tenant memory not enabled | Enable in Tenant Profile → Memory tab |
-| Memories not being captured | Mentor memory not enabled | Enable in Mentor Settings → Memory tab |
+| Memories not being captured | Agent memory not enabled | Enable in Agent Settings → Memory tab |
 | Memories not being captured | User auto-capture disabled | User enables in their Profile settings |
 | Memories not used in responses | User disabled "use memories" | User enables in their Profile settings |
 | Duplicate memories appearing | Rare hash collision | Delete duplicate via API or SPA |

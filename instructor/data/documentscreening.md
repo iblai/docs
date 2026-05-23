@@ -4,13 +4,13 @@
 
 ## Purpose
 
-Use a mentor as an automated document screener that evaluates uploaded files against custom criteria and returns a pass/fail result with a detailed breakdown.
+Use an agent as an automated document screener that evaluates uploaded files against custom criteria and returns a pass/fail result with a detailed breakdown.
 
 ---
 
 ## Define Screening Criteria
 
-1. Open the mentor's **Prompts** tab.
+1. Open the agent's **Prompts** tab.
 2. In the system instructions, specify:
    - The criteria a document must meet (e.g., name present, years of experience, required skills)
    - Whether **all** criteria must pass or just some
@@ -28,9 +28,9 @@ Use a mentor as an automated document screener that evaluates uploaded files aga
 
 ## Using the Canvas Side Panel
 
-1. Enable **Canvas view** on the mentor to display results in a side panel.
+1. Enable **Canvas view** on the agent to display results in a side panel.
 2. Upload a document (PDF, DOCX, etc.) in the chat.
-3. The mentor analyzes the document against your criteria and renders the result in the side panel.
+3. The agent analyzes the document against your criteria and renders the result in the side panel.
 
 ---
 

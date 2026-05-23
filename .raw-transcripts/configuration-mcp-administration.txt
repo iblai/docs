@@ -1,4 +1,4 @@
-mentorAI | MCP
+Agentic OS | MCP
 https://www.youtube.com/watch?v=Y4rLO5y0mzE
 
 [0.7s] Okay. So this is to demo the um MCP
@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=Y4rLO5y0mzE
 [110.5s] the uh option where we can like enable
 [113.7s] and disable the uh disable the MCP
 [117.6s] server and uh disabling this will not
-[120.1s] allow the mentor to use this uh to use
+[120.1s] allow the agent to use this uh to use
 [123.3s] this MCP server um
 [127.8s] to reply with the with the MCP tools. So
 [131.8s] now let's uh let's use so if I like go

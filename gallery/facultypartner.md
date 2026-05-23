@@ -8,7 +8,7 @@
 
 ## Description
 
-**Faculty Partner** is an AI mentor that helps university instructors weave **generative-AI activities** into an assignment, project, or entire course. You describe the task; the mentor proposes AI uses, checks alignment with learning goals, and suggests safeguards.
+**Faculty Partner** is an AI agent that helps university instructors weave **generative-AI activities** into an assignment, project, or entire course. You describe the task; the agent proposes AI uses, checks alignment with learning goals, and suggests safeguards.
 
 ---
 
@@ -21,7 +21,7 @@
    - Structured prompts  
    - Incremental drafting  
    - Reflection on AI use  
-5. **Confirm or request alternatives** – the mentor iterates until aligned  
+5. **Confirm or request alternatives** – the agent iterates until aligned  
 6. **Receive a concise summary and next steps** to finalize the assignment design
 
 ---
@@ -36,4 +36,4 @@
 
 Ready to bring **structured, AI-aware assignment design** to your teaching?  
 
-Email **support@iblai.zendesk.com** and we’ll enable **Faculty Partner** on your mentors—or help you build a solution tailored to your institution.
+Email **support@iblai.zendesk.com** and we’ll enable **Faculty Partner** on your agents—or help you build a solution tailored to your institution.

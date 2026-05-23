@@ -12,7 +12,7 @@
 
 ## Description
 
-The In‑Chat Uploads feature lets you send assignments — essays, lab worksheets, slide decks, problem sets, and more — directly to mentorAI inside the chat. The mentor analyzes the file, provides a grade plus detailed feedback, and (when configured) forwards the score to your instructor’s gradebook. No extra portals or email attachments needed.
+The In‑Chat Uploads feature lets you send assignments — essays, lab worksheets, slide decks, problem sets, and more — directly to Agentic OS inside the chat. The agent analyzes the file, provides a grade plus detailed feedback, and (when configured) forwards the score to your instructor’s gradebook. No extra portals or email attachments needed.
 
 ---
 
@@ -30,7 +30,7 @@ Use the **paper‑clip icon** to attach documents, spreadsheets, images, or PDFs
 
 #### Instant AI Grading & Feedback
 
-mentorAI evaluates your submission against the instructor’s rubric and returns a **score with actionable comments**.
+Agentic OS evaluates your submission against the instructor’s rubric and returns a **score with actionable comments**.
 
 #### Gradebook Integration (Instructor‑Configured)
 
@@ -48,9 +48,9 @@ Works for **essays**, **coding notebooks**, **lab sheets**, **slide presentation
 
 ## How to Use (step by step)
 
-#### Open Your Mentor Chat
+#### Open Your Agent Chat
 
-Navigate to the **mentorAI chat** for your course.
+Navigate to the **Agentic OS chat** for your course.
 
 #### Upload Your File
 
@@ -67,7 +67,7 @@ Press **Send** (or hit **Enter**).
 
 #### Receive Feedback
 
-mentorAI analyzes your work and replies with:
+Agentic OS analyzes your work and replies with:
 
 - **Score / grade** (rubric‑based)  
 - **Strengths and areas for improvement**  
@@ -75,7 +75,7 @@ mentorAI analyzes your work and replies with:
 
 #### Revise & Resubmit (Optional)
 
-Make improvements, upload the **new version**, and ask mentorAI for an updated evaluation.
+Make improvements, upload the **new version**, and ask Agentic OS for an updated evaluation.
 
 ---
 
@@ -103,4 +103,4 @@ Repeatedly upload drafts to **refine arguments, visuals, or data analysis** base
 
 ---
 
-With **In‑Chat Uploads**, you receive **immediate grading and advice**, helping you spot improvements and keep your learning progress on track — all without leaving the **mentorAI conversation**.
+With **In‑Chat Uploads**, you receive **immediate grading and advice**, helping you spot improvements and keep your learning progress on track — all without leaving the **Agentic OS conversation**.

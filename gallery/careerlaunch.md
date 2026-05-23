@@ -8,7 +8,7 @@
 
 ## Description
 
-A mentor that helps students **launch their careers** by connecting them to internships and career fairs, guiding resume/cover-letter writing, and supporting job searches during school and after graduation.
+An agent that helps students **launch their careers** by connecting them to internships and career fairs, guiding resume/cover-letter writing, and supporting job searches during school and after graduation.
 
 It provides **next steps**, points to the right **campus portals and resources**, and prompts students to meet with **career coaches** when appropriate.
 
@@ -23,7 +23,7 @@ It provides **next steps**, points to the right **campus portals and resources**
     “I am a computer science major at Buffalo State University. What internships are available for my major?”
 
 #### 2. Find opportunities
-  - Mentor directs you to where **major-specific internships** are listed (campus portals, departmental pages, career center listings).  
+  - Agent directs you to where **major-specific internships** are listed (campus portals, departmental pages, career center listings).  
   - Asks follow-ups like *“Would you like a current list?”*  
   - Offers concrete next steps (check the portal, attend job fairs, book time with a career coach).
 
@@ -45,4 +45,4 @@ It provides **next steps**, points to the right **campus portals and resources**
 
 Ready to give students a proactive, step-by-step path from campus to career?
 
-Email us at **support@iblai.zendesk.com** and we’ll enable the **Career Launch Mentor** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
+Email us at **support@iblai.zendesk.com** and we’ll enable the **Career Launch Agent** in your environment—or help you build a **customized onboarding experience** tailored to your institution.

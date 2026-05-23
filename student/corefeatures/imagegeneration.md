@@ -4,7 +4,7 @@
 
 ## Description
 
-The Image Generation tool lets you create custom images on demand—simply describe what you want in the mentorAI chat, and the AI returns a picture in seconds. It’s perfect for visualizing ideas, illustrating projects, or adding graphics to assignments without leaving the learning environment.
+The Image Generation tool lets you create custom images on demand—simply describe what you want in the Agentic OS chat, and the AI returns a picture in seconds. It’s perfect for visualizing ideas, illustrating projects, or adding graphics to assignments without leaving the learning environment.
 
 ---
 
@@ -20,7 +20,7 @@ The Image Generation tool lets you create custom images on demand—simply des
 
 Type a natural‑language description (e.g.,  
 > “Generate an image of a happy puppy”  
-) and mentorAI produces a matching image.
+) and Agentic OS produces a matching image.
 
 #### Instant In‑Chat Display
 
@@ -34,7 +34,7 @@ The Image Generation tool can be switched **on or off** by instructors; studen
 
 If the first result isn’t perfect, you can send **follow‑up prompts** (e.g.,  
 > “Make the background blue”  
-) and mentorAI will adjust the image.
+) and Agentic OS will adjust the image.
 
 ---
 
@@ -42,7 +42,7 @@ If the first result isn’t perfect, you can send **follow‑up prompts** (e.g.,
 
 #### Confirm the Tool Is On
 
-In your mentor’s sidebar, ensure **Image Generation is toggled On**.  
+In your agent’s sidebar, ensure **Image Generation is toggled On**.  
 If it’s off, contact your instructor to enable it.
 
 #### Describe the Image
@@ -56,7 +56,7 @@ Press **Send** (or hit **Enter**).
 
 #### View the Output
 
-mentorAI quickly creates and **displays the image right in the chat window**.
+Agentic OS quickly creates and **displays the image right in the chat window**.
 
 #### Refine if Needed
 
@@ -93,4 +93,4 @@ Quickly create unique graphics for slides, posters, or reports when stock images
 
 ---
 
-Whenever you need a new visual, just write a **clear description** and let **mentorAI render it for you**—fast, simple, and right inside the chat.
+Whenever you need a new visual, just write a **clear description** and let **Agentic OS render it for you**—fast, simple, and right inside the chat.

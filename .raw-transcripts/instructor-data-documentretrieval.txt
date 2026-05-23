@@ -1,11 +1,11 @@
-mentorAI | Document Retrieval Feature Demo
+Agentic OS | Document Retrieval Feature Demo
 https://www.youtube.com/watch?v=shdYfSObDS8
 
 [0.2s] Hey, what's going on? This is Jeremy at
 [1.8s] IBLAI. Today I'm showing you one of our
 [3.9s] coolest features, the document retrieval
 [6.2s] feature. Now what this means is we have
-[10.1s] this feature that allows the mentors to
+[10.1s] this feature that allows the agents to
 [12.2s] actually site directly where they're
 [13.7s] pulling information from as well as
 [16.5s] sharing the specific documents that it
@@ -16,9 +16,9 @@ https://www.youtube.com/watch?v=shdYfSObDS8
 [28.6s] into the information or content that
 [30.6s] they're working with uh etc. So in order
 [34.0s] to show this I am showing you this
-[37.4s] mentor that we've created with the
+[37.4s] agent that we've created with the
 [39.3s] George Washington University. Uh the
-[42.1s] training data that the mentor is using
+[42.1s] training data that the agent is using
 [44.2s] to communicate with students is quite
 [46.9s] vast as you can see by these six pages
 [49.2s] of uh training documents. But the
@@ -27,11 +27,11 @@ https://www.youtube.com/watch?v=shdYfSObDS8
 [56.2s] visible. You see these little eye icons
 [59.6s] right throughout here. What this means
 [62.3s] is that while they are enabled as
-[65.9s] visible, the mentor can actually
+[65.9s] visible, the agent can actually
 [68.7s] directly site each one of these
 [70.3s] documents within its responses to users
 [73.5s] uh who are communicating with this
-[75.4s] mentor. And that can be toggled on or
+[75.4s] agent. And that can be toggled on or
 [78.1s] off at any time very easily just by
 [80.5s] selecting this button.
 [83.0s] So, I'm going to leave that on for now,
@@ -50,20 +50,20 @@ https://www.youtube.com/watch?v=shdYfSObDS8
 [114.8s] you the features that we uh are very
 [117.1s] proud of. So, I'm going to ask what are
 [119.8s] key epidemiological study designs and
-[123.4s] the mentor is going to take a second to
+[123.4s] the agent is going to take a second to
 [126.2s] digest the question that I've shared
 [127.9s] with it. Uh pull from the resources that
 [130.8s] it's been trained on in order to compile
 [132.7s] a response and then is going to actually
 [136.2s] directly site where it's getting that
 [137.9s] information. So for this particular
-[140.6s] answer that the mentor is giving me,
+[140.6s] answer that the agent is giving me,
 [142.3s] these study designs are discussed in
 [144.2s] lecture 10 of Professor Quinnland's
 [147.2s] course. So I'm going to ask, can you
 [150.5s] explain case control studies in detail?
 [153.8s] And as I'm doing that, you'll see that
-[155.4s] the mentor has also pulled up the
+[155.4s] the agent has also pulled up the
 [157.8s] specific documents that it used to
 [160.0s] create this question so that students
 [162.3s] can see with a percentage of accuracy

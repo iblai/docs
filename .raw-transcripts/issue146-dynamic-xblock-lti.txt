@@ -1,8 +1,8 @@
-mentorAI | LTI 1.3 Dynamic Mentor Integration
+Agentic OS | LTI 1.3 Dynamic Agent Integration
 https://www.youtube.com/watch?v=-R6nQbwyICc
 
 [1.0s] I'll be walking you through our dynamic
-[3.0s] mentor integration using LTI 1.3. Today
+[3.0s] agent integration using LTI 1.3. Today
 [6.2s] we're going to be focusing on Canvas,
 [7.7s] but this will apply to multiple LMS's.
 [10.8s] Now, you'll need to be an admin to set
@@ -27,16 +27,16 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [58.2s] their user, uh their email, their their
 [60.8s] name, so on and so forth, um I would
 [63.7s] recommend enabling these particular
-[65.6s] settings. Um so that way on the mentor
+[65.6s] settings. Um so that way on the agent
 [68.0s] platform as an attendant admin, you're
 [70.2s] able to see actually who's communicating
-[72.2s] with the mentor rather than than being
+[72.2s] with the agent rather than than being
 [74.1s] anonymous.
 [76.3s] Now where this differs from our typical
 [78.6s] LTI 1.3 integration is that we need to
 [81.0s] add this custom field. Um this will
 [83.8s] allow us to be able to you know show
-[86.6s] course or the mentor in various courses
+[86.6s] course or the agent in various courses
 [88.7s] but not all courses within a given
 [90.6s] canvas environment.
 [93.1s] The other piece here is you'll want to
@@ -48,7 +48,7 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [107.2s] going to be the new placement you will
 [108.9s] add. Now with course navigation if you
 [112.5s] don't want learners to be clicking on
-[114.8s] both the the mentor and the side
+[114.8s] both the the agent and the side
 [117.4s] navigation and within the side panel
 [121.1s] itself in canvas then what I would
 [124.1s] recommend doing is under this method
@@ -67,14 +67,14 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [153.3s] this looks like for the instructor view
 [155.5s] to start, we'll go to the US demo
 [157.9s] history course here. And you can see
-[160.6s] that the mentor for the one this tool
+[160.6s] that the agent for the one this tool
 [164.3s] that we have set up is not on the side
-[166.3s] panel. But where this mentor has been
+[166.3s] panel. But where this agent has been
 [169.8s] enabled is across certain pages. You can
-[172.1s] hide the mentor from whatever pages you
+[172.1s] hide the agent from whatever pages you
 [174.2s] would like. For instance, in our
 [175.2s] environment, we have the homepage um
-[178.3s] with the mentor disabled, but you're
+[178.3s] with the agent disabled, but you're
 [180.1s] allowed to also show it there depending
 [181.8s] on what pages you'd like this to be on.
 [184.6s] Now, when you're here, um, this will be
@@ -82,35 +82,35 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [191.0s] admins inside of Canvas. So, one thing
 [194.9s] you'll need to do is make sure that this
 [196.2s] is enabled.
-[198.7s] And the other piece here is the mentor
-[202.4s] ID. Now, this will come from the mentor
+[198.7s] And the other piece here is the agent
+[202.4s] ID. Now, this will come from the agent
 [205.7s] platform. So to get the the unique ID
-[208.8s] for the mentor, you're going to want to
+[208.8s] for the agent, you're going to want to
 [209.9s] look at this URL up here and the slash
 [213.3s] right here, you'll want to just
 [214.6s] basically copy everything after that.
-[216.2s] That's going to be the mentor's unique
+[216.2s] That's going to be the agent's unique
 [217.6s] ID. And you can see over here, we
 [219.5s] already have that in place. Um, but if
 [222.0s] we didn't, let's just say we started
 [223.8s] fresh,
-[225.4s] we'll go enabled mentor ID, save. Now,
+[225.4s] we'll go enabled agent ID, save. Now,
 [229.2s] I'm going to show you what the student
 [230.2s] view of this looks like as well.
 [238.8s] So, when you're in the student view,
 [240.1s] this is where you'll actually be able to
-[241.4s] communicate with the mentor.
+[241.4s] communicate with the agent.
 [244.0s] It's going to show up in the side panel,
 [245.6s] and this is what you'll see. Um, you'll
-[247.4s] be able to chat with the mentor, um,
+[247.4s] be able to chat with the agent, um,
 [249.0s] even as an instructor, as long as you're
 [250.6s] viewing from a student view or you have
 [252.5s] a test student account, anything like
 [254.1s] that. Um, you'll be able to chat with
-[256.2s] the mentor as you please.
+[256.2s] the agent as you please.
 [259.0s] one. Going back to the developer keys
 [261.1s] now just to show you what it would look
-[262.3s] like for you to disable the mentor side
+[262.3s] like for you to disable the agent side
 [264.2s] panel or sorry the
 [267.1s] disable the side navigation here as an
 [269.6s] instructor rather globally setting that
@@ -124,32 +124,32 @@ https://www.youtube.com/watch?v=-R6nQbwyICc
 [299.4s] Now, if we go back to the same course,
 [306.9s] now that we're back in the course, um
 [309.0s] before we hop into showing you how to
-[311.0s] hide the the mentor integration from the
+[311.0s] hide the the agent integration from the
 [314.0s] side panel over here, uh the course nav,
 [316.6s] we'll view this as a student
-[321.2s] and then click on the mentor.
+[321.2s] and then click on the agent.
 [326.4s] All right. So you'll see that both
-[328.7s] mentors or there's a mentor from the
+[328.7s] agents or there's an agent from the
 [331.3s] course nav page as well as the side
 [333.3s] panel. Now you can hide certain pages
-[336.1s] from the mentor integration like I
+[336.1s] from the agent integration like I
 [338.2s] mentioned earlier with the homepage. Um
 [340.6s] so if you did want to hide the side
 [341.9s] panel here, you have that option. You do
 [343.8s] also have the ability to close it out uh
 [346.2s] the side panel over here and just chat
-[348.5s] with a mentor from this page
+[348.5s] with an agent from this page
 [349.8s] exclusively.
 [351.8s] Now, we're going to leave the student
 [353.5s] view
 [357.5s] and come back. We'll see that this we're
 [360.4s] now back in the instructor view because
 [361.7s] we have the option to enable and include
-[363.1s] a mentor ID. What we'll do to hide this
+[363.1s] an agent ID. What we'll do to hide this
 [365.7s] is go to settings.
 [368.7s] And once you're under settings, you can
 [370.0s] click on course navigation
-[373.2s] and you'll see that mentor AI prod is
+[373.2s] and you'll see that agent AI prod is
 [376.2s] right here. And if you would like to
 [378.3s] hide it, you'll see this section
 [380.2s] underneath all the nav selections here

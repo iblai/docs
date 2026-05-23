@@ -66,4 +66,4 @@ To verify, open **Groups → your group → Licenses**; the assignment is listed
 
 ---
 
-With these steps, you can quickly organize users into groups and allocate licenses in MentorAI Analytics without manual per-user work.
+With these steps, you can quickly organize users into groups and allocate licenses in Agentic OS Analytics without manual per-user work.

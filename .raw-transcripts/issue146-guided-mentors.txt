@@ -1,13 +1,13 @@
-mentorAI | Guided Mentor
+Agentic OS | Guided Agent
 https://www.youtube.com/watch?v=ghHbq3EYDRQ
 
 [1.0s] Hello, this is Joseph Utivatin from
 [3.8s] ibl.ai.
 [5.5s] Um, and I will be showing you how you
-[9.6s] can configure a mentor that guides a
+[9.6s] can configure an agent that guides a
 [12.2s] student through an existing course on
 [15.1s] our LMS. Okay. So for this we are just
-[18.0s] going to call it guided mentor because
+[18.0s] going to call it guided agent because
 [19.8s] it guides a student.
 [22.6s] Um, first thing first we need to have
 [26.0s] our course. Now I have already created a
@@ -24,22 +24,22 @@ https://www.youtube.com/watch?v=ghHbq3EYDRQ
 [61.2s] not a complete course. This is just for
 [63.6s] a demo.
 [67.2s] Now with the course here and I have my
-[69.4s] mentor here. The things we need in order
-[71.6s] to make sure that this mentor follows
+[69.4s] agent here. The things we need in order
+[71.6s] to make sure that this agent follows
 [73.4s] the guided principle is that we need to
-[76.3s] first make sure that the mentor has his
-[78.9s] guided mentor turned to true. That's the
+[76.3s] first make sure that the agent has his
+[78.9s] guided agent turned to true. That's the
 [82.5s] first thing. And then the second thing
-[85.8s] in the mentor's memory component
+[85.8s] in the agent's memory component
 [87.8s] settings memory component here so that
-[89.8s] we can point the mentor to have
+[89.8s] we can point the agent to have
 [93.1s] knowledge about the student for a
 [95.0s] particular course. Now we define we
-[97.9s] choose the mentor and we specify the
+[97.9s] choose the agent and we specify the
 [99.8s] course. This item here corresponds to
 [103.7s] the course on the um LMS platform and
 [108.8s] then we choose which algorithms we want
-[110.9s] this mentor to be operating under space
+[110.9s] this agent to be operating under space
 [113.0s] repetition. It keeps pinging the qu the
 [115.1s] student with a particular question until
 [117.6s] the student gets it right. And at each
@@ -47,7 +47,7 @@ https://www.youtube.com/watch?v=ghHbq3EYDRQ
 [123.9s] in hints maybe some tutorials u some
 [127.0s] hints so that the student gets it. Then
 [129.4s] we have instruction mode where the
-[132.3s] mentor is basically going to turn into a
+[132.3s] agent is basically going to turn into a
 [135.0s] full-blown tutor. So it just gives like
 [137.6s] a teacher teaching a course. We also
 [139.8s] have socratic mode and then you can also
@@ -59,13 +59,13 @@ https://www.youtube.com/watch?v=ghHbq3EYDRQ
 [155.0s] questions do you need to get in order to
 [157.4s] be considered a pass? Okay. Now with
 [160.8s] these two configured as you see I have
-[163.7s] let's go try this mentor out. Um just to
+[163.7s] let's go try this agent out. Um just to
 [167.3s] get a bit of quick responses let's go
 [170.0s] with a non-thinking model. Okay. You
 [172.9s] could go for a thinking model like GB5.
 [175.9s] um for obviously higher quality but
 [180.6s] this does it quite well. So I just want
-[184.2s] this mentor to respond in two phases. We
+[184.2s] this agent to respond in two phases. We
 [186.5s] have the usual chat response and then
 [188.6s] the tutorial mode. So I'm going to turn
 [191.1s] on canvas and I'll ask it to start and

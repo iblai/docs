@@ -1,15 +1,15 @@
 # Evaluation System
 
-Measure and improve mentor quality by running structured experiments against datasets and grading results through human annotations or automated LLM-as-Judge scoring.
+Measure and improve agent quality by running structured experiments against datasets and grading results through human annotations or automated LLM-as-Judge scoring.
 
 ---
 
 ## Overview
 
-The evaluation system provides a complete pipeline for assessing mentor performance:
+The evaluation system provides a complete pipeline for assessing agent performance:
 
 1. **Create a dataset** of questions with optional expected answers
-2. **Run an experiment** that sends each question to a mentor and records its response
+2. **Run an experiment** that sends each question to an agent and records its response
 3. **Grade the results** using human annotations, LLM-as-Judge, or both
 4. **Export results** as CSV for analysis
 
@@ -54,7 +54,7 @@ Authorization: Token <api_key>
 **Base URL pattern:**
 
 ```
-/api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/...
+/api/ai-agent/orgs/{org}/users/{user_id}/evaluations/...
 ```
 
 | Parameter | Description |
@@ -84,7 +84,7 @@ Datasets are collections of evaluation questions. Each dataset is scoped to your
 #### List Datasets
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/
 ```
 
 **Query parameters:** `page`, `limit`
@@ -96,7 +96,7 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/
   "data": [
     {
       "name": "customer-support-eval",
-      "description": "Evaluation dataset for customer support mentor",
+      "description": "Evaluation dataset for customer support agent",
       "metadata": { "platform_key": "my-tenant" },
       "created_at": "2024-01-15T10:30:00Z",
       "updated_at": "2024-01-15T10:30:00Z"
@@ -109,7 +109,7 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/
 #### Create Dataset
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/
 ```
 
 **Request body:**
@@ -150,7 +150,7 @@ POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/
 #### Get Dataset
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/
 ```
 
 Returns a single dataset by name. Validates that the dataset belongs to the requesting tenant.
@@ -166,7 +166,7 @@ Items are the individual questions (with optional expected answers) within a dat
 #### List Items
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/
 ```
 
 **Query parameters:** `page`, `limit`
@@ -195,7 +195,7 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name
 #### Add Items (Direct Input)
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/
 ```
 
 Provide an `items` array. Each item requires an `input` field; `expected_output` is optional.
@@ -230,10 +230,10 @@ Provide an `items` array. Each item requires an `input` field; `expected_output`
 #### Add Items (From Traces)
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/
 ```
 
-Link existing chat traces to the dataset. The system extracts the user input and mentor response from each trace.
+Link existing chat traces to the dataset. The system extracts the user input and agent response from each trace.
 
 ```json
 {
@@ -252,7 +252,7 @@ Link existing chat traces to the dataset. The system extracts the user input and
 #### Upload CSV
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/upload/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/upload/
 ```
 
 Upload a CSV file to bulk-create dataset items. Send as `multipart/form-data` with a `file` field.
@@ -278,7 +278,7 @@ See [CSV Format](#csv-format) for details.
 #### Update Item
 
 ```
-PUT /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/{item_id}/
+PUT /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/{item_id}/
 ```
 
 **Request body** (all fields optional):
@@ -295,7 +295,7 @@ PUT /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name
 #### Delete Item
 
 ```
-DELETE /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/{item_id}/
+DELETE /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/items/{item_id}/
 ```
 
 **Response** `204 No Content`
@@ -306,12 +306,12 @@ DELETE /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_n
 
 ### Experiments
 
-Experiments run a mentor against every item in a dataset and record the responses. Each experiment is processed as a background task.
+Experiments run an agent against every item in a dataset and record the responses. Each experiment is processed as a background task.
 
 #### List Experiment Runs
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/
 ```
 
 **Query parameters:** `page`, `limit`
@@ -326,7 +326,7 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name
       "name": "run-abc12345",
       "metadata": {
         "platform_key": "my-tenant",
-        "mentor_unique_id": "mentor-uuid",
+        "mentor_unique_id": "agent-uuid",
         "initiated_by": "admin@example.com"
       },
       "created_at": "2024-01-15T11:00:00Z",
@@ -340,20 +340,20 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name
 #### Start Experiment
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/
 ```
 
 **Request body:**
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `mentor_unique_id` | string | Yes | The `unique_id` of the mentor to evaluate |
+| `mentor_unique_id` | string | Yes | The `unique_id` of the agent to evaluate |
 | `run_name` | string | No | Custom name for the run (auto-generated if omitted) |
 | `metadata` | object | No | Additional metadata |
 
 ```json
 {
-  "mentor_unique_id": "my-mentor-unique-id",
+  "mentor_unique_id": "my-agent-unique-id",
   "run_name": "experiment-v1",
   "metadata": {
     "purpose": "accuracy evaluation"
@@ -365,8 +365,8 @@ This dispatches a background task. The API returns immediately with a `202 Accep
 
 **What happens during an experiment:**
 1. A new chat session is created for each dataset item
-2. The mentor is invoked with the item's `input` through the standard chat pipeline
-3. The mentor's response is recorded
+2. The agent is invoked with the item's `input` through the standard chat pipeline
+3. The agent's response is recorded
 4. Each interaction is traced and linked to the experiment run
 
 **Response** `202 Accepted`:
@@ -376,7 +376,7 @@ This dispatches a background task. The API returns immediately with a `202 Accep
   "run_name": "experiment-v1",
   "task_id": "celery-task-uuid",
   "status": "started",
-  "mentor_unique_id": "my-mentor-unique-id",
+  "mentor_unique_id": "my-agent-unique-id",
   "initiated_by": "admin@example.com"
 }
 ```
@@ -384,7 +384,7 @@ This dispatches a background task. The API returns immediately with a `202 Accep
 #### Get Experiment Run Details
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/
 ```
 
 Returns detailed results including individual run items with their trace IDs.
@@ -397,7 +397,7 @@ Returns detailed results including individual run items with their trace IDs.
   "name": "experiment-v1",
   "metadata": {
     "platform_key": "my-tenant",
-    "mentor_unique_id": "mentor-uuid",
+    "mentor_unique_id": "agent-uuid",
     "initiated_by": "admin@example.com"
   },
   "created_at": "2024-01-15T11:00:00Z",
@@ -417,7 +417,7 @@ Returns detailed results including individual run items with their trace IDs.
 #### Export Results (CSV)
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/export/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/export/
 ```
 
 Downloads experiment results as a CSV file. Columns include: `item_id`, `input`, `expected_output`, `actual_output`, `trace_id`, and any score columns (prefixed with `score_`).
@@ -432,7 +432,7 @@ item-1,What is AI?,AI is...,Artificial intelligence is...,trace-1,4.0
 #### Delete Experiment Run
 
 ```
-DELETE /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/
+DELETE /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/
 ```
 
 **Response** `204 No Content`
@@ -443,12 +443,12 @@ DELETE /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_n
 
 ### Scores
 
-Scores are human annotations attached to individual traces from an experiment. Use scores to manually grade mentor responses.
+Scores are human annotations attached to individual traces from an experiment. Use scores to manually grade agent responses.
 
 #### List Scores
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/scores/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/scores/
 ```
 
 **Query parameters:**
@@ -484,7 +484,7 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/scores/
 #### Create Score
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/scores/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/scores/
 ```
 
 **Request body:**
@@ -523,7 +523,7 @@ POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/scores/
 #### Delete Score
 
 ```
-DELETE /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/scores/{score_id}/
+DELETE /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/scores/{score_id}/
 ```
 
 **Response** `204 No Content`
@@ -537,7 +537,7 @@ Score configs define reusable scoring rubrics for consistent, standardized gradi
 #### List Score Configs
 
 ```
-GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/score-configs/
+GET /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/score-configs/
 ```
 
 **Query parameters:** `page`, `limit`
@@ -566,7 +566,7 @@ GET /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/score-configs/
 #### Create Score Config
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/score-configs/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/score-configs/
 ```
 
 **Request body:**
@@ -616,7 +616,7 @@ POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/score-configs/
 Automatically grade an entire experiment run using an LLM evaluator. The judge examines each item's input, expected output, and actual output against your custom criteria and assigns a score (0 to 1).
 
 ```
-POST /api/ai-mentor/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/evaluate/
+POST /api/ai-agent/orgs/{org}/users/{user_id}/evaluations/datasets/{dataset_name}/runs/{run_name}/evaluate/
 ```
 
 **Request body:**
@@ -687,7 +687,7 @@ POST .../evaluations/datasets/qa-eval-v1/items/
 
 ```
 POST .../evaluations/datasets/qa-eval-v1/runs/
-{ "mentor_unique_id": "my-mentor", "run_name": "run-v1" }
+{ "mentor_unique_id": "my-agent", "run_name": "run-v1" }
 ```
 
 **Step 4: Wait for completion, then check results**
@@ -746,8 +746,8 @@ Exported CSVs include the following columns:
 | Column | Description |
 |--------|-------------|
 | `item_id` | Dataset item ID |
-| `input` | The question sent to the mentor |
+| `input` | The question sent to the agent |
 | `expected_output` | Expected answer (if provided) |
-| `actual_output` | Mentor's response |
+| `actual_output` | Agent's response |
 | `trace_id` | Trace ID for the interaction |
 | `score_<name>` | One column per score name (e.g., `score_accuracy`) |

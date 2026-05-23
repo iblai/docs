@@ -1,4 +1,4 @@
-mentorAI | Customize Chat Box Width
+Agentic OS | Customize Chat Box Width
 https://www.youtube.com/watch?v=z0aAukIUzh4
 
 [1.2s] As a tenant admin, you have the ability

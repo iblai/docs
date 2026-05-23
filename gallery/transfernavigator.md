@@ -8,7 +8,7 @@
 
 ## Description
 
-A mentor that helps students **navigate credit transfer**—interpreting transcripts, checking articulation agreements, and mapping courses to a destination university’s degree requirements. 
+An agent that helps students **navigate credit transfer**—interpreting transcripts, checking articulation agreements, and mapping courses to a destination university’s degree requirements. 
 
 
 It can analyze **uploaded transcripts** (including international credits), handle **credit conversions** (e.g., UK → US), explain **minimum grade requirements**, and show **how credits apply** to a chosen program.
@@ -26,7 +26,7 @@ It can analyze **uploaded transcripts** (including international credits), handl
 
 #### 2. Upload and analyze
   - Upload a sample transcript (PDF).  
-  - Mentor analyzes coursework and recognizes originating institution standards (e.g., **UK credit system**).
+  - Agent analyzes coursework and recognizes originating institution standards (e.g., **UK credit system**).
 
 #### 3. Get an evaluation
   - Returns an overview with:
@@ -41,7 +41,7 @@ It can analyze **uploaded transcripts** (including international credits), handl
 
     “Yes, map the equivalent.”  
 
-**Mentor returns:**
+**Agent returns:**
   - A course-to-course mapping (e.g., *Bath University → Empire State*)  
   - Equivalencies and converted credit values
 
@@ -63,7 +63,7 @@ It can analyze **uploaded transcripts** (including international credits), handl
 
 Ready to give students clear, step-by-step guidance on credit transfer and equivalencies?
 
-Email us at **support@iblai.zendesk.com** and we’ll enable the **Transfer Navigator Mentor** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
+Email us at **support@iblai.zendesk.com** and we’ll enable the **Transfer Navigator Agent** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
 
 
 

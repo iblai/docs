@@ -31,7 +31,7 @@ Authentication is the standard `Authorization: Token ...` scheme. Tenants must h
 ## Connection Lifecycle
 
 ```
-Front-end Client          Mentor API (Accounts)          OAuth Provider
+Front-end Client          Agent API (Accounts)          OAuth Provider
       |                          |                              |
       |-- GET /oauth-services/ ->|                              |
       |<- 200 OK (services) ----|                              |

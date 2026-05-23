@@ -5,7 +5,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Description
 
-The API feature lets you generate secure keys for a mentor and use them to call mentorAI’s REST endpoints. With an API key, you can integrate mentorAI into other systems—LMS dashboards, custom analytics pipelines, or third‑party apps—while controlling access and expiration dates for security.
+The API feature lets you generate secure keys for an agent and use them to call Agentic OS’s REST endpoints. With an API key, you can integrate Agentic OS into other systems—LMS dashboards, custom analytics pipelines, or third‑party apps—while controlling access and expiration dates for security.
 
 
 
@@ -24,7 +24,7 @@ The API feature lets you generate secure keys for a mentor and use them to call 
 
 #### Scoped API Keys
 
-Generate unique keys per mentor, limiting access only to that mentor’s data and functionality.
+Generate unique keys per agent, limiting access only to that agent’s data and functionality.
 
 #### Custom Expiration Dates
 
@@ -36,11 +36,11 @@ Keys are shown only once; you must copy and store them securely.
 
 #### Built‑In Authorization Flow
 
-Use the key to authorize calls in mentorAI’s API platform (Swagger / Postman collection).
+Use the key to authorize calls in Agentic OS’s API platform (Swagger / Postman collection).
 
 #### Seamless System Integration
 
-Connect mentorAI with learning‑management systems, CRMs, grading tools, and more.
+Connect Agentic OS with learning‑management systems, CRMs, grading tools, and more.
 
 ---
 
@@ -48,7 +48,7 @@ Connect mentorAI with learning‑management systems, CRMs, grading tools, and mo
 
 #### Create an API Key
 
-- Click the **mentor’s name** in the header  
+- Click the **agent’s name** in the header  
 - Select the **API** tab  
 - Choose **Create New**  
 - Enter a descriptive name (e.g., “LMS‑integration‑Aug 2025”)  
@@ -59,7 +59,7 @@ Connect mentorAI with learning‑management systems, CRMs, grading tools, and mo
 
 #### Authorize in the API Platform
 
-- Open **mentorAI’s interactive API documentation**  
+- Open **Agentic OS’s interactive API documentation**  
 - Click **Authorize**  
 - Paste your copied **API key** and confirm  
 - Close the authorization dialog
@@ -82,7 +82,7 @@ Connect mentorAI with learning‑management systems, CRMs, grading tools, and mo
 
 #### LMS Grade Sync
 
-Pull mentorAI quiz results via API and push them into your institution’s gradebook automatically.
+Pull Agentic OS quiz results via API and push them into your institution’s gradebook automatically.
 
 #### Custom Analytics Dashboards
 
@@ -90,16 +90,16 @@ Fetch conversation counts, tool usage stats, or student progress metrics for rea
 
 #### Single‑Sign‑On (SSO) Extensions
 
-Use the API to validate user sessions and embed mentorAI directly inside campus portals.
+Use the API to validate user sessions and embed Agentic OS directly inside campus portals.
 
 #### Automated Enrollment
 
-Script the creation of new mentors or the assignment of students to mentors each semester.
+Script the creation of new agents or the assignment of students to agents each semester.
 
 #### Content Management Pipelines
 
-Upload datasets or update system prompts programmatically to keep mentors in sync with new course materials.
+Upload datasets or update system prompts programmatically to keep agents in sync with new course materials.
 
 ---
 
-With an **API key in hand**, you can seamlessly **integrate mentorAI’s capabilities** into your existing systems—**extending its reach** while maintaining **strict security and control**.
+With an **API key in hand**, you can seamlessly **integrate Agentic OS’s capabilities** into your existing systems—**extending its reach** while maintaining **strict security and control**.

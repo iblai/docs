@@ -4,7 +4,7 @@
 
 ## Description
 
-**Comprehensive Analytics** gives you a built-in, **real-time dashboard** for every mentor in mentorAI—no add-ons required. 
+**Comprehensive Analytics** gives you a built-in, **real-time dashboard** for every agent in Agentic OS—no add-ons required. 
 
 
 Track **engagement** (messages, users, topics), **satisfaction**, **transcripts**, and **financial usage** (by week/month/provider/model) to understand learning impact and optimize costs.
@@ -23,7 +23,7 @@ Admins can drill down to **sessions, users, and topics** for evidence-based cour
 ## Features
 
 #### Single Click Access
-Open analytics from any mentor’s chat to see live metrics—**no separate setup**.
+Open analytics from any agent’s chat to see live metrics—**no separate setup**.
 
 #### Overview Tab
 Bare-bones totals at the top (messages this month, active users, topics, satisfaction), plus:  
@@ -55,17 +55,17 @@ Bare-bones totals at the top (messages this month, active users, topics, satisfa
 - Usage over time: weekly, monthly, total cost  
 - Cost/day  
 - Cost by provider  
-- Cost by LLM model (reflecting mentorAI’s LLM-agnostic design: OpenAI, Gemini, Microsoft, etc.)
+- Cost by LLM model (reflecting Agentic OS’s LLM-agnostic design: OpenAI, Gemini, Microsoft, etc.)
 
 #### No Extra Cost
-Analytics are **included** and available to admins for any mentor.
+Analytics are **included** and available to admins for any agent.
 
 ---
 
 ## How to Use (step by step)
 
 #### Open Analytics
-- In a mentor’s chat interface, locate the **analytics icon** (lower-left, above Settings) and click it  
+- In an agent’s chat interface, locate the **analytics icon** (lower-left, above Settings) and click it  
 - The **Comprehensive Analytics** panel opens
 
 #### Review the Overview
@@ -114,17 +114,17 @@ Use **Topics + Transcripts** to find concepts with low ratings/high volume, then
 **Time-of-day usage** informs when to schedule office hours or auto-released study nudges.
 
 #### Quality Assurance
-Track **satisfaction** and **avg rating/session** to verify the mentor’s tone, clarity, and helpfulness.
+Track **satisfaction** and **avg rating/session** to verify the agent’s tone, clarity, and helpfulness.
 
 #### Assessment & Curriculum Tuning
 Common queries in **Transcripts** reveal where lessons or assessments need clarification.
 
 #### Cost Optimization
-Compare **cost by provider/model** to select LLMs that balance price, speed, and accuracy for each mentor.
+Compare **cost by provider/model** to select LLMs that balance price, speed, and accuracy for each agent.
 
 #### Program Evaluation
 **Overview trends** (messages, active users) offer quick evidence of engagement and learning impact for stakeholders.
 
 ---
 
-With **Comprehensive Analytics**, you gain a **clear, actionable picture** of learner engagement, topic mastery, and cost—so you can continuously improve your mentors and your courses.
+With **Comprehensive Analytics**, you gain a **clear, actionable picture** of learner engagement, topic mastery, and cost—so you can continuously improve your agents and your courses.

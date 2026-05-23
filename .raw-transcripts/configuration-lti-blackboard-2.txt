@@ -1,8 +1,8 @@
-mentorAI | Blackboard | Configuring LTI
+Agentic OS | Blackboard | Configuring LTI
 https://www.youtube.com/watch?v=LpdYOKA8xHU
 
 [0.4s] I'm going to be showing you today how to
-[2.3s] integrate Mentor AI as an LTI component
+[2.3s] integrate Agent AI as an LTI component
 [5.4s] in a Blackboard course. So, as an admin,
 [9.2s] what I'll do is go to the admin panel
 [11.0s] and then find this integrations tab.
@@ -31,7 +31,7 @@ https://www.youtube.com/watch?v=LpdYOKA8xHU
 [61.3s] that'll be your name or the user's names
 [63.4s] and email addresses so we can identify
 [65.4s] who they are. You know, when they're
-[67.4s] speaking with the mentor, that's really
+[67.4s] speaking with the agent, that's really
 [68.6s] helpful for understanding, you know,
 [70.0s] where learning gaps are if somebody's
 [71.5s] struggling, things like that. Um, and in
@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=LpdYOKA8xHU
 [93.9s] We've already got a few set up. So, I'll
 [95.7s] show you what this looks like. Um this
 [97.6s] course content tool is going to allow
-[99.7s] you to add uh the the mentor as a course
+[99.7s] you to add uh the the agent as a course
 [103.7s] content component. Um so it'll be inside
 [106.5s] the inner courseware. Here we also have
 [108.6s] deep linking and you also have the
@@ -108,9 +108,9 @@ https://www.youtube.com/watch?v=LpdYOKA8xHU
 [226.0s] course content tool.
 [229.9s] And you'll see that it's loading. And
 [232.1s] once it's done, you'll see that the
-[233.3s] mentor is here and we can start
+[233.3s] agent is here and we can start
 [234.2s] chatting.
 [240.8s] Oh, that happened quite quick. So, let
 [242.6s] me scroll up so you can see. Um, this is
-[244.9s] the response we got from the mentor. So,
+[244.9s] the response we got from the agent. So,
 [246.9s] now we can chat.
