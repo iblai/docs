@@ -69,7 +69,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ## Purpose
 
-Integrate **Agentic OS content** into an LMS course (example shown in **Canvas**) using **LTI Deep Linking**. This enables instructors to insert specific agents or tools directly into course modules.
+Integrate **Agentic OS content** into an LMS course (example shown in **Canvas**) using **LTI Deep Linking**. This enables administrators to insert specific agents or tools directly into course modules.
 
 ## Step 1 — Configure the Tool in Canvas
 

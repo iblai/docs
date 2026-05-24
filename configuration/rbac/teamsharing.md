@@ -10,7 +10,7 @@ Share an existing team with additional users—such as external managers or part
 
 ## Overview
 
-Beyond CSV-based platform invitations, teams can now be shared directly from the Management UI. This lets you grant read-only and analytics visibility to users who did not create the team (and may currently be students).
+Beyond CSV-based platform invitations, teams can now be shared directly from the Management UI. This lets you grant read-only and analytics visibility to users who did not create the team (and may currently hold only the User role).
 
 ---
 
@@ -36,7 +36,7 @@ Assign **Read** and **View Analytics** together to enable full oversight of team
 
 ### Add Users or Groups
 
-- Add **individual users** (e.g., a company manager who currently exists as a student), or  
+- Add **individual users** (e.g., a company manager who currently holds only the User role), or  
 - Add a **group** to bundle multiple managers together for easier management.
 
 ### Save

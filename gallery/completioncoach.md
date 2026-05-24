@@ -8,11 +8,11 @@
 
 ## Description
 
-An agent designed to help students **stay on track for on-time degree completion**. 
+An agent designed to help users **stay on track for on-time degree completion**. 
 
 It monitors **credit momentum**, flags **registration risks/holds**, answers questions like *“Am I on track to graduate by X term?”*, and explains **major + university requirements**.
 
-The system supports **proactive alerts**, ensuring students know what’s missing **before delays occur**—strengthening retention and graduation outcomes.
+The system supports **proactive alerts**, ensuring users know what’s missing **before delays occur**—strengthening retention and graduation outcomes.
 
 ---
 
@@ -50,13 +50,13 @@ Ask follow-up questions such as:
 
 #### 4. Stay proactive
 
-Agent can be configured to issue **proactive alerts** when something could delay on-time completion—guiding the student to resolve issues early.
+Agent can be configured to issue **proactive alerts** when something could delay on-time completion—guiding the user to resolve issues early.
 
 ---
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 

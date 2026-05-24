@@ -2,7 +2,7 @@
 
 ## Who we are
 
-We're all-in-one web and mobile AI tools for faculty support and student success: tutoring, content creation and automation.
+We're all-in-one web and mobile AI tools for faculty support and user success: tutoring, content creation and automation.
 
 Full transparency, help-desk and training. Proven by the best universities and companies.
 

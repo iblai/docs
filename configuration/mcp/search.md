@@ -74,7 +74,7 @@ The Search MCP uses an MCP server (in this demo, ibl.ai’s own search MCP) to p
 
 **Prompt example:**
 
-> “What agents can help me become a better student?”
+> “What agents can help me become a better user?”
 
 **Result:**
 

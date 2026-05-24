@@ -44,7 +44,7 @@
 ## Result
 
 - The agent loads directly in the course page.
-- Students can chat with the agent immediately.
+- Users can chat with the agent immediately.
 - The embedded size can be adjusted from the integration settings.
 
 ---
@@ -52,6 +52,6 @@
 ## Key Takeaways
 
 - **LTI version must be 1.3** — verify this in the tool configuration
-- **Deep linking** allows instructors to select specific agents per course module
+- **Deep linking** allows administrators to select specific agents per course module
 - Enable **name and email sharing** for accurate learner analytics
 - The agent can be added to multiple courses with different agent selections via deep linking

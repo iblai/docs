@@ -8,7 +8,7 @@
 
 ## Description
 
-A 24/7 agent that connects students to on-campus study supports—tutoring centers, writing labs, academic workshops, and more. It answers availability questions (including nights/weekends), provides location and hours, suggests after-hours alternatives, and can walk students through booking in-person or virtual sessions. Responses are tailored to the student’s university (e.g., Buffalo State University).
+A 24/7 agent that connects users to on-campus study supports—tutoring centers, writing labs, academic workshops, and more. It answers availability questions (including nights/weekends), provides location and hours, suggests after-hours alternatives, and can walk users through booking in-person or virtual sessions. Responses are tailored to the user’s university (e.g., Buffalo State University).
 
 ---
 
@@ -22,7 +22,7 @@ A 24/7 agent that connects students to on-campus study supports—tutoring cente
 
      “Is there a writing center open on the weekends?”
 
-     “I’m a student at Buffalo State University—can I schedule a virtual appointment?”
+     “I’m a user at Buffalo State University—can I schedule a virtual appointment?”
 
 #### 2. Get availability & details
 
@@ -40,7 +40,7 @@ A 24/7 agent that connects students to on-campus study supports—tutoring cente
 
 ## Target Audience
 
-Student · Instructor · Administrator
+User · Administrator · Superadministrator
 
 ---
 

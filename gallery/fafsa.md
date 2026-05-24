@@ -8,8 +8,8 @@
 
 ## Description
 
-An agent that guides students through the **financial aid process**—explaining FAFSA steps, deadlines, documentation requirements, and troubleshooting common issues like verification holds.  
-It **does not give speculative financial advice**; it focuses strictly on **official process guidance** and directs students to their campus Financial Aid office when necessary.
+An agent that guides users through the **financial aid process**—explaining FAFSA steps, deadlines, documentation requirements, and troubleshooting common issues like verification holds.  
+It **does not give speculative financial advice**; it focuses strictly on **official process guidance** and directs users to their campus Financial Aid office when necessary.
 
 ---
 
@@ -24,7 +24,7 @@ It **does not give speculative financial advice**; it focuses strictly on **offi
     “Am I considered dependent or independent?”
 
 #### 2. Get process-grounded guidance
-  - Breaks down required documents for all students  
+  - Breaks down required documents for all users  
   - Distinguishes requirements for **dependent vs. independent** status  
   - Explains deadlines and next steps  
   - Can provide the official FAFSA site link
@@ -41,13 +41,13 @@ It **does not give speculative financial advice**; it focuses strictly on **offi
 
 ## Target Audience
 
-**Instructor · Administrator · Student**
+**Administrator · Superadministrator · User**
 
 ---
 
 ## Want This in Your Courses?
 
-Ready to give students a reliable, process-accurate guide for FAFSA?
+Ready to give users a reliable, process-accurate guide for FAFSA?
 
 Email **support@iblai.zendesk.com** and we’ll enable **FAFSA Agent** on your agents—or help you build a solution tailored to your institution.
 

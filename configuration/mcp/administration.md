@@ -120,10 +120,10 @@ Get insights about learning activity, agent usage, and costs.
 Once configured, ask your AI assistant:
 
 - "How many users are active in the acme platform?"
-- "What topics are students asking about most?"
+- "What topics are users asking about most?"
 - "Show me conversation trends for the last month"
 - "What are the LLM costs broken down by agent?"
-- "Which students have the most chat messages?"
+- "Which users have the most chat messages?"
 - "What's the average course grade?"
 
 ### Working Examples

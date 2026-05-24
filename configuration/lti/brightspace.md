@@ -80,7 +80,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 ## Purpose
 
 Integrate **Agent AI content** into **Brightspace courses** using **LTI Deep Linking**.  
-This allows instructors to insert specific agents directly into course content modules.
+This allows administrators to insert specific agents directly into course content modules.
 
 ## Step 1 — Configure the Tool in Brightspace
 
@@ -118,7 +118,7 @@ This allows instructors to insert specific agents directly into course content m
 
 ## Result
 
-The chosen agent appears as **integrated course content**. Learners can **launch it directly**, and instructors can **repeat the process** for additional agents or resources.
+The chosen agent appears as **integrated course content**. Learners can **launch it directly**, and administrators can **repeat the process** for additional agents or resources.
 
 ---
 

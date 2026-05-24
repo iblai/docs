@@ -23,11 +23,11 @@ Control who can integrate and use an agent via **LTI** from your LMS (e.g., Canv
 
 ---
 
-## “Administrators can view” (Web-app visibility)
+## “Superadministrators can view” (Web-app visibility)
 
 - If the agent is marked **admin-only** in the Agentic OS web app **and** LTI accessible is **On**:  
   - Other users won’t see the agent in the web app  
-  - But **students can still access it in the LMS**
+  - But **users can still access it in the LMS**
 - Use this to keep an agent **hidden in the web UI** while leaving **LMS access intact**.
 
 ---
@@ -38,16 +38,16 @@ Control who can integrate and use an agent via **LTI** from your LMS (e.g., Canv
   - Do **not** need an Agentic OS account  
   - See **all agents** available to the LMS environment (system-admin level)
 
-- **Instructors:**  
+- **Administrators:**  
   - **Must** have an Agentic OS account using the **same email** as in the LMS  
-  - This filters the LMS picker so instructors only see **agents they created**
+  - This filters the LMS picker so administrators only see **agents they created**
 
 ---
 
 ## Typical Workflow
 
 1. In Agentic OS → open the agent’s **Settings** → toggle **LTI accessible = On** → **Save**.
-2. *(Optional)* Set **Administrators can view** if you want the agent **hidden in the web app but still usable from the LMS**.
+2. *(Optional)* Set **Superadministrators can view** if you want the agent **hidden in the web app but still usable from the LMS**.
 3. In Canvas:  
    - **Add External Tool → choose your agent integration → select the agent → Add Item → launch**
 4. To **revoke LMS access**:  
@@ -60,7 +60,7 @@ Control who can integrate and use an agent via **LTI** from your LMS (e.g., Canv
 
 - **On** → agent appears in LMS picker; launchable in courses.  
 - **Off** → agent disappears from LMS picker; existing links fail on refresh.  
-- **Admin-only (web) + On (LTI)** → agent hidden in web app but available to students in LMS.
+- **Admin-only (web) + On (LTI)** → agent hidden in web app but available to users in LMS.
 
 ---
 

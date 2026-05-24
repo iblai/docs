@@ -17,7 +17,7 @@ A starting point for diagnosing issues when agent editors cannot see certain set
 1. Go to the agent's **Access** tab.
 2. Verify the user has the **Editor** role assigned.
 3. If tabs are missing despite editor access:
-   - Create a **test student user**.
+   - Create a **test user**.
    - Add the test user to the same **Access** tab with the same role.
    - Check which settings are visible to the test user.
    - Compare with what the original user sees.

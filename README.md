@@ -4,7 +4,7 @@
 
 # Documentation
 
-Platform documentation for [ibl.ai](https://ibl.ai) — guides, video tutorials, and API reference for students, instructors, and administrators.
+Platform documentation for [ibl.ai](https://ibl.ai) — guides, video tutorials, and API reference for users, administrators, and superadministrators.
 
 [![Live Docs](https://img.shields.io/badge/Live_Docs-ibl.ai%2Fdocs-0057FF?style=for-the-badge)](https://ibl.ai/docs)
 [![Pages](https://img.shields.io/badge/115_Pages-Documentation-16A34A?style=for-the-badge)](https://ibl.ai/docs)
@@ -37,7 +37,7 @@ configuration/          # Platform setup and administration
   ├── uiux/             # Authentication and custom CSS
   └── users/            # Groups, invitations, licenses, teams
 
-instructor/             # Instructor tools and analytics
+administrator/          # Administrator tools and analytics
   ├── analytics/        # Chat ratings, financials, reporting
   ├── data/             # Datasets, document retrieval, graded assignments
   ├── integration/      # API access and community agents
@@ -45,7 +45,7 @@ instructor/             # Instructor tools and analytics
   ├── mentorcreation/   # Prompts, safety, tools, visibility
   └── supportcenter/    # Human support and notifications
 
-student/                # Learner features
+user/                   # Learner features
   ├── accessibility/    # Accessibility and profile management
   ├── corefeatures/     # Chat, code interpreter, image generation, phone calls
   └── personalization/  # Memory and preferences

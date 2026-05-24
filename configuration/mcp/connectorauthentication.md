@@ -49,7 +49,7 @@ For OAuth-based connectors (e.g., Notion), choose the **OAuth** authentication m
 1. Admin adds the OAuth MCP connector with **User** scope.
 2. Admin authenticates first (completes the OAuth flow).
 3. The connector is enabled on the agent.
-4. When a different user (e.g., a student) chats with the agent:
+4. When a different user chats with the agent:
    - An authentication prompt appears: "Authentication required for [service]. Please complete the login in the open window."
    - The user completes the OAuth flow in a popup window.
    - Upon success, the chat continues with the connector active.

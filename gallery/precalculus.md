@@ -39,7 +39,7 @@ The **Pre-Calculus agent** gives learners **concise, textbook-anchored explanati
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 

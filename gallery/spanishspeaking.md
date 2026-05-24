@@ -30,7 +30,7 @@ This makes it useful both for **Spanish speakers needing support** and for **Eng
 4. **Flexible use cases**  
    - Perfect for:  
      - **Language practice**  
-     - **Multilingual student services**  
+     - **Multilingual user services**  
      - **Bilingual classroom assistance**
 
 #### Example
@@ -51,7 +51,7 @@ This makes it useful both for **Spanish speakers needing support** and for **Eng
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 

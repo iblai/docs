@@ -71,7 +71,7 @@ title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 - **Ultra:** Use **Teaching Tools with LTI Connection (Workflow A)** or **Content Market with your placement (Workflow B)**.  
 - **Original:** Build Content → Web Link → Tool Provider.  
 
-Always use the **URLs/IDs provided by Agentic OS** and make the item **visible** so students can access the assistant.
+Always use the **URLs/IDs provided by Agentic OS** and make the item **visible** so users can access the assistant.
 
 ---
 

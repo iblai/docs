@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Restrict a user or group to chatting with a specific agent without exposing other agents or settings on the platform. Useful for providing targeted access to students or external users.
+Restrict a user or group to chatting with a specific agent without exposing other agents or settings on the platform. Useful for providing targeted access to internal users or external collaborators.
 
 ---
 

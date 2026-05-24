@@ -18,7 +18,7 @@ Use Groups to assign users a consistent set of permissions (policies) across the
 
 ### Teams
 
-- Collections of learners (e.g., Company A students).  
+- Collections of learners (e.g., Company A users).  
 - Used to scope data visibility so managers only see their own learners’ data.  
 - Best for data segmentation (Company A vs. Company B).
 

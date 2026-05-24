@@ -47,7 +47,7 @@ This makes it useful for **beginners starting at a 100-level** as well as more *
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 

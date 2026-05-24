@@ -8,16 +8,16 @@
 
 ## Description
 
-**Faculty Partner** is an AI agent that helps university instructors weave **generative-AI activities** into an assignment, project, or entire course. You describe the task; the agent proposes AI uses, checks alignment with learning goals, and suggests safeguards.
+**Faculty Partner** is an AI agent that helps university administrators weave **generative-AI activities** into an assignment, project, or entire course. You describe the task; the agent proposes AI uses, checks alignment with learning goals, and suggests safeguards.
 
 ---
 
 ## Typical Flow
 
 1. **Describe the assignment** – topic, outline, length, formatting, citation style  
-2. **State goals and context** – what students should demonstrate, class size, delivery mode  
+2. **State goals and context** – what users should demonstrate, class size, delivery mode  
 3. **Review two initial AI-integration ideas** – e.g., AI for drafting & feedback, simulated peer review  
-4. **Voice concerns** – e.g., *“Will AI do the students’ work?”* and receive safeguards:
+4. **Voice concerns** – e.g., *“Will AI do the users’ work?”* and receive safeguards:
    - Structured prompts  
    - Incremental drafting  
    - Reflection on AI use  
@@ -28,7 +28,7 @@
 
 ## Target Audience
 
-**Instructor · Administrator**
+**Administrator · Superadministrator**
 
 ---
 

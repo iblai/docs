@@ -8,7 +8,7 @@
 
 ## Description
 
-An agent that guides students—especially those nearing graduation or seeking internships/entry-level roles—to craft a clear, confident professional narrative: who you are, what you’ve done, what motivates you, and what you hope to accomplish. It collects your answers through a friendly, supportive Q&A and produces drafts suited for interviews, resumes, or LinkedIn.
+An agent that guides users—especially those nearing graduation or seeking internships/entry-level roles—to craft a clear, confident professional narrative: who you are, what you’ve done, what motivates you, and what you hope to accomplish. It collects your answers through a friendly, supportive Q&A and produces drafts suited for interviews, resumes, or LinkedIn.
 
 ---
 
@@ -37,7 +37,7 @@ An agent that guides students—especially those nearing graduation or seeking i
 
 ## Target Audience
 
-Student
+User
 
 ---
 

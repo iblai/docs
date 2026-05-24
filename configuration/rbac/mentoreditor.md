@@ -4,15 +4,15 @@
 
 ## Purpose
 
-Grant edit access to a specific agent without elevating a user’s tenant-wide permissions. This lets instructors or tenant admins collaborate on an agent while keeping access tightly scoped.
+Grant edit access to a specific agent without elevating a user’s tenant-wide permissions. This lets administrators or tenant admins collaborate on an agent while keeping access tightly scoped.
 
 ---
 
 ## Overview
 
-- Users without editor rights (e.g., students) cannot edit any agents by default.  
+- Users without editor rights cannot edit any agents by default.  
 - Tenant Admins can edit any agent and assign editor access.  
-- Instructors can grant editor access only to agents they own.  
+- Administrators can grant editor access only to agents they own.  
 - Editor access is agent-specific—not tenant-wide.
 
 ---
@@ -53,7 +53,7 @@ They cannot:
 
 ## Verifying Access (Editor’s View)
 
-- The user remains a student (or non-admin) in profile.  
+- The user remains a standard user (or non-admin) in profile.  
 - The shared agent shows **Edit** options in the dropdown.  
 - Other agents still show **Chat only** (no edit access).
 

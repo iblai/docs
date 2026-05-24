@@ -1,4 +1,4 @@
-# Student Life
+# User Life
 
 ## Demo
 
@@ -8,9 +8,9 @@
 
 ## Description
 
-An agent that guides students to **basic-needs and non-academic support** on their campus—food pantries, housing resources, emergency funds, wellness services, and more.  
+An agent that guides users to **basic-needs and non-academic support** on their campus—food pantries, housing resources, emergency funds, wellness services, and more.  
 
-It summarizes available options, explains **how to access them**, provides **eligibility and operating hours**, and lets students choose what’s most relevant.
+It summarizes available options, explains **how to access them**, provides **eligibility and operating hours**, and lets users choose what’s most relevant.
 
 ---
 
@@ -20,12 +20,12 @@ It summarizes available options, explains **how to access them**, provides **eli
 
 **Sample prompts:**
 
-    “I’m a student at the University of Buffalo. What wellness services does my university offer?”
+    “I’m a user at the University of Buffalo. What wellness services does my university offer?”
     “I’d like to focus on mental health.”
 
 ### 2. Review campus options
   - Agent lists the **range of available services** and summarizes each  
-  - Invites the student to **pick an area** to explore further
+  - Invites the user to **pick an area** to explore further
 
 #### 3. Drill into a service
   - For mental health, the agent describes:  
@@ -44,14 +44,14 @@ It summarizes available options, explains **how to access them**, provides **eli
 
 ## Target Audience
 
-**Instructor · Administrator· Student**
+**Administrator · Superadministrator· User**
 
 ---
 
 ## Want This in Your Courses?
 
-Ready to give students fast, clear access to non-academic supports?
+Ready to give users fast, clear access to non-academic supports?
 
-Email **support@iblai.zendesk.com** and we’ll enable **Student Life Agent** on your agents—or help you build a solution tailored to your institution.
+Email **support@iblai.zendesk.com** and we’ll enable **User Life Agent** on your agents—or help you build a solution tailored to your institution.
 
 

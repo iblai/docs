@@ -8,7 +8,7 @@
 
 ## Description
 
-An agent that helps students understand degree requirements, prerequisites, and course sequencing by grounding answers in the university’s official curriculum data. 
+An agent that helps users understand degree requirements, prerequisites, and course sequencing by grounding answers in the university’s official curriculum data. 
 It reinforces existing degree-planning tools and keeps guidance aligned with the mapped requirements for a given program.
 
 ---
@@ -38,12 +38,12 @@ It reinforces existing degree-planning tools and keeps guidance aligned with the
 
 ## Target Audience
 
-**Instructor · Administrator · Student**
+**Administrator · Superadministrator · User**
 
 ---
 
 ## Want This in Your Courses?
 
-Ready to give students clear, program-aware guidance on requirements and sequencing?
+Ready to give users clear, program-aware guidance on requirements and sequencing?
 
 Email **support@iblai.zendesk.com** and we’ll enable **Course Path Planner** on your agents—or help you build a solution tailored to your institution.

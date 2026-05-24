@@ -8,7 +8,7 @@
 
 ## Description
 
-An agent that helps students **navigate credit transfer**—interpreting transcripts, checking articulation agreements, and mapping courses to a destination university’s degree requirements. 
+An agent that helps users **navigate credit transfer**—interpreting transcripts, checking articulation agreements, and mapping courses to a destination university’s degree requirements. 
 
 
 It can analyze **uploaded transcripts** (including international credits), handle **credit conversions** (e.g., UK → US), explain **minimum grade requirements**, and show **how credits apply** to a chosen program.
@@ -55,13 +55,13 @@ It can analyze **uploaded transcripts** (including international credits), handl
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 
 ## Want This in Your Courses?
 
-Ready to give students clear, step-by-step guidance on credit transfer and equivalencies?
+Ready to give users clear, step-by-step guidance on credit transfer and equivalencies?
 
 Email us at **support@iblai.zendesk.com** and we’ll enable the **Transfer Navigator Agent** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
 

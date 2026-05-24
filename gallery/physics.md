@@ -35,7 +35,7 @@ The **Physics 101 agent** give learners instant, **textbook-sourced explanations
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 

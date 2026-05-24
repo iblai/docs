@@ -8,9 +8,9 @@
 
 ## Description
 
-An agent that helps students **launch their careers** by connecting them to internships and career fairs, guiding resume/cover-letter writing, and supporting job searches during school and after graduation.
+An agent that helps users **launch their careers** by connecting them to internships and career fairs, guiding resume/cover-letter writing, and supporting job searches during school and after graduation.
 
-It provides **next steps**, points to the right **campus portals and resources**, and prompts students to meet with **career coaches** when appropriate.
+It provides **next steps**, points to the right **campus portals and resources**, and prompts users to meet with **career coaches** when appropriate.
 
 ---
 
@@ -37,12 +37,12 @@ It provides **next steps**, points to the right **campus portals and resources**
 
 ## Target Audience
 
-**Student · Instructor · Administrator**
+**User · Administrator · Superadministrator**
 
 ---
 
 ## Want This in Your Courses?
 
-Ready to give students a proactive, step-by-step path from campus to career?
+Ready to give users a proactive, step-by-step path from campus to career?
 
 Email us at **support@iblai.zendesk.com** and we’ll enable the **Career Launch Agent** in your environment—or help you build a **customized onboarding experience** tailored to your institution.
