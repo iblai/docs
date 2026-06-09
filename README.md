@@ -52,7 +52,7 @@ user/                   # Learner features
 
 developer/              # Open source developer tools
   ├── agents/           # Claw Agents, Claw Setup, .iblai Standard
-  ├── applications/     # App CLI, MCP Servers
+  ├── applications/     # App CLI, MCP Servers, Mentor AI embed provisioning
   └── infrastructure/   # Infrastructure CLI
 
 gallery/                # 14 pre-built agent examples
