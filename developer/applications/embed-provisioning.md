@@ -11,7 +11,7 @@ backend: provision the user's tokens from Data Manager (DM), then hand the embed
 
 Three pieces:
 
-1. `POST /api/core/consolidated-token/provision/` — resolve-or-create the user, mint `dm_token` + `axd_token`.
+1. `POST /api/core/consolidated-token/provision/` — resolve-or-create the user, mint `dm_token`, `axd_token`, and an edX-signed `edx_jwt_token`.
 2. `GET  /api/core/users/platforms/` — fetch the user's tenant/platform record.
 3. Assemble those into the `ibl-data` payload and pass it to the iframe.
 
@@ -82,8 +82,9 @@ Content-Type: application/json
       "user_display_name": "johndoe",
       "user_fullname": "John Doe"
     },
-    "axd_token": { "token": "<axd-token>", "expires": "2026-06-03T12:00:00Z" },
-    "dm_token":  { "token": "<dm-token>",  "expires": "2026-06-03T12:00:00Z" }
+    "axd_token":      { "token": "<axd-token>",  "expires": "2026-06-03T12:00:00Z" },
+    "dm_token":       { "token": "<dm-token>",   "expires": "2026-06-03T12:00:00Z" },
+    "edx_jwt_token":  { "token": "<edx-jwt>",    "expires": "2026-06-03T12:00:00Z" }
   }
 }
 ```
@@ -145,8 +146,9 @@ and `userData` are **JSON strings** (stringify them before embedding).
   "dm_token":           "<dm-token>",
   "dm_token_expires":   "2026-06-03T12:00:00Z",
 
-  // optional — only if you have one; the SPA forwards it when present
-  "edx_jwt_token":      "<edx-jwt>",
+  // edX-signed JWT (from /provision data.edx_jwt_token); the SPA forwards it for edX-backed calls
+  "edx_jwt_token":         "<edx-jwt>",
+  "edx_jwt_token_expires": "2026-06-03T12:00:00Z",
 
   // identity (from /provision data.user) — JSON string
   "userData": "{\"user_id\":1234,\"user_nicename\":\"johndoe\",\"user_email\":\"johndoe@example.com\",\"user_fullname\":\"John Doe\"}",
@@ -168,7 +170,7 @@ Field mapping from the two DM calls:
 | `tenant` | `/users/platforms` → `key` |
 | `current_tenant` | `JSON.stringify({ key })` from `/users/platforms` → `key` |
 | `tenants` | `JSON.stringify([{ key, name: org, is_admin, username }])` from `/users/platforms` |
-| `edx_jwt_token` | optional, only if you have one |
+| `edx_jwt_token` / `edx_jwt_token_expires` | `/provision` → `data.edx_jwt_token.{token,expires}` |
 
 Build this object **on your backend** (it carries the freshly minted tokens) and return it
 to the page that hosts the widget.
