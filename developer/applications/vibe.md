@@ -36,7 +36,7 @@ Open `http://localhost:3000`. You will be redirected to iblai.app for login -- s
 
 ## What is Vibe
 
-A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a production-ready scaffold powered by [iblai-app-cli](https://github.com/iblai/iblai-app-cli), the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at iblai.app. You go from zero to a deployed AI app in minutes -- authentication, AI chat, profiles, notification, and analytics are already wired up. No API tokens to manage.
+A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a production-ready scaffold powered by [iblai-app-cli](https://github.com/iblai/vibe), the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at iblai.app. You go from zero to a deployed AI app in minutes -- authentication, AI chat, profiles, notification, and analytics are already wired up. No API tokens to manage.
 
 **Why it matters:**
 
@@ -233,7 +233,7 @@ iblai builds ci-workflow --all  # GitHub Actions for all platforms
 
 ## Resources
 
-- [iblai-app-cli](https://github.com/iblai/iblai-app-cli) -- the CLI that scaffolds Vibe apps
+- [iblai-app-cli](https://github.com/iblai/vibe) -- the CLI that scaffolds Vibe apps
 - [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) -- unified SDK for data, UI components, and auth utilities
 - [@iblai/iblai-api](https://www.npmjs.com/package/@iblai/iblai-api) -- auto-generated API types
 - [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) -- MCP server for AI-assisted development

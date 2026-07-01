@@ -1,6 +1,6 @@
 # App CLI
 
-Interactive CLI for scaffolding [ibl.ai frontend applications](https://github.com/iblai/iblai-app-cli) with Next.js and React.
+Interactive CLI for scaffolding [ibl.ai frontend applications](https://github.com/iblai/vibe) with Next.js and React.
 
 ---
 
@@ -12,7 +12,7 @@ Interactive CLI for scaffolding [ibl.ai frontend applications](https://github.co
 
 ## Repository
 
-- **GitHub**: [iblai/iblai-app-cli](https://github.com/iblai/iblai-app-cli)
+- **GitHub**: [iblai/vibe](https://github.com/iblai/vibe)
 - **License**: Open Source
 
 ---
@@ -20,8 +20,8 @@ Interactive CLI for scaffolding [ibl.ai frontend applications](https://github.co
 ## Getting Started
 
 ```bash
-git clone https://github.com/iblai/iblai-app-cli.git
-cd iblai-app-cli
+git clone https://github.com/iblai/vibe.git
+cd vibe
 ```
 
 Run the CLI to scaffold a new ibl.ai frontend application with your preferred configuration.
