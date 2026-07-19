@@ -20,7 +20,7 @@ A working MCP integration requires three things:
 2. At least one **connection** providing credentials at the desired scope.
 3. A **agent** that has the MCP tool enabled and the server attached.
 
-> **Related guides:** OAuth-backed servers need a `ConnectedService` — see [OAuth Connectors](/docs/developer/agents/mcp-authentication/oauth-connectors). Per-user OAuth servers can also authenticate learners mid-chat — see [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events).
+> **Related guides:** OAuth-backed servers need a `ConnectedService` — see [OAuth Connectors](/developer/agents/mcp-authentication/oauth-connectors). Per-user OAuth servers can also authenticate learners mid-chat — see [In-Chat MCP Events](/developer/agents/mcp-authentication/in-chat-mcp-events).
 
 ---
 
@@ -90,7 +90,7 @@ Before registering anything, decide *whose* credentials should be used. The `aut
 | **Per-user (pre-provisioned)** | `user` | Admin creates a connection per user (bulk) | Credentials are known ahead of time for each learner. |
 | **Per-user (in-chat OAuth)** | `user` | Each learner authenticates mid-chat | Users hold their own identity (e.g., their personal Google Drive). |
 
-The first three patterns never prompt the user. The fourth — `auth_scope="user"` combined with `auth_type="oauth2"` — triggers the [in-chat OAuth flow](/docs/developer/agents/mcp-authentication/in-chat-mcp-events) the first time a learner uses the agent.
+The first three patterns never prompt the user. The fourth — `auth_scope="user"` combined with `auth_type="oauth2"` — triggers the [in-chat OAuth flow](/developer/agents/mcp-authentication/in-chat-mcp-events) the first time a learner uses the agent.
 
 ---
 
@@ -235,7 +235,7 @@ Different agents on the same tenant can present different credentials to the sam
 
 ### User scope (OAuth2)
 
-1. Ensure a [`ConnectedService`](/docs/developer/agents/mcp-authentication/oauth-connectors) exists for the target user + provider + service.
+1. Ensure a [`ConnectedService`](/developer/agents/mcp-authentication/oauth-connectors) exists for the target user + provider + service.
 2. Reference it by ID on the connection:
 
 ```json
@@ -399,7 +399,7 @@ The first match wins. For OAuth connections, the linked `ConnectedService` is tr
 
 If `auth_scope="user"` and no user-scoped connection is found at resolution time, the platform either:
 
-- **Triggers the in-chat OAuth prompt** (see [In-Chat MCP Events](/docs/developer/agents/mcp-authentication/in-chat-mcp-events)), or
+- **Triggers the in-chat OAuth prompt** (see [In-Chat MCP Events](/developer/agents/mcp-authentication/in-chat-mcp-events)), or
 - **Falls back to lower scopes** if `auth_scope` is `agent` or `platform`.
 
 ---

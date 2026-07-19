@@ -17,7 +17,7 @@ The in-chat OAuth flow only triggers when **all** of the following are true:
 - No valid `MCPServerConnection` exists for the current user + server.
 - The chat session is an authenticated (non-anonymous) user.
 
-For a full walkthrough of server configuration and connection provisioning, see [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections).
+For a full walkthrough of server configuration and connection provisioning, see [MCP Server Connections](/developer/agents/mcp-authentication/mcp-connections).
 
 ---
 
@@ -402,6 +402,6 @@ If the callback opens in a popup, you may auto-close it after the redirect compl
 
 ## Related Documentation
 
-- [MCP Server Connections](/docs/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, and attach them to agents.
-- [OAuth Connectors](/docs/developer/agents/mcp-authentication/oauth-connectors) — provider/service discovery and the standalone OAuth handshake used outside of chat.
-- [Architecture](/docs/developer/agents/mcp-authentication/architecture) — backend internals, data model, and the runtime resolution pipeline.
+- [MCP Server Connections](/developer/agents/mcp-authentication/mcp-connections) — register servers, create connections, and attach them to agents.
+- [OAuth Connectors](/developer/agents/mcp-authentication/oauth-connectors) — provider/service discovery and the standalone OAuth handshake used outside of chat.
+- [Architecture](/developer/agents/mcp-authentication/architecture) — backend internals, data model, and the runtime resolution pipeline.
