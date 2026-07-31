@@ -55,7 +55,7 @@ Both paths run the same Ansible playbook. With a project name, inputs (IP, domai
 | `docker` | Installs Docker Engine, docker compose, and apache2-utils |
 | `awscli` | Installs AWS CLI v2 for ECR and S3 access |
 | `python` | Installs pyenv and Python 3.11.8 |
-| `ibl_cli_ops` | Clones and installs [iblai-cli-ops](https://github.com/iblai/ibl-cli-ops) in a virtualenv (private repo — requires access) |
+| `ibl_cli_ops` | Clones and installs `iblai-cli-ops` in a virtualenv (private repo — requires access) |
 | `ibl_platform` | Configures base domain, environment, image tags, CORS, RBAC, unified API gateway, and service defaults |
 | `ibl_dm` | Launches iblai-dm-pro (PostgreSQL with pgvector, Redis, Django, Celery, Langfuse, Minio) |
 | `ibl_edx` | Launches iblai-edx-pro (LMS, CMS, MySQL, MongoDB, Redis, Elasticsearch, MFE) |

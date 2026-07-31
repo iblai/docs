@@ -1,10 +1,11 @@
-# edX SSO Setup (Google, Microsoft, Apple, OpenID Connect)
+# edX SSO Setup (Google, Microsoft, Apple)
 
 ## Purpose
 
-This document explains how to add Single Sign-On (SSO) identity providers to the
-Open edX LMS (`iblai-edx-pro`) so that learners can log in with an external
-identity provider (IdP) instead of a local edX password.
+This document explains how to add Single Sign-On (SSO) identity providers —
+Google, Microsoft, Apple, and generic OpenID Connect — to the Open edX LMS
+(`iblai-edx-pro`) so that learners can log in with an external identity
+provider (IdP) instead of a local edX password.
 
 It covers the four backend families we support:
 

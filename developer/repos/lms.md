@@ -126,7 +126,7 @@ Edit `.env.local` with your ibl.ai platform URLs and feature flags, then start t
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Tests:
+Open `http://localhost:3000`. Tests:
 
 ```bash
 pnpm test            # vitest unit tests

@@ -4,7 +4,7 @@
 
 ## Overview
 
-Vibe is a developer toolkit for **vibe coding new applications on top of the existing ibl.ai backend**. It gives you a production-ready scaffold powered by [iblai-app-cli](https://github.com/iblai/iblai-app-cli), the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at `iblai.app` — you go from zero to a deployed AI app in minutes, with authentication, AI chat, profiles, notifications, and analytics already wired up.
+Vibe is a developer toolkit for **vibe coding new applications on top of the existing ibl.ai backend**. It gives you a production-ready scaffold powered by `iblai-app-cli`, the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at `iblai.app` — you go from zero to a deployed AI app in minutes, with authentication, AI chat, profiles, notifications, and analytics already wired up.
 
 In the five-repo family, Vibe is the **build layer**: `iblai/api` operates the platform headlessly via its REST API, `iblai/os` and `iblai/lms` are complete sample applications built with this very toolkit, and `iblai/iblai-infra-cli` deploys the backend on your own infrastructure. Vibe is where you start when you want to create something new against that backend.
 
@@ -128,7 +128,7 @@ Install the skills into any project:
 npx skills add iblai/vibe
 ```
 
-Scaffold a complete app with auth, AI chat, profiles, and more in one command (see [iblai/iblai-app-cli](https://github.com/iblai/iblai-app-cli) for the `iblai` CLI installation guide):
+Scaffold a complete app with auth, AI chat, profiles, and more in one command (see the `iblai-app-cli` for the `iblai` CLI installation guide):
 
 ```bash
 iblai startapp agent -o iblai-init
@@ -138,7 +138,7 @@ cp .env.example .env.local
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). You will be redirected to `login.iblai.app` — sign in or create a free account, and you are back in your app with a fully authenticated session.
+Open `http://localhost:3000`. You will be redirected to `login.iblai.app` — sign in or create a free account, and you are back in your app with a fully authenticated session.
 
 Already have a project? Install the skills, then use the CLI to add features:
 

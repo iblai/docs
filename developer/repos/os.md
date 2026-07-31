@@ -108,7 +108,7 @@ cp .env.example .env.local   # then edit NEXT_PUBLIC_MAIN_TENANT_KEY
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The repo's `docs/development.md` covers environment variables, scripts, and architecture details, and the README's Troubleshooting section covers the common blank-page causes (a stale server holding the port, or a stray parent lockfile nesting the standalone output).
+Open `http://localhost:3000`. The repo's `docs/development.md` covers environment variables, scripts, and architecture details, and the README's Troubleshooting section covers the common blank-page causes (a stale server holding the port, or a stray parent lockfile nesting the standalone output).
 
 ## How It Fits With the Other Repos
 
