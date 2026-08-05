@@ -31,7 +31,13 @@ Opens the tool registration form. Its fields hold values that come from the LTI 
 - **Auth login URL** — the platform's OIDC authorization endpoint.
 - **Auth token URL** — the platform's OAuth2 token endpoint.
 - **Key set** — the platform's public keys, provided either as a **JWKS URL** (for example `https://lms.example.com/.well-known/jwks.json`) or as raw JWKS JSON.
+- **Auth audience** — optional, and usually left blank; set it only when the platform requires a specific audience value on the token request.
 - **Signing key** — one of the platform-wide keys from the **Keys** sub-tab, used to sign LTI messages for this platform. Create the key first if none exists.
+- **Deployment IDs** — the deployment identifiers the LTI platform assigns, entered one per line or comma-separated. A single registration can carry several deployments, which is how one LMS covers multiple sub-accounts or course shells.
+
+Every field except the auth audience is required. Title, issuer, client ID, and the two OIDC URLs come straight from the LMS registration — copy them rather than retyping, since a single character's difference makes launches fail verification.
+
+![Create LTI Tool dialog with fields for the title, issuer, client ID, auth login and token URLs, auth audience, the JWKS key set, the signing key selector, and deployment IDs](/images/docs/os/agent-settings/agent_settings_lti_tool_create.webp)
 
 #### Tools table
 Each registered platform is a row with:

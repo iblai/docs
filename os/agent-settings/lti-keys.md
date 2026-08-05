@@ -32,7 +32,14 @@ Each key is a row with:
 - **PUBLIC KEY** — a truncated preview of the PEM-encoded public key (beginning `-----BEGIN PUBLIC KEY-----`).
 - **ACTIONS** — a menu per row. **Edit** opens the key detail, where you can rename the key and view its full PEM public key and its public JWK (the JSON Web Key form published at the JWKS endpoint). **Delete** removes the key after confirmation — note that a key cannot be deleted while an LTI tool still references it.
 
-The list is paginated when there are many keys.
+The list is paginated at 10 rows per page.
+
+#### Key detail
+Choosing **Edit** opens the key's detail dialog: the key name can be changed here, and the full **Public Key (PEM)** and **Public JWK** are shown with copy buttons. Only the public halves are exposed — the private key never leaves the platform, which is what lets the LMS verify a launch without ever holding a secret of yours.
+
+![LTI key detail dialog showing the key name field, the full PEM-encoded public key, and the public JWK, each with a copy button](/images/docs/os/agent-settings/agent_settings_lti_key_detail.webp)
+
+Deleting is blocked while a tool still references the key, and the reason is surfaced in the dialog rather than failing silently — re-point the tool at another key first.
 
 ## How to Use
 

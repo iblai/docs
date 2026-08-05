@@ -31,8 +31,17 @@ Each ticket card shows a relative timestamp (for example "6 minutes ago"), the r
 #### Ticket detail pane
 The right-hand pane shows the selected ticket: its subject, a status badge, the requester's identity and a relative timestamp, and a **Status** selector for changing the ticket's state. Below that, the **Request** section renders the agent-authored description — often formatted HTML or Markdown, not plain text — followed by the conversation thread and a box for posting a reply.
 
+On a narrow screen there is no room for a second column, so selecting a ticket opens the same detail in a dialog over the list instead of beside it.
+
+![Ticket detail pane showing the ticket subject and status badge, the requester and timestamp, the Status selector, and the Request section with the agent-authored description](/images/docs/os/agent-settings/agent_settings_support_ticket_detail.webp)
+
 #### Status selector
 A dropdown on the ticket detail that moves the ticket between **Open**, **In Progress**, and **Closed**. Choosing **Closed** resolves the ticket and records when it was resolved.
+
+#### Conversation and reply box
+Below the request, the **Conversation** lists the thread oldest-first, distinguishing the requester's messages from the support team's. A textarea and a **Send Reply** button sit beneath it. A closed ticket shows a notice in place of the reply box — "Set it back to Open or In Progress to reply" — so reopening is a deliberate step rather than a side effect of answering.
+
+![Ticket detail with the conversation thread and the reply textarea and Send Reply button below it](/images/docs/os/agent-settings/agent_settings_support_reply.webp)
 
 ## How to Use
 
@@ -63,3 +72,7 @@ Everything in this panel is also available over the platform API, so a support t
 - **Close a ticket** — `POST .../support-tickets/{id}/close/` (no body); this sets the status to closed and stamps the resolution time in one call.
 
 There is no create endpoint — tickets originate only from agent chats — so to test the flow end to end, enable the human-support tool, ask the agent to escalate, then triage the resulting ticket. The reusable API skill for this workflow is [`iblai-api-agent-support`](https://github.com/iblai/api/blob/main/skills/iblai-api-agent-support/SKILL.md).
+
+## Building Support Into Your Own App
+
+The Support panel is one of the agent-settings tabs published in the ibl.ai SDK, so the same inbox can be mounted in a product you build yourself. Install the [iblai/vibe](https://github.com/iblai/vibe) skills and mount `<AgentHumanSupportTab>` from `@iblai/iblai-js/web-containers/next` inside an `AgentSettingsProvider`; every label is overridable through a `labels` prop, and pagination can be swapped for your own component. The reusable skill for this workflow is [`iblai-agent-support`](https://github.com/iblai/vibe/tree/main/skills/iblai-agent-support), and the SDK overview is at [Vibe SDK](/developer/applications/vibe).
