@@ -1,17 +1,20 @@
 # Memory System
 
-The Memory System enables AI agents to remember information about users across conversations. It stores user preferences, learning progress, knowledge gaps, and personal context, making interactions more personalized and contextual.
+The Memory System lets AI agents carry knowledge across conversations — both what they learn about an individual user, and what the agent itself accumulates for everyone who uses it. It stores user preferences, learning progress, knowledge gaps, personal context, and agent-level operating knowledge, making interactions more personalized, more consistent, and less repetitive.
 
 ---
 
 ## Overview
 
-The memory system supports two scopes of memory:
+The memory system supports three scopes of memory. The first two are **about a user**; the third is **about the agent**.
 
-| Memory Type | Scope | Description |
-|-------------|-------|-------------|
-| **Global User Memories** | All agents | Facts about the user that apply everywhere (name, profession, preferences) |
-| **Agent-Specific Memories** | Single agent | Context specific to interactions with a particular agent |
+| Memory Type | Scope | Subject | Description |
+|-------------|-------|---------|-------------|
+| **Global User Memories** | All agents | The user | Facts about the user that apply everywhere (name, profession, preferences) |
+| **Agent-Specific Memories** | Single agent | The user | Context specific to *this user's* interactions with a particular agent |
+| **Agent-Owned Memories** | Single agent | The agent | What the agent has learned in general, shared across **every** user who talks to it |
+
+The distinction that matters: **Agent-Specific Memories** are still keyed to a person — they are what the agent remembers *about you*. **Agent-Owned Memories** belong to the agent itself and are visible to everyone it serves. See [Agent-Owned Memory](#agent-owned-memory).
 
 **Default Memory Categories (Agent-Specific):**
 
@@ -22,6 +25,40 @@ The memory system supports two scopes of memory:
 | Preferences | `preferences` | Learning style, pace, or content preferences |
 | Progress Milestones | `progress_milestones` | Achievements and completed learning milestones |
 | Personal Context | `personal_context` | Relevant personal information shared by the user |
+
+---
+
+## Agent-Owned Memory
+
+An agent is rarely used by one person. A departmental assistant is used by everyone in the office; a course agent is used by a whole roster; a service-desk agent is used by every member of a support team. **Agent-owned memory is what the agent knows that is not about any one of them.**
+
+Where user memories answer *"what do I know about this person?"*, agent-owned memory answers *"what have I learned doing this job?"* — and the answer is available to the next person who asks, whoever they are.
+
+### What belongs here
+
+| Belongs in agent-owned memory | Belongs in user memory |
+|---|---|
+| A correction a reviewer made that should apply to everyone from now on | That *this* reviewer prefers terse summaries |
+| A recurring edge case the team keeps hitting, and how it was resolved | That *this* user already asked about that edge case last week |
+| An operating convention the office settled on | *This* user's role, goals, or progress |
+| A local fact the agent had to be told once, that everyone benefits from | Anything identifying, personal, or specific to one individual |
+
+The test is simple: **if the next person to open a conversation should benefit from it, it is agent-owned. If it would be wrong or intrusive to surface to a different person, it is user memory.**
+
+### Why it is a separate scope
+
+Without it, an agent used by ten people re-learns the same thing ten times, and knowledge acquired by one person is invisible to their colleagues. Duplicating that knowledge into each user's memory is worse: it multiplies storage, drifts out of sync as it is corrected in one place and not others, and leaks one person's context into another's profile.
+
+Agent-owned memory is also the correct home for knowledge that would otherwise be pushed somewhere it does not belong — notably the ontology layer, which is a pass-through to the systems it references and stores nothing of its own.
+
+### Governance
+
+Because agent-owned memories are visible to every user of the agent, they carry stricter handling than user memories:
+
+- **No personal data.** Anything identifying an individual belongs in that individual's user memory, not here. Treat agent-owned memory as it will be read by a stranger, because it will be.
+- **Administrator-reviewable.** Entries are listed, editable, and deletable by administrators with edit access to the agent, in the same way as the agent's other configuration.
+- **Attributable.** Creation and modification are recorded in the agent's audit trail, so a behaviour change can be traced to the entry that caused it.
+- **Scoped to one agent.** Agent-owned memory does not propagate to other agents. An agent that should share knowledge with another does so by being given the same skills or datasets, not by reaching into another agent's memory.
 
 ---
 
@@ -746,6 +783,10 @@ curl -X DELETE \
 | POST | `/orgs/{org}/agents/{agent}/memory-categories/` | Create category |
 | PATCH | `/orgs/{org}/agents/{agent}/memory-categories/{id}/` | Update category |
 | DELETE | `/orgs/{org}/agents/{agent}/memory-categories/{id}/` | Deactivate category |
+
+Note the two path shapes. Anything **about a user** is nested under `/users/{user_id}/`. Anything **belonging to the agent** — memory categories, and agent-owned memory — is agent-scoped under `/orgs/{org}/agents/{agent}/` and takes no `user_id`, because there is no user it is about.
+
+> **Agent-owned memory endpoints.** These follow the agent-scoped shape above rather than the user-nested one. The exact route slugs are being finalized and are intentionally not listed here yet — do not infer them from the pattern. Read them from the live API reference at [ibl.ai/developer](https://ibl.ai/developer) before integrating.
 
 ---
 
