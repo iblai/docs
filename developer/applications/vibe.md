@@ -75,35 +75,107 @@ A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a p
 
 ## Skills
 
-After installing the skills, use them directly in your AI agent with `/` commands:
+After installing the skills, use them directly in your AI agent with `/` commands.
+
+### Project and operations
 
 | Skill | Description |
 |-------|-------------|
-| `/iblai-auth` | Add SSO authentication (includes CLI installation guide) |
-| `/iblai-chat` | Add AI chat widget |
-| `/iblai-profile` | Add profile dropdown + settings page |
-| `/iblai-account` | Add account/org settings page |
-| `/iblai-analytics` | Add analytics dashboard |
-| `/iblai-notification` | Add notification bell + center page |
-| `/iblai-invite` | Add user invitation dialogs |
-| `/iblai-workflow` | Add workflow builder components |
-| `/iblai-onboard` | Design and build a high-converting onboarding questionnaire flow |
-| `/iblai-build` | Build and run on desktop and mobile (iOS, Android, macOS, Windows) |
-| `/iblai-screenshot` | Capture app store screenshots for web, iOS, and Android |
-| `/iblai-test` | Test your app before showing work to the user |
-| `/iblai-agent-search` | Add the agent search/browse page (starred, featured, custom, default) |
-| `/iblai-agent-settings` | Add the agent Settings tab (name, visibility, copy, delete) |
-| `/iblai-agent-access` | Add the agent Access tab (RBAC for editor and chat roles) |
-| `/iblai-agent-api` | Add the agent API tab (API key management) |
-| `/iblai-agent-datasets` | Add the agent Datasets tab (searchable dataset table with upload) |
-| `/iblai-agent-disclaimers` | Add the agent Disclaimers tab (user agreement and advisory) |
-| `/iblai-agent-embed` | Add the agent Embed tab (embed code, custom styling, shareable links) |
-| `/iblai-agent-history` | Add the agent History tab (conversation history with filters and export) |
-| `/iblai-agent-llm` | Add the agent LLM tab (model provider selection) |
-| `/iblai-agent-memory` | Add the agent Memory tab (enable/disable memory and manage memories) |
-| `/iblai-agent-prompts` | Add the agent Prompts tab (system prompts and suggested prompts) |
-| `/iblai-agent-safety` | Add the agent Safety tab (moderation prompts and flagged content) |
-| `/iblai-agent-tools` | Add the agent Tools tab (enable/disable agent tools) |
+| `/iblai-vibe-ops-init` | Start a new ibl.ai project and write the project CLAUDE.md |
+| `/iblai-vibe-scaffold` | Scaffold a new app, or add ibl.ai features to an existing Next.js project |
+| `/iblai-vibe-component` | Add an ibl.ai component or feature to your app |
+| `/iblai-vibe-ops-test` | Add Vitest/Playwright tests and run the verification pass before showing work |
+| `/iblai-vibe-ops-build` | Build and run on desktop and mobile (iOS, Android, macOS, Windows) |
+| `/iblai-vibe-ops-deploy` | Deploy your app to Vercel or another platform |
+| `/iblai-vibe-ops-upgrade` | Upgrade the `@iblai/iblai-js` SDK and the vibe skills to the latest versions |
+| `/iblai-vibe-windows-msix` | Package a Tauri build as a Windows MSIX for sideloading or the Microsoft Store |
+| `/iblai-vibe-iconography` | Generate every app-icon size for desktop and mobile builds from one source image |
+| `/iblai-vibe-readme` | Write or refresh the README |
+| `/iblai-vibe-cli-maintenance` | Internals of the `iblai` CLI -- commands, templates, and release flows |
+
+### App features
+
+| Skill | Description |
+|-------|-------------|
+| `/iblai-vibe-auth` | Add ibl.ai SSO authentication to a vanilla Next.js app |
+| `/iblai-vibe-agent-chat` | Add the in-process Chat surface (message stream, canvas, file attach, voice, prompts) |
+| `/iblai-vibe-agent-chat-sidebar` | Wrap Chat with the SDK sidebar -- projects, pinned and recent messages |
+| `/iblai-vibe-project` | Add the Projects surface (chat input, project files, instructions, assigned agents) |
+| `/iblai-vibe-profile` | Add the profile dropdown and settings page |
+| `/iblai-vibe-account` | Add the account and organization settings page |
+| `/iblai-vibe-navbar` | Add a responsive navbar with logo, links, notification bell, and profile dropdown |
+| `/iblai-vibe-notification` | Add the notification bell and notification center page |
+| `/iblai-vibe-analytics` | Add the analytics dashboard page |
+| `/iblai-vibe-invite` | Add user invitation dialogs |
+| `/iblai-vibe-workflow` | Add workflow builder components |
+| `/iblai-vibe-onboard` | Design and build a high-converting onboarding questionnaire flow |
+| `/iblai-vibe-credit` | Add the ibl.ai credit balance widget |
+| `/iblai-vibe-local-llm` | Wire on-device LLM inference (Ollama) into a Next.js + Tauri desktop build |
+| `/iblai-vibe-rbac` | Build and audit role-based access control -- roles, policies, action definitions |
+| `/iblai-vibe-credential` | RBAC setup that lets a token list and unmask integration credentials |
+| `/iblai-vibe-course-access` | Add course-content pages (edX user UI) |
+| `/iblai-vibe-course-create` | Drive the Course Creation API end to end -- outline, units, review, publish |
+| `/iblai-vibe-crm-overview` | Reference and index for the Platform-scoped CRM API and its workflow skills |
+
+### Agent tabs
+
+| Skill | Description |
+|-------|-------------|
+| `/iblai-vibe-agent-search` | Add the agent search/browse page (starred, featured, custom, default) |
+| `/iblai-vibe-agent-setting` | Add the agent Settings tab (name, description, visibility, copy, delete) |
+| `/iblai-vibe-agent-access` | Add the agent Access tab (RBAC for editor and chat roles) |
+| `/iblai-vibe-agent-api` | Add the agent API tab (API key management) |
+| `/iblai-vibe-agent-audit` | Add the agent Audit tab (who changed what and when, with filters) |
+| `/iblai-vibe-agent-dataset` | Add the agent Datasets tab (searchable dataset table with upload) |
+| `/iblai-vibe-agent-disclaimer` | Add the agent Disclaimers tab (user agreement and advisory) |
+| `/iblai-vibe-agent-embed` | Add the agent Embed tab (embed code, custom styling, shareable links) |
+| `/iblai-vibe-agent-evals` | Add the agent Evals tab (benchmarks, LLM-as-Judge reviews, manual scores, CSV export) |
+| `/iblai-vibe-agent-grader` | Add the agent Grader tab (rubric grading, criteria table, results with LMS-synced overrides) |
+| `/iblai-vibe-agent-history` | Add the agent History tab (conversation history with filters and export) |
+| `/iblai-vibe-agent-llm` | Add the agent LLM tab (model provider selection) |
+| `/iblai-vibe-agent-lti` | Add the agent LTI tab (LTI 1.3 launch toggle, links, signing keys, tools, endpoints) |
+| `/iblai-vibe-agent-mcp` | Add the agent MCP tab (featured and custom connectors, OAuth, add/edit dialogs) |
+| `/iblai-vibe-agent-memory` | Add the agent Memory tab (enable/disable memory and manage memories) |
+| `/iblai-vibe-agent-privacy` | Add the agent Privacy tab (PII detection with redact/mask/block actions) |
+| `/iblai-vibe-agent-prompt` | Add the agent Prompts tab (system prompts and suggested prompts) |
+| `/iblai-vibe-agent-safety` | Add the agent Safety tab (moderation prompts and flagged content) |
+| `/iblai-vibe-agent-sandbox` | Add the agent Sandbox tab (Claw instance management and agent prompt configuration) |
+| `/iblai-vibe-agent-skills` | Add the agent Skills tab (Agent Skills catalog, per-agent assignment, private skills, file resources, and the chat `/` skill picker) |
+| `/iblai-vibe-agent-task` | Add the agent Tasks tab (schedule automated periodic tasks with run logs) |
+| `/iblai-vibe-agent-tool` | Add the agent Tools tab (enable/disable agent tools) |
+| `/iblai-agent-support` | Add the agent Support tab (ticket inbox, availability toggle, filters, replies) |
+| `/iblai-agent-voice` | Add the agent Voice tab (pick the agent's voice and configure voice calls) |
+
+### Monetization
+
+| Skill | Description |
+|-------|-------------|
+| `/iblai-vibe-monetization` | Reference and index for item-level monetization (Stripe Connect, paywalls, tiers) |
+| `/iblai-vibe-monetization-onboard` | Build the Stripe Connect Express onboarding surface and payment-readiness gate |
+| `/iblai-vibe-monetization-configure` | Build the admin monetization tab -- paywall settings and per-item pricing tiers |
+| `/iblai-vibe-monetization-checkout` | Build the paywall modal, access-check gate, and Stripe checkout (including guest buy) |
+| `/iblai-vibe-monetization-subscription` | Build the user Purchases tab -- list, detail, and cancel |
+| `/iblai-vibe-monetization-analytics` | Build revenue dashboards, subscriber lists, and paywall overviews |
+
+### Design and code quality
+
+| Skill | Description |
+|-------|-------------|
+| `/iblai-vibe-design` | Design, critique, and polish frontend interfaces against the ibl.ai design system |
+| `/iblai-vibe-deslop` | Audit and harden an existing codebase for production readiness |
+
+### Security
+
+| Skill | Description |
+|-------|-------------|
+| `/iblai-vibe-security-owasp-audit` | Audit application source against the OWASP Top 10 |
+| `/iblai-vibe-security-dependency-audit` | Audit dependencies and frameworks for known CVEs and supply-chain risk |
+| `/iblai-vibe-security-cloud-audit` | Audit AWS, GCP, and Azure for misconfigurations and excessive permissions |
+| `/iblai-vibe-security-prompt-injection` | Audit AI features for prompt injection and agent permission-boundary flaws |
+| `/iblai-vibe-security-incident-triage` | Triage a security incident following NIST SP 800-61 |
+| `/iblai-vibe-security-recon` | Structured reconnaissance and attack-surface enumeration for authorized tests |
+| `/iblai-vibe-security-osint-recon` | Correlate open source intelligence for authorized investigations |
+| `/iblai-vibe-security-disk-forensics` | Analyze disk images and file systems for evidence recovery |
 
 Skills are in `skills/` (symlinked to `.claude/skills/`). Read them, extend them, or write your own.
 

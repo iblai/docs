@@ -49,8 +49,14 @@ The "Ask anything" box at the bottom is where you write prompts. Press Enter to 
 #### Attach files (+)
 The **+** button opens the upload menu and its **Upload File** action, letting you attach documents or images to your message. Attached files are listed above the composer with per-file remove and retry controls.
 
-#### Tool chips (Canvas, Memory, and more)
-Inline chips in the composer toggle per-session tools: **Canvas** (generate documents into the Canvas panel), **Prompts** (open the prompt gallery), **Study Mode**, **Deep Research** (extended multi-step reasoning), and **Memory**. An active tool shows as a highlighted chip with an **X** to turn it off — in the screenshot, Canvas is active. The **Memory** chip opens a menu where you can view, add, edit, and delete the memories the agent keeps about you. When the composer is narrow, extra tools collapse into an overflow (`...`) menu.
+#### Tool chips (Canvas, Skills, Memory, and more)
+Inline chips in the composer toggle per-session tools: **Canvas** (generate documents into the Canvas panel), **Skills** (browse the agent's skills), **Prompts** (open the prompt gallery), **Study Mode**, **Deep Research** (extended multi-step reasoning), and **Memory**. An active tool shows as a highlighted chip with an **X** to turn it off — in the screenshot, Canvas is active. The **Memory** chip opens a menu where you can view, add, edit, and delete the memories the agent keeps about you. When the composer is narrow, extra tools collapse into an overflow (`...`) menu.
+
+#### Skills and the `/` picker
+
+![Chat page with a slash typed in the composer, showing a picker above it listing Image Creation /image-creation and Web Research /web-research](/images/docs/os/chat-canvas/chat_slash_skills.webp)
+
+Agent Skills are reusable playbooks the agent follows for a specific job. Type `/` as the first word of a message to open a picker listing the skills this agent carries, each shown by name and `/slug`. Arrow keys move through the list, Enter or Tab inserts `/slug ` into the composer, and Esc dismisses it — plain text that happens to start with `/` is never blocked. Only enabled skills appear. Administrators manage which skills an agent carries in [Agent Settings: Skills](../agent-settings/skills.md).
 
 #### Voice input
 The microphone icon records a voice message and transcribes it into the composer (its tooltip reads "Voice Record").
