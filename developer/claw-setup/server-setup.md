@@ -2,7 +2,7 @@
 
 Step-by-step guide for deploying an OpenClaw gateway on a VPS (e.g. Hetzner Cloud) and connecting it to ibl.ai as a chat runner.
 
-> Source: [github.com/iblai/iblai-claw-setup](https://github.com/iblai/iblai-claw-setup)
+> Source: [github.com/iblai/claw-setup](https://github.com/iblai/claw-setup)
 
 ---
 

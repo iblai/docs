@@ -1,6 +1,6 @@
 # Claw Agents
 
-Pre-built agent configurations for [OpenClaw](https://github.com/iblai/iblai-claw-setup) and [NemoClaw](https://github.com/NVIDIA/NemoClaw) instances, organized by vertical.
+Pre-built agent configurations for [OpenClaw](https://github.com/iblai/claw-setup) and [NemoClaw](https://github.com/NVIDIA/NemoClaw) instances, organized by vertical.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Connect your claw server to ibl.ai and manage it through the platform's APIs and applications.
 
-> Source: [github.com/iblai/iblai-claw-setup](https://github.com/iblai/iblai-claw-setup)
+> Source: [github.com/iblai/claw-setup](https://github.com/iblai/claw-setup)
 
 Once connected, your claw instance is accessible from all ibl.ai applications -- Agent AI, Skills AI, and any custom integration using the REST API. You register the server, bind agents, configure agent identities and skills, and push configuration -- all through the same API that powers the ibl.ai platform UI.
 

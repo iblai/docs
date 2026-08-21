@@ -1,12 +1,12 @@
 # Claw Setup
 
-Connect self-hosted [Claw](https://github.com/iblai/iblai-claw-setup) servers — OpenClaw or NVIDIA NemoClaw — to the ibl.ai platform.
+Connect self-hosted [Claw](https://github.com/iblai/claw-setup) servers — OpenClaw or NVIDIA NemoClaw — to the ibl.ai platform.
 
 ---
 
 ## Overview
 
-**iblai-claw-setup** runs your own AI agent infrastructure while you manage it through ibl.ai's APIs and applications. The compute stays on hardware you control; the configuration, skills, and analytics are administered centrally.
+**claw-setup** runs your own AI agent infrastructure while you manage it through ibl.ai's APIs and applications. The compute stays on hardware you control; the configuration, skills, and analytics are administered centrally.
 
 Once an instance is connected it becomes reachable from every ibl.ai application and from any custom integration built on the platform REST API. You configure agent identities, push skills, assign them, and chat with users — all without granting the platform access to your servers.
 
@@ -27,7 +27,7 @@ Once an instance is connected it becomes reachable from every ibl.ai application
 
 ## Repository
 
-- **GitHub**: [iblai/iblai-claw-setup](https://github.com/iblai/iblai-claw-setup)
+- **GitHub**: [iblai/claw-setup](https://github.com/iblai/claw-setup)
 - **License**: MIT
 
 ---

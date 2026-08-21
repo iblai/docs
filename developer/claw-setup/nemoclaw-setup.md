@@ -2,7 +2,7 @@
 
 Step-by-step guide for deploying an NVIDIA NemoClaw gateway on a VPS (or DGX / GPU host) and connecting it to ibl.ai as a chat runner.
 
-> Source: [github.com/iblai/iblai-claw-setup](https://github.com/iblai/iblai-claw-setup)
+> Source: [github.com/iblai/claw-setup](https://github.com/iblai/claw-setup)
 
 Reference: [NemoClaw Quickstart (NVIDIA Docs)](https://docs.nvidia.com/nemoclaw/latest/get-started/quickstart.html).
 
