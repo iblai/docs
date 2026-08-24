@@ -4,7 +4,7 @@
 
 ## What Is OS?
 
-OS is ibl.ai's open-source AI agent platform. It lets organizations build, deploy, and manage intelligent conversational agents — from prototype to production — with full control over models, data, and branding.
+OS is ibl.ai's open-source AI agent platform. It lets organizations build, deploy, and manage intelligent conversational agents — from prototype to production — on infrastructure where you own all the code and the data, with full control over models and branding.
 
 The platform runs in production at [os.ibl.ai](https://os.ibl.ai) and the source code is available at [github.com/iblai/os](https://github.com/iblai/os). It ships as a web application, as desktop apps for macOS, Windows, and Linux, and as mobile apps for iOS and Android.
 
