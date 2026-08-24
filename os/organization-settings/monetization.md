@@ -19,10 +19,18 @@ To reach it, switch the top-bar toggle to **Admin**, open the settings dialog, a
 Shows the connection state: **Not Configured** (no Stripe account yet — "Connect a Stripe account to enable monetization features."), **Incomplete** (account created but onboarding unfinished), or **Configured** (connected and ready, with charges and payouts enabled).
 
 #### Configure Stripe
+![Monetization tab before Stripe onboarding, showing the Not Configured status and the Configure Stripe action above a disabled paywall area](/images/docs/os/organization-settings/organization_settings_monetization_onboarding.webp)
+
 Starts Stripe Connect onboarding: you are redirected to Stripe to create or link an account (as a company), then returned to this page. If onboarding was interrupted, the button reads **Complete Setup**; once configured it becomes **Stripe Dashboard**, which opens your Stripe account in a new tab.
 
 #### Paywall configuration area
+![Paywall configuration area with the item search, the All / Active / Disabled filter, and the list of configured items](/images/docs/os/organization-settings/organization_settings_monetization_paywall.webp)
+
 Disabled (dashed placeholder) until Stripe is ready. Once connected, it lists your configured items for sale and lets you add more: search for an existing item to paywall or add a custom item, filter configured items by All/Active/Disabled, set pricing, and choose a grandfathering policy for pre-paywall users (**Free Forever** or **Require Subscription**).
+
+![Pricing configuration for one item, showing the price fields and the grandfathering policy choice](/images/docs/os/organization-settings/organization_settings_monetization_pricing.webp)
+
+![List of configured paywall items with their pricing and status](/images/docs/os/organization-settings/organization_settings_monetization_pricing_list.webp)
 
 ## How to Use
 

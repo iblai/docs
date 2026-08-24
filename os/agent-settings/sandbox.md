@@ -23,7 +23,9 @@ The switch in the helper banner enables or disables the sandbox for this agent. 
 A search box that filters the instance table by name or URL.
 
 #### Add Instance
-Opens the **New Instance** dialog for registering a sandbox runtime. The form takes a display **name**, a fully qualified https **server URL**, the instance **type** (`openclaw`, the default, or `ironclaw`), and an optional **gateway token** for authentication.
+![New Instance dialog with fields for name, type, server URL, and gateway token](/images/docs/os/agent-settings/agent_settings_sandbox_new_instance.webp)
+
+Opens the **New Instance** dialog for registering a sandbox runtime. The form takes a display **name**, a fully qualified https **server URL**, the instance **type** (`openclaw`, the default, or `ironclaw`), and an optional **gateway token** for authentication. The token is write-only — it is never read back from the API, so editing an instance re-prompts for it and leaving the field blank keeps the existing one.
 
 #### Instance table
 Each registered instance is a row with:
@@ -37,6 +39,10 @@ Each registered instance is a row with:
 - **LAST CHECK** — when the instance was last health-checked (for example "1 minute ago").
 - **Connect** — connects this agent to the instance. Connect is blocked (dimmed, with an explanatory tooltip) when the instance is unhealthy.
 - **"..." actions menu** — per-instance actions including **Edit** (change name, server URL, or type), **Delete** (with confirmation), **Run checks** (health check plus connectivity test), and **Connect**.
+
+![Per-instance actions menu offering Connect, Run checks, Edit, and Delete](/images/docs/os/agent-settings/agent_settings_sandbox_actions.webp)
+
+![Edit Instance dialog with the name, type, and server URL pre-filled and the gateway token left blank](/images/docs/os/agent-settings/agent_settings_sandbox_edit_instance.webp)
 
 ## Connected State
 
@@ -59,6 +65,28 @@ Shows when the configuration was last pushed to the instance ("Never pushed" bef
 #### Model
 The LLM the sandboxed agent runs on. **Select Model** opens the provider picker, where you choose a provider (for example Anthropic or OpenAI) and then a model; once chosen, the current model identifier is shown in this row and the button changes to allow changing it.
 
+## Agent Workspace Prompts
+
+![Prompts section listing the agent workspace files — Identity, Soul, User Context, Tools, Agents, Bootstrap, Heartbeat, and Memory — each with an information tooltip and an Edit button](/images/docs/os/agent-settings/agent_settings_sandbox_prompts.webp)
+
+A connected agent has a workspace on the sandbox made up of eight prompt files, each editable from this panel. They are the same files an agent definition carries on disk, so what you write here is what the runtime reads.
+
+| Field | File | What it holds |
+|---|---|---|
+| **Identity** | `IDENTITY.md` | The agent's persona — name, character, how it presents itself |
+| **Soul** | `SOUL.md` | Behavioral guidelines, personality, communication style |
+| **User Context** | `USER.md` | The deployment's context — hosts, device names, voices |
+| **Tools** | `TOOLS.md` | Notes on tool usage, device names, API aliases |
+| **Agents** | `AGENTS.md` | Multi-agent routing — which agent handles what |
+| **Bootstrap** | `BOOTSTRAP.md` | One-time instructions for the agent's first run |
+| **Heartbeat** | `HEARTBEAT.md` | Periodic tasks the agent performs on its own schedule |
+| **Memory** | `MEMORY.md` | Seed memory — curated long-term facts the agent starts with |
+
+#### Editing a prompt
+![Edit prompt dialog with a rich-text editor for one workspace file](/images/docs/os/agent-settings/agent_settings_sandbox_edit_prompt.webp)
+
+Each row carries an information tooltip explaining what the file is for and an **Edit** button that opens a rich-text editor. Saving writes the file, creating it if this is the first time it has been set.
+
 ## How to Use
 
 #### Step 1: Enable the sandbox capability
@@ -70,8 +98,11 @@ Open **Sandbox** and click **Add Instance**. Enter a name, the https server URL 
 #### Step 3: Verify health and connect
 Use **Run checks** from the row's actions menu to confirm the instance is Active and Healthy, then click **Connect**. The Connected Instance card replaces the table, and the agent's **Skills** tab and Agent Configuration prompts become available.
 
-#### Step 4: Keep the runtime in sync
-Click **Push** in **Push Configuration** to push the agent's current configuration to the instance — or enable **Auto Push on Save** so every save is pushed automatically. Use **Select Model** to set the LLM the sandboxed agent should use.
+#### Step 4: Write the agent's workspace prompts
+In the **Prompts** section, edit the files that define the agent on the runtime — **Identity** and **Soul** first, then the rest as the deployment needs them. **Push Configuration** stays unavailable until at least one prompt has content, since there is nothing to send.
 
-#### Step 5: Disconnect when needed
+#### Step 5: Keep the runtime in sync
+Click **Push** in **Push Configuration** to push the agent's current configuration to the instance — or enable **Auto Push on Save** so every prompt edit is pushed automatically. Use **Select Model** to set the LLM the sandboxed agent should use.
+
+#### Step 6: Disconnect when needed
 Click **Disconnect** on the Connected Instance card (and confirm) to detach the agent from the instance — for example before pointing it at a different runtime.

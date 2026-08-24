@@ -39,11 +39,20 @@ Measure and improve agent quality: run an agent against a benchmark of test ques
 #### Rubric Grading
 Let an agent grade work against a rubric you define: choose whether it scores a submission or the whole conversation, how much feedback the person sees, and the criteria and point values it marks against. See [Grader](agent-settings/grader.md).
 
+#### Projects & Workflows
+Group a body of work — its files, its standing instructions, and the agents assigned to it — into a [Project](chat-canvas/projects.md), and lay out a multi-step agent run as a graph in the [workflow builder](chat-canvas/workflows.md), with branches, loops, guardrail checks, and human approval steps.
+
 #### Multi-Organization, SSO & RBAC
 Full organization isolation with per-organization configuration and branding, Single Sign-On, and granular role-based access control with roles, policies, groups, and teams. See [Organization Settings](organization-settings/organization.md).
 
-#### Billing & Monetization
-Stripe-backed subscription management and usage-based pricing at the organization level — see [Billing](organization-settings/billing.md) and [Monetization](organization-settings/monetization.md).
+#### Billing, Spend Limits & Monetization
+Stripe-backed subscription management and usage-based pricing at the organization level, plus enforceable ceilings on LLM spend at three scopes — the whole workspace, one agent, or one person on one agent — that block or alert when they are reached. See [Billing](organization-settings/billing.md), [Agent Billing](agent-settings/billing.md), and [Monetization](organization-settings/monetization.md).
+
+#### Memory Administration
+Memories belong to people and to agents, and an administrator can manage both: a user's own memories on their [Profile](profile/memory.md), an agent's in its [Memory settings](agent-settings/memory.md), and everyone's from the organization's [Memory](organization-settings/memory.md) tab — including the switches that decide whether anything is captured at all.
+
+#### Conversation History & Export
+Every user can review and export their own conversations from [Profile: History](profile/history.md), while administrators review a whole agent's conversations in [Chat History](agent-settings/history.md).
 
 #### Embedding & API Access
 Embed agents in any website via iframe with custom styling, and integrate programmatically with API keys and LTI 1.3 for LMS platforms. See [Embed](agent-settings/embed.md), [API Access](agent-settings/api.md), and the LTI pages.
@@ -54,19 +63,19 @@ Let people chatting with an agent hand the conversation to a human. Escalations 
 ## Documentation Map
 
 #### Chat & Canvas
-The end-user workspace: [Chat Interface](chat-canvas/chat.md) · [Canvas](chat-canvas/canvas.md) · [Canvas Options](chat-canvas/canvas-options.md) · [Downloading a Canvas](chat-canvas/canvas-download.md) · [Renaming a Canvas](chat-canvas/canvas-rename.md)
+The end-user workspace: [Chat Interface](chat-canvas/chat.md) · [Explore Agents](chat-canvas/explore.md) · [Projects](chat-canvas/projects.md) · [Workflows](chat-canvas/workflows.md) · [Canvas](chat-canvas/canvas.md) · [Canvas Options](chat-canvas/canvas-options.md) · [Downloading a Canvas](chat-canvas/canvas-download.md) · [Renaming a Canvas](chat-canvas/canvas-rename.md)
 
 #### Agent Settings
-Everything configurable on a single agent: [Basic](agent-settings/basic.md) · [System Prompt](agent-settings/prompt.md) · [LLM Selection](agent-settings/llm-selection.md) · [LLM Configuration](agent-settings/llm-configuration.md) · [Capabilities](agent-settings/capabilities.md) · [Grader](agent-settings/grader.md) · [Tools](agent-settings/tools.md) · [Skills](agent-settings/skills.md) · [MCP Servers](agent-settings/mcp.md) · [Datasets](agent-settings/datasets.md) · [Memory](agent-settings/memory.md) · [Voice](agent-settings/voice.md) · [Voice Selector](agent-settings/voice-selector.md) · [Voice Calls](agent-settings/voice-call.md) · [Safety](agent-settings/safety.md) · [Privacy](agent-settings/privacy.md) · [Disclaimers](agent-settings/disclaimers.md) · [Discovery](agent-settings/discovery.md) · [Access Control](agent-settings/access.md) · [Embed](agent-settings/embed.md) · [API Access](agent-settings/api.md) · [Agent Analytics](agent-settings/analytics.md) · [Evals](agent-settings/evals.md) · [Audit Log](agent-settings/audit.md) · [Chat History](agent-settings/history.md) · [Support](agent-settings/support.md) · [Tasks](agent-settings/tasks.md) · [Sandbox](agent-settings/sandbox.md) · [LTI Keys](agent-settings/lti-keys.md) · [LTI Links](agent-settings/lti-links.md) · [LTI Tool Endpoints](agent-settings/lti-tool-endpoints.md) · [LTI Tools](agent-settings/lti-tools.md)
+Everything configurable on a single agent: [Basic](agent-settings/basic.md) · [System Prompt](agent-settings/prompt.md) · [LLM Selection](agent-settings/llm-selection.md) · [LLM Configuration](agent-settings/llm-configuration.md) · [Capabilities](agent-settings/capabilities.md) · [Grader](agent-settings/grader.md) · [Tools](agent-settings/tools.md) · [Skills](agent-settings/skills.md) · [MCP Servers](agent-settings/mcp.md) · [Datasets](agent-settings/datasets.md) · [Memory](agent-settings/memory.md) · [Voice](agent-settings/voice.md) · [Voice Selector](agent-settings/voice-selector.md) · [Voice Calls](agent-settings/voice-call.md) · [Safety](agent-settings/safety.md) · [Privacy](agent-settings/privacy.md) · [Disclaimers](agent-settings/disclaimers.md) · [Discovery](agent-settings/discovery.md) · [Access Control](agent-settings/access.md) · [Embed](agent-settings/embed.md) · [API Access](agent-settings/api.md) · [Agent Analytics](agent-settings/analytics.md) · [Evals](agent-settings/evals.md) · [Audit Log](agent-settings/audit.md) · [Chat History](agent-settings/history.md) · [Support](agent-settings/support.md) · [Tasks](agent-settings/tasks.md) · [Billing](agent-settings/billing.md) · [Sandbox](agent-settings/sandbox.md) · [LTI Keys](agent-settings/lti-keys.md) · [LTI Links](agent-settings/lti-links.md) · [LTI Tool Endpoints](agent-settings/lti-tool-endpoints.md) · [LTI Tools](agent-settings/lti-tools.md)
 
 #### Analytics
 Organization-wide insight: [Overview Dashboard](analytics/overview.md) · [Users](analytics/users.md) · [Topics](analytics/topics.md) · [Transcripts](analytics/transcripts.md) · [Costs](analytics/costs.md) · [Data Reports](analytics/data-reports.md) · [Audit](analytics/audit.md)
 
 #### Organization Settings
-Organization administration: [Organization](organization-settings/organization.md) · [Users](organization-settings/users.md) · [Groups](organization-settings/groups.md) · [Teams](organization-settings/teams.md) · [Roles](organization-settings/roles.md) · [Policies](organization-settings/policies.md) · [Alerts](organization-settings/alerts.md) · [LLM Integrations](organization-settings/integrations-llms.md) · [Data Source Integrations](organization-settings/integrations-data-sources.md) · [Billing](organization-settings/billing.md) · [Monetization](organization-settings/monetization.md) · [Advanced](organization-settings/advanced.md)
+Organization administration: [Organization](organization-settings/organization.md) · [Users](organization-settings/users.md) · [Groups](organization-settings/groups.md) · [Teams](organization-settings/teams.md) · [Roles](organization-settings/roles.md) · [Policies](organization-settings/policies.md) · [Alerts](organization-settings/alerts.md) · [LLM Integrations](organization-settings/integrations-llms.md) · [Data Source Integrations](organization-settings/integrations-data-sources.md) · [Memory](organization-settings/memory.md) · [Billing](organization-settings/billing.md) · [Monetization](organization-settings/monetization.md) · [Advanced](organization-settings/advanced.md)
 
 #### Profile
-Per-user account pages: [Basic Information](profile/basic.md) · [Education](profile/education.md) · [Education Credentials](profile/education-credentials.md) · [Experience](profile/experience.md) · [Resume](profile/experience-resume.md) · [Social Links](profile/social.md) · [Memory](profile/memory.md) · [Privacy](profile/privacy.md) · [Security](profile/security.md) · [Purchases](profile/purchases.md)
+Per-user account pages: [Basic Information](profile/basic.md) · [Education](profile/education.md) · [Education Credentials](profile/education-credentials.md) · [Experience](profile/experience.md) · [Resume](profile/experience-resume.md) · [Social Links](profile/social.md) · [Memory](profile/memory.md) · [History](profile/history.md) · [Privacy](profile/privacy.md) · [Security](profile/security.md) · [Purchases](profile/purchases.md)
 
 #### Notifications
 Staying informed: [Inbox](notifications/inbox.md) · [Alerts](notifications/alerts.md)

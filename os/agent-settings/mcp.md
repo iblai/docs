@@ -26,6 +26,8 @@ Filters connectors by their creation date.
 A dropdown filtering connectors by MCP transport. The supported transports are **Websocket** and **Streamable Http**; "All Transports" shows everything.
 
 #### Featured Connectors
+![Featured Connectors grid showing pre-configured connector cards with service logos, connection status, description, OAuth and scope badges, and a Connect button](/images/docs/os/agent-settings/agent_settings_mcp_featured.webp)
+
 Pre-configured connector cards for common services. Each card shows the service logo and name, connection status ("Not Connected" until you connect), a one-line description (for example, "Access to GitHub repositories and user data."), badges, a **Connect** button, and its created date.
 
 #### Connector badges
@@ -35,7 +37,11 @@ The badges on each card describe how the connector authenticates and at what lev
 Starts the connection flow for a featured connector. For OAuth connectors this launches the service's OAuth authorization; on success the connector shows as connected ("{name} connected successfully") and can be activated or deactivated for the agent. A connected service can later be disconnected.
 
 #### Custom connectors (Add MCP Connector)
+![Add MCP Connector dialog with fields for connector name, server URL, scope, transport, and authentication method](/images/docs/os/agent-settings/agent_settings_mcp_add.webp)
+
 Beyond the featured grid, the panel's connector management supports adding your own MCP connector with: a **Connector Name** and optional image and description; the **Connector Server** URL; a **Connector Scope** of **All Agents** or **This Agent**; a **Transport** (Websocket or Streamable Http); an **Authentication Method** of **No Authentication**, **API Key**, or **OAuth**; and for authenticated connectors an **Authentication Scope** (Organization, Agent, or User) plus token details (token type and token for API-key auth). Existing tokens are hidden on edit and kept unless replaced.
+
+![Edit connector dialog with the existing connector details pre-filled and the token field left blank](/images/docs/os/agent-settings/agent_settings_mcp_edit.webp)
 
 ## How to Use
 

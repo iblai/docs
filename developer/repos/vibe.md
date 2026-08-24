@@ -40,42 +40,65 @@ After installing (`npx skills add iblai/vibe`), use the skills directly in your 
 
 #### App-building skills
 
-- `/iblai-auth` — add SSO authentication and configure the app for ibl.ai login
-- `/iblai-agent-chat` — add the full in-process agent chat surface
-- `/iblai-project` — add the in-process Projects surface (project landing page with chat input, files, instructions, assigned agents)
-- `/iblai-profile` — add profile UI and profile settings flows
-- `/iblai-account` — add account and organization settings
-- `/iblai-analytics` — add analytics dashboards and reporting views
-- `/iblai-notification` — add the notification bell and notification center flows
-- `/iblai-invite` — add user invitation dialogs for organization admins
-- `/iblai-workflow` — add workflow builder components (sidebar, modals, connectors)
-- `/iblai-local-llm` — contract for on-device LLM inference (Ollama / Foundry) in a Tauri desktop build
-- `/iblai-course-access` — add edX course-content pages with outline sidebar, tab strip, iframe, and access control
-- `/iblai-course-create` — drive the ibl.ai Course Creation API to generate, edit, and publish edX courses
-- `/iblai-onboard` — design and build a high-converting questionnaire-style onboarding flow
-- `/iblai-landing` — build a high-converting landing page using a 12-section conversion framework
-- `/iblai-component` — overview of all components and app creation paths
-- `/iblai-rbac` — reference for the default RBAC roles, the platform's action-definitions endpoint, and the SDK components that render the Roles + Policies management UI
+- `/iblai-vibe-auth` — add SSO authentication and configure the app for ibl.ai login
+- `/iblai-vibe-agent-chat` — add the full in-process agent chat surface
+- `/iblai-vibe-agent-chat-sidebar` — wrap chat with the SDK sidebar (projects, pinned and recent messages)
+- `/iblai-vibe-project` — add the in-process Projects surface (project landing page with chat input, files, instructions, assigned agents)
+- `/iblai-vibe-profile` — add profile UI and profile settings flows
+- `/iblai-vibe-history` — add the profile History surface (a user's own conversations, with filters and exports)
+- `/iblai-vibe-account` — add account and organization settings
+- `/iblai-vibe-billing` — add the tenant Billing surface (plan and credits, workspace spend limit, agent limits)
+- `/iblai-vibe-memory` — add the tenant Memory admin surface (every user's global memories, every agent's memories)
+- `/iblai-vibe-credit` — add the credit balance widget
+- `/iblai-vibe-analytics` — add analytics dashboards and reporting views
+- `/iblai-vibe-navbar` — add a responsive navbar with logo, links, notification bell, and profile dropdown
+- `/iblai-vibe-notification` — add the notification bell and notification center flows
+- `/iblai-vibe-invite` — add user invitation dialogs for organization admins
+- `/iblai-vibe-workflow` — add workflow builder components (sidebar, modals, connectors)
+- `/iblai-vibe-local-llm` — contract for on-device LLM inference (Ollama) in a Tauri desktop build
+- `/iblai-vibe-course-access` — add edX course-content pages with outline sidebar, tab strip, iframe, and access control
+- `/iblai-vibe-course-create` — drive the ibl.ai Course Creation API to generate, edit, and publish edX courses
+- `/iblai-vibe-onboard` — design and build a high-converting questionnaire-style onboarding flow
+- `/iblai-vibe-component` — overview of all components and app creation paths
+- `/iblai-vibe-scaffold` — scaffold a new app, or add ibl.ai features to an existing Next.js project
+- `/iblai-vibe-rbac` — reference for the default RBAC roles, the platform's action-definitions endpoint, and the SDK components that render the Roles + Policies management UI
+- `/iblai-vibe-credential` — RBAC setup that lets a token list and unmask integration credentials
+- `/iblai-vibe-crm-overview` — reference and index for the Platform-scoped CRM API
 
 #### Agent-tab skills
 
-One skill per tab of the agent management surface: `/iblai-agent-search` (browse page), `/iblai-agent-setting`, `/iblai-agent-access`, `/iblai-agent-api`, `/iblai-agent-dataset`, `/iblai-agent-disclaimer`, `/iblai-agent-embed`, `/iblai-agent-history`, `/iblai-agent-llm`, `/iblai-agent-memory`, `/iblai-agent-prompt`, `/iblai-agent-safety`, and `/iblai-agent-tool`.
+One skill per tab of the agent management surface: `/iblai-vibe-agent-search` (browse page), `/iblai-vibe-agent-setting`, `/iblai-vibe-agent-access`, `/iblai-vibe-agent-api`, `/iblai-vibe-agent-audit`, `/iblai-vibe-agent-billing`, `/iblai-vibe-agent-dataset`, `/iblai-vibe-agent-disclaimer`, `/iblai-vibe-agent-embed`, `/iblai-vibe-agent-evals`, `/iblai-vibe-agent-grader`, `/iblai-vibe-agent-history`, `/iblai-vibe-agent-llm`, `/iblai-vibe-agent-lti`, `/iblai-vibe-agent-mcp`, `/iblai-vibe-agent-memory`, `/iblai-vibe-agent-privacy`, `/iblai-vibe-agent-prompt`, `/iblai-vibe-agent-safety`, `/iblai-vibe-agent-sandbox`, `/iblai-vibe-agent-skills`, `/iblai-vibe-agent-support`, `/iblai-vibe-agent-task`, `/iblai-vibe-agent-tool`, and `/iblai-vibe-agent-voice`.
+
+#### Monetization skills
+
+`/iblai-vibe-monetization` indexes the family: `/iblai-vibe-monetization-onboard` (Stripe Connect Express onboarding), `/iblai-vibe-monetization-configure` (the admin monetization tab), `/iblai-vibe-monetization-checkout` (paywall modal, access gate, checkout), `/iblai-vibe-monetization-subscription` (the user Purchases tab), `/iblai-vibe-monetization-app-paywall` (gate a whole app on the tenant's own Stripe key), and `/iblai-vibe-monetization-analytics` (revenue dashboards and subscriber lists).
 
 #### Ops skills
 
-- `/iblai-ops-build` — build and run the app on desktop and mobile (iOS, Android, macOS, Windows)
-- `/iblai-ops-test` — validate the app before it is presented to the user
-- `/iblai-ops-upgrade` — upgrade the ibl.ai CLI, SDK, and vibe skills to the latest versions
+- `/iblai-vibe-ops-init` — start a new project and write its CLAUDE.md
+- `/iblai-vibe-ops-build` — build and run the app on desktop and mobile (iOS, Android, macOS, Windows), including signed and notarized release builds
+- `/iblai-vibe-ops-deploy` — deploy to ibl.ai hosting, your own container, or a static host
+- `/iblai-vibe-ops-release` — generate the Makefile and Fastlane config for App Store and Google Play submission
+- `/iblai-vibe-windows-msix` — package a Tauri build as a Windows MSIX
+- `/iblai-vibe-iconography` — generate every app-icon size for desktop and mobile from one source image
+- `/iblai-vibe-ops-test` — validate the app before it is presented to the user
+- `/iblai-vibe-ops-upgrade` — upgrade the SDK and the vibe skills to the latest versions
+- `/iblai-vibe-readme` — write or refresh the README
+
+#### Design and code quality
+
+- `/iblai-vibe-design` — design, critique, and polish interfaces against the ibl.ai design system
+- `/iblai-vibe-deslop` — audit and harden an existing codebase for production readiness
 
 #### Security skills
 
 Eight authorized-use security skills covering reconnaissance, source-code audits (OWASP Top 10), OSINT, disk forensics, incident triage, cloud configuration auditing, dependency vulnerabilities, and prompt-injection testing:
 
 ```text
-/iblai-security-recon              /iblai-security-incident-triage
-/iblai-security-owasp-audit        /iblai-security-cloud-audit
-/iblai-security-osint-recon        /iblai-security-dependency-audit
-/iblai-security-disk-forensics     /iblai-security-prompt-injection
+/iblai-vibe-security-recon              /iblai-vibe-security-incident-triage
+/iblai-vibe-security-owasp-audit        /iblai-vibe-security-cloud-audit
+/iblai-vibe-security-osint-recon        /iblai-vibe-security-dependency-audit
+/iblai-vibe-security-disk-forensics     /iblai-vibe-security-prompt-injection
 ```
 
 #### Marketing skills (companion repo)

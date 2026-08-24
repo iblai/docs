@@ -36,7 +36,7 @@ Open `http://localhost:3000`. You will be redirected to iblai.app for login -- s
 
 ## What is Vibe
 
-A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a production-ready scaffold powered by [iblai-app-cli](https://github.com/iblai/vibe), the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at iblai.app. You go from zero to a deployed AI app in minutes -- authentication, AI chat, profiles, notification, and analytics are already wired up. No API tokens to manage.
+A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a production-ready scaffold powered by the [@iblai/cli](https://github.com/iblai/vibe) command line tool, the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at iblai.app. You go from zero to a deployed AI app in minutes -- authentication, AI chat, profiles, notification, and analytics are already wired up. No API tokens to manage.
 
 **Why it matters:**
 
@@ -45,7 +45,7 @@ A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a p
 - **Client-side auth via SSO** -- no API tokens to store, rotate, or leak
 - **Claude Code skills guide every step** -- adding features is a conversation, not a scavenger hunt through docs
 - **shadcn/ui fills in UI gaps** -- consistent design language without the overhead of a custom design system
-- **Ship everywhere** -- web (Vercel), desktop (macOS/Windows/Linux), and mobile (iOS/Android) via Tauri v2
+- **Ship everywhere** -- web (platform hosting, your own container, or a static host), desktop (macOS/Windows/Linux), and mobile (iOS/Android) via Tauri v2
 
 ---
 
@@ -54,7 +54,7 @@ A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a p
 1. **Scaffold** -- run `npx @iblai/cli startapp agent` to generate a full Next.js app with auth, AI chat, profiles, and more
 2. **Connect** -- your app connects to iblai.app (or your own tenant) for authentication, AI agents, and data
 3. **Customize** -- use Claude Code skills to add features, swap components, and adjust business logic
-4. **Deploy** -- push to Vercel, package with Tauri, or run in Docker
+4. **Deploy** -- ship through the platform's hosting API, run it in your own container, or package it with Tauri
 
 ---
 
@@ -86,12 +86,12 @@ After installing the skills, use them directly in your AI agent with `/` command
 | `/iblai-vibe-component` | Add an ibl.ai component or feature to your app |
 | `/iblai-vibe-ops-test` | Add Vitest/Playwright tests and run the verification pass before showing work |
 | `/iblai-vibe-ops-build` | Build and run on desktop and mobile (iOS, Android, macOS, Windows) |
-| `/iblai-vibe-ops-deploy` | Deploy your app to Vercel or another platform |
+| `/iblai-vibe-ops-deploy` | Deploy to ibl.ai hosting, a container, or a static host |
+| `/iblai-vibe-ops-release` | Generate the Makefile and Fastlane config to submit to the App Store and Google Play |
 | `/iblai-vibe-ops-upgrade` | Upgrade the `@iblai/iblai-js` SDK and the vibe skills to the latest versions |
 | `/iblai-vibe-windows-msix` | Package a Tauri build as a Windows MSIX for sideloading or the Microsoft Store |
 | `/iblai-vibe-iconography` | Generate every app-icon size for desktop and mobile builds from one source image |
 | `/iblai-vibe-readme` | Write or refresh the README |
-| `/iblai-vibe-cli-maintenance` | Internals of the `iblai` CLI -- commands, templates, and release flows |
 
 ### App features
 
@@ -110,6 +110,9 @@ After installing the skills, use them directly in your AI agent with `/` command
 | `/iblai-vibe-workflow` | Add workflow builder components |
 | `/iblai-vibe-onboard` | Design and build a high-converting onboarding questionnaire flow |
 | `/iblai-vibe-credit` | Add the ibl.ai credit balance widget |
+| `/iblai-vibe-billing` | Add the tenant Billing surface (plan and credits, workspace spend limit, agent limits) |
+| `/iblai-vibe-memory` | Add the tenant Memory admin surface (every user's global memories, every agent's memories) |
+| `/iblai-vibe-history` | Add the profile History surface (a user's own conversations, with filters and exports) |
 | `/iblai-vibe-local-llm` | Wire on-device LLM inference (Ollama) into a Next.js + Tauri desktop build |
 | `/iblai-vibe-rbac` | Build and audit role-based access control -- roles, policies, action definitions |
 | `/iblai-vibe-credential` | RBAC setup that lets a token list and unmask integration credentials |
@@ -143,8 +146,9 @@ After installing the skills, use them directly in your AI agent with `/` command
 | `/iblai-vibe-agent-skills` | Add the agent Skills tab (Agent Skills catalog, per-agent assignment, private skills, file resources, and the chat `/` skill picker) |
 | `/iblai-vibe-agent-task` | Add the agent Tasks tab (schedule automated periodic tasks with run logs) |
 | `/iblai-vibe-agent-tool` | Add the agent Tools tab (enable/disable agent tools) |
-| `/iblai-agent-support` | Add the agent Support tab (ticket inbox, availability toggle, filters, replies) |
-| `/iblai-agent-voice` | Add the agent Voice tab (pick the agent's voice and configure voice calls) |
+| `/iblai-vibe-agent-support` | Add the agent Support tab (ticket inbox, availability toggle, filters, replies) |
+| `/iblai-vibe-agent-voice` | Add the agent Voice tab (voice source, voice picker, voice instructions, and call configuration) |
+| `/iblai-vibe-agent-billing` | Add the agent Billing tab (per-agent and per-user LLM spend caps with usage bars and enforcement) |
 
 ### Monetization
 
@@ -156,6 +160,7 @@ After installing the skills, use them directly in your AI agent with `/` command
 | `/iblai-vibe-monetization-checkout` | Build the paywall modal, access-check gate, and Stripe checkout (including guest buy) |
 | `/iblai-vibe-monetization-subscription` | Build the user Purchases tab -- list, detail, and cancel |
 | `/iblai-vibe-monetization-analytics` | Build revenue dashboards, subscriber lists, and paywall overviews |
+| `/iblai-vibe-monetization-app-paywall` | Gate a whole app behind Stripe using the tenant's own key |
 
 ### Design and code quality
 
@@ -275,20 +280,22 @@ create_page_template("Dashboard", "agent")   # Generate a page following ibl.ai 
 
 ## Deploy Anywhere
 
-### Vercel (recommended)
+### Platform hosting (default)
 
-One-click deploy. Connect your repo, set your environment variables, and push.
+`/iblai-vibe-ops-deploy` ships the app through the ibl.ai platform's own hosting API. The platform holds the hosting credential for your tenant, so the only configuration you need is the `DOMAIN`, `PLATFORM`, and `TOKEN` already in `iblai.env` — **no third-party hosting account, token, or CLI**. The skill zips the app, posts it to the hosting endpoint, and polls until the build is ready; redeploying is the same call with the same project slug.
 
-```bash
-vercel --prod
-```
+### Your own infrastructure
 
-### Docker
+When the app has to run where you control it — your own server, on-premise, Kubernetes, Cloud Run, or air-gapped — deploy it as a container. The same skill covers this path, and a project that already carries a `Dockerfile` deploys the way it already deploys.
 
 ```bash
 docker build -t my-vibe-app .
 docker run -p 3000:3000 my-vibe-app
 ```
+
+A static host is the third option, for an app with no server-side runtime at all.
+
+Where deployment is a data-residency or compliance decision rather than a convenience one, the choice belongs to the organization — the tooling supports all three targets equally.
 
 ### Tauri (Desktop & Mobile)
 
@@ -301,11 +308,13 @@ iblai builds ios init         # iOS project setup
 iblai builds ci-workflow --all  # GitHub Actions for all platforms
 ```
 
+`/iblai-vibe-ops-build` covers signed and notarized macOS and Windows release builds; `/iblai-vibe-ops-release` generates the Makefile and Fastlane configuration for submitting to the Apple App Store and Google Play, and `/iblai-vibe-windows-msix` packages a build as a Windows MSIX for sideloading or the Microsoft Store.
+
 ---
 
 ## Resources
 
-- [iblai-app-cli](https://github.com/iblai/vibe) -- the CLI that scaffolds Vibe apps
+- [@iblai/cli](https://github.com/iblai/vibe) -- the CLI that scaffolds Vibe apps
 - [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) -- unified SDK for data, UI components, and auth utilities
 - [@iblai/iblai-api](https://www.npmjs.com/package/@iblai/iblai-api) -- auto-generated API types
 - [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) -- MCP server for AI-assisted development
