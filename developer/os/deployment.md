@@ -1,4 +1,4 @@
-# Immutable, deployment-ID static hosting
+# Immutable, Deployment-ID Static Hosting
 
 > Mirrored from [`iblai/os`](https://github.com/iblai/os) · [`docs/DEPLOYMENT.md`](https://github.com/iblai/os/blob/main/docs/DEPLOYMENT.md). This page is generated — edit it in the repository, not here.
 

@@ -1,4 +1,4 @@
-# Deploying ibl.ai/os against our backend
+# Deploying ibl.ai/os against Our Backend
 
 > Mirrored from [`iblai/os`](https://github.com/iblai/os) · [`docs/platform-deployment.md`](https://github.com/iblai/os/blob/main/docs/platform-deployment.md). This page is generated — edit it in the repository, not here.
 

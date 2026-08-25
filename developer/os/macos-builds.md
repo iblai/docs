@@ -1,4 +1,4 @@
-# macOS builds: Mac App Store vs. Developer ID
+# macOS Builds: Mac App Store vs. Developer ID
 
 > Mirrored from [`iblai/os`](https://github.com/iblai/os) · [`docs/macos-builds.md`](https://github.com/iblai/os/blob/main/docs/macos-builds.md). This page is generated — edit it in the repository, not here.
 

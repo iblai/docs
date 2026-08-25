@@ -1,4 +1,4 @@
-# Running the Mentor App
+# Running the App
 
 > Mirrored from [`iblai/os`](https://github.com/iblai/os) · [`docs/running-the-app.md`](https://github.com/iblai/os/blob/main/docs/running-the-app.md). This page is generated — edit it in the repository, not here.
 
