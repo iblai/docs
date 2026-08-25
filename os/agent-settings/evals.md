@@ -97,7 +97,7 @@ Everything in this panel is available over the platform API, so evaluations can 
 
 ## Building Evals Into Your Own App
 
-The Evals panel is one of the agent-settings tabs published in the ibl.ai SDK, so the same screen can be mounted in a product you build yourself. Install the [iblai/vibe](https://github.com/iblai/vibe) skills and mount `<AgentEvaluationTab>` from `@iblai/iblai-js/web-containers/next` inside an `AgentSettingsProvider`. It handles benchmarks, runs, reviews, scores, export, and delete on its own; the host supplies a `getLLMProviderDetails` function so the judge picker can show provider logos and display names. The reusable skill for this workflow is [`iblai-vibe-agent-evals`](https://github.com/iblai/vibe/tree/main/skills/iblai-vibe-agent-evals), and the SDK overview is at [Vibe SDK](/developer/applications/vibe).
+The Evals panel is one of the agent-settings tabs published in the ibl.ai SDK, so the same screen can be mounted in a product you build yourself. Install the [iblai/vibe](https://github.com/iblai/vibe) skills and mount `<AgentEvaluationTab>` from `@iblai/iblai-js/web-containers/next` inside an `AgentSettingsProvider`. It handles benchmarks, runs, reviews, scores, export, and delete on its own; the host supplies a `getLLMProviderDetails` function so the judge picker can show provider logos and display names. The reusable skill for this workflow is [`iblai-vibe-agent-evals`](https://github.com/iblai/vibe/tree/main/skills/iblai-vibe-agent-evals), and the SDK overview is at [Vibe SDK](/developer/platform/vibe-sdk).
 
 ## Related
 

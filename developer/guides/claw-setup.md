@@ -1,0 +1,116 @@
+# Claw Setup
+
+> Mirrored from [`iblai/claw-setup`](https://github.com/iblai/claw-setup) · [`README.md`](https://github.com/iblai/claw-setup/blob/main/README.md). This page is generated — edit it in the repository, not here.
+
+Connect self-hosted claw servers (OpenClaw, NVIDIA NemoClaw) to the [ibl.ai](https://ibl.ai) platform. Run your own AI agent infrastructure and manage it through ibl.ai's APIs and applications.
+
+[OpenClaw](#)
+[NemoClaw](#)
+[License: MIT](https://github.com/iblai/claw-setup/blob/main/LICENSE)
+
+## Quick Start
+
+On a fresh Debian/Ubuntu server, run [`install.sh`](https://github.com/iblai/claw-setup/blob/main/install.sh). `HARNESS_TYPE` is the only variable you set (default `openclaw`); everything else is asked interactively:
+
+### OpenClaw (default)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/iblai/claw-setup/main/install.sh | bash
+```
+
+### NemoClaw
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/iblai/claw-setup/main/install.sh | HARNESS_TYPE=nemoclaw bash
+```
+
+It prompts for the domain, the LLM provider + API key (OpenClaw) or runs NemoClaw's own wizard, the sandbox / plugin / firewall choices, and whether to register on ibl.ai. Then it does the whole server side -- OpenClaw (or NemoClaw), Caddy with automatic TLS, the firewall, and the `iblai-openclaw-extensions` plugin -- and optionally the platform side (claw instance + mentor via [`scripts/seed_claw_mentor.py`](https://github.com/iblai/claw-setup/blob/main/scripts/seed_claw_mentor.py), wiring in the device key). Finally it prints the gateway token, an Ed25519 device key, and the API call to register the instance.
+
+Point your domain's DNS A record at the server and open ports 80/443 first. Answers are cached in `~/.cache/iblai-claw-setup` and offered as defaults next time. Re-running is safe -- it never regenerates an existing token or key. Prefer the manual steps below to understand each piece.
+
+> **Note:** This guide runs against the hosted [iblai.app](https://iblai.app) environment. If you'd like a license to run the full ibl.ai platform locally or on your own infrastructure, reach out to our team at [ibl.ai/contact](https://ibl.ai/contact).
+
+---
+
+## Overview
+
+This repository provides step-by-step guides for two things:
+
+1. **[Server Setup](/developer/guides/openclaw-server-setup)** -- Deploy an OpenClaw gateway on a VPS and expose it over HTTPS
+2. **[Platform Integration](/developer/guides/claw-platform-integration)** -- Connect your claw server to ibl.ai and manage it through the platform's APIs and applications
+
+Once connected, your claw instance is accessible from all ibl.ai applications -- Mentor AI, Skills AI, and any custom integration using the platform API. You configure mentors, push agent identities, assign skills, and chat with users -- all managed centrally through ibl.ai while the compute runs on your own infrastructure.
+
+## Features
+
+- **Self-hosted AI agents** -- Run OpenClaw or NemoClaw on your own infrastructure while managing everything through ibl.ai
+- **Automatic TLS** -- Caddy reverse proxy handles Let's Encrypt certificates with zero configuration
+- **Centralized mentor management** -- Configure agent identities, personalities, and behavioral guidelines via the ibl.ai API
+- **Skill system** -- Create reusable skills with scripts and resources, assign them to mentors, push to instances
+- **Multi-model support** -- Use Anthropic, OpenRouter, or any OpenAI-compatible provider with automatic fallbacks
+- **Multi-agent deployments** -- Run multiple agents on a single gateway (tutor, course creator, admissions, etc.)
+- **Secure by default** -- Ed25519 device identity signing, loopback-only gateway binding, token-based auth
+- **Platform integration** -- Connected instances are accessible from Mentor AI, Skills AI, and any custom integration via REST API
+- **Monitoring** -- Health checks, connectivity tests, security audits, and version tracking through the API
+
+## Architecture
+
+```
+User (browser / app)
+    │
+    ▼
+ibl.ai Platform (Django Channels / ASGI)
+    │
+    ▼
+Claw Integration Layer (WebSocket + device identity signing)
+    │
+    ▼
+Caddy (on your server, TLS via Let's Encrypt)
+    │  reverse proxy to localhost:18789
+    ▼
+OpenClaw Gateway (systemd service, loopback only)
+    │
+    ▼
+LLM Provider (Anthropic, OpenRouter, etc.)
+```
+
+**Your server** runs OpenClaw and Caddy. **ibl.ai** handles user-facing chat, mentor configuration, agent identity, skill management, and model provider orchestration. The platform connects to your server over a secure WebSocket with Ed25519 device identity signing.
+
+## Prerequisites
+
+| Requirement | Details |
+|---|---|
+| **Server** | VPS or dedicated, minimum 2 vCPU / 4 GB RAM (e.g. Hetzner CX22, ~$4/mo) |
+| **Domain** | A domain or subdomain with a DNS A record pointing to your server's IP |
+| **LLM API key** | Anthropic API key (or another provider like OpenRouter) |
+| **Firewall** | Ports 80 and 443 open inbound |
+| **ibl.ai account** | Platform org key and API credentials |
+
+## Manual Setup
+
+### 1. Set up the server
+
+SSH into your VPS, install OpenClaw, configure Caddy for TLS, and start the gateway as a systemd service.
+
+**[Full server setup guide →](/developer/guides/openclaw-server-setup)**
+
+### 2. Connect to ibl.ai
+
+Register your instance via the API, test connectivity, bind mentors, configure agents, and push config.
+
+**[Full platform integration guide →](/developer/guides/claw-platform-integration)**
+
+### 3. Chat
+
+Open any ibl.ai application (Mentor AI, Skills AI, or your own integration) and send a message to a claw-backed mentor. Responses stream from your OpenClaw instance through the platform to the user.
+
+## Guides
+
+| Guide | Description |
+|---|---|
+| **[Server Setup](/developer/guides/openclaw-server-setup)** | Install OpenClaw, configure Caddy, set up systemd, validate the deployment |
+| **[Platform Integration](/developer/guides/claw-platform-integration)** | Register instance, configure mentors and agents, manage skills, API reference |
+
+## Troubleshooting
+
+See the [troubleshooting section](/developer/guides/openclaw-server-setup#troubleshooting) in the server setup guide and the [connectivity checks](/developer/guides/claw-platform-integration#test-connectivity) in the platform integration guide.

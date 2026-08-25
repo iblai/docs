@@ -78,4 +78,4 @@ Work is saved as you go and the header tells you when there are unsaved changes.
 
 The workflow pieces ship in the ibl.ai SDK — the node-type sidebar, the connector management dialog, and the create and delete modals — alongside the data-layer hooks for listing, reading, creating, patching, validating, publishing, and deleting workflows. The canvas and the node configuration panel are built in your own application on top of them, which is what allows a product to define its own node set and layout.
 
-Install the [iblai/vibe](https://github.com/iblai/vibe) skills; the reusable skill for this workflow is [`iblai-vibe-workflow`](https://github.com/iblai/vibe/tree/main/skills/iblai-vibe-workflow), and the SDK overview is at [Vibe SDK](/developer/applications/vibe).
+Install the [iblai/vibe](https://github.com/iblai/vibe) skills; the reusable skill for this workflow is [`iblai-vibe-workflow`](https://github.com/iblai/vibe/tree/main/skills/iblai-vibe-workflow), and the SDK overview is at [Vibe SDK](/developer/platform/vibe-sdk).
