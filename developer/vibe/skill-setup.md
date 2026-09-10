@@ -5,6 +5,15 @@
 Shared setup, conventions, and pre-flight checks referenced by ibl.ai
 skills. Each skill links here instead of repeating this boilerplate.
 
+## Pre-flight (every skill)
+
+If `iblai.env` does not record `ARCHITECTURE=` (and `PROJECT=`, `ACCESS=`,
+`DOMAIN_FOCUS=`), stop and run `/iblai-vibe-start` — four questions that
+decide new/existing, single-org / multi-org / headless, who signs in, and
+what the app is about. Then continue. This is the same in Claude Code,
+OpenAI Codex, Cursor, and OpenCode: the answers live in the project, not in
+the agent.
+
 ## Conventions
 
 - Do NOT add custom styles, colors, or CSS overrides to ibl.ai SDK
@@ -18,7 +27,7 @@ skills. Each skill links here instead of repeating this boilerplate.
   capital letters. Convert names like `MyApp` to `my-app` before passing
   to `create-next-app` or `--app-name`. Allowed
   characters: lowercase letters, digits, `-`, `_`.
-- When building a navbar or header, do NOT display the platform/tenant
+- When building a navbar or header, do NOT display the platform/organization
   name. Use the ibl.ai logo instead.
 
 ## Brand
@@ -47,9 +56,26 @@ Full brand guidelines:
   deploys — the `IBLAI_USERNAME` environment variable wins when the host
   exports it) plus the `AUTH_*` branding values. Next.js still reads its
   runtime env vars from `.env.local`.
+- `DOMAIN` is the single host knob: every platform API base is composed from
+  it as `https://api.$DOMAIN/dm` (default `iblai.app`). Inside the ibl.ai
+  desktop app the session guidance states the base domain — write that value.
+  The sign-in (auth SPA) host is the one exception: it is not derivable from
+  the domain, so use it only when the guidance or the user supplies it.
 - The skills read `iblai.env` and derive the `NEXT_PUBLIC_*` values into
-  `.env.local`. vibe-starter apps need only the tenant key and
+  `.env.local`. vibe-starter apps need only the organization key and
   `IBLAI_API_KEY` — URL defaults live in `lib/iblai/config.ts`.
+
+## Two skill families, one set of credentials
+
+`iblai-vibe-*` skills (kind `ui`/`ops`) read `iblai.env` (`DOMAIN`,
+`PLATFORM`, `TOKEN`, `IBLAI_USERNAME`) and, for Next.js, `.env.local`.
+`iblai-api-*` skills (kind `api`, headless) read `.env` (`IBLAI_ORG`,
+`IBLAI_USERNAME`, `IBLAI_API_KEY`). Same three values, family-specific names:
+`IBLAI_ORG` = `PLATFORM`; `IBLAI_API_KEY` = `TOKEN`. `/iblai-api-login` writes
+both files; the loader snippet in
+[docs/api-skills.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/docs/api-skills.md)
+reads either. Kinds are explained in
+[docs/skill-kinds.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/docs/skill-kinds.md).
 
 ## Step 1: Check Environment
 
@@ -60,6 +86,12 @@ these variables, tell the user:
 > "You need an `iblai.env` with your platform configuration. Download the
 > template and fill in your values:
 > `curl -o iblai.env https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/iblai.env`"
+
+Where the values come from: the org key (`PLATFORM`) is listed on
+https://login.iblai.app/me (no account yet: https://ibl.ai/join); the
+Platform API Token (`TOKEN`) is minted from that signed-in session by
+`/iblai-api-login` (`npx skills add iblai/vibe --all`), or an org secret works
+directly. Make sure `iblai.env` is gitignored before writing a token into it.
 
 Do NOT ask the user for their platform key directly — guide them to
 populate `iblai.env` instead.
