@@ -93,7 +93,7 @@ Scores can also be added by hand from a trace. A manual score takes a name, a va
 
 ## Programmatic Access
 
-Everything in this panel is available over the platform API, so evaluations can run in CI or from an AI agent: create benchmarks and items (JSON, CSV upload, or from chat traces), start experiment runs, launch LLM-as-Judge reviews, read scores, and export CSV. The API is packaged as the `iblai-api-agent-eval` skill at [github.com/iblai/api](https://github.com/iblai/api).
+Everything in this panel is available over the platform API, so evaluations can run in CI or from an AI agent: create benchmarks and items (JSON, CSV upload, or from chat traces), start experiment runs, launch LLM-as-Judge reviews, read scores, and export CSV. The API is packaged as the `iblai-api-agent-eval` skill at [github.com/iblai/vibe](https://github.com/iblai/vibe).
 
 ## Building Evals Into Your Own App
 

@@ -6,9 +6,9 @@
 
 ## Overview
 
-**iblai/api** exposes ibl.ai platform capabilities as tools an AI agent can call, enabling deep integration between language models and the platform. It ships two things: a set of skills that teach your agent to drive the platform REST API directly, and a hosted MCP server for the one runtime capability that is not a REST call — chatting with a deployed agent.
+**iblai/vibe** exposes ibl.ai platform capabilities as tools an AI agent can call, enabling deep integration between language models and the platform. It ships two things: a set of headless `iblai-api-*` skills that teach your agent to drive the platform REST API directly, and a hosted MCP server for the one runtime capability that is not a REST call — chatting with a deployed agent. (These shipped from the separate `iblai/api` repository until 2026-09-16, when it was archived and condensed into [iblai/vibe](/developer/vibe).)
 
-Where [iblai/vibe](/developer/vibe) gives you components to *build* an app, this gives you the means to *run the platform itself*: configure agents, manage datasets and memory, administer users and roles, send notifications, and pull analytics for any organization you belong to.
+Where the repository's `iblai-vibe-*` component skills give you components to *build* an app, the `iblai-api-*` skills give you the means to *run the platform itself*: configure agents, manage datasets and memory, administer users and roles, send notifications, and pull analytics for any organization you belong to.
 
 Each capability maps to one skill and one set of exact REST endpoints — method, URL, body — so changing an agent's LLM or pulling cost analytics is a single command rather than a documentation hunt.
 
@@ -22,7 +22,7 @@ Each capability maps to one skill and one set of exact REST endpoints — method
 
 ## Repository
 
-- **GitHub**: [iblai/api](https://github.com/iblai/api)
+- **GitHub**: [iblai/vibe](https://github.com/iblai/vibe)
 - **License**: MIT
 
 ---
@@ -32,7 +32,7 @@ Each capability maps to one skill and one set of exact REST endpoints — method
 Install the skills:
 
 ```bash
-npx skills add iblai/api
+npx skills add iblai/vibe --all
 ```
 
 Then run the login skill once. It reads your signed-in session, asks which organization to use, and writes your org key, username, and a Platform API Token to `.env`:

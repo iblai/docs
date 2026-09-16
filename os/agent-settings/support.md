@@ -71,7 +71,7 @@ Everything in this panel is also available over the platform API, so a support t
 - **Change status** — `PATCH .../support-tickets/{id}/` with `{ "status": "in_progress" }`.
 - **Close a ticket** — `POST .../support-tickets/{id}/close/` (no body); this sets the status to closed and stamps the resolution time in one call.
 
-There is no create endpoint — tickets originate only from agent chats — so to test the flow end to end, enable the human-support tool, ask the agent to escalate, then triage the resulting ticket. The reusable API skill for this workflow is [`iblai-api-agent-support`](https://github.com/iblai/api/blob/main/skills/iblai-api-agent-support/SKILL.md).
+There is no create endpoint — tickets originate only from agent chats — so to test the flow end to end, enable the human-support tool, ask the agent to escalate, then triage the resulting ticket. The reusable API skill for this workflow is [`iblai-api-agent-support`](https://github.com/iblai/vibe/blob/main/skills/agents/iblai-api-agent-support/SKILL.md).
 
 ## Building Support Into Your Own App
 

@@ -89,7 +89,7 @@ Shared building blocks that appear across all ibl.ai applications — the profil
 The full application is open source at [github.com/iblai/os](https://github.com/iblai/os) under the MIT license.
 
 #### API Skills & MCP Server
-[github.com/iblai/api](https://github.com/iblai/api) packages 33 agent skills and a chat MCP server for operating any ibl.ai organization from an AI agent.
+[github.com/iblai/vibe](https://github.com/iblai/vibe) packages 51 headless agent skills and a chat MCP server for operating any ibl.ai organization from an AI agent.
 
 #### Vibe
 [github.com/iblai/vibe](https://github.com/iblai/vibe) is the companion toolkit for building and shipping ibl.ai applications, including the build skills used to produce the desktop and mobile releases of OS.

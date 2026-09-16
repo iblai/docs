@@ -69,6 +69,23 @@ vibe-starter, the app `/iblai-vibe-start` sets up for the common case:
 
 Every piece is a skill you can also add to an existing app.
 
+## Six things almost every app touches
+
+Whatever you build, you will read or write these. Each has a component skill
+and a headless twin that does the same thing over REST:
+
+| | With a screen | Headless |
+|---|---|---|
+| **Custom data per user** — preferences, flags, onboarding, app state | `/iblai-vibe-user-metadata` | `/iblai-api-profile-metadata` |
+| **The user's profile** — name, bio, image, résumé | `/iblai-vibe-profile` | `/iblai-api-profile` |
+| **Memory** — user-global, per user × agent, agent knowledge | `/iblai-vibe-memory-guide` → `/iblai-vibe-memory`, `/iblai-vibe-agent-memory` | `/iblai-api-agent-memory` |
+| **Custom data per organization** — branding, toggles, defaults | `/iblai-vibe-org-metadata` | `/iblai-api-org` |
+| **Agent configuration** — create; identity, visibility, capabilities | `/iblai-vibe-agent-create` → `/iblai-vibe-agent-setting` | `/iblai-api-agent-create`, `/iblai-api-agent-setting` |
+| **Analytics** — usage, transcripts, costs, audit, reports | `/iblai-vibe-analytics` | `/iblai-api-analytics` |
+
+Not sure whether you want the per-user, per-agent, or per-organization one?
+[Which scope stores what →](https://github.com/iblai/vibe/blob/main/docs/catalogue.md#core)
+
 ## The skills, by folder
 
 Two families in one install: **🖥️ `iblai-vibe-*`** mounts a visual component in
@@ -83,7 +100,7 @@ script, a CI job, or your own backend. [How they differ →](https://github.com/
 | [`organizations/`](https://github.com/iblai/vibe/tree/main/skills/organizations) | Organization settings and metadata, branding, integrations | 9 |
 | [`billing/`](https://github.com/iblai/vibe/tree/main/skills/billing) | How you are charged, spend caps, three ways to charge your users | 12 |
 | [`analytics/`](https://github.com/iblai/vibe/tree/main/skills/analytics) | Usage, users, topics, transcripts, costs, reports | 2 |
-| [`content/`](https://github.com/iblai/vibe/tree/main/skills/content) | Courses, catalog, credentials, admissions | 11 |
+| [`content/`](https://github.com/iblai/vibe/tree/main/skills/content) | Courses, catalog, credentials, admissions, Open edX Studio | 25 |
 | [`ship/`](https://github.com/iblai/vibe/tree/main/skills/ship) | Test, deploy, native builds, app stores | 11 |
 | [`security/`](https://github.com/iblai/vibe/tree/main/skills/security) | Authorized-use security work | 8 |
 
