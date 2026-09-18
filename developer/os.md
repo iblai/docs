@@ -15,8 +15,9 @@ Build, deploy, and manage intelligent conversational agents — from prototype t
 ### ⬇️ Get ibl.ai/os
 
 [Use it on the Web](https://os.ibl.ai)
-[Download for macOS](https://github.com/iblai/os/releases/download/app-v0.95.21/ibl.ai_0.95.21_universal.dmg)
-[Download for Windows](https://github.com/iblai/os/releases/download/app-v0.95.21/ibl.ai_0.95.21_x64-setup.exe)
+[Add to Chrome](https://chromewebstore.google.com/detail/gppjhejgkdljdhnmlfghfbalfhgaepfd)
+[Download for macOS](https://github.com/iblai/os/releases/download/app-v0.95.22/ibl.ai_0.95.22_universal.dmg)
+[Download for Windows](https://github.com/iblai/os/releases/download/app-v0.95.22/ibl.ai_0.95.22_x64-setup.exe)
 
 [Download for iOS](https://apps.apple.com/us/app/ibl-ai/id6504929071)
 [Download for Android](https://play.google.com/store/apps/details?id=ai.ibl.mentorai)
@@ -50,14 +51,15 @@ Windows ARM64 · older builds · Linux → [all downloads](https://github.com/ib
 
 Most AI apps make you choose a device. ibl.ai/os meets your users wherever they are — the same product, native everywhere.
 
-| Platform    |     | Status                                                                                                |
-| ----------- | --- | ----------------------------------------------------------------------------------------------------- |
-| **Web**     | 🌐  | Live at **[os.ibl.ai](https://os.ibl.ai)** — any modern browser                                       |
-| **macOS**   | 🍎  | Native app — [download universal .dmg](https://github.com/iblai/os/blob/main/docs/DOWNLOADS.md) (Intel + Apple Silicon, signed & notarized) |
-| **Windows** | 🪟  | Native app — [download installer](https://github.com/iblai/os/blob/main/docs/DOWNLOADS.md) (x64 + ARM64)                                    |
-| **iOS**     | 📱  | Native app — [App Store](https://apps.apple.com/us/app/ibl-ai/id6504929071)                           |
-| **Android** | 🤖  | Native app — [Google Play](https://play.google.com/store/apps/details?id=ai.ibl.mentorai)             |
-| **Linux**   | 🐧  | Native app — [build from source](/developer/os/development)                                                 |
+| Platform    |     | Status                                                                                                                                                   |
+| ----------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Web**     | 🌐  | Live at **[os.ibl.ai](https://os.ibl.ai)** — any modern browser                                                                                          |
+| **Chrome**  | 🧩  | Side-panel extension — [Chrome Web Store](https://chromewebstore.google.com/detail/gppjhejgkdljdhnmlfghfbalfhgaepfd) (chat with your agents on any page) |
+| **macOS**   | 🍎  | Native app — [download universal .dmg](https://github.com/iblai/os/blob/main/docs/DOWNLOADS.md) (Intel + Apple Silicon, signed & notarized)                                                    |
+| **Windows** | 🪟  | Native app — [download installer](https://github.com/iblai/os/blob/main/docs/DOWNLOADS.md) (x64 + ARM64)                                                                                       |
+| **iOS**     | 📱  | Native app — [App Store](https://apps.apple.com/us/app/ibl-ai/id6504929071)                                                                              |
+| **Android** | 🤖  | Native app — [Google Play](https://play.google.com/store/apps/details?id=ai.ibl.mentorai)                                                                |
+| **Linux**   | 🐧  | Native app — [build from source](/developer/os/development)                                                                                                    |
 
 ---
 
