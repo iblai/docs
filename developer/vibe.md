@@ -95,7 +95,7 @@ script, a CI job, or your own backend. [How they differ →](https://github.com/
 | Folder | What it covers | Skills |
 |---|---|---|
 | [`start/`](https://github.com/iblai/vibe/tree/main/skills/start) | The first conversation, connecting your organization, sign-in, the starter | 11 |
-| [`agents/`](https://github.com/iblai/vibe/tree/main/skills/agents) | Chat, browse, create, and configure agents — every settings tab | 55 |
+| [`agents/`](https://github.com/iblai/vibe/tree/main/skills/agents) | Chat, browse, create, and configure agents — every settings tab | 56 |
 | [`users/`](https://github.com/iblai/vibe/tree/main/skills/users) | Profiles, custom user data, memories, roles and admins, invitations | 18 |
 | [`organizations/`](https://github.com/iblai/vibe/tree/main/skills/organizations) | Organization settings and metadata, branding, integrations | 9 |
 | [`billing/`](https://github.com/iblai/vibe/tree/main/skills/billing) | How you are charged, spend caps, three ways to charge your users | 12 |
