@@ -24,6 +24,9 @@ Real-time voice conversations with agents over WebRTC, powered by LiveKit. Confi
 #### Canvas / Artifacts
 Generate, edit, version, and export rich documents alongside chat. See [Canvas](chat-canvas/canvas.md), [Canvas Options](chat-canvas/canvas-options.md), and [Downloading a Canvas](chat-canvas/canvas-download.md).
 
+#### Code Mode
+Scaffold, modify, and run a real application from inside the chat box, building on the Agentic Vibe starter, with every tool call gated behind an explicit Allow / Deny. See [Code Mode](chat-canvas/code-mode.md).
+
 #### Deep Research & Web Search
 Extended multi-step reasoning for complex queries, plus live web results to ground responses. Available from the [chat interface](chat-canvas/chat.md).
 
@@ -63,7 +66,7 @@ Let people chatting with an agent hand the conversation to a human. Escalations 
 ## Documentation Map
 
 #### Chat & Canvas
-The end-user workspace: [Chat Interface](chat-canvas/chat.md) · [Explore Agents](chat-canvas/explore.md) · [Projects](chat-canvas/projects.md) · [Workflows](chat-canvas/workflows.md) · [Canvas](chat-canvas/canvas.md) · [Canvas Options](chat-canvas/canvas-options.md) · [Downloading a Canvas](chat-canvas/canvas-download.md) · [Renaming a Canvas](chat-canvas/canvas-rename.md)
+The end-user workspace: [Chat Interface](chat-canvas/chat.md) · [Code Mode](chat-canvas/code-mode.md) · [Explore Agents](chat-canvas/explore.md) · [Projects](chat-canvas/projects.md) · [Workflows](chat-canvas/workflows.md) · [Canvas](chat-canvas/canvas.md) · [Canvas Options](chat-canvas/canvas-options.md) · [Downloading a Canvas](chat-canvas/canvas-download.md) · [Renaming a Canvas](chat-canvas/canvas-rename.md)
 
 #### Agent Settings
 Everything configurable on a single agent: [Basic](agent-settings/basic.md) · [System Prompt](agent-settings/prompt.md) · [LLM Selection](agent-settings/llm-selection.md) · [LLM Configuration](agent-settings/llm-configuration.md) · [Capabilities](agent-settings/capabilities.md) · [Grader](agent-settings/grader.md) · [Tools](agent-settings/tools.md) · [Skills](agent-settings/skills.md) · [MCP Servers](agent-settings/mcp.md) · [Datasets](agent-settings/datasets.md) · [Memory](agent-settings/memory.md) · [Voice](agent-settings/voice.md) · [Voice Selector](agent-settings/voice-selector.md) · [Voice Calls](agent-settings/voice-call.md) · [Safety](agent-settings/safety.md) · [Privacy](agent-settings/privacy.md) · [Disclaimers](agent-settings/disclaimers.md) · [Discovery](agent-settings/discovery.md) · [Access Control](agent-settings/access.md) · [Embed](agent-settings/embed.md) · [API Access](agent-settings/api.md) · [Agent Analytics](agent-settings/analytics.md) · [Evals](agent-settings/evals.md) · [Audit Log](agent-settings/audit.md) · [Chat History](agent-settings/history.md) · [Support](agent-settings/support.md) · [Tasks](agent-settings/tasks.md) · [Billing](agent-settings/billing.md) · [Sandbox](agent-settings/sandbox.md) · [LTI Keys](agent-settings/lti-keys.md) · [LTI Links](agent-settings/lti-links.md) · [LTI Tool Endpoints](agent-settings/lti-tool-endpoints.md) · [LTI Tools](agent-settings/lti-tools.md)

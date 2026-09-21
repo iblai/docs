@@ -50,7 +50,7 @@ The "Ask anything" box at the bottom is where you write prompts. Press Enter to 
 The **+** button opens the upload menu and its **Upload File** action, letting you attach documents or images to your message. Attached files are listed above the composer with per-file remove and retry controls.
 
 #### Tool chips (Canvas, Skills, Memory, and more)
-Inline chips in the composer toggle per-session tools: **Canvas** (generate documents into the Canvas panel), **Skills** (browse the agent's skills), **Prompts** (open the prompt gallery), **Study Mode**, **Deep Research** (extended multi-step reasoning), and **Memory**. An active tool shows as a highlighted chip with an **X** to turn it off — in the screenshot, Canvas is active. The **Memory** chip opens a menu where you can view, add, edit, and delete the memories the agent keeps about you. When the composer is narrow, extra tools collapse into an overflow (`...`) menu.
+Inline chips in the composer toggle per-session tools: **Canvas** (generate documents into the Canvas panel), **Code** (scaffold and run a real application from the chat box — see [Code Mode](code-mode.md)), **Cowork**, **Skills** (browse the agent's skills), **Prompts** (open the prompt gallery), **Study Mode**, **Deep Research** (extended multi-step reasoning), and **Memory**. An active tool shows as a highlighted chip with an **X** to turn it off — in the screenshot, Canvas is active. The **Memory** chip opens a menu where you can view, add, edit, and delete the memories the agent keeps about you. When the composer is narrow, extra tools collapse into an overflow (`...`) menu.
 
 #### Skills and the `/` picker
 
