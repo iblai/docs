@@ -771,6 +771,6 @@ async function migrateMetadata(platformKey, token) {
 
 ## Related Pages
 
-- [Chat Metadata](../agents/chat-metadata.md) - Pass context alongside chat messages
-- [RBAC](../rbac/rbac.md) - Role-based access control for permissions
-- [Notifications API](../applications/notifications.md) - Send notifications to users
+- [Chat Metadata](agents/chat-metadata.md) - Pass context alongside chat messages
+- [RBAC](rbac.md) - Role-based access control for permissions
+- [Notifications API](notifications.md) - Send notifications to users

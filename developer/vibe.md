@@ -294,7 +294,7 @@ Skills are in `skills/` (symlinked to `.claude/skills/`). Read them, extend them
 ### Vercel (recommended)
 
 One-click deploy. Connect your repo, set your environment variables, and push.
-Or deploy with the `vercel` CLI -- see [`/iblai-vibe-ops-deploy`](skills/iblai-vibe-ops-deploy/SKILL.md):
+Or deploy with the `vercel` CLI -- see `/iblai-vibe-ops-deploy`:
 
 ```bash
 npx vercel deploy --prod --token="$VERCEL_TOKEN" --yes --public
@@ -304,7 +304,7 @@ npx vercel deploy --prod --token="$VERCEL_TOKEN" --yes --public
 
 Build native apps for macOS, Windows, Linux, iOS, and Android:
 
-Add the Tauri shell (see [`/iblai-vibe-ops-build`](skills/iblai-vibe-ops-build/SKILL.md)), then:
+Add the Tauri shell (see `/iblai-vibe-ops-build`), then:
 
 ```bash
 pnpm exec tauri build           # Desktop build for current platform
