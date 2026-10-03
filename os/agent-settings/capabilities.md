@@ -47,7 +47,9 @@ Tooltip: "When on, every conversation with this agent runs in private mode — n
 Tooltip: "Lets other admins make their own copy of this agent." When on, the agent is copyable and other administrators can duplicate it (the **Copy** button on this panel also depends on it). Shown on in the screenshot.
 
 #### Other capability toggles
-Depending on organization configuration and your permissions, this sub-tab can also expose additional toggles, including **Remember past conversations** (lets the agent store and reference memory from earlier chats), **Enable voice calls** (voice-call options in chat), **Enable screen sharing** (screen share during calls), and **Enable dedicated sandbox** (a dedicated sandbox to securely run the agent on independent infrastructure).
+Depending on organization configuration and your permissions, this sub-tab can also expose additional toggles, including **Remember past conversations** (lets the agent store and reference memory from earlier chats), **Enable voice calls** (voice-call options in chat), and **Enable screen sharing** (screen share during calls).
+
+The agent's dedicated sandbox is **not** configured here. It is chosen on the [Sandbox](sandbox.md) tab, which offers three mutually exclusive sandbox kinds and always has one of them active.
 
 #### Save, Copy, Delete
 **Save** persists the whole Settings form (all three sub-tabs). **Copy** duplicates the agent (available when copies are enabled). **Delete** removes the agent after confirmation and appears only for users with delete permission.
