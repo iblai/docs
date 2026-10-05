@@ -8,13 +8,36 @@ The chat interface is the main workspace of OS, ibl.ai's open-source AI agent pl
 
 The screen is organized into three zones. The top bar holds the LLM model selector, the agent selector, and the User/Admin mode toggle; the center shows the running conversation; and the bottom holds the message composer with its tool chips and voice controls.
 
-You land on the chat interface immediately after signing in at [os.ibl.ai](https://os.ibl.ai) and selecting an agent. The left icon rail navigates to the other areas of the platform (new chat, Explore, chat history, projects, analytics, notifications, and settings).
+You land on the chat interface immediately after signing in at [os.ibl.ai](https://os.ibl.ai) and selecting an agent. The left icon rail navigates to the other areas of the platform (new chat, Explore, chat history, projects, analytics, notifications, and settings). On your very first visit a short guided tour points out the controls described below — see [First-visit product tour](#first-visit-product-tour).
 
 ## Target Audience
 
 **User** | **Administrator** (the model selector and the User/Admin toggle are administrator-only)
 
 ## Features
+
+#### First-visit product tour
+
+The first time you land on the chat page, a short guided tour walks you through the controls. Each step dims the rest of the screen and puts a tooltip beside the element it is describing, with a **Next** button, a **Back** button, an `n of N` counter, and a **Skip tour** link.
+
+The tour has up to six steps, in this order:
+
+| # | Step | What it points at | Shown when |
+|---|---|---|---|
+| 1 | Ask anything | The message composer | Always |
+| 2 | Your profile | The profile menu in the top bar | You are signed in |
+| 3 | Private mode | The private-mode toggle in the top bar | The toggle renders (the feature is enabled for your organization) |
+| 4 | Conversation starters | The starter pills under the composer | The agent has starters configured. This step may scroll them into view |
+| 5 | Explore agents | The **Agents** menu in the left sidebar | The Agents menu has items |
+| 6 | Manage your organization | The account tools in the sidebar footer (invites, management, integrations, and the rest) | **Administrators only**, and only while the User/Admin toggle is set to Admin |
+
+A step whose target is not on your screen is dropped before the tour opens, so the `n of N` counter always reflects the steps you will actually see. The submit button is deliberately not its own step — it sits inside the highlighted composer.
+
+**Finishing or skipping both count as seen.** **Done** on the last step, **Skip tour**, the **X**, and the `Esc` key all end the tour and record the outcome, and it does not open again. The outcome is stored on your user metadata rather than in the browser, so the tour follows your account and does not reappear when you sign in on another device or clear your browser data. Clicking the dimmed overlay does nothing, and clicks on the highlighted element itself are blocked while the tour is open, so a step cannot be dismissed by accident.
+
+Add `?tour=1` to the chat page's URL to replay the tour after you have completed it — useful when someone is walking a colleague through the platform, or when support needs to see what a new user sees. If the tour is ever reworked, everyone who saw the earlier version is shown the new one once.
+
+The tour runs on the agent chat page only, because most of its steps are the chat page's own controls. It does not open on Explore, projects, workflows, analytics, or notifications; it does not open in [embedded mode](../agent-settings/embed.md); and it does not open on a phone. When a first-visit dialog such as a disclaimer or a user agreement is on screen, the tour waits for you to dismiss it rather than covering it. All of the tour's copy is translated alongside the rest of the interface.
 
 #### LLM model selector
 The top-left control shows the LLM currently powering the agent (for example `gpt-4o-mini`, with the provider's logo). Administrators can click it to open the LLM model selection dialog and switch the agent to a different provider or model. Regular users see the agent's model but cannot change it.
