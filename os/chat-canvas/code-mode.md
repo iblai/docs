@@ -55,6 +55,21 @@ The agent starts the dev server and the application runs locally, so the end of 
 #### Skills
 Code Mode draws on ibl.ai's Agent Skills — reusable, plain-language playbooks for a specific job. If they cannot be fetched the run still proceeds, with the notice *"Skills couldn't be synced — Code will run without them."* Administrators manage which skills an agent carries in [Agent Settings: Skills](../agent-settings/skills.md).
 
+#### Which coding agent runs the turn
+Code Mode runs on one of three agents, chosen from the **Agent** control in the Code panel: **ibl.ai**, which is built into the app and is the default, or **Codex**, or **Claude Code**. The two named agents are not models we host; they are the vendors' own coding agents, run on your own subscription, so Code Mode becomes a front end to a tool you already pay for rather than a second bill.
+
+The choice is held **per machine, not per account**, and is deliberately never synced, because an install and a CLI login are local facts about the computer you are sitting at. On another machine Code Mode is back on **ibl.ai** until you choose again there.
+
+Each named agent reports its own state in the panel, and the states are worth knowing before picking one:
+
+- **Not installed**, with an **Install** action (**Installing…** while it runs, then **Ready**). The desktop app installs Codex and Claude Code for you; ibl.ai needs no install.
+- **Not available on this computer**, when the agent cannot run on your platform at all. No install will change that.
+- **Not signed in**, which is a separate step from installing and happens outside the OS: for Codex, *"sign in to Codex in the ChatGPT app"*; for Claude Code, *"run `claude` in a terminal."* After signing in, use **Check Again** rather than restarting the app. A turn started against a signed-out agent reports *"Codex isn't signed in"* or *"Claude Code isn't signed in"*.
+
+A **Code agent model** picker then appears in the agent's top bar for the selected agent, defaulting to **Default**, which is the agent's own choice of model. It reads the model list from the agent itself, so it shows **Loading models…** while it asks and **Couldn't load models** if the agent does not answer; **Default** stays selectable in that case. Codex's list comes from the Codex CLI's own model inventory rather than from a probe turn, so it reflects what your subscription actually grants.
+
+Choosing **ibl.ai** keeps Code Mode on the platform's own models, which is the configuration the rest of this page describes, including the sandbox boundary in [Agent Settings: Sandbox](../agent-settings/sandbox.md).
+
 #### On-device models
 Code can run against a local model when Local Models is enabled or the desktop app is offline. It must be a **tool-capable** model — the panel suggests `qwen3`, `llama3.2`, or `phi4-mini` — and warns that a model without tool support *"isn't available for Code — turns will fail."* The first run can take a few minutes while the model loads.
 

@@ -16,8 +16,8 @@ Build, deploy, and manage intelligent conversational agents — from prototype t
 
 [Use it on the Web](https://os.ibl.ai)
 [Add to Chrome](https://chromewebstore.google.com/detail/gppjhejgkdljdhnmlfghfbalfhgaepfd)
-[Download for macOS](https://github.com/iblai/os/releases/download/app-v0.95.22/ibl.ai_0.95.22_universal.dmg)
-[Download for Windows](https://github.com/iblai/os/releases/download/app-v0.95.22/ibl.ai_0.95.22_x64-setup.exe)
+[Download for macOS](https://github.com/iblai/os/releases/download/app-v0.95.23/ibl.ai_0.95.23_universal.dmg)
+[Download for Windows](https://github.com/iblai/os/releases/download/app-v0.95.23/ibl.ai_0.95.23_x64-setup.exe)
 
 [Download for iOS](https://apps.apple.com/us/app/ibl-ai/id6504929071)
 [Download for Android](https://play.google.com/store/apps/details?id=ai.ibl.mentorai)
