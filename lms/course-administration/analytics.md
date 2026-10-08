@@ -1,6 +1,6 @@
 # Course Administration: Analytics
 
-![The Analytics section with Active Enrollments (3) and Completed Enrollments (0) cards and an Enrolled Users table listing name, email, enrollment date, last active date, and a progress icon](/images/docs/lms/course-administration/course_admin_analytics.webp)
+![The Analytics section with Active Enrollments (3) and Completed Enrollments (0) cards and an Enrolled Users table listing name, email, enrollment date, last active date, and a progress icon](../images/course-administration/course_admin_analytics.webp)
 
 ## Overview
 

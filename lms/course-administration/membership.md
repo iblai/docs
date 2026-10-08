@@ -1,6 +1,6 @@
 # Course Administration: Membership
 
-![The Membership section with the Enrollment card (Learners box, Action select, Auto-enroll when they sign up, Notify by email, Enroll button), the Course team card with a Staff role list, and the Discussion roles card set to Moderator](/images/docs/lms/course-administration/course_admin_membership.webp)
+![The Membership section with the Enrollment card (Learners box, Action select, Auto-enroll when they sign up, Notify by email, Enroll button), the Course team card with a Staff role list, and the Discussion roles card set to Moderator](../images/course-administration/course_admin_membership.webp)
 
 ## Overview
 

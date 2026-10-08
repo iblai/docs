@@ -1,6 +1,6 @@
 # Navigating the LMS
 
-![The LMS home page showing the left icon rail, the top bar with the search box, notification bell and avatar, and the agent tab on the right edge](/images/docs/lms/getting-started/navigation.webp)
+![The LMS home page showing the left icon rail, the top bar with the search box, notification bell and avatar, and the agent tab on the right edge](../images/getting-started/navigation.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Course Player
 
-![The course player for "AI Academic Advising at Scale", showing the course outline on the left with "0 of 39 units completed", the breadcrumb and Progress and Grade summary, the Keep Learning button, and the row of course tabs](/images/docs/lms/course/course_course.webp)
+![The course player for "AI Academic Advising at Scale", showing the course outline on the left with "0 of 39 units completed", the breadcrumb and Progress and Grade summary, the Keep Learning button, and the row of course tabs](../images/course/course_course.webp)
 
 ## Overview
 

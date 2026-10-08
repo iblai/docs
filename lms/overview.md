@@ -1,6 +1,6 @@
 # LMS Platform Overview
 
-![The LMS home page at lms.ibl.ai, with a greeting, Explore Catalog and My Courses buttons, and a rail of course cards](/images/docs/lms/catalog/home.webp)
+![The LMS home page at lms.ibl.ai, with a greeting, Explore Catalog and My Courses buttons, and a rail of course cards](images/catalog/home.webp)
 
 ## What Is the LMS?
 

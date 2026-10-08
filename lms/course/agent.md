@@ -1,6 +1,6 @@
 # Course: Agent Tab
 
-![The Agent tab of a course, showing an AI tutor's welcome response, the message actions row, and the Ask anything composer with the Canvas tool](/images/docs/lms/course/course_agent_conversation.webp)
+![The Agent tab of a course, showing an AI tutor's welcome response, the message actions row, and the Ask anything composer with the Canvas tool](../images/course/course_agent_conversation.webp)
 
 ## Overview
 
@@ -10,7 +10,7 @@ The tab fills the content area with the chat. When it first opens, the agent gre
 
 The Agent tab appears on agent-led courses; in those courses **Access Course** opens it directly. Courses choose which agent to use; if a course does not set one, the organization's default agent is used.
 
-![The agent greeting the learner before the first message](/images/docs/lms/course/course_agent.webp)
+![The agent greeting the learner before the first message](../images/course/course_agent.webp)
 
 ## Target Audience
 
