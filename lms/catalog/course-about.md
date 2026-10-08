@@ -1,6 +1,6 @@
 # Course Page
 
-![A course page for "AI Academic Advising at Scale" with About and Syllabus tabs, a Course Description card, the course image, an Access Course button, and an information card showing Free, English, 12 to 14 hours, and Sep 29, 2026](/images/docs/lms/catalog/course_about.webp)
+![A course page for "AI Academic Advising at Scale" with About and Syllabus tabs, a Course Description card, the course image, an Access Course button, and an information card showing Free, English, 12 to 14 hours, and Sep 29, 2026](../images/catalog/course_about.webp)
 
 ## Overview
 

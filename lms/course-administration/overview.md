@@ -1,6 +1,6 @@
 # Course Administration: Overview
 
-![The Administration tab's Overview section with Enrolled learners, Course team, Cohorts, and Graded subsections cards, a Quick links card, and the admin navigation on the left](/images/docs/lms/course-administration/course_admin_overview.webp)
+![The Administration tab's Overview section with Enrolled learners, Course team, Cohorts, and Graded subsections cards, a Quick links card, and the admin navigation on the left](../images/course-administration/course_admin_overview.webp)
 
 ## Overview
 

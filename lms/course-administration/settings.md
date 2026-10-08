@@ -1,6 +1,6 @@
 # Course Administration: Settings
 
-![The Settings section with a Credentials card (Add Credential, Credential List) and an Advanced Settings card with Course Configuration open, a settings search, and Advanced Module List, Allow Opting Out of Proctored Exams, and Allow Public Wiki Access settings](/images/docs/lms/course-administration/course_admin_settings.webp)
+![The Settings section with a Credentials card (Add Credential, Credential List) and an Advanced Settings card with Course Configuration open, a settings search, and Advanced Module List, Allow Opting Out of Proctored Exams, and Allow Public Wiki Access settings](../images/course-administration/course_admin_settings.webp)
 
 ## Overview
 

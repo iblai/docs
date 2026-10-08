@@ -1,6 +1,6 @@
 # Course Administration: Grades
 
-![The Grades section showing "Showing 2 of 2 learners", AI Assessment 60% and Capstone Assessment 40% chips, a search box, Filters, a Percent / Absolute toggle, and a table of learners with AI 01 to AI 04, CAP 01, and Total columns](/images/docs/lms/course-administration/course_admin_grades.webp)
+![The Grades section showing "Showing 2 of 2 learners", AI Assessment 60% and Capstone Assessment 40% chips, a search box, Filters, a Percent / Absolute toggle, and a table of learners with AI 01 to AI 04, CAP 01, and Total columns](../images/course-administration/course_admin_grades.webp)
 
 ## Overview
 

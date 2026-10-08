@@ -1,6 +1,6 @@
 # Course: Discussions Tab
 
-![The Discussions tab with My posts, All posts, Topics, and Learners tabs, a Search all posts box, and an Add a post button above the empty state "Nothing here yet"](/images/docs/lms/course/course_discussions.webp)
+![The Discussions tab with My posts, All posts, Topics, and Learners tabs, a Search all posts box, and an Add a post button above the empty state "Nothing here yet"](../images/course/course_discussions.webp)
 
 ## Overview
 

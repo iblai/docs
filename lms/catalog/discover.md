@@ -1,6 +1,6 @@
 # Discover
 
-![The Explore Content page with the Access, Content, Language, Level, Topics, Tags, Subject, Format, Price, and Certificate filters on the left, a Courses chip, and a grid of course cards](/images/docs/lms/catalog/discover.webp)
+![The Explore Content page with the Access, Content, Language, Level, Topics, Tags, Subject, Format, Price, and Certificate filters on the left, a Courses chip, and a grid of course cards](../images/catalog/discover.webp)
 
 ## Overview
 

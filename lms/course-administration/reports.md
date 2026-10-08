@@ -1,6 +1,6 @@
 # Course Administration: Reports
 
-![The Reports section with Generate a report (Grade report, Problem grade report, Enrolled learners, Anonymised IDs, Issued certificates, Problem responses), an empty Downloads card, and an empty Pending tasks card](/images/docs/lms/course-administration/course_admin_reports.webp)
+![The Reports section with Generate a report (Grade report, Problem grade report, Enrolled learners, Anonymised IDs, Issued certificates, Problem responses), an empty Downloads card, and an empty Pending tasks card](../images/course-administration/course_admin_reports.webp)
 
 ## Overview
 

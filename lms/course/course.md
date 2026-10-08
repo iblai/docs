@@ -1,6 +1,6 @@
 # Course: Course Tab
 
-![The Course tab showing the "Welcome and course map" unit with stat tiles for estimated hours, level, sections, and labs, a "Last verified" notice, and "Why this course exists" text](/images/docs/lms/course/course_course.webp)
+![The Course tab showing the "Welcome and course map" unit with stat tiles for estimated hours, level, sections, and labs, a "Last verified" notice, and "Why this course exists" text](../images/course/course_course.webp)
 
 ## Overview
 

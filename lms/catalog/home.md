@@ -1,6 +1,6 @@
 # Home
 
-![The LMS home page with a "Good Evening" greeting, Explore Catalog and My Courses buttons, and an Explore rail of course cards, one marked Enrolled](/images/docs/lms/catalog/home.webp)
+![The LMS home page with a "Good Evening" greeting, Explore Catalog and My Courses buttons, and an Explore rail of course cards, one marked Enrolled](../images/catalog/home.webp)
 
 ## Overview
 

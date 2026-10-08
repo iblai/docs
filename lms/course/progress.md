@@ -1,6 +1,6 @@
 # Course: Progress Tab
 
-![The Progress tab with a Course completion donut at 0%, a Grades bar showing the current grade against a 70% passing grade, a banner stating a weighted grade of 70% is required to pass, and the Grade summary table](/images/docs/lms/course/course_progress.webp)
+![The Progress tab with a Course completion donut at 0%, a Grades bar showing the current grade against a 70% passing grade, a banner stating a weighted grade of 70% is required to pass, and the Grade summary table](../images/course/course_progress.webp)
 
 ## Overview
 

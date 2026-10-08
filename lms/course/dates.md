@@ -1,6 +1,6 @@
 # Course: Dates Tab
 
-![The Dates tab headed Important dates, listing "Thu, Oct 8, 2026" with a TODAY badge and "Course starts"](/images/docs/lms/course/course_dates.webp)
+![The Dates tab headed Important dates, listing "Thu, Oct 8, 2026" with a TODAY badge and "Course starts"](../images/course/course_dates.webp)
 
 ## Overview
 
