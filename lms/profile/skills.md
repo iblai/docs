@@ -1,5 +1,7 @@
 # Skills
 
+![The Skills page with a Search box, an Earned section reading "You don't have any earned skills yet.", and a Self-Reported section with an Add Skill button](../images/profile/skills.webp)
+
 ## Overview
 
 Skills lists the skills on your profile in three groups: skills you have **earned** by completing courses, skills you **self-reported**, and skills you **want** to build. The LMS uses them to recommend courses.

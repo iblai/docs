@@ -1,5 +1,7 @@
 # Course Administration: Extensions
 
+![The Extensions section with the Due date extensions form (learner, subsection, new due date, Extend due date, Reset to course due date) and the Current extensions card](../images/course-administration/course_admin_extensions.webp)
+
 ## Overview
 
 Extensions give one learner more time on one subsection without changing the due date for everyone else. "Give one learner more time on a subsection, or take an extension back."

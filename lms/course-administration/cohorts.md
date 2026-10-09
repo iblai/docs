@@ -1,5 +1,7 @@
 # Course Administration: Cohorts
 
+![The Cohorts section of course Administration, with cohorts Disabled and the message "Turn cohorts on to create groups and assign learners to them."](../images/course-administration/course_admin_cohorts.webp)
+
 ## Overview
 
 Cohorts split a course's learners into groups. Each group gets its own discussions and can be shown content meant only for that group. The **Cohorts** card describes it as: "Split learners into groups for discussions and cohort-specific content."

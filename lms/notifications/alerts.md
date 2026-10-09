@@ -1,5 +1,7 @@
 # Notification Alerts
 
+![The Alerts tab of the notifications page listing Course Milestone Reached, New Content Available, Course Invitation, and Course License Assignment alerts, each with an Inactive switch and an Edit button](../images/notifications/alerts.webp)
+
 ## Overview
 
 The Alerts tab of the [notification inbox](inbox.md) manages the platform's automatic notifications: messages sent when something happens, such as a learner reaching a course milestone, new content being published, or someone registering. Each alert can be switched on or off, and its message edited.

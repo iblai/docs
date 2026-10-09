@@ -1,5 +1,7 @@
 # Profile Dialog
 
+![The profile dialog open on the Basic tab, with Full Name, Email, Title, Language, and About fields, the Display Agent Sidebar switch, and the Profile, Records, AI & Data, and Account groups in the left navigation](../images/profile/profile_dialog.webp)
+
 ## Overview
 
 The profile dialog holds your account details and personal records. It is the same shared dialog used across ibl.ai applications, so most of its tabs are documented once, in the OS section, and linked from here.
@@ -31,7 +33,7 @@ Open it from your avatar in the top-right corner: choose **Profile**. It opens o
 ## Features
 
 #### Display Agent Sidebar
-The **Features** section of the Basic tab has one LMS-specific checkbox: **Display Agent Sidebar**. Untick it to hide the [AI agent tab](../getting-started/navigation.md#ai-agent-tab) on the right edge of every page. Tick it again to bring it back.
+The **Features** section of the Basic tab has one LMS-specific switch: **Display Agent Sidebar**. Turn it off to hide the [AI agent tab](../getting-started/navigation.md#ai-agent-tab) on the right edge of every page. Turn it on again to bring it back, then click **Save Changes**.
 
 #### Saving
 The Basic and Social tabs save with **Save Changes**; **Cancel** discards your edits.

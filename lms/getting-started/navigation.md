@@ -76,7 +76,7 @@ Visitors who are not signed in see **Log in** and **Sign up for free** instead.
 #### AI agent tab
 A small white tab on the right edge of the screen, showing the agent's picture, opens a chat panel with an AI agent beside whatever page you are on ("Open chat assistant"). On a phone it is a round floating button at the bottom right that opens the chat full-screen.
 
-Inside a course, the tab opens that course's own agent. Elsewhere it opens your organization's default agent, falling back to the agent you used most recently. The tab is hidden on a course's [Agent tab](../course/agent.md), which already shows the agent full-size, and on courses whose agent is set to hidden. You can turn it off for yourself with the **Display Agent Sidebar** checkbox on your [profile](../profile/profile-dialog.md).
+Inside a course, the tab opens that course's own agent. Elsewhere it opens your organization's default agent, falling back to the agent you used most recently. The tab is hidden on a course's [Agent tab](../course/agent.md), which already shows the agent full-size, and on courses whose agent is set to hidden. You can turn it off for yourself with the **Display Agent Sidebar** switch on your [profile](../profile/profile-dialog.md).
 
 #### Footer
 The footer carries your organization's links, typically **Privacy Policy** and **Terms of Use**, and a copyright line with the organization's name (for example "© Higher Education").

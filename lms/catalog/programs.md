@@ -1,5 +1,7 @@
 # Programs
 
+![A program page for ai_literacy_program showing its Courses grid with the AI Literacy For Faculty course, the program image, an Enroll Now button, and a Progress bar](../images/catalog/programs.webp)
+
 ## Overview
 
 A program is a set of courses grouped into one structured offering, with its own enrollment and overall progress. The program page lists the program's courses and lets you enroll in the whole program at once. The program's name appears in the top bar.

@@ -1,5 +1,7 @@
 # Analytics: Topics
 
+![The Topics analytics tab with Topics, Conversations, and Messages cards and the Conversations chart](../images/analytics/topics.webp)
+
 ## Overview
 
 The Topics tab shows what learners talk to the AI agents about, grouped into topics the platform identifies automatically, and how they rate the answers.

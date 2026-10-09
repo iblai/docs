@@ -1,5 +1,7 @@
 # Profile: Courses
 
+![The Courses tab of the learner profile with My courses and Assigned courses tabs, a Search box, three course cards, and Previous / Next pagination](../images/profile/courses.webp)
+
 ## Overview
 
 The Courses tab of your learner profile lists the courses you are in. For the same list with catalog filters, click **Courses** in the left rail.

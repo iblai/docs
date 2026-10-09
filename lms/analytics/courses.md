@@ -1,5 +1,7 @@
 # Analytics: Courses
 
+![The Courses analytics tab with Active Courses, Total Courses, Enrollments, and Total Learners cards and the Course Overtime chart](../images/analytics/courses.webp)
+
 ## Overview
 
 The Courses tab shows enrollment across every course in the organization, and opens a detail page for each course.

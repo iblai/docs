@@ -1,5 +1,7 @@
 # Notification Inbox
 
+![The notification inbox with Inbox and Alerts tabs, a New Notification button, an empty list reading "No notifications found", and the detail pane reading "Select a notification to view details"](../images/notifications/inbox.webp)
+
 ## Overview
 
 The notification inbox is the full-page list of every notification you have received: announcements from your organization, course alerts, and automatic messages such as enrollment confirmations. The top bar reads "Notifications".

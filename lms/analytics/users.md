@@ -1,5 +1,7 @@
 # Analytics: Users
 
+![The Users analytics tab with Users logged in right now, Users logged in past 30 days, and Total registered users cards, the Active Users chart, and the Access Times heatmap](../images/analytics/users.webp)
+
 ## Overview
 
 The Users tab shows who is using the LMS and its agents, and when.

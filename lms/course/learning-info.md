@@ -1,5 +1,7 @@
 # Course: Learning Info Tab
 
+![The Learning Info tab of a course with a What You'll Learn card listing learning outcomes, each with a check icon](../images/course/course_learning_info.webp)
+
 ## Overview
 
 The Learning Info tab shows what you will learn in the course. A card titled **What You'll Learn** lists each learning outcome on its own row, marked with a check icon.

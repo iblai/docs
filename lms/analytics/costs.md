@@ -1,5 +1,7 @@
 # Analytics: Cost
 
+![The Cost analytics tab on its Spend view, with Weekly Costs, Monthly Costs, and Total Costs cards and the Cost per Day chart, beside the Usage & latency and Traces tabs](../images/analytics/costs.webp)
+
 ## Overview
 
 The Cost tab (listed as **Costs** in the left rail) shows what the AI agents cost to run, how fast they respond, and the individual model calls behind each request. It has three inner tabs: **Spend**, **Usage & latency**, and **Traces**. See also [OS Analytics: Costs](../../os/analytics/costs.md).

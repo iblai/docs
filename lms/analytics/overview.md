@@ -1,5 +1,7 @@
 # Analytics: Overview
 
+![The Analytics Overview tab with the agent picker, Filter by Groups, and date range controls, Messages, Active Users, Topics, Conversations, and LLM spend cards, and the Sessions and Topics charts](../images/analytics/overview.webp)
+
 ## Overview
 
 Analytics shows how your organization uses the LMS and its AI agents: who is active, what they ask about, how courses and programs are doing, what the AI costs, and what has changed. The analytics screens are shared with the rest of ibl.ai; in the LMS they cover the whole organization and add pages for courses and programs.

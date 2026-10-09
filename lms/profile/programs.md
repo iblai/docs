@@ -1,5 +1,7 @@
 # Profile: Programs
 
+![The Programs tab of the learner profile with My programs and Assigned programs tabs, a Search box, and the empty state "No programs found."](../images/profile/programs.webp)
+
 ## Overview
 
 The Programs tab of your learner profile lists the programs you are in, with your progress in each.

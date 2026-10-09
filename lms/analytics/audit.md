@@ -1,5 +1,7 @@
 # Analytics: Audit
 
+![The Audit analytics tab on its Agent view, with user, date range, and action filters and a table of configuration changes to agents](../images/analytics/audit.webp)
+
 ## Overview
 
 The Audit tab records who did what: changes to agents, and events across the platform. See also [OS Analytics: Audit](../../os/analytics/audit.md).
