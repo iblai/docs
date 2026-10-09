@@ -1,6 +1,6 @@
 # Organization Settings: Data Source Integrations
 
-![Integrations Data Sources tab showing a drive credential with a masked key and an Add Data Source button](/images/docs/os/organization-settings/organization_settings_integrations_data_sources.webp)
+![Integrations Data Sources tab showing a drive credential with a masked key and an Add Data Source button](../images/organization-settings/organization_settings_integrations_data_sources.webp)
 
 ## Overview
 

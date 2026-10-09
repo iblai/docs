@@ -1,6 +1,6 @@
 # Agent Settings: Embed
 
-![Embed panel with Advanced CSS and Advanced JavaScript sections, Icon Selection, Mode Selection, Starter Prompts and Who Can View controls beside a live chat-widget preview, and a Create Embed button](/images/docs/os/agent-settings/agent_settings_embed.webp)
+![Embed panel with Advanced CSS and Advanced JavaScript sections, Icon Selection, Mode Selection, Starter Prompts and Who Can View controls beside a live chat-widget preview, and a Create Embed button](../images/agent-settings/agent_settings_embed.webp)
 
 ## Overview
 

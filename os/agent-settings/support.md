@@ -1,6 +1,6 @@
 # Agent Settings: Support
 
-![Support panel in the Edit Agent modal showing the enable toggle, a user search and status filter, a list of support tickets with status badges, and a detail pane with the ticket subject, status selector, and requester message](/images/docs/os/agent-settings/agent_settings_support.webp)
+![Support panel in the Edit Agent modal showing the enable toggle, a user search and status filter, a list of support tickets with status badges, and a detail pane with the ticket subject, status selector, and requester message](../images/agent-settings/agent_settings_support.webp)
 
 ## Overview
 
@@ -33,7 +33,7 @@ The right-hand pane shows the selected ticket: its subject, a status badge, the 
 
 On a narrow screen there is no room for a second column, so selecting a ticket opens the same detail in a dialog over the list instead of beside it.
 
-![Ticket detail pane showing the ticket subject and status badge, the requester and timestamp, the Status selector, and the Request section with the agent-authored description](/images/docs/os/agent-settings/agent_settings_support_ticket_detail.webp)
+![Ticket detail pane showing the ticket subject and status badge, the requester and timestamp, the Status selector, and the Request section with the agent-authored description](../images/agent-settings/agent_settings_support_ticket_detail.webp)
 
 #### Status selector
 A dropdown on the ticket detail that moves the ticket between **Open**, **In Progress**, and **Closed**. Choosing **Closed** resolves the ticket and records when it was resolved.
@@ -41,7 +41,7 @@ A dropdown on the ticket detail that moves the ticket between **Open**, **In Pro
 #### Conversation and reply box
 Below the request, the **Conversation** lists the thread oldest-first, distinguishing the requester's messages from the support team's. A textarea and a **Send Reply** button sit beneath it. A closed ticket shows a notice in place of the reply box — "Set it back to Open or In Progress to reply" — so reopening is a deliberate step rather than a side effect of answering.
 
-![Ticket detail with the conversation thread and the reply textarea and Send Reply button below it](/images/docs/os/agent-settings/agent_settings_support_reply.webp)
+![Ticket detail with the conversation thread and the reply textarea and Send Reply button below it](../images/agent-settings/agent_settings_support_reply.webp)
 
 ## How to Use
 

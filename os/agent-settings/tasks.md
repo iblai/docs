@@ -1,6 +1,6 @@
 # Agent Settings: Tasks
 
-![Tasks panel in the Edit Agent modal with a task search box, Select date filter, Schedule Task button, metric cards for Total Tasks, Completed and Failed, a list of scheduled tasks, and a Task Logs pane](/images/docs/os/agent-settings/agent_settings_tasks.webp)
+![Tasks panel in the Edit Agent modal with a task search box, Select date filter, Schedule Task button, metric cards for Total Tasks, Completed and Failed, a list of scheduled tasks, and a Task Logs pane](../images/agent-settings/agent_settings_tasks.webp)
 
 ## Overview
 
@@ -23,7 +23,7 @@ A search box that filters the task list by name. Filtering is debounced, so resu
 A date filter that narrows the task list to tasks for a chosen date.
 
 #### Schedule Task
-![Schedule Task dialog with task name, task prompt, date, time, repeat cadence, and email notification fields](/images/docs/os/agent-settings/agent_settings_tasks_create.webp)
+![Schedule Task dialog with task name, task prompt, date, time, repeat cadence, and email notification fields](../images/agent-settings/agent_settings_tasks_create.webp)
 
 Opens the **Schedule Task** dialog for creating a new automated task. The dialog contains:
 
@@ -48,9 +48,9 @@ Each row shows the task name (for example "Generate Lesson Content"), its schedu
 #### Task Logs
 The right-hand pane shows the run logs of whichever task is selected in the list. Until a task is selected it reads: "Select a task on the left to view its run logs."
 
-![Task Logs pane listing the runs of a selected task with their status and timestamps](/images/docs/os/agent-settings/agent_settings_tasks_logs.webp)
+![Task Logs pane listing the runs of a selected task with their status and timestamps](../images/agent-settings/agent_settings_tasks_logs.webp)
 
-![An expanded run log showing the detail of a single task run](/images/docs/os/agent-settings/agent_settings_tasks_log_details.webp)
+![An expanded run log showing the detail of a single task run](../images/agent-settings/agent_settings_tasks_log_details.webp)
 
 ## How to Use
 

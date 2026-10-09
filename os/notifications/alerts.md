@@ -1,6 +1,6 @@
 # Notification Alerts
 
-![The Alerts tab of the notifications page listing predefined alert templates, each with an Inactive toggle and an Edit button](/images/docs/os/notifications/notification_alerts.webp)
+![The Alerts tab of the notifications page listing predefined alert templates, each with an Inactive toggle and an Edit button](../images/notifications/notification_alerts.webp)
 
 ## Overview
 

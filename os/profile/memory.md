@@ -1,6 +1,6 @@
 # Profile: Memory
 
-![The Memory tab of the User Profile dialog, with two personalization toggles and a My Memories list of saved facts](/images/docs/os/profile/user_profile_memory.webp)
+![The Memory tab of the User Profile dialog, with two personalization toggles and a My Memories list of saved facts](../images/profile/user_profile_memory.webp)
 
 ## Overview
 

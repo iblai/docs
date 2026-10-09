@@ -1,6 +1,6 @@
 # Agent Settings: Memory
 
-![Memory panel with an enable toggle, user and date filters, category tabs such as Knowledge Gaps and Preferences, an Add Memory button, and saved memory cards with timestamps and user emails](/images/docs/os/agent-settings/agent_settings_memory.webp)
+![Memory panel with an enable toggle, user and date filters, category tabs such as Knowledge Gaps and Preferences, an Add Memory button, and saved memory cards with timestamps and user emails](../images/agent-settings/agent_settings_memory.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Analytics: Overview
 
-![Analytics Overview dashboard showing Messages, Active Users, Topics, and Conversations stat cards above a Sessions line chart, a Topics bar chart, and an Active Users bar chart, each with Today, 7D, 30D, 90D, and Custom date-range buttons](/images/docs/os/analytics/analytics_overview.webp)
+![Analytics Overview dashboard showing Messages, Active Users, Topics, and Conversations stat cards above a Sessions line chart, a Topics bar chart, and an Active Users bar chart, each with Today, 7D, 30D, 90D, and Custom date-range buttons](../images/analytics/analytics_overview.webp)
 
 ## Overview
 

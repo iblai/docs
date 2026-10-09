@@ -1,6 +1,6 @@
 # Analytics: Transcripts
 
-![Analytics Transcripts tab showing stat cards for average messages per conversation, average cost per conversation, and average rating, Topics and Users filter fields with a Clear All button, a summary bar of conversations, user queries, assistant responses, and average sentiment score, a conversation card with topic chip, sentiment, model, and cost details, and a right pane reading Select a conversation to view its transcript](/images/docs/os/analytics/analytics_transcripts.webp)
+![Analytics Transcripts tab showing stat cards for average messages per conversation, average cost per conversation, and average rating, Topics and Users filter fields with a Clear All button, a summary bar of conversations, user queries, assistant responses, and average sentiment score, a conversation card with topic chip, sentiment, model, and cost details, and a right pane reading Select a conversation to view its transcript](../images/analytics/analytics_transcripts.webp)
 
 ## Overview
 

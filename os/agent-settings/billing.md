@@ -1,6 +1,6 @@
 # Agent Settings: Billing
 
-![Billing panel on the This Agent sub-tab, showing the enable toggle, the monthly usage strip with spent, percent used, and remaining figures, the spend limit field, the reset interval selector, the enforcement mode, and the alert threshold field](/images/docs/os/agent-settings/agent_settings_billing.webp)
+![Billing panel on the This Agent sub-tab, showing the enable toggle, the monthly usage strip with spent, percent used, and remaining figures, the spend limit field, the reset interval selector, the enforcement mode, and the alert threshold field](../images/agent-settings/agent_settings_billing.webp)
 
 ## Overview
 
@@ -43,22 +43,22 @@ Comma-separated percentages, `80, 95` by default, at which administrators receiv
 **Save** creates the cap on the first save and updates it thereafter. **Delete Limit** appears once a cap exists and asks for confirmation before removing it.
 
 #### Per User table
-![Billing panel on the Per User sub-tab, showing the Add User Limit button and a table of per-user caps with User, Limit, and Status columns](/images/docs/os/agent-settings/agent_settings_billing_per_user.webp)
+![Billing panel on the Per User sub-tab, showing the Add User Limit button and a table of per-user caps with User, Limit, and Status columns](../images/agent-settings/agent_settings_billing_per_user.webp)
 
 Each row is one person's cap on this agent: the **User** (shown by email, and clickable through to the same profile viewer the Management area uses), the **Limit** written as amount and period (`$2.00 / Week`), and a **Status** column whose toggle saves immediately, along with **Exceeded** and **Alert-only** badges where they apply.
 
 #### Row actions menu
-![Per-user row actions menu offering Edit and Delete](/images/docs/os/agent-settings/agent_settings_billing_actions.webp)
+![Per-user row actions menu offering Edit and Delete](../images/agent-settings/agent_settings_billing_actions.webp)
 
 The per-row menu offers **Edit** — which opens the same spend-cap form for that person — and **Delete**, which confirms against the user's email before removing the cap.
 
 #### Add User Limit
-![New User Limit modal with the platform-user search followed by the spend-cap fields](/images/docs/os/agent-settings/agent_settings_billing_new_user_limit.webp)
+![New User Limit modal with the platform-user search followed by the spend-cap fields](../images/agent-settings/agent_settings_billing_new_user_limit.webp)
 
 Opens the **New User Limit** modal. Pick the person through the platform-user search — it needs at least two characters and offers only real accounts, so a limit can never be attached to a mistyped name — then fill in the same fields as the agent's own cap.
 
 #### Edit User Limit
-![Edit User Limit modal pre-filled with an existing per-user cap](/images/docs/os/agent-settings/agent_settings_billing_edit_user_limit.webp)
+![Edit User Limit modal pre-filled with an existing per-user cap](../images/agent-settings/agent_settings_billing_edit_user_limit.webp)
 
 Editing skips the picker and opens the form directly on the existing cap, since the person it belongs to is already settled.
 

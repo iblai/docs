@@ -1,6 +1,6 @@
 # Profile: Social Accounts
 
-![The Social tab of the User Profile dialog, with Facebook, LinkedIn, and X URL fields](/images/docs/os/profile/user_profile_social.webp)
+![The Social tab of the User Profile dialog, with Facebook, LinkedIn, and X URL fields](../images/profile/user_profile_social.webp)
 
 ## Overview
 

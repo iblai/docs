@@ -1,6 +1,6 @@
 # Projects
 
-![Project landing page showing the project title, the Ask anything chat input with Canvas and Prompts controls, the Project files and Add project instructions cards, and the Project Agents grid with an Add Agent button](/images/docs/os/chat-canvas/projects.webp)
+![Project landing page showing the project title, the Ask anything chat input with Canvas and Prompts controls, the Project files and Add project instructions cards, and the Project Agents grid with an Add Agent button](../images/chat-canvas/projects.webp)
 
 ## Overview
 
@@ -25,7 +25,7 @@ The project's name, at the head of the landing page. It identifies which body of
 The standard composer — "Ask anything" — with the same attachment, **Canvas**, **Prompts**, voice, and web-search controls documented on the [Chat Interface](/docs/os/chat-canvas/chat) page. Sending a message from here starts a conversation inside the project rather than a loose chat.
 
 #### Project files
-![Project Files modal showing a dataset search, an Add Files button, and a table of files with Name, Type, Tokens, Interval, Visibility, and Status columns](/images/docs/os/chat-canvas/projects_files.webp)
+![Project Files modal showing a dataset search, an Add Files button, and a table of files with Name, Type, Tokens, Interval, Visibility, and Status columns](../images/chat-canvas/projects_files.webp)
 
 A card showing how many files the project holds; opening it lists them in the **Project Files** dialog. Each row carries the file's **Name**, **Type**, **Tokens**, refresh **Interval**, **Visibility**, and a **Status** switch, with a search box for finding one in a long list and **Add Files** for adding more.
 

@@ -1,6 +1,6 @@
 # Profile: History
 
-![Profile History on the Conversations tab, showing the agent, date-range, sentiment, and topic filters above a list of conversations on the left and a transcript preview on the right](/images/docs/os/profile/user_profile_history.webp)
+![Profile History on the Conversations tab, showing the agent, date-range, sentiment, and topic filters above a list of conversations on the left and a transcript preview on the right](../images/profile/user_profile_history.webp)
 
 ## Overview
 
@@ -40,14 +40,14 @@ Generates a report of everything matching the filters currently applied. The rep
 Ten conversations to a page. Each row shows how long ago it happened, a sentiment badge, the agent's name, the conversation title, and a one-line preview of the agent's first reply as plain text.
 
 #### Transcript preview
-![A selected conversation showing the alternating You and agent messages with a Download button above the transcript](/images/docs/os/profile/user_profile_history_conversation.webp)
+![A selected conversation showing the alternating You and agent messages with a Download button above the transcript](../images/profile/user_profile_history_conversation.webp)
 
 The selected conversation, rendered beside the list as alternating **You** and agent messages with both avatars, formatting intact. A **Download** button saves that one conversation as a CSV. Until you pick something the pane reads "Select a conversation to view details."
 
 On a narrow screen there is no room for a second column, so selecting a conversation opens the transcript in a dialog over the list instead.
 
 #### Exports tab
-![Exports tab listing generated reports with status, creation time, the filters used, expiry, and a download action](/images/docs/os/profile/user_profile_history_exports.webp)
+![Exports tab listing generated reports with status, creation time, the filters used, expiry, and a download action](../images/profile/user_profile_history_exports.webp)
 
 Your generated reports, newest first, each with a **Status** badge, when it was **Created**, a summary of the **Filters** it used (the agents or "All agents", the date range or "All time", plus topic and sentiment where you set them), when it **Expires**, and a **Download** button while it is still available. A report that is still building keeps a blue badge, updating on its own until it finishes.
 

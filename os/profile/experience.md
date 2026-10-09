@@ -1,6 +1,6 @@
 # Profile: Experience
 
-![The Experience tab of the User Profile dialog, showing a Software Engineer role at ibl.ai marked Present and Full Time](/images/docs/os/profile/user_profile_experience.webp)
+![The Experience tab of the User Profile dialog, showing a Software Engineer role at ibl.ai marked Present and Full Time](../images/profile/user_profile_experience.webp)
 
 ## Overview
 

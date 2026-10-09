@@ -1,6 +1,6 @@
 # Agent Settings: Skills
 
-![Skills panel showing the Agent Skills tab with the New Skill button and two skill rows, Image Creation v1.0.0 and Web Research v1.0.0, each with an enable toggle and an overflow actions menu](/images/docs/os/agent-settings/agent_settings_skills.webp)
+![Skills panel showing the Agent Skills tab with the New Skill button and two skill rows, Image Creation v1.0.0 and Web Research v1.0.0, each with an enable toggle and an overflow actions menu](../images/agent-settings/agent_settings_skills.webp)
 
 ## Overview
 
@@ -31,7 +31,7 @@ The agent's *effective* set: the skills assigned to it plus its own private skil
 
 #### Available Skills tab
 
-![Available Skills tab listing the organization's catalog, with green Added chips on skills already attached to this agent](/images/docs/os/agent-settings/agent_settings_skills_available.webp)
+![Available Skills tab listing the organization's catalog, with green Added chips on skills already attached to this agent](../images/agent-settings/agent_settings_skills_available.webp)
 
 The organization's full skill catalog, paged 10 at a time. Rows show the same name/version/badges/description block. **Add to Agent** attaches a skill to this agent; rows already covered by the agent's set — attached, or shadowed by a private skill with the same slug — show a green **Added** chip instead. Another agent's private skills are not attachable.
 
@@ -40,13 +40,13 @@ Turns a skill on or off for this agent. A skill is active only when both the ski
 
 #### Kebab ("...") menu
 
-![Skill row kebab menu open with Remove from Agent, Edit, and Delete actions](/images/docs/os/agent-settings/agent_settings_skills_actions.webp)
+![Skill row kebab menu open with Remove from Agent, Edit, and Delete actions](../images/agent-settings/agent_settings_skills_actions.webp)
 
 Per-row actions: **Remove from Agent** detaches the skill from this agent (shown for assigned skills); **Edit** opens the Edit Skill dialog; **Delete** removes the skill from the organization. Edit and Delete appear only for skills your organization owns — **Featured skills are read-only** and their edit and delete actions are hidden.
 
 #### New Skill dialog
 
-![New Skill dialog with an Only This Agent toggle and fields for Name, Slug, Version, Category, Description, and Instruction](/images/docs/os/agent-settings/agent_settings_skills_new.webp)
+![New Skill dialog with an Only This Agent toggle and fields for Name, Slug, Version, Category, Description, and Instruction](../images/agent-settings/agent_settings_skills_new.webp)
 
 - **Only This Agent** — "Private skills are available to this agent only and take precedence over platform skills with the same slug." Leave it off to create a skill the whole organization can use.
 - **Name** and **Slug** are required. The slug is what users type after `/` in chat.
@@ -55,19 +55,19 @@ Per-row actions: **Remove from Agent** detaches the skill from this agent (shown
 
 #### Edit Skill dialog — General
 
-![Edit Skill dialog on the General tab showing the saved Name Image Creation and Slug image-creation](/images/docs/os/agent-settings/agent_settings_skills_edit_general.webp)
+![Edit Skill dialog on the General tab showing the saved Name Image Creation and Slug image-creation](../images/agent-settings/agent_settings_skills_edit_general.webp)
 
 The same fields as New Skill, pre-filled, under a **General** / **Resources** tab pair. **Save** writes the change organization-wide, not just for this agent.
 
 #### Edit Skill dialog — Resources
 
-![Edit Skill dialog on the Resources tab with a New Resource button and a course_spec.example.yaml file tagged Reference](/images/docs/os/agent-settings/agent_settings_skills_edit_resources.webp)
+![Edit Skill dialog on the Resources tab with a New Resource button and a course_spec.example.yaml file tagged Reference](../images/agent-settings/agent_settings_skills_edit_resources.webp)
 
 Optional files the agent can use with the skill, attachable after the skill is created. **Reference** and **Script** resources are text files (filename plus content); **Asset** resources are uploaded binary files. Each row shows the filename and a type chip, with a kebab menu offering **Download** (assets), **Edit** (text files), and **Delete**.
 
 #### Chat `/` skill picker
 
-![Chat composer with a slash typed, showing a picker listing Image Creation /image-creation and Web Research /web-research above the input](/images/docs/os/agent-settings/agent_settings_skills_slash_picker.webp)
+![Chat composer with a slash typed, showing a picker listing Image Creation /image-creation and Web Research /web-research above the input](../images/agent-settings/agent_settings_skills_slash_picker.webp)
 
 In chat, typing `/` as the first word of a message opens a picker listing this agent's enabled skills by name and `/slug`. Arrow keys browse, Enter or Tab selects and inserts `/slug ` into the composer, and Esc dismisses it. See [Chat Interface](../chat-canvas/chat.md).
 

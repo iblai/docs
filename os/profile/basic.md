@@ -1,6 +1,6 @@
 # Profile: Basic Information
 
-![The Basic tab of the User Profile dialog, showing Full Name, Email, Title, About, and Language fields](/images/docs/os/profile/user_profile_basic.webp)
+![The Basic tab of the User Profile dialog, showing Full Name, Email, Title, About, and Language fields](../images/profile/user_profile_basic.webp)
 
 ## Overview
 

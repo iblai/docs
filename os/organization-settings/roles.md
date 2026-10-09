@@ -1,6 +1,6 @@
 # Organization Settings: Roles
 
-![Management Roles tab listing RBAC roles such as Can Sell Mentor, Mentor Chat, Team Creator, Enrollment Manager, List Teams, and Read Team](/images/docs/os/organization-settings/organization_settings_management_roles.webp)
+![Management Roles tab listing RBAC roles such as Can Sell Mentor, Mentor Chat, Team Creator, Enrollment Manager, List Teams, and Read Team](../images/organization-settings/organization_settings_management_roles.webp)
 
 ## Overview
 

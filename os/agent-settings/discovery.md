@@ -1,6 +1,6 @@
 # Agent Settings: Discovery
 
-![Settings panel on the Discovery sub-tab with Who Can View and Who Can Chat dropdowns, a Highlight in featured listings toggle, and Save, Copy, and Delete buttons](/images/docs/os/agent-settings/agent_settings_discovery.webp)
+![Settings panel on the Discovery sub-tab with Who Can View and Who Can Chat dropdowns, a Highlight in featured listings toggle, and Save, Copy, and Delete buttons](../images/agent-settings/agent_settings_discovery.webp)
 
 ## Overview
 

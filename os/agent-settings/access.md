@@ -1,6 +1,6 @@
 # Agent Settings: Access
 
-![Access control panel on the Integrations tab showing a Create role access button and a role table with an Editor role, its description, a user-count badge of 3, and a pencil edit action](/images/docs/os/agent-settings/agent_settings_access.webp)
+![Access control panel on the Integrations tab showing a Create role access button and a role table with an Editor role, its description, a user-count badge of 3, and a pencil edit action](../images/agent-settings/agent_settings_access.webp)
 
 ## Overview
 

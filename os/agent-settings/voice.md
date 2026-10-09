@@ -1,6 +1,6 @@
 # Agent Settings: Voice
 
-![Voice settings panel in the Edit Agent modal, showing the voice enablement toggle, the Voice and Voice call sub-tabs, three voice source cards (Browser, OpenAI, Google), and a voice picker](/images/docs/os/agent-settings/agent_settings_voice.webp)
+![Voice settings panel in the Edit Agent modal, showing the voice enablement toggle, the Voice and Voice call sub-tabs, three voice source cards (Browser, OpenAI, Google), and a voice picker](../images/agent-settings/agent_settings_voice.webp)
 
 ## Overview
 
@@ -35,13 +35,13 @@ The selected card is highlighted with a blue border (OpenAI in the screenshot).
 When the OpenAI or Google source is selected, a **Voice** field appears with a "Select a voice" trigger. Clicking it opens a modal picker where you can search, browse, and preview voices before choosing one (see the Voice Selector page). Once a voice is saved, the trigger displays the currently selected voice, with an inline play button to preview it without opening the picker.
 
 #### Voice instructions
-![Voice instructions card showing the style prompt with Edit and Copy actions, a character counter, and one-click example presets](/images/docs/os/agent-settings/agent_settings_voice_instructions.webp)
+![Voice instructions card showing the style prompt with Edit and Copy actions, a character counter, and one-click example presets](../images/agent-settings/agent_settings_voice_instructions.webp)
 
 Below the voice picker sits an optional **style prompt** — a free-form instruction for *how* the voice should deliver replies, as distinct from which voice says them. "Speak slowly in a warm, encouraging tone, like a patient tutor" is the shape of it.
 
 The card carries **Edit**, which opens a rich-text editor, a **Copy** action, an information tooltip, a counter that caps the prompt at 1,000 characters, and one-click example presets — *Warm and encouraging*, *Calm and measured*, *Energetic and upbeat* — for when you want a starting point rather than a blank field.
 
-![Edit Voice Instructions modal with a rich-text editor for the style prompt](/images/docs/os/agent-settings/agent_settings_voice_instructions_edit.webp)
+![Edit Voice Instructions modal with a rich-text editor for the style prompt](../images/agent-settings/agent_settings_voice_instructions_edit.webp)
 
 What the instruction does depends on the source: OpenAI treats it as speech instructions, Google as a synthesis prompt. Both read it as guidance on delivery, not as content to say.
 

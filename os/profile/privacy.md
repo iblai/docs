@@ -1,6 +1,6 @@
 # Profile: Privacy
 
-![The Privacy tab of the User Profile dialog, showing the Default Private Mode options: Normal, Anonymized, and Disabled](/images/docs/os/profile/user_profile_privacy.webp)
+![The Privacy tab of the User Profile dialog, showing the Default Private Mode options: Normal, Anonymized, and Disabled](../images/profile/user_profile_privacy.webp)
 
 ## Overview
 

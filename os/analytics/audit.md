@@ -1,6 +1,6 @@
 # Analytics: Audit
 
-![Analytics Audit tab showing a Search for User field, a Pick a Date Range button, and an All Actions dropdown above a table with USER, ACTION, and TIME columns listing configuration changes such as Enabled claw on Settings for agentAI and Disabled LTI access on Settings for agentAI with relative timestamps](/images/docs/os/analytics/analytics_audit.webp)
+![Analytics Audit tab showing a Search for User field, a Pick a Date Range button, and an All Actions dropdown above a table with USER, ACTION, and TIME columns listing configuration changes such as Enabled claw on Settings for agentAI and Disabled LTI access on Settings for agentAI with relative timestamps](../images/analytics/analytics_audit.webp)
 
 ## Overview
 

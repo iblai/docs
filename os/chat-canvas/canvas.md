@@ -1,6 +1,6 @@
 # Canvas
 
-![The Canvas panel open beside the chat, showing a formatted business-plan document with the editing toolbar and Export button](/images/docs/os/chat-canvas/chat_canvas_open.webp)
+![The Canvas panel open beside the chat, showing a formatted business-plan document with the editing toolbar and Export button](../images/chat-canvas/chat_canvas_open.webp)
 
 ## Overview
 

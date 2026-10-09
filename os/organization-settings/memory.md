@@ -1,6 +1,6 @@
 # Organization Settings: Memory
 
-![Memory settings on the Global tab, showing the user search and a table of organization users with Name, Username, and Email columns and a per-row view action](/images/docs/os/organization-settings/organization_settings_memory.webp)
+![Memory settings on the Global tab, showing the user search and a table of organization users with Name, Username, and Email columns and a per-row view action](../images/organization-settings/organization_settings_memory.webp)
 
 ## Overview
 
@@ -28,7 +28,7 @@ A debounced search across the organization's users on the Global tab. Very short
 **Name**, **Username**, and **Email** for each user, with a view action on every row. Accounts with no username are left out, because the memory endpoints have no way to address them.
 
 #### Global Memories popup
-![Global Memories popup for one user, showing the memory-capture and personalization toggles above the user's list of saved memories](/images/docs/os/organization-settings/organization_settings_memory_user_memories.webp)
+![Global Memories popup for one user, showing the memory-capture and personalization toggles above the user's list of saved memories](../images/organization-settings/organization_settings_memory_user_memories.webp)
 
 Opening a row shows everything the platform remembers about that person across all agents:
 
@@ -40,12 +40,12 @@ Opening a row shows everything the platform remembers about that person across a
 An autocomplete over the organization's agents on the Agent tab, from two characters up. Picking an agent narrows the table to it.
 
 #### Agents table
-![Memory settings on the Agent tab, showing the agent filter and a table of agents with Agent and Description columns and a per-row view action](/images/docs/os/organization-settings/organization_settings_memory_agents.webp)
+![Memory settings on the Agent tab, showing the agent filter and a table of agents with Agent and Description columns and a per-row view action](../images/organization-settings/organization_settings_memory_agents.webp)
 
 **Agent** and **Description** for each agent, ten to a page, with a view action on every row.
 
 #### Agent memories popup
-![Agent Memories popup showing the user filter, date range, category tabs, and memory cards for a single agent](/images/docs/os/organization-settings/organization_settings_memory_agent_memories.webp)
+![Agent Memories popup showing the user filter, date range, category tabs, and memory cards for a single agent](../images/organization-settings/organization_settings_memory_agent_memories.webp)
 
 Opening an agent row loads the same memory manager the agent's own Memory tab renders, for that agent: a **Search for User** filter, a **Pick a Date Range** control, category tabs (All, Knowledge Gaps, Learning Goals, Personal Context, Preferences, and any you have added), a **Categories** manager for creating, renaming, and deleting categories, **Add Memory**, and one card per memory showing how long ago it was recorded, the email of the user it concerns, and an actions menu.
 

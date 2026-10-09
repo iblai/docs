@@ -1,6 +1,6 @@
 # Profile: Experience Resume
 
-![The Resume sub-tab of the Experience section, showing the "No resume added yet" empty state and the Upload resume button](/images/docs/os/profile/user_profile_experience_resume.webp)
+![The Resume sub-tab of the Experience section, showing the "No resume added yet" empty state and the Upload resume button](../images/profile/user_profile_experience_resume.webp)
 
 ## Overview
 

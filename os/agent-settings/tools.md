@@ -1,6 +1,6 @@
 # Agent Settings: Tools
 
-![Tools panel listing toggles for Wikipedia Search, Course Creation, Google Calendar, Video Generation, MCP, and Grading, with Course Creation enabled](/images/docs/os/agent-settings/agent_settings_tools.webp)
+![Tools panel listing toggles for Wikipedia Search, Course Creation, Google Calendar, Video Generation, MCP, and Grading, with Course Creation enabled](../images/agent-settings/agent_settings_tools.webp)
 
 ## Overview
 

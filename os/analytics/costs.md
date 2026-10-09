@@ -1,6 +1,6 @@
 # Analytics: Costs
 
-![Analytics Costs tab showing Weekly Costs, Monthly Costs, and Total Costs stat cards all at $0.00, a Cost per Day chart with a No data available empty state, and Cost by Provider and Cost by LLM chart cards below, each with Today, 7D, 30D, 90D, and Custom date-range buttons](/images/docs/os/analytics/analytics_costs.webp)
+![Analytics Costs tab showing Weekly Costs, Monthly Costs, and Total Costs stat cards all at $0.00, a Cost per Day chart with a No data available empty state, and Cost by Provider and Cost by LLM chart cards below, each with Today, 7D, 30D, 90D, and Custom date-range buttons](../images/analytics/analytics_costs.webp)
 
 ## Overview
 

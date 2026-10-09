@@ -1,6 +1,6 @@
 # Agent Settings: LLM Selection
 
-![LLM Selection dialog listing OpenAI models such as chat-latest, gpt-4o-mini, gpt-5, and gpt-5.2-pro in a searchable grid, with gpt-4o-mini highlighted as selected](/images/docs/os/agent-settings/agent_settings_llm_selection.webp)
+![LLM Selection dialog listing OpenAI models such as chat-latest, gpt-4o-mini, gpt-5, and gpt-5.2-pro in a searchable grid, with gpt-4o-mini highlighted as selected](../images/agent-settings/agent_settings_llm_selection.webp)
 
 ## Overview
 

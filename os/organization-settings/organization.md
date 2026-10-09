@@ -1,6 +1,6 @@
 # Organization Settings: Organization
 
-![Organization settings page showing the organization ID, name, support email, Help Center toggle, and light and dark logo uploaders](/images/docs/os/organization-settings/organization_settings_organization.webp)
+![Organization settings page showing the organization ID, name, support email, Help Center toggle, and light and dark logo uploaders](../images/organization-settings/organization_settings_organization.webp)
 
 ## Overview
 

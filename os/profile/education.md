@@ -1,6 +1,6 @@
 # Profile: Education
 
-![The Education tab of the User Profile dialog, showing an education entry for Columbia University with degree, dates, and grade](/images/docs/os/profile/user_profile_education.webp)
+![The Education tab of the User Profile dialog, showing an education entry for Columbia University with degree, dates, and grade](../images/profile/user_profile_education.webp)
 
 ## Overview
 

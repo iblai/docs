@@ -1,6 +1,6 @@
 # Organization Settings: Teams
 
-![Management Teams tab with a Team Name and Description table, search box, and Invite and New Team buttons](/images/docs/os/organization-settings/organization_settings_management_teams.webp)
+![Management Teams tab with a Team Name and Description table, search box, and Invite and New Team buttons](../images/organization-settings/organization_settings_management_teams.webp)
 
 ## Overview
 

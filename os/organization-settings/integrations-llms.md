@@ -1,6 +1,6 @@
 # Organization Settings: LLM Integrations
 
-![Integrations LLMs tab showing an OpenAI credential with a masked key and an Add LLM button](/images/docs/os/organization-settings/organization_settings_integrations_llms.webp)
+![Integrations LLMs tab showing an OpenAI credential with a masked key and an Add LLM button](../images/organization-settings/organization_settings_integrations_llms.webp)
 
 ## Overview
 

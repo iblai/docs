@@ -1,6 +1,6 @@
 # OS Platform Overview
 
-![The OS chat interface at os.ibl.ai, showing the agent workspace with the message composer and sidebar](/images/docs/os/chat-canvas/chat.webp)
+![The OS chat interface at os.ibl.ai, showing the agent workspace with the message composer and sidebar](images/chat-canvas/chat.webp)
 
 ## What Is OS?
 

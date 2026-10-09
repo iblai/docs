@@ -1,6 +1,6 @@
 # Chat Interface
 
-![The OS chat interface showing an agent response with a Canvas preview card, suggested follow-up questions, and the message composer with Canvas and Memory tools enabled](/images/docs/os/chat-canvas/chat.webp)
+![The OS chat interface showing an agent response with a Canvas preview card, suggested follow-up questions, and the message composer with Canvas and Memory tools enabled](../images/chat-canvas/chat.webp)
 
 ## Overview
 
@@ -77,7 +77,7 @@ Inline chips in the composer toggle per-session tools: **Canvas** (generate docu
 
 #### Skills and the `/` picker
 
-![Chat page with a slash typed in the composer, showing a picker above it listing Image Creation /image-creation and Web Research /web-research](/images/docs/os/chat-canvas/chat_slash_skills.webp)
+![Chat page with a slash typed in the composer, showing a picker above it listing Image Creation /image-creation and Web Research /web-research](../images/chat-canvas/chat_slash_skills.webp)
 
 Agent Skills are reusable playbooks the agent follows for a specific job. Type `/` as the first word of a message to open a picker listing the skills this agent carries, each shown by name and `/slug`. Arrow keys move through the list, Enter or Tab inserts `/slug ` into the composer, and Esc dismisses it — plain text that happens to start with `/` is never blocked. Only enabled skills appear. Administrators manage which skills an agent carries in [Agent Settings: Skills](../agent-settings/skills.md).
 

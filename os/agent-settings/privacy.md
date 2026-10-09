@@ -1,6 +1,6 @@
 # Agent Settings: Privacy
 
-![Privacy panel with the PII detection master toggle enabled, a "When PII is detected" dropdown set to Redact, thirteen entity type chips such as Person, Email, Phone and SSN, and an "Also filter AI responses" toggle](/images/docs/os/agent-settings/agent_settings_privacy.webp)
+![Privacy panel with the PII detection master toggle enabled, a "When PII is detected" dropdown set to Redact, thirteen entity type chips such as Person, Email, Phone and SSN, and an "Also filter AI responses" toggle](../images/agent-settings/agent_settings_privacy.webp)
 
 ## Overview
 
@@ -24,13 +24,13 @@ A dropdown selecting how detected PII is handled. Three actions are available:
 
 - **Redact** (shown selected) — helper text: "PII is replaced with its type — e.g. \"Email [EMAIL_ADDRESS]\"."
 
-![Privacy panel with the Redact action selected, showing the entity-type chips below it](/images/docs/os/agent-settings/agent_settings_privacy_redact.webp)
+![Privacy panel with the Redact action selected, showing the entity-type chips below it](../images/agent-settings/agent_settings_privacy_redact.webp)
 - **Mask** — obscures the detected value rather than naming its type.
 
-![Privacy panel with the Mask action selected](/images/docs/os/agent-settings/agent_settings_privacy_mask.webp)
+![Privacy panel with the Mask action selected](../images/agent-settings/agent_settings_privacy_mask.webp)
 - **Block** — stops the message; choosing Block reveals a **Block Message** field where you set the text shown to the user, saved when the field loses focus.
 
-![Privacy panel with the Block action selected, revealing the Block Message field](/images/docs/os/agent-settings/agent_settings_privacy_block.webp)
+![Privacy panel with the Block action selected, revealing the Block Message field](../images/agent-settings/agent_settings_privacy_block.webp)
 
 #### Entity Types
 A row of selectable chips listing the PII categories the detector looks for: **Person, Email, Phone, SSN, Credit Card, Location, Date / Time, Passport, Driver's License, IP Address, IBAN, Medical License,** and **Bank Number**. Chips toggle on and off individually. When none are explicitly selected the hint "Using defaults." is shown, meaning the platform's default entity set applies.

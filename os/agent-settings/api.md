@@ -1,6 +1,6 @@
 # API Keys
 
-![API panel listing secret API keys in a table with NAME, CREATED and EXPIRES columns, delete icons per row, and a Create New button](/images/docs/os/agent-settings/agent_settings_api.webp)
+![API panel listing secret API keys in a table with NAME, CREATED and EXPIRES columns, delete icons per row, and a Create New button](../images/agent-settings/agent_settings_api.webp)
 
 ## Overview
 
@@ -22,7 +22,7 @@ You can create, view, and revoke API keys from either UI — both operate on the
 Open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Configurations** to **Integrations**, and select **API**. The intro banner frames the use case: "Use this agent from your own apps. Create API keys here to call it programmatically and build it into your product or workflow." Keys are managed at the platform (organization) level, so the same key list serves programmatic access for the organization's agents.
 
 #### From organization settings (Integrations → APIs)
-![Integrations APIs tab showing a generated API key with Name, Created, and Expires columns and an Add API button](/images/docs/os/organization-settings/organization_settings_integrations_apis.webp)
+![Integrations APIs tab showing a generated API key with Name, Created, and Expires columns and an Add API button](../images/organization-settings/organization_settings_integrations_apis.webp)
 
 Switch the top-bar toggle to **Admin**, open the settings dialog, choose **Integrations** in the left sidebar, and select the **APIs** tab (alongside LLMs and Data Sources). The banner reads: "These are authentication keys that you've generated for external applications to authenticate with your service. Keys are displayed only once when generated." Unlike the LLMs and Data Sources tabs — which store *outbound* credentials for third-party services — the APIs tab issues *inbound* credentials that external applications present to authenticate against the platform API.
 

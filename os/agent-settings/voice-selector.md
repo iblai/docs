@@ -1,6 +1,6 @@
 # Agent Settings: Voice Selector
 
-![Select OpenAI voice dialog listing nine voices — Alloy, Ash, Coral, Echo, Fable, Nova, Onyx, Sage, and Shimmer — each with a play button, above a voice search field](/images/docs/os/agent-settings/agent_settings_voice_selector.webp)
+![Select OpenAI voice dialog listing nine voices — Alloy, Ash, Coral, Echo, Fable, Nova, Onyx, Sage, and Shimmer — each with a play button, above a voice search field](../images/agent-settings/agent_settings_voice_selector.webp)
 
 ## Overview
 

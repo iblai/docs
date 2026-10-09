@@ -1,6 +1,6 @@
 # Downloading a Canvas
 
-![The Canvas Export menu open, offering PDF Document (.pdf), Microsoft Word (.docx), and Markdown Document (.md)](/images/docs/os/chat-canvas/chat_canvas_download.webp)
+![The Canvas Export menu open, offering PDF Document (.pdf), Microsoft Word (.docx), and Markdown Document (.md)](../images/chat-canvas/chat_canvas_download.webp)
 
 ## Overview
 
