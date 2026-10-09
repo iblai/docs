@@ -1,6 +1,6 @@
 # Agent Settings: Grader
 
-![Grader panel on the Grading setup sub-tab, showing the grading toggle in its helper banner, the Grading setup and Rubric sub-tabs, the What gets graded and Feedback shared with the person selectors, the grading instructions textarea, and a Save button](/images/docs/os/agent-settings/agent_settings_grader_setup.webp)
+![Grader panel on the Grading setup sub-tab, showing the grading toggle in its helper banner, the Grading setup and Rubric sub-tabs, the What gets graded and Feedback shared with the person selectors, the grading instructions textarea, and a Save button](../images/agent-settings/agent_settings_grader_setup.webp)
 
 ## Overview
 
@@ -39,31 +39,31 @@ Enabled once the grading instructions are non-empty and something on the form ha
 #### Rubric table
 Each row is one thing the agent looks for and how many points it is worth, with **Name**, **Criteria**, and **Points** columns and a per-row actions menu. A footer reports "Total possible points: N" and "Overall score = points earned ÷ N."
 
-![Rubric sub-tab showing a criteria table with Name, Criteria, and Points columns, an Add criterion button, and a footer with the total possible points and the overall-score formula](/images/docs/os/agent-settings/agent_settings_grader_rubric.webp)
+![Rubric sub-tab showing a criteria table with Name, Criteria, and Points columns, an Add criterion button, and a footer with the total possible points and the overall-score formula](../images/agent-settings/agent_settings_grader_rubric.webp)
 
 #### Criterion actions menu
 The `⋯` menu on each rubric row offers **Edit** and **Delete**.
 
-![Per-row actions menu on a rubric criterion, offering Edit and Delete](/images/docs/os/agent-settings/agent_settings_grader_rubric_actions.webp)
+![Per-row actions menu on a rubric criterion, offering Edit and Delete](../images/agent-settings/agent_settings_grader_rubric_actions.webp)
 
 #### Add / Edit criterion
 A modal with three fields: **Name** (required — a short label such as "Clarity"), **Criteria** (required — what earns the points), and **Points** (a positive number).
 
-![Add criterion modal with Name, Criteria, and Points fields](/images/docs/os/agent-settings/agent_settings_grader_criterion_add.webp)
+![Add criterion modal with Name, Criteria, and Points fields](../images/agent-settings/agent_settings_grader_criterion_add.webp)
 
-![Edit criterion modal pre-filled with an existing criterion's name, description, and points](/images/docs/os/agent-settings/agent_settings_grader_criterion_edit.webp)
+![Edit criterion modal pre-filled with an existing criterion's name, description, and points](../images/agent-settings/agent_settings_grader_criterion_edit.webp)
 
 #### Delete criterion
 A confirmation modal shown before a criterion is removed. The last remaining criterion cannot be deleted while grading is set up — add a replacement first, since a rubric with no criteria would leave grading misconfigured.
 
-![Delete criterion confirmation modal](/images/docs/os/agent-settings/agent_settings_grader_criterion_delete.webp)
+![Delete criterion confirmation modal](../images/agent-settings/agent_settings_grader_criterion_delete.webp)
 
 #### Grade results table
 The **Results** sub-tab lists every grade this agent has issued, ten rows to a page, under the heading "Grade Results" and the line "Every grade this agent has issued. Override a score to correct it — the change is pushed back to the LMS the grade came from." Columns are **Learner** (email), **Score** (the effective score as a percent), **Status**, **Override**, and **Graded** (time-ago), with an **Override** button on each row.
 
 The **Override** column reads "Overridden · score · status" when a human has corrected the grade, and `—` when the AI score still stands.
 
-![Results sub-tab showing the Grade Results heading, the learner search, status, and date-range filters, and a table of grades with Learner, Score, Status, Override, and Graded columns and a per-row Override button](/images/docs/os/agent-settings/agent_settings_grader_results.webp)
+![Results sub-tab showing the Grade Results heading, the learner search, status, and date-range filters, and a table of grades with Learner, Score, Status, Override, and Graded columns and a per-row Override button](../images/agent-settings/agent_settings_grader_results.webp)
 
 #### Results filters
 Three filters sit above the table: a searchable **Search for User** learner combobox (the same learner list as the History panel's user filter, with an "All Users" reset), an **All Statuses** select offering Pending, Published, and Failed, and a **Pick a Date Range** two-month calendar.
@@ -71,7 +71,7 @@ Three filters sit above the table: a searchable **Search for User** learner comb
 #### Override Grade modal
 Opened by a row's **Override** button. The top block restates the **Learner**, the **AI Score**, and the **Current Override** ("None" when there isn't one). **Override Points** takes a number between 0 and the rubric total, capped at 100 — the score pushed to the LMS becomes points ÷ total. **Override Feedback** is an optional textarea explaining the change for the learner. When an override already exists, a **Clear** button removes it and restores the AI score.
 
-![Override Grade modal showing the learner, AI score, and current override, an Override Points field, an optional Override Feedback textarea, and Cancel and Save buttons](/images/docs/os/agent-settings/agent_settings_grader_result_override.webp)
+![Override Grade modal showing the learner, AI score, and current override, an Override Points field, an optional Override Feedback textarea, and Cancel and Save buttons](../images/agent-settings/agent_settings_grader_result_override.webp)
 
 ## How to Use
 

@@ -1,6 +1,6 @@
 # Notification Inbox
 
-![The notification inbox with the Inbox tab selected, a notification list on the left, and the rendered notification detail on the right](/images/docs/os/notifications/notification_inbox.webp)
+![The notification inbox with the Inbox tab selected, a notification list on the left, and the rendered notification detail on the right](../images/notifications/notification_inbox.webp)
 
 ## Overview
 

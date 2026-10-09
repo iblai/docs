@@ -1,6 +1,6 @@
 # Profile: Security
 
-![The Security tab of the User Profile dialog, showing the Security Settings card with the Send Password Reset Link button and Delete account link](/images/docs/os/profile/user_profile_security.webp)
+![The Security tab of the User Profile dialog, showing the Security Settings card with the Send Password Reset Link button and Delete account link](../images/profile/user_profile_security.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Agent Settings: LTI Tool Endpoints
 
-![LTI panel in the Edit Agent modal on the Tool Endpoints sub-tab, listing four fixed endpoint cards — Redirect URI, Login Initiations Endpoint, Deep Linking Endpoint, and JWKS Endpoint — each with a URL and copy button](/images/docs/os/agent-settings/agent_settings_lti_tool_endpoints.webp)
+![LTI panel in the Edit Agent modal on the Tool Endpoints sub-tab, listing four fixed endpoint cards — Redirect URI, Login Initiations Endpoint, Deep Linking Endpoint, and JWKS Endpoint — each with a URL and copy button](../images/agent-settings/agent_settings_lti_tool_endpoints.webp)
 
 ## Overview
 

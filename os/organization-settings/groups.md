@@ -1,6 +1,6 @@
 # Organization Settings: Groups
 
-![Management Groups tab listing RBAC groups with Group Name, Unique ID, and Description columns and a New Group button](/images/docs/os/organization-settings/organization_settings_management_groups.webp)
+![Management Groups tab listing RBAC groups with Group Name, Unique ID, and Description columns and a New Group button](../images/organization-settings/organization_settings_management_groups.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Profile: Purchases
 
-![The Purchases tab of the User Profile dialog, with search, status and type filters, and the "No purchases found." empty state](/images/docs/os/profile/user_profile_purchases.webp)
+![The Purchases tab of the User Profile dialog, with search, status and type filters, and the "No purchases found." empty state](../images/profile/user_profile_purchases.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Agent Settings: Sandbox
 
-![Sandbox panel in the Edit Agent modal with the sandbox enable toggle, an instance search box, an Add Instance button, and a table of sandbox instances showing name, URL, type, status, health, version, last check, and Connect buttons](/images/docs/os/agent-settings/agent_settings_sandbox.webp)
+![Sandbox panel in the Edit Agent modal with the sandbox enable toggle, an instance search box, an Add Instance button, and a table of sandbox instances showing name, URL, type, status, health, version, last check, and Connect buttons](../images/agent-settings/agent_settings_sandbox.webp)
 
 ## Overview
 
@@ -77,7 +77,7 @@ While **Claw** is the active kind, the panel shows the instance surface below �
 A search box that filters the instance table by name or URL.
 
 #### Add Instance
-![New Instance dialog with fields for name, type, server URL, and gateway token](/images/docs/os/agent-settings/agent_settings_sandbox_new_instance.webp)
+![New Instance dialog with fields for name, type, server URL, and gateway token](../images/agent-settings/agent_settings_sandbox_new_instance.webp)
 
 Opens the **New Instance** dialog for registering a sandbox runtime. The form takes a display **name**, a fully qualified https **server URL**, the instance **type** (`openclaw`, the default, or `ironclaw`), and an optional **gateway token** for authentication. The token is write-only — it is never read back from the API, so editing an instance re-prompts for it and leaving the field blank keeps the existing one.
 
@@ -94,13 +94,13 @@ Each registered instance is a row with:
 - **Connect** — connects this agent to the instance. Connect is blocked (dimmed, with an explanatory tooltip) when the instance is unhealthy.
 - **"..." actions menu** — per-instance actions including **Edit** (change name, server URL, or type), **Delete** (with confirmation), **Run checks** (health check plus connectivity test), and **Connect**.
 
-![Per-instance actions menu offering Connect, Run checks, Edit, and Delete](/images/docs/os/agent-settings/agent_settings_sandbox_actions.webp)
+![Per-instance actions menu offering Connect, Run checks, Edit, and Delete](../images/agent-settings/agent_settings_sandbox_actions.webp)
 
-![Edit Instance dialog with the name, type, and server URL pre-filled and the gateway token left blank](/images/docs/os/agent-settings/agent_settings_sandbox_edit_instance.webp)
+![Edit Instance dialog with the name, type, and server URL pre-filled and the gateway token left blank](../images/agent-settings/agent_settings_sandbox_edit_instance.webp)
 
 ### Connected state
 
-![Sandbox panel after connecting, showing the Connected Instance card with name, server URL, status, health and last check, Run checks and Disconnect actions, an Auto Push on Save toggle, a Push Configuration row, and a Model row with Select Model](/images/docs/os/agent-settings/agent_settings_sandbox_connected.webp)
+![Sandbox panel after connecting, showing the Connected Instance card with name, server URL, status, health and last check, Run checks and Disconnect actions, an Auto Push on Save toggle, a Push Configuration row, and a Model row with Select Model](../images/agent-settings/agent_settings_sandbox_connected.webp)
 
 Once the agent is connected to an instance, the instance table is replaced by the connected-instance view:
 
@@ -121,7 +121,7 @@ The LLM the sandboxed agent runs on. **Select Model** opens the provider picker,
 
 ## Agent Workspace Prompts
 
-![Prompts section listing the agent workspace files — Identity, Soul, User Context, Tools, Agents, Bootstrap, Heartbeat, and Memory — each with an information tooltip and an Edit button](/images/docs/os/agent-settings/agent_settings_sandbox_prompts.webp)
+![Prompts section listing the agent workspace files — Identity, Soul, User Context, Tools, Agents, Bootstrap, Heartbeat, and Memory — each with an information tooltip and an Edit button](../images/agent-settings/agent_settings_sandbox_prompts.webp)
 
 A connected agent has a workspace on the sandbox made up of eight prompt files, each editable from this panel. They are the same files an agent definition carries on disk, so what you write here is what the runtime reads.
 
@@ -137,7 +137,7 @@ A connected agent has a workspace on the sandbox made up of eight prompt files, 
 | **Memory** | `MEMORY.md` | Seed memory — curated long-term facts the agent starts with |
 
 #### Editing a prompt
-![Edit prompt dialog with a rich-text editor for one workspace file](/images/docs/os/agent-settings/agent_settings_sandbox_edit_prompt.webp)
+![Edit prompt dialog with a rich-text editor for one workspace file](../images/agent-settings/agent_settings_sandbox_edit_prompt.webp)
 
 Each row carries an information tooltip explaining what the file is for and an **Edit** button that opens a rich-text editor. Saving writes the file, creating it if this is the first time it has been set.
 

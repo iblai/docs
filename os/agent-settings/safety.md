@@ -1,6 +1,6 @@
 # Agent Settings: Safety
 
-![Safety panel showing the View Flagged Prompts button, a Moderation Prompt card toggled Active, a Safety Prompt card toggled Inactive, and Moderation Response and Safety Response cards, each with Edit and Copy buttons](/images/docs/os/agent-settings/agent_settings_safety.webp)
+![Safety panel showing the View Flagged Prompts button, a Moderation Prompt card toggled Active, a Safety Prompt card toggled Inactive, and Moderation Response and Safety Response cards, each with Edit and Copy buttons](../images/agent-settings/agent_settings_safety.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Agent Settings: History
 
-![History panel in the Edit Agent modal showing a star rating summary, topic chips, filters for user, date range, sentiment and topic, an Export button, and a conversation list next to a detail pane](/images/docs/os/agent-settings/agent_settings_history.webp)
+![History panel in the Edit Agent modal showing a star rating summary, topic chips, filters for user, date range, sentiment and topic, an Export button, and a conversation list next to a detail pane](../images/agent-settings/agent_settings_history.webp)
 
 ## Overview
 

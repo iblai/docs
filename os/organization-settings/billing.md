@@ -1,6 +1,6 @@
 # Organization Settings: Billing
 
-![Billing page showing the Premium plan, available credits with an Add Credits button, and Auto Recharge settings with threshold, recharge amount, and spending limit](/images/docs/os/organization-settings/organization_settings_billing.webp)
+![Billing page showing the Premium plan, available credits with an Add Credits button, and Auto Recharge settings with threshold, recharge amount, and spending limit](../images/organization-settings/organization_settings_billing.webp)
 
 ## Overview
 
@@ -26,7 +26,7 @@ Shows the current subscription tier with a **Current** badge — **Premium** in 
 The credit balance ("Track your available credits and usage"), e.g. "16,984 Credits — Credits remaining," shown alongside its dollar equivalent and the conversion rate in force. When applicable the card also shows **Consumed** (credits used this period) and **Resets on** (the next reset date).
 
 #### Add Credits
-![Add Credits dialog with an Amount in USD field and a note that the payment method on file will be charged](/images/docs/os/organization-settings/organization_settings_billing_add_credits.webp)
+![Add Credits dialog with an Amount in USD field and a note that the payment method on file will be charged](../images/organization-settings/organization_settings_billing_add_credits.webp)
 
 Opens a dialog to top up manually: enter an **Amount (USD)** and confirm. The dialog notes "Your payment method on file will be charged for this amount." If no payment method exists yet, the button is replaced by **Manage Billing**, which opens the Stripe portal to add one.
 
@@ -34,13 +34,13 @@ Opens a dialog to top up manually: enter an **Amount (USD)** and confirm. The di
 "Top up your balance automatically when credits run low." The card shows an **Enabled**/**Disabled** badge and, when enabled, three stats: **Threshold** (balance at which a recharge triggers, `$0.00` in the screenshot), **Recharge Amount** (how much is added, `$10.00`), and **Spending Limit** (a cap on automatic spending — **Unlimited** when no cap is set).
 
 #### Manage Usage
-![Manage Usage dialog showing the auto-recharge toggle with spending limit, recharge amount, and threshold fields](/images/docs/os/organization-settings/organization_settings_billing_manage_usage.webp)
+![Manage Usage dialog showing the auto-recharge toggle with spending limit, recharge amount, and threshold fields](../images/organization-settings/organization_settings_billing_manage_usage.webp)
 
 Opens the auto-recharge dialog where you toggle the feature and set the threshold, recharge amount, and spending limit (with an Unlimited option). Enabling with empty values applies sensible defaults ($5 threshold, $16 recharge). Auto recharge is available on paid plans once a payment method is on file.
 
 ### Spend Limits
 
-![Spend Limits tab showing the workspace-wide spend cap with its enable toggle, usage strip, spend limit, reset interval, enforcement mode, and alert thresholds](/images/docs/os/organization-settings/organization_settings_billing_spend_limits.webp)
+![Spend Limits tab showing the workspace-wide spend cap with its enable toggle, usage strip, spend limit, reset interval, enforcement mode, and alert thresholds](../images/organization-settings/organization_settings_billing_spend_limits.webp)
 
 #### Workspace-wide limit
 One ceiling covering everything every agent and every user spends in this workspace. It is the same editor as the per-agent one, at the widest scope: an **enable toggle**, a usage strip once a limit exists, **Spend Limit (USD)**, **Resets Every** (Day / Week / Month / Year), **When the Limit Is Reached** (**Block Requests** or **Alert Only**), **Alert At (% of Limit)**, and **Save** / **Delete Limit**.
@@ -50,7 +50,7 @@ Until a limit exists, this tab shows what the workspace has actually spent — t
 
 ### Agent Limits
 
-![Agent Limits tab showing the agent search and a table of every agent with a spend cap, listing Limit, Spent, Remaining, and Status columns](/images/docs/os/organization-settings/organization_settings_billing_agent_limits.webp)
+![Agent Limits tab showing the agent search and a table of every agent with a spend cap, listing Limit, Spent, Remaining, and Status columns](../images/organization-settings/organization_settings_billing_agent_limits.webp)
 
 #### Agent Limits table
 Every agent in the workspace that has a spend cap, in one table: **Agent**, **Limit** written as amount and period (`$10.00 / Day`), **Spent**, **Remaining**, and **Status** — a toggle that saves immediately, carrying **Exceeded** and **Alert-only** badges where they apply.
@@ -59,11 +59,11 @@ Every agent in the workspace that has a spend cap, in one table: **Agent**, **Li
 Filters the table from two characters up. Searching for an agent that has no cap yet offers a **Set a limit** button for it, which is how a limit gets created from this view rather than from the agent itself.
 
 #### Manage
-![Manage popup opened from the Agent Limits table, showing the agent's own spend cap on the This Agent sub-tab](/images/docs/os/organization-settings/organization_settings_billing_agent_limits_manage.webp)
+![Manage popup opened from the Agent Limits table, showing the agent's own spend cap on the This Agent sub-tab](../images/organization-settings/organization_settings_billing_agent_limits_manage.webp)
 
 Opens that agent's full Billing editor in a popup titled with the agent's name — the same **This Agent** and **Per User** sub-tabs documented in [Agent Settings: Billing](/docs/os/agent-settings/billing), so per-user limits can be managed without leaving this page.
 
-![Manage popup on the Per User sub-tab, listing the per-user spend limits configured for that agent](/images/docs/os/organization-settings/organization_settings_billing_agent_limits_per_user.webp)
+![Manage popup on the Per User sub-tab, listing the per-user spend limits configured for that agent](../images/organization-settings/organization_settings_billing_agent_limits_per_user.webp)
 
 ## How to Use
 

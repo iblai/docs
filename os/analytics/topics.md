@@ -1,6 +1,6 @@
 # Analytics: Topics
 
-![Analytics Topics tab showing Topics, Conversations, and Messages stat cards, a Conversations line chart over a 30-day window, and a Topics Details section below, each with Today, 7D, 30D, 90D, and Custom date-range buttons](/images/docs/os/analytics/analytics_topics.webp)
+![Analytics Topics tab showing Topics, Conversations, and Messages stat cards, a Conversations line chart over a 30-day window, and a Topics Details section below, each with Today, 7D, 30D, 90D, and Custom date-range buttons](../images/analytics/analytics_topics.webp)
 
 ## Overview
 

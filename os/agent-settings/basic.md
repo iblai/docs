@@ -1,6 +1,6 @@
 # Agent Settings: Basic
 
-![Settings panel on the Basic sub-tab showing Name, Unique ID, Description, and Category fields, an Image uploader, and Save, Copy, and Delete buttons](/images/docs/os/agent-settings/agent_settings_basic.webp)
+![Settings panel on the Basic sub-tab showing Name, Unique ID, Description, and Category fields, an Image uploader, and Save, Copy, and Delete buttons](../images/agent-settings/agent_settings_basic.webp)
 
 ## Overview
 

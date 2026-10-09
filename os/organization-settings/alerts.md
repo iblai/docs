@@ -1,6 +1,6 @@
 # Organization Settings: Alerts
 
-![Management Alerts tab with a search box, New Alert button, and an empty alerts table showing No alerts found](/images/docs/os/organization-settings/organization_settings_management_alerts.webp)
+![Management Alerts tab with a search box, New Alert button, and an empty alerts table showing No alerts found](../images/organization-settings/organization_settings_management_alerts.webp)
 
 ## Overview
 

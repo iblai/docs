@@ -1,6 +1,6 @@
 # Analytics: Users
 
-![Analytics Users tab showing stat cards for Users logged in right now, Users logged in past 30 days, and Total registered users, above an Active Users bar chart, an Access Times heatmap with a Less active to More active legend, and a User Details section with a search field and a table of User Email, Username, Messages, and Last Active](/images/docs/os/analytics/analytics_users.webp)
+![Analytics Users tab showing stat cards for Users logged in right now, Users logged in past 30 days, and Total registered users, above an Active Users bar chart, an Access Times heatmap with a Less active to More active legend, and a User Details section with a search field and a table of User Email, Username, Messages, and Last Active](../images/analytics/analytics_users.webp)
 
 ## Overview
 

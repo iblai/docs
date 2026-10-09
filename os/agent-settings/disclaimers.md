@@ -1,6 +1,6 @@
 # Agent Settings: Disclaimers
 
-![Disclaimers panel showing a User Agreement card toggled Active with default terms text, and an Advisory card reading "AI is capable of making mistakes. Please review all responses.", each with Edit and Copy buttons](/images/docs/os/agent-settings/agent_settings_disclaimers.webp)
+![Disclaimers panel showing a User Agreement card toggled Active with default terms text, and an Advisory card reading "AI is capable of making mistakes. Please review all responses.", each with Edit and Copy buttons](../images/agent-settings/agent_settings_disclaimers.webp)
 
 ## Overview
 

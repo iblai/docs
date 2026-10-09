@@ -1,6 +1,6 @@
 # Agent Settings: Prompts
 
-![Prompts panel showing System Prompt, Proactive Prompt, Study Prompt, and Guided Prompt cards, each with its content preview, Edit and Copy buttons, and Active/Inactive toggles](/images/docs/os/agent-settings/agent_settings_prompt.webp)
+![Prompts panel showing System Prompt, Proactive Prompt, Study Prompt, and Guided Prompt cards, each with its content preview, Edit and Copy buttons, and Active/Inactive toggles](../images/agent-settings/agent_settings_prompt.webp)
 
 ## Overview
 

@@ -1,6 +1,6 @@
 # Agent Settings: Analytics
 
-![Analytics panel in the Edit Agent modal showing a launcher grid of report cards — Overview, Users, Topics, Transcripts, Costs, Audit, and Data Reports — each with a short description and arrow](/images/docs/os/agent-settings/agent_settings_analytics.webp)
+![Analytics panel in the Edit Agent modal showing a launcher grid of report cards — Overview, Users, Topics, Transcripts, Costs, Audit, and Data Reports — each with a short description and arrow](../images/agent-settings/agent_settings_analytics.webp)
 
 ## Overview
 

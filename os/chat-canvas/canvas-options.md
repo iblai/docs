@@ -1,6 +1,6 @@
 # Canvas Options
 
-![The Canvas AI edit menu expanded from the pencil button, showing the emoji, polish, reading level, and length controls](/images/docs/os/chat-canvas/chat_canvas_options.webp)
+![The Canvas AI edit menu expanded from the pencil button, showing the emoji, polish, reading level, and length controls](../images/chat-canvas/chat_canvas_options.webp)
 
 ## Overview
 

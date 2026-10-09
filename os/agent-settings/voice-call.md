@@ -1,6 +1,6 @@
 # Agent Settings: Voice Call
 
-![Voice call configuration sub-tab showing Call style set to Live conversation, Spoken language set to English, AI provider set to OpenAI, a call voice picker, and Reset and Save changes buttons](/images/docs/os/agent-settings/agent_settings_voice_call.webp)
+![Voice call configuration sub-tab showing Call style set to Live conversation, Spoken language set to English, AI provider set to OpenAI, a call voice picker, and Reset and Save changes buttons](../images/agent-settings/agent_settings_voice_call.webp)
 
 ## Overview
 

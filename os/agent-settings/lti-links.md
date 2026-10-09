@@ -1,6 +1,6 @@
 # Agent Settings: LTI Links
 
-![LTI panel in the Edit Agent modal on the Links sub-tab, showing the LTI enable toggle, the Links, Keys, Tools and Tool Endpoints sub-tabs, and a table with a link name, its target link URI with copy button, and an edit action](/images/docs/os/agent-settings/agent_settings_lti_links.webp)
+![LTI panel in the Edit Agent modal on the Links sub-tab, showing the LTI enable toggle, the Links, Keys, Tools and Tool Endpoints sub-tabs, and a table with a link name, its target link URI with copy button, and an edit action](../images/agent-settings/agent_settings_lti_links.webp)
 
 ## Overview
 

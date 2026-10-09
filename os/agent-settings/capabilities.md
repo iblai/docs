@@ -1,6 +1,6 @@
 # Agent Settings: Capabilities
 
-![Settings panel on the Capabilities sub-tab with toggle groups for Chat Experience, Voice & Calls, and Advanced, including file attachments, verbose reasoning, document retrieval, prompt caching, voice recordings, private mode, and copies](/images/docs/os/agent-settings/agent_settings_capabilities.webp)
+![Settings panel on the Capabilities sub-tab with toggle groups for Chat Experience, Voice & Calls, and Advanced, including file attachments, verbose reasoning, document retrieval, prompt caching, voice recordings, private mode, and copies](../images/agent-settings/agent_settings_capabilities.webp)
 
 ## Overview
 

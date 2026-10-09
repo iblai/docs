@@ -1,6 +1,6 @@
 # Agent Settings: Audit
 
-![Audit panel in the Edit Agent modal with user search, date range, and action filters above a table of audit entries listing user, action description, and relative time](/images/docs/os/agent-settings/agent_settings_audit.webp)
+![Audit panel in the Edit Agent modal with user search, date range, and action filters above a table of audit entries listing user, action description, and relative time](../images/agent-settings/agent_settings_audit.webp)
 
 ## Overview
 

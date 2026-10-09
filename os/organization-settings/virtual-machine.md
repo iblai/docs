@@ -1,6 +1,6 @@
 # Organization Settings: Virtual Machine
 
-![The Virtual Machine tab on the Network Policies sub-tab: an explanatory banner, a New Policy button, and a table with Name, Allowed Hosts, Description, Updated and Actions columns](/images/updates/vm-network-policies-secrets-policies.webp)
+![The Virtual Machine tab on the Network Policies sub-tab: an explanatory banner, a New Policy button, and a table with Name, Allowed Hosts, Description, Updated and Actions columns](../images/updates/vm-network-policies-secrets-policies.webp)
 
 ## Overview
 
@@ -30,7 +30,7 @@ The two record types, each loading its own list and gated on its own permission.
 - Deleting a policy asks for confirmation in its own dialog.
 
 #### Secrets table
-![The same Virtual Machine tab on the Secrets sub-tab, with a New Secret button and a table of Name, Variable, Allowed Hosts, Source, Updated and Actions](/images/updates/vm-network-policies-secrets-secrets.webp)
+![The same Virtual Machine tab on the Secrets sub-tab, with a New Secret button and a table of Name, Variable, Allowed Hosts, Source, Updated and Actions](../images/updates/vm-network-policies-secrets-secrets.webp)
 
 **Name**, **Variable**, **Allowed Hosts**, **Source**, **Updated** and row actions.
 

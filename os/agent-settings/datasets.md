@@ -1,6 +1,6 @@
 # Agent Settings: Datasets
 
-![Datasets panel with a search box, Add Resource button, and a table listing coursecreator-userguide.pdf with type FILE, 58129 tokens, interval, visibility, and status columns](/images/docs/os/agent-settings/agent_settings_datasets.webp)
+![Datasets panel with a search box, Add Resource button, and a table listing coursecreator-userguide.pdf with type FILE, 58129 tokens, interval, visibility, and status columns](../images/agent-settings/agent_settings_datasets.webp)
 
 ## Overview
 

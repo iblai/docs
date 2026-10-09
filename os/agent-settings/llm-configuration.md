@@ -1,6 +1,6 @@
 # Agent Settings: LLM Configuration
 
-![LLM Configuration panel with a Search Providers box and provider cards for Amazon, Anthropic, Microsoft, DeepSeek, Google, Groq, NVIDIA, OpenAI, Perplexity, and xAI, with OpenAI highlighted as selected](/images/docs/os/agent-settings/agent_settings_llm_configuration.webp)
+![LLM Configuration panel with a Search Providers box and provider cards for Amazon, Anthropic, Microsoft, DeepSeek, Google, Groq, NVIDIA, OpenAI, Perplexity, and xAI, with OpenAI highlighted as selected](../images/agent-settings/agent_settings_llm_configuration.webp)
 
 ## Overview
 

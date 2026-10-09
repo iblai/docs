@@ -1,6 +1,6 @@
 # Organization Settings: Users
 
-![Management Users tab showing a searchable user table with Name, Email, Role, Policies, and Status columns and an Invite button](/images/docs/os/organization-settings/organization_settings_management_users.webp)
+![Management Users tab showing a searchable user table with Name, Email, Role, Policies, and Status columns and an Invite button](../images/organization-settings/organization_settings_management_users.webp)
 
 ## Overview
 

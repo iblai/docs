@@ -1,6 +1,6 @@
 # Analytics: Data Reports
 
-![Data Reports screen showing downloadable report cards — Chat History, My Chat History, Recommendation History Report, User Group Member List Report, User Metadata Report, and User Report — each with a description and a download button](/images/docs/os/analytics/analytics_data_reports.webp)
+![Data Reports screen showing downloadable report cards — Chat History, My Chat History, Recommendation History Report, User Group Member List Report, User Metadata Report, and User Report — each with a description and a download button](../images/analytics/analytics_data_reports.webp)
 
 ## Overview
 

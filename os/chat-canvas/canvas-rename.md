@@ -1,6 +1,6 @@
 # Renaming a Canvas
 
-![The Rename Canvas dialog with a Canvas Title field, and Cancel and Save buttons](/images/docs/os/chat-canvas/chat_canvas_rename_title.webp)
+![The Rename Canvas dialog with a Canvas Title field, and Cancel and Save buttons](../images/chat-canvas/chat_canvas_rename_title.webp)
 
 ## Overview
 

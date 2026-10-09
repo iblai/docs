@@ -1,6 +1,6 @@
 # Agent Settings: LTI Tools
 
-![LTI panel in the Edit Agent modal on the Tools sub-tab, showing the LTI enable toggle, the Links, Keys, Tools and Tool Endpoints sub-tabs, a Create LTI Tool button, and a table of tools with name, issuer, client ID, and edit actions](/images/docs/os/agent-settings/agent_settings_lti_tools.webp)
+![LTI panel in the Edit Agent modal on the Tools sub-tab, showing the LTI enable toggle, the Links, Keys, Tools and Tool Endpoints sub-tabs, a Create LTI Tool button, and a table of tools with name, issuer, client ID, and edit actions](../images/agent-settings/agent_settings_lti_tools.webp)
 
 ## Overview
 
@@ -37,7 +37,7 @@ Opens the tool registration form. Its fields hold values that come from the LTI 
 
 Every field except the auth audience is required. Title, issuer, client ID, and the two OIDC URLs come straight from the LMS registration — copy them rather than retyping, since a single character's difference makes launches fail verification.
 
-![Create LTI Tool dialog with fields for the title, issuer, client ID, auth login and token URLs, auth audience, the JWKS key set, the signing key selector, and deployment IDs](/images/docs/os/agent-settings/agent_settings_lti_tool_create.webp)
+![Create LTI Tool dialog with fields for the title, issuer, client ID, auth login and token URLs, auth audience, the JWKS key set, the signing key selector, and deployment IDs](../images/agent-settings/agent_settings_lti_tool_create.webp)
 
 #### Tools table
 Each registered platform is a row with:

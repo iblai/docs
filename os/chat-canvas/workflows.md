@@ -1,6 +1,6 @@
 # Workflows
 
-![Workflow editor showing the node-type sidebar grouped into Core, Tools, Logic, and Data, a canvas with Start, Agent, Guardrails, and End nodes connected by curved edges, a Guardrails configuration panel with safety-check checkboxes, and Connectors, Save, and Publish actions](/images/docs/os/chat-canvas/workflows.webp)
+![Workflow editor showing the node-type sidebar grouped into Core, Tools, Logic, and Data, a canvas with Start, Agent, Guardrails, and End nodes connected by curved edges, a Guardrails configuration panel with safety-check checkboxes, and Connectors, Save, and Publish actions](../images/chat-canvas/workflows.webp)
 
 ## Overview
 

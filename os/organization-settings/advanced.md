@@ -1,6 +1,6 @@
 # Organization Settings: Advanced
 
-![Advanced settings page with the Default Agent selector and toggles for Help Menu, Accessibility Menu, Persistent Chat Input Label, Community Agents, Report Inappropriate Content, Chat History Export, and the Help Center URL field](/images/docs/os/organization-settings/organization_settings_advanced.webp)
+![Advanced settings page with the Default Agent selector and toggles for Help Menu, Accessibility Menu, Persistent Chat Input Label, Community Agents, Report Inappropriate Content, Chat History Export, and the Help Center URL field](../images/organization-settings/organization_settings_advanced.webp)
 
 ## Overview
 

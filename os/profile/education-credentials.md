@@ -1,6 +1,6 @@
 # Profile: Education Credentials
 
-![The Credentials sub-tab of the Education section, showing the search field and an empty state reading "Nothing to show here."](/images/docs/os/profile/user_profile_education_credentials.webp)
+![The Credentials sub-tab of the Education section, showing the search field and an empty state reading "Nothing to show here."](../images/profile/user_profile_education_credentials.webp)
 
 ## Overview
 

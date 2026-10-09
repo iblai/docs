@@ -1,6 +1,6 @@
 # Organization Settings: Policies
 
-![Management Policies tab listing RBAC policies with Policy Name and Role columns and a New Policy button](/images/docs/os/organization-settings/organization_settings_management_policies.webp)
+![Management Policies tab listing RBAC policies with Policy Name and Role columns and a New Policy button](../images/organization-settings/organization_settings_management_policies.webp)
 
 ## Overview
 
