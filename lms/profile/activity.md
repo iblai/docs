@@ -1,5 +1,7 @@
 # Profile: Activity
 
+![The Activity tab of the learner profile with Activity Overview tiles for Skills, Courses, Programs, and Hours, and the Time Spent bar chart](../images/profile/activity.webp)
+
 ## Overview
 
 Activity is the first tab of your learner profile. It summarizes what you have done on the LMS: counts of your skills, credentials, and enrollments, the time you have spent this week, and your standing on the skill leaderboard.

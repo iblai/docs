@@ -1,5 +1,7 @@
 # Analytics: Programs
 
+![The Programs analytics tab with Active Programs, Total Programs, Enrollments, and Total Learners cards and the Program Overtime chart](../images/analytics/programs.webp)
+
 ## Overview
 
 The Programs tab shows enrollment across every program in the organization, and opens a detail page for each program. It works the same way as [Courses](courses.md).

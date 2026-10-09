@@ -1,5 +1,7 @@
 # Organization Settings
 
+![The Management panel opened from the sidebar footer, on the Groups tab, with Users, Groups, Roles, Policies, Teams, Alerts, Applications, and Onboarding tabs and a table of groups](../images/organization-settings/management.webp)
+
 ## Overview
 
 Organization settings are where administrators run the organization behind the LMS: invite people, manage users and permissions, connect AI models and data sources, set up paid access, and change advanced options. These are shared ibl.ai screens, the same ones used in OS, so each is documented once in the [OS Organization Settings](../../os/organization-settings/organization.md) section and linked from here.

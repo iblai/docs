@@ -1,5 +1,7 @@
 # Profile: Public Profile
 
+![The Public Profile tab showing a banner with an edit button, the profile photo, name with an edit button, social icons, and the About, Education, Experience, Skills, Credentials, Resume, and Media tabs](../images/profile/public_profile.webp)
+
 ## Overview
 
 Public Profile is your profile as other people see it: your banner, photo, name, bio, and social links, followed by your education, experience, skills, credentials, resume, and media. It is the last tab of your [learner profile](activity.md).

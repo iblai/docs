@@ -1,5 +1,7 @@
 # Analytics: Transcripts
 
+![The Transcripts analytics tab with average messages, average cost, and average rating cards, the Topics, user, and Clear All filters, a conversation summary line, and the first conversation card](../images/analytics/transcripts.webp)
+
 ## Overview
 
 The Transcripts tab lets you read the conversations people have had with the AI agents, including what the agent retrieved to answer them. See also [OS Analytics: Transcripts](../../os/analytics/transcripts.md), which uses the same viewer.
@@ -14,7 +16,10 @@ The Transcripts tab lets you read the conversations people have had with the AI 
 **Average number of messages per conversation**, **Average cost per conversation**, and **Average rating**.
 
 #### Filters
-**Topics** (choose several, or **Clear All**) and **Filter by user**.
+**Topics** (choose several), a user filter (**All users** by default), and **Clear All**.
+
+#### Summary
+A line above the list totals the filtered conversations: conversations, user queries, assistant responses, and the average sentiment score.
 
 #### Conversation list
 Each conversation shows its message count, estimated cost, creation date, and sentiment (**Positive**, **Neutral**, or **Negative**), paged as "Page X of Y • N total records".

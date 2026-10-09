@@ -1,5 +1,7 @@
 # Common Components
 
+![The expanded LMS sidebar with Home, Courses, Programs, Pathways, Discover, Studio, the Analytics menu open, and the Notifications, Invites, Management, Integrations, Advanced, and Support footer items](../images/common-components/sidebar_expanded.webp)
+
 ## Overview
 
 Many LMS screens are not unique to the LMS. They are shared components from ibl.ai's common component library (`@iblai/iblai-js`) and appear the same way across ibl.ai applications, including [OS](../../os/overview.md). When a shared component improves, every application picks up the change.

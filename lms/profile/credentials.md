@@ -1,5 +1,7 @@
 # Credentials
 
+![The Credentials page with a Search box, a Credentials heading, and the empty state "No credentials found."](../images/profile/credentials.webp)
+
 ## Overview
 
 Credentials lists the certificates and badges you have earned: "Credentials you have earned." Courses award them when you complete or pass them, as set up by the course team in [Settings](../course-administration/settings.md).

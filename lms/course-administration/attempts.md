@@ -1,5 +1,7 @@
 # Course Administration: Attempts
 
+![The Attempts section with the Learner lookup, the Problem attempts card (problem location, score override, Reset attempts, Delete learner state, Rescore, Override score), and the Course-wide actions card](../images/course-administration/course_admin_attempts.webp)
+
 ## Overview
 
 Attempts lets you fix problems with a learner's work on a problem: give them their attempts back, clear their answers, rescore, or set a score by hand. You can act for one learner or for everyone in the course.

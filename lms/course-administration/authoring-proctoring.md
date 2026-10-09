@@ -1,5 +1,7 @@
 # Course Administration: Authoring and Proctoring
 
+![The course Administration navigation with the Authoring and Proctoring links, each marked with an external-link arrow, under the Course group](../images/course-administration/course_admin_authoring_proctoring.webp)
+
 ## Overview
 
 The last two items in the Administration navigation, **Authoring ↗** and **Proctoring ↗**, open tools outside the LMS in a new browser tab.

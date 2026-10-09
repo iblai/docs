@@ -1,5 +1,7 @@
 # Onboarding
 
+![The administrator onboarding flow's first step, "Welcome to ibl.ai", asking for an Organization name with a Continue button and a four-step progress indicator](../images/getting-started/onboarding.webp)
+
 ## Overview
 
 Onboarding is a guided, question-by-question flow that your organization can set up for new members. It runs inside the normal LMS frame at `/onboarding`, with the current step's icon, title, and subtitle shown in the top bar. The questions are configured by your organization's administrators, and the flow ends by introducing you to an AI assistant.
