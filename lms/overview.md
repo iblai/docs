@@ -44,16 +44,16 @@ Each organization has its own catalog, branding, and settings, with single sign-
 
 ## Documentation Map
 
-#### Getting Started
+#### Start
 [Navigating the LMS](getting-started/navigation.md) · [Start Screen](getting-started/start-screen.md) · [Onboarding](getting-started/onboarding.md)
 
 #### Catalog
 [Home](catalog/home.md) · [Discover](catalog/discover.md) · [Course Page](catalog/course-about.md) · [Programs](catalog/programs.md) · [Pathways](catalog/pathways.md)
 
-#### Course Player
+#### Course
 [Course Player](course/layout.md) · [Agent](course/agent.md) · [Course](course/course.md) · [Progress](course/progress.md) · [Dates](course/dates.md) · [Discussions](course/discussions.md) · [Learning Info](course/learning-info.md) · [Instructors](course/instructors.md) · [Bookmarks](course/bookmarks.md)
 
-#### Course Administration
+#### Administration
 [Overview](course-administration/overview.md) · [Grades](course-administration/grades.md) · [Membership](course-administration/membership.md) · [Cohorts](course-administration/cohorts.md) · [Extensions](course-administration/extensions.md) · [Attempts](course-administration/attempts.md) · [Reports](course-administration/reports.md) · [Analytics](course-administration/analytics.md) · [Settings](course-administration/settings.md) · [Authoring and Proctoring](course-administration/authoring-proctoring.md)
 
 #### Profile
@@ -65,7 +65,7 @@ Each organization has its own catalog, branding, and settings, with single sign-
 #### Notifications
 [Inbox](notifications/inbox.md) · [Alerts](notifications/alerts.md)
 
-#### Organization Settings
+#### Organization
 [Organization Settings](organization-settings/overview.md)
 
 #### Common Components
