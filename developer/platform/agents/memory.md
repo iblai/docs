@@ -1,17 +1,20 @@
 # Memory System
 
-The Memory System enables AI agents to remember information about users across conversations. It stores user preferences, learning progress, knowledge gaps, and personal context, making interactions more personalized and contextual.
+The Memory System lets AI agents carry knowledge across conversations — both what they learn about an individual user, and what an administrator wants the agent itself to know for everyone who uses it. It stores user preferences, learning progress, knowledge gaps, personal context, and hand-curated agent knowledge, making interactions more personalized, more consistent, and less repetitive.
 
 ---
 
 ## Overview
 
-The memory system supports two scopes of memory:
+The memory system supports three scopes of memory. The first two are **about a user**; the third is **about the agent**.
 
-| Memory Type | Scope | Description |
-|-------------|-------|-------------|
-| **Global User Memories** | All agents | Facts about the user that apply everywhere (name, profession, preferences) |
-| **Agent-Specific Memories** | Single agent | Context specific to interactions with a particular agent |
+| Memory Type | Scope | Subject | Written by | Description |
+|-------------|-------|---------|------------|-------------|
+| **Global User Memories** | All agents | The user | Auto-extracted from chat, or by hand | Facts about the user that apply everywhere (name, profession, preferences) |
+| **Agent-Specific Memories** | Single agent | The user | Auto-extracted per category, or by hand | Context specific to *this user's* interactions with a particular agent, filed by category |
+| **Agent Knowledge** (Shared Memory) | Single agent | The agent | **By hand only** | Facts, rules and background every person who chats with the agent receives, injected as an `## Agent Knowledge` block |
+
+The distinction that matters: **Agent-Specific Memories** are still keyed to a person — they are what the agent remembers *about you*. **Agent Knowledge** belongs to the agent itself, has no user and no category, is never extracted automatically, and is delivered to everyone it serves. In the OS it is the **Shared Memory** sub-tab of the agent's Memory panel; see [Agent Knowledge API](#agent-knowledge-api-shared-memory).
 
 **Default Memory Categories (Agent-Specific):**
 
@@ -242,6 +245,10 @@ When a user starts a new conversation, relevant memories are retrieved and injec
 The AI receives memories formatted as:
 
 ```markdown
+## Agent Knowledge
+- Our refund window is 30 days
+- Always cite the policy handbook
+
 ## User Information
 - The user is a software engineer with 5 years of experience
 - The user prefers visual explanations with diagrams
@@ -251,6 +258,8 @@ The AI receives memories formatted as:
 - [Learning Goals] The user wants to master system design patterns
 - [Preferences] The user prefers Python code examples over pseudocode
 ```
+
+`## Agent Knowledge` is the agent's shared memory and is the same for every user; the two user sections are retrieved per person by semantic search (roughly the top five global and top five agent-specific memories). Because the knowledge block reaches every user's prompt, it is written only by hand — there is no code path that extracts it from a conversation.
 
 ---
 
@@ -728,6 +737,60 @@ curl -X DELETE \
 
 ---
 
+### Agent Knowledge API (Shared Memory)
+
+**Endpoints:** `/orgs/{org}/agents/{agent}/agent-memories/`
+
+Agent knowledge is scoped to the agent, so the path has **no** `users/{user_id}` segment. Do not confuse it with the user-scoped `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/` above, which lists one user's per-agent memories. The two share the `agent-memories` name and nothing else.
+
+#### List Agent Knowledge
+
+```bash
+curl -X GET \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/agent-memories/?page=1&page_size=20" \
+  -H "Authorization: Token <token>"
+```
+
+Returns a paged list (`page_size` default 20, maximum 100). Optional `start_date` and `end_date` (`YYYY-MM-DD`) filter on the entry's `created_at`.
+
+#### Create Agent Knowledge
+
+```bash
+curl -X POST \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/agent-memories/" \
+  -H "Authorization: Token <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Our refund window is 30 days"}'
+```
+
+`content` is required and must be at least 10 characters. Entries deduplicate on a content hash: an identical entry returns `409` with `{"error": "Memory already exists"}` instead of a duplicate; a new entry returns `201` with the created object.
+
+#### Update Agent Knowledge
+
+```bash
+curl -X PATCH \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/agent-memories/4/" \
+  -H "Authorization: Token <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Our refund window is 45 days"}'
+```
+
+Replaces the entry's content. If the new content collides with another of the agent's entries, returns `409`.
+
+#### Delete Agent Knowledge
+
+```bash
+curl -X DELETE \
+  "https://api.ibl.ai/api/ai-agent/orgs/acme/agents/python-tutor/agent-memories/4/" \
+  -H "Authorization: Token <token>"
+```
+
+Returns `204` with no body. Everyone who chats with the agent stops receiving the entry immediately.
+
+> **Note:** An agent-knowledge object carries `content`, `created_at`, `updated_at` and the creating user, but **no `category` and no `is_auto_generated` field** — the store is shared and manually curated, so the flag that marks an extracted memory elsewhere does not exist on it. Keep personal data out of it: anything about one individual belongs in that individual's memory, where it is scoped to its owner and deletable on request. There is no separate permission for it; the agent's own edit permission governs writes.
+
+---
+
 ### API Endpoints Summary
 
 | Method | Endpoint | Description |
@@ -740,12 +803,18 @@ curl -X DELETE \
 | POST | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/` | Create agent memory |
 | PATCH | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/{id}/` | Update agent memory |
 | DELETE | `/orgs/{org}/users/{user_id}/agents/{agent}/agent-memories/{id}/` | Delete agent memory |
+| GET | `/orgs/{org}/agents/{agent}/agent-memories/` | List agent knowledge (shared memory; paged, start_date / end_date) |
+| POST | `/orgs/{org}/agents/{agent}/agent-memories/` | Create agent knowledge (`409` on duplicate content) |
+| PATCH | `/orgs/{org}/agents/{agent}/agent-memories/{id}/` | Update agent knowledge |
+| DELETE | `/orgs/{org}/agents/{agent}/agent-memories/{id}/` | Delete agent knowledge (`204`) |
 | GET | `/orgs/{org}/users/{user_id}/memsearch-settings/` | Get user settings |
 | PUT | `/orgs/{org}/users/{user_id}/memsearch-settings/` | Update user settings |
 | GET | `/orgs/{org}/agents/{agent}/memory-categories/` | List categories |
 | POST | `/orgs/{org}/agents/{agent}/memory-categories/` | Create category |
 | PATCH | `/orgs/{org}/agents/{agent}/memory-categories/{id}/` | Update category |
 | DELETE | `/orgs/{org}/agents/{agent}/memory-categories/{id}/` | Deactivate category |
+
+Note the two path shapes. Anything **about a user** is nested under `/users/{user_id}/`. Anything **belonging to the agent** — memory categories and agent knowledge — is agent-scoped under `/orgs/{org}/agents/{agent}/` and takes no `user_id`, because there is no user it is about.
 
 ---
 
