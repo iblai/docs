@@ -1,0 +1,135 @@
+# /iblai-vibe-agent-llm
+
+> Mirrored from [`iblai/vibe`](https://github.com/iblai/vibe) · [`skills/agents/iblai-vibe-agent-llm/SKILL.md`](https://github.com/iblai/vibe/blob/main/skills/agents/iblai-vibe-agent-llm/SKILL.md). This page is generated — edit it in the repository, not here.
+
+Add the agent **LLM tab** -- a searchable grid of LLM provider cards with
+a modal for selecting specific models within a chosen provider. This is
+one tab in the wider agent-settings family. All tabs share the same
+`AgentSettingsProvider` wrapper.
+
+![LLM Tab](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-llm/iblai-vibe-agent-llm.png)
+![LLM Selection modal (models of the chosen provider)](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-llm/iblai-vibe-agent-llm-2-model-selection.png)
+
+> **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/docs/skill-setup.md).
+
+## Prerequisites
+
+- Auth must be set up first (`/iblai-vibe-auth`)
+- MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
+- `AgentSettingsProvider` must wrap the route (see `/iblai-vibe-agent-setting`
+  Step 2 if not already set up)
+- Ask the user for a real `mentorId` (agent UUID). Do NOT invent one.
+
+## Step 1: Check Environment
+
+Before proceeding, check for an `iblai.env` in the project root. Look for
+`PLATFORM`, `DOMAIN`, and `TOKEN` variables. If the file does not exist or
+is missing these variables, tell the user:
+"You need an `iblai.env` with your platform configuration. Download the
+template and fill in your values:
+`curl -o iblai.env https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/iblai.env`"
+
+## Step 2: Mount `AgentLLMTab`
+
+`AgentLLMTab` has no required props. Provider names and logos come from
+the backend's model catalogue (the same `mentor-llms` read the picker
+uses), so the host supplies no mapper. Older SDK releases took a required
+`getLLMProviderDetails` prop; it no longer exists.
+
+```tsx
+// app/(app)/agents/[mentorId]/llm/page.tsx
+"use client";
+
+import { AgentLLMTab } from "@iblai/iblai-js/web-containers/next";
+
+export default function AgentLLMPage() {
+  return (
+    <div className="flex h-full flex-col bg-white">
+      <AgentLLMTab />
+    </div>
+  );
+}
+```
+
+The tab reads `tenantKey`, `mentorId` and `username` from the nearest
+`<AgentSettingsProvider>`. Pass `mentorId` to configure a different agent
+than the provider describes — a host can mount the tab in a "switch
+model" dialog opened from the chat chrome, where the agent being
+configured is the one in the chat (the ibl.ai OS does exactly this):
+
+```tsx
+<AgentLLMTab mentorId={chatMentorId} showConfigurationHeader={false} />;
+```
+
+## Step 3: Customize Labels (Optional)
+
+```tsx
+import { AgentLLMTab } from "@iblai/iblai-js/web-containers/next";
+
+<AgentLLMTab
+  labels={{
+    header: { title: "Model configuration" },
+  }}
+/>;
+```
+
+## Step 4: Use MCP Tools for Customization
+
+```
+get_component_info("AgentLLMTab")
+get_component_info("AgentSettingsProvider")
+```
+
+## `<AgentLLMTab>` Props
+
+Import from `@iblai/iblai-js/web-containers/next`.
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `labels` | `DeepPartial<LLMTabLabels>` | No | Override user-visible strings |
+| `showConfigurationHeader` | `boolean` | No | Show/hide the configuration header (default `true`) |
+| `mentorId` | `string` | No | Configure this agent instead of the one from `<AgentSettingsProvider>` — for a model picker opened from a chat |
+
+## Related Exports
+
+From `@iblai/iblai-js/web-containers/next`:
+
+- `AGENT_LLM_TAB_LABELS` -- the default agent-facing label bundle.
+- `LLMTabLabels` -- type for the full label bundle.
+- `LLMProvider`, `LLMProviderType` -- types for provider data structures
+  (`LLMProviderType` is the `{ name, chat_models }` provider row).
+
+From `@iblai/iblai-js/web-containers`, for custom UI that shows a
+provider's name or logo (an agents table, a transcript row):
+
+- `useLlmProviderCatalogue({ org, userId, mentorId })` -- returns a
+  resolver `(llmProvider?, llmName?) => LlmProviderDetails` over the same
+  `mentor-llms` rows the tab reads (the tab reads them directly; the SDK
+  uses this hook for `LlmModelBadge`); a key the catalogue does not list
+  resolves to the raw key and no logo.
+- `LlmProviderDetails` -- `{ logo: string | null; displayName: string }`.
+- `inferProviderKeysFromModel` -- the provider keys a model name implies.
+
+## Step 5: Verify
+
+Run `/iblai-vibe-ops-test` before telling the user the work is ready:
+
+1. `pnpm build` -- must pass with zero errors
+2. `pnpm test` -- vitest must pass
+3. Touch test `/agents/<id>/llm` in the browser as `/iblai-vibe-ops-test` says: open it,
+   use every control this skill added, read the console, check the phone width.
+
+## Important Notes
+
+- **Redux store**: Must include `mentorReducer` and `mentorMiddleware`
+- **`initializeDataLayer()`**: 5 args (v1.2+)
+- **`@reduxjs/toolkit`**: Deduplicated via webpack aliases in `next.config.ts`
+- **Peer deps**: `sonner` and `@iblai/iblai-web-mentor` must be installed
+  (`pnpm add sonner @iblai/iblai-web-mentor`)
+- **Shared provider**: `AgentSettingsProvider` must wrap the route at a
+  layout level. See `/iblai-vibe-agent-setting` Step 2 for the full snippet.
+- **Provider naming is backend-owned**: logos and display names come from
+  the organization's model catalogue, so the tab needs no host mapper.
+  Older SDK releases took a required `getLLMProviderDetails` prop; it no
+  longer exists.
+- **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/BRAND.md)
