@@ -1,4 +1,4 @@
-# LMS
+# ibl.ai/lms
 
 > Mirrored from [`iblai/lms`](https://github.com/iblai/lms) · [`README.md`](https://github.com/iblai/lms/blob/main/README.md). This page is generated — edit it in the repository, not here.
 
@@ -17,8 +17,8 @@ _Deployed at [lms.ibl.ai](https://lms.ibl.ai)_
 ### ⬇️ Get Agentic LMS
 
 [Use it on the Web](https://lms.ibl.ai)
-[Download for macOS](https://github.com/iblai/lms/releases/download/app-v1.0.17/Agentic.LMS_1.0.17_universal.dmg)
-[Download for Windows](https://github.com/iblai/lms/releases/download/app-v1.0.17/Agentic.LMS_1.0.17_x64-setup.exe)
+[Download for macOS](https://github.com/iblai/lms/releases/download/app-v1.0.18/Agentic.LMS_1.0.18_universal.dmg)
+[Download for Windows](https://github.com/iblai/lms/releases/download/app-v1.0.18/Agentic.LMS_1.0.18_x64-setup.exe)
 
 [Download for iOS](https://apps.apple.com/us/app/agentic-lms/id6726998914)
 [Download for Android](https://play.google.com/store/apps/details?id=ai.ibl.skillsai)
