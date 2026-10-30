@@ -48,9 +48,9 @@ The row of tabs under the header. Tabs that don't fit collapse into a **More** m
 | [Discussions](discussions.md) | The course forum | Always |
 | [Learning Info](learning-info.md) | What you will learn | The course lists learning outcomes |
 | [Instructors](instructors.md) | Who teaches the course | The course lists instructors |
-| [Administration](../course-administration/overview.md) | Tools for running the course | You are on the course team, or an administrator |
+| [Administration](../course-administration/overview.md) | Tools for running the course | You are on the course team, or an administrator, and the [User / Admin switch](../getting-started/navigation.md) is on Admin |
 
-A course can limit the Agent and Course tabs to a particular audience (all learners, watchers, or administrators). If you open a tab you can't use, you are moved to the one you can.
+A course can limit the Agent and Course tabs to a particular audience (all learners, watchers, or administrators). If you open a tab you can't use, you are moved to the one you can. Administrators who switch to User see the course's tabs as a learner does.
 
 #### Lesson complete
 In agent-led courses where the agent marks units complete, your organization can turn on a **Lesson complete** dialog. When you finish a unit it asks "Ready to keep learning?" with **Stay here**, **Previous unit**, and **Keep Learning**.
