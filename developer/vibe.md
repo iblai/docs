@@ -5,14 +5,14 @@
 Ship AI-powered apps fast — and run the platform behind them. Backend included.
 
 [Release](https://github.com/iblai/vibe/releases/latest)
-[Skills](https://github.com/iblai/vibe/blob/main/docs/skill-kinds.md)
+[Skills](/developer/vibe/skill-kinds)
 [Next.js](https://nextjs.org)
 [TypeScript](https://www.typescriptlang.org)
 [Tailwind CSS](https://tailwindcss.com)
 [Claude Code](https://claude.ai/code)
 [OpenAI Codex](https://openai.com/codex)
 [Cursor](https://cursor.com)
-[Desktop & Mobile](https://github.com/iblai/vibe/blob/main/skills/ship/iblai-vibe-ops-build/SKILL.md)
+[Desktop & Mobile](/developer/skills/iblai-vibe-ops-build)
 [License: MIT](#license)
 
 > **Note:** This toolkit runs against the hosted `iblai.app` environment. If you'd like a license to the full platform codebase to run locally or self-host, reach out to our team at [ibl.ai/contact](https://ibl.ai/contact).
@@ -84,13 +84,13 @@ What each skill does:
 - `/iblai-vibe-analytics` -- adds analytics dashboards and reporting views.
 - `/iblai-vibe-notification` -- adds notifications UI and notification center flows.
 - `/iblai-vibe-invite` -- adds user invitation dialogs for tenant admin.
-- `/iblai-vibe-workflow` -- adds workflow builder components (sidebar, modals, connectors).
+- `/iblai-vibe-workflow` -- adds agent workflows: the organization's list (opened from an agent) and the visual editor (`WorkflowsList`, `WorkflowEditor`).
 - `/iblai-vibe-local-llm` -- defines the contract for adding on-device LLM inference (Ollama / Foundry) to a Tauri desktop build: Tauri command names, event names, and the React hook shape the SDK consumes via `localLLMProps`.
 - `/iblai-vibe-course-access` -- adds edX course-content pages with outline sidebar, tab strip, iframe, and access control.
 - `/iblai-vibe-course-create` -- drives the ibl.ai Course Creation API to programmatically generate, edit, and publish edX courses.
 - `/iblai-vibe-onboard` -- designs and builds a high-converting questionnaire-style onboarding flow.
 - `/iblai-vibe-ops-build` -- builds and runs the app on desktop and mobile (iOS, Android, macOS, Surface).
-- `/iblai-vibe-ops-test` -- validates the app before it is presented to the user.
+- `/iblai-vibe-ops-test` -- builds, tests and touch tests the app in a real browser before it is presented to the user.
 - `/iblai-vibe-ops-upgrade` -- upgrades the `@iblai/iblai-js` SDK and vibe skills to the latest versions.
 - `/iblai-vibe-scaffold` -- scaffolds a new app or adds features; holds the base + agent project templates and documents the assembly steps.
 - `/iblai-vibe-iconography` -- generates every app-icon size (Tauri desktop, iOS, Windows MSIX, macOS) from a single source image.
@@ -175,10 +175,11 @@ script, a CI job, or your own backend. [How they differ →](docs/skill-kinds.md
 | Folder | What it covers | Skills |
 |---|---|---|
 | [`start/`](skills/start) | The first conversation, connecting your organization, sign-in, the starter | 11 |
-| [`agents/`](skills/agents) | Chat, browse, create, and configure agents — every settings tab | 57 |
+| [`agents/`](skills/agents) | Chat, browse, create, and configure agents — every settings tab | 61 |
 | [`users/`](skills/users) | Profiles, custom user data, memories, roles and admins, invitations | 18 |
 | [`organizations/`](skills/organizations) | Organization settings and metadata, branding, integrations | 10 |
-| [`billing/`](skills/billing) | How you are charged, spend caps, three ways to charge your users | 12 |
+| [`billing/`](skills/billing) | How you are charged, credits, spend caps, choosing a pricing rail | 5 |
+| [`monetization/`](skills/monetization) | Charge your users: app paywall, item sales, subscriptions, revenue | 7 |
 | [`analytics/`](skills/analytics) | Usage, users, topics, transcripts, costs, reports | 2 |
 | [`content/`](skills/content) | Courses, catalog, credentials, admissions, Open edX Studio, avatar video | 26 |
 | [`ship/`](skills/ship) | Test, deploy, hosting, native builds, app stores | 12 |
@@ -243,7 +244,7 @@ The scaffolded app ships with skills that teach Claude how to work with your cod
 | `/iblai-vibe-analytics` | Add analytics dashboard |
 | `/iblai-vibe-notification` | Add notification bell + center page |
 | `/iblai-vibe-invite` | Add user invitation dialogs |
-| `/iblai-vibe-workflow` | Add workflow builder components |
+| `/iblai-vibe-workflow` | Agent workflows: the organization's list + visual editor |
 | `/iblai-vibe-local-llm` | Contract for on-device LLM (Ollama / Foundry) in a Tauri desktop build — command names, event names, hook shape the SDK reads via `localLLMProps` |
 | `/iblai-vibe-course-access` | Add course-content pages (edX user UI) |
 | `/iblai-vibe-course-create` | Generate, edit, and publish edX courses via the ibl.ai Course Creation API |
@@ -251,7 +252,7 @@ The scaffolded app ships with skills that teach Claude how to work with your cod
 | `/iblai-vibe-onboard` | Design and build a high-converting onboarding questionnaire flow |
 | `/iblai-landing` | Build a high-converting landing page using a 12-section conversion framework |
 | `/iblai-vibe-ops-build` | Build and run on desktop and mobile (iOS, Android, macOS, Windows) |
-| `/iblai-vibe-ops-test` | Test your app before showing work to the user |
+| `/iblai-vibe-ops-test` | Build, test and touch test your app in a real browser before showing work |
 | `/iblai-vibe-ops-upgrade` | Upgrade ibl.ai CLI, SDK, and vibe skills to the latest versions |
 | `/iblai-vibe-scaffold` | Scaffold a new app or add features — the base/agent project templates + the assembly steps |
 | `/iblai-vibe-iconography` | Generate every app-icon size (Tauri desktop, iOS, Windows MSIX, macOS) from one source image |
