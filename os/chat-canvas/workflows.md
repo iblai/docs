@@ -25,17 +25,14 @@ The graph itself: nodes joined by curved edges, with panning, zoom, and undo/red
 #### Workflow header
 The workflow's name with an **Active** status badge, an **Unsaved changes** indicator when there is work not yet written, and a **Back** link out to the workflow list.
 
-#### Connectors
-Opens the connector management dialog, where the external connections a workflow's nodes can call are managed.
-
 #### Save and Publish
-**Save** writes the current graph. **Publish** promotes it to the running version — a workflow is validated before it is published, so a graph with a structural problem is refused rather than shipped.
+**Save** writes the current graph. **Publish** saves, validates and makes the workflow **Active** in one call; a graph with a structural problem is refused rather than shipped.
 
 #### Node configuration panel
 Opening a node shows the settings for its type:
 
 - **Start** — the workflow's state variables, added through a modal with a type picker (String, Number, Boolean, Object, List).
-- **Agent** — a name, the instructions for this step, the model it runs on, and a **Continue on error** switch that decides whether a failure here stops the run or lets it carry on.
+- **Agent** — the agent this step runs (**Change** picks it), its model shown read-only, and **Tools** switches that edit that agent's own settings, so a change here affects every chat with that agent.
 - **If / else** — the list of conditions to branch on, added and removed as needed.
 - **While** — the expression that decides whether to loop again.
 - **Transform** — a mode switch between expressions and object form, then the key/value pairs to produce.
@@ -76,6 +73,6 @@ Work is saved as you go and the header tells you when there are unsaved changes.
 
 ## Building Workflows Into Your Own App
 
-The workflow pieces ship in the ibl.ai SDK — the node-type sidebar, the connector management dialog, and the create and delete modals — alongside the data-layer hooks for listing, reading, creating, patching, validating, publishing, and deleting workflows. The canvas and the node configuration panel are built in your own application on top of them, which is what allows a product to define its own node set and layout.
+Since iblai/vibe v2.17.0 (October 29, 2026) the whole builder ships in the ibl.ai SDK: `WorkflowsList` (the organization's workflows, with search, status and Create Workflow) and `WorkflowEditor` (the step sidebar, the canvas, the step configuration panel, workflow variables, validation, Save, Publish, Activate / Deactivate / Delete, and the Preview chat), both imported from `@iblai/iblai-js/web-containers/next`. Your application keeps two thin pages, a list page and an editor page, plus a side-menu entry, and registers `workflowsApiSlice` in its store; the canvas and the node configuration panel no longer have to be built in the host app.
 
-Install the [iblai/vibe](https://github.com/iblai/vibe) skills; the reusable skill for this workflow is [`iblai-vibe-workflow`](https://github.com/iblai/vibe/tree/main/skills/iblai-vibe-workflow), and the SDK overview is at [Vibe SDK](/developer/platform/vibe-sdk).
+Install the [iblai/vibe](https://github.com/iblai/vibe) skills; the reusable skill for this workflow is [`iblai-vibe-workflow`](https://github.com/iblai/vibe/blob/main/skills/agents/iblai-vibe-workflow/SKILL.md), and the SDK overview is at [Vibe SDK](/developer/platform/vibe-sdk).
