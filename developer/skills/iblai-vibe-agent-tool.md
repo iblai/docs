@@ -1,0 +1,425 @@
+# /iblai-vibe-agent-tool
+
+> Mirrored from [`iblai/vibe`](https://github.com/iblai/vibe) · [`skills/agents/iblai-vibe-agent-tool/SKILL.md`](https://github.com/iblai/vibe/blob/main/skills/agents/iblai-vibe-agent-tool/SKILL.md). This page is generated — edit it in the repository, not here.
+
+Add the agent **Tools tab** -- which tools the agent may call while it
+answers. **Scope: per agent.** The enabled set is saved on the agent's
+settings (`tool_slugs`), so it applies to every user who chats with the
+agent. The tab lists every tool the platform offers for the agent, one card
+per tool with an info tooltip and a switch. This is one tab in the
+agent-settings family indexed by `/iblai-vibe-agent`; it shares the
+`AgentSettingsProvider` wrapper with every other tab.
+
+**Tools** -- one card per tool, in the order the API returns them. Hovering
+the info icon shows the tool's description. Each switch saves on its own, at
+once, and toasts "Agent updated successfully".
+
+![Tools tab -- tool list with a description tooltip](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-tool/iblai-vibe-agent-tool-1-tools.png)
+
+**Enabled** -- an enabled tool's switch is blue (here **Screen Sharing**, near
+the end of the list). The list scrolls inside the tab.
+
+![Tools tab -- an enabled tool](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-tool/iblai-vibe-agent-tool-2-enabled.png)
+
+> **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/docs/skill-setup.md).
+
+## Prerequisites
+
+- Auth set up (`/iblai-vibe-auth`, or vibe-starter).
+- `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
+- `@iblai/iblai-js@^2.55.0` (resolves `@iblai/web-containers` 1.56.1). Check with
+  `pnpm why @iblai/web-containers`.
+- A real agent UUID. Ask the user; never invent one.
+
+## Step 1: Check Environment
+
+Look for `iblai.env` in the project root with `PLATFORM`, `DOMAIN`, and
+`TOKEN`. If it is missing, tell the user:
+"You need an `iblai.env` with your platform configuration. Download the
+template and fill in your values:
+`curl -o iblai.env https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/iblai.env`"
+
+## Step 2: Mount `AgentToolsTab`
+
+```tsx
+// app/(app)/agents/[mentorId]/tools/page.tsx
+"use client";
+
+import { AgentToolsTab } from "@iblai/iblai-js/web-containers/next";
+
+export default function AgentToolsPage() {
+  return (
+    <div className="flex h-full flex-col bg-white">
+      <AgentToolsTab />
+    </div>
+  );
+}
+```
+
+The tab reads `tenantKey`, `mentorId`, and `username` from
+`AgentSettingsProvider` and does its own fetching and saving. No props are
+required.
+
+## Step 3: Customize Labels (Optional)
+
+The tab renders with the default agent-facing copy (`AGENT_TOOLS_TAB_LABELS`,
+localized through the SDK's i18n). Pass a partial `labels` object to change
+any string:
+
+```tsx
+import { AgentToolsTab } from "@iblai/iblai-js/web-containers/next";
+
+<AgentToolsTab
+  labels={{
+    header: { title: "Agent tools" },
+    toasts: { toggleSuccess: "Tool updated" },
+  }}
+/>;
+```
+
+Label groups (`ToolsTabLabels`): `header` (`title`, `description`), `infoBox`,
+`moreInfoAbout(name)` (the tooltip trigger's accessible name),
+`switchAriaLabel(name, isEnabled)`, and `toasts` (`toggleSuccess`,
+`toggleError`). Tool names and descriptions come from the API.
+
+## Step 4: Use MCP Tools for Customization
+
+```
+get_component_info("AgentToolsTab")
+get_component_info("AgentSettingsProvider")
+```
+
+## `<AgentToolsTab>` Props
+
+Import from `@iblai/iblai-js/web-containers/next`.
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `labels` | `DeepPartial<ToolsTabLabels>` | No | Override user-visible strings |
+
+## Related Exports
+
+From `@iblai/iblai-js/web-containers/next`:
+
+- `AGENT_TOOLS_TAB_LABELS` -- the default label bundle.
+- `useToggleTools({ tools, activeMentorId, tenantKey, username })` -- an
+  agent-level setter: `toggleTools(slug)` adds or removes one slug from the
+  `tools` you pass and saves the result as the agent's whole `tool_slugs`
+  (it never reads the current set; the chat's tool chips change only the
+  session instead).
+- `AgentToolsTabProps`, `ToolsTabLabels` -- types.
+
+## How it saves
+
+| Action | Request |
+|---|---|
+| Load | `GET mentors/{uuid}/available-tools/` (`display_name`, `slug`, `description`) and the agent's settings (`mentor_tools[].slug`) |
+| Flip a switch | `PUT mentors/{uuid}/settings/` with the whole new `tool_slugs` list and `can_use_tools` (`true` while any tool is on) |
+
+Every switch is disabled while a save is in flight. Slugs seen on the live
+platform: `web-search`, `code-interpreter`, `deep-research`,
+`image-generation`, `video-generation`, `mcp`, `screen-share`, `study-mode`,
+`human-support`, `google-calendar`, `google-docs`, `google-slides`,
+`grading`, `course-creation`, `lesson-completion`,
+`advanced-document-search` (read the list; it varies by organization).
+
+## Platform data
+
+| Hook | Purpose |
+|---|---|
+| `useGetToolsQuery` | Tools the agent can use |
+| `useGetMentorSettingsQuery` | The agent's enabled tools |
+| `useEditMentorMutation` | Save the new set |
+
+REST twin: [`/iblai-api-agent-tool`](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-api-agent-tool/SKILL.md).
+
+## Step 5: Verify
+
+Run `/iblai-vibe-ops-test` before telling the user the work is ready:
+
+1. `pnpm build` -- must pass with zero errors.
+2. `pnpm test` -- vitest must pass.
+3. Touch test `/agents/<uuid>/tools` in the browser as `/iblai-vibe-ops-test` says: one card
+   per tool; flip a switch, reload -- it stays flipped; flip it back; read the console;
+   check the phone width.
+
+## Important Notes
+
+- **Per agent, not per user**: every user who chats with the agent gets the
+  same tools.
+- **MCP needs two things**: the **MCP** switch here (`mcp` in
+  `tool_slugs`) and at least one server assigned to the agent
+  (`/iblai-vibe-agent-mcp`).
+- **Some tools need setup elsewhere**: Google Calendar / Docs / Slides need a
+  connected account, Human Support needs the support inbox
+  (`/iblai-vibe-agent-support`), Screen Sharing works inside voice calls
+  (`/iblai-vibe-agent-voice`).
+- **Shared provider**: mount `AgentSettingsProvider` once at the layout
+  level (`/iblai-vibe-agent` §1); do not wrap each tab.
+- **Peer deps**: `sonner` and `@iblai/iblai-web-mentor`
+  (`pnpm add sonner @iblai/iblai-web-mentor`).
+- **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/BRAND.md)
+
+## MCP Servers REST API
+
+For custom UI beyond `<AgentToolsTab>` — register external MCP servers and
+bind them to agents. All endpoints are prefixed with
+`${dmUrl}/api/ai-mentor/orgs/{org}/users/{user_id}/` where `dmUrl` is
+`NEXT_PUBLIC_API_BASE_URL`. Organization admins only.
+
+### Workflow
+
+1. **Enable the MCP tool on the agent** (so the runtime will use MCP servers).
+2. **Register an MCP server** record (URL, transport, auth_type).
+3. **Create a connection** binding credentials to a scope (`platform`, `user`,
+   or `mentor`).
+4. **Assign servers to the agent** via the agent settings endpoint.
+
+### 1. Enable MCP tool on the agent
+
+| Method | Path | Body |
+|---|---|---|
+| PUT | `mentors/{mentor_id}/settings/` | `{ "tool_slugs": ["mcp", ...], "can_use_tools": true }` |
+
+`tool_slugs` **replaces** the existing list -- read the current
+`mentor_tools` first and add `mcp` to it. Omit the field to leave it
+unchanged (`null` is a 400); `[]` clears all tools.
+
+### 2. MCP Servers
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `mcp-servers/` | List organization servers |
+| POST | `mcp-servers/` | Register a new server |
+| PATCH/PUT | `mcp-servers/{id}/` | Update |
+| DELETE | `mcp-servers/{id}/` | Delete |
+| GET | `mcp-servers/oauth-find/` | Find a server by OAuth provider/service |
+
+**Create body:**
+
+```json
+{
+  "name": "Google Drive MCP",
+  "description": "Search and index Drive documents",
+  "url": "https://drive-mcp.example.com",
+  "transport": "sse",
+  "auth_type": "oauth2",
+  "is_featured": false,
+  "is_enabled": true
+}
+```
+
+- `transport`: `sse` | `websocket` | `streamable_http`
+- `auth_type`: `none` | `token` | `oauth2` — *how* credentials are presented
+- `auth_scope`: `platform` (default) | `mentor` | `user` — *whose*
+  credentials are used. `auth_type=oauth2` + `auth_scope=user` triggers
+  the in-chat OAuth handshake (see In-Chat MCP Events below).
+- For `auth_type=token`, set `credentials` to the full header value
+  (e.g. `"Bearer abc123"`).
+
+### 3. MCP Server Connections
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `mcp-server-connections/` | List connections |
+| POST | `mcp-server-connections/` | Create a connection |
+| PATCH/PUT | `mcp-server-connections/{id}/` | Update / toggle `is_active` |
+| DELETE | `mcp-server-connections/{id}/` | Delete |
+
+**Token (platform scope):**
+
+```json
+{
+  "server": 9,
+  "scope": "platform",
+  "auth_type": "token",
+  "credentials": "Token super-secret",
+  "authorization_scheme": "Token",
+  "extra_headers": { "x-mcp-client": "mentor-ui" }
+}
+```
+
+**OAuth (user scope)** — requires an existing `ConnectedService` (see the
+OAuth connectors flow):
+
+```json
+{
+  "server": 9,
+  "scope": "user",
+  "auth_type": "oauth2",
+  "user": "alice",
+  "connected_service": 77
+}
+```
+
+**Agent scope** — bind credentials to a single agent while keeping the
+server reusable:
+
+```json
+{
+  "server": 9,
+  "scope": "mentor",
+  "auth_type": "token",
+  "mentor": 123,
+  "credentials": "Token scoped-to-mentor",
+  "authorization_scheme": "Token"
+}
+```
+
+Returned credentials are **masked** (e.g. `"******90"`); only send a new
+value when the user intentionally rotates the secret.
+
+### 4. Assign servers to an agent
+
+| Method | Path | Body |
+|---|---|---|
+| PUT | `mentors/{mentor}/settings/` | `{ "mcp_servers": [1, 2] }` |
+
+The `mcp_servers` array replaces the agent's current list. Pass `null` to
+leave unchanged; `[]` clears all servers.
+
+### Resolution order at runtime
+
+1. User-scoped connection (matching invoking user)
+2. Agent-scoped connection (matching active agent)
+3. Platform-scoped connection
+4. Featured server fallback (`is_featured=true` global platform)
+
+### Common errors
+
+- `400 Selected MCP server is not available to the current tenant.` — the
+  server belongs to another organization and is not `is_featured=true`.
+- `400 OAuth2 connections require a connected service.` — create the OAuth
+  connector first and pass `connected_service`.
+
+### UI hints by `auth_type`
+
+- `none`: informational only.
+- `token`: inputs for `credentials`, `authorization_scheme`, optional
+  header key–value pairs.
+- `oauth2`: `ConnectedService` picker filtered by provider/service. Hide
+  the Connect action until OAuth is completed, otherwise the API returns
+  `400`.
+
+## OAuth Connectors REST API
+
+For OAuth-backed MCP servers (`auth_type=oauth2`), each user must grant
+permission once per provider/service before a connection can reference a
+`ConnectedService`. All endpoints are under `${dmUrl}/api/accounts/`. Auth:
+`Authorization: Token {token}`.
+
+### Endpoints
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `orgs/{org}/oauth-services/` | List enabled services across all providers |
+| GET | `orgs/{org}/oauth-services/{service_name}/scopes/` | Per-service scope breakdown |
+| GET | `connected-services/orgs/{org}/users/{user_id}/{provider}/{service}/` | Start flow — returns `{ auth_url }` |
+| GET | `connected-services/callback/?code=...&state=...` | Handle vendor redirect; persists `ConnectedService` |
+| GET | `connected-services/orgs/{org}/users/{user_id}/` | List the user's connected services |
+| DELETE | `connected-services/orgs/{org}/users/{user_id}/{id}/` | Revoke a connection |
+
+### Flow
+
+1. List services → discover what's available.
+2. Start flow → open returned `auth_url` in a new window/tab.
+3. Vendor redirects to the configured `redirect_uri`; relay
+   `code` + `state` to the callback endpoint **without modification**.
+4. Callback returns the persisted `ConnectedService` (id, provider, service,
+   `expires_at`, `scope`). Tokens auto-refresh server-side.
+
+### Prereqs (admin)
+
+Organization admin must store `auth_{provider}` credentials with `client_id`,
+`client_secret`, and `redirect_uri` in the credential store. A start
+endpoint returning `400 "No credentials found"` means this is missing.
+
+### Common errors
+
+- `400 "No credentials found"` — admin must configure `auth_{provider}`.
+- `Invalid state` — start and callback ran in different browser contexts
+  or state expired (>60 min).
+- `Could not exchange auth token` — provider rejected the code; verify
+  `redirect_uri` matches.
+
+## In-Chat MCP Events (WebSocket / SSE)
+
+When `auth_type=oauth2` + `auth_scope=user` and no user-scoped
+`MCPServerConnection` exists, the chat consumer pauses the active session
+and emits events on the existing chat socket. Parse JSON, switch on
+`type`.
+
+### `oauth_required`
+
+Backend is about to call an MCP server with no user connection. Show
+`auth_url` to the user; the backend now polls every 10s.
+
+```json
+{
+  "type": "oauth_required",
+  "server_name": "Google Drive MCP",
+  "server_id": 42,
+  "auth_url": "https://accounts.google.com/o/oauth2/v2/auth?...",
+  "message": "Authentication required for MCP server '...'."
+}
+```
+
+UI: open `auth_url` in a popup/new tab (providers block framing). Show a
+"waiting" indicator. Do NOT close the chat socket — resolution arrives on
+the same connection.
+
+### `oauth_connection_resolved`
+
+Polling detected the new connection; chat resumes automatically.
+
+```json
+{ "type": "oauth_connection_resolved", "server_name": "...", "server_id": 42, "message": "..." }
+```
+
+UI: dismiss the prompt. Optionally toast success.
+
+### `mcp_tools_retrieved`
+
+A tool fetch failed but a retry succeeded (up to 3 retries with 1s/2s/4s
+backoff). Informational only.
+
+```json
+{ "type": "mcp_tools_retrieved", "session_id": "...", "mentor_id": "..." }
+```
+
+### `warning`
+
+Non-OAuth MCP failure (server unreachable, bad config, retries exhausted).
+Chat continues without MCP tools.
+
+```json
+{ "type": "warning", "message": "...", "developer_error": "...", "code": 503 }
+```
+
+UI: non-blocking banner using `message`. Log `developer_error` (do NOT
+show to end users).
+
+### `error` (ChatValidationError)
+
+Terminates the turn. Three MCP-related cases:
+
+1. **OAuth timeout** (no completion within `MCP_OAUTH_MAX_WAIT_SECONDS` =
+   300s).
+2. **OAuth URL build failure** (missing credentials, unknown provider).
+3. **Missing connected service** (oauth2 connection record without linked
+   `ConnectedService`).
+
+```json
+{ "error": "Timed out waiting for OAuth authentication...", "status_code": 400 }
+```
+
+UI: display `error` (already user-safe). Offer Retry. WebSocket transports
+close after this; if the user finishes OAuth after the timeout, their next
+message will succeed because the connection is now in place.
+
+### Timing constants
+
+| Constant | Value |
+|---|---|
+| `MCP_OAUTH_MAX_WAIT_SECONDS` | 300 (5 min) |
+| `MCP_OAUTH_POLL_INTERVAL_SECONDS` | 10 |
