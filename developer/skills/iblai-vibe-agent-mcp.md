@@ -1,0 +1,492 @@
+# /iblai-vibe-agent-mcp
+
+> Mirrored from [`iblai/vibe`](https://github.com/iblai/vibe) · [`skills/agents/iblai-vibe-agent-mcp/SKILL.md`](https://github.com/iblai/vibe/blob/main/skills/agents/iblai-vibe-agent-mcp/SKILL.md). This page is generated — edit it in the repository, not here.
+
+Add the agent **MCP tab** -- the outside services (Model Context Protocol
+servers) an agent can use in chats. **Featured** connectors are curated by
+the platform, **Directory** lists the MCP directory plus the organization's
+own connectors, and every card has one switch: on or off **for this agent**.
+Configure (the gear) sets how a connector signs in for the agent, whether
+users may turn it off, and the organization's own OAuth app. The same
+connectors reach the chat: the composer's `+` menu gets an **MCP** row with
+a per-chat switch per connector, which every user can use. This is one tab
+in the agent-settings family; all tabs share `AgentSettingsProvider`.
+
+![MCP tab — Featured](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-featured.png)
+
+![MCP tab — Directory](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-connectors.png)
+
+![Add MCP Connector](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-add.png)
+
+![Configure MCP Connector — sign-in scope and connection](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-edit.png)
+
+![Configure — App Credentials](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-configure-credentials.png)
+
+![Configure — Advanced app settings](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-configure-advanced.png)
+
+![Chat composer — the MCP row](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-chat-menu.png)
+
+![Chat composer — the MCP panel](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-chat-panel.png)
+
+> **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/docs/skill-setup.md).
+
+## Prerequisites
+
+- Auth must be set up first (`/iblai-vibe-auth`)
+- MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
+- `AgentSettingsProvider` must wrap the route (see `/iblai-vibe-agent-setting`
+  Step 2 if not already set up)
+- `@iblai/iblai-js@^2.62.1` (resolves `@iblai/web-containers` 1.62.1): the
+  Featured / Directory tabs, per-agent sign-in scope, "Allow Users to Turn
+  Off", App Credentials and the chat's MCP panel arrived in
+  `@iblai/web-containers` 1.58.1 and are not in earlier releases
+- Ask the user for a real `mentorId` (agent UUID). Do NOT invent one.
+
+## Step 1: Check Environment
+
+Before proceeding, check for an `iblai.env` in the project root with
+`PLATFORM`, `DOMAIN`, and `TOKEN`. If it is missing or incomplete, tell the
+user: "You need an `iblai.env` with your platform configuration. Download
+the template and fill in your values:
+`curl -o iblai.env https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/iblai.env`"
+
+## Step 2: Mount `McpTab`
+
+```tsx
+// app/(app)/agents/[mentorId]/mcp/page.tsx
+"use client";
+
+import { McpTab } from "@iblai/iblai-js/web-containers/next";
+
+export default function AgentMCPPage() {
+  return (
+    <div className="flex h-full flex-col bg-white">
+      <McpTab />
+    </div>
+  );
+}
+```
+
+`McpTab` reads `tenantKey`, `mentorId`, `username`, `enableRBAC` and
+`rbacPermissions` from `AgentSettingsProvider`; no props are required.
+
+### With a select handler (picker mode)
+
+Inside a picker (the workflow editor's MCP step uses this) pass `onSelect`:
+every card gets a **Select** button; picking a connector that is off turns
+it on for the agent first (opening its shared sign-in when needed), then
+calls the handler.
+
+```tsx
+import { McpTab } from "@iblai/iblai-js/web-containers/next";
+
+<McpTab
+  onSelect={(server) => {
+    console.log("connector selected", server.id, server.name);
+  }}
+/>;
+```
+
+## Step 3: Register `mcpApiSlice` in the store
+
+The MCP endpoints live on their own slice that `mentorReducer` /
+`mentorMiddleware` do not include, and the `Chat` composer queries them in
+every signed-in chat (for the `+` menu's MCP row). Without it `pnpm dev`
+throws `Middleware for RTK-Query API at reducerPath "mcpApiSlice" has not
+been added to the store` on the home chat, and a production build stores
+no MCP response: no MCP row, and the tab never gets its lists. vibe-starter
+ships the two lines; an older store needs them added:
+
+```typescript
+// store/iblai-store.ts
+import { configureStore } from "@reduxjs/toolkit";
+import {
+  coreApiSlice,
+  mentorReducer,
+  mentorMiddleware,
+  mcpApiSlice,
+} from "@iblai/iblai-js/data-layer";
+import {
+  hostChatReducer,
+  chatInputSliceReducer,
+  chatSliceReducerShared,
+  filesReducer,
+  rbacReducer,
+  subscriptionReducer,
+  topBannerReducer,
+} from "@iblai/iblai-js/web-utils";
+
+export const iblaiStore = configureStore({
+  reducer: {
+    [coreApiSlice.reducerPath]: coreApiSlice.reducer,
+    ...mentorReducer,
+    [mcpApiSlice.reducerPath]: mcpApiSlice.reducer, // + MCP
+    chat: hostChatReducer,
+    chatInput: chatInputSliceReducer,
+    chatSliceShared: chatSliceReducerShared,
+    files: filesReducer,
+    rbac: rbacReducer,
+    subscription: subscriptionReducer,
+    topBanner: topBannerReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false })
+      .concat(coreApiSlice.middleware)
+      .concat(mcpApiSlice.middleware) // + MCP
+      .concat(...mentorMiddleware),
+});
+
+export type IblaiRootState = ReturnType<typeof iblaiStore.getState>;
+export type IblaiAppDispatch = typeof iblaiStore.dispatch;
+```
+
+## Step 4: Add the sign-in return page
+
+A **Connect** opens the service's sign-in in a new tab. Where the user
+lands afterwards is the redirect URI stored on the organization's OAuth
+client for that service, which the SDK sets to this app's
+`/google-oauth-callback/` (the path is fixed) when the client is registered
+from this app: **Add** with OAuth sends this origin's page as `oauth-find`'s
+`callback_url`, and **App Credentials** defaults the Redirect URI to it.
+Featured connectors on the shared ibl.ai app return to the platform's own
+page; the tab still completes, since it also polls the user's connected
+services every 5 s for five minutes. vibe-starter does not ship the page,
+so add it. It finishes the handshake through the SDK's callback query and
+tells the opener both ways the SDK listens: `postMessage` and `localStorage`.
+
+The stored address is **organization-wide**: an OAuth connector first added
+from `http://localhost:3000` sends that service's sign-ins for the whole
+organization, os.ibl.ai included, to localhost. Add OAuth connectors from the
+deployed host, never from a dev server.
+
+```tsx
+// app/google-oauth-callback/page.tsx
+"use client";
+
+import { Suspense, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
+import { useLazyConnectedServicesCallbackQuery } from "@iblai/iblai-js/data-layer";
+
+export default function OAuthCallbackPage() {
+  // useSearchParams() needs a Suspense boundary in the App Router.
+  return (
+    <Suspense fallback={null}>
+      <OAuthCallback />
+    </Suspense>
+  );
+}
+
+function OAuthCallback() {
+  const searchParams = useSearchParams();
+  const [finishSignIn] = useLazyConnectedServicesCallbackQuery();
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (started.current) return;
+    started.current = true;
+    // Relay the provider's query string as is (never alter `state`).
+    const params: Record<string, string> = {};
+    searchParams.forEach((value, key) => {
+      params[key] = value;
+    });
+    params.redirect_uri = `${window.location.origin}/google-oauth-callback/`;
+
+    finishSignIn(params)
+      .unwrap()
+      .then((result) => {
+        const done = {
+          connectedServiceId: result?.id as number | undefined,
+          provider: result?.provider as string | undefined,
+          serviceName: result?.service as string | undefined,
+          serverId: readPendingServer()?.serverId,
+          timestamp: Date.now(),
+        };
+        window.opener?.postMessage(
+          { type: "GOOGLE_AUTH_SUCCESS", ...done },
+          window.location.origin,
+        );
+        try {
+          localStorage.setItem("oauth_connection_complete", JSON.stringify(done));
+        } catch {
+          // Private mode: the postMessage above still reaches the opener.
+        }
+      })
+      .catch(() => {
+        // The opener keeps polling and gives up after its own timeout.
+      })
+      .finally(() => setTimeout(() => window.close(), 1000));
+  }, [searchParams, finishSignIn]);
+
+  return <p className="p-6 text-sm text-gray-600">Finishing sign-in…</p>;
+}
+
+// The SDK stores the connector a sign-in was started for.
+function readPendingServer(): { serverId?: number } | null {
+  try {
+    return JSON.parse(localStorage.getItem("oauth_pending_server") ?? "null");
+  } catch {
+    return null;
+  }
+}
+```
+
+Keep the page outside `AuthProvider` / `TenantProvider`, as the starter
+does for `/sso-login`: the callback endpoint needs no session, and if the
+auth check fails in the tab (an expired token, a sign-out elsewhere) the
+redirect keeps only the pathname, so `code` and `state` are lost and the
+opener gives up after five minutes. In `providers/iblai-providers.tsx`,
+widen the one check both providers' `skip` reads:
+
+```ts
+const isSsoRoute =
+  (pathname?.startsWith("/sso-login") || pathname?.startsWith("/google-oauth-callback")) ?? false;
+```
+
+For a connector that signs in through the organization's own OAuth app,
+`https://<your host>/google-oauth-callback/` is the **Redirect URI** to
+register with the service (the Configure dialog shows and copies it).
+
+## Step 5: Use MCP Tools for Customization
+
+```
+get_component_info("McpTab")
+get_component_info("McpServersMenu")
+get_component_info("AgentSettingsProvider")
+get_api_query_info("useGetMCPServersQuery")
+```
+
+## `<McpTab>` Props
+
+Import from `@iblai/iblai-js/web-containers/next`.
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `onSelect` | `(server: MCPServer) => void` | No | Adds a **Select** button to every card. Without it the tab is the agent's manager view. |
+
+## What the tab renders
+
+- **Header** -- "MCP" and its one-line description.
+- **Filters bar** -- search by name, a date-range picker (by `created_at`),
+  and a transport filter (All / SSE / WebSocket / Streamable HTTP; the
+  WebSocket choice makes the list requests fail, see below).
+- **Featured / Directory** sub-tabs, shown as soon as the organization has
+  featured connectors. **Featured** is the platform-curated set
+  (`is_featured`), **Directory** is everything else the agent may use: the
+  MCP directory (`registry.source === "registry"`) and the organization's
+  own connectors (`include_global`, agent-bound ones included). 12 cards a
+  page, with a pager per list.
+- **A card** -- logo, name, a **scope pill** for sign-in connectors
+  (**User**, **Agent** or **Organization**: whose account the agent uses;
+  hover explains), a transport chip (Directory only), the description, and
+  the actions:
+  - the **switch** -- "On for this agent" / "Off for this agent". On adds
+    the connector to the agent's `mcp_servers` and, the first time, the
+    `mcp` tool with `can_use_tools`; off removes it, and the last one off
+    drops the `mcp` tool again. A connector that signs in once for everyone
+    (scope Agent or Organization) with no such sign-in yet also opens that
+    sign-in when switched on.
+  - the **gear** -- Configure (below).
+  - the **trash** -- Directory only, the organization's own connectors
+    only, with the delete permission. Featured and directory connectors
+    cannot be edited or deleted by an organization.
+- **Add Connector** -- needs the `/mcpservers/#create` permission.
+
+### Add MCP Connector
+
+| Field | Notes |
+|---|---|
+| Connector image | Optional file upload (image/*, under 2 MB). |
+| Connector Name | Required -- the name people see in the chat and in agent settings. |
+| Connector Server | Required -- the MCP server's address (`https://…`). |
+| Description | Optional -- shows on the card. |
+| Connector Scope | **All Agents** (`mentor: null`) or **This Agent** (`mentor: <uuid>`) -- which agents in the organization may use it. |
+| Allow Users to Turn Off | On (default): people can switch it off in their own chats. Off: it stays on in every chat and nobody can switch it off (`user_can_disable: false`). |
+| Transport | Streamable Http (default) or SSE. Websocket is still offered, but the platform refuses it (`transport` accepts `sse` and `streamable_http` only; Connect answers 400). |
+| Authentication Method | **No Authentication**, **API Key** or **OAuth**. |
+| Token Type / Token | API Key only: Bearer or a custom scheme, and the key (hidden after save; leave it to keep the stored one). |
+| Authentication Scope | OAuth only: **User** (each person signs in with their own account from the chat), **Agent** (one shared account for everyone who chats with this agent) or **Organization** (one shared account for every agent). |
+
+**Connect** saves the connector and turns it on for the agent. For OAuth it
+first asks the platform to find the service's sign-in settings
+(`oauth-find`), then opens the sign-in. When the service cannot register an
+app by itself, publishes no sign-in settings, or the organization already
+has an app for it, the dialog stays open and shows **App Credentials**: the
+Redirect URI to register with the service (copy button), **Client ID**,
+**Client Secret** (blank for a public app), and under **Advanced** the
+Permissions (scopes, pre-filled from what was discovered), **How the Secret
+Is Sent** (in the request, HTTP Basic, or none), **Extra Sign-In / Token
+Settings** (`name=value` lines), and the **Authorization URL / Token URL**
+when the service publishes none. Save, and the sign-in opens through that
+app. A server that did not answer, a blocked address or a timeout shows one
+sentence under the address instead.
+
+### Configure MCP Connector
+
+The gear opens the same form on an existing connector. For the
+organization's own connector everything is editable (changing the server
+address of an OAuth connector restarts the sign-in). For a **featured or
+directory** connector the fields are read-only; only two settings, both
+**for this agent**, and the organization's App Credentials can change:
+
+- **Authentication Scope** -- stored as the agent's override of the
+  connector's own scope; the card's pill follows it. Choosing Agent or
+  Organization while the agent has no such sign-in turns the connector off
+  until it is switched on again (which opens the sign-in).
+- **Allow Users to Turn Off** -- shown, but the platform refuses it for a
+  featured or directory connector (404 unless your organization owns the
+  connector; the tab says "Your organization can't change this setting").
+  Only the owning organization can make such a connector mandatory.
+
+Under Authentication Scope, **Connection** shows Connected / Not Connected
+with **Connect** or **Disconnect** for the saved scope: the admin's own
+sign-in for User scope, the shared account otherwise. Disconnecting a
+shared sign-in also turns the connector off for the agent. **App
+Credentials** shows the organization's app for an OAuth connector (secret
+masked, "Saved. Enter a new one to replace it."), with **Remove
+Credentials**; everyone who signed in through it must sign in again.
+
+### The chat's MCP panel (for every user)
+
+`Chat` (`/iblai-vibe-agent-chat`) adds an **MCP** row to the composer's `+`
+menu by itself when the user is signed in, the chat is not embedded, and
+the agent has at least one connector on. Its badge counts the connectors
+that are on for this chat and signed in. The panel lists the agent's
+connectors (name, logo, description) with one switch each:
+
+- **On / Off for this chat** -- saved as the user's choice for this
+  conversation and applied from their next message. A new chat starts on
+  (or from the user's lasting choice, which only the API sets).
+- a **lock** -- "Required by your organization": the connector was saved
+  with Allow Users to Turn Off off, so the switch cannot move.
+- a **User**-scope OAuth connector the person has not signed in to shows
+  off; turning it on opens their own sign-in (an explainer dialog says so
+  once per user; pop-ups must be allowed) and the agent uses it from the
+  next message. Shared sign-ins are never done from the chat.
+
+With RBAC off, anyone who can chat gets the panel. With RBAC on, the row
+needs read access to the agent's `mcp_servers` field
+(`Ibl.Mentor/Settings/mcp_servers/read`): the seeded chat role does not
+have it, the settings read then omits the servers, and students see no MCP
+row until the role is granted it. Embedded chats (`embed`) never show the
+row.
+
+## Who sees what
+
+The tab shows a control when the RBAC grant allows it; the platform then
+decides for itself, and the two do not always agree:
+
+| Control | The tab shows it with | The platform accepts it from |
+|---|---|---|
+| Cards and the per-agent switch | read / write on the agent's `mcp_servers` field | whoever may write the agent's settings |
+| Add Connector | `/mcpservers/#create` | the same |
+| Delete | the connector's object delete permission (own connectors only) | the owning organization |
+| Authentication Scope (Configure) | write on `mcp_servers` | an **organization admin** or the Platform API Token (`mentor-auth-scope/` answers 403 "A mentor's MCP connection mode is set by platform admins." to anyone else, and 404 while the connector is off for the agent, which is why the tab stores the choice when the switch goes on) |
+| App Credentials | `/mcpservers/#create` | an **organization admin** or the Platform API Token (`credentials/` answers 403 "MCP server credentials are limited to platform admins.") |
+| Allow Users to Turn Off on a featured / directory connector | write on `mcp_servers` | the owning organization only (404 otherwise) |
+| The chat's MCP panel | signing in, plus read on `mcp_servers` when RBAC is on | the user's own preferences |
+
+With `enableRBAC` off, everything is shown; the platform's rules still apply.
+
+## The five switches, side by side
+
+| Setting | Where | Wire | Who it affects |
+|---|---|---|---|
+| Connector Scope | Add / Configure | `mentor` on the server (`null` = all agents) | which agents may list it |
+| On / Off for this agent | the card | the agent's `mcp_servers` + the `mcp` tool slug | this agent's chats |
+| Authentication Scope | Configure | `auth_scope` (`user` / `mentor` / `platform`) and the agent's override, read back as `effective_auth_scope` | whose account the agent signs in with |
+| Allow Users to Turn Off | Add / Configure | `user_can_disable` | whether the chat's switch (and the user's lasting choice) can move |
+| On / Off for this chat | the chat's MCP panel | the user's session preference; read back as `user_enabled` when the list is fetched with the conversation's `session_id` | one conversation of one user |
+
+## Custom composer: `McpServersMenu`
+
+The chat's panel is also exported on its own, from `@iblai/iblai-js/web-containers`.
+
+| Prop | Type | Required | Description |
+|---|---|---|---|
+| `tenantKey` | `string` | Yes | Organization key. |
+| `username` | `string` | Yes | The signed-in user. |
+| `mentorId` | `string` | Yes | The agent's unique id (UUID). |
+| `sessionId` | `string` | No | The open conversation. With it every row gets the per-chat switch; without it a switch is shown only to sign in. |
+| `onClose` | `() => void` | Yes | The panel's close button. |
+| `onConnectingChange` | `(connecting: boolean) => void` | No | True while a sign-in is in flight: keep the panel mounted until it settles, or the sign-in is lost. |
+
+## Step 6: Verify
+
+Run `/iblai-vibe-ops-test` before telling the user the work is ready, and give
+every page, control and state this skill added its own checkpoint — one Playwright
+test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
+`pnpm e2e:coverage` must pass:
+every page, control and state this skill added its own checkpoint — one Playwright
+test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
+`pnpm e2e:coverage` must pass:
+
+1. `pnpm build` -- must pass with zero errors
+2. `pnpm test` -- vitest must pass
+3. Touch test `/agents/<id>/mcp` in the browser as `/iblai-vibe-ops-test`
+   says: switch a Directory connector on and off, open Configure on a
+   featured one, add a connector with No Authentication, then open the home
+   chat and check the `+` menu's MCP row and its switch; read the console,
+   check the phone width.
+
+## Important Notes
+
+- **Redux store**: `mentorReducer` and `mentorMiddleware` **plus**
+  `mcpApiSlice` (Step 3); the MCP endpoints are not part of the first two.
+- **`initializeDataLayer()`**: 5 args (v1.2+); **`@reduxjs/toolkit`** deduplicated via webpack aliases in `next.config.ts`
+- **Peer deps**: `sonner` and `@iblai/iblai-web-mentor` (`pnpm add sonner @iblai/iblai-web-mentor`)
+- **Shared provider**: `AgentSettingsProvider` wraps the route at layout level (`/iblai-vibe-agent-setting` Step 2).
+- **The return page** (Step 4) is part of this skill, not optional: every
+  OAuth client registered from this app sends its sign-ins there. Register
+  it from the deployed host; for a hand-entered app, register the Redirect
+  URI the Configure dialog shows at the service.
+- **Sign-in from the chat** needs the agent's connector to be User scope;
+  Agent and Organization sign-ins are made from this tab by someone who
+  manages the agent, as the shared account everyone will use.
+- **A connector off for the organization** (`is_enabled: false`, set
+  through the API) is never used, whatever the agent or the user chose, and
+  does not appear in the chat's panel.
+- **Tools tab**: the switch here adds and removes the `mcp` tool slug;
+  `/iblai-vibe-agent-tool` shows the same switch among the other tools.
+- **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/vibe/refs/heads/main/BRAND.md)
+
+## Related Exports
+
+From `@iblai/iblai-js/web-containers/next`: `McpTab`, `McpTabProps`.
+
+From `@iblai/iblai-js/web-containers`: `McpServersMenu`, `McpServersMenuProps`.
+
+From `@iblai/iblai-js/data-layer` -- the hooks the tab and the panel use,
+for custom UI: `useGetMCPServersQuery` (`mentorUniqueId`, `includeGlobal`,
+`isFeatured`, `isEnabled`, `sessionId`, `search`, `transport`, `pageSize`),
+`useCreateMCPServerMutation`, `usePartialUpdateMCPServerMutation`,
+`useDeleteMCPServerMutation`, `useOauthFindMutation`,
+`useLazyStartOAuthFlowQuery`, `useLazyConnectedServicesCallbackQuery`,
+`useGetConnectedServicesQuery`, `useDisconnectServiceMutation`,
+`useGetMCPServerConnectionsQuery`, `useCreateMCPServerConnectionMutation`,
+`useGetMCPServerMentorAuthScopeQuery` / `useSetMCPServerMentorAuthScopeMutation`,
+`useGetMCPServerPreferenceQuery` / `useSetMCPServerPreferenceMutation`,
+`useGetMCPServerSessionPreferenceQuery` / `useSetMCPServerSessionPreferenceMutation`,
+`useGetMCPServerCredentialsQuery` / `useSetMCPServerCredentialsMutation` /
+`useDeleteMCPServerCredentialsMutation`; types `MCPServer`,
+`MCPServerConnection`, `ConnectedService`, `MCPAuthScope`,
+`MCPServerOAuthCredentials`, `OAuthFindDiagnostic`.
+
+## REST behind the tab
+
+Under `${dmUrl}/api/ai-mentor/orgs/{org}/users/{user_id}/`, where `dmUrl` is
+`${NEXT_PUBLIC_API_BASE_URL}/dm` (`config.dmUrl()` in the starter); sign-in
+services under `${dmUrl}/api/ai-account/`. Bodies and errors: `/iblai-api-agent-mcp`.
+
+| What the UI does | Call |
+|---|---|
+| List a tab | `GET mcp-servers/?mentor_unique_id=&include_global=true&is_featured=…&page_size=12` |
+| Add / edit / delete a connector | `POST` / `PATCH` / `DELETE mcp-servers/[{id}/]` (multipart with `image`; `user_can_disable`, `mentor`, `auth_scope`, `oauth_service`) |
+| Find a service's sign-in settings | `POST mcp-servers/oauth-find/` (`url`, `name`, `callback_url`; with the organization's own app: `client_id`, `client_secret`, `scopes`, `token_endpoint_auth_method`, `authorization_url`, `token_url`) |
+| The organization's app for a connector | `GET` / `PUT` / `DELETE mcp-servers/{id}/credentials/` (secrets come back masked) |
+| How a connector signs in for this agent | `GET` / `PUT mcp-servers/{id}/mentor-auth-scope/` (`mentor`, `auth_scope`; `null` restores the connector's own) |
+| Switch on / off for the agent | `PUT mentors/{mentor}/settings/` with `mcp_servers`, `tool_slugs`, `can_use_tools` |
+| Start a sign-in | `GET …/ai-account/connected-services/orgs/{org}/users/{user_id}/{provider}/{service}/` → `auth_url` |
+| Finish it | `GET …/ai-account/connected-services/callback/?code=…&state=…&redirect_uri=…` (the Step 3 page) |
+| Bind the sign-in | `POST mcp-server-connections/` (`server`, `scope`, `auth_type: "oauth2"`, `connected_service`, `mentor` for Agent scope) |
+| Disconnect | `DELETE …/ai-account/connected-services/orgs/{org}/users/{user_id}/{id}/` |
+| The chat's switch | `GET` / `PUT mcp-servers/{id}/session-preference/` (`session_id`, `is_enabled`); the lasting choice is `preference/` |
