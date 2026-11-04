@@ -25,7 +25,14 @@ This is different from two related pages:
 
 ## Servers
 
-Base URL on the hosted environment: `https://asgi.data.iblai.app`. On a self-hosted deployment, use your ASGI host.
+Production domains:
+
+| Domain | Serves |
+| --- | --- |
+| `https://asgi.data.iblai.app` | The MCP servers (`/mcp/...`) |
+| `https://base.manager.iblai.app` | The REST API (`/api/...`). It does not serve `/mcp/...`. |
+
+On a self-hosted deployment, use your ASGI host for MCP.
 
 | Server | URL path | What it covers |
 | --- | --- | --- |
@@ -287,6 +294,7 @@ The Canvas course tools call the Canvas LMS API with the Canvas credentials stor
 | --- | --- | --- |
 | HTTP `401` | Missing or invalid `Authorization` header | Check the scheme (`Api-Token`, `Api-Key` or `Bearer`) and the key |
 | HTTP `403` with a JSON `RequestId` body before any MCP response | An edge firewall in front of the platform blocks the path | Ask your platform operator to allow `/mcp/<server>/` on the ASGI host |
+| HTTP `404` on `base.manager.iblai.app/mcp/...` | MCP is not served on the REST API domain | Use `asgi.data.iblai.app` |
 | HTTP `404`, or `403` on a URL without the trailing slash | Wrong path, or the trailing slash is missing | Use the paths in [Servers](#servers), with the trailing slash |
 | `missing_org` | User token without an organization | Send `iblai-org: <org key>`, or use a Platform API key |
 | `Could not authenticate mentor via X-Mentor-Unique-Id` | Agent-chat call without a valid agent header | Set `X-Mentor-Unique-Id` to an agent the caller can access |
