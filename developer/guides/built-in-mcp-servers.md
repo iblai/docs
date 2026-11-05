@@ -34,20 +34,22 @@ Production domains:
 
 On a self-hosted deployment, use your ASGI host for MCP.
 
-| Server | URL path | What it covers |
-| --- | --- | --- |
-| Agent create | `/mcp/agent-create/` | Agent settings, public settings, memories, skills |
-| Platform | `/mcp/platform/` | Sessions, pinned sessions, projects, disclaimers, notifications, organization metadata, LLMs, apps, audit logs, chat privacy, permission checks |
-| Agent chat | `/mcp/agent-chat/` | Send a prompt to one deployed agent and get its reply |
-| Workflows | `/mcp/workflows/` | Run a workflow and get its result |
-| Analytics | `/mcp/analytics/` | Current user, the user's platforms, user count |
-| Canvas course | `/mcp/canvas/course/` | Read-only Canvas LMS course data for platforms with a Canvas configuration |
-| Search | `/mcp/search/` | Health check only, until search routes are published in `/v1` |
-| User | `/mcp/user/` | Health check only, until user routes are published in `/v1` |
+| Server | URL path | What it covers | Hosted availability |
+| --- | --- | --- | --- |
+| Agent create | `/mcp/agent-create/` | Agent settings, public settings, memories, skills | Available |
+| Agent chat | `/mcp/agent-chat/` | Send a prompt to one deployed agent and get its reply | Available |
+| Analytics | `/mcp/analytics/` | Current user, the key's platform, user count | Available |
+| Search | `/mcp/search/` | Health check only, until search routes are published in `/v1` | Available |
+| Platform | `/mcp/platform/` | Sessions, pinned sessions, projects, disclaimers, notifications, organization metadata, LLMs, apps, audit logs, chat privacy, permission checks | Not yet public |
+| Workflows | `/mcp/workflows/` | Run a workflow and get its result | Not yet public |
+| Canvas course | `/mcp/canvas/course/` | Read-only Canvas LMS course data for platforms with a Canvas configuration | Not yet public |
+| User | `/mcp/user/` | Health check only, until user routes are published in `/v1` | Not yet public |
+
+"Not yet public" servers are not exposed on `asgi.data.iblai.app` today and answer HTTP `403` before any MCP response. This page will be updated when they open.
 
 Keep the trailing slash on each URL.
 
-Every server has a `ping` tool that returns the server time. Use it to check that the URL and credentials work.
+Every server except agent chat has a `ping` tool that returns the server time. A `ping` confirms the URL and that the key is valid. It does not check what the key can access: call a read tool, such as `agents_settings_retrieve` for one of your agents, for that.
 
 The workflows server is on by default and is off when the deployment sets `IBL_ENABLE_WORKFLOWS` to false.
 
@@ -55,26 +57,19 @@ The workflows server is on by default and is off when the deployment sets `IBL_E
 
 ## Authentication
 
-Send one `Authorization` header on every request. Three schemes are accepted:
+Authenticate with a **Platform API key**. Send it in the `Authorization` header on every request:
 
 ```text
 Authorization: Api-Token <PLATFORM_API_KEY>
-Authorization: Api-Key <PLATFORM_API_KEY>
-Authorization: Bearer <ACCESS_TOKEN>
 ```
 
-**Organization.** Organization and user are never tool arguments.
+**Organization.** A Platform API key belongs to exactly one platform, and that platform is the organization for every tool call. It cannot be changed per request. Organization and user are never tool arguments.
 
-- With a **Platform API key**, the organization is the key's platform. A different organization cannot be selected.
-- With a **user access token**, send the organization key in an `iblai-org` header. A tool that needs an organization and finds none returns:
+**Use a key from the platform you work on.** A key is created on the platform you are signed in to at the time. To work with the agents of platform A, create the key while signed in to platform A. A key from platform B reports platform A's agents as not found, even if you are an admin of both.
 
-  ```json
-  {"error": "missing_org", "detail": "This tool needs an organization. Use a platform API key or send the iblai-org header."}
-  ```
+**User.** The acting user is the key's owner. A tool cannot act as another user.
 
-**User.** The acting user is always the authenticated user behind the token. A tool cannot act as another user.
-
-**Agent chat.** The agent-chat server also needs the agent to talk to:
+**Agent chat.** The agent-chat server also needs the agent to talk to. Pass the agent's `unique_id`; the agent must belong to the key's platform:
 
 ```text
 X-Mentor-Unique-Id: <AGENT_UNIQUE_ID>
@@ -271,7 +266,7 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | agent-chat | `get_mentor_response(prompt)` | Send one prompt to the agent in `X-Mentor-Unique-Id` and return its reply |
 | workflows | `execute_workflow(workflow_id, input_message, timeout?)` | Run an active workflow and return `response`, `workflow_id` and `session_id` |
 | analytics | `get_current_user()` | Username of the authenticated user |
-| analytics | `get_user_platforms()` | Platforms the user belongs to and administers |
+| analytics | `get_user_platforms()` | The platform the API key belongs to |
 | analytics | `count_users_in_platform(platform)` | Number of active users in a platform |
 | canvas course | 17 read-only tools | `list_courses`, `get_course`, `list_course_users`, `get_user_progress`, `get_bulk_user_progress`, `get_course_settings`, `get_course_activity_stream`, `get_effective_due_dates`, and more |
 
@@ -292,12 +287,12 @@ The Canvas course tools call the Canvas LMS API with the Canvas credentials stor
 
 | Symptom | Cause | Fix |
 | --- | --- | --- |
-| HTTP `401` | Missing or invalid `Authorization` header | Check the scheme (`Api-Token`, `Api-Key` or `Bearer`) and the key |
-| HTTP `403` with a JSON `RequestId` body before any MCP response | An edge firewall in front of the platform blocks the path | Ask your platform operator to allow `/mcp/<server>/` on the ASGI host |
+| HTTP `401` | Missing or invalid `Authorization` header | Send `Authorization: Api-Token <PLATFORM_API_KEY>` with a valid key |
+| HTTP `403` with a JSON `RequestId` body before any MCP response | The server is not yet public on the hosted environment (see [Servers](#servers)) | Use one of the available servers. On a self-hosted deployment, allow `/mcp/<server>/` on your ASGI host's edge firewall |
 | HTTP `404` on `base.manager.iblai.app/mcp/...` | MCP is not served on the REST API domain | Use `asgi.data.iblai.app` |
 | HTTP `404`, or `403` on a URL without the trailing slash | Wrong path, or the trailing slash is missing | Use the paths in [Servers](#servers), with the trailing slash |
-| `missing_org` | User token without an organization | Send `iblai-org: <org key>`, or use a Platform API key |
-| `Could not authenticate mentor via X-Mentor-Unique-Id` | Agent-chat call without a valid agent header | Set `X-Mentor-Unique-Id` to an agent the caller can access |
+| `Could not authenticate mentor via X-Mentor-Unique-Id` | The header is missing, is not the agent's `unique_id`, or names an agent outside the key's platform | Send the agent's `unique_id`, with a key created on that agent's platform |
+| `Mentor <id> not found.` on an agent-create tool | The agent is not on the key's platform | Create the key on the agent's platform (see [Authentication](#authentication)); `get_user_platforms` shows which platform the key belongs to |
 | A tool you expect is missing | Its route is not published in `/v1` yet | Call `tools/list` again after the route is published |
 
 ---
