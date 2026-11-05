@@ -64,8 +64,10 @@ Authorization: Api-Token <PLATFORM_API_KEY>
 **Agent chat.** The agent-chat server also needs the agent to talk to. Pass the agent's `unique_id`; the agent must belong to the key's platform:
 
 ```text
-X-Mentor-Unique-Id: <AGENT_UNIQUE_ID>
+X-Agent-Unique-Id: <AGENT_UNIQUE_ID>
 ```
+
+`X-Mentor-Unique-Id` is the older name of this header and still works, so existing configurations need no change. If you send both, they must name the same agent; two different ids are refused.
 
 To create a Platform API key, see the [App CLI](/developer/vibe) login flow or your platform admin settings.
 
@@ -104,7 +106,7 @@ Add the servers you need to the client's MCP config (for Cursor, `~/.cursor/mcp.
       "url": "https://asgi.data.iblai.app/mcp/agent-chat/",
       "headers": {
         "Authorization": "Api-Token <PLATFORM_API_KEY>",
-        "X-Mentor-Unique-Id": "<AGENT_UNIQUE_ID>"
+        "X-Agent-Unique-Id": "<AGENT_UNIQUE_ID>"
       }
     },
     "iblai-workflows": {
@@ -162,7 +164,7 @@ export AGENT_ID=<AGENT_UNIQUE_ID>
 
 ### 2. Connect the agent-chat server
 
-Each agent-chat connection talks to one agent, named by the `X-Mentor-Unique-Id` header. To talk to several agents, add one server entry per agent.
+Each agent-chat connection talks to one agent, named by the `X-Agent-Unique-Id` header. To talk to several agents, add one server entry per agent.
 
 Claude Code:
 
@@ -170,7 +172,7 @@ Claude Code:
 claude mcp add --transport http iblai-agent-chat \
   https://asgi.data.iblai.app/mcp/agent-chat/ \
   --header "Authorization: Api-Token $IBLAI_API_KEY" \
-  --header "X-Mentor-Unique-Id: $AGENT_ID"
+  --header "X-Agent-Unique-Id: $AGENT_ID"
 ```
 
 Cursor and other JSON-configured clients:
@@ -182,7 +184,7 @@ Cursor and other JSON-configured clients:
       "url": "https://asgi.data.iblai.app/mcp/agent-chat/",
       "headers": {
         "Authorization": "Api-Token <PLATFORM_API_KEY>",
-        "X-Mentor-Unique-Id": "<AGENT_UNIQUE_ID>"
+        "X-Agent-Unique-Id": "<AGENT_UNIQUE_ID>"
       }
     }
   }
@@ -196,7 +198,7 @@ The server has one tool, `get_mentor_response(prompt)`. In Claude Code, ask for 
 ```bash
 URL=https://asgi.data.iblai.app/mcp/agent-chat/
 H=(-H "Authorization: Api-Token $IBLAI_API_KEY" \
-   -H "X-Mentor-Unique-Id: $AGENT_ID" \
+   -H "X-Agent-Unique-Id: $AGENT_ID" \
    -H "Content-Type: application/json" \
    -H "Accept: application/json, text/event-stream")
 
@@ -254,7 +256,7 @@ import urllib.request
 URL = "https://asgi.data.iblai.app/mcp/agent-chat/"
 HEADERS = {
     "Authorization": f"Api-Token {os.environ['IBLAI_API_KEY']}",
-    "X-Mentor-Unique-Id": os.environ["AGENT_ID"],
+    "X-Agent-Unique-Id": os.environ["AGENT_ID"],
     "Content-Type": "application/json",
     "Accept": "application/json, text/event-stream",
 }
@@ -402,7 +404,7 @@ The lists below match the routes published at the time of writing. Call `tools/l
 
 | Server | Tool | Purpose |
 | --- | --- | --- |
-| agent-chat | `get_mentor_response(prompt)` | Send one prompt to the agent in `X-Mentor-Unique-Id` and return its reply |
+| agent-chat | `get_mentor_response(prompt)` | Send one prompt to the agent in `X-Agent-Unique-Id` and return its reply |
 | workflows | `execute_workflow(workflow_id, input_message, timeout?)` | Run an active workflow and return `response`, `workflow_id` and `session_id` |
 | analytics | `get_current_user()` | Username of the authenticated user |
 | analytics | `get_user_platforms()` | The platform the API key belongs to |
@@ -426,7 +428,7 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | HTTP `401` | Missing or invalid `Authorization` header | Send `Authorization: Api-Token <PLATFORM_API_KEY>` with a valid key |
 | HTTP `403` with a JSON `RequestId` body before any MCP response | An edge firewall in front of the ASGI host blocks the path | On a self-hosted deployment, allow `/mcp/<server>/` on your ASGI host's edge firewall |
 | HTTP `404`, or `403` on a URL without the trailing slash | Wrong path, or the trailing slash is missing | Use the paths in [Servers](#servers), with the trailing slash |
-| `Could not authenticate mentor via X-Mentor-Unique-Id` | The header is missing, is not the agent's `unique_id`, or names an agent outside the key's platform | Send the agent's `unique_id`, with a key created on that agent's platform |
+| `Could not authenticate the agent via X-Agent-Unique-Id` | The header is missing, is not the agent's `unique_id`, names an agent outside the key's platform, or `X-Agent-Unique-Id` and `X-Mentor-Unique-Id` name different agents | Send the agent's `unique_id`, with a key created on that agent's platform |
 | `Mentor <id> not found.` on an agent-create tool | The agent is not on the key's platform | Create the key on the agent's platform (see [Authentication](#authentication)); `get_user_platforms` shows which platform the key belongs to |
 | A tool you expect is missing | Its route is not published in `/v1` yet | Call `tools/list` again after the route is published |
 
