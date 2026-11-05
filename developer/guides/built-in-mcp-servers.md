@@ -25,12 +25,7 @@ This is different from two related pages:
 
 ## Servers
 
-Production domains:
-
-| Domain | Serves |
-| --- | --- |
-| `https://asgi.data.iblai.app` | The MCP servers (`/mcp/...`) |
-| `https://base.manager.iblai.app` | The REST API (`/api/...`). It does not serve `/mcp/...`. |
+The MCP servers are served from `https://asgi.data.iblai.app` under `/mcp/...`.
 
 On a self-hosted deployment, use your ASGI host for MCP.
 
@@ -150,6 +145,157 @@ curl -s "${H[@]}" "$URL" -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
 curl -s "${H[@]}" "$URL" -d '{"jsonrpc":"2.0","id":3,"method":"tools/call",
   "params":{"name":"projects_list","arguments":{"limit":5}}}'
 ```
+
+---
+
+## Example: Chat with an Agent
+
+This walkthrough connects a client to one agent and holds a short conversation with it.
+
+### 1. Get what you need
+
+- A **Platform API key** for the platform the agent belongs to (see [Authentication](#authentication)).
+- The agent's **`unique_id`**. It is returned as `unique_id` when the agent is created, and it is the `agent_id` the agent-create tools take.
+
+```bash
+export IBLAI_API_KEY=<PLATFORM_API_KEY>
+export AGENT_ID=<AGENT_UNIQUE_ID>
+```
+
+### 2. Connect the agent-chat server
+
+Each agent-chat connection talks to one agent, named by the `X-Mentor-Unique-Id` header. To talk to several agents, add one server entry per agent.
+
+Claude Code:
+
+```bash
+claude mcp add --transport http iblai-agent-chat \
+  https://asgi.data.iblai.app/mcp/agent-chat/ \
+  --header "Authorization: Api-Token $IBLAI_API_KEY" \
+  --header "X-Mentor-Unique-Id: $AGENT_ID"
+```
+
+Cursor and other JSON-configured clients:
+
+```json
+{
+  "mcpServers": {
+    "iblai-agent-chat": {
+      "url": "https://asgi.data.iblai.app/mcp/agent-chat/",
+      "headers": {
+        "Authorization": "Api-Token <PLATFORM_API_KEY>",
+        "X-Mentor-Unique-Id": "<AGENT_UNIQUE_ID>"
+      }
+    }
+  }
+}
+```
+
+The server has one tool, `get_mentor_response(prompt)`. In Claude Code, ask for it in plain language, for example "Ask the iblai agent what it can help me with".
+
+### 3. Send messages over raw HTTP
+
+```bash
+URL=https://asgi.data.iblai.app/mcp/agent-chat/
+H=(-H "Authorization: Api-Token $IBLAI_API_KEY" \
+   -H "X-Mentor-Unique-Id: $AGENT_ID" \
+   -H "Content-Type: application/json" \
+   -H "Accept: application/json, text/event-stream")
+
+curl -s "${H[@]}" "$URL" -d '{"jsonrpc":"2.0","id":1,"method":"initialize",
+  "params":{"protocolVersion":"2025-03-26","capabilities":{},
+  "clientInfo":{"name":"curl","version":"0"}}}'
+
+curl -s "${H[@]}" "$URL" -d '{"jsonrpc":"2.0","id":2,"method":"tools/call",
+  "params":{"name":"get_mentor_response",
+  "arguments":{"prompt":"Hi! In one sentence, what can you help me with?"}}}'
+```
+
+The agent's reply is the text of the result:
+
+```json
+{"jsonrpc":"2.0","id":2,"result":{"content":[{"type":"text",
+  "text":"I can answer questions, explain concepts, brainstorm ideas, write and edit text, and help with coding and problem-solving."}],
+  "isError":false}}
+```
+
+### 4. Hold a conversation
+
+Each `get_mentor_response` call is a new chat: the agent does not remember earlier calls. To continue a conversation, send the earlier turns with the new message. An MCP client such as Claude Code does this on its own when it writes the prompt; a script has to do it itself.
+
+Without history, the third question has nothing to go on:
+
+```text
+User:  My name is Sam and I'm planning a 3-day trip to Lisbon. Suggest one must-see place, in one sentence.
+Agent: Sam, visit the Belem Tower, Lisbon's iconic riverside fortress and a UNESCO World Heritage Site.
+
+User:  What is my name, and which city am I visiting?
+Agent: I don't know your name or which city you're visiting - you haven't mentioned them in this conversation.
+```
+
+With the earlier turns included in each prompt, the agent follows along:
+
+```text
+User:  My name is Sam and I'm planning a 3-day trip to Lisbon. Suggest one must-see place, in one sentence.
+Agent: Visit Belem Tower, Lisbon's iconic riverside fortress and a must-see landmark.
+
+User:  Great. What should I eat there? One sentence.
+Agent: Try a warm pastel de nata, Lisbon's famous custard tart, from a local bakery in Belem.
+
+User:  What is my name, and which city am I visiting?
+Agent: Your name is Sam, and you're visiting Lisbon.
+```
+
+A minimal Python client that keeps the history:
+
+```python
+import json
+import os
+import urllib.request
+
+URL = "https://asgi.data.iblai.app/mcp/agent-chat/"
+HEADERS = {
+    "Authorization": f"Api-Token {os.environ['IBLAI_API_KEY']}",
+    "X-Mentor-Unique-Id": os.environ["AGENT_ID"],
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+}
+
+
+def rpc(method, params, id_=1):
+    body = json.dumps({"jsonrpc": "2.0", "id": id_, "method": method, "params": params})
+    req = urllib.request.Request(URL, data=body.encode(), headers=HEADERS, method="POST")
+    text = urllib.request.urlopen(req, timeout=120).read().decode()
+    # The reply may be a server-sent event; the JSON is on the "data:" line.
+    for line in text.splitlines():
+        if line.startswith("data:"):
+            text = line[len("data:"):]
+    return json.loads(text)
+
+
+def ask(prompt):
+    result = rpc("tools/call", {"name": "get_mentor_response", "arguments": {"prompt": prompt}})
+    return result["result"]["content"][0]["text"]
+
+
+rpc("initialize", {"protocolVersion": "2025-03-26", "capabilities": {},
+                   "clientInfo": {"name": "chat-example", "version": "0"}})
+
+history = []
+for message in [
+    "My name is Sam and I'm planning a 3-day trip to Lisbon. Suggest one must-see place, in one sentence.",
+    "Great. What should I eat there? One sentence.",
+    "What is my name, and which city am I visiting?",
+]:
+    prompt = message
+    if history:
+        prompt = "Conversation so far:\n" + "\n".join(history) + "\n\nUser: " + message
+    reply = ask(prompt)
+    history += [f"User: {message}", f"Assistant: {reply}"]
+    print(f"User:  {message}\nAgent: {reply}\n")
+```
+
+Replies come from the agent's own model, prompt and knowledge, so wording varies between runs.
 
 ---
 
@@ -281,7 +427,6 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | --- | --- | --- |
 | HTTP `401` | Missing or invalid `Authorization` header | Send `Authorization: Api-Token <PLATFORM_API_KEY>` with a valid key |
 | HTTP `403` with a JSON `RequestId` body before any MCP response | The server is not yet public on the hosted environment (see [Servers](#servers)) | Use one of the available servers. On a self-hosted deployment, allow `/mcp/<server>/` on your ASGI host's edge firewall |
-| HTTP `404` on `base.manager.iblai.app/mcp/...` | MCP is not served on the REST API domain | Use `asgi.data.iblai.app` |
 | HTTP `404`, or `403` on a URL without the trailing slash | Wrong path, or the trailing slash is missing | Use the paths in [Servers](#servers), with the trailing slash |
 | `Could not authenticate mentor via X-Mentor-Unique-Id` | The header is missing, is not the agent's `unique_id`, or names an agent outside the key's platform | Send the agent's `unique_id`, with a key created on that agent's platform |
 | `Mentor <id> not found.` on an agent-create tool | The agent is not on the key's platform | Create the key on the agent's platform (see [Authentication](#authentication)); `get_user_platforms` shows which platform the key belongs to |
