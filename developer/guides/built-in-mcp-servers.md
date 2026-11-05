@@ -274,8 +274,11 @@ def rpc(method, params, id_=1):
 
 
 def ask(prompt):
-    result = rpc("tools/call", {"name": "get_mentor_response", "arguments": {"prompt": prompt}})
-    return result["result"]["content"][0]["text"]
+    result = rpc("tools/call", {"name": "get_mentor_response", "arguments": {"prompt": prompt}})["result"]
+    text = result["content"][0]["text"]
+    if result.get("isError"):
+        raise RuntimeError(text)
+    return text
 
 
 rpc("initialize", {"protocolVersion": "2025-03-26", "capabilities": {},
@@ -408,14 +411,14 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | workflows | `execute_workflow(workflow_id, input_message, timeout?)` | Run an active workflow and return `response`, `workflow_id` and `session_id` |
 | analytics | `get_current_user()` | Username of the authenticated user |
 | analytics | `get_user_platforms()` | The platform the API key belongs to |
-| analytics | `count_users_in_platform(platform)` | Number of active users in a platform |
+| analytics | `count_users_in_platform()` | Number of active users in the key's platform |
 
 ---
 
 ## Results and Errors
 
 - A tool returns the endpoint's JSON response as text: an object, a list, or a paginated `{count, next, previous, results}` envelope.
-- An endpoint error comes back the same way, for example `{"error": "Category not found or inactive"}` or a field validation map. The MCP call itself still succeeds, so check the body.
+- A failed call has `isError: true`. Its text starts with `Error executing tool <name>:` and then gives the reason: the endpoint's own error body for a generated tool (for example `{"detail": "Not found."}` or a field validation map), or a message such as `Could not authenticate the agent via X-Agent-Unique-Id` for a hand-written tool. Check `isError` before reading the result.
 - A `DELETE` or empty `201` response returns `null`.
 - Optional arguments that are not sent are left out of the request. `false`, `0` and empty strings are sent as given.
 
