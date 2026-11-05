@@ -8,7 +8,7 @@ Connect an MCP client (Claude Code, Cursor, Claude Desktop, or your own agent) t
 
 ## Overview
 
-The platform's ASGI service hosts a set of MCP servers under `/mcp/`. Each server groups related tools: agent settings and memory, sessions and projects, chat with a deployed agent, workflows, Canvas course data, and a few account helpers.
+The platform's ASGI service hosts a set of MCP servers under `/mcp/`. Each server groups related tools: agent settings and memory, sessions and projects, chat with a deployed agent, workflows, and a few account helpers.
 
 - **Transport:** Streamable HTTP. Every server is a single URL that accepts MCP JSON-RPC over `POST`.
 - **Authentication:** the same credentials as the REST API. A tool can only do what the caller can already do through the API; RBAC and tenant scoping apply unchanged.
@@ -42,7 +42,6 @@ On a self-hosted deployment, use your ASGI host for MCP.
 | Search | `/mcp/search/` | Health check only, until search routes are published in `/v1` | Available |
 | Platform | `/mcp/platform/` | Sessions, pinned sessions, projects, disclaimers, notifications, organization metadata, LLMs, apps, audit logs, chat privacy, permission checks | Not yet public |
 | Workflows | `/mcp/workflows/` | Run a workflow and get its result | Not yet public |
-| Canvas course | `/mcp/canvas/course/` | Read-only Canvas LMS course data for platforms with a Canvas configuration | Not yet public |
 | User | `/mcp/user/` | Health check only, until user routes are published in `/v1` | Not yet public |
 
 "Not yet public" servers are not exposed on `asgi.data.iblai.app` today and answer HTTP `403` before any MCP response. This page will be updated when they open.
@@ -121,10 +120,6 @@ Add the servers you need to the client's MCP config (for Cursor, `~/.cursor/mcp.
     },
     "iblai-analytics": {
       "url": "https://asgi.data.iblai.app/mcp/analytics/",
-      "headers": { "Authorization": "Api-Token <PLATFORM_API_KEY>" }
-    },
-    "iblai-canvas-course": {
-      "url": "https://asgi.data.iblai.app/mcp/canvas/course/",
       "headers": { "Authorization": "Api-Token <PLATFORM_API_KEY>" }
     }
   }
@@ -268,9 +263,6 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | analytics | `get_current_user()` | Username of the authenticated user |
 | analytics | `get_user_platforms()` | The platform the API key belongs to |
 | analytics | `count_users_in_platform(platform)` | Number of active users in a platform |
-| canvas course | 17 read-only tools | `list_courses`, `get_course`, `list_course_users`, `get_user_progress`, `get_bulk_user_progress`, `get_course_settings`, `get_course_activity_stream`, `get_effective_due_dates`, and more |
-
-The Canvas course tools call the Canvas LMS API with the Canvas credentials stored for the caller's platform. Without a Canvas configuration they return `No Canvas configuration found for platform '<org>'`.
 
 ---
 
