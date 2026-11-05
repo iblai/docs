@@ -25,12 +25,7 @@ This is different from two related pages:
 
 ## Servers
 
-Production domains:
-
-| Domain | Serves |
-| --- | --- |
-| `https://asgi.data.iblai.app` | The MCP servers (`/mcp/...`) |
-| `https://base.manager.iblai.app` | The REST API (`/api/...`). It does not serve `/mcp/...`. |
+The MCP servers are served from `https://asgi.data.iblai.app` under `/mcp/...`.
 
 On a self-hosted deployment, use your ASGI host for MCP.
 
@@ -281,7 +276,6 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | --- | --- | --- |
 | HTTP `401` | Missing or invalid `Authorization` header | Send `Authorization: Api-Token <PLATFORM_API_KEY>` with a valid key |
 | HTTP `403` with a JSON `RequestId` body before any MCP response | The server is not yet public on the hosted environment (see [Servers](#servers)) | Use one of the available servers. On a self-hosted deployment, allow `/mcp/<server>/` on your ASGI host's edge firewall |
-| HTTP `404` on `base.manager.iblai.app/mcp/...` | MCP is not served on the REST API domain | Use `asgi.data.iblai.app` |
 | HTTP `404`, or `403` on a URL without the trailing slash | Wrong path, or the trailing slash is missing | Use the paths in [Servers](#servers), with the trailing slash |
 | `Could not authenticate mentor via X-Mentor-Unique-Id` | The header is missing, is not the agent's `unique_id`, or names an agent outside the key's platform | Send the agent's `unique_id`, with a key created on that agent's platform |
 | `Mentor <id> not found.` on an agent-create tool | The agent is not on the key's platform | Create the key on the agent's platform (see [Authentication](#authentication)); `get_user_platforms` shows which platform the key belongs to |
