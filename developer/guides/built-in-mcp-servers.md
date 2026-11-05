@@ -29,17 +29,15 @@ The MCP servers are served from `https://asgi.data.iblai.app` under `/mcp/...`.
 
 On a self-hosted deployment, use your ASGI host for MCP.
 
-| Server | URL path | What it covers | Hosted availability |
-| --- | --- | --- | --- |
-| Agent create | `/mcp/agent-create/` | Agent settings, public settings, memories, skills | Available |
-| Agent chat | `/mcp/agent-chat/` | Send a prompt to one deployed agent and get its reply | Available |
-| Analytics | `/mcp/analytics/` | Current user, the key's platform, user count | Available |
-| Search | `/mcp/search/` | Health check only, until search routes are published in `/v1` | Available |
-| Platform | `/mcp/platform/` | Sessions, pinned sessions, projects, disclaimers, notifications, organization metadata, LLMs, apps, audit logs, chat privacy, permission checks | Not yet public |
-| Workflows | `/mcp/workflows/` | Run a workflow and get its result | Not yet public |
-| User | `/mcp/user/` | Health check only, until user routes are published in `/v1` | Not yet public |
-
-"Not yet public" servers are not exposed on `asgi.data.iblai.app` today and answer HTTP `403` before any MCP response. This page will be updated when they open.
+| Server | URL path | What it covers |
+| --- | --- | --- |
+| Agent create | `/mcp/agent-create/` | Agent settings, public settings, memories, skills |
+| Agent chat | `/mcp/agent-chat/` | Send a prompt to one deployed agent and get its reply |
+| Analytics | `/mcp/analytics/` | Current user, the key's platform, user count |
+| Search | `/mcp/search/` | Health check only, until search routes are published in `/v1` |
+| Platform | `/mcp/platform/` | Sessions, pinned sessions, projects, disclaimers, notifications, organization metadata, LLMs, apps, audit logs, chat privacy, permission checks |
+| Workflows | `/mcp/workflows/` | Run a workflow and get its result |
+| User | `/mcp/user/` | Health check only, until user routes are published in `/v1` |
 
 Keep the trailing slash on each URL.
 
@@ -426,7 +424,7 @@ The lists below match the routes published at the time of writing. Call `tools/l
 | Symptom | Cause | Fix |
 | --- | --- | --- |
 | HTTP `401` | Missing or invalid `Authorization` header | Send `Authorization: Api-Token <PLATFORM_API_KEY>` with a valid key |
-| HTTP `403` with a JSON `RequestId` body before any MCP response | The server is not yet public on the hosted environment (see [Servers](#servers)) | Use one of the available servers. On a self-hosted deployment, allow `/mcp/<server>/` on your ASGI host's edge firewall |
+| HTTP `403` with a JSON `RequestId` body before any MCP response | An edge firewall in front of the ASGI host blocks the path | On a self-hosted deployment, allow `/mcp/<server>/` on your ASGI host's edge firewall |
 | HTTP `404`, or `403` on a URL without the trailing slash | Wrong path, or the trailing slash is missing | Use the paths in [Servers](#servers), with the trailing slash |
 | `Could not authenticate mentor via X-Mentor-Unique-Id` | The header is missing, is not the agent's `unique_id`, or names an agent outside the key's platform | Send the agent's `unique_id`, with a key created on that agent's platform |
 | `Mentor <id> not found.` on an agent-create tool | The agent is not on the key's platform | Create the key on the agent's platform (see [Authentication](#authentication)); `get_user_platforms` shows which platform the key belongs to |
