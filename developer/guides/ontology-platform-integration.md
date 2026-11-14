@@ -25,7 +25,7 @@ Two fields on the MCP Server answer different questions:
 | Field | Answers | Values |
 |---|---|---|
 | `auth_type` | How is the call authenticated? | `none` / `token` / `oauth2` |
-| `auth_scope` | Whose credentials are used? | `platform` / `agent` / `user` |
+| `auth_scope` | Whose credentials are used? | `platform` / `mentor` (one agent) / `user` |
 
 Registration endpoints live under:
 
@@ -105,13 +105,13 @@ This is where RFC 9728 / RFC 7591 come in: `discover_and_register_mcp_oauth_serv
 ### Step 3 — Attach the server to agents
 
 ```bash
-curl -X PATCH "https://base.manager.iblai.app/api/ai-agent/orgs/alasu/users/admin/agents/$FINAID_AGENT_ID/settings/" \
+curl -X PUT "https://base.manager.iblai.app/api/ai-agent/orgs/alasu/users/admin/mentors/$FINAID_AGENT_ID/settings/" \
   -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{ "tools": ["mcp-tool"], "mcp_servers": [14] }'
+  -d '{ "tool_slugs": ["mcp"], "can_use_tools": true, "mcp_servers": [14] }'
 ```
 
-Repeat for the Advising Agent, Registrar Agent, Student Self-Service Agent, etc. Once the MCP tool is enabled and the server attached, the agent discovers iblai-ontology's tools and calls them in its responses.
+`ontology platform attach <agent-id> --server 14` does the same and keeps the agent's other tool slugs. The tool slug is `mcp`; the platform saves `mcp_servers` before it rejects an unknown slug, so a typo leaves a half-attached agent. Repeat for the Advising Agent, Registrar Agent, Student Self-Service Agent, etc. Once the MCP tool is enabled and the server attached, the agent discovers iblai-ontology's tools and calls them in its responses.
 
 ---
 
@@ -131,8 +131,8 @@ curl -X POST ".../mcp-server-connections/" -H "Authorization: Token $ADMIN_TOKEN
 # Agent-scoped default role (used when no user-specific connection exists)
 curl -X POST ".../mcp-server-connections/" -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" -d '{
-    "server": 14, "scope": "agent", "auth_type": "oauth2",
-    "agent": "<finaid-agent-uuid>", "connected_service": 80,
+    "server": 14, "scope": "mentor", "auth_type": "oauth2",
+    "mentor": "<finaid-agent-id>", "connected_service": 80,
     "extra_headers": { "X-Iblai-Role": "FinancialAidCounselor" }
   }'
 ```
@@ -208,42 +208,106 @@ For OAuth connections, the linked `ConnectedService` is transparently refreshed 
 
 ---
 
-## Platform-Scoped (Service Account) Connections
+## The Platform Service Token
 
-For agents needing broad, non-user-specific access (e.g. a nightly analytics agent), register a *second* MCP server entry with a static/client-credentials token:
+For agents needing broad, non-user-specific access (a nightly analytics agent, a demo without an
+Entra tenant), the platform calls as itself. The gateway holds one shared secret,
+`ONTOLOGY_SERVICE_TOKEN` (32+ characters); a call carrying it as `Authorization: Bearer <token>`
+runs as the principal `platform-service` with the role named by `X-Iblai-Role`, which must exist in
+`roles.yaml`. The platform is the trusted party here: it chose the role when it configured the
+server or connection (Option A in [identity.md](/developer/guides/ontology-identity)). The simplest registration needs no
+connection record, because a server with `auth_type: "none"` sends its stored `credentials` value
+verbatim as the authorization header, with its `extra_headers`:
 
 ```bash
-# Service-account server entry
+ontology platform register --url https://ontology.alasu.edu/mcp --auth-type none --role Executive
+# equivalent to
 curl -X POST ".../mcp-servers/" -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" -d '{
-    "name": "iblai-ontology (Service)", "url": "https://ontology.alasu.edu/mcp",
-    "transport": "streamable_http", "auth_type": "token", "auth_scope": "platform",
-    "is_enabled": true }'
-# -> { "id": 15, ... }
-
-# Platform-scoped connection with a service-account token
-curl -X POST ".../mcp-server-connections/" -H "Authorization: Token $ADMIN_TOKEN" \
-  -H "Content-Type: application/json" -d '{
-    "server": 15, "scope": "platform", "auth_type": "token",
-    "credentials": "<entra-id-client-credentials-token>",
-    "authorization_scheme": "Bearer" }'
+    "name": "iblai-ontology", "url": "https://ontology.alasu.edu/mcp",
+    "transport": "streamable_http", "auth_type": "none", "auth_scope": "platform",
+    "credentials": "Bearer <ONTOLOGY_SERVICE_TOKEN>",
+    "extra_headers": { "X-Iblai-Role": "Executive" }, "is_enabled": true }'
 ```
 
-The gateway recognizes client-credentials tokens (Entra application permissions) and maps them to a service role with appropriate scope limits.
+With OpenAI and Azure models whose tool matrix grants MCP, the model provider's servers make the
+call and always send the stored credentials as `Bearer`, which is why the token is a bearer value.
+
+---
+
+## A Member's Own Credential
+
+A connection can also carry a credential of the person, the team or the agent it serves instead
+of the shared service token: a DM token, or a platform API key. The gateway then knows who is
+calling, and the role is what the platform's RBAC grants that credential, not one the connection
+claims.
+
+| Stored `credentials` (`auth_type: "none"`, sent verbatim) | The gateway sees | Reaches |
+|---|---|---|
+| `Token <dm_token>` | That member | Every role that lists them, combined, plus `default` |
+| `Api-Token <key>` (acts as its owner) | The key's owner | The same |
+| `Api-Token <key>` (limited to its own policies) | The key, by twelve characters of its hash | Exactly the roles attached to it |
+| `Bearer <dm_token or key>` | Whichever it turns out to be | As above |
+
+The last row is for the path above where the scheme is always `Bearer`: the gateway tries the
+value as a token, then as an API key.
+
+No `extra_headers` are needed, and `X-Iblai-Role` must not be sent: with such a credential the
+gateway answers it `400`, because the credential carries its own role. An administrator's token
+or key reads everything and changes nothing, unless a role that lists them names a toolset that
+changes data. Give a person their role in the platform's RBAC screens: add them, or a group of
+theirs, to the policy `Ontology: <role>`. The backend needs `ONTOLOGY_DM_URL` and `IBLAI_ORG` to
+take such a credential at all, and `ONTOLOGY_DATA_STORE=rbac` or `dm` (roles kept in the
+platform) for anyone to be given a role. The full rules are in
+[identity.md](/developer/guides/ontology-identity#a-persons-own-iblai-credential).
+
+The platform stores one credential per server or connection: it does not forward the token of
+whoever is chatting. Per-person identity through the platform is still the Entra flow above.
+
+---
+
+## Connect an Agent
+
+The console's **Agents** page does the three steps for one agent and one role (roles kept in
+the platform, `ONTOLOGY_DATA_STORE=rbac` or `dm`): pick the agent, pick the role, press Connect.
+The role selected at first is the first one that can change data. Connecting Twenty CRM makes
+such a role, named after the system: it may query the system's tables, read their memory and
+use its operations.
+
+| Step | In the platform | With |
+|---|---|---|
+| A key for the role | `POST /api/core/platform/api-tokens/`, `mode: "token_policies"`, `policies_to_add: [<the id of Ontology: <role>>]` | The administrator's own sign-in: the platform lets nothing else make or delete a key |
+| The gateway, for that agent alone | `POST …/mcp-servers/` with `mentor: <agent id>`, `auth_type: "none"`, `credentials: "Api-Token <key>"`, `url: ONTOLOGY_GATEWAY_URL` | The backend's key |
+| The agent's MCP tool switched on | `PUT …/mentors/<agent id>/settings/`, keeping its other tools and servers | The backend's key |
+| What was made | The ontology record `agent_connection/<name>`: agent, role, server, the key's id and twelve characters of its hash. Never the key. With `rbac` it is a row of the backend's own database | The backend's key |
+
+A step that fails takes back the ones before it, and the answer says what could not be taken
+back. Removing a connection deletes the key first, so access stops at once, then the server,
+then the record. One agent holds one connection per role. The key does not expire: removing the
+connection is what revokes it. In the audit log its calls read `ibl-key:<those twelve
+characters>` with the role `platform-key`; `GET /agent-connections` answers the same twelve as
+`fingerprint`, so a row of the log can be matched to its connection.
+
+By hand, the same thing is a platform API key in the agent's MCP dialog: the gateway's address,
+and the key as `Api-Token <key>`, `Token <token>` or behind `Bearer`. A plain administrator key
+reads everything and changes nothing.
 
 ---
 
 ## Agent-Scoped Connections
 
-Different agents can have different access to the same ontology, via agent-scoped connections:
+Different agents can have different access to the same ontology: register the server with
+`auth_type: "token"` and give each agent a `mentor`-scoped connection with its own role:
 
 ```bash
+ontology platform connect --server 15 --scope mentor --agent <finance-agent-id> --role DataAnalyst --auth-type token
+# equivalent to
 curl -X POST ".../mcp-server-connections/" -H "Authorization: Token $ADMIN_TOKEN" \
   -H "Content-Type: application/json" -d '{
-    "server": 15, "scope": "agent", "auth_type": "token",
-    "agent": "<finance-agent-uuid>",
-    "credentials": "<finance-service-account-token>",
-    "authorization_scheme": "Bearer" }'
+    "server": 15, "scope": "mentor", "auth_type": "token",
+    "mentor": "<finance-agent-id>",
+    "credentials": "<ONTOLOGY_SERVICE_TOKEN>", "authorization_scheme": "Bearer",
+    "extra_headers": { "X-Iblai-Role": "DataAnalyst" } }'
 ```
 
 ---

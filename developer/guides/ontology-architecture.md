@@ -178,9 +178,11 @@ OPERATIONS LAYER (Components 5-7)
 
 These principles are non-negotiable and recur throughout every component.
 
-### Read-only everywhere
+### Read-only by default, changes by named operation
 
-No source-system writes in v1. Every connection is SELECT-only / GET-only. Before iblai-ontology touches a single row, the **safety verification suite** (Component 5) proves the supplied credentials cannot write — it attempts seven write operations and requires that *all seven be denied*. If any write succeeds, the system refuses to proceed and prints remediation SQL. Write-back, behind human approval workflows, is an explicit future item (see Open Design Questions).
+Every connection a source is discovered, tested and synced with is SELECT-only / GET-only. Before iblai-ontology touches a single row, the **safety verification suite** (Component 5) proves the supplied credentials cannot write — it attempts seven write operations and requires that *all seven be denied*. If any write succeeds, the system refuses to proceed and prints remediation SQL.
+
+An agent can change a record only through a tool an administrator defined for that one change: a fixed statement or HTTP request, on a separate write account, in a toolset marked `write: true`. Such a toolset is granted to a role by name, never through `"*"`; the gateway treats any tool it cannot tell to be a read as a write; and a write is recorded before it runs ([authorization-model.md](/developer/guides/ontology-authorization-model#toolsets-that-change-data)). There is no free-form write and no approval queue: a human approval step for writes remains a future item (see Open Design Questions).
 
 ### Credential isolation
 
@@ -214,8 +216,13 @@ Where the original design proposal left options open, this repository commits to
 
 - **Hybrid stack.** A Django-free CLI/config layer (`iblai_ontology`) plus a Django + Celery backend for long-running services. CLI commands that need the backend call `bootstrap()` lazily.
 - **Identity Option A first.** The gateway validates the Entra ID JWT and **trusts an `X-Iblai-Role` header** that the ibl.ai platform sets per request; `roles.yaml` maps role → access. Option B (on-prem OAuth, Notion-style, exposing RFC 9728 Protected Resource Metadata + RFC 7591 Dynamic Client Registration) is documented as the roadmap alternative and can coexist. See [identity.md](/developer/guides/ontology-identity).
+- **Three more callers, one role check.** Besides an Entra JWT the gateway takes the platform's service token, and an ibl.ai credential: a DM token (`Token`), a platform API key (`Api-Token`), or either behind `Bearer`. Such a credential carries its role and takes no `X-Iblai-Role`: the gateway asks the platform what it is granted under `/custom/ontology/`. A member reaches every role the policies `Ontology: <role>` list them on, a key limited to its own policies exactly those, an administrator everything that only reads ([identity.md](/developer/guides/ontology-identity#a-persons-own-iblai-credential)).
+- **Syncs run on the worker.** The gateway never writes a memory file: a sync asked for in the console, and the refresh after an agent's change, are queued through Redis for the `sync-engine` container, whose scheduler ticks once a minute and queues every schedule that is due. With no broker set a task runs where it is asked for.
+- **One application is read in-process.** Twenty CRM has no connector container: the backend reads its REST API itself and ships its create and update operations, which the gateway runs ([components/02-knowledge-materialization.md](https://github.com/iblai/ontology/blob/main/docs/components/02-knowledge-materialization.md#an-application-read-over-its-api)).
+- **One image, two stacks.** The gateway, the worker and the migrations run from one image. `deploy/install.sh` installs it on a server from `deploy/compose.yaml`, without the MCP Toolbox and the connector containers; `docker-compose.yml` is the developer stack with them ([deployment.md](/developer/guides/ontology-deployment#install-on-ubuntu)).
 - **LLM defaults are BYOK.** The university provides its own key; iblai-ontology never ships one. Default models: `anthropic` → `claude-opus-4-8`, `openai` → `gpt-4o`. Without a key, a rule-based analyzer handles common higher-ed schema patterns.
-- **Canonical config and SQL.** Large configuration and schema artifacts live in `config/` (`tools.yaml`, `roles.yaml`, `sync-schedules.yaml`, `services.yaml`, `ontology.yaml`) and `sql/` (`schema.sql`, `views.sql`). The docs summarize and reference these rather than reproducing every statement.
+- **Canonical config and SQL.** Large configuration and schema artifacts live in `config/` (`tools.yaml`, `roles.yaml`, `sync-schedules.yaml`, `ontology.yaml`) and `sql/` (`schema.sql`, `views.sql`). The docs summarize and reference these rather than reproducing every statement. With `ONTOLOGY_DATA_STORE=dm`, roles, sync schedules and the service registry live in the ibl.ai platform instead ([DEV.md](https://github.com/iblai/ontology/blob/main/DEV.md#platform-store-ontology_data_storerbac-or-dm)): a role is a platform RBAC role whose grants are the resources of one policy under `/custom/ontology/`, and `roles.yaml` is not read.
+- **One Ontology Frontend, many backends.** The Ontology Frontend runs beside one backend (`ONTOLOGY_API_URL`) or once for every platform (`ONTOLOGY_MULTI_PLATFORM`, as at `ontology.ibl.ai`). Hosted, it finds each signed-in admin's backend by the address the platform keeps for it, which an admin sets on the console's **Connect a backend** screen (for a platform that keeps no ontology records yet, the admin's own browser keeps it), and sends it the admin's platform token and nothing else ([DEV.md](https://github.com/iblai/ontology/blob/main/DEV.md#one-ontology-frontend-for-every-platform)).
 
 ---
 
@@ -273,7 +280,7 @@ Because iblai-ontology deploys as a standard Docker Compose stack with a standar
 
 1. **Per-user vs. per-entity memory files.** Current design is per-entity (one file per student). A per-user view that aggregates only role-relevant entities trades storage for permission simplicity.
 2. **Embedding model for air-gapped deployments.** `nomic-embed-text` runs locally but is less capable; it needs benchmarking against university-scale queries.
-3. **Write-back architecture.** When agents eventually update source systems (e.g., approve an aid package), the proposed flow is: agent creates a pending action → human approves in the UI → action executes via an MCP write tool.
+3. **Write-back approval.** Named write tools exist: an agent whose role is granted a `write: true` toolset by name changes a record at once, and the call is recorded first. What is still open is a queue in front of them: agent creates a pending action → human approves in the UI → the write tool runs.
 4. **Sync conflict / freshness signaling.** Every memory file carries a "Last synced" timestamp; agents should state confidence in data recency when source data may have changed mid-cycle.
 5. **Multi-institution sharing.** For the consortium vision, is there a federated layer where institutions can share aggregate, anonymized data for benchmarking with explicit consent?
 6. **Multi-tenant MCP server sharing.** The platform supports `is_featured` servers shared across tenants. Should each university register its own MCP Server, or should a featured meta-server route to the correct on-premise instance by tenant?

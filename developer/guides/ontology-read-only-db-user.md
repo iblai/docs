@@ -182,6 +182,27 @@ Wire it into `tools.yaml` as a `type: mysql` source; its tools use `mysql-sql`
 with `?` placeholders (not `$1`). See the `client-mysql` source and the
 `list-mysql-tables` / `describe-mysql-table` tools for a working example.
 
+## A second role, only if agents are to change data
+
+The read-only role above is the one a source is discovered, tested and synced
+with, and the one every read tool uses. It never changes. If your team defines a
+tool that changes a record ([components/01-mcp-inbound.md](https://github.com/iblai/ontology/blob/main/docs/components/01-mcp-inbound.md#tools-that-change-data)),
+that tool gets a role of its own with the narrowest grant that lets it work:
+
+```sql
+CREATE ROLE ontology_rw LOGIN PASSWORD '<STRONG_PASSWORD_HERE>';
+GRANT CONNECT ON DATABASE appdb TO ontology_rw;
+GRANT USAGE ON SCHEMA public TO ontology_rw;
+-- Exactly what the operations need, table by table (column by column where the engine allows).
+GRANT SELECT, UPDATE (released, released_note) ON holds TO ontology_rw;
+```
+
+It is a **separate source** in `tools.yaml` (`user: ${SRC_RW_USER}`,
+`password: ${SRC_RW_PASSWORD}`, both in `.env.mcp`), never a change to the
+read-only source: the gateway counts every tool of a source one tool writes
+through as a write, so a read tool put on it could no longer be granted by `"*"`.
+The safety suite is not run against it; it would rightly fail.
+
 ## Rotate / revoke
 
 ```sql

@@ -1,0 +1,92 @@
+# iblai-api-agent-chat
+
+> Mirrored from [`iblai/vibe`](https://github.com/iblai/vibe) · [`skills/agents/iblai-api-agent-chat/SKILL.md`](https://github.com/iblai/vibe/blob/main/skills/agents/iblai-api-agent-chat/SKILL.md). This page is generated — edit it in the repository, not here.
+
+Enable **live chat** with a deployed agent. Unlike the other `iblai-*` skills
+(which call the REST API directly), runtime chat (the agent's tools, RAG and
+memory) is served by the hosted **`iblai-api-agent-chat` MCP server**. This
+skill does the one-time wiring so your assistant can talk to an agent; the conversation
+itself then runs through that server's MCP tools.
+
+## When to use
+
+- You want to *converse with* an agent (not configure it). For configuring agents
+  use the other `/iblai-api-agent-*` skills; to *find* an agent's `unique_id` use
+  `/iblai-api-search`.
+
+## What you need
+
+- **`IBLAI_API_KEY`** — your Platform API Token (from `.env`; run `/iblai-api-login`
+  if it is not set).
+- **An agent's `unique_id`** — the agent to chat with. Get one from
+  `/iblai-api-search` (each result's `unique_id`), then confirm the choice
+  with the user.
+
+## Setup
+
+The agent's `unique_id` goes in the URL, and the server authenticates with one
+header, `Authorization: Api-Token <key>`:
+
+```
+https://asgi.data.iblai.app/mcp/agent-chat/<unique_id>
+```
+
+No agent header is needed. (The older `X-Mentor-Unique-Id` / `X-Agent-Unique-Id`
+header still works for existing configs; a URL id and a header naming different
+agents are refused.)
+
+### Claude Code
+
+```bash
+claude mcp add iblai-api-agent-chat \
+  --transport http "https://asgi.data.iblai.app/mcp/agent-chat/$MENTOR" \
+  --header "Authorization: Api-Token $IBLAI_API_KEY"
+```
+
+### .mcp.json / Claude Desktop / Cursor
+
+Add to the project's `.mcp.json` (or the client's MCP config). Substitute the real
+token and `unique_id` - do not commit secrets:
+
+```json
+{
+  "mcpServers": {
+    "iblai-agent-chat": {
+      "transport": "streamable-http",
+      "url": "https://asgi.data.iblai.app/mcp/agent-chat/YOUR_AGENT_UNIQUE_ID",
+      "headers": {
+        "Authorization": "Api-Token YOUR_API_TOKEN"
+      }
+    }
+  }
+}
+```
+
+After adding it, the assistant gains the server's
+`get_mentor_response(prompt, session_id?)` tool. Each call is one chat turn:
+the agent replies as it does in the chat screen, with its own instructions,
+tools and trained documents. The tool returns the full reply text, ending with
+a `session_id: <id>` line (also in the result's structured content).
+
+## Notes
+
+- **One agent per connection** - the agent is fixed by the URL of each server
+  entry. To chat with several agents, add multiple named entries (e.g.
+  `iblai-api-agent-chat-tutor`, `iblai-api-agent-chat-advisor`), each with its
+  own `unique_id` in the URL.
+- **Follow-up questions** - pass the `session_id` from the previous reply to
+  continue the conversation; the agent sees the earlier turns. Omit it to start
+  a new conversation. A session belongs to the token's owner and its agent; a
+  session id of another user, organization or agent is refused.
+- **Owner-mode tokens only** - the turn is attributed to the token's owner and
+  billed to the token's organization like a turn in the chat screen (credits,
+  spend caps and moderation apply). A refused turn (out of credits, a
+  non-owner-mode token, no access to the agent) comes back as a tool error with
+  the reason.
+- **Which agents** - your organization's agents, plus `main` agents shared with
+  every organization (visibility "viewable by anyone"). Those are chattable with
+  any organization's token, and the turn is billed to the caller's organization.
+- The token lives in client config / `.env` - never commit it; `.env` and local
+  MCP config should stay gitignored.
+- This is the only runtime surface among the `iblai-api-*` skills; everything else (configure,
+  search, recommend, profile, analytics, admin) is a direct-REST skill.

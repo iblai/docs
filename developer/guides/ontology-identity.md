@@ -179,7 +179,7 @@ Role assignments are managed through the platform's admin dashboard / API (user-
 |---|---|---|
 | Who is this user? (identity) | Entra ID JWT | University SSO |
 | What role does this user have? (role assignment) | ibl.ai platform (MCP Server Connection `extra_headers`) | Platform admin |
-| What can this role access? (role permissions) | On-premise `roles.yaml` | Ontology deployer |
+| What can this role access? (role permissions) | On-premise `roles.yaml`, or with `ONTOLOGY_DATA_STORE=rbac` or `dm` the ibl.ai platform's roles and their policies under `/custom/ontology/` | Ontology deployer |
 
 ### Entra ID app registration (the minimum)
 
@@ -216,7 +216,12 @@ default:
 
 ## Role-to-Permission Mapping (`roles.yaml`)
 
-`roles.yaml` lives on the on-premise server and defines **what each role can access**. It does *not* define who has a role. Each role grants `memory_paths` (glob patterns over the text-memory tree), `mcp_toolsets`, `cache_tables`, optional `concurrency_limits`, and the `agents` allowed to use it. The six example roles plus `default`:
+`roles.yaml` lives on the on-premise server and defines **what each role can access**. It does *not* define who has a role. With `ONTOLOGY_DATA_STORE=rbac` or `dm` the same roles live in the ibl.ai platform instead and the file is not read: a role is one of the platform's RBAC roles, what it reaches is the resources of its one policy under `/custom/ontology/`, and a platform with none gets the example roles at its first console sign-in ([DEV.md](https://github.com/iblai/ontology/blob/main/DEV.md#roles-in-the-platform)). Each role grants `memory_paths` (glob patterns over the text-memory tree), `mcp_toolsets`, `cache_tables`, optional `concurrency_limits`, and the `agents` allowed to use it. Two of these have a meaning worth spelling out:
+
+- `mcp_toolsets: ["*"]` is every toolset that only reads. A toolset marked `write: true` is held only by name, alone or beside the wildcard (`["*", "registrar-writes"]`); see [authorization-model.md](/developer/guides/ontology-authorization-model#toolsets-that-change-data).
+- `concurrency_limits.max_records_per_query` is enforced: `query-ontology-cache` returns at most that many rows whatever `limit` the agent asks for. Absent means no limit. `max_export_rows` and `agents` are stored and not enforced.
+
+The six example roles plus `default`:
 
 ```yaml
 roles:
@@ -330,6 +335,85 @@ Even if a student somehow learns another student's ID, the role constraint pins 
 - **Tokens carry through the whole chain** — the same JWT that authenticated the user is forwarded to the gateway. No re-authentication.
 - **End-to-end audit** — the JWT's `jti` appears in both the platform's logs and the on-prem `audit_log`, so any access is traceable from login to tool call.
 - **Students see only their own data** — via EMPLID resolution.
+
+---
+
+## The Platform Service Token
+
+Option A also serves calls the platform makes as itself: an agent without a signed-in user, or a
+deployment without an Entra tenant. The gateway holds one shared secret, `ONTOLOGY_SERVICE_TOKEN`
+(32 or more characters); a request carrying it as `Authorization: Bearer <token>` runs as the
+principal `platform-service` with the role named by `X-Iblai-Role`, which must be defined in
+`roles.yaml` (an unknown role is a 403, no header means `default`). No `roles` claim is involved:
+the platform chose the role when it configured the server or connection, and it is the trusted
+party. Audit rows, rate limits and the cleartext-token rule apply exactly as for a JWT. See
+[platform-integration.md](/developer/guides/ontology-platform-integration#the-platform-service-token) for the registration.
+
+---
+
+## A Person's Own ibl.ai Credential
+
+A member of the ibl.ai platform, or a key made for an agent, can call `/mcp` with a credential
+the platform issued. No Entra tenant and no shared secret is involved, and no role header: the
+credential carries its role.
+
+| Header | What it is |
+|---|---|
+| `Authorization: Token <dm_token>` | The token a person holds after signing in to ibl.ai |
+| `Authorization: Api-Token <key>` | A platform API key: one that acts as its owner, or one limited to its own policies |
+| `Authorization: Bearer <either>` | For clients that can send only `Bearer`: the gateway tries it as a token, then as an API key |
+
+A `Bearer` value is tried in this order: the service token, then an Entra JWT if it has the
+three dot-separated parts of one, then the two above. A DM token and an API key carry no mark
+that tells them apart, so behind `Bearer` a wrong one costs the platform two lookups.
+
+**How it is checked.** The gateway asks the platform (`ONTOLOGY_DM_URL`) what the credential
+holds under `/custom/ontology/` on this backend's platform (`IBLAI_ORG`), with the credential
+itself: `GET /v1/rbac/permissions/?resource_paths=/custom/ontology/&recursive=true` and the
+header `iblai-org`. The platform answers a token of that platform and either kind of key, and
+refuses a credential of another platform. The answer, a refusal included, is kept for
+`ONTOLOGY_ROLES_TTL` seconds (60): a change of membership, or a deleted key, takes effect
+within a minute.
+
+**Which role.** What the platform's RBAC grants the credential, in both store modes:
+
+| Caller | Reaches |
+|---|---|
+| A member's token, or a key that acts as a member | Every role that lists them, combined, plus the `default` role |
+| A key limited to its own policies | Exactly the roles whose policies are attached to it |
+| An administrator's token or key | Everything that only reads. A toolset that changes data only through a role that names it and lists them |
+| A credential that reaches nothing | `403` |
+
+Roles combine by adding up: toolsets, tables and memory paths. Of several row limits the
+largest applies, and an administrator has none. A role's row limit is kept in its policy as
+`/custom/ontology/limits/rows/<n>/`; a role saved by an earlier version gets it when it is saved
+once more.
+
+**How a person or a key is given a role.** With `ONTOLOGY_DATA_STORE=rbac` or `dm`, a role's one policy
+in the platform is named `Ontology: <role>`. Add the person, or a group they belong to, to that
+policy in the platform's RBAC screens. For an agent, the console's **Agents** page makes a key
+limited to one role's policy and registers the gateway on the agent with it
+([platform-integration.md](/developer/guides/ontology-platform-integration#connect-an-agent)). With roles in
+`roles.yaml` nothing in the platform names a role: a member reaches the `default` role, an
+administrator everything that only reads.
+
+**What it answers.**
+
+| Status | When |
+|---|---|
+| `400` | `X-Iblai-Role` was sent with such a credential. It is refused, not ignored: a caller who names a role would otherwise believe it applied |
+| `401` | The platform refused the credential, in the platform's own words (an unknown one; a token signed in to another platform, or issued before tokens recorded a platform: sign in again), or this backend is not told its platform (`IBLAI_ORG`) and where to check (`ONTOLOGY_DM_URL`) |
+| `403` | The credential holds no ontology grant on this platform; or it was sent over plain HTTP |
+| `503` | The platform did not answer. Never the `default` role instead |
+
+Listing more platforms in `ONTOLOGY_ADMIN_PLATFORMS` opens the console to their administrators,
+not `/mcp`: there a credential is always judged on `IBLAI_ORG`.
+
+The audit log and the rate limit see the caller as `ibl:<username>`, or as
+`ibl-key:<12 hex digits of the key's hash>` for a key limited to its own policies, whose owner
+the platform does not tell. The role column reads `platform-admin`, `platform-user` or
+`platform-key`. A self-service role's `${USER_EMPLID}` is resolved from an Entra `oid` only, so
+such a role gives a platform member nothing subject-scoped (refused, not widened).
 
 ---
 
