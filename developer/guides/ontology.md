@@ -1,332 +1,665 @@
-# iblai/ontology
+# ibl.ai/ontology
 
 > Mirrored from [`iblai/ontology`](https://github.com/iblai/ontology) · [`README.md`](https://github.com/iblai/ontology/blob/main/README.md). This page is generated — edit it in the repository, not here.
 
-On-premise knowledge layer that makes an organization's existing systems queryable by AI agents over MCP — no data extraction.
+**The open-source ontology layer for AI agents.**
 
-  [MCP Toolbox](https://github.com/googleapis/mcp-toolbox)
+Connect the systems you already run, dissect them into business terms and relationships, certify the result, and publish it as MCP servers — for ibl.ai agents, Claude, Codex, and any other MCP client. One ontology. Every system. Your server, your data, any agent.
+
+[Join](https://ibl.ai/join)
+[About](https://ibl.ai)
+[Docs](https://ibl.ai/docs/os/overview)
+[License: MIT](https://github.com/iblai/ontology/blob/main/LICENSE)
+[SOC 2 Type II](https://ibl.ai)
+[Next.js](https://nextjs.org)
+[MCP](https://modelcontextprotocol.io)
+
+[Install on your server](/developer/guides/ontology-install)
+[Run it locally](#quick-start)
+
+Ubuntu 22.04, 24.04 or 26.04 on x86-64 · four blocks to paste · built on your server from this source → [looking after the server](/developer/guides/ontology-operations)
+
+[![Watch the demo](https://github.com/iblai/ontology/blob/main/docs/screenshots/demo-video.png)](https://www.youtube.com/watch?v=pAFl0trxwcM)
+
+**▶︎ [Watch the demo](https://www.youtube.com/watch?v=pAFl0trxwcM)** &nbsp;·&nbsp; _Install it on your own server and connect a database to an agent_
+
+[![Watch the HTTP API demo](https://github.com/iblai/ontology/blob/main/docs/screenshots/demo-video-http-api.png)](https://www.youtube.com/watch?v=gvjs9ZLCvrc)
+
+**▶︎ [Watch the HTTP API demo](https://www.youtube.com/watch?v=gvjs9ZLCvrc)** &nbsp;·&nbsp; _Connect the data source, create an MCP, and connect to an agent in 3 minutes_
+
+[Why ibl.ai/ontology](#why-iblaiontology) · [Every system](#every-system-one-ontology) · [Features](#features) · [How it works](#how-it-works) · [Case studies](#case-studies) · [Screenshots](#screenshots) · [Quick Start](#quick-start) · [Deployment](#deployment) · [Architecture](#architecture) · [FAQ](#faq)
 
 ---
 
-## What it is
+**SOC 2 Type II** &nbsp;·&nbsp; Universities, enterprises, and governments run on ibl.ai — [read the case studies →](https://ibl.ai/case-studies)
 
-iblai/ontology is a **unified knowledge layer that runs inside your network**. It makes the systems you already run — SIS/ERP databases (PeopleSoft, Oracle, Postgres), data warehouses (Snowflake), and SaaS apps (Canvas, Salesforce, ServiceNow, Workday, Jira, …) — queryable by AI agents over the **Model Context Protocol (MCP)**.
+---
 
-The prevailing approach extracts your data through a VPN tunnel into a vendor cloud. iblai/ontology does the opposite: **no data extraction, no VPN to our cloud, no third-party infrastructure holding your data.** The agent runtime (where models execute) is a separate concern and can run anywhere; the knowledge layer — the data, the cache, the permissions — stays on-premise and is exposed over MCP so any *authorized* runtime can connect.
+## Why ibl.ai/ontology
 
-> **You will have your data, and we may not even have access to it.**
+| Why                                | What it means                                                                                                                                                                                                                   |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔓 **Your code, your data**        | MIT-licensed and built from this source on your own server. The ontology, the database passwords and the MCP servers stay in your network, and ibl.ai/ontology keeps no database of its own.                                    |
+| 🧭 **One ontology, every system**  | SQL connections and HTTP API connections become one set of business terms and relationships: a Student is the same Student in the SIS, the LMS and the CRM.                                                                     |
+| ✅ **People certify, agents call** | The engine suggests terms, joins and metrics, and a person certifies them. A certified term becomes a tool with a fixed definition and fixed SQL, so an agent picks the right one and cannot widen it.                          |
+| 🤖 **Any agent, over MCP**         | ibl.ai agents, Claude, Codex, Cursor or your own code call the same endpoint, and each caller sees only the toolsets its grant reaches.                                                                                         |
+| 🏢 **Enterprise-ready**            | Read-only SQL connections, ibl.ai SSO and RBAC, Microsoft Entra ID, Google and custom OIDC, allowed origins and hosts, API keys limited to toolsets, rate limits, and a log of every call and every refusal.                    |
+| 🧩 **Built on proven engines**     | [NVIDIA auto-ontology](https://github.com/NVIDIA/auto-ontology) infers the terms, [Google MCP Toolbox](https://github.com/googleapis/mcp-toolbox) serves the tools, and the ibl.ai platform provides sign-in, roles and agents. |
 
-It is **domain-agnostic**: the same stack serves a university (higher-ed systems) and an enterprise (CRM/ITSM/HCM/data-warehouse), with built-in defaults for both (see [the catalog](#built-in-service-catalog)).
+---
 
-## How it connects (MCP in, MCP out)
+## Every system, one ontology
 
-```
-   YOUR NETWORK (ON-PREMISE)
-   ┌──────────────────────────────────────────────────────────────┐
-   │  Source systems                                                │
-   │  PeopleSoft/Oracle · Snowflake · Postgres   Canvas · Salesforce │
-   │        │  (SQL, read-only)                   │ (REST)           │
-   │        ▼                                      ▼                  │
-   │  ┌───────────────────────────┐   ┌──────────────────────────┐  │
-   │  │ Google MCP Toolbox        │   │ Custom MCP servers        │  │
-   │  │ (databases) [1]           │   │ (APIs) [1]                │  │
-   │  └─────────────┬─────────────┘   └────────────┬─────────────┘  │
-   │                └───────────────┬───────────────┘                │
-   │            [2] sync → text memories (MD) + Postgres cache + vectors │
-   │                                │                                │
-   │            [3] identity: Entra ID JWT + roles.yaml (X-Iblai-Role) │
-   │                                │                                │
-   │            [4] iblai/ontology exposed as ONE MCP server (HTTPS) │
-   └────────────────────────────────┬───────────────────────────────┘
-                                     │  MCP over HTTPS, role-scoped
-                                     ▼
-   EXTERNAL: agent runtime (ibl.ai or anywhere) — forwards the user's
-   Entra token per request, never stores institutional data.
-```
+Most agent integrations are wired one system at a time. ibl.ai/ontology reads the systems you already run into one set of terms, and serves them to every agent.
 
-- **Inbound** uses [**Google MCP Toolbox for Databases**](https://github.com/googleapis/mcp-toolbox): databases are exposed as MCP tools via `config/tools.yaml` (`kind: source | tool | toolset`). REST systems get lightweight custom MCP servers (`mcp-servers/`). Run `ontology mcp validate` to check `tools.yaml` against the Toolbox schema.
-- **Outbound**, iblai/ontology is itself **one MCP server** (`streamable_http`, behind your firewall + Entra ID). Any MCP client — the ibl.ai agent runtime, Claude, Cursor, a custom app — connects and gets results scoped to the caller's role.
+| System                                 |     | Status                                                                                                |
+| -------------------------------------- | --- | ----------------------------------------------------------------------------------------------------- |
+| **PostgreSQL**                         | 🐘  | Dissected into terms and served as tools                                                              |
+| **MySQL**                              | 🐬  | Dissected into terms and served as tools                                                              |
+| **Snowflake**                          | ❄️  | Dissected into terms and served as tools                                                              |
+| **ClickHouse**                         | ⚡  | Dissected into terms and served as tools                                                              |
+| **HTTP APIs**                          | 🌐  | Any system with an HTTP API, served as named tools from an OpenAPI document or the endpoints you name |
+| **Trino · Databricks**                 | 🧱  | Dissected into terms and shown on the map; not served as tools                                        |
+| **DuckDB · HeavyDB · Kyuubi · SQLite** | 🔜  | SQL connections coming soon                                                                           |
+| **SQL Server · Oracle · BigQuery**     | 🔜  | SQL connections coming soon                                                                           |
 
-Full design: **[docs/architecture.md](/developer/guides/ontology-architecture)**.
+**An HTTP API connection reaches everything else.** If a system has an HTTP API, it can be
+connected today, with no connector to wait for: a CRM, an SIS, an LMS, a ticketing system, a
+SaaS product or a service you wrote yourself. Point at its OpenAPI document and tick the
+endpoints, or name them by hand; each becomes a tool. Reads and writes go in separate toolsets,
+so you decide per agent whether it may only look or also act, and the upstream credential stays
+on your server.
 
-## Quick start
+On the other side, anything that speaks MCP can call it: ibl.ai agents, attached in one dialog; Claude Desktop and Claude Code; Codex CLI; Cursor and Windsurf; your own code with the MCP SDK; cURL ([connecting agents](/developer/guides/ontology-connect-agents)).
 
-```bash
-pip install -e ".[dev]"      # core CLI + tests
-ontology --help
-ontology config init         # scaffold a deployment (config/, sql/, compose)
-```
+---
 
-Hybrid stack — a lean, Django-free CLI + config layer (works on a fresh checkout) and a Django + Celery backend for the long-running services. Install extras as needed:
+## Features
 
-```bash
-pip install -e ".[django]"   # backend services (gateway, sync, discovery)
-pip install -e ".[llm]"      # BYOK schema analysis (anthropic / openai)
-pip install -e ".[db]"       # source drivers (oracle, postgres, mysql, mssql)
-pip install -e ".[vector]"   # ChromaDB vector index
-```
+<table>
+<tr>
+<td width="50%" valign="top">
 
-Names: distribution **`iblai-ontology`** · import package **`iblai_ontology`** · command **`ontology`**.
+**🔌 Connect**
 
-### Local checks
+- **SQL connections** — PostgreSQL, MySQL, Snowflake and ClickHouse by connection URL, with a schema scope and a connection test
+- **HTTP API connections** — any system with an HTTP API, no connector needed: a base URL and an OpenAPI document, then tick the endpoints to wrap as tools
+- **Prebuilt toolsets** — raw SQL per database
+- **Secrets on your server** — database passwords and upstream API keys are saved there and nowhere else
 
-`./dev.sh` mirrors the CI gates so you can confirm everything passes before committing:
+**🧠 Dissect & model**
 
-```bash
-./dev.sh setup            # install into the active venv (dev + django extras)
-./dev.sh test -k canvas   # pytest (args passed through)
-./dev.sh fmt              # auto-fix ruff format + import sort
-./dev.sh check            # ruff format/lint/import-sort + full pytest (== CI)
-```
+- **Map** — tables under the business terms the engine named, clustered by system
+- **Ontology** — object types, link types, metrics, actions and tags, each certified or suggested
+- **PII detection** — personal columns are tagged, and their samples masked before any reaches a model
+- **Catalog** — every database, schema, table and column the engine read
 
-CI runs the same on every PR to `main`: `.github/workflows/ruff-format.yml` (ruff) and `.github/workflows/tests.yml` (pytest).
+</td>
+<td width="50%" valign="top">
 
-## End to end
+**🚀 Publish & serve**
 
-### 1 · Discover a service — two ways
+- **MCP servers** — toolsets generated from certified terms, one endpoint per server
+- **Revisions** — each server keeps its revisions, and Roll Back puts the previous one back
+- **Playground** — run a tool as yourself and see exactly what your grants return
+- **Questions in plain words** — with a model key, `ask_question` answers with certified SQL and returns the SQL it ran
+- **Attach to an agent** — an ibl.ai agent gets the server, a key of its own and its toolsets in one dialog
 
-**A. Live database** — connect, verify read-only, introspect, analyze, provision:
+**🔐 Govern & operate**
 
-```bash
-ontology service add --from peoplesoft \
-  --host psft-db.internal.edu --database CSPRD --user iblai_readonly
-```
+- **Read-only SQL** — SQL connections use a read-only login, so no agent can change your data through them
+- **Sign-in** — ibl.ai credentials, Microsoft Entra ID, Google, or a custom OIDC issuer
+- **Roles & access** — one ibl.ai policy per toolset; a toolset that writes is reached only by a grant that names it
+- **Origins & hosts** — checked by the gateway before the credential
+- **Activity** — every tool call and refusal, with the runtime's log beside it
+- **Your server** — built from source and run by systemd, with NVIDIA's engine and Caddy in Docker
 
-`--from <catalog-key>` prefills the connection shape (driver, port, env) from the [built-in catalog](#built-in-service-catalog). The pipeline runs a **read-only safety suite first** — seven write attempts that must all be denied — then introspects the schema and generates config.
+</td>
+</tr>
+</table>
 
-**B. From a SKILL.md** — seed an API source with no live connection:
+---
 
-```bash
-ontology service add --skill canvas      # or: ontology skill import canvas
-ontology skill list                      # all vendored skills (higher-ed + enterprise)
-```
+## How it works
 
-This parses the skill's connection env and key operations into a discovery seed (read-only operations become suggested MCP tools).
+Five steps, one page each. [docs/console.md](/developer/guides/ontology-console) walks through every page with
+screenshots.
 
-### 2 · Interpret the schema & see the connection
+| Step            | Page                         | What happens                                                                                                                                |
+| --------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1 · Connect** | Systems                      | Add a SQL connection or an HTTP API connection. SQL connections are read-only, as a security measure. The password is saved on your server. |
+| **2 · Dissect** | Map                          | The engine reads the tables and names the business terms above them. Terms that span several systems are called out.                        |
+| **3 · Model**   | Ontology                     | Review what was inferred and certify it: object types, their properties, links and metrics.                                                 |
+| **4 · Expose**  | MCP Gateway → New MCP Server | Pick the toolsets, how callers sign in, and the allowed origins and hosts. The config file is shown as it will be written.                  |
+| **5 · Serve**   | MCP Gateway → the server     | Deploy, attach it to an ibl.ai agent or paste a snippet into Claude, Codex or Cursor, and watch the calls arrive.                           |
 
-```bash
-ontology service schema peoplesoft        # discovered tables, by row count
-ontology service connection peoplesoft     # stored connection (secrets redacted)
-```
+---
 
-```text
-$ ontology service schema peoplesoft
-peoplesoft — oracle | 847 tables, 12,400,000 rows
-            Top 20 tables
-┏━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━┓
-┃ Schema ┃ Table              ┃ Rows      ┃ Columns ┃
-┡━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━┩
-│ SYSADM │ PS_STDNT_CAR_TERM  │ 2,345,678 │ 24      │
-│ SYSADM │ PS_STDNT_ENRL      │ 1,876,543 │ 31      │
-└────────┴────────────────────┴───────────┴─────────┘
-```
+## Built with
 
-### 3 · Test it
+| For                                         | ibl.ai/ontology uses                                                                                                                              |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Inferring terms, joins and metrics          | [NVIDIA auto-ontology](https://github.com/NVIDIA/auto-ontology) 1.2.0, as NVIDIA's own published images, with a Postgres of its own               |
+| Serving tools over MCP                      | [Google MCP Toolbox](https://github.com/googleapis/mcp-toolbox) 1.16.0, one process per MCP server on your server's loopback                      |
+| Sign-in, roles, API keys and agents         | The ibl.ai platform, through [`@iblai/iblai-js`](https://www.npmjs.com/package/@iblai/iblai-js); the shell matches [os.ibl.ai](https://os.ibl.ai) |
+| The pages, the host API and the MCP gateway | Next.js 16 and React 19, in this repository                                                                                                       |
 
-```bash
-ontology service test peoplesoft           # 7-test read-only safety suite
-ontology mcp validate                       # tools.yaml is MCP Toolbox compliant
-ontology mcp test get-student-enrollment --params '{"student_id":"001234567"}'
-```
+---
 
-```text
-$ ontology service test peoplesoft
-  [PASS] CREATE TABLE blocked   [PASS] INSERT blocked   [PASS] UPDATE blocked
-  [PASS] DELETE blocked   [PASS] DROP TABLE blocked   [PASS] ALTER blocked
-  [PASS] TRUNCATE blocked
-  All safety checks passed.   # credentials confirmed read-only
-```
+## Case studies
 
-### 4 · Provision, sync, serve
+Universities, enterprises, and government agencies build on ibl.ai — deploying agents on their own infrastructure, with their own models, at a fraction of the cost of closed platforms.
 
-```bash
-ontology service approve peoplesoft         # cache schema, tools, sync schedules
-ontology sync run peoplesoft                # pull → cache + text memories + vectors
-ontology deploy up                          # bring up the stack (compose)
-```
+**[Read the case studies →](https://ibl.ai/case-studies)**
 
-Then register iblai/ontology as an MCP server in your agent platform (see [docs/platform-integration.md](/developer/guides/ontology-platform-integration)):
+---
 
-```bash
-ontology platform register --url https://ontology.your-org.edu/mcp
-ontology platform connect  --server 14 --scope user --role FinancialAidCounselor
-```
+## Screenshots
 
-## Built-in service catalog
+<img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/03-map.png" alt="Map" width="820">
 
-`ontology catalog list` ships defaults (connection shape, adapter, default toolset, sync cadences, and the upstream SKILL.md) for 22 systems across two domains. Seed any of them with `ontology service add --from <key>` or `ontology skill import <key>`.
+**The Map** — tables under the business terms the engine named, clustered by system
 
-**Higher-ed** — [iblai/higher-education-agents](https://github.com/iblai/higher-education-agents)
+<table>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/02-systems.png" alt="Systems">
+Systems — add a SQL connection or an HTTP API connection</td>
+<td width="50%"><img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/04-ontology.png" alt="Ontology">
+Ontology — review and certify object types, links and metrics</td>
+</tr>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/06-mcp-new.png" alt="New MCP Server">
+New MCP Server — toolsets, sign-in, allowed origins and the generated config</td>
+<td width="50%"><img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/07-server-connect.png" alt="Server · Connect">
+Connect — attach an ibl.ai agent, or paste a snippet into Claude, Cursor or your code</td>
+</tr>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/07b-server-playground.png" alt="Server · Playground">
+Playground — run a tool with your own grants</td>
+<td width="50%"><img src="https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/08-agents.png" alt="Agents">
+Agents — the ibl.ai agents that have a server attached</td>
+</tr>
+</table>
 
-| Key | System | Type | Skill |
-|---|---|---|---|
-| `peoplesoft` | PeopleSoft (Oracle) | database | — |
-| `banner` | Ellucian Banner | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/banner/SKILL.md) |
-| `canvas` | Instructure Canvas LMS | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/canvas/SKILL.md) |
-| `slate` | Technolutions Slate CRM | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/slate/SKILL.md) |
-| `workday` | Workday HCM / Student | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/workday/SKILL.md) |
-| `eab-navigate` | EAB Navigate | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/eab-navigate/SKILL.md) |
-| `salesforce-education-cloud` | Salesforce Education Cloud | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/salesforce-education-cloud/SKILL.md) |
-| `servicenow` | ServiceNow ITSM | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/servicenow/SKILL.md) |
-| `civitas-learning` | Civitas Learning | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/civitas-learning/SKILL.md) |
-| `handshake` | Handshake Careers | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/handshake/SKILL.md) |
-| `blackbaud-raisers-edge` | Blackbaud Raiser's Edge NXT | api | [SKILL.md](https://github.com/iblai/higher-education-agents/blob/main/skills/blackbaud-raisers-edge/SKILL.md) |
+Every page and tab, with what each control does → [docs/console.md](/developer/guides/ontology-console)
 
-**Enterprise** — [iblai/enterprise-agents](https://github.com/iblai/enterprise-agents)
+---
 
-| Key | System | Type | Skill |
-|---|---|---|---|
-| `snowflake` | Snowflake Data Warehouse | database | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/snowflake/SKILL.md) |
-| `salesforce` | Salesforce CRM / Sales Cloud | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/salesforce/SKILL.md) |
-| `hubspot` | HubSpot CRM | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/hubspot/SKILL.md) |
-| `servicenow-itsm` | ServiceNow ITSM | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/servicenow/SKILL.md) |
-| `jira` | Jira | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/jira/SKILL.md) |
-| `confluence` | Confluence | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/confluence/SKILL.md) |
-| `github` | GitHub | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/github/SKILL.md) |
-| `okta` | Okta Identity | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/okta/SKILL.md) |
-| `slack` | Slack | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/slack/SKILL.md) |
-| `zendesk` | Zendesk | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/zendesk/SKILL.md) |
-| `zoom` | Zoom | api | [SKILL.md](https://github.com/iblai/enterprise-agents/blob/main/skills/zoom/SKILL.md) |
+## Quick Start
+
+This runs ibl.ai/ontology in **demo mode**: sample data, with no ibl.ai account and no engine.
+For the real thing, see [With a real engine](#with-a-real-engine) or [Deployment](#deployment).
 
 ```bash
-ontology catalog show snowflake     # connection shape, env, default toolset, cadences, skill
+git clone https://github.com/iblai/ontology.git
+cd ontology
+pnpm install
+NEXT_PUBLIC_DEMO=1 pnpm dev   # demo mode
 ```
 
-## Utilities
+**Using [Claude Code](https://claude.ai/claude-code)?** Read [`AGENTS.md`](https://github.com/iblai/ontology/blob/main/AGENTS.md) first: this is Next.js 16, and its conventions differ from earlier releases.
+
+Open `http://localhost:3000`. Demo mode needs no ibl.ai account and no
+engine: it uses a fixed session and the sample data in [`lib/mock.ts`](https://github.com/iblai/ontology/blob/main/lib/mock.ts), and the SDK
+panels show a notice. Node.js 26 and pnpm 12, as [`.tool-versions`](https://github.com/iblai/ontology/blob/main/.tool-versions) names them;
+[mise](https://mise.jdx.dev) brings both with `mise install`.
+
+### With a real engine
+
+On one host, as a developer runs it: the pages and the server half (the host API, the MCP gateway,
+Toolbox and their files) on one origin.
+
+1. Start the engine from a checkout of NVIDIA/auto-ontology. Fill in its `.env` as its README
+   says, but set `APP_URL=http://localhost:3100` and leave `CONNECTION_STRINGS` empty. The override
+   runs the engine on the host's network (a Linux host), with its web app on `127.0.0.1:3100` and
+   every service listening on loopback only, so a database on this machine is reached at
+   `127.0.0.1` by the engine and by ibl.ai/ontology alike (Docker Compose 2.24.4 or later):
+
+   ```bash
+   docker compose -f docker-compose.yml -f <this repo>/deploy/auto-ontology.override.yml up -d --build
+   ```
+
+2. Give ibl.ai/ontology the engine's key, one of two ways. Sign in at http://localhost:3100 as
+   the engine's admin, open the user menu → **API Tokens** → **New token**, and copy it into
+   `AO_API_KEY` (it is shown once; an admin's token is needed for the model export). Or leave
+   `AO_API_KEY` out and set `AO_ADMIN_EMAIL`, `AO_ADMIN_PASSWORD_FILE` (a file holding the admin's
+   password) and `AO_ORIGIN=http://localhost:3100`: it then signs in as the admin and makes its
+   own key on the first call that needs the engine.
+3. Start it:
+
+   ```bash
+   cp .env.example .env.local    # set ONTOLOGY_PLATFORM, and AO_API_KEY or the admin's sign-in
+   pnpm dev                      # http://localhost:3000 → signs in with ibl.ai
+   ```
+
+   `ONTOLOGY_PLATFORM` is the key of the ibl.ai platform the engine belongs to. With `AO_URL` set
+   and no `ONTOLOGY_PLATFORM` the dev server refuses to start. Any other platform you sign in to
+   is answered `403` "This server serves another platform."
+
+One engine serves one platform. To serve several from one host, leave `AO_URL` and
+`ONTOLOGY_PLATFORM` unset and write each platform's engine, on another machine, to
+`$ONTOLOGY_HOME/platforms/<platform>/engine.json` as `{"url": "...", "key": "..."}`
+([docs/network.md](/developer/guides/ontology-network#one-platform-or-any)).
+
+---
+
+## Deployment
+
+ibl.ai/ontology runs on your own server, inside your network. The ibl.ai platform provides
+sign-in, roles, API keys and agents; your server keeps the ontology, the database passwords and
+the MCP servers. One server serves one platform.
+
+Platforms are hosted on `api.iblai.app` unless yours runs its own ibl.ai deployment, and the
+install points there by default. A self-hosted platform is under [Advanced](#advanced).
+
+1. **Install it on a fresh Ubuntu server**
+
+   [docs/install.md](/developer/guides/ontology-install) is the whole install: four blocks to paste. The first one
+   names your platform and the name the server answers at, and nothing starts without the
+   platform:
+
+   ```bash
+   ONTOLOGY_PLATFORM=example-university
+   ONTOLOGY_HOST=ontology.example.edu
+   ```
+
+   ibl.ai/ontology is built on the server from this repository and run by systemd
+   ([`deploy/iblai-ontology.service`](https://github.com/iblai/ontology/blob/main/deploy/iblai-ontology.service)); NVIDIA's engine with its
+   database, and Caddy for TLS, run beside it in Docker
+   ([`deploy/compose.yaml`](https://github.com/iblai/ontology/blob/main/deploy/compose.yaml)). Nothing of ibl.ai's arrives as a prebuilt image.
+
+2. **Sign in**
+
+   Open `https://<host>/` and sign in as an administrator of that platform. The server serves the
+   pages, the host API and the MCP gateway, which agents call at
+   `https://<host>/<platform>/<slug>/mcp`.
+
+3. **Look after it**
+
+   Settings, giving the engine a model, upgrades, backups and what to do when something stops are
+   in [docs/operations.md](/developer/guides/ontology-operations), which also covers running ibl.ai/ontology as
+   ibl.ai's prebuilt image instead (`COMPOSE_PROFILES=console`, with the optional
+   `deploy/install.sh`). What talks to what is in [docs/network.md](/developer/guides/ontology-network).
+
+> **Note**: ibl.ai/ontology requires the ibl.ai platform for sign-in, roles, API keys and agents. The platform is not included in this repository — visit [ibl.ai](https://ibl.ai) to get started.
+
+### Troubleshooting
+
+- **A block of the install fails.** Blocks 2, 3 and 4 can be pasted again as they are
+  ([docs/install.md](/developer/guides/ontology-install#if-a-step-fails)).
+- **Something stops later.** `sudo journalctl -u iblai-ontology -n 30` says why for
+  ibl.ai/ontology, and `sudo docker compose logs --tail 30 <service>` in `/opt/iblai-ontology`
+  for the rest. What each message means is in
+  [docs/operations.md](/developer/guides/ontology-operations#when-something-stops).
+
+---
+
+## Configuration
+
+On a server the settings live in `/opt/iblai-ontology/.env`, which Docker Compose and
+ibl.ai/ontology's service both read ([docs/operations.md](/developer/guides/ontology-operations#the-settings)).
+
+| Setting                  | Default                         | What it does                                                                                                                                                       |
+| ------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ONTOLOGY_PLATFORM`      | None: nothing starts without it | Your platform's key, shown at [login.iblai.app/me](https://login.iblai.app/me). The server serves that platform only; another platform's administrator is refused. |
+| `ONTOLOGY_HOST`          | `localhost`                     | The host name. Caddy gets the certificate for it.                                                                                                                  |
+| `ONTOLOGY_DM_URL`        | `https://api.iblai.app/dm`      | The ibl.ai platform's address, where every sign-in and key is checked.                                                                                             |
+| `OPENAI_API_KEY`         | Empty                           | Turns the semantic features on ([a model](/developer/guides/ontology-operations#a-model)).                                                                                            |
+| `OPENAI_API_BASE_URL`    | `https://api.openai.com/v1`     | Where the model calls go: OpenAI, or a gateway that speaks its API.                                                                                                |
+| `OPENAI_MODEL`           | `gpt-4.1`                       | The chat model.                                                                                                                                                    |
+| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-large`        | The embedding model.                                                                                                                                               |
+
+For `pnpm dev`, [`.env.example`](https://github.com/iblai/ontology/blob/main/.env.example) lists every setting of the one-host shape with its
+comment.
+
+---
+
+## Architecture
+
+One codebase: the Next.js 16 app at the repository root, in the ibl.ai shell (the os.ibl.ai header
+and sidebar, Open Sans, `#0058cc`). It has two halves: the pages, and the server half (the host
+API under `/api/host/*`, the MCP gateway, one Toolbox process per MCP server, and their files).
+
+```
+ admins' browsers ──┐
+ ibl.ai agents ─────┼─ 443 ─▶ Caddy (TLS) ─▶ ibl.ai/ontology, 127.0.0.1:3000
+ Claude · Codex ────┘                        pages · host API · MCP gateway at
+                                             /<platform>/<slug>/mcp
+                                                │                  │
+                                                ▼                  ▼
+                                   NVIDIA auto-ontology     MCP Toolbox
+                                   127.0.0.1:3100, with     one process per server,
+                                   a Postgres of its own    on loopback
+                                                │                  │
+                                                ▼                  ▼
+                                   your databases,          your databases and
+                                   read to build terms      HTTP APIs, as tools
+
+ outbound: ibl.ai (every sign-in and key is checked there) · your data sources ·
+           Let's Encrypt · your model's address, if you give it a key
+```
+
+The same code runs three ways:
+
+| Shape                  | Setting                                          | Behaviour                                                                               |
+| ---------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| Your server            | `ONTOLOGY_PLATFORM`, with the engine in `AO_URL` | All of it, built from source beside NVIDIA's engine and Caddy; serves that one platform |
+| Pages hosted elsewhere | `NEXT_PUBLIC_ONTOLOGY_RELAY=1` at build          | Pages only; every `/api/host/*` call is forwarded to the platform's server              |
+| One host run by hand   | None, or `AO_URL` with `ONTOLOGY_PLATFORM`       | Pages and server half as one process: `pnpm dev`, or one host behind a TLS proxy        |
+
+The topology, the firewall rules and the hardening checklist are in
+[docs/network.md](/developer/guides/ontology-network), sign-in in [docs/auth.md](/developer/guides/ontology-auth), and where every value
+on screen comes from in [docs/data-sources.md](/developer/guides/ontology-data-sources).
+
+### Repository layout
+
+| Path                                                                     | What it is                                                                                                                                                                         |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app/(app)/*`                                                            | One folder per route: dashboard, systems, map, ontology, mcp, mcp/new, mcp/[slug], agents, roles, access, catalog, sync (Compilation), config                                      |
+| `components/shell/`                                                      | Sidebar, header, page primitives, shell state, the OS-style footer dialogs hosting SDK tabs and the prototype walkthrough stepper                                                  |
+| `components/graph/ontology-graph.tsx`                                    | Canvas force graph used on the Map                                                                                                                                                 |
+| `components/ui/`                                                         | shadcn components (base-nova on Base UI)                                                                                                                                           |
+| `lib/iblai/`, `store/`, `app/(auth)/`                                    | ibl.ai SSO: session, SDK store, sign-in callback                                                                                                                                   |
+| `lib/host/`, `app/api/host/`                                             | The host layer: checks the caller with ibl.ai, proxies the platform's engine, writes its server configs and runs one Toolbox process per server                                    |
+| [`lib/host/engine-key.ts`](https://github.com/iblai/ontology/blob/main/lib/host/engine-key.ts)                       | The server's own engine key: signs in as the engine's admin, makes a key and keeps it in `$ONTOLOGY_HOME/engine-key`                                                               |
+| [`lib/host/models.ts`](https://github.com/iblai/ontology/blob/main/lib/host/models.ts), `app/internal/models/v1/`    | The loopback model route the engine calls: swaps in the OpenAI model, adds `OPENAI_API_KEY` and sends the call on                                                                  |
+| [`instrumentation.ts`](https://github.com/iblai/ontology/blob/main/instrumentation.ts)                               | The start-up check: a server with `AO_URL` and no `ONTOLOGY_PLATFORM` refuses to start                                                                                             |
+| [`lib/host/relay.ts`](https://github.com/iblai/ontology/blob/main/lib/host/relay.ts)                                 | On the pages-only build, forwards each `/api/host/*` call to the server the browser names                                                                                          |
+| [`lib/server-address.ts`](https://github.com/iblai/ontology/blob/main/lib/server-address.ts)                         | The `x-ontology-server` header, a server's address `https://<host>/iblai`, and the browser's store of it per platform                                                              |
+| `app/[platform]/[slug]/mcp/`                                             | The gateway agents call: origin, credential and toolset checks, then Toolbox                                                                                                       |
+| `lib/data.ts`, `lib/ibl-flows.ts`                                        | What each page reads and does; the ibl.ai writes (roles, policies, API keys, agents)                                                                                               |
+| [`lib/mock.ts`](https://github.com/iblai/ontology/blob/main/lib/mock.ts)                                             | The fixed data demo mode shows                                                                                                                                                     |
+| [`deploy/compose.yaml`](https://github.com/iblai/ontology/blob/main/deploy/compose.yaml)                             | What Docker runs on a server: NVIDIA's engine as its own published images, Postgres, Caddy and the four generated secrets; ibl.ai/ontology's own image under the `console` profile |
+| [`deploy/iblai-ontology.service`](https://github.com/iblai/ontology/blob/main/deploy/iblai-ontology.service)         | The systemd unit of ibl.ai/ontology built from source on the server ([docs/install.md](/developer/guides/ontology-install))                                                                           |
+| [`deploy/install.sh`](https://github.com/iblai/ontology/blob/main/deploy/install.sh)                                 | Optional: prepares an Ubuntu server and installs ibl.ai/ontology as an image ([docs/operations.md](/developer/guides/ontology-operations#the-console-as-an-image))                                    |
+| [`deploy/auto-ontology.override.yml`](https://github.com/iblai/ontology/blob/main/deploy/auto-ontology.override.yml) | For development: runs a local checkout of the engine on the host's network, on loopback, its web app on `3100`; not part of a release                                              |
+| [`Dockerfile`](https://github.com/iblai/ontology/blob/main/Dockerfile)                                               | ibl.ai/ontology's image, `public.ecr.aws/ibleducation/iblai-ontology`: Next's standalone build of the whole app with the Toolbox binary; the ibl.ai addresses are build arguments  |
+| [`.github/workflows/release.yml`](https://github.com/iblai/ontology/blob/main/.github/workflows/release.yml)         | On every push to `main`: release-it for the version and the changelog, then a draft release with the install files                                                                 |
+| [`.env.example`](https://github.com/iblai/ontology/blob/main/.env.example)                                           | Environment settings                                                                                                                                                               |
+| [`scripts/screenshots.mjs`](https://github.com/iblai/ontology/blob/main/scripts/screenshots.mjs)                     | Regenerates every screenshot in `docs/screenshots/`                                                                                                                                |
+| [`scripts/audit-layout.mjs`](https://github.com/iblai/ontology/blob/main/scripts/audit-layout.mjs)                   | Checks every page at six widths for overflow, overlap and sideways scrolling                                                                                                       |
+| [`providers/iblai-providers.tsx`](https://github.com/iblai/ontology/blob/main/providers/iblai-providers.tsx)         | ibl.ai SSO provider chain (see docs/auth.md)                                                                                                                                       |
+| [`AGENTS.md`](https://github.com/iblai/ontology/blob/main/AGENTS.md)                                                 | Rules for coding agents, written by `next dev`; keep it committed                                                                                                                  |
+| [`docs/`](https://github.com/iblai/ontology/tree/main/docs/)                                                         | The documents listed under [Resources](#resources)                                                                                                                                 |
+| [`.claude/launch.json`](https://github.com/iblai/ontology/blob/main/.claude/launch.json)                             | Dev-server definition for the Claude desktop preview                                                                                                                               |
+
+---
+
+## Testing
+
+This project is covered by Vitest unit tests beside the code they test, in [`lib/`](https://github.com/iblai/ontology/tree/main/lib/) and [`deploy/`](https://github.com/iblai/ontology/tree/main/deploy/). **Run them for any change** so nothing regresses:
 
 ```bash
-ontology doctor          # diagnostics: config validity, drivers, per-service env, Entra
-ontology health          # PostgreSQL cache, MCP servers, sync engine, text-memory storage
-ontology catalog list    # built-in service defaults (--domain higher-ed|enterprise)
-ontology mcp validate    # tools.yaml ↔ Google MCP Toolbox schema
+pnpm test
 ```
 
-## CLI reference
+Other useful commands:
 
-| Group | Commands | Purpose |
-|---|---|---|
-| `service` | `add` · `list` · `status` · `test` · `schema` · `connection` · `discover` · `approve` · `sync` · `remove` | Source integrations (discovery + provisioning) |
-| `skill` | `list` · `import` | Inspect / seed discovery from a SKILL.md |
-| `catalog` | `list` · `show` | Browse built-in service defaults |
-| `config` | `init` · `show` · `set` · `llm` · `validate` | Configuration management |
-| `sync` | `run` · `status` · `history` · `schedule` | Sync operations |
-| `roles` | `list` · `show` · `validate` | Role & permission management |
-| `mcp` | `status` · `tools` · `toolsets` · `validate` · `test` | MCP server administration |
-| `platform` | `register` · `connect` · `attach` | Register with the ibl.ai platform |
-| `health` / `doctor` | (sub-checks) | Diagnostics |
-| `deploy` | `up` · `down` · `logs` · `restart` · `status` | Docker Compose lifecycle |
+| Command                         | What it does                                                                                                                                          |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm typecheck`                | TypeScript 7 (`tsc --noEmit`)                                                                                                                         |
+| `pnpm lint`                     | oxlint, zero warnings                                                                                                                                 |
+| `pnpm format:check`             | oxfmt (`pnpm format` rewrites)                                                                                                                        |
+| `node scripts/audit-layout.mjs` | Checks every page at 375, 768, 1024, 1280, 1440 and 1920 px for overflow, overlap and sideways scrolling (with `NEXT_PUBLIC_DEMO=1 pnpm dev` running) |
+| `node scripts/screenshots.mjs`  | Regenerates every screenshot in `docs/screenshots/` (with `NEXT_PUBLIC_DEMO=1 pnpm dev` running)                                                      |
 
-Full reference: **[docs/components/07-cli.md](https://github.com/iblai/ontology/blob/main/docs/components/07-cli.md)**.
+---
 
-## Security posture
+## Advanced
 
-- **Read-only everywhere.** No source writes in v1. Before touching any data, the safety suite attempts seven write operations and requires **all seven be denied** — otherwise it refuses to proceed and prints remediation SQL.
-- **Data stays on-premise.** Source credentials never leave your network; the agent runtime queries at runtime, scoped by the authenticated user.
-- **Identity through Entra ID.** Every MCP request carries the user's Entra ID JWT; the gateway validates it and resolves the caller's role against `roles.yaml`. See [docs/identity.md](/developer/guides/ontology-identity).
-- **Credential isolation & containment.** Each inbound MCP server has its own credential scope; connection secrets are encrypted at rest.
+### Self-hosted platform
 
-### Gateway hardening (environment variables)
+If you run your own ibl.ai deployment, point the server at it: `ONTOLOGY_DM_URL` in the server's
+`.env`, and that deployment's addresses in `.env.local` before the build
+([docs/operations.md](/developer/guides/ontology-operations#another-iblai-deployment)). If you need the full
+backend, reach out at [ibl.ai/contact](https://ibl.ai/contact) for an enterprise license and
+deploy it with [iblai/infra-cli](https://github.com/iblai/infra-cli).
 
-The gateway middleware is tuned entirely through environment variables on the
-`ontology-gateway` container — no code change or rebuild, just set and restart.
+### Pages hosted elsewhere
 
-**Rate limiting** (fixed-window throttle, keyed on the authenticated subject and
-falling back to client IP):
+The pages can also be hosted apart from the server. Built with `NEXT_PUBLIC_ONTOLOGY_RELAY=1`,
+ibl.ai/ontology serves pages only and forwards every `/api/host/*` call to the platform's server
+at `https://<host>/iblai`, which an administrator connects under **Connect a server**
+([docs/operations.md](/developer/guides/ontology-operations#a-console-hosted-elsewhere)).
 
-| Env var | Default | Purpose |
-|---|---|---|
-| `ONTOLOGY_RATELIMIT_ENABLED` | `true` | Master on/off switch |
-| `ONTOLOGY_RATELIMIT_WINDOW` | `60` | Window length in seconds (also the `Retry-After` value) |
-| `ONTOLOGY_RATELIMIT_MAX` | `120` | Max requests per window (general bucket) |
-| `ONTOLOGY_RATELIMIT_TOOLS_CALL_MAX` | `30` | Stricter max per window for `tools/call` |
+---
 
-To loosen limits for higher traffic, raise `ONTOLOGY_RATELIMIT_MAX` /
-`ONTOLOGY_RATELIMIT_TOOLS_CALL_MAX`. Two caveats:
-- The window is **fixed**, not sliding — a client can burst up to `2×MAX` across a
-  window boundary. Size the limit accordingly.
-- Counting is **per worker process** on the default in-memory cache, so with *N*
-  workers the effective limit is ≈ `N × MAX`. Set `ONTOLOGY_CACHE_URL` to a
-  `redis://…` URL so all workers share one counter and the configured number is
-  the true global limit.
+## FAQ
 
-**Transport security & response headers:**
+[Getting started](#getting-started) · [Connections](#connections) · [Security and data](#security-and-data) · [Models](#models) · [Agents and access](#agents-and-access) · [Running it](#running-it)
 
-| Env var | Default | Purpose |
-|---|---|---|
-| `ONTOLOGY_SECURITY_HEADERS_ENABLED` | `true` | Emit security response headers |
-| `ONTOLOGY_REQUIRE_HTTPS` | `true` | Reject Bearer tokens received over a plaintext (non-HTTPS) connection |
-| `ONTOLOGY_HSTS_MAX_AGE` | `31536000` | `Strict-Transport-Security` max-age (seconds; `0` disables HSTS) |
-| `ONTOLOGY_HSTS_INCLUDE_SUBDOMAINS` | `true` | Add `includeSubDomains` to HSTS |
-| `ONTOLOGY_CSP` | `default-src 'none'; frame-ancestors 'none'` | `Content-Security-Policy` value |
-| `ONTOLOGY_REFERRER_POLICY` | `no-referrer` | `Referrer-Policy` value |
-| `ONTOLOGY_FRAME_OPTIONS` | `DENY` | `X-Frame-Options` value |
+### Getting started
 
-HSTS is only emitted over HTTPS. TLS terminates at the Caddy edge, so the gateway
-trusts the proxy's `X-Forwarded-Proto` (`SECURE_PROXY_SSL_HEADER`) to decide
-whether a connection is secure — keep the gateway reachable only via the proxy,
-never directly on `:8080`.
+#### 1. Can I try it before installing anything?
 
-**JWT replay protection:**
+Yes. Watch [the demo](https://www.youtube.com/watch?v=pAFl0trxwcM) and
+[the HTTP API demo](https://www.youtube.com/watch?v=gvjs9ZLCvrc), or run demo mode from the
+[Quick Start](#quick-start): sample data, no account and no engine.
 
-The token `jti` (a required, validated claim) is checked against a cache-backed
-replay store keyed on the `jti`, with each entry expiring exactly when the token
-does (`exp - now`).
+#### 2. Do I need an ibl.ai account?
 
-| Env var | Default | Purpose |
-|---|---|---|
-| `ONTOLOGY_JWT_REPLAY_MODE` | `bind` | `bind` \| `strict` \| `off` (see below) |
-| `ONTOLOGY_JWT_REPLAY_TTL_FALLBACK` | `3600` | Store TTL (seconds) for a token whose `exp` is missing |
+Yes: an ibl.ai platform and an administrator of it. Sign-in, roles and API keys are checked there.
 
-Entra ID **access tokens are bearer tokens designed for reuse** within their
-lifetime — the ibl.ai platform forwards the same token across many MCP requests —
-so blind single-use would break the integration. The modes:
-- `bind` (default): on first sight, bind the `jti` to the request's client IP;
-  the same `jti` presented from a **different** IP is rejected as replay.
-  Legitimate reuse from the platform's stable egress passes; a token stolen and
-  replayed from elsewhere is caught. (IP is read from `X-Forwarded-For` set by
-  Caddy; deployments with multiple platform egress IPs may need `off` or
-  `strict`.)
-- `strict`: single-use — any second presentation of a `jti` is rejected. Only for
-  deployments that mint one-time tokens.
-- `off`: no replay checking.
+Your platform's key is shown at [login.iblai.app/me](https://login.iblai.app/me).
 
-As with rate limiting, the store is the Django cache: set `ONTOLOGY_CACHE_URL` to
-a `redis://…` URL so the check holds across all worker processes (on the default
-per-process cache a replay is only caught on the worker that first saw the token).
-Replay detection is best-effort; short token lifetimes and sender-constrained
-tokens (DPoP / mTLS) remain the strongest defences.
+#### 3. What does it cost, and what is the licence?
 
-**Vector store authentication:**
+ibl.ai/ontology is MIT-licensed. The ibl.ai backend platform it signs in with is separate
+([ibl.ai/contact](https://ibl.ai/contact)).
 
-| Env var | Default | Purpose |
-|---|---|---|
-| `CHROMA_TOKEN` | *(required by compose)* | Static bearer token for the ChromaDB vector store |
+#### 4. How is this different from pointing an agent at a database MCP server?
 
-The `vector-store` container runs ChromaDB's `TokenAuthenticationServerProvider`,
-so every request must present `CHROMA_TOKEN`; without it no container on
-`ontology-internal` can read or write embeddings. The same value is passed to the
-`sync-engine` and `ontology-gateway` services, and the shared `VectorSearch`
-client presents it automatically. Generate a strong random value (e.g.
-`openssl rand -hex 32`) and set it in the root `.env`; the compose stack fails to
-start if it is unset. When `CHROMA_TOKEN` is absent (e.g. a local or air-gapped
-run against an unauthenticated store) the client connects without auth.
+An agent gets certified business terms, each a tool with a fixed definition and fixed SQL, and it
+reaches only the toolsets its grant names.
 
-## Documentation
+### Connections
 
-| Document | Covers |
-|---|---|
-| [docs/architecture.md](/developer/guides/ontology-architecture) | Full plan: positioning, diagram, seven components, design decisions, rollout |
-| [docs/components/01-mcp-inbound.md](https://github.com/iblai/ontology/blob/main/docs/components/01-mcp-inbound.md) | MCP Toolbox + custom MCP servers, `tools.yaml` |
-| [docs/components/02-knowledge-materialization.md](https://github.com/iblai/ontology/blob/main/docs/components/02-knowledge-materialization.md) | Sync modes, text memories, Postgres cache, vector index |
-| [docs/components/03-identity.md](https://github.com/iblai/ontology/blob/main/docs/components/03-identity.md) · [docs/identity.md](/developer/guides/ontology-identity) | Entra ID flow, `roles.yaml`, Option A vs. B |
-| [docs/components/04-mcp-outbound.md](https://github.com/iblai/ontology/blob/main/docs/components/04-mcp-outbound.md) · [docs/platform-integration.md](/developer/guides/ontology-platform-integration) | Outbound MCP server + ibl.ai platform integration |
-| [docs/components/05-service-discovery.md](https://github.com/iblai/ontology/blob/main/docs/components/05-service-discovery.md) | Safety suite, introspection, BYOK LLM, adapters |
-| [docs/read-only-db-user.md](/developer/guides/ontology-read-only-db-user) | Provisioning a read-only Postgres role for a DB source |
-| [docs/components/06-provisioning.md](https://github.com/iblai/ontology/blob/main/docs/components/06-provisioning.md) | The 6-step idempotent pipeline |
-| [docs/components/07-cli.md](https://github.com/iblai/ontology/blob/main/docs/components/07-cli.md) | Full CLI reference |
-| [docs/deployment.md](/developer/guides/ontology-deployment) | Docker Compose stack, networks, Caddyfile, `.env`, rollout |
+#### 5. Which systems can it connect?
+
+| Connection | Systems                                                       | Status                                               |
+| ---------- | ------------------------------------------------------------- | ---------------------------------------------------- |
+| SQL        | PostgreSQL, MySQL, Snowflake, ClickHouse                      | Dissected into terms and served as tools             |
+| SQL        | Trino, Databricks                                             | Dissected and shown on the map; not served as tools  |
+| SQL        | DuckDB, HeavyDB, Kyuubi, SQLite, SQL Server, Oracle, BigQuery | Coming soon                                          |
+| HTTP API   | Any system with an HTTP API                                   | Served as tools today, with no connector to wait for |
+
+More: [connect data sources](/developer/guides/ontology-connect-data-sources).
+
+#### 6. My system is not on the list. Can I still connect it?
+
+Yes, if it has an HTTP API. An HTTP API connection needs no connector: give it the base URL and an
+OpenAPI document, or name the endpoints by hand.
+
+More: [connect data sources](/developer/guides/ontology-connect-data-sources),
+[the HTTP API demo](https://www.youtube.com/watch?v=gvjs9ZLCvrc).
+
+#### 7. Can an agent change my data?
+
+Not by default. SQL connections are read-only, as a security measure.
+
+With an HTTP API connection you can choose to let an agent modify data: the endpoints that write
+go in a toolset of their own, which an agent reaches only when you grant it by name.
+
+More: [permissions](/developer/guides/ontology-permissions).
+
+### Security and data
+
+#### 8. Does my data leave my network?
+
+No. ibl.ai/ontology runs on your server, and the ontology, the passwords and the MCP servers stay
+there.
+
+If you give the engine a model key, its model calls go to the address you set, with the samples of
+personal columns masked first.
+
+More: [a model](/developer/guides/ontology-operations#a-model), [network](/developer/guides/ontology-network).
+
+#### 9. Where are my database passwords kept?
+
+On your server only: in a file that its service alone can read, and in the engine's own database.
+
+More: [connect data sources](/developer/guides/ontology-connect-data-sources).
+
+#### 10. What is exposed to the internet?
+
+No data is exposed by default. Only ports 80 and 443 are open, through Caddy, and anything
+behind them that returns data asks for a sign-in or a key.
+
+NVIDIA auto-ontology engine, the engine's database and every MCP
+server's process listen on the server's loopback only.
+
+More: [network](/developer/guides/ontology-network).
+
+#### 11. How is personal data handled?
+
+Columns that look personal are tagged and flagged in the Ontology, and you decide per toolset
+which tools may return them.
+
+More: [permissions](/developer/guides/ontology-permissions).
+
+#### 12. Can I limit what each person sees, down to the row?
+
+Yes, three ways:
+
+- by the toolsets a grant names,
+- by the certified SQL, which a caller cannot widen,
+- by binding a parameter to a claim of the caller's verified sign-in.
+
+More: [permissions](/developer/guides/ontology-permissions).
+
+#### 13. Is there an audit log?
+
+Yes. Every tool call and every refusal is logged on your server and shown under Activity, and the
+log can be shipped to your SIEM.
+
+More: [permissions](/developer/guides/ontology-permissions).
+
+### Models
+
+#### 14. Do I need an LLM key?
+
+It is not required. Connecting a system, the map, certifying terms and the tools all work without
+one.
+
+An OpenAI API key turns on the semantic features of NVIDIA auto-ontology, such as inferred joins
+and questions in plain words: set [`OPENAI_API_KEY`](/developer/guides/ontology-operations#a-model) in the server's
+`.env`.
+
+#### 15. Does NVIDIA's engine get my OpenAI key?
+
+No. The engine calls a route on the server's loopback, and ibl.ai/ontology adds your key and sends
+the call on.
+
+More: [a model](/developer/guides/ontology-operations#a-model).
+
+#### 16. Can I use a model other than OpenAI's?
+
+Yes: any gateway that speaks OpenAI's API, set in `OPENAI_API_BASE_URL`. The embedding model must
+be able to answer in 2048 dimensions.
+
+More: [a model](/developer/guides/ontology-operations#a-model).
+
+### Agents and access
+
+#### 17. Which agents can call it?
+
+ibl.ai agents, Claude Desktop and Claude Code, Codex, Cursor, and anything else that speaks MCP.
+
+More: [connect agents](/developer/guides/ontology-connect-agents).
+
+#### 18. Does it work from browser-based agents?
+
+Yes, once their origin is on the server's Allowed Origins.
+
+More: [connect agents](/developer/guides/ontology-connect-agents).
+
+#### 19. How do callers sign in?
+
+With ibl.ai credentials, Microsoft Entra ID, Google or a custom OIDC issuer, chosen per MCP server.
+
+More: [permissions](/developer/guides/ontology-permissions).
+
+#### 20. Who sees what?
+
+Each caller sees only the tools in the toolsets its grant reaches, so two people can get
+different lists from the same address.
+
+More: [permissions](/developer/guides/ontology-permissions).
+
+#### 21. How do I take access away?
+
+Revoke the key under Tokens & Origins on the server's page, or remove the group from the toolset's
+policy on ibl.ai.
+
+More: [walkthrough](/developer/guides/ontology-console).
+
+#### 22. Are there rate limits?
+
+Yes: 120 requests or 30 tool calls a minute, per caller.
+
+More: [connect agents](/developer/guides/ontology-connect-agents).
+
+### Running it
+
+#### 23. What does the server need?
+
+Ubuntu 22.04, 24.04 or 26.04 on x86-64 is recommended, 4 GB of memory, 15 GB free, and ports 80
+and 443 open.
+
+More: [install](/developer/guides/ontology-install).
+
+#### 24. Why is Docker there if it is built from source?
+
+Only NVIDIA's engine, its Postgres and Caddy run in Docker. ibl.ai/ontology itself is built on
+your server from this repository.
+
+More: [install](/developer/guides/ontology-install).
+
+#### 25. Can one server serve several platforms?
+
+No. One server serves one platform.
+
+More: [network](/developer/guides/ontology-network#one-platform-or-any).
+
+#### 26. Can I undo a deploy?
+
+Yes. Each MCP server keeps its revisions, and Roll Back puts the previous one back.
+
+More: [walkthrough](/developer/guides/ontology-console).
+
+#### 27. How do I upgrade, back up or remove it?
+
+See [Day to day](/developer/guides/ontology-operations#day-to-day) in the operations guide.
+
+---
+
+## Contributing
+
+We welcome contributions! Open an issue or a pull request. Before you push, run `pnpm format:check`, `pnpm lint`, `pnpm typecheck` and `pnpm test`. If you'll be working with AI-assisted tooling, read [AGENTS.md](https://github.com/iblai/ontology/blob/main/AGENTS.md) first — it holds the Next.js 16 rules that `next dev` writes for coding agents.
+
+---
+
+## Resources
+
+- [Documentation](https://ibl.ai/docs/os/overview)
+- [ibl.ai/ontology](https://ibl.ai/ontology) — the product page
+- [Install](/developer/guides/ontology-install) — four blocks to paste on a fresh Ubuntu server
+- [Operations](/developer/guides/ontology-operations) — looking after that server: settings, a model, upgrades, backups, the image, failures
+- [Walkthrough](/developer/guides/ontology-console) — every page with screenshots, and what each control does
+- [Connect data sources](/developer/guides/ontology-connect-data-sources) — SQL and HTTP API connections: read-only logins, scope, PII, what Connect & Dissect does, troubleshooting
+- [Permissions](/developer/guides/ontology-permissions) — policies and toolsets, sign-in methods, row-level restriction, PII, writes, origins, audit
+- [Connect agents](/developer/guides/ontology-connect-agents) — ibl.ai agents, Claude Desktop and Claude Code, Codex, Cursor, Python, cURL
+- [Authentication](/developer/guides/ontology-auth) — ibl.ai SSO: the session as iblai/os implements it, how it is wired here, configuration, demo mode
+- [Network](/developer/guides/ontology-network) — topology, inbound, outbound to `ext.ibl.ai` and data sources, what runs where, hardening
+- [Data sources](/developer/guides/ontology-data-sources) — where every value on screen comes from, and where each thing is saved
+- [ibl.ai/os](https://github.com/iblai/os) — the agent platform whose agents call these servers
+- [NVIDIA auto-ontology](https://github.com/NVIDIA/auto-ontology) — the engine that infers terms, joins and metrics
+- [Google MCP Toolbox](https://github.com/googleapis/mcp-toolbox) — the runtime that serves the tools
+
+---
 
 ## License
 
-MIT — see [LICENSE](https://github.com/iblai/ontology/blob/main/LICENSE).
+MIT License. See [LICENSE](https://github.com/iblai/ontology/blob/main/LICENSE) for details.
+
+**[ibl.ai](https://ibl.ai)** · Your organization's AI, under your control.

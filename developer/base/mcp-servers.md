@@ -1,0 +1,56 @@
+# The two MCP servers
+
+> Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`docs/mcp-servers.md`](https://github.com/iblai/base/blob/main/docs/mcp-servers.md). This page is generated — edit it in the repository, not here.
+
+Two Model Context Protocol servers exist around this toolkit, and they do
+different jobs.
+
+## `@iblai/mcp` — SDK documentation for your coding assistant (local)
+
+Gives the assistant the `@iblai/iblai-js` SDK's components, hooks, RTK Query
+endpoints, provider setup, and page templates while it writes your app:
+`get_component_info`, `get_hook_info`, `get_api_query_info`,
+`get_provider_setup`, `create_page_template`, `get_playwright_helper_info`.
+
+`.mcp.json` at the project root (vibe-starter ships it; the Claude Code plugin
+declares the same server):
+
+```json
+{
+  "mcpServers": {
+    "iblai": { "command": "pnpm", "args": ["dlx", "@iblai/mcp"] }
+  }
+}
+```
+
+`npx -y @iblai/mcp` in npm projects. Nothing here talks to your organization —
+it is documentation.
+
+## `iblai-agent-chat` — talk to a deployed agent (hosted)
+
+The one runtime capability that is not a REST call: holding a live
+conversation with one of your agents (its tools, RAG and memory) from
+Claude Code, Claude Desktop, Cursor, or any MCP client. Hosted by ibl.ai; no
+install. The agent's UUID goes in the URL; the only header is your Platform
+API Token:
+
+```bash
+claude mcp add iblai-agent-chat --transport http https://asgi.data.iblai.app/mcp/agent-chat/YOUR_AGENT_UUID \
+  --header "Authorization: Api-Token YOUR_API_TOKEN"
+```
+
+`/iblai-api-agent-chat` writes this configuration for you from `.env`;
+[`mcp/iblai-agent-chat/README.md`](https://github.com/iblai/base/blob/main/mcp/iblai-agent-chat/README.md) has the
+Claude Desktop / Cursor JSON and the tool list. Rule: if a skill covers it,
+there is no server for it — everything else is REST via the `iblai-api-*`
+skills. (No agent header is needed; the older `X-Mentor-Unique-Id` header
+still works for existing configs.)
+
+## Plus a browser: `chrome-devtools` (third-party, local)
+
+Not an ibl.ai server: the [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+gives the assistant a real Chrome for the `/iblai-vibe-ops-test` touch test.
+vibe-starter's `.mcp.json` starts it; Claude Code asks once to approve it. Its
+Chrome keeps its own profile, so the user signs in by hand once; nothing asks
+for a password. Claude Code users can run `claude --chrome` instead. Codex and
+Cursor entries: [browser-touch-test.md](https://github.com/iblai/base/blob/main/skills/ship/iblai-vibe-ops-test/references/browser-touch-test.md).
