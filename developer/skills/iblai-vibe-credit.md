@@ -1,0 +1,344 @@
+# /iblai-vibe-credit
+
+> Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/billing/iblai-vibe-credit/SKILL.md`](https://github.com/iblai/base/blob/main/skills/billing/iblai-vibe-credit/SKILL.md). This page is generated — edit it in the repository, not here.
+
+Add the ibl.ai credit balance widget to your app's top navigation: a
+credit-card **icon button** (a dot on it when the balance runs low), and a
+dropdown with the **remaining credits**, what was consumed, when it resets,
+the auto-recharge status, the **plan badge** and the one action the person
+can take next. The widget is rendered by the SDK — do not build a custom
+version.
+
+![Credit Balance](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/billing/iblai-vibe-credit/credit-balance.png)
+
+| Who | Badge (in the dropdown) | Buttons in the dropdown |
+|---|---|---|
+| A free-trial user (signed in on the main organization only, not its admin) | **Trial** | **Upgrade** — opens the plan picker (Free, Pro, Max, Ultra); choosing Free creates their own workspace, a paid plan goes through Stripe checkout first |
+| An admin of an organization on a plan | the plan's name (**Free**, **Pro**, **Max**, **Ultra**, as the backend names it) | **Change Plan** (the picker in change mode, when the backend sends `plan_key`), **Manage Usage** (auto recharge), **Add Credits** |
+
+**Add Credits** is one flow: pick $20, $50 or $100 (or "Other amount"), and
+with no card on file Stripe's customer portal takes one, returns to the page,
+and the charge goes through on the way back (the widget completes it). A
+refused charge (expired card…) shows the reason with an **Update Payment
+Method** button. **Upgrade** / **Change Plan** open `UpgradePackageModal`,
+the same plan picker the 402 flow uses (`/iblai-vibe-credit-exhaustion`).
+
+> **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/skill-setup.md).
+
+Do NOT add custom styles, colors, or CSS overrides to the `<CreditBalance>`
+component. It ships with its own styling, including the button, its
+low-balance dot, the dropdown panel and the buttons. Wrapping it, restyling it, or swapping
+the icon will break the flows and visual consistency across ibl.ai apps.
+
+The widget MUST follow the canonical integration:
+
+- **Import path**: `@iblai/iblai-js/web-containers` (the
+  framework-agnostic bundle — NOT `/next`, NOT `/sso`)
+- **`redirectUrl`**: `window.location.origin` (where Stripe returns —
+  origin only, never `.href` or a path)
+- **`enabled`**: explicit `true`
+- **Visibility**: the SDK's own rule, `isPlatformNavbarCreditBalanceVisible`
+  (Step 3) — not a hand-rolled check
+- **No `className`**: do not pass a `className` prop unless you have a
+  layout reason. Never use it to swap the icon, change colors, or
+  override the size
+
+---
+
+## Visual spec
+
+| Property | Value |
+|---|---|
+| Trigger | An icon button with a credit-card icon (accessible name "N credits remaining"), provided by the SDK |
+| Status dot | None while the balance is healthy; a small dot on the button when it is low (amber, 10 credits or fewer) or critical (red, 1 or fewer) |
+| Panel width | `w-[320px]` dropdown |
+| Position in navbar | Right side, between the page links and the notification bell |
+
+---
+
+## Prerequisites
+
+- Auth must be set up first (`/iblai-vibe-auth`)
+- Navbar must be in place (`/iblai-vibe-navbar`)
+- `@iblai/iblai-js@^2.80.0` — the plan picker, Change Plan and the one-trip
+  Add Credits flow are not in releases before 2.73.0
+- The store carries the `subscription`, `topBanner` and `appleRestriction`
+  slices and the app mounts `SubscriptionConfigProvider`
+  (`/iblai-vibe-credit-exhaustion` Step 1; vibe-starter ships both)
+- Tailwind v4 with the SDK `@source` directives configured (Step 1 below)
+- The organization sells credits (`currentTenant.show_paywall === true`) or
+  is the main organization, where free-trial users live. Elsewhere the rule
+  in Step 3 hides the widget.
+
+## What this skill creates
+
+This skill does not generate any new files — it wires `<CreditBalance>`
+from the SDK into the existing navbar. It adds:
+
+- A `<CreditBalance>` element inside the navbar's right-side cluster
+- The required `@source` directives in `iblai-styles.css` so Tailwind
+  generates the SDK's internal classes
+- The SDK's visibility rule, so the widget only renders for people who can
+  act on it
+
+vibe-starter ships all three in `components/navbar/nav-bar.tsx`.
+
+---
+
+## Step 1 — Confirm Tailwind scans both SDK source folders
+
+The widget's chip and panel use Tailwind utility classes authored inside the
+SDK's compiled JS. Tailwind v4 will not generate those classes unless the
+SDK's `source/` directories are listed as `@source`.
+
+Open `app/iblai-styles.css` (or `app/globals.css` if styles live there)
+and ensure BOTH directives are present:
+
+```css
+@source "../node_modules/@iblai/iblai-js/dist/web-containers/source";
+@source "../node_modules/@iblai/iblai-js/dist/web-containers/source/next";
+```
+
+If the app scans through a `lib/iblai/sdk` symlink instead (some older
+scaffolds ship one), the equivalent is:
+
+```css
+@source "../lib/iblai/sdk/web-containers/source";
+@source "../lib/iblai/sdk/web-containers/source/next";
+```
+
+Both lines are required. After editing, restart the dev server. Verify the
+build picks up the classes:
+
+```bash
+rm -rf .next && pnpm build
+grep -ohF -e 'z-9999' -e 'w-\[320px\]' .next/static/chunks/*.css | sort -u
+```
+
+You should see both `z-9999` and `w-\[320px\]` (the panel's classes) in the
+generated CSS.
+
+---
+
+## Step 2 — Import the component and the visibility rule
+
+Inside your navbar component (`components/navbar/nav-bar.tsx` or
+equivalent), import from the framework-agnostic bundle:
+
+```tsx
+import {
+  CreditBalance,
+  NotificationDropdown,
+  isPlatformNavbarCreditBalanceVisible,
+} from '@iblai/iblai-js/web-containers';
+import { useUserIsOnTrial } from '@iblai/iblai-js/web-utils';
+```
+
+Do NOT import from `@iblai/iblai-js/web-containers/next`. The credit
+component does not require Next.js primitives, and keeping all SDK widgets
+on the same import path simplifies the component graph.
+
+---
+
+## Step 3 — Render the widget behind the SDK's rule
+
+`isPlatformNavbarCreditBalanceVisible` is the rule the OS navbar uses
+(`PlatformNavbar` runs it for its `creditBalance` config): billing is on
+(`config.stripeEnabled()`), the organization sells credits
+(`show_paywall`) **or** is the platform's main organization, the viewer is an
+admin acting as one (`isLiveAdmin`: `isAdmin && adminMode` behind a
+User/Admin switch, plain `isAdmin` without one) **or** a free-trial user, and
+they are signed in. Place the widget before the notification bell:
+
+```tsx
+// components/navbar/credit-balance-widget.tsx
+'use client';
+
+import {
+  CreditBalance,
+  isPlatformNavbarCreditBalanceVisible,
+} from '@iblai/iblai-js/web-containers';
+import { useSubscriptionConfig, useUserIsOnTrial } from '@iblai/iblai-js/web-utils';
+import config from '@/lib/iblai/config';
+
+interface CreditBalanceWidgetProps {
+  tenantKey: string;
+  /** The entry for `tenantKey` in the signed-in user's `tenants`. */
+  currentTenant?: { key?: string | null; show_paywall?: boolean | null } | null;
+  username: string;
+  email: string;
+  /**
+   * An admin acting as one: `isAdmin && adminMode` behind a User/Admin
+   * switch (`/iblai-vibe-admin`), plain `isAdmin` in an app without one.
+   */
+  isLiveAdmin: boolean;
+}
+
+export function CreditBalanceWidget({
+  tenantKey,
+  currentTenant,
+  username,
+  email,
+  isLiveAdmin,
+}: CreditBalanceWidgetProps) {
+  const userOnFreeTrial = useUserIsOnTrial();
+  // The platform's main organization (`main`): where free-trial users live
+  // and the only one that lists and changes plans. Never this app's.
+  const { mainTenantKey: platformMainOrg } = useSubscriptionConfig();
+
+  const visible = isPlatformNavbarCreditBalanceVisible({
+    tenantKey,
+    currentTenant,
+    stripeEnabled: config.stripeEnabled(),
+    isLiveAdmin,
+    userOnFreeTrial,
+    mainPlatformKey: platformMainOrg,
+    currentUserEmail: email,
+    username,
+  });
+  if (!visible || !username || !email) return null;
+
+  return (
+    <CreditBalance
+      tenant={tenantKey}
+      enabled={true}
+      username={username}
+      mainPlatformKey={platformMainOrg}
+      currentUserEmail={email}
+      redirectUrl={window.location.origin}
+    />
+  );
+}
+```
+
+vibe-starter inlines the same rule in `components/navbar/nav-bar.tsx`, with
+`isAdmin && adminMode` from its User/Admin switch (`lib/iblai/admin-mode.tsx`,
+`/iblai-vibe-admin`); `useUserIsOnTrial` is the SDK's: one organization, the
+platform's main one, not its admin, billing on.
+
+### Required props
+
+| Prop | Source | Notes |
+|---|---|---|
+| `tenant` | Resolved org key (e.g. from `resolveAppTenant()`) | The organization the user is acting under — billing is per-organization |
+| `enabled` | Always `true` | The component itself returns `null` if `enabled` is false; pass `true` so it renders when the rule above passes |
+| `redirectUrl` | `window.location.origin` | Where Stripe returns after checkout or the customer portal. Always use `origin` (not `href` or a path) so the return lands on a stable route; the widget then completes a pending Add Credits on its own |
+| `mainPlatformKey` | `useSubscriptionConfig().mainTenantKey` | The platform's main organization (`main` on hosted ibl.ai): where free-trial users live and the only one that lists and changes plans. Never this app's organization (`NEXT_PUBLIC_MAIN_TENANT_KEY`) |
+| `currentUserEmail` | From `userData` in localStorage (`user_email` / `email`) | Stripe Checkout pre-fills with this |
+| `username` | From `userData` (`user_nicename` / `username`) | Used for the Stripe customer portal `userId` |
+
+### Optional props
+
+| Prop | Default | Notes |
+|---|---|---|
+| `className` | (none) | Reserved for layout adjustments only. Do NOT use it to override the icon, colors, or sizing |
+| `enabled` | `true` | Pass `false` to programmatically hide the widget without unmounting it (rarely useful — prefer the rule above) |
+
+---
+
+## Step 4 — The gating, in words
+
+The widget MUST only render when ALL of the following are true — and the
+SDK's rule says exactly this, so use it rather than restating it:
+
+1. **Billing is on** — `config.stripeEnabled()` (`NEXT_PUBLIC_STRIPE_ENABLED`,
+   default true). An app whose organization is not billed this way turns it
+   off and gets no widget, no plan picker and no credits gate.
+2. **The organization sells credits** — `currentTenant.show_paywall`, or
+   it is the platform's main organization (`main`), where free-trial users
+   live. Elsewhere the billing endpoints answer nothing
+   useful and the panel would show a permanent error state.
+3. **The viewer can act on credits** — an admin in Admin mode (the
+   organization's balance is theirs to top up) or a free-trial user (their
+   next step is a plan). A member of an organization on a plan cannot buy
+   credits, so the widget stays hidden for them; when credits run out they
+   get the contact-admin notice instead (`/iblai-vibe-credit-exhaustion`).
+4. **The user is logged in** — the widget hits authenticated billing
+   endpoints. Render only after auth has resolved (`username` and `email`
+   populated from localStorage).
+
+Do not gate solely on `enabled` — the SDK's `enabled` prop hides the
+rendered output but does not skip the billing query.
+
+---
+
+## Step 5 — Verify
+
+Run `/iblai-vibe-ops-test` before telling the user the work is ready, and give
+every page, control and state this skill added its own checkpoint — one Playwright
+test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
+`pnpm e2e:coverage` must pass. Then:
+
+Start the dev server, log in as an organization admin, and confirm:
+
+1. The credit-card button appears between the navigation links and the
+   notification bell; switch to User mode and it disappears.
+2. Clicking it opens the dropdown showing remaining credits, consumed
+   credits, the reset date (if applicable), the auto-recharge status and the
+   plan badge.
+3. On a plan, the buttons are **Manage Usage** and **Add Credits** (and
+   **Change Plan** once the backend reports the plan). **Add Credits** →
+   $20 / $50 / $100 or "Other amount" → with no card on file, Stripe's portal
+   opens; back on your origin a toast confirms the credits were added.
+4. As a user who signed up moments ago (a free trial on the platform's main
+   organization, so not in a single-organization app): badge **Trial**,
+   button **Upgrade** → the plan picker ("Choose Your Plan") with four cards.
+
+If the panel renders without its layout utilities, the SDK source folders are
+not being scanned — go back to Step 1.
+
+---
+
+## Common mistakes
+
+- **Wrong import path**: importing from `@iblai/iblai-js/web-containers/next`
+  works for some bundles but ties the credit widget to Next-specific
+  primitives unnecessarily. Use the plain `web-containers` path.
+- **`redirectUrl={window.location.href}`**: Stripe sends the person back to
+  this URL. Using `.href` re-opens whatever modal or query state was active
+  when the flow started, and the pending Add Credits (carried as query
+  parameters on the way back) can be replayed. Always use `.origin`.
+- **Missing `@source "../.../source/next"`**: the most common cause of
+  "the widget looks wrong" — Tailwind isn't generating the SDK's classes
+  because only one of the two source paths is scanned.
+- **Adding a `className` to swap icons or colors**: don't. The component
+  is a contract; downstream apps depend on it being visually consistent.
+- **Hand-rolling the visibility check**: it drifts (showing the widget to
+  members, or to an admin in User mode). Use
+  `isPlatformNavbarCreditBalanceVisible`.
+- **Your organization as `mainPlatformKey`**: the SDK's main organization is
+  the platform's (`main`), where free-trial users live and the only one that
+  offers plans. With the app's own organization in the slot, Change Plan is
+  refused (404), every admin sees the widget whether or not the organization
+  sells credits, and members are sent to the plan picker. Read it from
+  `useSubscriptionConfig()`, never from `NEXT_PUBLIC_MAIN_TENANT_KEY`.
+- **No `SubscriptionConfigProvider`**: the credits switch, `openBillingTab`
+  and the plan bullets then fall back to the SDK's (the OS's) defaults. Mount
+  it once (`/iblai-vibe-credit-exhaustion`).
+- **Rendering on organizations without paywall**: the panel will show
+  "Unable to load credit balance" indefinitely. The rule covers this.
+
+---
+
+## SDK component reference
+
+For the full prop surface and the underlying billing data shape, see:
+
+- `CreditBalance` — `@iblai/iblai-js/web-containers`
+  - props: `tenant`, `username`, `mainPlatformKey`, `currentUserEmail`,
+    `redirectUrl`, `className?`, `enabled?`
+  - renders `UpgradePackageModal` (the plan picker) and the Add Credits
+    dialog itself; completes a pending Add Credits on return from Stripe
+- `isPlatformNavbarCreditBalanceVisible(config)` and the
+  `PlatformNavbarCreditBalanceConfig` type — `@iblai/iblai-js/web-containers`
+- `useUserIsOnTrial`, `useIsStripeActivated` — `@iblai/iblai-js/web-utils`
+- Billing data is fetched via `useGetAccountBillingInfoQuery` from the
+  data layer (`plan_key` / `plan_name` name the plan; absent on a trial) —
+  no manual data fetching is required
+- Plans and plan changes go through `useStripeUpgrade` (`plans`,
+  `loadPlans`, `choosePlan`, `changePlan`) — `@iblai/iblai-js/web-utils`
+- Stripe portal sessions are created via
+  `useCreateStripeCustomerPortalMutation`; a top-up charges the card on file
+  through `useTriggerAutoRechargeMutation`
+
+REST twin: [`/iblai-api-billing`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/billing/iblai-api-billing/SKILL.md).

@@ -1,8 +1,8 @@
-# LMS
+# ibl.ai/lms
 
 > Mirrored from [`iblai/lms`](https://github.com/iblai/lms) · [`README.md`](https://github.com/iblai/lms/blob/main/README.md). This page is generated — edit it in the repository, not here.
 
-**Open-source skills intelligence platform — discover courses, track competencies, earn credentials, and accelerate workforce development.**
+**Open Source Agentic Learning Management System.**
 
 [Next.js](https://nextjs.org)
 [React](https://react.dev)
@@ -12,13 +12,9 @@
 
 [Features](#features) • [Quick Start](#quick-start) • [Deployment](#deployment) • [Architecture](#architecture) • [Configuration](#configuration) • [Contributing](#contributing)
 
-_Deployed at [lms.ibl.ai](https://lms.ibl.ai)_
-
-### ⬇️ Get Agentic LMS
-
 [Use it on the Web](https://lms.ibl.ai)
-[Download for macOS](https://github.com/iblai/lms/releases/download/app-v1.0.17/Agentic.LMS_1.0.17_universal.dmg)
-[Download for Windows](https://github.com/iblai/lms/releases/download/app-v1.0.17/Agentic.LMS_1.0.17_x64-setup.exe)
+[Download for macOS](https://github.com/iblai/lms/releases/download/app-v1.0.21/Agentic.LMS_1.0.21_universal.dmg)
+[Download for Windows](https://github.com/iblai/lms/releases/download/app-v1.0.21/Agentic.LMS_1.0.21_x64-setup.exe)
 
 [Download for iOS](https://apps.apple.com/us/app/agentic-lms/id6726998914)
 [Download for Android](https://play.google.com/store/apps/details?id=ai.ibl.skillsai)
@@ -324,6 +320,7 @@ All app config is `NEXT_PUBLIC_*` (exposed to the browser). Defaults below match
 | `NEXT_PUBLIC_MENTOR_URL`                              | No       | `https://mentorai.iblai.app`   | AI mentor service URL                                                 |
 | `NEXT_PUBLIC_PLATFORM_BASE_DOMAIN`                    | No       |                                | Tenant subdomain root                                                 |
 | `NEXT_PUBLIC_SUPPORT_EMAIL`                           | No       | `support@ibl.ai`               | Support contact email                                                 |
+| `NEXT_PUBLIC_HELP_CENTER_URL`                         | No       | `https://ibl.ai/support`       | Default Help link in the profile dropdown                             |
 | `NEXT_PUBLIC_COPYRIGHT`                               | No       |                                | Footer copyright string                                               |
 | `NEXT_PUBLIC_HIDE_RECOMMENDED_TAB`                    | No       | `false`                        | Hide the recommendations page                                         |
 | `NEXT_PUBLIC_COURSE_ELIGIBILITY_ENABLED`              | No       | `false`                        | Enable enrollment prerequisite checks                                 |
