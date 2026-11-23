@@ -18,7 +18,7 @@ Most tools are **generated from the `/v1` API**: one tool per published `/v1` ro
 
 This is different from two related pages:
 
-- [MCP Servers](/developer/platform/mcp/mcp-servers) covers the `iblai/vibe` skills and the hosted agent-chat server for coding agents.
+- [MCP Servers](/developer/platform/mcp/mcp-servers) covers the `iblai/base` skills and the hosted agent-chat server for coding agents.
 - [MCP Server Connections](/developer/platform/mcp/mcp-connections) covers registering *external* MCP servers that your agents call during a chat.
 
 ---
@@ -436,7 +436,7 @@ The lists below match the routes published at the time of writing. Call `tools/l
 
 ## Related
 
-- [MCP Servers](/developer/platform/mcp/mcp-servers): `iblai/vibe` skills and the hosted agent-chat server
+- [MCP Servers](/developer/platform/mcp/mcp-servers): `iblai/base` skills and the hosted agent-chat server
 - [MCP Server Connections](/developer/platform/mcp/mcp-connections): register external MCP servers for your agents
 - [MCP & OAuth Architecture](/developer/platform/mcp/architecture): backend design of MCP connections and OAuth connectors
 - [API Reference](/developer): the `/v1` REST endpoints behind each tool
