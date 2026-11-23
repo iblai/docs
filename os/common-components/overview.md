@@ -29,4 +29,4 @@ The organization administration tabs — Users, Groups, Teams, Roles, Policies, 
 ## Related Resources
 
 #### Source Repositories
-The OS application lives at [github.com/iblai/os](https://github.com/iblai/os). Companion tooling lives in [github.com/iblai/vibe](https://github.com/iblai/vibe) — the SDK and build skills for ibl.ai applications, plus the headless agent skills and chat MCP server for the platform API.
+The OS application lives at [github.com/iblai/os](https://github.com/iblai/os). Companion tooling lives in [github.com/iblai/base](https://github.com/iblai/base) — the SDK and build skills for ibl.ai applications, plus the headless agent skills and chat MCP server for the platform API.

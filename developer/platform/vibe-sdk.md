@@ -1,8 +1,8 @@
-# Vibe
+# Base
 
 Ship AI-powered apps fast. Backend included.
 
-> Source: [github.com/iblai/vibe](https://github.com/iblai/vibe)
+> Source: [github.com/iblai/base](https://github.com/iblai/base)
 
 **Developer**
 
@@ -15,7 +15,7 @@ Ship AI-powered apps fast. Backend included.
 Add ibl.ai skills to any project with one command:
 
 ```bash
-npx skills add iblai/vibe
+npx skills add iblai/base
 ```
 
 ### ibl.ai App Template
@@ -34,9 +34,9 @@ Open `http://localhost:3000`. You will be redirected to iblai.app for login -- s
 
 ---
 
-## What is Vibe
+## What is Base
 
-A developer toolkit for vibe coding with the ibl.ai platform. Vibe gives you a production-ready scaffold powered by the [@iblai/cli](https://github.com/iblai/vibe) command line tool, the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at iblai.app. You go from zero to a deployed AI app in minutes -- authentication, AI chat, profiles, notification, and analytics are already wired up. No API tokens to manage.
+A developer toolkit for vibe coding with the ibl.ai platform. Base gives you a production-ready scaffold powered by the [@iblai/cli](https://github.com/iblai/base) command line tool, the [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) SDK, pre-built components, Claude Code skills, and a full backend at iblai.app. You go from zero to a deployed AI app in minutes -- authentication, AI chat, profiles, notification, and analytics are already wired up. No API tokens to manage.
 
 **Why it matters:**
 
@@ -88,7 +88,7 @@ After installing the skills, use them directly in your AI agent with `/` command
 | `/iblai-vibe-ops-build` | Build and run on desktop and mobile (iOS, Android, macOS, Windows) |
 | `/iblai-vibe-ops-deploy` | Deploy to ibl.ai hosting, a container, or a static host |
 | `/iblai-vibe-ops-release` | Generate the Makefile and Fastlane config to submit to the App Store and Google Play |
-| `/iblai-vibe-ops-upgrade` | Upgrade the `@iblai/iblai-js` SDK and the vibe skills to the latest versions |
+| `/iblai-vibe-ops-upgrade` | Upgrade the `@iblai/iblai-js` SDK and the base skills to the latest versions |
 | `/iblai-vibe-windows-msix` | Package a Tauri build as a Windows MSIX for sideloading or the Microsoft Store |
 | `/iblai-vibe-iconography` | Generate every app-icon size for desktop and mobile builds from one source image |
 | `/iblai-vibe-readme` | Write or refresh the README |
@@ -191,7 +191,7 @@ Skills are in `skills/` (symlinked to `.claude/skills/`). Read them, extend them
 Already have a project? Install the skills and let your AI agent add features:
 
 ```bash
-npx skills add iblai/vibe
+npx skills add iblai/base
 ```
 
 Then use the CLI to add features:
@@ -221,7 +221,7 @@ cp .env.example .env.local
 
 ## The iblai Backend
 
-iblai.app is the production backend that powers every Vibe app. You do not need to build, host, or maintain any backend services.
+iblai.app is the production backend that powers every Base app. You do not need to build, host, or maintain any backend services.
 
 **What iblai.app provides:**
 
@@ -234,7 +234,7 @@ iblai.app is the production backend that powers every Vibe app. You do not need 
 
 ## AI-Assisted Development
 
-Vibe is designed to be built with AI. The [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) server gives Claude Code deep knowledge of the ibl.ai platform, and the bundled skills guide you through every common task.
+Base is designed to be built with AI. The [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) server gives Claude Code deep knowledge of the ibl.ai platform, and the bundled skills guide you through every common task.
 
 ### MCP Server
 
@@ -314,8 +314,8 @@ iblai builds ci-workflow --all  # GitHub Actions for all platforms
 
 ## Resources
 
-- [@iblai/cli](https://github.com/iblai/vibe) -- the CLI that scaffolds Vibe apps
+- [@iblai/cli](https://github.com/iblai/base) -- the CLI that scaffolds Base apps
 - [@iblai/iblai-js](https://www.npmjs.com/package/@iblai/iblai-js) -- unified SDK for data, UI components, and auth utilities
 - [@iblai/iblai-api](https://www.npmjs.com/package/@iblai/iblai-api) -- auto-generated API types
 - [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) -- MCP server for AI-assisted development
-- [skills.sh/iblai/vibe](https://skills.sh/iblai/vibe) -- install skills with `npx skills add iblai/vibe`
+- [skills.sh/iblai/base](https://skills.sh/iblai/base) -- install skills with `npx skills add iblai/base`

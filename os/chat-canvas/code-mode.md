@@ -8,7 +8,7 @@ Code Mode is the coding agent built into the OS chat box. Its own description is
 
 The **Code** chip sits in the message composer alongside Canvas, Prompts, and Memory (see [Chat Interface](chat.md)), so there is no separate IDE to open, no second tool to authenticate, and no context to re-explain to a different assistant. The conversation and the codebase are the same session.
 
-What lets a single prompt go this far is the toolkit underneath rather than the model on top. Code Mode builds from the **Agentic Vibe** starter template, which already carries SSO authentication, AI chat, user profiles, notifications, and analytics, and it draws on ibl.ai skills that teach the agent how to build against the platform. The agent composes building blocks your organization already owns instead of inventing a stack from scratch, which is a different failure profile from a general-purpose model guessing at APIs.
+What lets a single prompt go this far is the toolkit underneath rather than the model on top. Code Mode builds from the **Agentic Base** starter template, which already carries SSO authentication, AI chat, user profiles, notifications, and analytics, and it draws on ibl.ai skills that teach the agent how to build against the platform. The agent composes building blocks your organization already owns instead of inventing a stack from scratch, which is a different failure profile from a general-purpose model guessing at APIs.
 
 Everything it produces is ordinary source in a folder you chose, building with your toolchain and deploying to your infrastructure.
 
@@ -46,7 +46,7 @@ Code works inside a folder you nominate. The panel's **Workspace** section offer
 #### Plan-before-acting
 The agent states its plan before it touches the workspace — what it intends to scaffold, what it will install, and what it will run — so you see the shape of the change before any file is written.
 
-#### Scaffolding from the Agentic Vibe starter
+#### Scaffolding from the Agentic Base starter
 Rather than generating an application shell token by token, the agent materializes the vibe-starter template and installs its dependencies. The generated project inherits the starter's wiring, so the agent's effort goes into what is specific to your request.
 
 #### Local preview
@@ -104,8 +104,8 @@ Code Mode's reach is a configuration decision, not a per-conversation promise. T
 
 ## Related Resources
 
-#### Agentic Vibe
-The scaffolding layer Code Mode builds from is documented on the [Agentic Vibe product page](https://ibl.ai/product/agentic-vibe), with setup and environment variables in the [vibe skill setup guide](https://ibl.ai/developer/vibe/skill-setup).
+#### Agentic Base
+The scaffolding layer Code Mode builds from is documented on the [Agentic Base product page](https://ibl.ai/product/agentic-base), with setup and environment variables in the [base skill setup guide](https://ibl.ai/developer/base/skill-setup).
 
 #### Announcement
 [Code Mode: From One Prompt to a Running App](https://ibl.ai/updates/code-mode) — the release walkthrough this page builds on.

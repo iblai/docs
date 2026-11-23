@@ -94,6 +94,6 @@ Switch to **Per User**, click **Add User Limit**, search for the person, and giv
 
 ## Building Spend Limits Into Your Own App
 
-The Billing panel is one of the agent-settings tabs published in the ibl.ai SDK, so the same limits can be managed from a product you build yourself. Install the [iblai/vibe](https://github.com/iblai/vibe) skills and mount `<AgentSpendCapsTab>` from `@iblai/iblai-js/web-containers/next` inside an `AgentSettingsProvider`; every label is overridable through a `labels` prop.
+The Billing panel is one of the agent-settings tabs published in the ibl.ai SDK, so the same limits can be managed from a product you build yourself. Install the [iblai/base](https://github.com/iblai/base) skills and mount `<AgentSpendCapsTab>` from `@iblai/iblai-js/web-containers/next` inside an `AgentSettingsProvider`; every label is overridable through a `labels` prop.
 
-For chat surfaces there is also `SpendCapUsage`, a learner-safe indicator that renders progress zones and percentages but never dollar amounts, warns as a user nears a limit, and shows a blocked banner once a hard cap is exceeded. The reusable skill for this workflow is [`iblai-vibe-agent-billing`](https://github.com/iblai/vibe/tree/main/skills/iblai-vibe-agent-billing), and the SDK overview is at [Vibe SDK](/developer/platform/vibe-sdk).
+For chat surfaces there is also `SpendCapUsage`, a learner-safe indicator that renders progress zones and percentages but never dollar amounts, warns as a user nears a limit, and shows a blocked banner once a hard cap is exceeded. The reusable skill for this workflow is [`iblai-vibe-agent-billing`](https://github.com/iblai/base/tree/main/skills/agents/iblai-vibe-agent-billing), and the SDK overview is at [Base SDK](/developer/platform/vibe-sdk).

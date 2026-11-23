@@ -33,4 +33,4 @@ The chat on a course's [Agent tab](../course/agent.md) and in the [AI agent tab]
 ## Related Resources
 
 #### Source Repositories
-The LMS lives at [github.com/iblai/lms](https://github.com/iblai/lms). Companion tooling lives in [github.com/iblai/vibe](https://github.com/iblai/vibe).
+The LMS lives at [github.com/iblai/lms](https://github.com/iblai/lms). Companion tooling lives in [github.com/iblai/base](https://github.com/iblai/base).

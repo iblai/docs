@@ -25,7 +25,7 @@ Real-time voice conversations with agents over WebRTC, powered by LiveKit. Confi
 Generate, edit, version, and export rich documents alongside chat. See [Canvas](chat-canvas/canvas.md), [Canvas Options](chat-canvas/canvas-options.md), and [Downloading a Canvas](chat-canvas/canvas-download.md).
 
 #### Code Mode
-Scaffold, modify, and run a real application from inside the chat box, building on the Agentic Vibe starter, with every tool call gated behind an explicit Allow / Deny. See [Code Mode](chat-canvas/code-mode.md).
+Scaffold, modify, and run a real application from inside the chat box, building on the Agentic Base starter, with every tool call gated behind an explicit Allow / Deny. See [Code Mode](chat-canvas/code-mode.md).
 
 #### Deep Research & Web Search
 Extended multi-step reasoning for complex queries, plus live web results to ground responses. Available from the [chat interface](chat-canvas/chat.md).
@@ -92,7 +92,7 @@ Shared building blocks that appear across all ibl.ai applications — the profil
 The full application is open source at [github.com/iblai/os](https://github.com/iblai/os) under the MIT license.
 
 #### API Skills & MCP Server
-[github.com/iblai/vibe](https://github.com/iblai/vibe) packages 51 headless agent skills and a chat MCP server for operating any ibl.ai organization from an AI agent.
+[github.com/iblai/base](https://github.com/iblai/base) packages 51 headless agent skills and a chat MCP server for operating any ibl.ai organization from an AI agent.
 
-#### Vibe
-[github.com/iblai/vibe](https://github.com/iblai/vibe) is the companion toolkit for building and shipping ibl.ai applications, including the build skills used to produce the desktop and mobile releases of OS.
+#### Base
+[github.com/iblai/base](https://github.com/iblai/base) is the companion toolkit for building and shipping ibl.ai applications, including the build skills used to produce the desktop and mobile releases of OS.
