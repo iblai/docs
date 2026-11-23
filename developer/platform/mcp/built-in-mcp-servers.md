@@ -69,7 +69,7 @@ X-Agent-Unique-Id: <AGENT_UNIQUE_ID>
 
 `X-Mentor-Unique-Id` is the older name of this header and still works, so existing configurations need no change. If you send both, they must name the same agent; two different ids are refused.
 
-To create a Platform API key, see the [App CLI](/developer/vibe) login flow or your platform admin settings.
+To create a Platform API key, see the [App CLI](/developer/base) login flow or your platform admin settings.
 
 ---
 
