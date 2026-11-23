@@ -1,0 +1,490 @@
+# /iblai-vibe-workflow
+
+> Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/agents/iblai-vibe-workflow/SKILL.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-workflow/SKILL.md). This page is generated — edit it in the repository, not here.
+
+Add **agent workflows** -- multi-step flows that start from one agent and
+route, branch, loop and set state. Two SDK components mount the whole
+feature:
+
+- **`WorkflowsList`** — the organization's workflows: search, status (Active
+  / Draft), **Create Workflow**. It is opened from an agent, whose id seeds
+  the Agent step of every workflow created there — the list itself is the
+  same for every agent.
+- **`WorkflowEditor`** — the editor: a step sidebar (Core / Logic / Data),
+  the canvas, the step settings panel, workflow variables, a **Classifier**
+  step with **Try**, keyboard shortcuts, warnings that open the step they
+  are about, inline rename, **Save**, **Publish**, **Activate / Deactivate /
+  Delete**, and a **Preview** chat that runs the workflow.
+
+The sidebar offers only the steps the backend can run: Agent, End, Note,
+If / Else, While, Classifier, Transform and Set State. File Search,
+Guardrails, MCP and User Approval are marked `planned` in `node-types/` and
+left out; publish refuses a workflow that connects one.
+
+![Workflow editor — a Classifier routing to four agents, the step sidebar, Unpublished changes, the header actions](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow.png)
+
+![Workflows list — search, status, Create Workflow](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-list.png)
+
+![Classifier step — Answer Type, Model, Instructions with placeholders, Categories with their answers](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-panel-classifier.png)
+
+![Classifier step, lower half — Output Variable, Advanced (Input, chat history, Confidence Threshold, When Unsure, Examples), and a Try on a sample message](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-classifier-try.png)
+
+![Agent step — Instructions with Insert Variable or Step open: the user's message, variables, earlier steps](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-panel-agent.png)
+
+![If / Else step — case names and conditions, the expression hint, Step IDs](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-panel-if-else.png)
+
+![Warnings and Errors — each line about a step opens it (Show Route Request)](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-problems.png)
+
+![A step copied and pasted with ⌘C / ⌘V; the toolbar tooltips name each shortcut (Undo ⌘Z)](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-shortcuts.png)
+
+![Preview — the workflow runs in a chat beside the canvas](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-workflow/iblai-vibe-workflow-preview.png)
+
+> **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/skill-setup.md).
+
+## Related surfaces
+
+- **`/iblai-vibe-agent-chat`** — the chat transport (`axdToken`, `baseWsUrl`,
+  `redirectToAuthSpa`) the editor's Preview reuses; take the same values.
+- **`/iblai-vibe-agent-setting`** — an Agent step's gear opens that agent's
+  settings; wire `onOpenAgentSettings` to your settings route.
+- **`/iblai-vibe-navbar`** — where the side-menu entry goes.
+
+## Prerequisites
+
+- Auth must be set up first (`/iblai-vibe-auth`)
+- MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
+- `@iblai/iblai-js` 2.71.0 or later for the Classifier step, the shortcuts
+  and the linked warnings (2.73.1 links each warning by its step id);
+  vibe-starter ships `^2.83.0`.
+- An agent to open the list from (`mentorId`): every new workflow begins
+  with a **Start → Agent** pair bound to it. The list itself shows the whole
+  organization's workflows.
+- A signed-in user: the editor loads each Agent step's settings by
+  `username` and stays on its spinner without one.
+- `workflowsApiSlice` registered in the Redux store (Step 3) — it is **not**
+  part of `mentorReducer`.
+
+## Step 1: Check Environment
+
+Before proceeding, check for an `iblai.env` in the project root. Look for
+`PLATFORM`, `DOMAIN`, and `TOKEN` variables. If the file does not exist or
+is missing these variables, tell the user:
+"You need an `iblai.env` with your platform configuration. Download the
+template and fill in your values:
+`curl -o iblai.env https://raw.githubusercontent.com/iblai/base/refs/heads/main/iblai.env`"
+
+## Step 2: Two pages
+
+### The list — `app/(app)/workflows/[mentorId]/page.tsx`
+
+```tsx
+// app/(app)/workflows/[mentorId]/page.tsx
+"use client";
+
+import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { WorkflowsList } from "@iblai/iblai-js/web-containers/next";
+import { resolveAppTenant } from "@/lib/iblai/tenant";
+
+export default function WorkflowsPage() {
+  const router = useRouter();
+  const { mentorId } = useParams<{ mentorId: string }>();
+  const [tenantKey] = useState(resolveAppTenant);
+
+  return (
+    <WorkflowsList
+      tenantKey={tenantKey}
+      mentorId={mentorId}
+      onOpenWorkflow={(workflow) =>
+        router.push(
+          `/workflows/${workflow.entry_mentor_id}/${workflow.unique_id}?listMentorId=${mentorId}`,
+        )
+      }
+    />
+  );
+}
+```
+
+A Next.js page receives only `params` and `searchParams`, so resolve the
+organization inside the page (the starter's `resolveAppTenant`), never as a
+prop. `onOpenWorkflow` receives the full `Workflow`; route on its
+`entry_mentor_id` (the workflow's own run agent — see Important Notes) and
+keep the list's agent in a query parameter so **Delete** can return to the
+right list.
+
+### The editor — `app/(app)/workflows/[mentorId]/[id]/page.tsx`
+
+```tsx
+// app/(app)/workflows/[mentorId]/[id]/page.tsx
+"use client";
+
+import { useState } from "react";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { WorkflowEditor } from "@iblai/iblai-js/web-containers/next";
+import { useAxdToken, useUsername } from "@iblai/iblai-js/web-utils";
+import { redirectToAuthSpa } from "@/lib/iblai/auth-utils";
+import config from "@/lib/iblai/config";
+import { resolveAppTenant } from "@/lib/iblai/tenant";
+
+export default function WorkflowEditorPage() {
+  const router = useRouter();
+  const { mentorId, id } = useParams<{ mentorId: string; id: string }>();
+  const listMentorId = useSearchParams().get("listMentorId") ?? mentorId;
+  // The list, not router.back(): after Agent Settings the previous page is
+  // that agent's settings, not the list.
+  const listPath = `/workflows/${listMentorId}`;
+  const [tenantKey] = useState(resolveAppTenant);
+  const username = useUsername();
+  const axdToken = useAxdToken();
+
+  return (
+    <WorkflowEditor
+      tenantKey={tenantKey}
+      workflowId={id}
+      username={username ?? ""}
+      axdToken={axdToken ?? ""}
+      baseWsUrl={config.baseWsUrl()}
+      redirectToAuthSpa={(to, key, logout) => void redirectToAuthSpa(to, key, logout)}
+      onBack={() => router.push(listPath)}
+      onDeleted={() => router.push(listPath)}
+      onOpenAgentSettings={(agentId) => router.push(`/agents/${agentId}/settings`)}
+    />
+  );
+}
+```
+
+`axdToken`, `baseWsUrl` and `redirectToAuthSpa` are the same three values
+the chat surface takes — the same `useAxdToken()`, `config.baseWsUrl()` and
+`lib/iblai/auth-utils` that `/iblai-vibe-agent-chat` wires. Resolve all of
+them inside the page, as the starter's home page does; a page component gets
+no other props from Next.js.
+
+The editor fills its parent's height (`h-full`) rather than the window, so
+it sits under your navbar; the starter's `<main>` already gives it that
+height.
+
+### Side-menu entry
+
+The editor's header has no back button, so your navigation is how people
+return to the list. Workflows hang off an agent, so put **Workflows** in the
+sidebar next to the agent's other sections rather than in the top nav. The
+SDK's own app renders a collapsible **Workflows** section with **New
+Workflow** and **My Workflows**, both routing to `/workflows/<current
+agent>`; it shows only for admins (and free-trial / anonymous admin
+previews), and with no agent selected it opens a "pick an agent" prompt
+instead of navigating.
+
+## Step 3: Register `workflowsApiSlice` in the store
+
+The workflow hooks live on their own slice that `mentorReducer` does not
+include. Add its reducer and middleware to the starter's
+`store/iblai-store.ts` (three lines marked `+` — the rest is the file
+vibe-starter already ships, comments left out):
+
+```typescript
+// store/iblai-store.ts
+import { configureStore } from "@reduxjs/toolkit";
+import {
+  coreApiSlice,
+  mentorReducer,
+  mentorMiddleware,
+  mcpApiSlice,
+  workflowsApiSlice, // + workflows
+} from "@iblai/iblai-js/data-layer";
+import {
+  hostChatReducer,
+  chatInputSliceReducer,
+  chatSliceReducerShared,
+  filesReducer,
+  rbacReducer,
+  subscriptionReducer,
+  topBannerReducer,
+  appleRestrictionReducer,
+} from "@iblai/iblai-js/web-utils";
+
+export const iblaiStore = configureStore({
+  reducer: {
+    [coreApiSlice.reducerPath]: coreApiSlice.reducer,
+    ...mentorReducer,
+    [mcpApiSlice.reducerPath]: mcpApiSlice.reducer,
+    [workflowsApiSlice.reducerPath]: workflowsApiSlice.reducer, // + workflows
+    chat: hostChatReducer,
+    chatInput: chatInputSliceReducer,
+    chatSliceShared: chatSliceReducerShared,
+    files: filesReducer,
+    rbac: rbacReducer,
+    subscription: subscriptionReducer,
+    topBanner: topBannerReducer,
+    appleRestriction: appleRestrictionReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false })
+      .concat(coreApiSlice.middleware)
+      .concat(mcpApiSlice.middleware)
+      .concat(workflowsApiSlice.middleware) // + workflows
+      .concat(...mentorMiddleware),
+});
+
+export type IblaiRootState = ReturnType<typeof iblaiStore.getState>;
+export type IblaiAppDispatch = typeof iblaiStore.dispatch;
+```
+
+Without it every workflow hook returns `undefined` and both pages render
+their error state.
+
+## Step 4: Use MCP Tools for Customization
+
+```
+get_component_info("WorkflowEditor")
+get_component_info("WorkflowsList")
+```
+
+## Component Props
+
+Both import from `@iblai/iblai-js/web-containers/next`.
+
+### `<WorkflowsList>`
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `tenantKey` | `string` | Yes | Organization key |
+| `mentorId` | `string` | Yes | The agent the list was opened from — it seeds the Agent step of workflows created here; the list itself is organization-wide |
+| `onOpenWorkflow` | `(workflow: Workflow) => void` | Yes | Called with the full record on card click **and** right after **Create** |
+
+### `<WorkflowEditor>`
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `tenantKey` | `string` | Yes | Organization key |
+| `workflowId` | `string` | Yes | The workflow's `unique_id` |
+| `username` | `string` | Yes | Signed-in user — loads each Agent step's settings; with an empty username the editor never leaves its spinner |
+| `axdToken` | `string` | Yes | Chat token for the preview chat |
+| `baseWsUrl` | `string` | Yes | WebSocket origin for the preview chat (`${baseWsUrl}/ws/langflow/`) |
+| `redirectToAuthSpa` | `(redirectTo?, platformKey?, logout?) => void` | Yes | Host auth redirect (wrap an async helper to `=> void`) |
+| `onBack` | `() => void` | Yes | **Go Back** when the workflow fails to load (the header has no back button) |
+| `onDeleted` | `() => void` | Yes | After a successful delete — go back to your list |
+| `onOpenAgentSettings` | `(mentorId?: string) => void` | No | The **Agent Settings** gear on an Agent step; the gear is hidden when omitted |
+| `agentSettings` | `WorkflowAgentSettingsConfig` | No | RBAC and paywall config (`enableRBAC`, `rbacPermissions`, `executeGatedAction`) for the agent-settings pieces the editor embeds, such as the Agent step's Tools switches |
+
+## What the editor renders
+
+### Header
+
+Inline-editable **name** (pencil; saves on blur / Enter) · **Active** /
+**Draft** · **Unpublished changes** once a published workflow has saved
+edits that are not published yet · **Unsaved** while the canvas differs from
+the server · **Publish**, **Save**, **Preview**, **Activate** /
+**Deactivate**, **Delete**. As the header narrows, buttons move into a
+**More Workflow Options** menu — Delete first, Publish last. In Preview they
+become **Close Preview**, **New Chat** and **Publish**.
+
+### Step sidebar and canvas
+
+- Sections come from the organization's `node-types` endpoint (a built-in
+  list until it loads): **Core** — Agent, End, Note · **Logic** — If /
+  Else, While, Classifier · **Data** — Transform, Set State. Drag a step
+  onto the canvas, or click it to drop it next to the selected step.
+- Steps connect left to right. If / Else has one row per condition plus
+  **Else**; While has **Loop** and **Done**; a Classifier has one row per
+  answer plus **Fallback**. An output with nothing attached says **Not
+  connected**. Start accepts no incoming connection; Notes are never
+  connected.
+- A selected card shows **Copy `{{steps.<id>}}`** and **Delete**; an Agent
+  card has **Change Agent** (pencil) and **Agent Settings** (gear). Hover a
+  connection for **Delete Connection**. The toolbar has Pan, Select (drag a
+  box to select several steps), Undo, Redo and Zoom; each tooltip names its
+  shortcut.
+- A workflow saved with a File Search, Guardrails, MCP or User Approval step
+  still opens and shows it; nothing new can add one.
+
+### Keyboard shortcuts
+
+| Mac | Windows / Linux | Does |
+|---|---|---|
+| ⌘S | Ctrl+S | Save (instead of the browser's Save Page) |
+| ⌘Z | Ctrl+Z | Undo |
+| ⇧⌘Z | Ctrl+Shift+Z, Ctrl+Y | Redo |
+| ⌘C, ⌘V | Ctrl+C, Ctrl+V | Copy the selected steps and the connections between them; each paste lands 40 px further down and right, with new step ids and a free name for any Output Variable |
+| Delete, Backspace | Delete, Backspace | Delete the selected steps or connection (pointer over the canvas) |
+| H / V | H / V | Pan / Select tool |
+| ⌘+ ⌘− ⌘0 | Ctrl++ Ctrl+− Ctrl+0 | Zoom in / out / reset, while the canvas has focus |
+
+The canvas keys stay out of the way while you type in a field, inside the
+step panel (its text fields keep their own undo), and while a dialog or menu
+is open; ⌘C with text selected copies the text. ⌘S works anywhere in the
+editor outside Preview, except over a dialog. On a keyboard without Latin
+letters the physical key counts.
+
+### Step settings panel
+
+Opens on click (not on drag). What each step edits:
+
+| Step | Fields |
+|---|---|
+| Start | **State Variables** — name, type, optional default (validated per type) |
+| Agent | **Change** picks the agent · **Instructions**, added to the user's message for this step only (empty = just the agent's own prompt) · **Output Variable**, the reply kept for later steps · **Model**, read-only · **Tools** switches, which edit *that agent's own* settings (every chat with it) · **Advanced → Output Schema**, a JSON object: the agent replies in that shape and the Output Variable holds its fields |
+| Classifier | below |
+| If / Else | **If** + **Else If n** rows: case name (optional) + condition; an empty condition cannot be published |
+| While | **Condition** (required), **Max Iterations** (default 10, at most 100) |
+| Transform | **Key** / **Value** expressions |
+| Set State | **Assign Value** → **To Variable** rows; **New** creates a variable |
+| End | finishes with the last step's reply |
+
+### The Classifier step
+
+Sends the message to a decision model and follows the path for its answer.
+
+- **Answer Type**: **Pick a Category** (2–20 categories, a path each),
+  **Yes or No** (Yes and No paths; optional **Yes Means** / **No Means**) or
+  **Rate on a Scale** (2–10 levels, lowest first; always continues on
+  **Next** — branch on the level with an If / Else after it). Every type
+  also has **Fallback**.
+- **Model**: **ibl.ai Default** (`iblai`, the decision model set up for the
+  organization) plus any `config_schema.model.suggestions` from
+  `node-types`.
+- **Instructions** (required): what the model decides; takes placeholders.
+- **Categories**: a label and when to pick it. The answer id is made from
+  the label (`Technical Problem` → `technical_problem`) and shown under it;
+  renaming a category moves its connection, removing one drops it.
+- **Output Variable**: saves the answer, and how sure the model is, for
+  later steps.
+- **Advanced**: **Input** (the text judged; empty = the user's message),
+  **Include Chat History** (1–10 exchanges, default 3), **Confidence
+  Threshold** (0–1, default 0.6), **When Unsure** (**Take Fallback**, or
+  **Use the Best Answer**, which keeps the top answer and marks it
+  uncertain), **Examples** (a message and the answer you expect).
+- **Sample Message → Try** saves the workflow, then runs this step alone:
+  Start defaults fill `{{variables.…}}`, `{{steps.…}}` stay empty. It shows
+  the answer with its confidence and the model that answered. Each try is a
+  billed model call; running out of credits, a spend limit, a model that is
+  off or failing, and a sample over 20,000 characters each get a plain
+  message.
+
+### Variables, placeholders and expressions
+
+- **Placeholders** go in Agent and Classifier Instructions and a
+  Classifier's Input, filled in as text before the step runs: `{{input}}`
+  (the user's message), `{{variables.name}}`, `{{steps.<step-id>}}`.
+  Only variables and steps that run before the step count; publish refuses
+  one that would always be empty. They are listed under the field with copy
+  buttons.
+- **Expressions** go in conditions and values and use **subscript** access
+  only: `variables['score'] > 5`, `step_results['mentor-1']['output']`,
+  `variables['items'][0]` (first item), `[-1]` (last).
+  `variables.score` fails validation.
+- **Insert Variable or Step** (the **+** in a field's corner) searches the
+  user's message, the variables and the earlier steps, and inserts the
+  right form at the caret.
+- Variable names start with a letter and use letters, digits and
+  underscores. The workflow's variables are Start's State Variables, the
+  names Set State steps assign, and every Agent or Classifier Output
+  Variable. Deleting a Start variable a step still uses is refused
+  (**Variable In Use**).
+
+### Saving, validating, publishing
+
+- **Auto-save**: 1 s after the last change the definition is `PATCH`ed and
+  then validated. Opening a workflow validates it and never saves it.
+- **Warnings and Errors** is a collapsible banner. A line about one step is
+  a link (**Show {step}**): it leaves Preview, centres and selects the
+  step, opens its settings and focuses the setting at fault. The backend's
+  wording is rewritten in terms of agents and step names (a step with no
+  agent, a step using the workflow's own agent, a Classifier path that goes
+  straight to End, two steps saving into one variable, a decision model
+  that is not switched on). Warnings about Notes are dropped.
+- **Save** (⌘S) patches now. **Publish** saves, validates and makes the
+  workflow **Active** in one call; a `400` with `is_valid: false` fills the
+  banner instead. A new workflow is created Active.
+- **Activate** saves first, then activates; **Deactivate** and **Delete**
+  act directly. **Preview** also saves first — and runs only while the
+  workflow is Active ("Workflow is not active" otherwise).
+
+### On a phone
+
+Below the `md` breakpoint the sidebar becomes an **Add Step** button that
+opens the step list from the bottom, the settings panel takes the canvas's
+width, and Preview replaces the canvas (**Close Preview** returns to the
+same view and undo history).
+
+## Related Exports
+
+From `@iblai/iblai-js/data-layer` (`workflowsApiSlice`): `useGetWorkflowsQuery`,
+`useGetWorkflowQuery`, `useCreateWorkflowMutation`,
+`usePatchWorkflowMutation`, `useDeleteWorkflowMutation`,
+`useValidateWorkflowMutation`, `usePublishWorkflowMutation`,
+`useActivateWorkflowMutation`, `useDeactivateWorkflowMutation`,
+`useTestWorkflowClassifierMutation`, `useChatWithWorkflowMutation`,
+`useGetNodeTypesQuery`. Their arguments and types, and the lower-level
+pieces for composing your own editor (`WorkflowCanvas`, `NodeConfigPanel`,
+`WorkflowSidebar`, the definition helpers), are in
+[`references/exports.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-workflow/references/exports.md). The node data model
+(every `NodeConfig` field per step, the handles, the migrations) is in
+[`references/node-data-model.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-workflow/references/node-data-model.md).
+
+## Step 5: Verify
+
+Run `/iblai-vibe-ops-test` before telling the user the work is ready, and give
+every page, control and state this skill added its own checkpoint — one Playwright
+test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
+`pnpm e2e:coverage` must pass:
+
+1. `pnpm build` -- must pass with zero errors
+2. `pnpm test` -- vitest must pass
+3. Touch test in the browser, signed in, as `/iblai-vibe-ops-test` says:
+   open `/workflows/<agentId>` — the list renders with the organization's
+   workflows; **Create Workflow** opens the new workflow's editor (the
+   canvas, not "Failed to load workflow"); add a **Classifier** and **Try**
+   it on a sample message; ⌘S / Ctrl+S saves (**Unsaved** clears); the
+   console is clean.
+
+Stable selectors: the step panel is `workflow-node-panel`, the warnings list
+`workflow-validation-list`, the header buttons `workflow-header-actions`;
+canvas cards carry `data-node-id`; buttons have accessible names (**Create
+Workflow**, **Publish**, **More Workflow Options**, **Insert Variable or
+Step**).
+
+## Important Notes
+
+- **Redux store**: Must include `mentorReducer`, `mentorMiddleware` **and**
+  `workflowsApiSlice` (reducer + middleware)
+- **`initializeDataLayer()`**: 5 args (v1.2+)
+- **`@reduxjs/toolkit`**: Deduplicated via webpack aliases in `next.config.ts`
+- **Peer deps**: `sonner` and `@iblai/iblai-web-mentor` must be installed
+  (`pnpm add sonner @iblai/iblai-web-mentor`)
+- **Import paths**: `WorkflowsList`, `WorkflowEditor`, `WorkflowCanvas`,
+  `NodeConfigPanel`, `WorkflowPreviewChat` come from
+  `@iblai/iblai-js/web-containers/next` (they use `next/dynamic` and
+  `next/navigation`); the sidebar, dialogs and definition helpers from
+  `@iblai/iblai-js/web-containers`.
+- **Two agent ids**: `mentorId` is the agent the list was opened from — it
+  only seeds new workflows. `entry_mentor_id` is a **dedicated agent the
+  backend creates for every workflow**, named after it and deleted with it:
+  chatting with that agent runs the workflow, and it is what Preview talks
+  to. An Agent step may not use it. The Agent step's own agent is
+  `definition.nodes[].data.mentor_id`. Route the editor on
+  `entry_mentor_id` and carry the list's id along (`?listMentorId=`). That
+  run agent, and `POST …/chat/`, refuse an inactive workflow.
+- **A new workflow is Start → Agent**, with the Agent step bound to the
+  list's agent.
+- **Definition is opaque to the API**: `definition.nodes` / `edges` are
+  `unknown[]`; the editor owns the shapes (see the reference). A misnamed
+  field is ignored by the backend and silently turns a step into a no-op.
+- **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/BRAND.md)
+
+## Workflows REST API
+
+All endpoints are under `${dmUrl}/api/ai-mentor/orgs/{org}/workflows/`
+where `dmUrl` is `${NEXT_PUBLIC_API_BASE_URL}/dm` (the starter's
+`config.dmUrl()`) — without the `/dm` prefix every path answers 404.
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `workflows/` | List. Params `search`, `is_active`, `is_template`, `created_by`, `sort`, `limit`, `offset` |
+| POST | `workflows/` | Create `{ name, description?, definition? }` |
+| GET / PUT / PATCH / DELETE | `workflows/{unique_id}/` | One workflow; PATCH any of `name`, `description`, `definition`, `chat_name`, `chat_proactive_response`. The record carries `published_at` and `has_unpublished_changes` |
+| POST | `workflows/{unique_id}/validate/` | `{ is_valid, errors[], warnings[] }`, plus `error_details[]` / `warning_details[]` — the same lines as `{ message, node_id, edge_id }` |
+| POST | `workflows/{unique_id}/publish/` · `unpublish/` | Publish saves (optional `{ definition }`), validates and makes the workflow Active; a failed validation is a `400` with the same shape. `unpublish/` is an alias of `deactivate/` |
+| POST | `workflows/{unique_id}/activate/` · `deactivate/` | Activate validates and answers the validation shape |
+| POST | `workflows/{unique_id}/classifier-test/` | Runs one **saved** Classifier step: `{ node_id, input (≤ 20,000 characters), variables? }` → `{ answer, confidence, probabilities, route, uncertain, output, model }`. A billed model call: `402` no credits, `429` spend limit, `502` model failed or not enabled, `400` with `errors[]` for settings that cannot run |
+| POST | `workflows/{unique_id}/chat/` | `{ message }` → `{ response, workflow_id, session_id }`; `400 {"detail": "Workflow is not active"}` unless the workflow is Active |
+| GET | `workflows/node-types/` | The step catalogue: `{ node_types: { [id]: { label, category, executable, status?, description, required_fields, optional_fields, config_schema?, handles? } }, categories }`; `status: "planned"` marks a step that cannot run yet |
