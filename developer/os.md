@@ -2,7 +2,7 @@
 
 > Mirrored from [`iblai/os`](https://github.com/iblai/os) · [`README.md`](https://github.com/iblai/os/blob/main/README.md). This page is generated — edit it in the repository, not here.
 
-**The open-source AI agent platform.**
+**Open Source Agentic Operating System.**
 
 Build, deploy, and manage intelligent conversational agents — from prototype to production, in minutes. One codebase. Every platform. Your code, your data, any LLM.
 
@@ -12,27 +12,17 @@ Build, deploy, and manage intelligent conversational agents — from prototype t
 [License: MIT](https://github.com/iblai/os/blob/main/LICENSE)
 [SOC 2 Type II](https://ibl.ai)
 
-### ⬇️ Get ibl.ai/os
+[Why ibl.ai/os](#why-iblaios) · [Every platform](#every-platform-one-codebase) · [Features](#features) · [Case studies](#case-studies) · [Screenshots](#screenshots) · [Quick Start](#quick-start) · [Deployment](#deployment)
 
 [Use it on the Web](https://os.ibl.ai)
-[Add to Chrome](https://chromewebstore.google.com/detail/gppjhejgkdljdhnmlfghfbalfhgaepfd)
-[Download for macOS](https://github.com/iblai/os/releases/download/app-v0.95.23/ibl.ai_0.95.23_universal.dmg)
-[Download for Windows](https://github.com/iblai/os/releases/download/app-v0.95.23/ibl.ai_0.95.23_x64-setup.exe)
+[Download for macOS](https://github.com/iblai/os/releases/download/app-v0.95.36/ibl.ai_0.95.36_universal.dmg)
+[Download for Windows](https://github.com/iblai/os/releases/download/app-v0.95.36/ibl.ai_0.95.36_x64-setup.exe)
 
 [Download for iOS](https://apps.apple.com/us/app/ibl-ai/id6504929071)
 [Download for Android](https://play.google.com/store/apps/details?id=ai.ibl.mentorai)
+[Add to Chrome](https://chromewebstore.google.com/detail/gppjhejgkdljdhnmlfghfbalfhgaepfd)
 
 Windows ARM64 · older builds · Linux → [all downloads](https://github.com/iblai/os/blob/main/docs/DOWNLOADS.md)
-
-[![Watch the demo](https://img.youtube.com/vi/5LOAZyTbRQs/maxresdefault.jpg)](https://www.youtube.com/playlist?list=PLW0-4yErlU3XQr0UP6cCGwy24LMf7I5vR)
-
-**▶︎ [Watch the demo](https://www.youtube.com/playlist?list=PLW0-4yErlU3XQr0UP6cCGwy24LMf7I5vR)** &nbsp;·&nbsp; _by Miguel Amigot, CTO at ibl.ai_
-
-[Why ibl.ai/os](#why-iblaios) · [Every platform](#every-platform-one-codebase) · [Features](#features) · [Case studies](#case-studies) · [Screenshots](#screenshots) · [Quick Start](#quick-start) · [Deployment](#deployment)
-
----
-
-**SOC 2 Type II** &nbsp;·&nbsp; Universities, enterprises, and governments run on ibl.ai — [read the case studies →](https://ibl.ai/case-studies)
 
 ---
 
@@ -311,8 +301,8 @@ We welcome contributions! Please see [CONTRIBUTING.md](https://github.com/iblai/
 - [Development Guide](/developer/os/development) — setup, scripts, architecture, configuration
 - iblai-app-cli — CLI for scaffolding ibl.ai apps
 - [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) — MCP server for AI-assisted development
-- [Vibe](https://github.com/iblai/vibe) — developer toolkit for building with ibl.ai
-- [Vibe Starter](https://github.com/iblai/vibe-starter) — pre-wired Next.js + ibl.ai SSO template
+- [Vibe](https://github.com/iblai/base) — developer toolkit for building with ibl.ai
+- Vibe Starter — pre-wired Next.js + ibl.ai SSO template
 
 ---
 
