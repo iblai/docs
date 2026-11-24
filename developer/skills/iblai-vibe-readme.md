@@ -282,7 +282,6 @@ See `CLAUDE.md` for the full list of skills and component priority rules.
 ---
 
 {{ Optional: a one-line bootstrap credit. Drop if nothing applies. }}
-```
 
 ---
 

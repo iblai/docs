@@ -118,6 +118,7 @@ What each skill does:
 audits (OWASP Top 10), OSINT, disk forensics, incident triage, cloud
 configuration auditing, dependency vulnerabilities, and prompt-injection
 testing. 
+```
 /iblai-vibe-start
 ```
 
@@ -133,7 +134,7 @@ gives you macOS, Windows, iOS, and Android.
 
 New to ibl.ai? [ibl.ai/join](https://ibl.ai/join) creates your account and your
 organization — free to start. Want the details of every step?
-[Getting started →](docs/getting-started.md)
+[Getting started →](/developer/base/getting-started)
 
 ## What you get
 
@@ -163,43 +164,43 @@ and a headless twin that does the same thing over REST:
 | **Analytics** — usage, transcripts, costs, audit, reports | `/iblai-vibe-analytics` | `/iblai-api-analytics` |
 
 Not sure whether you want the per-user, per-agent, or per-organization one?
-[Which scope stores what →](docs/catalogue.md#core)
+[Which scope stores what →](/developer/skills#core)
 
 ## The skills, by folder
 
 Two families in one install: **🖥️ `iblai-vibe-*`** mounts a visual component in
 your app; **🔌 `iblai-api-*`** does the same thing headlessly over REST — for a
-script, a CI job, or your own backend. [How they differ →](docs/skill-kinds.md)
+script, a CI job, or your own backend. [How they differ →](/developer/base/skill-kinds)
 
 | Folder | What it covers | Skills |
 |---|---|---|
-| [`start/`](skills/start) | The first conversation, connecting your organization, sign-in, the starter | 11 |
-| [`agents/`](skills/agents) | Chat, browse, create, and configure agents — every settings tab | 62 |
-| [`users/`](skills/users) | Profiles, custom user data, memories, roles and admins, invitations, the official apps' first-run journeys | 19 |
-| [`organizations/`](skills/organizations) | Organization settings and metadata, branding, integrations | 10 |
-| [`billing/`](skills/billing) | How you are charged, credits, spend caps, what happens when they run out, choosing a pricing rail | 6 |
-| [`monetization/`](skills/monetization) | Charge your users: app paywall, item sales, subscriptions, revenue | 7 |
-| [`analytics/`](skills/analytics) | Usage, users, topics, transcripts, costs, reports | 2 |
-| [`content/`](skills/content) | Courses, catalog, credentials, admissions, Open edX Studio, avatar video | 26 |
-| [`ship/`](skills/ship) | Test, deploy, hosting, native builds, app stores | 12 |
-| [`security/`](skills/security) | Authorized-use security work | 8 |
+| [`start/`](/developer/skills#start) | The first conversation, connecting your organization, sign-in, the starter | 11 |
+| [`agents/`](/developer/skills#agents) | Chat, browse, create, and configure agents — every settings tab | 63 |
+| [`users/`](/developer/skills#users) | Profiles, custom user data, memories, roles and admins, invitations, the official apps' first-run journeys | 19 |
+| [`organizations/`](/developer/skills#organizations) | Organization settings and metadata, branding, integrations | 10 |
+| [`billing/`](/developer/skills#billing) | How you are charged, credits, spend caps, what happens when they run out, choosing a pricing rail | 6 |
+| [`monetization/`](/developer/skills#monetization) | Charge your users: app paywall, item sales, subscriptions, revenue | 7 |
+| [`analytics/`](/developer/skills#analytics) | Usage, users, topics, transcripts, costs, reports | 2 |
+| [`content/`](/developer/skills#content) | Courses, catalog, credentials, admissions, Open edX Studio, avatar video | 26 |
+| [`ship/`](/developer/skills#ship) | Test, deploy, hosting, native builds, app stores | 12 |
+| [`security/`](/developer/skills#security) | Authorized-use security work | 8 |
 
-The full list with one line per skill: [docs/catalogue.md](docs/catalogue.md).
+The full list with one line per skill: [docs/catalogue.md](/developer/skills).
 
 ## Keep it current
 
 This repo changes often. Installed skills are a copy — refresh them with the
 install command above, or `/iblai-vibe-ops-upgrade` in Claude Code (your agent
 will suggest it when the copy is more than two weeks old).
-[Details →](docs/keep-current.md)
+[Details →](/developer/base/keep-current)
 
 ## Learn more
 
-- [Getting started](docs/getting-started.md) — the journey in detail, and what to do when you already have an app
-- [How sign-in and organizations work](docs/auth-model.md) — one organization, many, or none
-- [Users, agents, organizations](docs/domain-model.md) — the data every app is built on
-- [How money works](skills/billing/iblai-vibe-pricing/SKILL.md) · [Ship anywhere](docs/ship.md) · [The two MCP servers](docs/mcp-servers.md)
-- [Contributing a skill](CONTRIBUTING.md) — including where it goes and how to catalogue it
+- [Getting started](/developer/base/getting-started) — the journey in detail, and what to do when you already have an app
+- [How sign-in and organizations work](/developer/base/auth-model) — one organization, many, or none
+- [Users, agents, organizations](/developer/base/domain-model) — the data every app is built on
+- [How money works](/developer/skills/iblai-vibe-pricing) · [Ship anywhere](/developer/base/ship) · [The two MCP servers](/developer/base/mcp-servers)
+- [Contributing a skill](https://github.com/iblai/base/blob/main/CONTRIBUTING.md) — including where it goes and how to catalogue it
 
 Vibe is designed to be built with AI. The [@iblai/mcp](https://www.npmjs.com/package/@iblai/mcp) server gives Claude Code deep knowledge of the ibl.ai platform, and the bundled skills guide you through every common task.
 
