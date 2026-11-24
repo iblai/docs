@@ -8,7 +8,7 @@ The Datasets panel manages the knowledge sources an agent is trained on. The pan
 
 Every uploaded resource becomes a row in the datasets table with its name, type, token count, retraining interval, visibility, and training status. The screenshot shows one trained resource: `coursecreator-userguide.pdf` (type FILE, 58,129 tokens, training toggled on).
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group, and select **Datasets** in the left sidebar.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group, and select **Datasets** in the left sidebar.
 
 ## Target Audience
 
@@ -43,7 +43,7 @@ A switch controlling whether the resource is trained into the agent's knowledge 
 ## How to Use
 
 #### Step 1: Open the Datasets panel
-Open the **Edit Agent** modal, click the **Integrations** tab group, then select **Datasets**.
+Open the **Edit Agent** modal, click the **Setup** tab group, then select **Datasets**.
 
 #### Step 2: Add a resource
 Click **Add Resource**, pick the resource type (file upload, URL, web crawl, cloud drive, GitHub, YouTube, or a platform course), and provide the file or link. The resource is ingested and appears in the table with its token count.

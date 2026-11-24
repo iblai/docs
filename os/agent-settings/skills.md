@@ -10,7 +10,7 @@ The panel header reads: "Reusable playbooks this Base Agent can discover and fol
 
 Skills are managed independently of the Claw sandbox: no sandbox instance is required for the panel to work. In chat, users invoke a skill by typing `/` in the composer.
 
-To reach this screen, open the **Edit Agent** modal, stay on the **Configurations** tab group, and select **Skills** in the left sidebar.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group, and select **Skills** in the left sidebar.
 
 Agent Skills apply to **Base Agent** agents only. On other agent types the tab is not offered.
 
@@ -27,7 +27,7 @@ An info line at the top of the panel states: "Skills added or removed here apply
 Opens the skill-creation dialog (see [New Skill dialog](#new-skill-dialog) below). Available from either tab.
 
 #### Agent Skills tab
-The agent's *effective* set: the skills assigned to it plus its own private skills, deduped by slug. Each row shows the skill's name, version, badges (category, Native, Featured, Private), and description, followed by an enable toggle and a kebab ("...") menu.
+The agent's *effective* set: the skills assigned to it plus its own private skills, deduped by slug. Each row shows the skill's name, version, badges (category, Native, Featured, Private), and description, followed by an enable toggle and a **Remove** button.
 
 #### Available Skills tab
 
@@ -42,7 +42,7 @@ Turns a skill on or off for this agent. A skill is active only when both the ski
 
 ![Skill row kebab menu open with Remove from Agent, Edit, and Delete actions](../images/agent-settings/agent_settings_skills_actions.webp)
 
-Per-row actions: **Remove from Agent** detaches the skill from this agent (shown for assigned skills); **Edit** opens the Edit Skill dialog; **Delete** removes the skill from the organization. Edit and Delete appear only for skills your organization owns — **Featured skills are read-only** and their edit and delete actions are hidden.
+Per-row actions: **Remove** (a button on the row) detaches the skill from this agent (shown for assigned skills); **Edit** opens the Edit Skill dialog; **Delete** removes the skill from the organization. Edit and Delete appear only for skills your organization owns — **Featured skills are read-only** and their edit and delete actions are hidden.
 
 #### New Skill dialog
 
@@ -74,7 +74,7 @@ In chat, typing `/` as the first word of a message opens a picker listing this a
 ## How to Use
 
 #### Step 1: Open the Skills panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **Skills** in the sidebar.
+Open the **Edit Agent** modal, keep **Setup** selected, and click **Skills** in the sidebar.
 
 #### Step 2: Attach skills from the catalog
 Open the **Available Skills** tab and click **Add to Agent** on each skill this agent should carry. Skills already covered show a green **Added** chip.
@@ -86,7 +86,7 @@ Click **New Skill**, fill in at least **Name** and **Slug**, write the **Instruc
 Open the skill's **Edit** dialog, switch to **Resources**, and click **New Resource**. Add references and scripts as text, or upload assets as files.
 
 #### Step 5: Enable, disable, and detach
-Use the toggle on the **Agent Skills** tab to turn a skill on or off for this agent, or **Remove from Agent** in the kebab menu to detach it entirely. Remember that **Edit** and **Delete** apply organization-wide.
+Use the toggle on the **Agent Skills** tab to turn a skill on or off for this agent, or the row's **Remove** button to detach it entirely. Remember that **Edit** and **Delete** apply organization-wide.
 
 #### Step 6: Use the skill in chat
 Start a new chat session with the agent, type `/`, and pick the skill from the list. Additions and removals apply to new sessions only; instruction edits take effect immediately.

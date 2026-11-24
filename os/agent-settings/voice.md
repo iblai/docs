@@ -8,7 +8,7 @@ The Voice panel controls whether an agent can speak, which voice it speaks with,
 
 The panel is split into two sub-tabs. The **Voice** sub-tab (documented on this page) selects the voice the agent uses to read out replies in chat, while the **Voice call** sub-tab configures how live voice calls behave. Voice calls run as real-time WebRTC sessions powered by LiveKit.
 
-To reach this panel, open the **Edit Agent** modal for any agent, stay on the **Configurations** tab group, and select **Voice** in the left sidebar. The sidebar also lists Settings, LLM, Screen Share, Prompts, Skills, Safety, Privacy, and Disclaimers.
+To reach this panel, open the **Edit Agent** modal for any agent, stay on the **Setup** tab group, and select **Voice** in the left sidebar. The sidebar also lists Settings, LLM, Prompts, Skills, Datasets, Grader, and Screen.
 
 ## Target Audience
 
@@ -51,7 +51,7 @@ The **Save voice** button persists your voice source, voice selection, and voice
 ## How to Use
 
 #### Step 1: Open the Voice panel
-Open the **Edit Agent** modal, keep the **Configurations** tab selected, and click **Voice** in the sidebar.
+Open the **Edit Agent** modal, keep the **Setup** tab selected, and click **Voice** in the sidebar.
 
 #### Step 2: Enable voice
 Turn on the toggle at the top so people can talk to the agent out loud and hear it reply.

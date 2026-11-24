@@ -20,7 +20,7 @@ The card's subheading reads: "Choose how this agent runs code. Only one sandbox 
 
 The sections below the card belong to the selected kind and are **absent from the page entirely** when that kind is not active, rather than shown greyed out.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Sandbox, Access, Tools, MCP, Datasets, API, LTI, and Embed), and select **Sandbox**. The tab is always visible to administrators — there is no separate capability to switch on first, and the sandbox master toggle now lives on this tab rather than under [Capabilities](capabilities.md).
+To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Tools, MCP, Sandbox, Embed, LTI, and API), and select **Sandbox**. The tab is always visible to administrators — there is no separate capability to switch on first, and the sandbox master toggle now lives on this tab rather than under [Capabilities](capabilities.md).
 
 ## Target Audience
 

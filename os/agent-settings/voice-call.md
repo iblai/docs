@@ -8,7 +8,7 @@ The Voice call sub-tab configures how live voice calls with an agent behave — 
 
 An info banner explains the two call styles: "Live conversation streams the call end-to-end and feels more natural. Step-by-step mode transcribes the user, has the agent think, then speaks — slower, with more time between turns. Screen sharing always uses live conversation."
 
-To reach this screen, open the **Edit Agent** modal, select **Voice** in the Configurations sidebar, enable the voice toggle at the top, and switch to the **Voice call** sub-tab. Settings on this sub-tab are saved as a call configuration, separate from the chat voice chosen on the Voice sub-tab.
+To reach this screen, open the **Edit Agent** modal, select **Voice** in the Setup sidebar, enable the voice toggle at the top, and switch to the **Voice call** sub-tab. Settings on this sub-tab are saved as a call configuration, separate from the chat voice chosen on the Voice sub-tab.
 
 ## Target Audience
 
@@ -42,7 +42,7 @@ The call configuration also supports **Text-to-speech provider** and **Speech-to
 ## How to Use
 
 #### Step 1: Open the Voice call sub-tab
-In the **Edit Agent** modal, go to **Configurations → Voice**, make sure the voice toggle at the top is on, then click the **Voice call** sub-tab.
+In the **Edit Agent** modal, go to **Setup → Voice**, make sure the voice toggle at the top is on, then click the **Voice call** sub-tab.
 
 #### Step 2: Choose a call style
 Pick **Live conversation** for natural, streamed calls, or **Step-by-step** if you prefer transcribe-think-speak turns. Remember that screen sharing always uses live conversation.

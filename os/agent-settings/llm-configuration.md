@@ -8,7 +8,7 @@ The LLM panel chooses which AI provider — and, in the follow-up dialog, which 
 
 The panel shows one card per available LLM provider. The screenshot shows Amazon, Anthropic, Microsoft, DeepSeek, Google, Groq, NVIDIA, OpenAI (highlighted as the current selection), Perplexity, and xAI. The provider list is served by the platform, so what appears depends on your organization's configuration. This provider choice is a core part of the platform's model-agnostic design — an agent can be switched between providers at any time.
 
-To reach this screen, open the **Edit Agent** modal, stay on the **Configurations** tab group, and select **LLM** in the left sidebar.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group, and select **LLM** in the left sidebar.
 
 ## Target Audience
 
@@ -25,7 +25,7 @@ One card per LLM provider, showing the provider's logo and name. The provider cu
 ## How to Use
 
 #### Step 1: Open the LLM panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **LLM** in the sidebar.
+Open the **Edit Agent** modal, keep **Setup** selected, and click **LLM** in the sidebar.
 
 #### Step 2: Find a provider
 Scan the grid, or type in **Search Providers** to filter it. The outlined card is the agent's current provider.

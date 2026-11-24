@@ -8,7 +8,7 @@ The Disclaimers panel manages the notices an agent shows its users. The header r
 
 Two notices are configured here. The **User Agreement** is a terms-of-use statement users must be shown for this agent, stored as a disclaimer record scoped to the agent with its own active state. The **Advisory** is a short caution rendered in the chat interface — by default, "AI is capable of making mistakes. Please review all responses."
 
-To reach this panel, open the **Edit Agent** modal, stay on the **Configurations** tab group, and select **Disclaimers** in the left sidebar.
+To reach this panel, open the **Edit Agent** modal, switch to the **Policies** tab group, and select **Disclaimers** in the left sidebar.
 
 ## Target Audience
 
@@ -31,7 +31,7 @@ Each card's **Copy** button copies the current notice text to the clipboard, use
 ## How to Use
 
 #### Step 1: Open the Disclaimers panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **Disclaimers** in the sidebar.
+Open the **Edit Agent** modal, switch to **Policies**, and click **Disclaimers** in the sidebar.
 
 #### Step 2: Review the defaults
 Read the default User Agreement and Advisory text in each card and decide whether they fit your deployment, brand, and compliance requirements.

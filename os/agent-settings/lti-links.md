@@ -8,7 +8,7 @@ The **Links** sub-tab of the LTI panel manages the launch link that lets this ag
 
 Each link has a name and an auto-generated **Target Link URI** (for example `https://learn.iblai.org/lti/1p3/la...`). That URI is the value you paste into your LMS (Canvas, Brightspace, Blackboard, or Moodle) as the LTI target link so that launching the placement opens this agent inside the course. An agent has a single LTI link: once one exists, the create action is no longer offered and the existing link is managed in place.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Sandbox, Access, Tools, MCP, Datasets, API, LTI, and Embed), select **LTI**, and click the **Links** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
+To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Tools, MCP, Sandbox, Embed, LTI, and API), select **LTI**, and click the **Links** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
 
 ## Target Audience
 

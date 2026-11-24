@@ -8,7 +8,7 @@ The Capabilities sub-tab of the Settings panel switches individual agent abiliti
 
 Capabilities is the third sub-tab at the top of the Settings panel, after **Basic** and **Discovery**. All three sub-tabs share one form, so **Save** submits everything at once. Some toggles are permission- or organization-gated, so the exact set you see can vary (for example, the private-mode toggle only appears when the organization allows chat-privacy control).
 
-To reach this screen, open the **Edit Agent** modal, stay on the **Configurations** tab group, select **Settings** in the left sidebar, then click the **Capabilities** sub-tab.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group, select **Settings** in the left sidebar, then click the **Capabilities** sub-tab.
 
 ## Target Audience
 
@@ -57,7 +57,7 @@ The agent's dedicated sandbox is **not** configured here. It is chosen on the [S
 ## How to Use
 
 #### Step 1: Open the Capabilities sub-tab
-Open the **Edit Agent** modal, keep **Configurations** selected, click **Settings** in the sidebar, then choose the **Capabilities** sub-tab.
+Open the **Edit Agent** modal, keep **Setup** selected, click **Settings** in the sidebar, then choose the **Capabilities** sub-tab.
 
 #### Step 2: Configure the chat experience
 Decide whether users can attach files, whether the agent shows its reasoning, and whether retrieval should run in enhanced multi-query mode. Turn on **Enable prompt caching** if the agent's system prompt is long and you want lower cost and latency.

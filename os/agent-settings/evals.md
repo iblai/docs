@@ -10,7 +10,7 @@ A benchmark is a graded test set: each item pairs an **input** (the question) wi
 
 Running an evaluation is asynchronous: it dispatches a background job that sends every benchmark question to the agent and records each response as a **trace**. A run moves through `pending → in progress → completed`, and must reach **Completed** before it can be reviewed or exported.
 
-To reach this screen, open the **Edit Agent** modal, go to the **Analytics** tab, and select **Evals** from its sidebar (alongside Memory, History, and Audit). Evals is admin-gated: it is only available to users with permission to view the agent's analytics. Evaluation data is scoped to your organization and isolated — no other organization can read your benchmarks, runs, or scores.
+To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group, and select **Evals** from its sidebar (alongside History, Memory, Support, Tasks, Audit, and Analytics). Evals is admin-gated: it is only available to users with permission to view the agent's analytics. Evaluation data is scoped to your organization and isolated — no other organization can read your benchmarks, runs, or scores.
 
 ## Target Audience
 

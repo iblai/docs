@@ -10,7 +10,7 @@ Grading is split across three sub-tabs. **Grading setup** decides *what* the age
 
 Grading only runs when all three pieces are in place — the **Grading** tool is attached to the agent, a grading setup has been saved, and the rubric has at least one criterion. Until then the panel shows an amber warning naming what is still missing.
 
-To reach this screen, open the **Edit Agent** modal, keep the **Configurations** tab group selected, and click **Grader** in the left sidebar. The panel is permission-gated per sub-tab: only the views your role permits render, the default sub-tab is the first one you can see, and a user with no viewable sub-tab gets a "No access to grading settings" notice instead.
+To reach this screen, open the **Edit Agent** modal, keep the **Setup** tab group selected, and click **Grader** in the left sidebar. The panel is permission-gated per sub-tab: only the views your role permits render, the default sub-tab is the first one you can see, and a user with no viewable sub-tab gets a "No access to grading settings" notice instead.
 
 ## Target Audience
 
@@ -76,7 +76,7 @@ Opened by a row's **Override** button. The top block restates the **Learner**, t
 ## How to Use
 
 #### Step 1: Turn grading on
-Open the **Edit Agent** modal, keep **Configurations** selected, click **Grader** in the sidebar, and switch the toggle in the helper banner on. This attaches the **Grading** tool to the agent — the same state you would see in the Tools panel — and reveals the two sub-tabs.
+Open the **Edit Agent** modal, keep **Setup** selected, click **Grader** in the sidebar, and switch the toggle in the helper banner on. This attaches the **Grading** tool to the agent — the same state you would see in the Tools panel — and reveals the two sub-tabs.
 
 #### Step 2: Choose what gets graded
 On the **Grading setup** sub-tab, pick **A submission** if the agent should score work the person hands in, or **The conversation** if it should judge how the exchange went overall.

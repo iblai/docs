@@ -19,7 +19,7 @@ Keys are secret: the panel warns, "Your secret API keys are listed below. Please
 You can create, view, and revoke API keys from either UI — both operate on the same organization-level key list.
 
 #### From an agent (Integrations → API)
-Open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Configurations** to **Integrations**, and select **API**. The intro banner frames the use case: "Use this agent from your own apps. Create API keys here to call it programmatically and build it into your product or workflow." Keys are managed at the platform (organization) level, so the same key list serves programmatic access for the organization's agents.
+Open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Setup** to **Integrations**, and select **API**. The intro banner frames the use case: "Use this agent from your own apps. Create API keys here to call it programmatically and build it into your product or workflow." Keys are managed at the platform (organization) level, so the same key list serves programmatic access for the organization's agents.
 
 #### From organization settings (Integrations → APIs)
 ![Integrations APIs tab showing a generated API key with Name, Created, and Expires columns and an Add API button](../images/organization-settings/organization_settings_integrations_apis.webp)

@@ -8,7 +8,7 @@ The Discovery sub-tab of the Settings panel controls who can find and use an age
 
 Its two required dropdowns separate visibility from usage: **Who Can View?** decides who sees the agent, while **Who Can Chat?** decides whether unauthenticated visitors may start conversations. A **Highlight in featured listings** toggle additionally promotes the agent in featured placements.
 
-To reach this screen, open the **Edit Agent** modal, stay on the **Configurations** tab group, select **Settings** in the left sidebar, then click the **Discovery** sub-tab.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group, select **Settings** in the left sidebar, then click the **Discovery** sub-tab.
 
 ## Target Audience
 
@@ -34,7 +34,7 @@ The Discovery sub-tab also defines an **Allow LTI launches** toggle (permission-
 ## How to Use
 
 #### Step 1: Open the Discovery sub-tab
-Open the **Edit Agent** modal, keep **Configurations** selected, click **Settings** in the sidebar, then choose the **Discovery** sub-tab (between Basic and Capabilities).
+Open the **Edit Agent** modal, keep **Setup** selected, click **Settings** in the sidebar, then choose the **Discovery** sub-tab (between Basic and Capabilities).
 
 #### Step 2: Set who can view
 Pick a value in **Who Can View?** — restrict the agent to administrators while it is being built, open it to your organization's users, or make it visible to anyone when it is ready for broad discovery.

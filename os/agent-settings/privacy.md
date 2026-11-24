@@ -8,7 +8,7 @@ The Privacy panel configures automatic detection and filtering of personally ide
 
 Filtering happens on the way in: user messages are scanned and PII is handled per your chosen action **before** the agent (and the underlying model) sees the text. An optional second toggle extends the same filtering to the AI's responses on the way out.
 
-To reach this panel, open the **Edit Agent** modal, stay on the **Configurations** tab group, and select **Privacy** in the left sidebar.
+To reach this panel, open the **Edit Agent** modal, switch to the **Policies** tab group, and select **Privacy** in the left sidebar.
 
 ## Target Audience
 
@@ -41,7 +41,7 @@ A toggle (off in the screenshot) that applies the same PII detection and handlin
 ## How to Use
 
 #### Step 1: Open the Privacy panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **Privacy** in the sidebar.
+Open the **Edit Agent** modal, switch to **Policies**, and click **Privacy** in the sidebar.
 
 #### Step 2: Turn on PII detection
 Enable the master toggle next to the intro banner. The action selector, entity chips, and response-filter toggle appear.

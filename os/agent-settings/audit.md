@@ -8,7 +8,7 @@ The Audit panel is the change log for an agent: it records who changed what and 
 
 Each entry captures the user who made a change (their email), a description of the action — for example "Updated LLM model, LLM provider" or "Enabled tools" on the agent, including the agent's name and unique ID — and a relative timestamp such as "14 days ago." This makes it possible to trace a behavior change (a different model, a new voice, newly enabled tools) back to the person and moment it happened.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** tab group (its sidebar lists Tasks, Memory, History, Audit, and Analytics), and select **Audit**. The same audit trail is also reachable from the Analytics area. Audit is admin-gated: users without audit-log permission do not see this tab.
+To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group (its sidebar lists History, Memory, Support, Tasks, Evals, Audit, and Analytics), and select **Audit**. The same audit trail is also reachable from the Analytics area. Audit is admin-gated: users without audit-log permission do not see this tab.
 
 ## Target Audience
 
@@ -35,7 +35,7 @@ The log itself, with three columns:
 ## How to Use
 
 #### Step 1: Open the Audit panel
-In the **Edit Agent** modal, select the **Runtime** tab group, then click **Audit** in the sidebar. The audit table loads with the most recent changes at the top.
+In the **Edit Agent** modal, select the **Activity** tab group, then click **Audit** in the sidebar. The audit table loads with the most recent changes at the top.
 
 #### Step 2: Narrow the log
 Use **Search for User** to focus on one person's changes, **Pick a Date Range** to bound the time window, or the **All Actions** dropdown to isolate a particular kind of change.
