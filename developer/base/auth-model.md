@@ -16,25 +16,26 @@ org; **admin** = `is_admin` on the org. [glossary.md](/developer/base/glossary).
 ```
 your app ──► https://login.<domain>/login?app=<app>&redirect-to=<origin>&tenant=<org-key>[&logout=1]
              (the hosted Auth SPA: password, Google/Apple/SSO providers, sign-up)
-your app ◄── <origin>/sso-login-complete?data=<json>&redirect-to=<path>
+your app ◄── <origin>/sso-login-complete?data=<json>&redirect-path=<path>
              `SsoLogin` stores the json into localStorage and navigates to <path>
 ```
 
 | Parameter | Sent by | Meaning |
 |---|---|---|
 | `app` | the app | Which front end is asking — the Auth SPA picks the branding and the redirect rules for it. The OS sends `mentor`; vibe-starter sends `custom`; the branding for your app is set by `/iblai-vibe-auth` Step 2 (`auth_web_*` in the org's metadata). |
-| `redirect-to` | the app | The **origin** to return to (`http://localhost:3000`, `https://my-app.vercel.app`, or a native scheme `my-app://`). Must be in the org's **allowed redirect origins**, or the SPA never returns. The in-app path to land on is kept by the app itself in `localStorage["redirect-to"]` (`saveRedirect`). |
+| `redirect-to` | the app | The **origin** to return to (`http://localhost:3000`, `https://my-app.vercel.app`). Must be in the org's **allowed redirect origins**, or the SPA never returns. The in-app path to land on is kept by the app itself in `localStorage["redirect-to"]` (`saveRedirect`). |
+| `scheme` | the app (Tauri) | The shell's URL scheme, sent when the app runs in Tauri (`isNativeApp`). The SPA returns a Google/Apple sign-in to `<scheme>:///sso-login-complete?…`. |
 | `tenant` | the app | The org to sign in to. Omitted → the user's default org. Present → the SPA authenticates *into that org* (joining it when self-join is open; otherwise "not a member"). |
 | `logout=1` | the app | Log the current session out first (used by `handleLogout` and by 401 handling). `enforce_logout=1&email=` forces a fresh sign-in as a given address (the OS uses it for Stripe return links). |
 | `data` | the SPA | JSON of everything the app stores: `axd_token` (+`_expires`), `dm_token` (+`_expires`), `edx_jwt_token`, `userData` (`user_nicename`, `user_email`, …), `tenants` (every org the user belongs to, each with `key`, `is_admin`, and flags such as `show_paywall`), `current_tenant`, `tenant`. |
-| `redirect-to` / `redirect-path` | the SPA | Where to go after storing. The OS's `resolveRedirectPath` only honors same-origin paths (no `//`, no scheme) and resets to `/` when the path names a different org than the one just authenticated. |
+| `redirect-path` | the SPA | Where to go after storing, when the app saved no path. `SsoLogin` goes to `<origin><path>`, so vibe-starter's `safeRedirectPath` and the OS's `resolveRedirectPath` only honor same-origin paths (one leading `/`); the OS also resets to `/` when the path names a different org than the one just authenticated. |
 
 What the SDK does with it afterwards:
 
 - **`AuthProvider`** — on every route: is there a non-expired `axd_token` (the OS also requires an unexpired `edx_jwt_token`)? If not, `redirectToAuthSpa(...)`. A `middleware` map of `RegExp → async () => boolean` marks routes that do **not** need sign-in (`false` = public): `/sso-login*` always; in the OS also `/share/chat/*`, `/error/*`, `/version`, the Stripe callback, and — the important one — `/platform/<org>/<agent>` **when the agent allows anonymous access** (`allow_anonymous` or `mentor_visibility = viewable_by_anyone`, read from the agent's public settings). Anonymous users are `username = "anonymous"`; `useAccessingPublicRoute()` tells your UI.
 - **`TenantProvider`** — given `currentTenant`/`requestedTenant`, checks `tenants[]` for membership. If the user is signed in but not a member of the requested org, it re-authenticates against it (`redirectToAuthSpa` with `tenant=`) and hands back a fresh org-scoped token pair through `saveUserTokens` — **persist it**, or the provider loops on "User still does not belong to tenant after re-auth" (vibe #155). `saveUserTenants`, `saveCurrentTenant`, `saveTenant` are the storage hooks; `handleTenantSwitch` clears storage and goes through the SPA with `tenant=<new>`, broadcasting to other tabs (`useTenantSwitchSync`, a shared switch lock).
 - **Visiting** — a user of org A opening an agent in org B is a *visitor*: `visiting_tenant` in localStorage; the agent is reachable if its visibility allows; org-scoped calls may 401 (the OS skips the 401 redirect on shareable links).
-- **401 from the API** → `redirectToAuthSpa(undefined, undefined, true)` (log out, sign in again). **402** → the credit/paywall flow.
+- **Expired session** → the data layer calls the app's `refreshAuthToken`. The OS and vibe-starter send the page to `login.<domain>/login/complete?redirect-to=<origin>&redirect-path=<path>&tenant=<org>`, which mints a fresh pair from the sign-in app's own session and comes back through `/sso-login-complete`; left unset, the data layer re-mints from the edX JWT. A **401** that refresh cannot cure → `redirectToAuthSpa(undefined, undefined, true)` (log out, sign in again). **402** → the credit/paywall flow.
 - **Native (Tauri)** — mobile WebViews are refused by SSO providers, so the shell opens the SPA in the system browser and returns through `<scheme>://` → `/mobile-sso-login?data=…`; desktop uses `/api/auth-redirect?to=` as a same-origin hop. A build can be **tenant-locked** (`IBL_TENANT` at build time): anonymous users go straight into that org and a signed-in user of another org is switched (`useTenantLock`).
 - **Cross-app sync** — the tokens are mirrored to base-domain cookies (`ibl_user_data`, `ibl_tenant`, `ibl_current_tenant`) so sibling apps notice a sign-in/sign-out; never done from inside an iframe.
 - **Server side** — none of the above involves your server. A server route acts either *as the user* (the browser forwards `dm_token`; verify with `GET /dm/api/core/token/verify/`) or *as the org* (`IBLAI_API_KEY`, `Authorization: Api-Token`). [security-model.md](/developer/base/security-model).
@@ -74,10 +75,10 @@ Read them in the source: `providers/index.tsx`, `lib/utils.ts`
 
 | Concern | File |
 |---|---|
-| Redirect to the SPA (`app=custom`, `redirect-to`, `tenant`, `logout`), mobile scheme, logout | `lib/iblai/auth-utils.ts` |
+| Redirect to the SPA and logout: the SDK's `redirectToAuthSpa` / `handleLogout` with `app=custom`, the app's org and the Tauri `scheme`; `tokenRefreshUrl()`; `safeRedirectPath()` | `lib/iblai/auth-utils.ts` |
 | Org pinned from env; `main`/placeholders refused; `readTenants()`, `isTenantAdmin()` | `lib/iblai/tenant.ts` |
-| Providers: data layer, `AuthProvider` (+ `PUBLIC_ROUTES`), `TenantProvider` (+ `saveUserTokens`), service worker | `providers/iblai-providers.tsx` |
-| SSO landing (`SsoLogin`) | `app/sso-login-complete/page.tsx` |
+| Providers: data layer (+ the expired-session refresh), `AuthProvider` (+ `PUBLIC_ROUTES`), `TenantProvider` (+ `saveUserTokens`), service worker | `providers/iblai-providers.tsx` |
+| SSO landing (`SsoLogin`, `resolveRedirectPath={safeRedirectPath}`) | `app/sso-login-complete/page.tsx` |
 | CSP (nonce, enforce in prod) | `middleware.ts` |
 | Server: act as the user (`verifyCaller`) or as the org (`platformFetch`) | `lib/iblai/platform.ts` |
 
