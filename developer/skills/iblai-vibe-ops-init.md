@@ -430,7 +430,6 @@ pnpm test:e2e:all    # Playwright: every browser
 pnpm e2e:coverage    # Ledger check + approximate e2e coverage from the journeys (≥ 95%)
 pnpm e2e:accounts    # Create the two test accounts ahead of time
 ```
-```
 
 ---
 
