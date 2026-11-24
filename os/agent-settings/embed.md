@@ -8,7 +8,7 @@ The Embed panel packages an agent as a chat widget for your own website or appli
 
 The left side of the panel holds the widget configuration — styling, scripting, icon, mode, starter prompts, and access controls — while the right side shows a live preview of the chat widget, including the agent's avatar, name, and its starter prompt suggestions. Clicking **Create Embed** generates the embed code for the current configuration.
 
-To reach this panel, open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Configurations** to **Integrations**, and select **Embed**.
+To reach this panel, open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Setup** to **Integrations**, and select **Embed**.
 
 ## Target Audience
 

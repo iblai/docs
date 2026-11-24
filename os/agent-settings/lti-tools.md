@@ -8,7 +8,7 @@ The **Tools** sub-tab of the LTI panel registers the external LTI platforms (you
 
 Each tool records the identity of one LMS registration: the platform's **issuer**, the **client ID** the LMS assigned to this integration, the platform's OIDC auth URLs, its public keyset, and the signing key (from the **Keys** sub-tab) used to sign messages for that platform. In LTI 1.3 terms, this is where you store the platform's registration values so the two sides can trust each other.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Sandbox, Access, Tools, MCP, Datasets, API, LTI, and Embed), select **LTI**, and click the **Tools** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
+To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Tools, MCP, Sandbox, Embed, LTI, and API), select **LTI**, and click the **Tools** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
 
 ## Target Audience
 

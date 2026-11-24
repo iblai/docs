@@ -8,7 +8,7 @@ The Tasks panel schedules work an agent performs automatically, without anyone p
 
 Each task is a named prompt with a start date and time and an optional repeat cadence. The panel tracks outcomes with three metric cards — **Total Tasks**, **Completed**, and **Failed** — and shows a per-task run log so you can verify what happened on each run. Task rows carry a status badge (for example "Scheduled") and can be deleted with the trash icon.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** tab group (its sidebar lists Tasks, Memory, History, Audit, and Analytics), and select **Tasks**.
+To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group (its sidebar lists History, Memory, Support, Tasks, Evals, Audit, and Analytics), and select **Tasks**.
 
 ## Target Audience
 
@@ -55,7 +55,7 @@ The right-hand pane shows the run logs of whichever task is selected in the list
 ## How to Use
 
 #### Step 1: Open the Tasks panel
-In the **Edit Agent** modal, select the **Runtime** tab group, then click **Tasks** in the sidebar.
+In the **Edit Agent** modal, select the **Activity** tab group, then click **Tasks** in the sidebar.
 
 #### Step 2: Schedule a task
 Click **Schedule Task**. Give the task a name and a prompt (what the agent should do), pick the start date and a future time, choose a repeat cadence — **Don't repeat**, **Daily**, **Weekly**, or **Monthly** — optionally enable **Notify by Email**, and click **Schedule**. The task appears in the list with a **Scheduled** badge.

@@ -8,7 +8,7 @@ The Prompts panel is where you define how an agent talks and behaves. The panel 
 
 The panel manages four named prompts — **System Prompt**, **Proactive Prompt**, **Study Prompt**, and **Guided Prompt** — each shown as a card with a content preview and an **Edit** and **Copy** button. The Proactive and Guided prompts additionally carry an **Active/Inactive** toggle. Below these cards, the panel also manages **Suggested Prompts** (quick-access prompts users can run), with an **Add New Prompt** button and Run/Delete actions per prompt.
 
-To reach this screen, open the **Edit Agent** modal, stay on the **Configurations** tab group, and select **Prompts** in the left sidebar.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group, and select **Prompts** in the left sidebar.
 
 ## Target Audience
 
@@ -37,7 +37,7 @@ Every prompt card has **Edit** (opens an editing dialog for that prompt; saving 
 ## How to Use
 
 #### Step 1: Open the Prompts panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **Prompts** in the sidebar.
+Open the **Edit Agent** modal, keep **Setup** selected, and click **Prompts** in the sidebar.
 
 #### Step 2: Write the System Prompt
 Click **Edit** on the **System Prompt** card and describe the agent's role, tone, and rules in plain language. This is the foundation every other prompt builds on.

@@ -10,7 +10,7 @@ Two sub-tabs match the two agent-level scopes the platform enforces. **This Agen
 
 Enforcement is server-side, not advisory. When a cap set to **Block Requests** is exceeded, new chat and training requests are refused until the period resets. Alongside these two sits a third, workspace-wide scope on the organization's [Billing](/docs/os/organization-settings/billing) surface; when several caps apply, the tightest one governs.
 
-To reach this screen, open the **Edit Agent** modal and select **Billing** in the left sidebar. Each sub-tab is permission-gated on its own endpoints, so a user without access to a scope sees a "no access" notice in place of that sub-tab's contents rather than an error.
+To reach this screen, open the **Edit Agent** modal, switch to the **Policies** tab group, and select **Billing** in the left sidebar. Each sub-tab is permission-gated on its own endpoints, so a user without access to a scope sees a "no access" notice in place of that sub-tab's contents rather than an error.
 
 ## Target Audience
 
@@ -65,7 +65,7 @@ Editing skips the picker and opens the form directly on the existing cap, since 
 ## How to Use
 
 #### Step 1: Open the Billing panel
-In the **Edit Agent** modal, select **Billing** in the left sidebar. It opens on **This Agent**.
+In the **Edit Agent** modal, select the **Policies** tab group, then select **Billing** in the left sidebar. It opens on **This Agent**.
 
 #### Step 2: Set the agent's own ceiling
 Switch the enable toggle on, enter a **Spend Limit (USD)**, and choose how often it **resets**. A brand-new agent has no cap yet, so the panel shows the "no spend limit configured" state until your first save.

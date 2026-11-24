@@ -8,7 +8,7 @@ The LLM Selection dialog picks the exact model an agent uses from a chosen provi
 
 Each model appears as a card with the provider's icon and the model name. The agent's current model is highlighted (the screenshot shows `gpt-4o-mini` selected from the OpenAI list, which includes models such as `chat-latest`, `gpt-4.1`, `gpt-4o-mini`, `gpt-5`, and the `gpt-5.x` family with mini/nano/pro variants). The available models are served by the platform for the selected provider, so the list you see depends on your organization's configuration.
 
-To reach this dialog, open the **Edit Agent** modal, stay on the **Configurations** tab group, select **LLM** in the left sidebar, then click a provider card.
+To reach this dialog, open the **Edit Agent** modal, stay on the **Setup** tab group, select **LLM** in the left sidebar, then click a provider card.
 
 ## Target Audience
 
@@ -28,7 +28,7 @@ Closes the dialog without changing the agent's model. You can also return to the
 ## How to Use
 
 #### Step 1: Open the LLM panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **LLM** in the sidebar.
+Open the **Edit Agent** modal, keep **Setup** selected, and click **LLM** in the sidebar.
 
 #### Step 2: Pick a provider
 Click the provider card whose models you want (for example, OpenAI, Anthropic, or Google). The LLM Selection dialog opens with that provider's models.

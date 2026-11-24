@@ -8,7 +8,7 @@ The Safety panel configures the moderation guardrails for an agent. Its descript
 
 Two independent checks are configured here. The **Moderation Prompt** screens incoming user prompts for inappropriate content, and the **Safety Prompt** screens the AI model's own messages before they reach the user. Each has a companion response — the message shown in chat when content is flagged.
 
-To reach this panel, open the **Edit Agent** modal, stay on the **Configurations** tab group, and select **Safety** in the left sidebar.
+To reach this panel, open the **Edit Agent** modal, switch to the **Policies** tab group, and select **Safety** in the left sidebar.
 
 ## Target Audience
 
@@ -37,7 +37,7 @@ Every card has an **Edit** button that opens a prompt editor for that text, and 
 ## How to Use
 
 #### Step 1: Open the Safety panel
-Open the **Edit Agent** modal, keep **Configurations** selected, and click **Safety** in the sidebar.
+Open the **Edit Agent** modal, switch to **Policies**, and click **Safety** in the sidebar.
 
 #### Step 2: Enable the checks you need
 Use the **Active/Inactive** toggle on the Moderation Prompt card to screen user prompts, and the toggle on the Safety Prompt card to screen AI responses. The two operate independently.

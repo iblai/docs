@@ -11,7 +11,7 @@ While the switch is on, the panel shows two sub-tabs that hold two different kin
 - **Personal Memories** — what the agent has learned about each individual person, filed by category. These are captured automatically from conversations (or added by hand) and belong to one user at a time.
 - **Shared Memory** — "Facts, rules, and background this agent should always keep in mind. Every person who chats with this agent gets these memories." These are written only by hand and have no user attached: everyone who talks to the agent receives them.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** tab group (its sidebar lists Tasks, Memory, History, Audit, and Analytics), and select **Memory**.
+To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group (its sidebar lists History, Memory, Support, Tasks, Evals, Audit, and Analytics), and select **Memory**.
 
 ## Target Audience
 
@@ -58,7 +58,7 @@ Every shared-memory card carries a "..." menu with **Edit**, which reopens the s
 ## How to Use
 
 #### Step 1: Open the Memory panel
-Open the **Edit Agent** modal, click the **Runtime** tab group, then select **Memory**.
+Open the **Edit Agent** modal, click the **Activity** tab group, then select **Memory**.
 
 #### Step 2: Turn memory on
 Enable the **Long-term Memory** switch so the agent remembers useful details from past conversations and injects its Shared Memory. Pair this with the **Remember past conversations** capability so memory is active in chat.

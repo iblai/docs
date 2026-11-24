@@ -8,7 +8,7 @@ The **Keys** sub-tab of the LTI panel manages the RSA key pairs used to sign LTI
 
 In LTI 1.3, the tool signs its messages with a private key and the LMS verifies them against the matching public key (published via the JWKS endpoint). Each key created here holds that key pair; when you register an LTI tool on the **Tools** sub-tab, you select one of these keys as its signing key.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Sandbox, Access, Tools, MCP, Datasets, API, LTI, and Embed), select **LTI**, and click the **Keys** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
+To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Tools, MCP, Sandbox, Embed, LTI, and API), select **LTI**, and click the **Keys** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
 
 ## Target Audience
 

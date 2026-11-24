@@ -8,7 +8,7 @@ The Access panel manages per-agent, role-based access control. Its header reads 
 
 Access is granted by creating a role policy on the agent and attaching users or groups to it. Each role appears as one row in the table, so the panel shows at a glance which roles exist on this agent and how many people hold each one.
 
-To reach this panel, open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Configurations** to **Integrations**, and select **Access**. The Integrations sidebar also lists Sandbox, Tools, MCP, Datasets, API, LTI, and Embed.
+To reach this panel, open the **Edit Agent** modal, switch the tab group at the top of the sidebar from **Setup** to **Policies**, and select **Access**. The Policies sidebar also lists Billing, Privacy, Safety, and Disclaimers.
 
 ## Target Audience
 

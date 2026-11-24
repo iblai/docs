@@ -8,7 +8,7 @@ The Analytics panel is the launch point for every usage report available for an 
 
 Rather than rendering charts inline, this panel presents seven report cards. Clicking a card opens the corresponding full analytics report for the agent, so administrators can move from a quick launcher to detailed dashboards covering engagement, users, topics, transcripts, cost, audit activity, and downloadable data exports.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** tab group (its sidebar lists Tasks, Memory, History, Audit, and Analytics), and select **Analytics**. Analytics is admin-gated: it is only available to users with permission to view the agent's analytics.
+To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group (its sidebar lists History, Memory, Support, Tasks, Evals, Audit, and Analytics), and select **Analytics**. Analytics is admin-gated: it is only available to users with permission to view the agent's analytics.
 
 ## Target Audience
 
@@ -40,7 +40,7 @@ To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** t
 ## How to Use
 
 #### Step 1: Open the Analytics panel
-In the **Edit Agent** modal, select the **Runtime** tab group, then click **Analytics** in the sidebar. The launcher grid of report cards appears.
+In the **Edit Agent** modal, select the **Activity** tab group, then click **Analytics** in the sidebar. The launcher grid of report cards appears.
 
 #### Step 2: Pick a report
 Click the card that matches your question — **Overview** for a general pulse, **Users** for who is active, **Topics** for what people ask about, **Transcripts** to read conversations, **Costs** for spend, **Audit** for change history, or **Data Reports** for downloadable exports.

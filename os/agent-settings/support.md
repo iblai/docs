@@ -8,7 +8,7 @@ The Support panel is where a human team reviews and answers the requests people 
 
 When a user asks the agent for a human mid-conversation, the agent's human-support tool files a **ticket** — there is no way to create a ticket by hand from this panel. Each ticket captures who raised it, the chat session it came from, an agent-authored subject and description, and a status that moves through **Open → In Progress → Closed**. The panel lists those tickets, lets you filter them by user and status, and opens each one in a detail pane where you can read the request, change its status, and reply as the support team.
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** tab group (its sidebar lists Tasks, Memory, History, Support, Audit, and Analytics), and select **Support**.
+To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group (its sidebar lists History, Memory, Support, Tasks, Evals, Audit, and Analytics), and select **Support**.
 
 ## Target Audience
 
@@ -46,7 +46,7 @@ Below the request, the **Conversation** lists the thread oldest-first, distingui
 ## How to Use
 
 #### Step 1: Turn on human support
-In the **Edit Agent** modal, open the **Runtime** tab group and select **Support**. Switch the toggle in the helper banner on so users chatting with the agent can escalate to a human. Tickets they raise then appear in the list.
+In the **Edit Agent** modal, open the **Activity** tab group and select **Support**. Switch the toggle in the helper banner on so users chatting with the agent can escalate to a human. Tickets they raise then appear in the list.
 
 #### Step 2: Find the ticket to work
 Use **Search for User** to narrow to one requester, or the **All Statuses** dropdown to show only **Open** tickets that still need a first reply. Scan the cards for the subject, timestamp, and status badge.

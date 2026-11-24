@@ -8,7 +8,7 @@ The History panel is where administrators review past conversations with an agen
 
 The panel opens with an AI-generated summary block: a star rating out of 5 for the agent's conversations, a short narrative summary of the topics and interactions, and topic chips extracted from the chat history. When there is no chat history yet, the rating shows "0.0 out of 5" with an explanatory note (for example, "No chat history was provided, so there are no student-agent topics, insights, or interactions to summarize.") and placeholder chips such as "no-chat-history" and "insufficient-data."
 
-Below the summary sit the filters and the conversation browser: a list of conversations on the left and a detail pane on the right that reads "Select a conversation to view details." until one is chosen. To reach this screen, open the **Edit Agent** modal, switch to the **Runtime** tab group (its sidebar lists Tasks, Memory, History, Audit, and Analytics), and select **History**.
+Below the summary sit the filters and the conversation browser: a list of conversations on the left and a detail pane on the right that reads "Select a conversation to view details." until one is chosen. To reach this screen, open the **Edit Agent** modal, switch to the **Activity** tab group (its sidebar lists History, Memory, Support, Tasks, Evals, Audit, and Analytics), and select **History**.
 
 ## Target Audience
 
@@ -46,7 +46,7 @@ Clicking a conversation opens it in the right-hand pane, where the full transcri
 ## How to Use
 
 #### Step 1: Open the History panel
-In the **Edit Agent** modal, select the **Runtime** tab group, then click **History** in the sidebar. The rating summary, topic chips, and conversation list load.
+In the **Edit Agent** modal, select the **Activity** tab group, then click **History** in the sidebar. The rating summary, topic chips, and conversation list load.
 
 #### Step 2: Scan the summary
 Read the star rating, narrative summary, and topic chips for a quick sense of how conversations are going and what users ask about most.

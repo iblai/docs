@@ -8,7 +8,7 @@ The Basic sub-tab of the Settings panel holds an agent's identity: its name, uni
 
 Basic is the first of three sub-tabs at the top of the Settings panel — **Basic**, **Discovery**, and **Capabilities**. All three share one form, so **Save** submits changes from every sub-tab at once.
 
-To reach this screen, open the **Edit Agent** modal, stay on the **Configurations** tab group (alongside **Integrations** and **Runtime**), select **Settings** in the left sidebar, and make sure the **Basic** sub-tab is active.
+To reach this screen, open the **Edit Agent** modal, stay on the **Setup** tab group (alongside **Policies**, **Integrations**, and **Activity**), select **Settings** in the left sidebar, and make sure the **Basic** sub-tab is active.
 
 ## Target Audience
 
@@ -37,7 +37,7 @@ The agent's avatar. Use **+ Upload** to add an image file, and the **X** button 
 ## How to Use
 
 #### Step 1: Open the Basic sub-tab
-Open your agent's **Edit Agent** modal, keep **Configurations** selected, click **Settings** in the sidebar. The **Basic** sub-tab is selected by default.
+Open your agent's **Edit Agent** modal, keep **Setup** selected, click **Settings** in the sidebar. The **Basic** sub-tab is selected by default.
 
 #### Step 2: Name and describe the agent
 Enter a **Name** and a **Description**. Both are required. Write the description as the one-liner you want users to see on the agent's card.

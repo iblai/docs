@@ -8,7 +8,7 @@ The **Tool Endpoints** sub-tab of the LTI panel lists the fixed URLs your Learni
 
 During LTI 1.3 tool registration (in Canvas, Brightspace, Blackboard, or Moodle), the LMS asks for the tool's redirect/launch URL, its OIDC login initiation URL, optionally a deep-linking URL, and the tool's public keyset (JWKS) URL. This screen collects all four in one place, each with a copy button (the button label flips to "Copied" after copying).
 
-To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Sandbox, Access, Tools, MCP, Datasets, API, LTI, and Embed), select **LTI**, and click the **Tool Endpoints** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
+To reach this screen, open the **Edit Agent** modal, switch to the **Integrations** tab group (its sidebar lists Tools, MCP, Sandbox, Embed, LTI, and API), select **LTI**, and click the **Tool Endpoints** sub-tab. The panel header reads: "Manage LTI agent links, signing keys, tools, and platform endpoints." The LTI panel is admin-only.
 
 ## Target Audience
 
