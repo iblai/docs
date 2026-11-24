@@ -52,7 +52,7 @@ not installed -- tell the user which path you took:
 
     cp -a <skills-dir>/iblai-vibe-ops-init/assets/vibe-starter/. .
     # or, without local assets:
-    git clone --depth 1 https://github.com/iblai/vibe.git vibe-tmp && cp -a vibe-tmp/skills/start/iblai-vibe-ops-init/assets/vibe-starter/. . && rm -rf vibe-tmp
+    git clone --depth 1 https://github.com/iblai/base.git vibe-tmp && cp -a vibe-tmp/skills/start/iblai-vibe-ops-init/assets/vibe-starter/. . && rm -rf vibe-tmp
 
     pnpm install --ignore-scripts
 
@@ -295,12 +295,12 @@ pnpm dev
 
 | File | Purpose |
 |------|---------|
-| `app/sso-login-complete/page.tsx` | SSO callback -- stores tokens from URL into localStorage |
+| `app/sso-login-complete/page.tsx` | SSO callback -- stores tokens from URL into localStorage, then lands only on a path of this origin |
 | `lib/iblai/config.ts` | Environment variable accessors (API URLs, platform key, auth URL) |
 | `lib/iblai/storage-service.ts` | localStorage wrapper implementing the SDK's StorageService interface |
-| `lib/iblai/auth-utils.ts` | `redirectToAuthSpa()`, `hasNonExpiredAuthToken()`, `handleLogout()` |
+| `lib/iblai/auth-utils.ts` | `redirectToAuthSpa()` and `handleLogout()` (the SDK's, as iblai/os calls them, with this app's settings), `tokenRefreshUrl()`, `safeRedirectPath()` (the landing guard) |
 | `store/iblai-store.ts` | Redux store with `coreApiSlice`, `mentorReducer`, `mentorMiddleware`, and the slice keys the SDK `<Chat>` and the credits flows hard-code (`chat`, `chatInput`, `chatSliceShared`, `files`, `rbac`, `subscription`, `topBanner`, `appleRestriction`) |
-| `providers/iblai-providers.tsx` | Provider chain: ReduxProvider > SubscriptionConfigProvider > AuthProvider > TenantProvider, plus the data layer's error handlers: a 401 goes back to the login page, a credits 402 is dispatched as the `creditsexhausted` DOM event and an admin's next step is `/admin/billing` |
+| `providers/iblai-providers.tsx` | Provider chain: ReduxProvider > SubscriptionConfigProvider > AuthProvider > TenantProvider, plus the data layer's error handlers: an expired session goes through the sign-in app's `/login/complete` and comes back signed in, a 401 it cannot recover goes back to the login page, a credits 402 is dispatched as the `creditsexhausted` DOM event and an admin's next step is `/admin/billing` |
 
 ## What Was Patched
 
@@ -431,9 +431,10 @@ version is `providers/index.tsx` in [iblai/os](https://github.com/iblai/os):
    `^/platform/([^/]+)/([^/]+)` fetch the agent's public settings
    (`useLazyGetMentorPublicSettingsQuery`) and return `false` when
    `allow_anonymous` or `mentor_visibility === "viewable_by_anyone"`.
-5. **Landing path guard** — after SSO, reset to `/` when the stored path
-   names an org other than the one just authenticated
-   (`resolveRedirectPath` on `SsoLogin`).
+5. **Landing path guard** — the starter's `safeRedirectPath`
+   (`resolveRedirectPath` on `SsoLogin`) keeps the landing on this origin;
+   also reset to `/` when the path names an org other than the one just
+   authenticated (`data.tenant`).
 
 Register every deployed origin as an allowed redirect origin, exactly as for
 a single-org app.

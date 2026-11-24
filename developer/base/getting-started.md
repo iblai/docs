@@ -112,7 +112,7 @@ username, Platform API Token → `.env` + `iblai.env`), then any skill below is 
 
 Every name above is `/iblai-api-<name>`.
 
-The full, tiered catalogue with one-line descriptions is in `CLAUDE.md`.
+The full, tiered catalogue with one-line descriptions is in [`CLAUDE.md`](https://github.com/iblai/base/blob/main/CLAUDE.md#skill-catalogue-by-tier).
 Skills are in `skills/`; `npx skills add` installs them into your project's
 `.claude/skills/`. Read them, extend them, or write your own — the front door
 for agents is [`/iblai-vibe`](/developer/skills/iblai-vibe).

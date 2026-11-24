@@ -68,7 +68,7 @@ Releasing), and keep the section order.
 
 ### Template
 
-```markdown
+````markdown
 <div align="center">
 
 <a href="https://ibl.ai"><img src="https://ibl.ai/images/iblai-logo.png" alt="ibl.ai" width="300"></a>
@@ -281,7 +281,8 @@ See `CLAUDE.md` for the full list of skills and component priority rules.
 
 ---
 
-{{ Optional: a one-line bootstrap credit. Drop if nothing applies. }}
+<sub>{{ Optional: a one-line bootstrap credit. Drop if nothing applies. }}</sub>
+````
 
 ---
 

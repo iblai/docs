@@ -81,7 +81,7 @@ installers ship only the SKILL.md), fetch the template from the vibe repo
 instead -- tell the user that is the path you are taking:
 
 ```bash
-git clone --depth 1 https://github.com/iblai/vibe.git vibe-tmp
+git clone --depth 1 https://github.com/iblai/base.git vibe-tmp
 cp -a vibe-tmp/skills/start/iblai-vibe-ops-init/assets/vibe-starter/. . && rm -rf vibe-tmp
 pnpm install --ignore-scripts
 git init   # only if the project is not already a git repo
@@ -268,7 +268,7 @@ in sync: `assets/vibe-starter/AGENTS.md` is the source of truth). For a
 project that did not come from the starter, keep the "Start here" table and
 the rules, and trim the "Map of this app" to the files that exist.
 
-```markdown
+````markdown
 # CLAUDE.md
 
 This project is built on the ibl.ai platform using the `@iblai/iblai-js` SDK.
@@ -386,7 +386,7 @@ components), the wiring in BRAND.md.
 
 ```typescript
 import { initializeDataLayer, mentorReducer } from "@iblai/iblai-js/data-layer";
-import { AuthProvider, TenantProvider, useChatV2 } from "@iblai/iblai-js/web-utils";
+import { AuthProvider, TenantProvider, useChat } from "@iblai/iblai-js/web-utils";
 import { Profile, AnalyticsLayout, NotificationDropdown } from "@iblai/iblai-js/web-containers";
 import { SsoLogin, UserProfileDropdown, Account, Chat, AgentSearch } from "@iblai/iblai-js/web-containers/next";
 ```
@@ -430,6 +430,7 @@ pnpm test:e2e:all    # Playwright: every browser
 pnpm e2e:coverage    # Ledger check + approximate e2e coverage from the journeys (≥ 95%)
 pnpm e2e:accounts    # Create the two test accounts ahead of time
 ```
+````
 
 ---
 
