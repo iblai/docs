@@ -40,6 +40,13 @@ admins, the email templates and SMTP config that back notifications.
   frequency, per-type opt-outs). Both are distinct from marking messages read.
 - **Template inheritance.** Each template reports `is_inherited` (using the main
   platform default vs. an org override), `source_platform`, and `can_customize`.
+- **Authoring content is enabled per org by ibl.ai.** Changing what recipients
+  read (template subject, body, HTML, from address, prompts) and sending custom
+  builder messages (`template_data`) are off until ibl.ai enables
+  `NOTIFICATION_TEMPLATE_EDITING_ENABLED` for the org; org admins cannot set it.
+  Check: `GET https://api.iblai.app/dm/api/core/platform/configurations/public/?platform_key={org}` returns `configurations.NOTIFICATION_TEMPLATE_EDITING_ENABLED: true` once ibl.ai has enabled it; the key is absent otherwise, so test for `=== true`. While it is off, `can_customize` is `false`
+  on every template, and config edits, toggle, reset and predefined-template
+  sends still work.
 
 ## Reads
 
@@ -79,12 +86,12 @@ admins, the email templates and SMTP config that back notifications.
 ### Notification builder
 
 - **POST** `…/orgs/{org}/notification-builder/validate_source/` — validate one recipient source before building. Body `{ "type": …, "data": … }` (multipart with a `data` file for `csv`) → `{ status, valid_count, invalid_entries[], sample_recipients[] }`.
-- **POST** `…/orgs/{org}/notification-builder/preview/` — builder step 1; resolves recipients and returns `{ status, build_id, count, warning, recipients[] }`. Body: see **Schema**.
-- **POST** `…/orgs/{org}/notification-builder/send/` — **Confirm with the user first.** Step 2, send/schedule the built notification: `{ "build_id": "string (required)" }` → `{ status, notifications_sent, build_id, message }`.
+- **POST** `…/orgs/{org}/notification-builder/preview/` — builder step 1; resolves recipients and returns `{ status, build_id, count, warning, recipients[] }`. Body: see **Schema**. Custom `template_data` (in the body or in `context`) returns `403` unless the org is enabled for authoring.
+- **POST** `…/orgs/{org}/notification-builder/send/` — **Confirm with the user first.** Step 2, send/schedule the built notification: `{ "build_id": "string (required)" }` → `{ status, notifications_sent, build_id, message }`. `403` for a build with custom `template_data` when the org is not enabled for authoring.
 
 ### Templates (org admin)
 
-- **PATCH** `…/platforms/{platform_key}/templates/{type}/` — edit a template's content and config (see **Schema**).
+- **PATCH** `…/platforms/{platform_key}/templates/{type}/` — edit a template's content and config (see **Schema**). `403` when the body would change content and the org is not enabled for authoring (see **Notes**); unchanged values sent back are accepted.
 - **PATCH** `…/platforms/{platform_key}/templates/{type}/toggle/` — enable/disable this type for the org: `{ "allow_notification": bool (required) }`.
 - **POST** `…/platforms/{platform_key}/templates/{type}/reset/` — reset the template to its platform default (no body).
 - **POST** `…/platforms/{platform_key}/templates/{type}/test/` — **Confirm with the user first.** Send a test render to the caller: `{ "context": {…}, "use_sample_context": bool }` (both optional; `use_sample_context` defaults true) → `{ success, message, recipient }`.
@@ -112,7 +119,7 @@ admins, the email templates and SMTP config that back notifications.
 | `channels` | integer[] | req | Channel ids (from `…/notification-builder/context/`). |
 | `sources` | object[] | req | Each `{ "type": <source type>, "data": … }`. |
 | `template_id` | uuid | opt | Use a predefined template. Mutually exclusive with `template_data`. |
-| `template_data` | object | opt | Ad-hoc message: `{ "message_title": str (opt), "message_body": str (req) }`. |
+| `template_data` | object | opt | Ad-hoc message: `{ "message_title": str (opt), "message_body": str (req) }`. Only when the org is enabled for authoring; otherwise `403`. |
 | `context` | object | opt | Extra variables available in the message text. |
 | `process_on` | ISO datetime | opt | Schedule; sent hourly, only if before the hour boundary. |
 
@@ -150,6 +157,17 @@ curl -s \
   can move them back to `UNREAD`).
 - Template `toggle/` (platform-wide on/off for a type) is different from
   per-user `notification-preferences/` — don't confuse the two.
+- **Authoring gate.** While `NOTIFICATION_TEMPLATE_EDITING_ENABLED` is not
+  enabled for the org, template `PATCH` returns `403` ("Notification template
+  editing is not enabled for this platform.") when it would change: a content
+  field (`message_title`, `message_body`, `short_message_body`, `email_subject`,
+  `email_from_address`, `email_html_template`, `watcher_email_html_template`,
+  `watcher_email_subject`, `proactive_prompt_message`), raw `metadata`, or the
+  text in `policy_enabled_policies[].subject`, `periodic_mentors[].prompt` or
+  `skill_mastery_thresholds[].name` (only text the template already uses is
+  accepted). Typed config (schedules, recipients, channels, SPAs, policy
+  flags, skill-mastery points) still saves. The `main` org is always enabled.
+  To enable an org, ask ibl.ai.
 
 ## Reference material
 
