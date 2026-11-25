@@ -155,6 +155,28 @@ Templates inherit defaults; the first `PATCH` clones the default into a
 platform-specific copy. `reset` deletes the override (toggle state is
 preserved).
 
+**Editing content is enabled per organization by ibl.ai.** Until it is, a
+`PATCH` that changes content returns `403` and every template reports
+`can_customize: false`. Check once per org load and hide or disable the
+content editor (subject, body, HTML, from address) when it is off:
+
+```ts
+const res = await fetch(
+  `${apiBase}/dm/api/core/platform/configurations/public/?platform_key=${org}`,
+  { headers: { Authorization: `Token ${dmToken}` } },
+);
+const data = await res.json();
+// The key is absent until ibl.ai enables it, so test strictly.
+const editingEnabled =
+  data.configurations?.NOTIFICATION_TEMPLATE_EDITING_ENABLED === true;
+```
+
+Saving the whole template back unchanged is fine, so schedule, recipient,
+channel and SPA edits keep working. Leave raw `metadata` out of saves and
+don't introduce new `policy_enabled_policies[].subject`,
+`periodic_mentors[].prompt` or `skill_mastery_thresholds[].name` text while
+it is off.
+
 | Method | Path | Purpose |
 |--------|------|---------|
 | `GET` | `/platforms/{platform_key}/templates/` | List templates (system + custom) |
@@ -197,7 +219,10 @@ detail endpoint.
 
 ## Direct send (notification builder)
 
-Admin-only. Flow: **context → validate → preview → send.**
+Admin-only. Flow: **context → validate → preview → send.** A custom message
+(`template_data`) needs the same per-organization enablement as template
+editing; while it is off, offer predefined templates (`template_id`) only,
+since `preview` and `send` return `403` for custom content.
 
 | Method | Path | Purpose |
 |--------|------|---------|
