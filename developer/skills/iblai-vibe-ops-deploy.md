@@ -312,6 +312,12 @@ Redeploy = rebuild the zip, POST again with the same `project` — and when the
 rebuilt content hashes to what is already live, Step 3.5 turns that into a
 no-op instead of a push.
 
+An organization admin sees the apps they deployed in the organization
+settings' **Apps** tab (`/iblai-vibe-account`): state, live address,
+domains, and **Delete**, which takes the app offline and removes its
+domains. Headless: `DELETE $BASE/providers/vercel/hosting/deployment/$ID/`
+(`/iblai-api-hosting`); confirm with the user first.
+
 ## Step 4.5: Touch test the live URL
 
 Before you tell the user the deploy is done, run the `/iblai-vibe-ops-test`

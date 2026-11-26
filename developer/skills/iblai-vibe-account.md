@@ -5,20 +5,17 @@
 > **First time here?** If `iblai.env` has no `ARCHITECTURE=`, run `/iblai-vibe-start` first (four questions; two minutes) — it decides single-org / multi-org / headless and who signs in, and every skill reads the answer.
 
 Add an account/organization settings page whose sidebar groups its tabs
-under five headings: **Workspace** (Organization, Management),
-**Integrations** (API, Secrets, Network), **Finance** (Monetization,
-Billing), **AI & data** (Benchmarks, Memory) and **System** (Advanced).
-Every group whose tabs are all gated off disappears, so a small
+under five headings: **Workspace** (Organization, Management, Invites,
+Onboarding, Apps), **Integrations** (API, Secrets, Network), **Finance**
+(Monetization, Billing), **AI & data** (Benchmarks, Memory) and **System**
+(Advanced). A group whose tabs are all gated off disappears, so a small
 organization sees three or four headings, not five.
 
 ![Account Page](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-page.png)
 
 > **Template:** the page this skill creates is bundled as
-> [`assets/account-page.tsx`](https://github.com/iblai/base/blob/main/skills/organizations/iblai-vibe-account/assets/account-page.tsx).
-
-> **Navbar:** If the user wants a navbar with links to the account page,
-> guide them to `/iblai-vibe-navbar` first. That skill creates the full navbar
-> with logo, page links, notification bell, and profile dropdown.
+> [`assets/account-page.tsx`](https://github.com/iblai/base/blob/main/skills/organizations/iblai-vibe-account/assets/account-page.tsx). For a navbar with
+> links to it, run `/iblai-vibe-navbar` first.
 
 > **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/skill-setup.md).
 
@@ -31,20 +28,16 @@ Before running this skill, ask the user:
 > page wired up, alongside auth, navbar, and profile/notifications. Want to
 > use that instead?
 
-If yes, copy the bundled starter template from the installed
-`iblai-vibe-ops-init` skill's `assets/vibe-starter/` directory (it sits
-alongside this skill in your skills directory; in the vibe repo it lives
-under `skills/start/`), or fetch it from the vibe repo if those assets
-are not installed -- tell the user which path you took -- then skip this
-skill:
+If yes, copy it from the installed `iblai-vibe-ops-init` skill's
+`assets/vibe-starter/` (in the vibe repo it lives under `skills/start/`), or
+fetch it from the vibe repo when those assets are not installed. Tell the
+user which path you took, then skip this skill:
 
     cp -a <skills-dir>/iblai-vibe-ops-init/assets/vibe-starter/. .
     # or, without local assets:
     git clone --depth 1 https://github.com/iblai/base.git vibe-tmp && cp -a vibe-tmp/skills/start/iblai-vibe-ops-init/assets/vibe-starter/. . && rm -rf vibe-tmp
 
-    pnpm install --ignore-scripts
-
-> Run with `--ignore-scripts` to skip package lifecycle (postinstall) scripts.
+    pnpm install --ignore-scripts   # skips package lifecycle (postinstall) scripts
 
 If they prefer to add the account page to an existing app, continue below.
 
@@ -55,30 +48,18 @@ If they prefer to add the account page to an existing app, continue below.
 
 ## Step 1: Check Environment
 
-Before proceeding, check for a `iblai.env`
-in the project root. Look for `PLATFORM`, `DOMAIN`, and `TOKEN` variables.
-If the file does not exist or is missing these variables, tell the user:
-"You need an `iblai.env` with your platform configuration. Download the
-template and fill in your values:
+Check for an `iblai.env` in the project root with `PLATFORM`, `DOMAIN` and
+`TOKEN`. If it is missing, tell the user: "You need an `iblai.env` with your
+platform configuration. Download the template and fill in your values:
 `curl -o iblai.env https://raw.githubusercontent.com/iblai/base/refs/heads/main/iblai.env`"
 
 ## Step 2: Create the Page
 
 Copy [`assets/account-page.tsx`](https://github.com/iblai/base/blob/main/skills/organizations/iblai-vibe-account/assets/account-page.tsx) into
-`app/(app)/account/page.tsx`, or just use
-the reference implementation in Step 3.
-
-## Files created
-
-| File | Purpose |
-|------|---------|
-| `app/(app)/account/page.tsx` | Account/organization settings page with tabs |
-
-The page reads `userData`, `tenant`/`current_tenant`, and `tenants` from
-localStorage. Admin status is derived from the `tenants` array.
-
-> **Note:** The `Account` component uses `next/image` internally -- it is
-> imported from `@iblai/iblai-js/web-containers/next`.
+`app/(app)/account/page.tsx` (the only file this skill creates), or use the
+reference implementation in Step 3. The page reads `userData`,
+`tenant`/`current_tenant` and `tenants` from localStorage; admin status comes
+from the `tenants` array.
 
 ## Step 3: Wrap in a White Container
 
@@ -170,19 +151,9 @@ export default function AccountPage() {
 }
 ```
 
-### Key patterns
-
-- **White container wrapper**: Wrap the `Account` component in a
-  `bg-white rounded-lg border border-[var(--border-color)] overflow-hidden`
-  div so it renders as a card against the gray page background.
-- **Responsive width**: `w-full px-4` on mobile, `md:w-[75vw] md:px-0`
-  on desktop.
-
 ## Step 4: Use MCP Tools for Customization
 
-```
-get_component_info("Account")
-```
+`get_component_info("Account")` lists every prop; these are the ones apps use.
 
 ## `<Account>` Props
 
@@ -195,7 +166,7 @@ get_component_info("Account")
 | `username` | `string` | Username |
 | `email` | `string` | User email (from `userData` in localStorage) |
 | `mainPlatformKey` | `string` | Main org key — `config.mainTenantKey()` |
-| `onInviteClick` | `() => void` | Called when "Invite user" is clicked |
+| `onInviteClick` | `() => void` | Called by the **Invite** buttons on Management's Users and Teams tabs, only for a user who is not shown the Invites tab; for one who is, those buttons open that tab |
 | `onClose` | `() => void` | Cancel/close callback |
 | `authURL` | `string` | Auth service URL |
 | `isAdmin` | `boolean` | Controls tab visibility -- most tabs require `true` |
@@ -204,7 +175,7 @@ get_component_info("Account")
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `targetTab` | `string` | Initial tab: `organization`, `management`, `api`, `secrets`, `virtualMachine` (Network), `monetization`, `billing`, `datasets`, `memory`, `advanced` — a tab this viewer may not open falls back to their first visible one. The retired `integrations` still opens Secrets |
+| `targetTab` | `string` | Initial tab: `organization`, `management`, `invites`, `onboarding`, `apps`, `api`, `secrets`, `virtualMachine` (Network), `monetization`, `billing`, `datasets` (Benchmarks), `memory`, `advanced` — a tab this viewer may not open falls back to their first visible one. The retired `integrations` still opens Secrets |
 | `helpUrl` | `string` | Help-center address the API page's banner links to ("Help"); without it there is no link |
 | `currentPlatformBaseDomain` | `string` | Base domain for custom domain settings |
 | `currentSPA` | `string` | Current app identifier (e.g., `"agent"`) |
@@ -215,7 +186,8 @@ get_component_info("Account")
 | `currentPlan` | `string` | Current plan name, for the Billing header |
 | `defaultSupportPhone` | `string` | Initial support phone on the Organization tab when metadata has none |
 | `enableSupportPhone` | `boolean` | Show the support-phone field at all |
-| `onboardingBasePath` | `string` | Base URL for the copyable per-agent onboarding link (Management → Onboarding); defaults to the browser's origin |
+| `onboardingBasePath` | `string` | Base URL for the copyable per-agent link on the **Onboarding** tab (`<onboardingBasePath>/onboarding/<agent-id>`); defaults to the browser's origin |
+| `enableCatalogInvite` | `boolean` | Adds the **Courses** and **Programs** invite tabs to the **Invites** tab (default `false`) |
 | `enableRbac` | `boolean` | Turn on RBAC permission checks for Management. **Only ever pass this together with `rbacPermissions`** — see the warning below |
 | `rbacPermissions` | `object` | The caller's effective permissions, from `POST /dm/api/core/rbac/permissions/check/`. Defaults to `{}` |
 | `onLoadGroupPermissions` | `(permissions: object) => void` | Optional; the Teams tab calls it with group-scoped permissions so you can merge them back in |
@@ -225,11 +197,10 @@ get_component_info("Account")
 > **`enableRbac` without `rbacPermissions` hides Management entirely.**
 > `checkRbacPermission(perms, resource, enableRbac)` returns `true` when RBAC is
 > **off**, but denies everything when it is **on** and the permissions object is
-> empty — so passing the flag alone is strictly worse than omitting it, and the
-> Management tab disappears even for an org admin. Either pass both (load them
-> with `POST rbac/permissions/check/`, see `/iblai-vibe-rbac`) or pass neither.
-> Single-org apps whose admin routes are already admin-gated should pass
-> neither: vibe-starter and the ibl.ai OS's own admin dialog both do.
+> empty, so the Management tab disappears even for an org admin. Pass both (load
+> them with `POST rbac/permissions/check/`, see `/iblai-vibe-rbac`) or neither.
+> Single-org apps whose admin routes are already admin-gated pass neither, as
+> vibe-starter does; the ibl.ai OS's organization settings dialog passes both.
 
 ## Layout and navigation
 
@@ -237,11 +208,10 @@ get_component_info("Account")
 logo, name, key and role chip over grouped navigation) beside a content
 column with a fixed header carrying the active tab's title and description.
 Below `lg` the sidebar becomes a compact identity row and a scrolling strip
-of pills, the active one solid blue. See
-[`/iblai-vibe-profile`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/users/iblai-vibe-profile/SKILL.md)
-for the same description from the profile side.
+of pills, the active one solid blue (the profile side:
+[`/iblai-vibe-profile`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/users/iblai-vibe-profile/SKILL.md)).
 
-Two things are specific to `Account`:
+Three things are specific to `Account`:
 
 - **The navigation is buttons, not ARIA tabs.** Each item is a plain
   `<button>` carrying `aria-current="page"` when active, inside
@@ -253,26 +223,58 @@ Two things are specific to `Account`:
   a watcher sent to `organization`, say — lands on the first tab they can
   actually see, and it re-runs once `tenants` arrives and the paywall and
   permission checks settle.
+- **The dialogs take the new names too.** `PlatformAccountSheet` opens on
+  `tab="invites"` or `tab="onboarding"`, and `UserProfileModal` on
+  `targetTab="invites"` or `"onboarding"`. Neither opens on Apps
+  (`PlatformAccountTab` has no `apps`); open them on another tab and pick
+  **Apps** in the sidebar. Both forward `enableCatalogInvite`.
 
 ## Tabs
 
 | Tab | Group | `targetTab` id | Requires |
 |-----|-------|----------------|---------|
 | **Organization** | Workspace | `organization` | `isAdmin === true` |
-| **Management** | Workspace | `management` | `enableRbac` unset (any admin), or `enableRbac` **plus** a `rbacPermissions` object granting one of `/platforms/<org>/#can_manage_users`, `/groups/#list`, `/roles/#list`, `/policies/#list`, `/usergroups/#list`, `/watchedgroups/#list` |
+| **Management** | Workspace | `management` | `enableRbac` unset (every viewer, admin or not: with RBAC off each check passes), or `enableRbac` **plus** a `rbacPermissions` object granting one of `/platforms/<org>/#can_manage_users`, `/groups/#list`, `/roles/#list`, `/policies/#list`, `/usergroups/#list`, `/watchedgroups/#list` |
+| **Invites** | Workspace | `invites` | `/platforms/<org>/#can_invite`, held by an admin (with RBAC off that check passes) or, with `enableRbac` on, by any user. With RBAC off a user who is not an admin never sees it |
+| **Onboarding** | Workspace | `onboarding` | `isAdmin === true` — it used to be a Management sub-tab that anyone who could open Management saw |
+| **Apps** | Workspace | `apps` | `isAdmin === true` — the platform's hosting routes are admin-only, so the tab is hidden rather than failing |
 | **API** | Integrations | `api` | `isAdmin === true` **and** `/apitokens/#list` (with RBAC off that check passes) — the organization's Platform API Tokens |
 | **Secrets** | Integrations | `secrets` | `isAdmin === true` — keys from other services: LLMs, Services, Environment Variables |
 | **Network** | Integrations | `virtualMachine` | `isAdmin === true` — the addresses agents' virtual machines may reach (see `/iblai-vibe-virtual-machine`) |
-| **Monetization** | Finance | `monetization` | `isAdmin === true`, the organization has monetization enabled **and** the caller holds `/platforms/<org>/#can_sell_items` (with RBAC off that check passes automatically) |
-| **Billing** | Finance | `billing` | The organization's paywall is on (`show_paywall`) **and** the caller is an admin or holds `can_sell_items` — Credits (the plan picker / Change Plan, Add Credits, Auto Recharge), Spend Limits, Agent Limits, User Limits (see `/iblai-vibe-billing`) |
+| **Monetization** | Finance | `monetization` | `isAdmin === true` (or `enableRbac` on), the organization has monetization enabled **and** the caller holds `/platforms/<org>/#can_sell_items` (with RBAC off that check passes automatically) |
+| **Billing** | Finance | `billing` | The organization's paywall is on (`show_paywall`) **and** the caller is an admin or holds `/platforms/<org>/#can_sell_items` (with RBAC off that check passes, so every viewer sees it) — Credits (the plan picker / Change Plan, Add Credits, Auto Recharge), Spend Limits, Agent Limits, User Limits (see `/iblai-vibe-billing`) |
 | **Benchmarks** | AI & data | `datasets` | `showBenchmarks` **and** `isAdmin === true` — the organization's benchmarks (questions and expected answers for evaluating agents), on the same screens as the Evals tab's **Manage Benchmarks** (see `/iblai-vibe-agent-evals`) |
 | **Memory** | AI & data | `memory` | `isAdmin === true` — organization-wide global and per-agent memories (see `/iblai-vibe-memory`) |
 | **Advanced** | System | `advanced` | `isAdmin === true` — organization-wide switches, among them **Allow users to control chat privacy**, the gate that turns Incognito on for the organization (`PATCH …/chat-privacy-config/`, admin-only; see `/iblai-vibe-incognito`) |
 
-Every tab but Management and Billing needs `isAdmin`; those two answer to
-RBAC instead (Billing also to an admin). Secrets is itself split into
-**LLMs**, **Services** and **Environment Variables**, and the Memory tab into
-**Global** and **Agent** memories.
+Every tab but Management, Invites, Monetization and Billing needs
+`isAdmin`; the rows above say when those four open to other users. Secrets
+is split into **LLMs**, **Services** and **Environment Variables**, and the
+Memory tab into **Global** and **Agent** memories.
+
+### Invites, Onboarding and Apps
+
+- **Invites** — "Send invitations to new users and manage existing
+  invites." The same invite form, invitation list and pages as
+  `InviteUserDialog` (`/iblai-vibe-invite`), inside the settings page.
+  `enableCatalogInvite` adds **Courses** and **Programs** tabs.
+- **Onboarding** — the screen that was Management's last sub-tab, moved
+  as it is: search for agents, order them (the first is **Default**, met
+  by users who arrive without a link), give each a **Heading** and
+  **Sub-Heading**, **Copy Link** for each agent, and one **Save**. It
+  saves into the organization's metadata (`user_onboarding_form`), and
+  each agent card shows the agent's image, or its first letter.
+- **Apps** — "Your deployed apps — their addresses, domains, and builds."
+  One card per app the signed-in admin deployed (`/iblai-vibe-ops-deploy`),
+  two columns on wide screens: the name, its state (Live, Deploying,
+  Building, Deploy failed, Build failed, Build canceled, Not deployed
+  yet), the live address as a link, and each custom domain marked
+  **Verified** or **Verification required** ("Runs on our shared domain —
+  nothing to set up." when it has none). **Delete** asks first: the app
+  goes offline and every domain attached to it is removed. With no apps
+  it says "Apps you deploy appear here." Hooks (`@iblai/iblai-js/data-layer`):
+  `useGetHostingProjectsQuery`, `useGetHostingProjectDomainsQuery`,
+  `useDeleteHostingProjectMutation`; REST in `/iblai-api-hosting`.
 
 ### The Integrations group
 
@@ -335,12 +337,13 @@ export function SecretsPage({ tenantKey, username }: { tenantKey: string; userna
 ### Management sub-tabs
 
 Management is itself tabbed — **Users**, **Groups**, **Roles**,
-**Policies**, **Teams**, **Alerts**, **Applications** and **Onboarding** —
-each shown when the matching permission is granted (`can_manage_users`,
-`/groups/#list`, `/roles/#list`, `/policies/#list`,
-`/usergroups/#list` or `can_invite`, `/watchedgroups/#list`). The Invite
-dialog reached from Users invites by user, by course or by program, and
-calls back through `onInviteClick`.
+**Policies**, **Teams**, **Alerts** and **Applications**. The first six
+each show when the matching permission is granted (`can_manage_users`,
+`/groups/#list`, `/roles/#list`, `/policies/#list`, `/usergroups/#list` or
+`can_invite`, `/watchedgroups/#list`); **Applications** needs none. A pure
+watcher (`/watchedgroups/#list`, not an admin) gets only **Users**, listing
+the users they may watch. The **Invite** buttons on Users and Teams open the
+Invites tab, or call `onInviteClick` for a user who is not shown it.
 
 Picking a user in **Users** opens their profile in a read-only preview — the
 same `Profile` component as `/iblai-vibe-profile`, minus Security, with the
@@ -349,9 +352,9 @@ customization this path forwards.
 
 | Shot | |
 |---|---|
-| Workspace | [Organization](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-organization.png) · [Advanced](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-advanced.png) |
-| Management | [Users](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users.png) · [Groups](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-groups.png) · [Roles](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-roles.png) · [Policies](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-policies.png) · [Teams](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-teams.png) · [Alerts](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-alerts.png) · [Applications](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-applications.png) · [Onboarding](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-onboarding.png) |
-| Invite dialog | [users](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users-invite-users.png) · [courses](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users-invite-courses.png) · [programs](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users-invite-programs.png) |
+| Workspace | [Organization](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-organization.png) · [Invites](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-invites.png) · [Onboarding](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-onboarding.png) · [Apps](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-apps.png) · [Delete an app](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-apps-delete.png) · [Advanced](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-advanced.png) |
+| Management | [Users](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users.png) · [Groups](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-groups.png) · [Roles](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-roles.png) · [Policies](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-policies.png) · [Teams](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-teams.png) · [Alerts](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-alerts.png) · [Applications](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-applications.png) |
+| Invites | [Invite from Management opens the Invites tab](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users-invite-users.png) · with `enableCatalogInvite`: [Courses](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users-invite-courses.png) · [Programs](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-management-users-invite-programs.png) |
 | Integrations | [API](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-api.png) · [Add API Key](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-api-add.png) · [Secrets: LLMs](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-secrets-llms.png) · [Add LLM](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-secrets-add-llm.png) · [Services](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-secrets-services.png) · [Add Service](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-secrets-add-service.png) · [Environment Variables](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-virtual-machine/iblai-vibe-virtual-machine-env-vars.png) · [Network](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-virtual-machine/iblai-vibe-virtual-machine.png) |
 | Memory | [Global](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-memory-global.png) · [Agent](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-account/account-settings/account-settings-memory-agent.png) |
 
@@ -368,8 +371,9 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
    use every control this skill added, read the console, check the phone width.
 4. In the browser, check the sidebar headings against what the organization
    actually has — no **Finance** group unless it sells something, no
-   **Benchmarks** unless you passed `showBenchmarks` — then open each tab
-   the sidebar lists; none may 404 or come up blank.
+   **Benchmarks** unless you passed `showBenchmarks`; an admin sees Invites,
+   Onboarding and Apps under **Workspace** — then open each tab the sidebar
+   lists; none may 404 or come up blank.
 
 ## Important Notes
 
@@ -378,12 +382,12 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 - **`initializeDataLayer()`**: 5 args (v1.2+)
 - **`@reduxjs/toolkit`**: Deduplicated via webpack aliases in `next.config.ts`
 - **`currentPlatformBaseDomain`**: Must be `{config.platformBaseDomain()}` — uses the config helper, not a raw env var. This is correct and intentional.
-- **SDK hardcoded styles**: The SDK Account component uses `bg-white` and
-  `bg-gray-50` internally. Do NOT override these. Instead, wrap the component
-  in a white container so it renders correctly against the gray page background.
+- **SDK hardcoded styles**: `Account` uses `bg-white` and `bg-gray-50`
+  internally. Do NOT override them; wrap it in the white container (Step 3).
 - **Give the wrapper a height**: the settings shell fills its parent
   (`h-full`); the sidebar and the content panel only scroll independently
   when that parent is bounded — `h-[80vh]` or `min-h-[640px]` is enough.
+  The reference wrapper is full width with `px-4` on a phone, `md:w-[75vw]` above.
 - **Billing is not URL-driven**: it shows up when the organization's paywall
   is on and the caller may see it, not because you passed a Stripe URL.
 - **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/BRAND.md)

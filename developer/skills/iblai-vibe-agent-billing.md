@@ -12,6 +12,11 @@ applies wins. This is one tab in the agent-settings family indexed by
 `/iblai-vibe-agent`; it shares the `AgentSettingsProvider` wrapper with every
 other tab.
 
+The tab opens with a gray info box above the sub-tabs
+(`spend-caps-info-box`): "Keep AI costs under control. Set a spend limit for
+this agent and for the people who use it, and see how much has been used so
+far."
+
 **This Agent** -- the switch (on means the limit counts and is enforced),
 a usage strip once a limit is saved (Spent, % of limit used, Remaining; the
 bar turns amber at 80% and red when exceeded), and the form: **Spend Limit
@@ -23,7 +28,7 @@ first save it says "No spend limit configured yet".
 ![Billing tab -- This Agent](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-billing/iblai-vibe-agent-billing-1-agent.png)
 
 **Per User** -- one row per user (email, limit and period, a status switch
-that saves at once, Exceeded / Alert Only badges) and **Add User Limit**.
+that saves at once, Limit Reached / Alert Only badges) and **Add User Limit**.
 
 ![Billing tab -- Per User](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-billing/iblai-vibe-agent-billing-2-per-user.png)
 
@@ -49,7 +54,7 @@ the same.
 
 - Auth set up (`/iblai-vibe-auth`, or vibe-starter).
 - `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1). Check with
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0). Check with
   `pnpm why @iblai/web-containers`.
 - A real agent UUID. Ask the user; never invent one.
 - Org admin rights: the spend-cap endpoints are admin-only. A user without
@@ -123,8 +128,9 @@ import { AgentSpendCapsTab } from "@iblai/iblai-js/web-containers/next";
 ```
 
 Label groups (`SpendCapsTabLabels`): `header` (`title`, `description`),
-`capability` (the switch), `subTabs` (`agent`, `users`), `tenantSections`
-(used by the organization Billing surface), `form` (field labels, interval
+`infoBox` (optional; `infoBox: ""` hides the box), `capability` (the
+switch), `subTabs` (`agent`, `users`), `tenantSections` (used by the
+organization Billing surface), `form` (field labels, interval
 and enforcement options and help, `noCapHint`, buttons), `usage` (the usage
 strip and badges), `users` (the Per User table, `addButton`, the user
 picker), `denied` (the no-access panel), `deleteModal`, and `toasts`.

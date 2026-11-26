@@ -29,8 +29,8 @@ user — plus the organization's own form for its members:
   session until it is completed. Then the Stripe path: the credit badge (plan, **Upgrade**,
   **Add Credits**, **Manage Usage**; the SDK runs every checkout) and the Billing tab of the
   account dialog, where a 402 lands.
-- **A member.** The form the admin authored in Management › Onboarding, with its agent on the
-  last step, at `/platform/<org>/onboarding` until they answer; nothing when none is set up.
+- **A member.** The form the admin authored in the account dialog's Onboarding tab, with its
+  agent on the last step, at `/platform/<org>/onboarding` until they answer; nothing when none is set up.
 
 > **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/skill-setup.md).
 
@@ -55,9 +55,10 @@ house-shell app unchanged.
 | `messages/house-journeys.{en,es,fr,zh}.json` | The `houseJourneys` namespace, all four locales |
 
 Already in the SDK and in every house-shell app: the sidebar footer's trial-gated cluster
-(`showTrialGatedAdminMenu`), the account dialog's Billing tab and its Management › Onboarding
-tab (the form editor; its copied link is `<origin>/platform/<org>/onboarding/<agent-id>` once
-`onboardingBasePath` is the platform path, see Customize).
+(`showTrialGatedAdminMenu`), the account dialog's Billing tab and its Onboarding tab (admins
+only; the form editor, no longer inside Management; its copied link is
+`<origin>/platform/<org>/onboarding/<agent-id>` once `onboardingBasePath` is the platform
+path, see Customize).
 
 ## When to use / when not
 
@@ -78,7 +79,7 @@ tab (the form editor; its copied link is `<origin>/platform/<org>/onboarding/<ag
   origin (vibe-starter's); an official app defaults it to its hosted origin
   (`https://<app>.iblai.me`).
 - `@iblai/iblai-js` 2.59.0 or later: `UpgradePackageModal`'s `checkoutUrl` arrived there.
-- The providers' `handleTenantSwitch` hands the SDK's own tenant to the switch and
+- The providers' `handleTenantSwitch` hands the SDK's own organization to the switch and
   `onTenantMismatch` goes to `/` (`/iblai-vibe-auth`, Going multi-org, move 2). The $0
   checkout leaves the user holding `main` and their new organization, and the SDK moves such
   a user to the new one; a handler that re-authenticates into anything else leaves the
@@ -241,7 +242,7 @@ control and state this skill added its own checkpoint — one Playwright test ti
 3. Touch test as `/iblai-vibe-ops-test` says, at desktop and phone width: the shell on
    `/platform/main` with a `main`-only account, the preview on `/platform/<an organization
    you are not in>`, `/platform/<org>/onboarding?flow=admin` as the admin, `/onboarding` as a
-   member once a form exists (Management › Onboarding). Console clean.
+   member once a form exists (the account dialog's Onboarding tab). Console clean.
 
 Not proven by the journey, by design: the real join and the real $0 checkout (the platform's
 side; the OS's own journeys cover them), and the badge on a real `main`-only session.
@@ -264,7 +265,7 @@ get_component_info("CreditBalance")
 | `sectors` | `OnboardingWizard` | The sector catalogue of step 2; defaults to the SDK's eight |
 | `renderFinalStep` | `OnboardingWizard` | The last step is the app's: `AllSetStep` (setup flow) and `MeetAgentStep` (member form) in `onboarding-page.tsx` — replace them to hand over your own first task |
 | `agentEmbed` | `OnboardingWizard` | Omitted on purpose: the member flow's last step names the agent and continues into the app. An app with an agent host may pass `{ mentorUrl, authUrl, lmsUrl }` and drop `renderFinalStep` to embed the agent |
-| `onboardingBasePath` | `PlatformAccountSheet` | `` `${origin}/platform/${org}` `` so Management › Onboarding's copied link opens this app's `/onboarding/<agent-id>` |
+| `onboardingBasePath` | `PlatformAccountSheet` | `` `${origin}/platform/${org}` `` so the Onboarding tab's copied link opens this app's `/onboarding/<agent-id>` |
 | `?flow=admin` / `?flow=user` | `/platform/<org>/onboarding` | Which flow an admin sees; a member always gets the form |
 | `isLiveAdmin` | `CreditBadge` | Admin AND Admin mode; the badge hides when an admin views as a member |
 | `house_setup_sent` | `sessionStorage` | The organization an admin was sent to setup for this session; clear it to be sent again |
@@ -291,6 +292,6 @@ REST reference: [feature](https://raw.githubusercontent.com/iblai/base/refs/head
 - `/iblai-vibe-ops-init` — every other app's first run (`/setup`, the empty states)
 - `/iblai-vibe-auth` — "Going multi-org": the route organization and the switcher this skill assumes
 - `/iblai-vibe-credit`, `/iblai-vibe-billing` — the badge and the Billing tab on their own
-- `/iblai-vibe-admin` — the Management dialog, where the member form is authored
+- `/iblai-vibe-account` — the organization settings, whose Onboarding tab is where the member form is authored
 - `/iblai-vibe-monetization-app-paywall` — pay to enter on the organization's own Stripe account
 - `/iblai-vibe-onboard` — a consumer questionnaire funnel, a different product

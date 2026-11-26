@@ -60,7 +60,7 @@ Endpoint. They are built from `lmsDomain` (Step 2).
 
 - Auth set up (`/iblai-vibe-auth`, or vibe-starter).
 - `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1). Check with
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0). Check with
   `pnpm why @iblai/web-containers`.
 - A real agent UUID. Ask the user; never invent one.
 - An organization admin signed in: Links, Keys and Tools are admin-only, so
@@ -207,6 +207,10 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 - **Link creation is slow**: it builds an LMS course in the background; wait
   for Ready before sharing the Target Link URI.
 - **Delete order**: remove or re-key a tool before deleting its key.
+- **LTI tools are not agent tools**: the Tools sub-tab holds the
+  organization's LMS registrations. The agent settings have had no Tools tab
+  since `@iblai/iblai-js` 3.0.0; each capability has its own switch in one of
+  the remaining tabs (`/iblai-vibe-agent-tool`).
 - **Shared provider**: mount `AgentSettingsProvider` once at the layout
   level (`/iblai-vibe-agent` §1); do not wrap each tab.
 - **Peer deps**: `sonner` and `@iblai/iblai-web-mentor`

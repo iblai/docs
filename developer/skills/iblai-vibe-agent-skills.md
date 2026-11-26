@@ -8,10 +8,11 @@ Agent can discover and follow. An Agent Skill is a written instruction bundle
 searching the web. The agent reads a skill only when it is relevant, so it can
 carry many without bloating every conversation. **Scope:** skills are defined
 **per organization** (or private to one agent); the tab manages which of them
-are attached to **this agent**. It has two sub-tabs, **Agent Skills** and
-**Available Skills**, a **New Skill** button, and Edit dialogs with a
-**Resources** file manager. Users invoke a skill from the chat composer with
-`/` (Step 4). Skills need no sandbox.
+are attached to **this agent**. It opens with a gray info box
+(`skills-info-box`), then two sub-tabs, **Agent Skills** and **Available
+Skills**, a **New Skill** button, and Edit dialogs with a **Resources** file
+manager. Users invoke a skill from the chat composer with `/` (Step 4).
+Skills need no sandbox.
 
 **Agent Skills** -- the skills attached to this agent, each with its `/slug`,
 an on/off switch (the assignment's `enabled`), and **Remove**.
@@ -19,18 +20,20 @@ an on/off switch (the assignment's `enabled`), and **Remove**.
 ![Skills -- Agent Skills](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-skills/iblai-vibe-agent-skills-1-agent-skills.png)
 
 **Available Skills** -- the organization's catalog, paged 10 at a time:
-name, version, category and **Only This Agent** badges, description, and
-**Add** (or a green **Added** chip once attached).
+name, version, category, **Featured** and **Only this Agent** badges,
+description, and **Add** (or a green **Added** chip on a skill already
+attached or private to this agent).
 
 ![Skills -- Available Skills](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-skills/iblai-vibe-agent-skills-2-available.png)
 
-**Row actions** -- each catalog row has a switch (the skill's own
-`enabled`) and a menu with **Edit** and **Delete**, shown only for skills the
-organization owns.
+**Row actions** -- a skill the organization owns has a switch (the skill's
+own `enabled`) and a menu with **Edit** and **Delete**. Both follow
+ownership, not the **Featured** badge: a featured skill from the `main`
+organization shows neither.
 
 ![Skills -- row actions](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-skills/iblai-vibe-agent-skills-3-actions.png)
 
-**New Skill** -- **Only This Agent**, Name, Slug, Version, Category,
+**New Skill** -- **Only this Agent**, Name, Slug, Version, Category,
 Description, and Instruction (a rich-text playbook).
 
 ![Skills -- New Skill dialog](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-skills/iblai-vibe-agent-skills-4-new-skill.png)
@@ -46,7 +49,7 @@ Description, and Instruction (a rich-text playbook).
 
 - Auth set up (`/iblai-vibe-auth`, or vibe-starter).
 - `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1).
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0).
 - A real agent UUID. Ask the user; never invent one.
 - The signed-in user is an organization admin (or holds the agent's
   skill-assignment roles). The tab renders nothing for `userIsStudent`.
@@ -133,8 +136,8 @@ read. The store must include the `rbac` reducer (vibe-starter's
 ### Lower level: `AgentSkills`
 
 `AgentSkillsTab` wraps `AgentSkills` (still exported from
-`@iblai/iblai-js/web-containers`) with the header, the Base Agent check, and
-the `userIsStudent` guard. Mount `AgentSkills` directly only for a custom shell. It
+`@iblai/iblai-js/web-containers`) with the header, the info box, the Base
+Agent check, and the `userIsStudent` guard. Mount `AgentSkills` directly only for a custom shell. It
 takes `platformKey`, `mentorUniqueId`, and optional `mentorDbId`; with
 `mentorDbId` it applies the same RBAC gating, without it nothing is gated.
 
@@ -153,8 +156,9 @@ import { AgentSkillsTab } from "@iblai/iblai-js/web-containers/next";
 ```
 
 Label groups (`SkillsTabLabels`): `header` (`title`, `description`),
-`notBaseAgent`, and `loading`. The rows, dialogs, and toasts inside come from
-the SDK's i18n and are not part of the bundle.
+`infoBox` and `infoBoxNote` (the two lines of the info box), `notBaseAgent`,
+and `loading`. The rows, dialogs, and toasts inside come from the SDK's i18n
+and are not part of the bundle.
 
 ## Step 4: Enable the chat `/` skill picker
 
@@ -208,7 +212,7 @@ get_component_info("Chat")
 
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| `labels` | `DeepPartial<SkillsTabLabels>` | No | Override the header, Base Agent note, and loading copy |
+| `labels` | `DeepPartial<SkillsTabLabels>` | No | Override the header, info box, Base Agent note, and loading copy |
 | `tenantKey` | `string` | No | Identity override. Falls back to `AgentSettingsProvider` |
 | `mentorId` | `string` | No | Identity override (agent UUID). Falls back to `AgentSettingsProvider` |
 | `username` | `string` | No | Identity override. Falls back to `AgentSettingsProvider` |
@@ -232,21 +236,31 @@ get_component_info("Chat")
 
 ## What the tab does
 
-- **Header note + New Skill** -- "Skills added or removed here apply to new
-  chat sessions only. Edits to a skill's instructions apply immediately,
-  including in conversations already in progress."
+- **Info box** (`skills-info-box`) -- "Teach your agent how to handle
+  specific jobs, like writing a weekly report or reviewing a contract — the
+  way you'd hand a new teammate a checklist. Add a skill from Available
+  Skills or create your own, and people can use it in a chat by typing /."
+  Under it, when changes take effect: "Skills you add or remove apply to new
+  chats. Changes to a skill's instructions apply right away, even in chats
+  already going." It shows above the Base Agent check, so every agent type
+  sees it.
+- **New Skill** -- right-aligned above the sub-tabs, shown to a user who
+  may browse the catalog.
 - **Agent Skills** lists the agent's skill **assignments**, paged 10 per
   page. The switch PATCHes the assignment's `enabled`; **Remove** deletes
   the assignment (the skill itself stays in the catalog).
 - **Available Skills** lists the whole catalog, paged 10, including disabled
   skills so they can be re-enabled. **Add** creates an enabled assignment;
-  rows already assigned show **Added**. The switch PATCHes the skill.
-  **Edit** / **Delete** appear only for skills the organization owns;
-  featured skills from the `main` organization are read-only.
-- **New / Edit Skill** -- `Only This Agent` sets `mentor` to this agent's
+  rows already assigned, and this agent's private skills, show **Added**; a
+  skill private to another agent shows a disabled **Add**. The switch
+  PATCHes the skill. The switch and **Edit** / **Delete** appear only for
+  skills the organization owns; featured skills from the `main`
+  organization are read-only.
+- **New / Edit Skill** -- `Only this Agent` sets `mentor` to this agent's
   UUID (private; takes precedence over a featured `main` skill with the same
-  slug). The tab then tries to attach the private skill to the agent, which
-  the backend rejects (see Important Notes). Edit adds the
+  slug). Creating a skill never attaches it: **Add** an organization-wide
+  skill from Available Skills; a private one is the agent's without an
+  assignment (see Important Notes). Edit adds the
   **General** / **Resources** sub-tabs; a skill private to another agent
   keeps its owner (the toggle is locked).
 - **Resources** -- `reference` and `script` are text (filename + content);
@@ -257,7 +271,7 @@ get_component_info("Chat")
 
 From `@iblai/iblai-js/web-containers/next`:
 
-- `AgentSkillsTab` — the tab (header, Base Agent check, `userIsStudent` guard).
+- `AgentSkillsTab` — the tab (header, info box, Base Agent check, `userIsStudent` guard).
 - `AGENT_SKILLS_TAB_LABELS`, `SkillsTabLabels`, `AgentSkillsTabProps`.
 
 From `@iblai/iblai-js/web-containers`:
@@ -342,18 +356,19 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
   hide the tab yourself with `isBaseAgentMentor({ mentorSlug,
   templateMentorSlug })` when you can.
 - **Private skills are not assigned**: the backend applies a skill created
-  with **Only This Agent** to its agent directly and, by design, rejects
-  assigning it (400 "Object with unique_id=… does not exist"). The tab still
-  tries to attach it after creating it, so it toasts "Failed to create
-  skill" although the skill was created and is live. What is lost is
-  visibility: the skill is not listed under **Agent Skills**, and the `/`
-  picker (which lists assignments) does not offer it.
+  with **Only this Agent** to its agent directly and, by design, rejects
+  assigning it (400 "Object with unique_id=… does not exist"). The tab never
+  tries: Available Skills shows the skill with the **Only this Agent** badge
+  and **Added**. What is lost is visibility: the skill is not listed under
+  **Agent Skills**, and the `/` picker (which lists assignments) does not
+  offer it.
 - **RBAC grants in the store**: see Step 2. A missing grant hides the
   matching control rather than showing an error.
-- **Session behaviour**: adding/removing a skill applies to **new chat
-  sessions only**; editing a skill's instructions applies immediately,
-  including to conversations already in progress. The component
-  surfaces this note in its header — keep it visible in custom UI.
+- **Session behaviour**: adding/removing a skill applies to **new chats
+  only**; editing a skill's instructions applies right away, including to
+  chats already going. `AgentSkillsTab` says so in its info box
+  (`infoBoxNote`); `AgentSkills` on its own no longer shows the note, so a
+  custom shell around it should.
 - **Skill UUID, not pk**: `MentorSkillAssignment.skill` is the skill's
   `unique_id`, not the integer id. Custom UI joining skills to
   assignments must key on `skill.unique_id`. (Skill *resources* key on
@@ -364,7 +379,9 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
   ranks private > organization > featured).
 - **Featured skills are read-only**: featured skills come from the
   `main` organization; the API 404s organization writes against them, so the
-  component hides their Edit/Delete actions. Mirror that in custom UI.
+  component hides their switch and Edit/Delete actions (it compares the
+  skill's `platform_key` with the organization's key). Mirror that in
+  custom UI.
 - **Enabled is an AND**: an effective skill is enabled only when the
   catalog skill AND its assignment are both enabled; the `/` picker
   offers enabled skills only.

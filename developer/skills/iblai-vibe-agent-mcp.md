@@ -3,9 +3,11 @@
 > Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/agents/iblai-vibe-agent-mcp/SKILL.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-agent-mcp/SKILL.md). This page is generated — edit it in the repository, not here.
 
 Add the agent **MCP tab** -- the outside services (Model Context Protocol
-servers) an agent can use in chats. **Featured** connectors are curated by
-the platform, **Directory** lists the MCP directory plus the organization's
-own connectors, and every card has one switch: on or off **for this agent**.
+servers) an agent can use in chats. The tab opens with the agent's **MCP**
+switch; while it is off the connectors stay on the agent, greyed out.
+**Featured** connectors are curated by the platform, **Directory** lists the
+MCP directory plus the organization's own connectors, and every card has one
+switch: on or off **for this agent**.
 Configure (the gear) sets how a connector signs in for the agent, whether
 users may turn it off, and the organization's own OAuth app. The same
 connectors reach the chat: the composer's `+` menu gets an **MCP** row with
@@ -18,7 +20,7 @@ in the agent-settings family; all tabs share `AgentSettingsProvider`.
 
 ![Add MCP Connector](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-add.png)
 
-![Configure MCP Connector — sign-in scope and connection](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-edit.png)
+![Configure MCP Connector — connector scope, who can turn it off, sign-in scope and connection](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-edit.png)
 
 ![Configure — App Credentials](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-mcp/iblai-vibe-agent-mcp-configure-credentials.png)
 
@@ -36,19 +38,17 @@ in the agent-settings family; all tabs share `AgentSettingsProvider`.
 - MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
 - `AgentSettingsProvider` must wrap the route (see `/iblai-vibe-agent-setting`
   Step 2 if not already set up)
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1): the
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0): the
   Featured / Directory tabs, per-agent sign-in scope, "Allow Users to Turn
   Off", App Credentials and the chat's MCP panel arrived in
-  `@iblai/web-containers` 1.58.1 and are not in earlier releases
+  `@iblai/web-containers` 1.58.1, the MCP switch in 2.0.0
 - Ask the user for a real `mentorId` (agent UUID). Do NOT invent one.
 
 ## Step 1: Check Environment
 
-Before proceeding, check for an `iblai.env` in the project root with
-`PLATFORM`, `DOMAIN`, and `TOKEN`. If it is missing or incomplete, tell the
-user: "You need an `iblai.env` with your platform configuration. Download
-the template and fill in your values:
-`curl -o iblai.env https://raw.githubusercontent.com/iblai/base/refs/heads/main/iblai.env`"
+Check for an `iblai.env` in the project root with `PLATFORM`, `DOMAIN`, and
+`TOKEN`. If it is missing, ask the user to download the template and fill it in:
+`curl -o iblai.env https://raw.githubusercontent.com/iblai/base/refs/heads/main/iblai.env`
 
 ## Step 2: Mount `McpTab`
 
@@ -73,9 +73,9 @@ export default function AgentMCPPage() {
 ### With a select handler (picker mode)
 
 Inside a picker (the workflow editor's MCP step uses this) pass `onSelect`:
-every card gets a **Select** button; picking a connector that is off turns
-it on for the agent first (opening its shared sign-in when needed), then
-calls the handler.
+every card gets a **Select** button and the MCP switch is left out; picking
+a connector that is off turns it on for the agent first (opening its shared
+sign-in when needed), then calls the handler.
 
 ```tsx
 import { McpTab } from "@iblai/iblai-js/web-containers/next";
@@ -250,12 +250,8 @@ register with the service (the Configure dialog shows and copies it).
 
 ## Step 5: Use MCP Tools for Customization
 
-```
-get_component_info("McpTab")
-get_component_info("McpServersMenu")
-get_component_info("AgentSettingsProvider")
-get_api_query_info("useGetMCPServersQuery")
-```
+Ask `@iblai/mcp`: `get_component_info("McpTab")`, `get_component_info("McpServersMenu")`,
+`get_component_info("AgentSettingsProvider")`, `get_api_query_info("useGetMCPServersQuery")`.
 
 ## `<McpTab>` Props
 
@@ -264,10 +260,18 @@ Import from `@iblai/iblai-js/web-containers/next`.
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
 | `onSelect` | `(server: MCPServer) => void` | No | Adds a **Select** button to every card. Without it the tab is the agent's manager view. |
+| `showCapabilitySwitch` | `boolean` | No | Show the agent's MCP switch above the connectors. Defaults to `true`, and to `false` with `onSelect`. Pass `false` where the agent is still being set up (a create wizard): its first connector turned on turns MCP on. |
 
 ## What the tab renders
 
 - **Header** -- "MCP" and its one-line description.
+- **MCP switch** -- MCP has no `capability_*` flag: it is on while the `mcp`
+  tool is on the agent, so the switch adds or removes that one tool ("MCP
+  turned on" / "MCP turned off") and keeps the connectors. Locked when the
+  person may not change the agent's tools, left out when they can't read
+  them; a spinner shows until the settings load. A refused save shows one
+  sentence under it ("MCP doesn't work with the model this agent uses. Pick
+  another model in the LLM tab, then try again.").
 - **Filters bar** -- search by name, a date-range picker (by `created_at`),
   and a transport filter (All / SSE / WebSocket / Streamable HTTP; the
   WebSocket choice makes the list requests fail, see below).
@@ -282,11 +286,12 @@ Import from `@iblai/iblai-js/web-containers/next`.
   hover explains), a transport chip (Directory only), the description, and
   the actions:
   - the **switch** -- "On for this agent" / "Off for this agent". On adds
-    the connector to the agent's `mcp_servers` and, the first time, the
-    `mcp` tool with `can_use_tools`; off removes it, and the last one off
-    drops the `mcp` tool again. A connector that signs in once for everyone
-    (scope Agent or Organization) with no such sign-in yet also opens that
-    sign-in when switched on.
+    the connector to the agent's `mcp_servers` and, when missing, the `mcp`
+    tool; off removes it (the last one off drops `mcp` only where the MCP
+    switch is not shown). A connector that signs in once for everyone (scope
+    Agent or Organization) with no such sign-in yet also opens that sign-in
+    when switched on. Every card switch is locked while one saves; a refused
+    save toasts one sentence ("Couldn't turn on Slack. Try again.").
   - the **gear** -- Configure (below).
   - the **trash** -- Directory only, the organization's own connectors
     only, with the delete permission. Featured and directory connectors
@@ -303,7 +308,7 @@ Import from `@iblai/iblai-js/web-containers/next`.
 | Description | Optional -- shows on the card. |
 | Connector Scope | **All Agents** (`mentor: null`) or **This Agent** (`mentor: <uuid>`) -- which agents in the organization may use it. |
 | Allow Users to Turn Off | On (default): people can switch it off in their own chats. Off: it stays on in every chat and nobody can switch it off (`user_can_disable: false`). |
-| Transport | Streamable Http (default) or SSE. Websocket is still offered, but the platform refuses it (`transport` accepts `sse` and `streamable_http` only; Connect answers 400). |
+| Transport | Streamable HTTP (default) or SSE. WebSocket is still offered, but the platform refuses it (`transport` accepts `sse` and `streamable_http` only; Connect answers 400). |
 | Authentication Method | **No Authentication**, **API Key** or **OAuth**. |
 | Token Type / Token | API Key only: Bearer or a custom scheme, and the key (hidden after save; leave it to keep the stored one). |
 | Authentication Scope | OAuth only: **User** (each person signs in with their own account from the chat), **Agent** (one shared account for everyone who chats with this agent) or **Organization** (one shared account for every agent). |
@@ -330,29 +335,30 @@ address of an OAuth connector restarts the sign-in). For a **featured or
 directory** connector the fields are read-only; only two settings, both
 **for this agent**, and the organization's App Credentials can change:
 
-- **Authentication Scope** -- stored as the agent's override of the
-  connector's own scope; the card's pill follows it. Choosing Agent or
-  Organization while the agent has no such sign-in turns the connector off
-  until it is switched on again (which opens the sign-in).
+- **Authentication Scope** -- stored as the agent's override of the connector's
+  own scope; the card's pill follows it. Choosing Agent or Organization while
+  the agent has no such sign-in turns the connector off until it is switched on
+  again (which opens the sign-in). Read-only without a sign-in service.
 - **Allow Users to Turn Off** -- shown, but the platform refuses it for a
   featured or directory connector (404 unless your organization owns the
   connector; the tab says "Your organization can't change this setting").
   Only the owning organization can make such a connector mandatory.
 
-Under Authentication Scope, **Connection** shows Connected / Not Connected
-with **Connect** or **Disconnect** for the saved scope: the admin's own
-sign-in for User scope, the shared account otherwise. Disconnecting a
-shared sign-in also turns the connector off for the agent. **App
-Credentials** shows the organization's app for an OAuth connector (secret
-masked, "Saved. Enter a new one to replace it."), with **Remove
+Under Authentication Scope, **Connection** (only for a connector with a sign-in
+service) shows Connected / Not Connected with **Connect** or **Disconnect** for
+the saved scope: the admin's own sign-in for User scope, the shared account
+otherwise. Disconnecting a shared sign-in also turns the connector off for the
+agent. **App Credentials** shows the organization's app for an OAuth connector
+(secret masked, "Saved. Enter a new one to replace it."), with **Remove
 Credentials**; everyone who signed in through it must sign in again.
 
 ### The chat's MCP panel (for every user)
 
 `Chat` (`/iblai-vibe-agent-chat`) adds an **MCP** row to the composer's `+`
-menu by itself when the user is signed in, the chat is not embedded, and
-the agent has at least one connector on. Its badge counts the connectors
-that are on for this chat and signed in. The panel lists the agent's
+menu by itself when the user is signed in, the chat is not embedded, the
+agent has at least one connector on, and MCP is on for the agent (off: its
+tools are readable and `mcp` is not among them). The row's badge counts the
+connectors on for this chat and signed in. The panel lists the agent's
 connectors (name, logo, description) with one switch each:
 
 - **On / Off for this chat** -- saved as the user's choice for this
@@ -379,22 +385,25 @@ decides for itself, and the two do not always agree:
 
 | Control | The tab shows it with | The platform accepts it from |
 |---|---|---|
+| The MCP switch | read / write on the agent's `mentor_tools` field (no switch without read) | the same as the per-agent switch (one settings `PUT`) |
 | Cards and the per-agent switch | read / write on the agent's `mcp_servers` field | whoever may write the agent's settings |
-| Add Connector | `/mcpservers/#create` | the same |
+| Add Connector | `/mcpservers/#create` in the provider's `rbacPermissions`, even with `enableRBAC` off (no grant, no button): load it with `useGetRbacPermissionsMutation` (`resources: ["/mcpservers/"]`) into a nested `AgentSettingsProvider`, as `/iblai-vibe-agent-dataset` Step 2 does | the same |
 | Delete | the connector's object delete permission (own connectors only) | the owning organization |
 | Authentication Scope (Configure) | write on `mcp_servers` | an **organization admin** or the Platform API Token (`mentor-auth-scope/` answers 403 "A mentor's MCP connection mode is set by platform admins." to anyone else, and 404 while the connector is off for the agent, which is why the tab stores the choice when the switch goes on) |
 | App Credentials | `/mcpservers/#create` | an **organization admin** or the Platform API Token (`credentials/` answers 403 "MCP server credentials are limited to platform admins.") |
 | Allow Users to Turn Off on a featured / directory connector | write on `mcp_servers` | the owning organization only (404 otherwise) |
 | The chat's MCP panel | signing in, plus read on `mcp_servers` when RBAC is on | the user's own preferences |
 
-With `enableRBAC` off, everything is shown; the platform's rules still apply.
+With `enableRBAC` off, the other controls hide or lock only where the platform's
+`permissions` say no (a missing entry counts as allowed); its rules still apply.
 
-## The five switches, side by side
+## The six switches, side by side
 
 | Setting | Where | Wire | Who it affects |
 |---|---|---|---|
+| MCP on / off | the tab's MCP switch | the `mcp` tool slug in the agent's `tool_slugs` | every connector of this agent |
 | Connector Scope | Add / Configure | `mentor` on the server (`null` = all agents) | which agents may list it |
-| On / Off for this agent | the card | the agent's `mcp_servers` + the `mcp` tool slug | this agent's chats |
+| On / Off for this agent | the card | the agent's `mcp_servers` (+ the `mcp` tool slug when missing) | this agent's chats |
 | Authentication Scope | Configure | `auth_scope` (`user` / `mentor` / `platform`) and the agent's override, read back as `effective_auth_scope` | whose account the agent signs in with |
 | Allow Users to Turn Off | Add / Configure | `user_can_disable` | whether the chat's switch (and the user's lasting choice) can move |
 | On / Off for this chat | the chat's MCP panel | the user's session preference; read back as `user_enabled` when the list is fetched with the conversation's `session_id` | one conversation of one user |
@@ -418,44 +427,33 @@ Run `/iblai-vibe-ops-test` before telling the user the work is ready, and give
 every page, control and state this skill added its own checkpoint — one Playwright
 test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 `pnpm e2e:coverage` must pass:
-every page, control and state this skill added its own checkpoint — one Playwright
-test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
-`pnpm e2e:coverage` must pass:
 
 1. `pnpm build` -- must pass with zero errors
 2. `pnpm test` -- vitest must pass
 3. Touch test `/agents/<id>/mcp` in the browser as `/iblai-vibe-ops-test`
-   says: switch a Directory connector on and off, open Configure on a
-   featured one, add a connector with No Authentication, then open the home
-   chat and check the `+` menu's MCP row and its switch; read the console,
-   check the phone width.
+   says: turn the MCP switch on ("MCP turned on"), switch a Directory
+   connector on and off, open Configure on a featured one, add a connector
+   with No Authentication, then open the home chat and check the `+` menu's
+   MCP row and its switch; turn MCP off -- the connectors grey out and the
+   chat's MCP row is gone; read the console, check the phone width.
 
 ## Important Notes
 
-- **Redux store**: `mentorReducer` and `mentorMiddleware` **plus**
-  `mcpApiSlice` (Step 3); the MCP endpoints are not part of the first two.
 - **`initializeDataLayer()`**: 5 args (v1.2+); **`@reduxjs/toolkit`** deduplicated via webpack aliases in `next.config.ts`
 - **Peer deps**: `sonner` and `@iblai/iblai-web-mentor` (`pnpm add sonner @iblai/iblai-web-mentor`)
 - **Shared provider**: `AgentSettingsProvider` wraps the route at layout level (`/iblai-vibe-agent-setting` Step 2).
-- **The return page** (Step 4) is part of this skill, not optional: every
-  OAuth client registered from this app sends its sign-ins there. Register
-  it from the deployed host; for a hand-entered app, register the Redirect
-  URI the Configure dialog shows at the service.
-- **Sign-in from the chat** needs the agent's connector to be User scope;
-  Agent and Organization sign-ins are made from this tab by someone who
-  manages the agent, as the shared account everyone will use.
+- **Not optional**: the Redux slice (Step 3) and the return page (Step 4).
 - **A connector off for the organization** (`is_enabled: false`, set
   through the API) is never used, whatever the agent or the user chose, and
   does not appear in the chat's panel.
-- **Tools tab**: the switch here adds and removes the `mcp` tool slug;
-  `/iblai-vibe-agent-tool` shows the same switch among the other tools.
+- **No Tools tab**: `AgentToolsTab` was removed in `@iblai/web-containers`
+  2.0.0; the MCP switch reads no flag, so it works on any platform version.
 - **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/BRAND.md)
 
 ## Related Exports
 
-From `@iblai/iblai-js/web-containers/next`: `McpTab`, `McpTabProps`.
-
-From `@iblai/iblai-js/web-containers`: `McpServersMenu`, `McpServersMenuProps`.
+From `@iblai/iblai-js/web-containers/next`: `McpTab`, `McpTabProps`; from
+`@iblai/iblai-js/web-containers`: `McpServersMenu`, `McpServersMenuProps`.
 
 From `@iblai/iblai-js/data-layer` -- the hooks the tab and the panel use,
 for custom UI: `useGetMCPServersQuery` (`mentorUniqueId`, `includeGlobal`,
@@ -486,9 +484,10 @@ services under `${dmUrl}/api/ai-account/`. Bodies and errors: `/iblai-api-agent-
 | Find a service's sign-in settings | `POST mcp-servers/oauth-find/` (`url`, `name`, `callback_url`; with the organization's own app: `client_id`, `client_secret`, `scopes`, `token_endpoint_auth_method`, `authorization_url`, `token_url`) |
 | The organization's app for a connector | `GET` / `PUT` / `DELETE mcp-servers/{id}/credentials/` (secrets come back masked) |
 | How a connector signs in for this agent | `GET` / `PUT mcp-servers/{id}/mentor-auth-scope/` (`mentor`, `auth_scope`; `null` restores the connector's own) |
-| Switch on / off for the agent | `PUT mentors/{mentor}/settings/` with `mcp_servers`, `tool_slugs`, `can_use_tools` |
+| The MCP switch | `PUT mentors/{mentor}/settings/` with `tool_slugs` plus `mcp` (and `can_use_tools: true` when the agent could not use tools), or minus `mcp` as JSON |
+| A card on / off for the agent | `PUT mentors/{mentor}/settings/` as JSON with `mcp_servers` (on: plus `tool_slugs` with `mcp` when missing, and `can_use_tools: true`; the last one off where no MCP switch shows: plus `tool_slugs` without `mcp`); `can_use_tools: false` is never sent |
 | Start a sign-in | `GET …/ai-account/connected-services/orgs/{org}/users/{user_id}/{provider}/{service}/` → `auth_url` |
-| Finish it | `GET …/ai-account/connected-services/callback/?code=…&state=…&redirect_uri=…` (the Step 3 page) |
+| Finish it | `GET …/ai-account/connected-services/callback/?code=…&state=…&redirect_uri=…` (the Step 4 page) |
 | Bind the sign-in | `POST mcp-server-connections/` (`server`, `scope`, `auth_type: "oauth2"`, `connected_service`, `mentor` for Agent scope) |
 | Disconnect | `DELETE …/ai-account/connected-services/orgs/{org}/users/{user_id}/{id}/` |
 | The chat's switch | `GET` / `PUT mcp-servers/{id}/session-preference/` (`session_id`, `is_enabled`); the lasting choice is `preference/` |
