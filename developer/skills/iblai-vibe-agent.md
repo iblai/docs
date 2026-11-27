@@ -78,43 +78,48 @@ above the tab.
 
 ## 2. The tabs
 
-Start with the **core six** (bold). Add the others only when the user asks.
+Start with the **core five** (bold). Add the others only when the user asks.
 
 | Tab | What it does | Skill | REST twin (`iblai-api-*`, kind `api`) |
 |---|---|---|---|
-| **Settings** | Basic, Discovery, Capabilities, Welcome Screen sub-tabs; copy to another org; delete | `/iblai-vibe-agent-setting` | [agent-setting](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-setting/SKILL.md) |
-| **Prompts** | system prompt, proactive/study/guided prompts, suggested prompts | `/iblai-vibe-agent-prompt` | [agent-prompt](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-prompt/SKILL.md) |
+| **Settings** | Basic, Discovery, Capabilities (the agent's Web Search, Image Generation, Video Generation, Code Interpreter and Plan switches, then Global Capabilities), Welcome Screen sub-tabs; copy to another org; delete | `/iblai-vibe-agent-setting` | [agent-setting](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-setting/SKILL.md) |
+| **Prompts** | system prompt; proactive and guided prompts, each with an Active switch; suggested prompts | `/iblai-vibe-agent-prompt` | [agent-prompt](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-prompt/SKILL.md) |
 | **LLM** | provider + model selection (incl. the org's own keys); Allow In-Chat Model Change; which models users can pick (admins) | `/iblai-vibe-agent-llm` | [agent-llm](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-llm/SKILL.md) |
-| **Datasets** | RAG: files, URLs, YouTube, crawl, GitHub; train/retrain | `/iblai-vibe-agent-dataset` | [agent-dataset](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-dataset/SKILL.md) |
+| **Datasets** | RAG: files, URLs, YouTube, crawl, GitHub; train/retrain; the Enhanced Document Retrieval switch | `/iblai-vibe-agent-dataset` | [agent-dataset](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-dataset/SKILL.md) |
 | **Memory** | enable memory; manage memories and categories | `/iblai-vibe-agent-memory` (guide: `/iblai-vibe-memory-guide`) | [agent-memory](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-memory/SKILL.md) |
-| **Tools** | enable/disable the agent's tools | `/iblai-vibe-agent-tool` | [agent-tool](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-tool/SKILL.md) |
 | Access | RBAC sharing: editor / chat / analytics roles for users and groups | `/iblai-vibe-agent-access` | [agent-access](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-access/SKILL.md) |
 | Analytics | report cards (overview, users, topics, transcripts, costs, …) that open your analytics pages for this agent | `/iblai-vibe-agent-analytics` | [analytics](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/analytics/iblai-api-analytics/SKILL.md) |
 | API | the organization's API keys, used to call the agent from code (create, shown once, delete) | `/iblai-vibe-agent-api` | [api-token](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-api-token/SKILL.md) |
 | Billing | spend cap for the agent and per user | `/iblai-vibe-agent-billing` | [spend-caps](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/billing/iblai-api-spend-caps/SKILL.md) |
 | Embed | embed code, styling, shareable links | `/iblai-vibe-agent-embed` | [agent-embed](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-embed/SKILL.md) |
 | Evals | benchmarks, LLM-as-Judge reviews, manual scores, CSV export | `/iblai-vibe-agent-evals` | [agent-eval](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-eval/SKILL.md) |
-| Grader | rubric-based grading with overrides | `/iblai-vibe-agent-grader` | — |
+| Grader | the Grading and Lesson Completion switches; rubric-based grading with overrides | `/iblai-vibe-agent-grader` | — |
 | History | conversation history with filters and export | `/iblai-vibe-agent-history` | [agent-history](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-history/SKILL.md) |
 | LTI | LTI 1.3 launch, keys, tools, endpoints | `/iblai-vibe-agent-lti` | — |
-| MCP | connectors (Featured + Directory) on/off per agent, sign-in scope, own OAuth app, the chat's MCP panel | `/iblai-vibe-agent-mcp` | [agent-mcp](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-mcp/SKILL.md) |
+| MCP | MCP on/off for the agent; connectors (Featured + Directory) on/off per agent, sign-in scope, own OAuth app, the chat's MCP panel | `/iblai-vibe-agent-mcp` | [agent-mcp](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-mcp/SKILL.md) |
 | Privacy | PII filtering (allow / redact / mask / block) and the Incognito policy | `/iblai-vibe-agent-privacy` | [agent-privacy](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-privacy/SKILL.md) |
 | Safety | moderation prompts, flagged content | `/iblai-vibe-agent-safety` | [agent-safety](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-safety/SKILL.md) |
-| Sandbox | computing runtime / VM shell / Claw instances | `/iblai-vibe-agent-sandbox` | [agent-sandbox](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-sandbox/SKILL.md) |
+| Sandbox | Calculator / Ephemeral Virtual Machine / Permanent Virtual Machine (Claw instances) | `/iblai-vibe-agent-sandbox` | [agent-sandbox](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-sandbox/SKILL.md) |
 | Screen | screen sharing on voice calls: on/off, in-call instructions, opening line | `/iblai-vibe-agent-screenshare` | [agent-voice](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-voice/SKILL.md) |
 | Skills | reusable Agent Skills, per-agent assignment, chat `/` picker | `/iblai-vibe-agent-skills` | [agent-skill](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-skill/SKILL.md) |
-| Support | human support ticket inbox | `/iblai-vibe-agent-support` | [agent-support](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-support/SKILL.md) |
+| Support | the Human Support switch; human support ticket inbox | `/iblai-vibe-agent-support` | [agent-support](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-support/SKILL.md) |
 | Tasks | scheduled periodic agent tasks with run logs | `/iblai-vibe-agent-task` | — |
-| Voice | voice calls on/off; chat voice and voice instructions; call style, language, provider; dictation | `/iblai-vibe-agent-voice` | [agent-voice](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-voice/SKILL.md) |
+| Voice | Voice Calls and Dictation on/off for in-app chat and the embed widget; chat voice and voice instructions; call style, language, provider, Smart Document Retrieval; dictation language and hints | `/iblai-vibe-agent-voice` | [agent-voice](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-voice/SKILL.md) |
 | Audit | who changed what and when | `/iblai-vibe-agent-audit` | [agent-audit](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-audit/SKILL.md) |
 | Disclaimers | user agreement and advisory text | `/iblai-vibe-agent-disclaimer` | [agent-disclaimer](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-disclaimer/SKILL.md) |
 
 Every tab skill has screenshots of the surface it mounts — open the skill before promising the user what they will see.
 
+There is no **Tools** tab since `@iblai/iblai-js` 3.0.0: each capability's
+switch sits in the tab it belongs to (Settings, Datasets, Grader, Support,
+Screen, MCP, Voice). `/iblai-vibe-agent-tool` is the map, and says how to
+remove an old `AgentToolsTab` page.
+
 ## 3. Not tabs, but agent-related
 
 | Need | Skill |
 |---|---|
+| Turn a capability on (web search, image generation, code interpreter, plan, grading, human support, screen sharing, MCP, …), or find where the Tools tab went | `/iblai-vibe-agent-tool` (REST: [agent-tool](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-tool/SKILL.md)) |
 | Create an agent from the app | `/iblai-vibe-agent-create` |
 | Chat with an agent | `/iblai-vibe-agent-chat` (+ `/iblai-vibe-agent-chat-sidebar`) |
 | Browse / star agents | `/iblai-vibe-agent-search` |

@@ -16,6 +16,28 @@ holds the create grant on the agent's documents (Step 2).
 
 ![Datasets tab -- table](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-dataset/iblai-vibe-agent-dataset-1-datasets.png)
 
+**Enhanced Document Retrieval** -- since `@iblai/iblai-js` 3.0.0 a box right
+under the info box, above the search row
+(`capability-card-advanced-document-search`), holds this switch, next to the
+documents it searches. The sentence under its label says what it does: "Let
+your agent search its documents more thoroughly. It runs several searches for
+each question and can search again while it works on a reply." One click
+saves `capability_advanced_document_search` and `enable_multi_query_rag` to
+the same value in one request, on the click. The switch shows the flag, so an
+agent that has only `enable_multi_query_rag` on shows off; either click brings
+the two in step. It replaces the Enhanced Document Retrieval row that Settings
+› Capabilities had.
+
+When the agent's model cannot use the document search tool, the switch stays
+usable for `enable_multi_query_rag` alone, which works with any model. It then
+shows and saves only that field, and says "With this model, your agent can't
+search again while it works on a reply." under its description
+(`capability-limited-advanced-document-search`). Once the flag is on, the
+switch works as usual, so it can be turned off. Locks, refused saves and the
+`can_use_tools: true` it adds when needed work as for every capability switch
+(`/iblai-vibe-agent-tool`). The box renders nothing when the user may not read
+the flag or the platform is older than API version 4.467.0.
+
 **Add Resources** -- one tile per source: PowerPoint, OneDrive, Google Drive,
 Dropbox, YouTube, URL, PDF, DOCX, Excel, CSV, GitHub, TXT, Markdown, Audio,
 Video, Image, Web Crawler, ZIP, Course. `disabledResourceTypes` greys tiles out
@@ -57,9 +79,9 @@ offers **Delete Dataset**. Switching an untrained row on asks whether to
 
 - Auth set up (`/iblai-vibe-auth`, or vibe-starter).
 - `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1). Check with
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0). Check with
   `pnpm why @iblai/web-containers`. The Google Drive behaviour below (Allow
-  cookies, Try Again) needs 2.62.2 or later.
+  cookies, Try Again) needs `@iblai/iblai-js` 2.62.2 or later.
 - A real agent UUID. Ask the user; never invent one.
 - For the Google Drive tile: the organization's `drive` credential, added
   under organization settings → Secrets → **Services** (`client_id`,
@@ -203,7 +225,9 @@ column headings and `emptyState`), `toasts` (`updateSuccess`, `updateError`,
 `deleteSuccess`, `deleteError`, `trainQueued`, `retrainSuccess`,
 `retrainError`), `deleteModal`, `trainOrDeleteModal` (including the crawler
 `userAgent*` copy), and `retrainScheduleModal`. The Add Resources dialogs use
-the SDK's own copy.
+the SDK's own copy, and so does the Enhanced Document Retrieval box: its name,
+sentence, model note, lock reasons, toasts and errors come from the SDK's own
+catalogue, not from `labels`.
 
 ## Step 4: Use MCP Tools for Customization
 
@@ -223,6 +247,7 @@ Import from `@iblai/iblai-js/web-containers/next`.
 | `maxUploadSizeMb` | `number` | No | Upload size limit for local files |
 | `dropboxExtensions` | `string[]` | No | File extensions the Dropbox picker offers |
 | `onSelect` | `(dataset: Dataset) => void` | No | Picker mode: called when a row is clicked |
+| `showCapabilitySwitch` | `boolean` | No | Show the Enhanced Document Retrieval box. Defaults to `true`, and to `false` with `onSelect`; pass `false` where the agent is still being set up (the SDK's Create Agent wizard does) |
 | `selectedDatasetId` | `string` | No | Picker mode: highlight this row |
 | `page` | `number` | No | Controlled page (1-based). Omit for internal paging |
 | `onPageChange` | `(page: number) => void` | No | Fired with the requested page when `page` is controlled |
@@ -248,8 +273,14 @@ From `@iblai/iblai-js/web-containers/next`:
 | Visibility (eye icon) | `PUT documents/{id}/` with `access: "public"` or `"private"` |
 | Schedule Retraining | `POST documents/{id}/settings/` with `retrain_interval_days` |
 | Delete | `DELETE documents/{id}/` |
+| Enhanced Document Retrieval | `PUT /api/ai-mentor/orgs/{org}/users/{username}/mentors/{uuid}/settings/` with `capability_advanced_document_search` and `enable_multi_query_rag` (plus `can_use_tools: true` when turning it on for an agent that could not use tools yet; only `enable_multi_query_rag` while the model limits it) |
 
-All paths sit under `/api/ai-index/orgs/{org}/users/{username}/`.
+The document paths sit under `/api/ai-index/orgs/{org}/users/{username}/`.
+Test ids for the switch: `capability-card-advanced-document-search`,
+`capability-toggle-advanced-document-search` (a `role="switch"` named
+"Enhanced Document Retrieval"), `capability-error-advanced-document-search`,
+`capability-reason-advanced-document-search` and
+`capability-limited-advanced-document-search`.
 
 ## Platform data
 
@@ -257,7 +288,9 @@ All paths sit under `/api/ai-index/orgs/{org}/users/{username}/`.
 |---|---|
 | `useGetTrainingDocumentsQuery` | The paged document list |
 | `useEditTrainingDocumentMutation` | Train, untrain, visibility |
-| `useGetMentorSettingsQuery` | The agent's `mentor_id` for the RBAC grant |
+| `useGetMentorSettingsQuery` | The agent's `mentor_id` for the RBAC grant; the switch's flag and `permissions` |
+| `useGetToolsQuery` | Whether the agent's model can use the document search tool (`capability_field`, `is_allowed`) |
+| `useEditMentorMutation` | Save the Enhanced Document Retrieval switch |
 
 REST twin: [`/iblai-api-agent-dataset`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-dataset/SKILL.md).
 
@@ -272,7 +305,8 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 2. `pnpm test` -- vitest must pass.
 3. Touch test `/agents/<uuid>/datasets` in the browser as `/iblai-vibe-ops-test` says: the
    table renders and **Add Resource** shows; add a URL, wait for its switch to turn on,
-   then switch it off and **Delete** it; read the console; check the phone width.
+   then switch it off and **Delete** it; flip **Enhanced Document Retrieval**, reload --
+   it keeps its state -- and flip it back; read the console; check the phone width.
 
 ## Important Notes
 
@@ -280,6 +314,8 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
   the agent.
 - **No Add Resource button?** The grant is missing: load
   `/mentors/<mentor_id>/documents/` permissions (Step 2).
+- **The switch saves on the click**, not with the table: it changes the
+  agent's settings, so it applies to every chat with the agent.
 - **Shared provider**: mount `AgentSettingsProvider` once at the layout
   level (`/iblai-vibe-agent` §1); the nested provider in Step 2 only adds
   grants.

@@ -10,8 +10,8 @@ three objects, and a working integration always requires all three:
 2. **MCP server connection** — the credential binding (a static token, or a
    reference to an OAuth connected service), at `platform`, `mentor` (agent),
    or `user` scope.
-3. **Agent wiring** — the agent's settings must have the `mcp` slug in
-   `tool_slugs` AND the server id in `mcp_servers`.
+3. **Agent wiring** — the agent must have the `mcp` tool (MCP's on/off for
+   the agent; it has no `capability_*` flag) AND the server id in `mcp_servers`.
 
 A missing step 3 is the most common failure mode: server and connection exist
 but the agent never calls them. Always finish by re-reading the agent's
@@ -121,9 +121,9 @@ existed for the same (user, provider, org, service), it is updated in place.
   (`{id, provider, service, user, platform_key}`). A server row likewise
   carries `owner` (username) plus `owner_email` and `owner_full_name`; all six
   are read-only and `null` when the row has no user.
-- **GET** `…/users/{username}/mentors/{mentor}/settings/` — the agent's
-  active `tool_slugs`, `mcp_servers` (serialized server objects), and
-  `can_use_tools`.
+- **GET** `…/users/{username}/mentors/{mentor}/settings/` — the agent's tools
+  as `mentor_tools[]` (MCP is on when one has `slug: "mcp"`), `mcp_servers`
+  (serialized server objects), and `can_use_tools`.
 - **GET** `…/users/{username}/mcp-servers/{id}/mentor-auth-scope/?mentor={mentor}`
   — the agent's override `auth_scope` (`null` when unset), `server_auth_scope`, `effective_auth_scope`.
 - **GET** `…/users/{username}/mcp-servers/{id}/preference/` — the caller's
@@ -190,7 +190,8 @@ existed for the same (user, provider, org, service), it is updated in place.
   ```
   - `name`, `url`, `transport`, `auth_type` are required; `auth_scope`
     defaults to `platform`. `transport` accepts `sse` and `streamable_http`
-    only: `websocket`, still offered by older UIs, answers 400.
+    only: `websocket`, still offered in the SDK's MCP connector dialog,
+    answers 400.
   - Server-level `credentials` must be the **full authorization value**
     (`<scheme> <credentials>`); it takes priority over `extra_headers`.
   - `is_featured=true` makes the server available to **other orgs** to
@@ -353,18 +354,22 @@ the client ibl.ai shares (`oauth-find` fails at `client_registration` or
 
 ### Agent wiring
 
-- **PATCH | PUT** `…/users/{username}/mentors/{mentor}/settings/` — enable /
-  disable connectors on the agent:
+- **PUT** `…/users/{username}/mentors/{mentor}/settings/` (JSON; there is no
+  PATCH) — turn MCP on or off for the agent and attach connectors:
   ```json
-  { "tool_slugs": ["ai-index", "mcp"], "mcp_servers": [3, 9],
+  { "tool_slugs": ["web-search", "mcp"], "mcp_servers": [3, 9],
     "can_use_tools": true }
   ```
-  **Critical semantics — these lists are replaced, not merged.** `[]` clears
-  everything; omitting a field leaves it untouched. Blindly sending
-  `{"tool_slugs": ["mcp"]}` silently strips every other tool the agent
-  had. Safe procedure: **GET** the current settings, merge locally (keep
-  existing `tool_slugs`, ensure `mcp` is present; keep existing
-  `mcp_servers`, append the new server id), then write back the full lists.
+  MCP is on while `mcp` is in the agent's tools; a list without it turns MCP
+  off and leaves `mcp_servers` attached. **Both lists are replaced, not
+  merged:** omitting a field leaves it untouched, and `[]` clears it (JSON
+  only: multipart drops an empty list). `tool_slugs` also sets every
+  tool-backed capability, so `{"tool_slugs": ["mcp"]}` strips every other tool
+  and turns those capabilities off. **GET** the settings first and build both
+  lists from that read (slugs from `mentor_tools`, ids from `mcp_servers`).
+  Send `can_use_tools: true` only when the agent has it `false`, never
+  `false` (it clears every tool). `400 MCP is not supported with the model
+  <llm>`: the agent's model cannot run MCP. More in `/iblai-api-agent-tool`.
 
 ### OAuth connected services
 
@@ -439,9 +444,10 @@ curl -s -X POST "$BASE/mcp-server-connections/" -H "$AUTH" -H "Content-Type: app
     this org, or mark the source server `is_featured=true`.
   - `400 No credentials found` on OAuth start — install the
     `auth_{provider}` credential (client_id, client_secret, redirect_uri).
-  - Agent never calls the server — `mcp` missing from `tool_slugs` or
+  - Agent never calls the server — `mcp` missing from `mentor_tools` or
     the server id missing from `mcp_servers`; these lists are replaced, not
-    merged, so a careless settings write may have stripped them.
+    merged, so a careless settings write (or `can_use_tools: false`) may have
+    stripped them.
   - No OAuth prompt on a per-user server — needs **both**
     `auth_scope="user"` and `auth_type="oauth2"`, plus a linked
     `oauth_service`, plus an authenticated (non-anonymous) chat session.
@@ -476,20 +482,14 @@ curl -s -X POST "$BASE/mcp-server-connections/" -H "$AUTH" -H "Content-Type: app
 
 ## Reference material
 
-`references/` carries the additive material that doesn't fit the endpoint
-sections above — the endpoint/method/body and event facts stay above:
+The endpoint and event facts stay above; `references/` adds:
 
-- [`references/concepts.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-api-agent-mcp/references/concepts.md) — backend model and the
-  design "why": the five Django models behind the wire objects, the module map,
-  runtime-resolution internals, the OAuth state/token design, and the
-  validation, access-control, and extensibility rules.
-- [`references/integration.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-api-agent-mcp/references/integration.md) — client / front-end
-  notes for the REST setup screens: driving the connection form off `auth_type`,
-  scope-aware fields, sourcing the OAuth2 connected-service picker, rendering
-  inline per-field validation errors, and the browser OAuth start/callback
-  strategy.
-- [`references/in-chat-events.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-api-agent-mcp/references/in-chat-events.md) — the fuller
-  per-frame event reference: field types, the three `error` variants with their
-  exact messages, and the client-handling gotchas.
+- [`references/concepts.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-api-agent-mcp/references/concepts.md) — the backend model and
+  design "why": runtime resolution, OAuth state and tokens, validation, access.
+- [`references/integration.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-api-agent-mcp/references/integration.md) — client notes for
+  the setup forms: fields per `auth_type` and scope, the connected-service
+  picker, per-field errors, the browser OAuth start/callback.
+- [`references/in-chat-events.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-api-agent-mcp/references/in-chat-events.md) — per-frame
+  event fields, the three `error` variants and client gotchas.
 - ibl.ai's own MCP servers (`@iblai/mcp`, the hosted `iblai-agent-chat`) are
   not ones this skill wires: [docs/mcp-servers.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/mcp-servers.md).

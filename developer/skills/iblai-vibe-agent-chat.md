@@ -65,11 +65,13 @@ Do NOT implement dark mode unless the user explicitly asks for it.
 
   | package | min version |
   |---|---|
-  | `@iblai/iblai-js` | `^2.85.1` |
-  | `@iblai/agent-ai` | `^2.15.1` |
+  | `@iblai/iblai-js` | `^3.1.0` |
+  | `@iblai/agent-ai` | `^2.15.3` |
 
-  (v2 bundles `web-containers`, `web-utils`, and `data-layer` as
-  `@iblai/iblai-js/*` subpaths — do not install the separate v1 packages.)
+  (`@iblai/iblai-js` brings `web-containers`, `web-utils` and `data-layer` as
+  its own dependencies and re-exports them as `@iblai/iblai-js/*` subpaths —
+  do not install `@iblai/web-containers`, `@iblai/web-utils` or
+  `@iblai/data-layer` separately.)
 
 - **Pre-flight export check (do this before writing any code):**
 
@@ -136,7 +138,7 @@ https://os.ibl.ai (or run `/iblai-api-agent-create`).
 ## Step 3: Install Dependencies
 
 ```bash
-pnpm add @iblai/data-layer @iblai/web-containers @iblai/web-utils \
+pnpm add @iblai/iblai-js@^3.1.0 \
          @iblai/agent-ai \
          react-paginate livekit-client \
          @livekit/components-react @livekit/components-styles \
@@ -147,13 +149,13 @@ Why each one:
 
 | Package | Used by |
 |---------|---------|
-| `@iblai/data-layer`, `@iblai/web-containers`, `@iblai/web-utils` | Hoist SDK packages to top-level `node_modules` so the bundler resolves them from the host |
+| `@iblai/iblai-js` | The SDK: `Chat` and the providers, hooks and reducers in Steps 4-6, from its `web-containers`, `web-utils` and `data-layer` subpaths |
 | `@iblai/agent-ai` | Voice/agent web component — **dynamically imported by `<Chat>`** (`import('@iblai/agent-ai')`). Easy to miss; its absence is a hard build error |
-| `react-paginate` | Peer of `@iblai/web-containers` (agent search pagination) |
+| `react-paginate` | Agent search pagination. `@iblai/web-containers` already lists it as a dependency, so this one is optional |
 | `livekit-client`, `@livekit/components-react`, `@livekit/components-styles` | Voice call / screen-sharing |
 | `@tauri-apps/plugin-os`, `@tauri-apps/api` | OS detection (Tauri desktop wrapper) |
 
-> **All of these are build-time-required, even the runtime-guarded
+> **The others are build-time-required, even the runtime-guarded
 > ones.** `<Chat>` statically/dynamically imports them; a missing
 > package is a hard `Module not found` from Turbopack/Webpack, **not** a
 > soft runtime fallback. Don't defer any of them "until needed".
@@ -457,9 +459,9 @@ controls appear (a host flag can only hide a control, never force it on).
 |------|--------------------|
 | Welcome screen | Gradient heading (the agent's name, or a time-of-day greeting with the user's first name when the agent's Welcome screen setting is "personal greeting"), the agent's welcome line, the disclaimer, and the centred composer. Starter prompts show under it as chips only when the host passes `showConversationStarters`, `config.features.suggestedPrompts` is not `false` and the agent's "Starter prompts" setting is not "none" (the agent's `guided_prompts_count`, 1-10, sets how many on desktop; phones show rows capped at 4); "Explore Agents" below the first screen needs `showExploreMentors` |
 | Message list | Right-aligned user bubbles; the agent's bubble with name and time, a collapsible "Thought" section for reasoning, markdown with code blocks (Copy) and tables (copy / download), and "Thinking…" until the first token |
-| Message actions | Under each finished reply: Copy and Read aloud for everyone; thumbs up / down, Retry, Report, Share and Download for signed-in users (Share and Download also for visitors with `showMessageActionsWhenLoggedOut`, both hidden under chat privacy; Report needs the agent's inappropriate-content setting; thumbs, Retry and Report are hidden when viewing a shared chat) |
+| Message actions | Under each finished reply: Copy and Read aloud for everyone; thumbs up / down, Report, Share and Download for signed-in users (Share and Download also for visitors with `showMessageActionsWhenLoggedOut`, both hidden under chat privacy; Report is hidden when the organization turns off its Report Inappropriate Content setting). Retry, for signed-in users, sits under the latest reply only and resends the question that reply answered. Viewing a shared chat leaves only Copy and Read aloud |
 | Suggested prompts | After a reply, up to three follow-up chips and a refresh button. Picking one sends it |
-| Composer | `+` menu (Upload File, Camera, then Tools, Skills, Prompts, Memory, MCP with a count badge when the agent has a connector on — its panel switches connectors for this chat, see `/iblai-vibe-agent-mcp` — and a Model picker when the agent allows it), a Canvas pill that turns off with its x, tool chips (two shown, the rest fold into "+N"), screen share, voice input, voice call, and Send, which becomes Stop Streaming while the agent answers. In a desktop (Tauri) build a **Cowork** pill sits with Canvas: its consent and macOS setup are the SDK's own, see `/iblai-vibe-os-agent-cowork`. A desktop build without Cowork's Rust shows it disabled; `features: { cowork: false }` hides it |
+| Composer | `+` menu (Upload File, Camera, then Tools, Skills, Prompts, Memory, MCP — shown while MCP is on for the agent and it uses a connector, with a count badge; its panel switches connectors for this chat, see `/iblai-vibe-agent-mcp` — and a Model picker when the agent allows it), a Canvas pill that turns off with its x, tool chips (two shown, the rest fold into "+N"), screen share, voice input, voice call, and Send, which becomes Stop Streaming while the agent answers. The Tools entries Web Search, Code and Image, and the screen share button, follow the agent's capability switches (`useMentorSettings(…).data.capabilities`; where each is switched: `/iblai-vibe-agent-tool`), and a chat's tool chips keep only tools the agent still has. In a desktop (Tauri) build a **Cowork** pill sits with Canvas: its consent and macOS setup are the SDK's own, see `/iblai-vibe-os-agent-cowork`. A desktop build without Cowork's Rust shows it disabled; `features: { cowork: false }` hides it |
 | Spend limits | For a signed-in member, a banner above the composer when one of their LLM spend limits is near (percentages only, never dollars), and a red banner with **Send** disabled while a **Block Requests** limit is exceeded; a refused send tells a member to contact their admin and gives an admin **Open Billing**. Limits are set in `/iblai-vibe-billing` and `/iblai-vibe-agent-billing` |
 | Attachments | File cards above the input: uploading, processing, failed (with retry), too large, and long pastes that become a `.txt` card |
 | `/` skill picker | Typing `/` in the input lists the agent's skills by name. It needs the per-agent `view_skill_assignments` grant in the `rbac` store, which `Chat` and vibe-starter's providers do not load, so in vibe-starter it stays empty unless you pass `slashSkills`; `slashSkillsEnabled={false}` turns it off |
@@ -554,12 +556,13 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 3. `pnpm dev` — open the route, sign in, and walk:
    - agent name + greeting, "Ask anything" textarea, the `+` menu
      (Upload File / Camera / Memory), Canvas pill, screen share /
-     voice input / voice call (screen share when the agent enables it),
+     voice input / voice call (screen share when the agent's Screen Sharing switch is on),
      and Send;
    - send a message → "I Accept" the User Agreement → your bubble +
      "Thinking…" and a Stop Streaming button, then the reply with its
      action row (Copy, thumbs, Share, Download, Report, Read aloud, Retry;
      some depend on sign-in and agent settings) and follow-up prompt chips;
+     send a second message → only the newest reply has Retry;
    - **voice**: record → transcription clears "Processing…" (if it
      hangs, the StrictMode workaround isn't applied or `<Chat>` is
      remounting);

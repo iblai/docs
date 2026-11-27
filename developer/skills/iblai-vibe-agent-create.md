@@ -26,7 +26,7 @@ UUID every other agent skill needs. Two ways to put creation in an app:
 ## Prerequisites
 
 - Auth in place (`/iblai-vibe-auth`).
-- `@iblai/iblai-js@^2.85.1`. The field permissions below are not in releases
+- `@iblai/iblai-js@^3.1.0`. The field permissions below are not in releases
   before 2.65.0, which show every field to everyone.
 - The person creating must be allowed to: an org admin, or a member holding
   `MENTOR_CREATORS` (`/iblai-vibe-rbac`; the org toggle
@@ -208,7 +208,9 @@ which honours their own field permissions. To copy an existing agent instead, us
 1. Store the id where the app reads it: `NEXT_PUBLIC_DEFAULT_AGENT_ID` (env,
    wins) or the org setting `defaultAgentId` (what `/setup` writes).
 2. Configure it: `/iblai-vibe-agent-setting` (identity, visibility), then
-   Prompts, LLM, Datasets, Tools, Memory — all via `/iblai-vibe-agent`.
+   Prompts, LLM, Datasets, Memory — all via `/iblai-vibe-agent`; turn
+   capabilities (web search, image generation, code interpreter, MCP, …) on
+   in the tabs `/iblai-vibe-agent-tool` maps them to.
 3. Chat with it: the home page in vibe-starter, or `/iblai-vibe-agent-chat`.
 
 ## Verify

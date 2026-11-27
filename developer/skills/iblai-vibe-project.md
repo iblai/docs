@@ -47,8 +47,8 @@ integration cost lives over there. Run `/iblai-vibe-agent-chat` first.
     `iblai.env`, default `iblai.app`).
 - **SDK versions.** The `projectId` prop on `<Chat>` and the
   `ProjectLandingPage` slot are in `@iblai/web-containers` 1.74.0's typings
-  and later; vibe-starter's `@iblai/iblai-js@^2.85.1` resolves 1.81.1, and it
-  pins `@iblai/agent-ai@^2.15.1` for the embed.
+  and later; vibe-starter's `@iblai/iblai-js@^3.1.0` resolves 2.1.0, and it
+  pins `@iblai/agent-ai@^2.15.3` for the embed.
 
 - **Pre-flight prop check (do this before writing the route):**
 
@@ -88,12 +88,14 @@ If `/iblai-vibe-agent-chat` was set up against an older SDK release, bump
 the packages so `projectId` is recognized:
 
 ```bash
-pnpm add @iblai/iblai-js@^2.85.1 @iblai/agent-ai@^2.15.1
+pnpm add @iblai/iblai-js@^3.1.0 @iblai/agent-ai@^2.15.3
 ```
 
-(v2 bundles `web-containers`, `web-utils`, and `data-layer` as
-`@iblai/iblai-js/*` subpaths — the separate `@iblai/web-*`/`@iblai/data-layer`
-packages are v1-era and must not be installed alongside v2.)
+(`@iblai/iblai-js` bundles `web-containers`, `web-utils`, and `data-layer` as
+`@iblai/iblai-js/*` subpaths and pins its own copies — 3.1.0 pins
+`@iblai/web-containers` 2.1.0, `@iblai/web-utils` 3.0.2, and
+`@iblai/data-layer` 2.1.0. Never add the separate `@iblai/web-*` or
+`@iblai/data-layer` packages to the app's own dependencies.)
 
 Run the **Pre-flight prop check** in *Prerequisites* to confirm
 `projectId?: string` is on the `Chat` Props type.

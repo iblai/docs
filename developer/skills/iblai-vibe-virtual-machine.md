@@ -2,8 +2,9 @@
 
 > Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/organizations/iblai-vibe-virtual-machine/SKILL.md`](https://github.com/iblai/base/blob/main/skills/organizations/iblai-vibe-virtual-machine/SKILL.md). This page is generated — edit it in the repository, not here.
 
-Agents on the **Virtual Machine Shell** sandbox kind run each chat in an
-isolated Linux VM with no network access by default. Two organization-wide
+Agents with the **Ephemeral Virtual Machine** sandbox type (called Virtual
+Machine Shell before `@iblai/web-containers` 2.0.0) run code in a private
+Linux computer with no network access by default. Two organization-wide
 records open it up, and both live in the organization settings'
 **Integrations** group:
 
@@ -24,7 +25,7 @@ agent happens on its Sandbox tab — see `/iblai-vibe-agent-virtual-machine`.
 
 ![Secrets — the Environment Variables tab](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-virtual-machine/iblai-vibe-virtual-machine-env-vars.png)
 
-![Add Environment Variable dialog — the variable name is filled in from the name](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-virtual-machine/iblai-vibe-virtual-machine-add-env-var.png)
+![Add Environment Variable dialog — Name, Key, Allowed Hosts and Variable Name](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/organizations/iblai-vibe-virtual-machine/iblai-vibe-virtual-machine-add-env-var.png)
 
 > **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/skill-setup.md).
 
@@ -35,7 +36,7 @@ agent happens on its Sandbox tab — see `/iblai-vibe-agent-virtual-machine`.
   Network** and **Add Environment Variable** buttons open the same dialogs
   in place, and **Manage Networks** opens the Network page in a popup.
 - **`/iblai-vibe-agent-sandbox`** — the Sandbox Type card that turns
-  Virtual Machine Shell on in the first place.
+  Ephemeral Virtual Machine on in the first place.
 - **`/iblai-vibe-account`** — the settings page that hosts both, with the
   rest of Secrets (**LLMs**, **Services**) and the **API** page.
 - **`/iblai-vibe-credential`** — the RBAC that lets a token list and
@@ -46,7 +47,7 @@ agent happens on its Sandbox tab — see `/iblai-vibe-agent-virtual-machine`.
 
 - Auth must be set up first (`/iblai-vibe-auth`)
 - MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
-- `@iblai/iblai-js@^2.85.1`. Releases before 2.68.0 kept both records on one
+- `@iblai/iblai-js@^3.1.0`. Releases before 2.68.0 kept both records on one
   Virtual Machine tab with **Network Policies** / **Secrets** sub-tabs.
 - The viewer needs
   `Ibl.Mentor/VirtualMachineNetworkPolicies/{list,write,delete}` and
@@ -54,7 +55,7 @@ agent happens on its Sandbox tab — see `/iblai-vibe-agent-virtual-machine`.
   admins hold them by default; they are not in the `learner` baseline.
   The Network page shows a permission notice on its list 403; the
   Environment Variables tab hides on its own.
-- Only agents on the **Virtual Machine Shell** kind consume these
+- Only agents with **Ephemeral Virtual Machine** turned on consume these
   records. Nothing breaks without one, but nothing uses them either.
 
 ## Step 1: Check Environment
@@ -131,8 +132,8 @@ All from `@iblai/iblai-js/web-containers`.
 
 ### Network
 
-- A blue banner ("Agents with Virtual Machine Shell run code on their own
-  computer, with no internet access unless you allow it…") beside
+- A blue banner ("Agents with Ephemeral Virtual Machine turned on run code
+  on their own computer, with no internet access unless you allow it…") beside
   **Add Network**; each row has a pencil (edit) and a bin (delete).
 - Columns: **Name**, **Allowed Hosts** (the first three as chips, then
   "+N more"), **Description**, **Updated** (time ago), **Actions**.
@@ -140,7 +141,8 @@ All from `@iblai/iblai-js/web-containers`.
   reach specific addresses."*
 - **Add / Edit Network** dialog — Name (unique in the organization, ≤ 255
   characters), Allowed Hosts (1–100 addresses; IP addresses allowed),
-  Description (optional). Each field has an info icon. Editing sends only
+  Description (optional). Each field has an info icon. The button reads
+  **Add Network** when adding and **Save** when editing. Editing sends only
   the fields that changed, and removing an address raises an amber
   warning that an environment variable sent to it will stop working — the
   backend allows the edit anyway.
@@ -156,7 +158,7 @@ All from `@iblai/iblai-js/web-containers`.
 - Columns: **Name**, **Variable Name** (a code chip), **Allowed Hosts**
   (the first three, then "+N more"), **Actions**. Every environment
   variable is listed, including one that reads a key from the Services tab
-  (`STRIPE_KEY` above).
+  (for example a `STRIPE_KEY` that reads the Stripe key).
 - Empty: *"No environment variables found"*.
 - **Add / Edit Environment Variable** dialog:
   - **Name** — how the key is listed here and on each agent's Sandbox tab.
@@ -171,6 +173,7 @@ All from `@iblai/iblai-js/web-containers`.
   - A variable that reads a Services key shows a read-only Key line, "Read
     from the {name} key you already added.", in place of the Key box; its
     name and addresses can still change.
+  - On edit the button reads **Save**.
 - **Delete** warns that the variable is also removed from every agent that
   uses it. Deleting one that reads a Services key leaves that key in place.
 

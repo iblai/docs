@@ -4,8 +4,9 @@
 
 Add the agent Sandbox **Network Access** section -- "Decide what this
 agent's virtual machine can reach and which environment variables it can
-use." It renders under the Sandbox Type card while **Virtual Machine Shell**
-is the selected kind, and it holds three controls plus a billing notice:
+use." It renders under the Sandbox Type card while **Ephemeral Virtual
+Machine** (called Virtual Machine Shell before `@iblai/web-containers` 2.0.0)
+is on, and it holds three controls plus a billing notice:
 
 - **Egress Profile** — No Network (the default), Package Registries,
   Public Internet, Custom Allowlist.
@@ -43,8 +44,9 @@ and adds new ones without leaving the agent.
 ## Related surfaces
 
 - **`/iblai-vibe-agent-sandbox`** — the Sandbox tab itself: the
-  **Sandbox Type** card (Computing Runtime / Virtual Machine Shell /
-  Claw) and, for Claw, instance management and the prompt files.
+  **Sandbox Type** card (Calculator / Ephemeral Virtual Machine /
+  Permanent Virtual Machine) and, for Permanent Virtual Machine, Claw
+  instance management and the prompt files.
   `SandboxConfig` mounts this section for you.
 - **`/iblai-vibe-virtual-machine`** — the organization's **Network** page
   and **Secrets → Environment Variables** tab behind the pickers here.
@@ -56,14 +58,14 @@ and adds new ones without leaving the agent.
 
 - Auth must be set up first (`/iblai-vibe-auth`)
 - MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1).
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0).
   Releases before 2.68.0 call these "network policies" and "secrets", show
   secrets only under Public Internet and Custom Allowlist, and add them
   only through a **Manage Secrets** popup.
 - Ask the user for a real `mentorId` (agent UUID). Do NOT invent one.
-- The agent must have **Virtual Machine Shell** selected
+- The agent must have **Ephemeral Virtual Machine** on
   (`enable_virtual_machine: true`) — see `/iblai-vibe-agent-sandbox`.
-  Nothing here applies to the Computing Runtime or Claw kinds.
+  Nothing here applies to Calculator or Permanent Virtual Machine.
 - The viewer needs the `Ibl.Mentor/VirtualMachineNetworkPolicies/list`
   and `Ibl.Mentor/VirtualMachineSecrets/list` permissions to see the
   network picker and the environment variables; each hides independently
@@ -117,7 +119,7 @@ export default function AgentNetworkPage({
 
 The component owns its own data: it reads the agent settings, the
 organization's networks, environment variables and Services keys, keeps a
-local draft, and saves through **Save Changes** / **Discard**. It does not
+local draft, and saves through **Save** / **Discard**. It does not
 read `AgentSettingsProvider`, and it does **not** check
 `enable_virtual_machine` — gate the mount yourself if you render it
 outside `SandboxConfig`.
@@ -163,14 +165,14 @@ Four radio cards, each with a label and one line of explanation:
 
 ### Network (Custom Allowlist only)
 
-- A **select** ("Choose a network") over the organization's networks,
+- A **select** ("Choose a Network") over the organization's networks,
   plus **Add Network** (opens the Add Network dialog in place and selects
   the new network on save), **Edit Network** (the same dialog for the
-  current choice) and **Manage Networks**.
+  current choice; its button reads **Save**) and **Manage Networks**.
 - Below the select, **"Addresses this network allows:"** with the
   network's addresses as chips.
 - With nothing picked, *"The Custom profile needs a network."* shows in
-  red and **Save Changes** stays disabled.
+  red and **Save** stays disabled.
 - Empty organization → the select reads *"No networks yet"* and is
   disabled; use **Add Network**.
 - No list permission → the whole picker is replaced by a line saying the
@@ -192,15 +194,15 @@ Four radio cards, each with a label and one line of explanation:
   becomes an ordinary one.
 - Then one checkbox per environment variable: its name, then
   `VARIABLE · addresses`, and a pencil that opens **Edit Environment
-  Variable**.
+  Variable** (its button reads **Save**).
 - **Add Environment Variable** opens the dialog straight on Name, Key,
   Allowed Hosts and Variable Name. Under Public Internet or Custom
   Allowlist the new one is turned on for this agent at once; when that is
   the only unsaved change (and, under Custom Allowlist, the network
   already allows its addresses) it is saved too — *"{name} added and
-  turned on for this agent"* — otherwise a line says to click **Save
-  Changes**. Under No Network or Package Registries it is added but not
-  turned on.
+  turned on for this agent"* — otherwise a line says *"{name} is on for
+  this agent. Click Save to finish."* Under No Network or Package
+  Registries it is added but not turned on.
 - Under No Network and Package Registries the checkboxes are disabled
   and one line says to choose Public Internet or Custom Allowlist; the
   button and the pencils still work.
@@ -311,7 +313,7 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 - **`@reduxjs/toolkit`**: Deduplicated via webpack aliases in `next.config.ts`
 - **Peer deps**: `sonner` and `@iblai/iblai-web-mentor` must be installed
   (`pnpm add sonner @iblai/iblai-web-mentor`)
-- **No network is the default.** A new agent on Virtual Machine Shell
+- **No network is the default.** A new agent on Ephemeral Virtual Machine
   reaches nothing until someone picks a profile here. Treat that as
   the feature, not a gap.
 - **Environment variables are for the VM, not the agent.** Inside the

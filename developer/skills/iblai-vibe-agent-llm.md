@@ -35,6 +35,25 @@ saves it at once (no confirm step) and toasts "LLM updated successfully".
 
 ![LLM tab -- model picker](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-llm/iblai-vibe-agent-llm-2-models.png)
 
+**A refused model change** -- the platform refuses a model that cannot run a
+capability the agent has on. Since `@iblai/iblai-js` 3.0.0 the error toast
+says which capability and where to turn it off, instead of the platform's
+text: "Grading is on, and the model you picked can't use it. Turn it off in
+the Grader tab first, or pick a different model." The place is one of
+Settings > Capabilities, the Datasets tab, the Grader tab, the Support tab,
+the Screen tab or the MCP tab (where each switch lives:
+`/iblai-vibe-agent-tool`). A tool with no switch of its own gets "This agent
+uses Google Docs, which the model you picked can't run. Pick a different
+model." When Screen Sharing is on and voice calls lack their AI provider's
+API key, the platform refuses the change too, and the toast says "Screen
+Sharing is on, and voice calls with this agent need an API key from their AI
+provider. Add it in Secrets in your organization settings, or turn Screen
+Sharing off in the Screen tab, then try again." The saved model stays
+selected. Any other failed save toasts the platform's `error` text, or
+"Failed to update LLM" when it sends none. After a model is saved, the tab
+reads the agent's tool list again, so the capability switches in the other
+tabs lock or unlock for the new model.
+
 **User Models** opens a searchable dialog of provider cards. A card with at
 least one allowed model shows "N of M allowed" or "All allowed"; the others
 show no count. It sets which models users in
@@ -54,7 +73,7 @@ model, "N of M selected" and **Done**. Every tick saves at once:
 
 - Auth set up (`/iblai-vibe-auth`, or vibe-starter).
 - `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1). Check with
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0). Check with
   `pnpm why @iblai/web-containers`; if it shows 1.16.0, run
   `/iblai-vibe-ops-upgrade`, which removes the old override.
 - A real agent UUID. Ask the user; never invent one.
@@ -265,6 +284,7 @@ when it is already selected.
 | `useGetLlmsQuery` | Providers and their models |
 | `useGetMentorSettingsQuery` | The agent's current provider and model |
 | `useEditMentorMutation` | Save the new provider and model |
+| `useLazyGetToolsQuery` | Read the agent's tool list again after a model is saved, so the capability switches in the other tabs lock or unlock for the new model |
 
 REST twin: [`/iblai-api-agent-llm`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-llm/SKILL.md).
 

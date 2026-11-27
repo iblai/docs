@@ -5,10 +5,11 @@
 Add the agent **Settings tab** -- the core agent-edit form, split into four
 sub-tabs (**Basic**, **Discovery**, **Capabilities**, **Welcome Screen**) above
 a sticky Delete / Copy / Save footer (Delete and Copy only when allowed, see
-**Copy** below). This is one
-tab in the wider agent-settings family (`access`, `api`, `datasets`,
-`disclaimers`, `embed`, `history`, `llm`, `memory`, `prompts`, `safety`,
-`settings`, `tasks`, `tools`). Each tab is a separate skill. All tabs share the
+**Copy** below). A gray info box (`settings-info-box`) sits above the
+sub-tabs: "Set up the basics of your agent here — its name and picture, who
+can find and use it, what it can do in a chat, and what people see when they
+first open it." This is one tab in the agent-settings family indexed by
+`/iblai-vibe-agent`. Each tab is a separate skill. All tabs share the
 same `AgentSettingsProvider` wrapper -- set it up once and mount as many
 tabs as you need.
 
@@ -37,20 +38,48 @@ An empty or unknown saved visibility shows as All Members with the catalog
 off and is sent back unchanged unless the user changes it. Switching from
 Admins Only back to All Members turns the catalog off.
 
-**Capabilities** -- **Surface Capabilities** sets Show Attachment, Show Voice
-Record and Show Voice Call separately for the in-app chat (`show_*`) and the
-embed widget (`embed_show_*`). **Global Capabilities** apply to both: Verbose
-Reasoning, Enhanced Document Retrieval, Reopen Last Conversation, Smart
-Document Retrieval, Prompt Caching (Anthropic models; it also turns off
-document retrieval, memory and the current date/time in the system prompt),
-and under **Advanced** Allow Copies and Show Additional Agents. **Context
-Limits** sets Chat History Messages (`chat_history_max_messages`), Chat
-History Tokens (`chat_history_max_tokens`) and Document Chunks
-(`rag_retrieval_k`). **Allow In-Chat Model Change** is no longer here: since
-`@iblai/iblai-js` 2.44.0 it is on the LLM tab (`/iblai-vibe-agent-llm`), and
-this tab's Save no longer sends `enable_in_chat_llm_change`.
+**Capabilities** -- two sections:
 
-![Settings tab -- Capabilities](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-setting/iblai-vibe-agent-setting-3-capabilities.png)
+- **Agent Capabilities** (`agent-capabilities-section`) comes first: one
+  switch each for **Web Search**, **Image Generation**, **Video Generation**,
+  **Code Interpreter** and **Plan**, under the note "Choose what this agent
+  can do in a chat. Each switch saves as soon as you change it." A click saves
+  only that switch's flag (`capability_web_search`,
+  `capability_image_generation`, `capability_video_generation`,
+  `capability_code_interpreter`, `capability_subagents`), plus
+  `can_use_tools: true` when one of the first four is turned on for an agent
+  that could not use tools yet. They are not fields of the form, and Save does
+  not send them. Locked switches, refused saves and the other tabs' switches:
+  `/iblai-vibe-agent-tool`. On a platform older than API version 4.467.0 the
+  block renders nothing.
+- **Global Capabilities** apply to in-app chat and the embed widget alike.
+  **Chat Experience** holds Verbose Reasoning, Reopen Last Conversation and
+  Prompt Caching (Anthropic models; it also turns off document retrieval,
+  memory and the current date/time in the system prompt). **Advanced** holds
+  Allow Copies and Show Additional Agents. **Context Limits** sets Chat
+  History Messages (`chat_history_max_messages`), Chat History Tokens
+  (`chat_history_max_tokens`) and Document Chunks (`rag_retrieval_k`).
+  **File Uploads** opens with **Show Attachment**, the one row with a switch
+  under each column: In-App Chat (`show_attachment`) and Embed Widget
+  (`embed_show_attachment`). File Types Users Can Attach is the row below it.
+
+Since `@iblai/iblai-js` 3.0.0 the Surface Capabilities section is gone, and
+some rows moved: Show Voice Record and Show Voice Call to the Voice tab's
+Dictation and Calls sub-tabs (`/iblai-vibe-agent-voice`), Enhanced Document
+Retrieval to the Datasets tab (`/iblai-vibe-agent-dataset`), and Smart
+Document Retrieval to the Voice tab's Calls sub-tab. **Allow In-Chat Model
+Change** has been on the LLM tab (`/iblai-vibe-agent-llm`) since 2.44.0.
+
+**Save** sends only the form's own fields. It no longer sends
+`enable_in_chat_llm_change`, the four voice fields (`show_voice_call`,
+`embed_show_voice_call`, `show_voice_record`, `embed_show_voice_record`),
+`enable_multi_query_rag` or `use_function_calling_for_rag`, and it no longer
+reads or writes the agent's call configuration. A switch flipped on the Voice
+tab while this form is open is no longer undone by Save.
+
+![Settings tab -- Capabilities: the info box, Agent Capabilities with its five switches, then Global Capabilities](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-setting/iblai-vibe-agent-setting-3-capabilities.png)
+
+![Settings tab -- Capabilities, further down: Context Limits and File Uploads, with Show Attachment under the In-App Chat and Embed Widget columns](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-setting/iblai-vibe-agent-setting-6-file-uploads.png)
 
 **Welcome Screen** -- the heading a new chat opens with (the agent’s name or a
 personalized greeting), the starter prompts (guided, suggested, or off), and a
@@ -60,10 +89,15 @@ live preview.
 
 **Copy** -- the footer shows Copy only when the agent’s **Allow Copies** is on
 (`forkable`), and Delete only when the agent’s `permissions` grant delete on
-`object` (see `enableRBAC` below). Copy opens `CopyMentorModal`: name the copy,
-choose whether to include training data (disabled unless the agent has
-`forkable_with_training_data`), and -- when `tenants` holds two or more
-organizations with `is_admin: true` -- pick the destination organization.
+`object` (see `enableRBAC` below). Copy opens `CopyMentorModal`: name the copy
+and choose whether to include training data (disabled unless the agent has
+`forkable_with_training_data`). An admin of the current organization (its
+entry in `tenants` has `is_admin: true`) also sees
+**Copy to this Organization**, ticked by default; **Copy** then makes the copy
+here. To copy into another organization they untick it and press
+**Continue**, which opens the auth app's organization chooser. Anyone else
+sees only **Continue**. Continue appears only when you pass `authUrl`;
+without it, a person who is not an admin here cannot copy.
 
 ![Settings tab -- Copy dialog](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-setting/iblai-vibe-agent-setting-4-copy.png)
 
@@ -245,18 +279,31 @@ For a partial override, pass only the keys you want to change:
 ```
 
 Beyond `header`, `fields`, `actions`, `toasts`, `deleteModal` and `copyModal`,
-the bundle names the sub-tabs (`subTabs.basic` / `discovery` /
-`capabilities` / `welcomeScreen`), the Capabilities headings
-(`sections.chatExperience`, `advanced`, `perSurface`, `globalSettings`), the
-matrix columns (`surfaces.inAppChat`, `embedWidget`) and their notes
-(`notes.*`), the `sections.contextLimits` heading, the Discovery controls
+the bundle holds the optional `infoBox`, names the sub-tabs (`subTabs.basic` /
+`discovery` / `capabilities` / `welcomeScreen`), the Capabilities headings
+(`sections.chatExperience`, `advanced`, `globalSettings`), the File Uploads
+heading with its File Types Users Can Attach row and dialog
+(`allowedFileTypes`, defaults in `AGENT_SETTINGS_TAB_LABELS.allowedFileTypes`;
+optional, so a bundle without it follows the SDK's locale), the File Uploads
+columns (`surfaces.inAppChat`, `embedWidget`), the Global Capabilities note and
+the column tooltips (`notes.globalSettings`, `inAppChat`, `embedWidget`), the
+`sections.contextLimits` heading, the Discovery controls
 (`discoveryAccess`, defaults in `AGENT_SETTINGS_TAB_LABELS.discoveryAccess`;
-optional, so a bundle without it falls back to English), and the confirm dialog
-(`adminVisibilityConfirm`) that opens when Save switches Who Can Use This
-Agent? to Admins Only -- a test that waits for the success toast must answer
-it first. `fields.whoCanView` / `fields.whoCanChat` no longer label
+optional, so a bundle without it follows the SDK's locale), and the confirm
+dialog (`adminVisibilityConfirm`) that opens when Save switches Who Can Use
+This Agent? to Admins Only -- a test that waits for the success toast must
+answer it first. `fields.whoCanView` / `fields.whoCanChat` no longer label
 Discovery; the Embed tab still reads them. The Allow In-Chat Model Change
-copy is in the LLM tab's `LLMTabLabels.inChatModelChange`, not here.
+copy is in the LLM tab's `LLMTabLabels.inChatModelChange`, not here. The
+Agent Capabilities block's copy is not in `labels` either; it follows the
+SDK's locale.
+
+`@iblai/iblai-js` 3.0.0 removed these keys with the rows they named.
+TypeScript flags them in a labels object written out in full, so delete them:
+`fields.enhancedDocRetrieval`, `fields.smartDocRetrieval`,
+`fields.showVoiceRecord`, `fields.showVoiceCall`, `fields.embedShowVoiceRecord`,
+`fields.embedShowVoiceCall`, `toasts.voiceCallError`, `sections.perSurface`
+and `notes.perSurface`.
 
 ## Step 5: Use MCP Tools for Customization
 
@@ -273,11 +320,12 @@ Import from `@iblai/iblai-js/web-containers/next`.
 
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| `tenants` | `CopyMentorTenant[]` (`{ key, name?, is_admin }`) | Yes | Organizations the agent can be copied into (forwarded to `CopyMentorModal`); only entries with `is_admin: true` are offered as destinations. Copy itself shows only when the agent allows copies |
+| `tenants` | `CopyMentorTenant[]` (`{ key, name?, is_admin }`) | Yes | Organizations the person belongs to (forwarded to `CopyMentorModal`); the modal only checks whether they are an admin (`is_admin: true`) of the current one, which offers **Copy to this Organization**. Copy itself shows only when the agent allows copies |
 | `isLoadingTenants` | `boolean` | No | Loading state for the organization list |
+| `authUrl` | `string` | No | Auth app base URL; enables **Continue**, which copies the agent into another organization on the auth app |
 | `onSuccessfulSave` | `(mentor: MentorSettings) => void` | No | Fired after a successful save |
 | `onSuccessfulDelete` | `(deletedMentorId: string) => void` | No | Fired after a successful delete |
-| `onSuccessfulCopy` | `(params: { forkedMentorId, destinationTenantKey, isCrossTenantCopy }) => void` | No | Fired after a successful copy |
+| `onSuccessfulCopy` | `(params: { forkedMentorId, destinationTenantKey, isCrossTenantCopy }) => void` | No | Fired after a copy into the current organization (`isCrossTenantCopy` is always `false`; a copy elsewhere is finished on the auth app) |
 | `labels` | `DeepPartial<SettingsTabLabels>` | No | Override user-visible strings |
 
 ## `<AgentSettingsProvider>` Props
@@ -325,10 +373,12 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 - **Shared provider**: Mount `AgentSettingsProvider` at a layout level so
   multiple tabs (`settings`, `llm`, `prompts`, ...) share one wrapper.
   Do NOT wrap each tab page individually.
-- **Organizations list**: The `tenants` prop drives the **Copy to organization** flow.
-  The destination picker appears only when two or more entries have
-  `is_admin: true` -- keep `is_admin` when mapping `localStorage.tenants`.
-  If the user should not be able to copy cross-organization, pass an empty array.
+- **Organizations list**: `tenants` decides only whether
+  **Copy to this Organization** is offered (the person's entry for the current
+  organization has `is_admin: true`) -- keep `is_admin` when mapping
+  `localStorage.tenants`. A copy into another organization happens on the auth
+  app through **Continue**: pass `authUrl` to allow it, leave it out to keep
+  copies inside this organization.
 - **Labels ownership**: Consumer-specific bundles (agent, tutor, coach)
   live in the consuming app, not in `@iblai/iblai-js`. The package only
   ships `AGENT_SETTINGS_TAB_LABELS` as a neutral default.

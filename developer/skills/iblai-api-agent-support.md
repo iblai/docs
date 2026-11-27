@@ -38,9 +38,11 @@ agent chats. The UI twin is
   numeric user id of the author (always the caller who posted it) — the requester's replies carry their `user` id,
   support-team replies carry the responder's id, and `null` marks a
   system-generated message.
-- **Prerequisite:** the agent only offers escalation while its human-support tool
-  is enabled — toggle it with **`/iblai-api-agent-tool`** (pull the exact slug
-  from that skill's `available-tools/` read).
+- **Prerequisite:** the agent only offers escalation while Human Support is on
+  for it. On a platform that returns the `capability_*` flags (API version 4.467.0 or later),
+  send `capability_human_support: true` in the agent's settings `PUT`
+  (**`/iblai-api-agent-setting`**, Capability flags); on an older one, add the
+  Human Support tool's slug with **`/iblai-api-agent-tool`**.
 
 ## Reads
 
@@ -106,8 +108,8 @@ curl -X POST \
 - List reads return a DRF page envelope — `{ "count": n, "next": url|null,
   "previous": url|null, "results": [...] }`; iterate `results`. DELETEs return `204`.
 - There is no ticket-create endpoint — tickets only come from agent chats (see
-  Concepts). To test the flow end-to-end, enable the human-support tool and ask
-  the agent to escalate.
+  Concepts). To test the flow end-to-end, turn Human Support on for the agent
+  and ask it to escalate.
 - `mentor_id` filters by the **agent's unique id**, not its name; `username`
   filters by the **requester**, independent of the `{username}` path token
   (the caller).

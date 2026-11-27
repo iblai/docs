@@ -85,9 +85,9 @@ a reload. Pass `agentId` to open one agent instead.
 ## Prerequisites
 
 - Auth in place (`/iblai-vibe-auth`, or vibe-starter).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1; the
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0; the
   Assistant arrived in 1.81.0) and `@iblai/agent-ai` 2.14.0 or later (full
-  screen). vibe-starter ships both (`@iblai/agent-ai@^2.15.1`).
+  screen). vibe-starter ships both (`@iblai/agent-ai@^2.15.3`).
 - An agent to open: a Default Agent for the organization, or one the user
   starred or used. To pin one, ask the user for its real UUID; never invent
   one.

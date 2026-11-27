@@ -3,14 +3,15 @@
 > Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/agents/iblai-vibe-agent-screenshare/SKILL.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-agent-screenshare/SKILL.md). This page is generated — edit it in the repository, not here.
 
 Add the agent **Screen tab** -- how the agent behaves when a user shares their
-screen during a voice call. **Scope: per agent.** Everything on this tab lives
-on the agent's call configuration (one row per agent), so it applies to every
-user who calls that agent. The tab has a capability switch (turns screen
-sharing on or off) and two prompt cards: **Instructions during screen
-sharing** (the system prompt used while a screen is shared) and **What the
-agent says when screen sharing starts** (the proactive opener). This is one
-tab in the agent-settings family indexed by `/iblai-vibe-agent`; it shares the
-`AgentSettingsProvider` wrapper with every other tab.
+screen during a voice call. **Scope: per agent.** The **Screen Sharing**
+switch saves the agent's `capability_screen_share` flag, which is what puts
+the screen-share button in the chat. The two prompt cards live on the agent's
+call configuration (one row per agent): **Instructions During Screen
+Sharing** (the system prompt used while a screen is shared) and **What the
+Agent Says When Screen Sharing Starts** (the proactive opener). Both apply to
+every user who calls that agent. This is one tab in the agent-settings family
+indexed by `/iblai-vibe-agent`; it shares the `AgentSettingsProvider` wrapper
+with every other tab.
 
 **Prompts** -- screen sharing on, both prompts set. Edits stay local until
 **Save**.
@@ -25,7 +26,10 @@ writes the text back to the card; the tab's **Save** sends it.
 
 **Off** -- with the switch off the cards stay visible but grayed out and
 inert, and the header adds "Turn it on to let people share their screen
-during a call and edit these prompts." The switch saves immediately.
+during a call and edit these prompts." The switch saves immediately and
+toasts "Screen Sharing turned on" / "Screen Sharing turned off". An agent
+that has only the call configuration's `enable_video` on (all the old switch
+wrote) shows off: the chat offers screen sharing only while the flag is on.
 
 ![Screen tab -- screen sharing off](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-screenshare/iblai-vibe-agent-screenshare-3-off.png)
 
@@ -35,14 +39,21 @@ during a call and edit these prompts." The switch saves immediately.
 
 - Auth set up (`/iblai-vibe-auth`, or vibe-starter).
 - `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1, which
-  ships the in-tab switch). Check with `pnpm why @iblai/web-containers`.
+- `@iblai/iblai-js@^3.1.0` (resolves `@iblai/web-containers` 2.1.0, where
+  the switch saves `capability_screen_share`). Check with
+  `pnpm why @iblai/web-containers`.
+- A platform that returns `capability_screen_share` on the agent's settings
+  (API version 4.467.0 or later). On an older one, or for a person who may
+  not read the flag, the switch reads and writes the call configuration's
+  `enable_video`, as it did before.
 - A real agent UUID. Ask the user; never invent one.
-- Voice calls on for the agent (`/iblai-vibe-agent-voice`): screen sharing
-  happens inside a voice call, and always in **Live conversation** mode.
-- An org admin to save: call configurations have no agent-level permission, so
-  for an agent editor the switch flips back and **Save** shows "Couldn't save
-  screen sharing prompts".
+- Voice calls on for the agent (the Voice tab's **Calls** sub-tab,
+  `/iblai-vibe-agent-voice`): screen sharing happens inside a voice call, and
+  always in **Live Conversation** mode.
+- An org admin to save the prompts: call configurations have no agent-level
+  permission, so for an agent editor **Save** shows "Couldn't save screen
+  sharing prompts". Turning the switch off also writes the call
+  configuration while its `enable_video` is on (see How it saves).
 
 ## Step 1: Check Environment
 
@@ -105,10 +116,14 @@ import { AgentScreenShareTab } from "@iblai/iblai-js/web-containers/next";
 ```
 
 Label groups (`ScreenShareTabLabels`): `header` (`title`, `description`),
-`capability` (`title` -- the switch's accessible name, `description`,
-`offHint`), `disabledHint`, `fields.systemPrompt` and
+`capability` (`title` -- the switch's accessible name, "Screen Sharing";
+`description`, `offHint`), `disabledHint`, `fields.systemPrompt` and
 `fields.proactivePrompt` (`label`, `placeholder` each), `saveButton`,
-`savingButton`, and `toasts` (`saved`, `error`).
+`savingButton`, `toasts` (`saved`, `error`: the prompts' **Save**, and the
+switch without the flag), and `errors` (`turnOff`: shown under the banner
+when turning the switch off can't clear `enable_video`). The switch's
+"turned on" / "turned off" toasts, its lock reason and a refused flag save's
+sentence come from the SDK's catalogue, not from `labels`.
 
 ## Step 4: Use MCP Tools for Customization
 
@@ -138,20 +153,30 @@ From `@iblai/iblai-js/web-containers/next`:
 
 ## How it saves
 
+Paths are under `/api/ai-mentor/orgs/{org}/users/{username}/`.
+
 | Action | Request |
 |---|---|
 | Load | The agent's settings embed `call_configuration`; when absent the tab lists `call-configurations/?mentor=<uuid>` |
-| Switch on / off | `PATCH call-configurations/{id}/` with `enable_video`; with no row yet, `POST call-configurations/` (`mentor`, `mode: "realtime"`, `language: "en"`, `enable_video`) |
+| Switch on | `PUT mentors/{uuid}/settings/` with `capability_screen_share: true` only (plus `can_use_tools: true` when the agent could not use tools yet; `false` is never sent) |
+| Switch off | While the call configuration's `enable_video` is on, first `PATCH call-configurations/{id}/` with `enable_video: false` (calls keep sharing video while either one is on); then the same `PUT` with `capability_screen_share: false` |
+| Switch, without the flag (an older platform, or a person who may not read it) | `PATCH call-configurations/{id}/` with `enable_video`; with no row yet, `POST call-configurations/` (`mentor`, `mode: "realtime"`, `language: "en"`, `enable_video`) |
 | **Save** | `PATCH call-configurations/{id}/` (or `POST` when no row exists) with `screensharing_system_prompt` and `screensharing_proactive_prompt` |
 
-The switch rolls back if the request fails. **Save** stays disabled until a
-prompt changes.
+If clearing `enable_video` fails, the switch stays on and says "Couldn't turn
+off Screen Sharing for voice calls. Try again." under the banner. A refused
+flag save turns the switch back and shows one sentence there, never a toast.
+The switch is locked, with "You don't have permission to change this.", when
+the person may not change the flag, or, while it is off on an agent that
+cannot use tools yet, may not change `can_use_tools`. The agent's model never
+locks it. **Save** stays disabled until a prompt changes.
 
 ## Platform data
 
 | Hook | Purpose |
 |---|---|
-| `useGetMentorSettingsQuery` | Agent settings, including the embedded `call_configuration` |
+| `useGetMentorSettingsQuery` | Agent settings: `capability_screen_share` and the embedded `call_configuration` |
+| `useEditMentorMutation` | Save `capability_screen_share` |
 | `useGetCallConfigurationsQuery` | Fallback list when settings carry no call configuration |
 | `useCreateCallConfigurationMutation`, `useUpdateCallConfigurationMutation` | Create / patch the row |
 
@@ -169,8 +194,9 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 1. `pnpm build` -- must pass with zero errors.
 2. `pnpm test` -- vitest must pass.
 3. Touch test `/agents/<uuid>/screenshare` in the browser as `/iblai-vibe-ops-test` says:
-   the switch and both prompt cards render; edit the opener, **Save**, reload -- the
-   text persists; read the console; check the phone width.
+   the switch and both prompt cards render; turn the switch on ("Screen Sharing turned
+   on"); edit the opener, **Save**, reload -- the text persists; read the console; check
+   the phone width.
 
 ## Important Notes
 
@@ -179,7 +205,13 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 - **Default system prompt**: a new call configuration starts with the
   platform's screen-guidance prompt, so the first card is rarely empty.
 - **Live conversation only**: screen sharing ignores the call style set on
-  the Voice tab's **Voice Call** sub-tab and always streams.
+  the Voice tab's **Calls** sub-tab and always streams.
+- **A missing key**: when voice calls need an API key from their AI provider
+  and none is saved, turning Screen Sharing on is refused with "Screen
+  Sharing needs an API key from the AI provider this agent uses on voice
+  calls. Add it in Secrets in your organization settings, then turn it on
+  again." While Screen Sharing is on without that key, other capability
+  switches and model changes can be refused for the same reason, and say so.
 - **Shared provider**: mount `AgentSettingsProvider` once at the layout
   level (`/iblai-vibe-agent` §1); do not wrap each tab.
 - **Peer deps**: `sonner` and `@iblai/iblai-web-mentor`

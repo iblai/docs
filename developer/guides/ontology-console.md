@@ -77,7 +77,9 @@ Left: the systems already connected, each with its engine, URL (never the passwo
 PII column count and status (“ingesting” until its tables appear), plus any HTTP APIs served as
 tools. Under it, the catalog of source kinds, filterable by Databases, Warehouses, APIs and Cloud.
 Each kind carries two badges: **DISSECT** (the engine can infer terms from it) and **SERVE** (the
-runtime can expose it).
+runtime can expose it). Under **APIs** the catalog also holds ready-made systems, such as Gmail,
+Microsoft Teams or Canvas LMS: clicking one fills the HTTP API tab with its address (or an example
+of one, where each customer has their own), its sign-in and a chosen set of endpoints.
 
 Right: the add panel. **Database** takes a connection URL, a schema scope and the two dissection
 options (PII detection, distinct-value probing). The system's name is its database's name, read
@@ -87,11 +89,12 @@ Map.
 
 ![Systems · HTTP API](https://raw.githubusercontent.com/iblai/ontology/main/docs/screenshots/02b-systems-http-api.png)
 
-**HTTP API** takes a base URL, an optional OpenAPI document (**Fetch Spec** has the host fetch it
-and list its operations), the upstream auth header (its secret is kept in the host's env file) and
-the endpoints to wrap, ticked or named by hand. APIs are served only, never dissected, so this tab
-ends in **Add & Expose** rather than in the Map. **Prebuilt** lists a raw SQL toolset per connected
-database for analysts who need it; the ticked ones open the server builder already ticked.
+**HTTP API** takes a base URL, an optional OpenAPI or Google Discovery document (**Fetch Spec** has
+the host fetch it and list its operations), the upstream auth header (its secret is kept in the
+host's env file), or an OAuth 2.0 sign-in in its place, and the endpoints to wrap, ticked or named
+by hand. APIs are served only, never dissected, so this tab ends in **Add & Expose** rather than in
+the Map. **Prebuilt** lists a raw SQL toolset per connected database for analysts who need it; the
+ticked ones open the server builder already ticked.
 
 ## Step 2 · Map
 

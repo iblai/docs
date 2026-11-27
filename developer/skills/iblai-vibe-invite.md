@@ -2,8 +2,11 @@
 
 > Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/users/iblai-vibe-invite/SKILL.md`](https://github.com/iblai/base/blob/main/skills/users/iblai-vibe-invite/SKILL.md). This page is generated — edit it in the repository, not here.
 
-Add user invitation features -- a dialog to invite new users to a platform by
-email/username and a dialog showing pending invitations with status tracking.
+Add user invitation features -- a dialog to invite new users to an
+organization by email (one at a time or from a CSV), and a dialog listing
+invited users by email. The same invite flow also comes inline
+(`InviteUserContent`) and as the **Invites** tab of the organization settings,
+which needs no dialog of your own (see "The Invites tab instead of a dialog").
 
 ![Invite Page](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/users/iblai-vibe-invite/iblai-vibe-invite.png)
 
@@ -13,7 +16,8 @@ email/username and a dialog showing pending invitations with status tracking.
 
 - Auth must be set up first (`/iblai-vibe-auth`)
 - MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
-- User must have admin privileges on the platform to send invitations
+- The user sending invitations is an organization admin (under RBAC, the
+  Invites tab also opens to a user who holds `/platforms/<org>/#can_invite`)
 
 ## Step 1: Check Environment
 
@@ -42,23 +46,27 @@ get_component_info("InvitedUsersDialog")
 
 ## `<InviteUserDialog>` Props
 
-Dialog to invite a user to the current platform by email or username.
+Dialog to invite users to the organization by email, one at a time or from a CSV.
 
 | Prop | Type | Description |
 |------|------|-------------|
 | `isOpen` | `boolean` | Whether the dialog is visible |
 | `onClose` | `() => void` | Close callback |
-| `org` | `string` | Platform key |
+| `tenant` | `string` | Organization key |
+| `enableCatalogInvite` | `boolean` | Adds the **Courses** and **Programs** invite tabs (default `false`) |
+| `hasManageUsersPermission` | `boolean` | Whether the user may manage all of the organization's users (default `false`) |
 
 ## `<InvitedUsersDialog>` Props
 
-Dialog showing pending invitations with their status (accepted, pending, expired).
+Dialog listing the emails on the first page of the organization's invitations,
+with no status column and no pager (the invitation list in `InviteUserDialog`
+and in the **Invites** tab shows Pending, Accepted or Expired). Render it
+only while it should show: it has no `isOpen`.
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `isOpen` | `boolean` | Whether the dialog is visible |
 | `onClose` | `() => void` | Close callback |
-| `org` | `string` | Platform key |
+| `tenant` | `string` | Organization key |
 
 ## Example Usage
 
@@ -73,27 +81,69 @@ import { resolveAppTenant } from "@/lib/iblai/tenant";
 
 export function InviteSection() {
   const [showInvite, setShowInvite] = useState(false);
-  const [showPending, setShowPending] = useState(false);
+  const [showInvited, setShowInvited] = useState(false);
   const tenant = resolveAppTenant();
 
   return (
     <div className="flex gap-2">
       <Button onClick={() => setShowInvite(true)}>Invite User</Button>
-      <Button variant="outline" onClick={() => setShowPending(true)}>
-        View Pending
+      <Button variant="outline" onClick={() => setShowInvited(true)}>
+        Invited Users
       </Button>
       <InviteUserDialog
         isOpen={showInvite}
         onClose={() => setShowInvite(false)}
         tenant={tenant}
       />
-      {showPending && (
+      {showInvited && (
         <InvitedUsersDialog
-          onClose={() => setShowPending(false)}
+          onClose={() => setShowInvited(false)}
           tenant={tenant}
         />
       )}
     </div>
+  );
+}
+```
+
+## The Invites tab instead of a dialog
+
+The organization settings (`Account`, see `/iblai-vibe-account`) have an
+**Invites** tab, in the Workspace group right below Management, with the
+same form and invitation list as `InviteUserDialog`. Use it when the app
+already shows those settings:
+
+- `Account targetTab="invites"`, `PlatformAccountSheet tab="invites"` and
+  `UserProfileModal targetTab="invites"` open on it. `enableCatalogInvite`
+  on any of them adds the Courses and Programs tabs.
+- It shows for an admin who holds `/platforms/<org>/#can_invite` (with RBAC
+  off that check passes), or, with RBAC on, for any user who holds it.
+  Anyone else who asks for it lands on their first visible tab.
+- Inside Management, the **Invite** buttons on Users and Teams open this
+  tab, so no second dialog opens over the settings. `onInviteClick` is
+  called only for a user who is not shown the tab.
+
+On a page of your own, `InviteUserContent` is the same flow with no dialog.
+It takes `tenant`, `enableCatalogInvite`, `hasManageUsersPermission`,
+`className`, `onInviteSuccess` (called after an invitation goes out) and
+`renderHeader`, which draws the title and description in your own header
+style, or nothing when it returns `null`:
+
+```tsx
+"use client";
+import { InviteUserContent } from "@iblai/iblai-js/web-containers";
+
+export function InvitePage({ tenant }: { tenant: string }) {
+  return (
+    <InviteUserContent
+      tenant={tenant}
+      renderHeader={({ title, description }) => (
+        <header className="mb-4">
+          <h1 className="text-lg font-semibold">{title}</h1>
+          <p className="text-sm text-muted-foreground">{description}</p>
+        </header>
+      )}
+    />
   );
 }
 ```
@@ -106,13 +156,15 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 `pnpm e2e:coverage` must pass:
 
 1. `pnpm build` -- must pass with zero errors
-2. Touch test the invite dialogs in the browser as `/iblai-vibe-ops-test` says:
-   each opens, validates and closes — send no real invite.
+2. Touch test the invite dialogs (or the Invites tab) in the browser as
+   `/iblai-vibe-ops-test` says: each opens, validates and closes — send no
+   real invite.
 
 ## Important Notes
 
 - **Import**: `@iblai/iblai-js/web-containers` -- framework-agnostic
-- **Admin only**: Invitation features require admin privileges on the platform
+- **Admin only**: inviting is an organization admin's job; the Invites tab
+  also follows the `can_invite` grant when RBAC is on
 - **Redux store**: Must include `mentorReducer` and `mentorMiddleware`
 - **`initializeDataLayer()`**: 5 args (v1.2+)
 - **`@reduxjs/toolkit`**: Deduplicated via webpack aliases in `next.config.ts`
