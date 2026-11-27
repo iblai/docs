@@ -149,7 +149,13 @@ The actor filter, date range, and action filter are managed
   map (e.g. `enable_multi_query_rag` → `multi-query RAG`, `llm_name`
   → `LLM model`). Unknown fields fall back to a snake_case →
   human-readable transform with common abbreviations (LLM, RAG, API,
-  …) preserved in uppercase.
+  …) preserved in uppercase. The map has no entry for the
+  `capability_*` flags that the agent's capability switches save since
+  `@iblai/iblai-js` 3.0.0, so they read by that rule
+  (`capability_web_search` → `capability web search`). The Datasets
+  tab's Enhanced Document Retrieval switch sends
+  `capability_advanced_document_search` and `enable_multi_query_rag`
+  in one request (`/iblai-vibe-agent-tool`).
 - **Resource targets** — `mentorsettings` is shown as `mentor settings`,
   trailing UUID is preserved so name collisions stay distinguishable
   (`Settings for Foo (fbac00ea-...)`).

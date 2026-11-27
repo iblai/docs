@@ -2,27 +2,33 @@
 
 > Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/agents/iblai-vibe-agent-sandbox/SKILL.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-agent-sandbox/SKILL.md). This page is generated — edit it in the repository, not here.
 
-Add the agent **Sandbox tab** -- choose how the agent runs code and,
-for Claw, manage its sandbox workspace. A **Sandbox Type** card picks
-one of three mutually exclusive kinds:
+Add the agent **Sandbox tab** -- choose where the agent runs code and,
+for a Permanent Virtual Machine, manage its Claw workspace. A **Sandbox
+Type** card ("Choose where this agent runs code. The options differ in how
+long they last and what they cost, and only one can be on at a time.")
+picks one of three kinds:
 
-- **Computing Runtime** — a lightweight JavaScript calculator for
-  quick computations; the low-cost option.
-- **Virtual Machine Shell** — a full Linux virtual machine: the agent
-  can write files and run real shell commands in an isolated sandbox.
-- **Claw** — a dedicated Claw worker: a persistent agent host with
-  its own skills and plugins, billed by usage. This is the original
-  OpenClaw sandbox flow — selecting it reveals the instance
-  management sections below the card.
+- **Calculator** — the cheapest option. Quick math, dates and small data
+  tasks while the agent replies; nothing is kept once the reply is done.
+- **Ephemeral Virtual Machine** — a private Linux computer that starts
+  when the agent runs a command and is deleted once the reply is done. It
+  runs real programs and makes files, and costs extra each time it is used.
+- **Permanent Virtual Machine** — a Claw computer that stays on between
+  chats and keeps its own skills and plugins; you are billed for the chats
+  it handles. It works once the agent is connected to a Claw instance, and
+  selecting it reveals the instance management sections below the card.
 
-With **Claw** selected, the tab connects the agent to an OpenClaw
-instance and edits the agent-workspace prompt files (Identity, Soul,
-User Context, Tools, Agents, Bootstrap, Heartbeat, Memory) backing
+Before `@iblai/web-containers` 2.0.0 they were called Computing Runtime,
+Virtual Machine Shell and Claw; the `enable_*` flags keep their names.
+
+With **Permanent Virtual Machine** selected, the tab connects the agent to
+an OpenClaw instance and edits the agent-workspace prompt files (Identity,
+Soul, User Context, Tools, Agents, Bootstrap, Heartbeat, Memory) backing
 the agent's runtime behaviour. Push pulls the current configuration
 onto the connected sandbox; Auto Push on Save pushes after every
 edit.
 
-With **Virtual Machine Shell** selected, a **Network Access** section
+With **Ephemeral Virtual Machine** selected, a **Network Access** section
 appears under the card — the VM's egress profile, its network and its
 environment variables. That section has its own skill:
 `/iblai-vibe-agent-virtual-machine` (and
@@ -33,11 +39,11 @@ Agent Skills are managed independently of the sandbox — see
 `/iblai-vibe-agent-skills` for the Skills surface (skills catalog,
 per-agent assignment, skill resources, and the chat `/` picker).
 
-![Sandbox — Claw selected, instances list](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox.png)
+![Sandbox — Permanent Virtual Machine selected, instances list](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox.png)
 
-![Sandbox Type — Computing Runtime selected](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox-type-computing.png)
+![Sandbox Type — Calculator selected](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox-type-computing.png)
 
-![Sandbox Type — Virtual Machine Shell selected](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox-type-vm.png)
+![Sandbox Type — Ephemeral Virtual Machine selected, with Network Access below](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox-type-vm.png)
 
 ![Sandbox — Per-row actions](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-sandbox/iblai-vibe-agent-sandbox-actions.png)
 
@@ -68,11 +74,11 @@ per-agent assignment, skill resources, and the chat `/` picker).
 - Auth must be set up first (`/iblai-vibe-auth`)
 - MCP server + skills configured (`@iblai/mcp` in `.mcp.json`)
 - Ask the user for a real `mentorId` (agent UUID). Do NOT invent one.
-- **Only for the Claw kind**: a reachable OpenClaw instance URL plus a
-  Gateway Token to register the first instance. Without one, the
-  Sandbox section sits empty ("Add Instance") and the Prompts section
-  is gated until a config is connected. Computing Runtime and Virtual
-  Machine Shell need no external instance — they are single toggles.
+- **Only for Permanent Virtual Machine**: a reachable OpenClaw instance
+  URL plus a Gateway Token to register the first instance. Without one,
+  the Sandbox section sits empty ("Add Instance") and the Prompts section
+  is gated until a config is connected. Calculator and Ephemeral Virtual
+  Machine need no external instance — they are single toggles.
 
 ## Step 1: Check Environment
 
@@ -163,15 +169,15 @@ the agent runs code. Three boolean flags back it, all read from the
 agent's settings and written through the standard agent-settings
 update endpoint:
 
-| Kind | Flag | What it gives the agent |
+| Kind | Flag | How long it lasts, what it costs |
 |---|---|---|
-| Computing Runtime | `enable_computational_runtime` | A lightweight JavaScript calculator for quick computations — the low-cost option |
-| Virtual Machine Shell | `enable_virtual_machine` | A full Linux VM: file writes and real shell commands in an isolated sandbox |
-| Claw | `enable_claw` | A dedicated Claw worker (persistent agent host with its own skills and plugins, billed by usage) — unlocks the OpenClaw sections below |
+| Calculator | `enable_computational_runtime` | Small JavaScript snippets with strict memory and time limits; no programs, internet or files. Nothing outlives the reply; the cheapest option |
+| Ephemeral Virtual Machine | `enable_virtual_machine` | A private Linux computer, created when the agent runs a command and deleted when that reply is done. Small files in `/workspace` come back for later replies in the same chat; installed programs do not. No internet unless Network Access allows it. Costs extra each time it is used |
+| Permanent Virtual Machine | `enable_claw` | A Claw computer that stays on and handles the agent's chats instead of the built-in agent, keeping what it knows between chats. Its chats are billed against your credits. The built-in tools (document search, Calculator, Ephemeral Virtual Machine) don't apply while it is on. Unlocks the OpenClaw sections below |
 
 **The kinds are mutually exclusive** — only one can be enabled at a
 time. The component enforces this client-side: enabling one kind
-turns the other two off **in the same PATCH**, and toggling the
+turns the other two off **in the same `PUT`**, and toggling the
 active kind off leaves none enabled. Switches flip optimistically and
 revert with an error toast if the save fails.
 
@@ -186,7 +192,7 @@ import { useEditMentorMutation } from "@iblai/iblai-js/data-layer";
 
 const [editMentor] = useEditMentorMutation();
 
-// Select Virtual Machine Shell (turning the other kinds off):
+// Select Ephemeral Virtual Machine (turning the other kinds off):
 await editMentor({
   mentor: mentorUniqueId,
   org: platformKey,
@@ -234,30 +240,36 @@ Both components import from `@iblai/iblai-js/web-containers`.
 
 ### Sandbox Type (kind selection)
 
-- **Three toggle rows** — Computing Runtime, Virtual Machine Shell,
-  Claw — each with an info tooltip carrying the longer explanation.
-  "Only one sandbox type can be enabled at a time": enabling one
-  turns the others off in the same save; switches update
-  optimistically and revert on failure.
+- **Three switch rows** — Calculator, Ephemeral Virtual Machine,
+  Permanent Virtual Machine — each with a sentence on how long it lasts
+  and what it costs, and an info tooltip with the longer explanation.
+  Only one can be on at a time: enabling one turns the others off in the
+  same save; switches update optimistically and revert on failure. A
+  switch's accessible name is the kind and its state ("Calculator on");
+  its test id is `sandbox-kind-computational-runtime`,
+  `sandbox-kind-virtual-machine` or `sandbox-kind-claw`.
 - Everything below the card (instances, connected card, Auto Push,
-  Push, Model) renders **only while Claw is the selected kind** — the
-  claw-config query is skipped entirely for the other kinds.
+  Push, Model) renders **only while Permanent Virtual Machine is on** —
+  the claw-config query is skipped entirely for the other kinds.
 
-### Sandbox (instance management + connection — Claw only)
+### Sandbox (instance management + connection — Permanent Virtual Machine only)
 
 - **Instances table** — searchable, paginated (5 per page). Columns:
   Name, URL, Type, Status (Active / Error), Health (Healthy /
   Unhealthy with full error in tooltip), Version, Last Check.
 - **Add Instance** — opens a "New Instance" dialog: Name, Type
-  (`OpenClaw`), Server URL, Gateway Token. The token write-only —
-  never read back from the API.
-- **Per-row actions** (kebab menu): **Connect** (binds this instance
-  to the current agent), **Run checks** (health + connectivity
-  ping), **Edit** (gateway token re-prompt; leave blank to keep
-  existing), **Delete**.
+  (**OpenClaw** or **IronClaw**), Server URL, Gateway Token. The token is
+  write-only — never read back from the API.
+- **Connect** — an outline button beside each row's kebab menu that
+  binds the instance to the current agent; disabled while the row's
+  Status reads Error (tooltip "This instance is unhealthy. …") and
+  while a connect is in progress.
+- **Per-row actions** (kebab menu): **Run Checks** (health +
+  connectivity ping), **Edit** (Name, Type, Server URL, Gateway Token;
+  Save stays disabled until the token is entered again), **Delete**.
 - **Connected Instance card** — once an agent is bound, the table
   collapses into a card showing Name, URL, Status, Health, Last
-  Check, with **Run checks** and **Disconnect** actions.
+  Check, with **Run Checks** and **Disconnect** actions.
 - **Auto Push on Save** — when on, every prompt edit pushes to the
   sandbox. When off, the user pushes manually.
 - **Push Configuration** — manual **Push** button + "Last pushed"
@@ -349,10 +361,10 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 - **`mentorUniqueId` vs `mentorId`**: The sandbox endpoints key on the
   agent's UUID (called `mentorUniqueId` in the SDK), not the integer
   pk. Pass the same UUID you use everywhere else in the agent-* family.
-- **Gateway token write-only**: The token is required to add an
-  instance and required again when editing if you want to rotate it,
-  but the API never returns it. Leaving the field blank on edit keeps
-  the existing value.
+- **Gateway token write-only**: The API never returns the token. Both
+  instance dialogs require it, so every edit means entering it again.
+  `useUpdateClawInstanceMutation` itself sends a `PATCH` that leaves
+  out an empty `gateway_token`, which keeps the stored token.
 - **Push gating**: `usePushClawConfigMutation` returns
   `400 No configuration to push` when every agent-config field is
   empty. The component mirrors that gate locally — the manual Push
@@ -363,7 +375,7 @@ test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
   consumers should do the same.
 - **Sandbox kinds are mutually exclusive**: `SandboxConfig` owns the
   three flags (`enable_computational_runtime`, `enable_virtual_machine`,
-  `enable_claw`) and enforces the one-at-a-time rule in each PATCH
+  `enable_claw`) and enforces the one-at-a-time rule in each `PUT`
   (see Step 2.5) — host-side tab gating on `enable_claw` is no longer
   required. Custom UI writing the flags directly must clear the other
   two when enabling one. Existing Claw instances and configs are
@@ -395,21 +407,21 @@ request. Only `enable_claw` unlocks the OpenClaw endpoints below.
 
 | Method | Path | Purpose |
 |---|---|---|
-| GET | `claw-instances/` | List instances |
-| POST | `claw-instances/` | Register a new instance |
-| PATCH | `claw-instances/{id}/` | Update name / URL / type / token |
-| DELETE | `claw-instances/{id}/` | Delete |
-| POST | `claw-instances/{id}/health-check/` | Run a health probe |
-| POST | `claw-instances/{id}/test-connectivity/` | Run a connectivity probe |
+| GET | `claw/instances/` | List instances |
+| POST | `claw/instances/` | Register a new instance |
+| PATCH | `claw/instances/{id}/` | Update name / URL / type / token |
+| DELETE | `claw/instances/{id}/` | Delete |
+| POST | `claw/instances/{id}/health-check/` | Run a health probe |
+| POST | `claw/instances/{id}/test-connectivity/` | Run a connectivity probe |
 
 **Create / update body:**
 
 ```json
 {
-  "name": "sarah_ibl_ai",
-  "server_url": "https://sarah.ibl.ai",
+  "name": "acme-support-vm",
+  "server_url": "https://vm-1.acme-demo.example",
   "claw_type": "openclaw",
-  "gateway_token": "ibl..."
+  "gateway_token": "<gateway token>"
 }
 ```
 
@@ -422,9 +434,9 @@ request. Only `enable_claw` unlocks the OpenClaw endpoints below.
 | GET | `mentors/{mentor_unique_id}/claw-config/` | Read current binding (404 = not connected) |
 | POST | `mentors/{mentor_unique_id}/claw-config/` | Connect — body `{ "server": <instanceId>, "enabled": true }` |
 | DELETE | `mentors/{mentor_unique_id}/claw-config/` | Disconnect |
-| POST | `mentors/{mentor_unique_id}/claw-config/push/` | Push current agent config to the sandbox |
+| POST | `mentors/{mentor_unique_id}/claw-config/push-config/` | Push current agent config to the sandbox |
 
-`push` returns `400 No configuration to push` when every agent-config
+`push-config/` returns `400 No configuration to push` when every agent-config
 field is empty. Pre-flight by checking the agent config locally.
 
 ### Agent configuration (prompts + model)
@@ -444,8 +456,9 @@ are documented in `/iblai-vibe-agent-skills`.
 
 ### Virtual machine networks & environment variables
 
-The **Virtual Machine Shell** kind runs each chat in an isolated Linux VM
-with no network by default. What it may reach is chosen per agent through
+The **Ephemeral Virtual Machine** kind runs code in a private Linux
+computer, created when the agent runs a command and deleted when that reply
+is done, with no network by default. What it may reach is chosen per agent through
 three settings fields — `virtual_machine_egress`
 (`none` | `registries` | `public` | `custom`),
 `virtual_machine_network_policy_id` and `virtual_machine_secret_ids` — and

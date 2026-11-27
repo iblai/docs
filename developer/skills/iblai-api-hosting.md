@@ -4,7 +4,7 @@
 
 > **With a runbook:** `/iblai-vibe-ops-deploy` walks a human through building and
 > shipping an app step by step — this skill is the headless twin (same endpoints,
-> no narrative). That runbook writes its URLs with the older `ai-mentor` prefix;
+> no narrative). That runbook writes its URLs with the `ai-mentor` prefix;
 > both prefixes resolve to the same views.
 
 Deploy a built web app to ibl.ai hosting and manage it entirely over HTTP. One
@@ -53,8 +53,8 @@ deployed schema wins.
   It defaults to `vercel` and `vercel` is the only accepted value; anything else is
   a `400`. You can safely omit it.
 - **Prefix twin:** `{dm_url}/api/ai-mentor/...` resolves to exactly the same views.
-  The `ai-agent` spelling used here is canonical; `ai-mentor` is marked deprecated in
-  the generated schema but still works.
+  The live schema lists this family only under `ai-mentor` (not marked deprecated),
+  and the SDK calls that spelling; the `ai-agent` spelling used here works the same.
 - **Admin only.** See *Access* below — this is not a member-reachable family, and
   granting the RBAC verbs does not make it one.
 - Not connected yet? Run **`/iblai-api-login`** first.

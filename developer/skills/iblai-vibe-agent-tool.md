@@ -2,427 +2,206 @@
 
 > Mirrored from [`iblai/base`](https://github.com/iblai/base) · [`skills/agents/iblai-vibe-agent-tool/SKILL.md`](https://github.com/iblai/base/blob/main/skills/agents/iblai-vibe-agent-tool/SKILL.md). This page is generated — edit it in the repository, not here.
 
-Add the agent **Tools tab** -- which tools the agent may call while it
-answers. **Scope: per agent.** The enabled set is saved on the agent's
-settings (`tool_slugs`), so it applies to every user who chats with the
-agent. The tab lists every tool the platform offers for the agent, one card
-per tool with an info tooltip and a switch. This is one tab in the
-agent-settings family indexed by `/iblai-vibe-agent`; it shares the
-`AgentSettingsProvider` wrapper with every other tab.
+Since `@iblai/iblai-js` 3.0.0 (`@iblai/web-containers` 2.0.0) the agent
+settings have no **Tools** tab. Each thing an agent can do has its own switch,
+in the tab it belongs to. A click saves that switch's setting of the agent at
+once, with no Save button and no list of tools to rewrite. **Scope: per
+agent.** Every user who chats with the agent gets what is switched on.
 
-**Tools** -- one card per tool, in the order the API returns them. Hovering
-the info icon shows the tool's description. Each switch saves on its own, at
-once, and toasts "Agent updated successfully".
-
-![Tools tab -- tool list with a description tooltip](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-tool/iblai-vibe-agent-tool-1-tools.png)
-
-**Enabled** -- an enabled tool's switch is blue (here **Screen Sharing**, near
-the end of the list). The list scrolls inside the tab.
-
-![Tools tab -- an enabled tool](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-vibe-agent-tool/iblai-vibe-agent-tool-2-enabled.png)
+This skill builds nothing. It says which tab holds which switch, how the
+switches behave, what the chat shows, and how to remove an old Tools tab.
 
 > **Common setup (brand, conventions, env files, verification):** see [docs/skill-setup.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/docs/skill-setup.md).
 
-## Prerequisites
+## Where each switch lives
 
-- Auth set up (`/iblai-vibe-auth`, or vibe-starter).
-- `AgentSettingsProvider` wraps the route (`/iblai-vibe-agent` §1).
-- `@iblai/iblai-js@^2.85.1` (resolves `@iblai/web-containers` 1.81.1). Check with
-  `pnpm why @iblai/web-containers`.
-- A real agent UUID. Ask the user; never invent one.
+Every tab below reads the agent from `AgentSettingsProvider`
+(`/iblai-vibe-agent` §1). Mount the tab, and its switch comes with it.
 
-## Step 1: Check Environment
+| Capability | Tab, and where in it | A click saves | Skill |
+|---|---|---|---|
+| Web Search | Settings › Capabilities › **Agent Capabilities** | `capability_web_search` | `/iblai-vibe-agent-setting` |
+| Image Generation | Settings › Capabilities › Agent Capabilities | `capability_image_generation` | `/iblai-vibe-agent-setting` |
+| Video Generation | Settings › Capabilities › Agent Capabilities | `capability_video_generation` | `/iblai-vibe-agent-setting` |
+| Code Interpreter | Settings › Capabilities › Agent Capabilities | `capability_code_interpreter` | `/iblai-vibe-agent-setting` |
+| Plan (splits a big request into tasks for helper agents) | Settings › Capabilities › Agent Capabilities | `capability_subagents` | `/iblai-vibe-agent-setting` |
+| Enhanced Document Retrieval | Datasets, the box under the info box | `capability_advanced_document_search` and `enable_multi_query_rag`, in one request; only `enable_multi_query_rag` while the flag is off and the agent's model cannot run the search tool (the box then says "With this model, your agent can't search again while it works on a reply.") | `/iblai-vibe-agent-dataset` |
+| Grading | Grader, the switch at the top | `capability_grading` | `/iblai-vibe-agent-grader` |
+| Lesson Completion | Grader, the row under the Grading switch | `capability_lesson_completion` | `/iblai-vibe-agent-grader` |
+| Human Support | Support, the **Human Support** switch | `capability_human_support` | `/iblai-vibe-agent-support` |
+| Screen Sharing | Screen, the switch at the top | `capability_screen_share` | `/iblai-vibe-agent-screenshare` |
+| MCP | MCP, the switch at the top | adds or removes the `mcp` tool in `tool_slugs` (MCP has no flag) | `/iblai-vibe-agent-mcp` |
+| Voice Calls | Voice › Calls, one switch for In-App Chat and one for Embed Widget | `show_voice_call`, `embed_show_voice_call` | `/iblai-vibe-agent-voice` |
+| Dictation | Voice › Dictation, one switch per surface | `show_voice_record`, `embed_show_voice_record` | `/iblai-vibe-agent-voice` |
+| Smart Document Retrieval | Voice › Calls, above the Voice picker; saved by that sub-tab's **Save** | the call configuration's `use_function_calling_for_rag` | `/iblai-vibe-agent-voice` |
 
-Look for `iblai.env` in the project root with `PLATFORM`, `DOMAIN`, and
-`TOKEN`. If it is missing, tell the user:
-"You need an `iblai.env` with your platform configuration. Download the
-template and fill in your values:
-`curl -o iblai.env https://raw.githubusercontent.com/iblai/base/refs/heads/main/iblai.env`"
+Two places hide their switch on purpose. `AgentDatasetsTab` and `McpTab` leave
+it out in picker mode (`onSelect`) and when you pass
+`showCapabilitySwitch={false}`, as the SDK's Create Agent wizard does while
+the agent is still being set up.
 
-## Step 2: Mount `AgentToolsTab`
+**A tool with no switch of its own** (Google Docs, for example) has no
+control in the agent settings any more. Set it over REST (`tool_slugs`,
+[`/iblai-api-agent-tool`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-tool/SKILL.md))
+or with `useToggleTools` (below).
+
+## How a switch behaves
+
+The capability switches (every `capability_*` row above) share one behaviour:
+
+- **Saves on the click** through `useEditMentorMutation`, the agent's settings
+  `PUT`, with only its own flag (Enhanced Document Retrieval adds
+  `enable_multi_query_rag`). When a capability with a tool behind it is
+  turned on for an agent that could not use tools yet, the request also sends
+  `can_use_tools: true`. Nothing sends `can_use_tools: false`: the platform
+  would clear every tool on the agent.
+- **Confirms with a toast**: "Web Search turned on", "Web Search turned off".
+- **Locked, with the reason under it**, when the user may not change the flag
+  ("You don't have permission to change this.", from
+  `permissions.field[flag].write === false`), may not let the agent use tools
+  while turning it on needs that, or the agent's model cannot use the
+  capability ("Doesn't work with the model this agent uses. Pick another model
+  in the LLM tab to turn it on."). The model check reads the `capability_field`
+  and `is_allowed` columns of the agent's tool list (`useGetToolsQuery`), read
+  again each time a tab with a switch opens and right after the LLM tab saves a
+  model. Enhanced Document Retrieval is the exception: while its flag is off
+  and the model cannot run the search tool, the model does not lock the
+  switch, which then saves `enable_multi_query_rag` alone and needs write
+  access to that field only.
+- **A refused save turns the switch back** and shows one sentence under it,
+  never a toast and never the platform's own text. For example "Web Search
+  doesn't work with the model this agent uses. Pick another model in the LLM
+  tab, then try again." or "Couldn't update Web Search. Try again."
+- **Renders nothing** when the platform does not return the flag or the user
+  may not read it, except Grading, whose switch then stays off and locked, and
+  Screen Sharing, whose switch then reads and writes the call configuration's
+  `enable_video` (see Compatibility).
+
+Two tabs add a rule of their own. Grading stays off and locked ("Add at least
+one rubric criterion first, then turn Grading on.") until the rubric has a
+criterion. Turning Screen Sharing off also clears the call configuration's
+`enable_video` when it was on. Their skills have the details.
+
+The Voice switches save their own field on the click the same way, and a
+refused save turns the switch back with a sentence under its box. The MCP
+switch saves `tool_slugs` instead of a flag; `/iblai-vibe-agent-mcp` has the
+details.
+
+The LLM tab is where a capability can get in the way. Picking a model that
+cannot run a capability the agent has on is refused by the platform, and the
+toast says which one and where to turn it off: "Grading is on, and the model
+you picked can't use it. Turn it off in the Grader tab first, or pick a
+different model." (`/iblai-vibe-agent-llm`).
+
+## In the chat
+
+`Chat` (`/iblai-vibe-agent-chat`) follows the switches with no host code:
+
+- The `+` menu's Tools (**Web Search**, **Code**, **Image**) and the
+  **Screen Sharing** button follow the agent's Web Search, Code Interpreter,
+  Image Generation and Screen Sharing flags. Where the platform returns no
+  flag, the chat falls back to the agent's tool list.
+- The `+` menu's MCP row is hidden while MCP is off for the agent.
+- A conversation's tools keep only the tools the agent still has, so a
+  capability switched off after the chat began does not make the chat's other
+  tool toggles fail.
+
+To read the flags in your own UI, use `useMentorSettings`. Its
+`data.capabilities` holds each `capability_*` flag the platform returned (a
+flag it did not return is absent):
 
 ```tsx
-// app/(app)/agents/[mentorId]/tools/page.tsx
 "use client";
 
-import { AgentToolsTab } from "@iblai/iblai-js/web-containers/next";
+import { useMentorSettings } from "@iblai/iblai-js/web-utils";
 
-export default function AgentToolsPage() {
-  return (
-    <div className="flex h-full flex-col bg-white">
-      <AgentToolsTab />
-    </div>
-  );
+export function WebSearchBadge({ agentId, orgKey }: { agentId: string; orgKey: string }) {
+  const { data } = useMentorSettings({ mentorId: agentId, tenantKey: orgKey });
+  if (!data.capabilities.capability_web_search) return null;
+  return <span className="text-xs text-gray-600">Web search on</span>;
 }
 ```
 
-The tab reads `tenantKey`, `mentorId`, and `username` from
-`AgentSettingsProvider` and does its own fetching and saving. No props are
-required.
+## Compatibility
 
-## Step 3: Customize Labels (Optional)
+The `capability_*` switches need the platform at API version 4.467.0 or later. An older
+platform returns no `capability_*` flags in the agent's settings, and then:
 
-The tab renders with the default agent-facing copy (`AGENT_TOOLS_TAB_LABELS`,
-localized through the SDK's i18n). Pass a partial `labels` object to change
-any string:
+- the Agent Capabilities block, the Datasets box, the Lesson Completion row
+  and the Human Support switch render nothing;
+- the Grading switch stays off and locked;
+- the Screen switch keeps writing the call configuration's `enable_video`, as
+  before.
 
-```tsx
-import { AgentToolsTab } from "@iblai/iblai-js/web-containers/next";
+The MCP and Voice switches do not depend on the platform version. To check a
+platform, read one agent's settings (`useGetMentorSettingsQuery`, or the REST
+call in `/iblai-api-agent-setting`): when `capability_web_search` is in the
+response, the switches show. On an older platform, switch tools over REST
+(`/iblai-api-agent-tool`) until it is upgraded.
 
-<AgentToolsTab
-  labels={{
-    header: { title: "Agent tools" },
-    toasts: { toggleSuccess: "Tool updated" },
-  }}
-/>;
-```
+## Migrate a host that mounted `AgentToolsTab`
 
-Label groups (`ToolsTabLabels`): `header` (`title`, `description`), `infoBox`,
-`moreInfoAbout(name)` (the tooltip trigger's accessible name),
-`switchAriaLabel(name, isEnabled)`, and `toasts` (`toggleSuccess`,
-`toggleError`). Tool names and descriptions come from the API.
+`@iblai/iblai-js/web-containers/next` no longer exports `AgentToolsTab`,
+`AGENT_TOOLS_TAB_LABELS`, `AgentToolsTabProps`, `ToolsTabLabels` or
+`GRADING_TOOL_NAME`, so `pnpm build` fails until they are gone. Nothing
+replaces the tab:
 
-## Step 4: Use MCP Tools for Customization
+1. Delete the Tools tab page (for example
+   `app/(app)/agents/[mentorId]/tools/page.tsx`), its menu entry or tab link,
+   and every link to it. If old links may still arrive, redirect them to the
+   Settings tab (a `redirects()` entry in `next.config.ts`).
+2. Mount the tabs that hold the switches you need (table above). An app that
+   already mounts Settings and Datasets has the five chat capabilities and
+   Enhanced Document Retrieval with no change.
+3. Code that looked up the Grading tool by `GRADING_TOOL_NAME` reads
+   `capability_grading` from the agent's settings instead.
+4. A host that passes a full `SettingsTabLabels` object removes the keys 3.0
+   dropped (`/iblai-vibe-agent-setting`, Step 4).
 
-```
-get_component_info("AgentToolsTab")
-get_component_info("AgentSettingsProvider")
-```
-
-## `<AgentToolsTab>` Props
-
-Import from `@iblai/iblai-js/web-containers/next`.
-
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `labels` | `DeepPartial<ToolsTabLabels>` | No | Override user-visible strings |
-
-## Related Exports
-
-From `@iblai/iblai-js/web-containers/next`:
-
-- `AGENT_TOOLS_TAB_LABELS` -- the default label bundle.
-- `useToggleTools({ tools, activeMentorId, tenantKey, username })` -- an
-  agent-level setter: `toggleTools(slug)` adds or removes one slug from the
-  `tools` you pass and saves the result as the agent's whole `tool_slugs`
-  (it never reads the current set; the chat's tool chips change only the
-  session instead).
-- `AgentToolsTabProps`, `ToolsTabLabels` -- types.
-
-## How it saves
-
-| Action | Request |
-|---|---|
-| Load | `GET mentors/{uuid}/available-tools/` (`display_name`, `slug`, `description`) and the agent's settings (`mentor_tools[].slug`) |
-| Flip a switch | `PUT mentors/{uuid}/settings/` with the whole new `tool_slugs` list and `can_use_tools` (`true` while any tool is on) |
-
-Every switch is disabled while a save is in flight. Slugs seen on the live
-platform: `web-search`, `code-interpreter`, `deep-research`,
-`image-generation`, `video-generation`, `mcp`, `screen-share`, `study-mode`,
-`human-support`, `google-calendar`, `google-docs`, `google-slides`,
-`grading`, `course-creation`, `lesson-completion`,
-`advanced-document-search` (read the list; it varies by organization).
+`useToggleTools({ activeMentorId, tenantKey, username })` stays exported from
+`@iblai/iblai-js/web-containers/next` for the workflow builder's Agent step.
+`toggleTools(slug)` adds or removes one slug: it reads the agent's tools inside
+each toggle (and sends nothing when that read fails), then saves the new
+`tool_slugs` with `can_use_tools: true`, or sends `{ tool_slugs: [] }` as JSON
+when the last tool goes. Its `tools` argument is deprecated and ignored.
 
 ## Platform data
 
-| Hook | Purpose |
+| Hook / call | Purpose |
 |---|---|
-| `useGetToolsQuery` | Tools the agent can use |
-| `useGetMentorSettingsQuery` | The agent's enabled tools |
-| `useEditMentorMutation` | Save the new set |
+| `useGetMentorSettingsQuery` | The agent's `capability_*` flags, `mentor_tools` and `permissions` |
+| `useEditMentorMutation` | `PUT …/mentors/{uuid}/settings/` with the switch's own fields (plus `can_use_tools: true` when needed) |
+| `useGetToolsQuery` | The tools available to the agent (`available-tools/`), with `capability_field` and `is_allowed` per row: which capabilities its model can use |
+| `useMentorSettings` (`/web-utils`) | `data.capabilities` for the chat and your own UI |
 
-REST twin: [`/iblai-api-agent-tool`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-tool/SKILL.md).
+REST: [`/iblai-api-agent-setting`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-setting/SKILL.md)
+(the flags are agent settings) and
+[`/iblai-api-agent-tool`](https://raw.githubusercontent.com/iblai/base/refs/heads/main/skills/agents/iblai-api-agent-tool/SKILL.md)
+(`tool_slugs`).
 
-## Step 5: Verify
+## Verify
 
 Run `/iblai-vibe-ops-test` before telling the user the work is ready, and give
-every page, control and state this skill added its own checkpoint — one Playwright
+every page, control and state you changed its own checkpoint — one Playwright
 test titled `<ID> · …` in `e2e/journeys/`, listed in `e2e/coverage.json`;
 `pnpm e2e:coverage` must pass:
 
-1. `pnpm build` -- must pass with zero errors.
-2. `pnpm test` -- vitest must pass.
-3. Touch test `/agents/<uuid>/tools` in the browser as `/iblai-vibe-ops-test` says: one card
-   per tool; flip a switch, reload -- it stays flipped; flip it back; read the console;
-   check the phone width.
-
-## Important Notes
-
-- **Per agent, not per user**: every user who chats with the agent gets the
-  same tools.
-- **MCP needs two things**: the **MCP** switch here (`mcp` in
-  `tool_slugs`) and at least one server assigned to the agent
-  (`/iblai-vibe-agent-mcp`).
-- **Some tools need setup elsewhere**: Google Calendar / Docs / Slides need a
-  connected account, Human Support needs the support inbox
-  (`/iblai-vibe-agent-support`), Screen Sharing works inside voice calls
-  (`/iblai-vibe-agent-voice`).
-- **Shared provider**: mount `AgentSettingsProvider` once at the layout
-  level (`/iblai-vibe-agent` §1); do not wrap each tab.
-- **Peer deps**: `sonner` and `@iblai/iblai-web-mentor`
-  (`pnpm add sonner @iblai/iblai-web-mentor`).
-- **Brand guidelines**: [BRAND.md](https://raw.githubusercontent.com/iblai/base/refs/heads/main/BRAND.md)
-
-## MCP Servers REST API
-
-For custom UI beyond `<AgentToolsTab>` — register external MCP servers and
-bind them to agents. All endpoints are prefixed with
-`${dmUrl}/api/ai-mentor/orgs/{org}/users/{user_id}/` where `dmUrl` is
-`NEXT_PUBLIC_API_BASE_URL`. Organization admins only.
-
-### Workflow
-
-1. **Enable the MCP tool on the agent** (so the runtime will use MCP servers).
-2. **Register an MCP server** record (URL, transport, auth_type).
-3. **Create a connection** binding credentials to a scope (`platform`, `user`,
-   or `mentor`).
-4. **Assign servers to the agent** via the agent settings endpoint.
-
-### 1. Enable MCP tool on the agent
-
-| Method | Path | Body |
-|---|---|---|
-| PUT | `mentors/{mentor_id}/settings/` | `{ "tool_slugs": ["mcp", ...], "can_use_tools": true }` |
-
-`tool_slugs` **replaces** the existing list -- read the current
-`mentor_tools` first and add `mcp` to it. Omit the field to leave it
-unchanged (`null` is a 400); `[]` clears all tools.
-
-### 2. MCP Servers
-
-| Method | Path | Purpose |
-|---|---|---|
-| GET | `mcp-servers/` | List organization servers |
-| POST | `mcp-servers/` | Register a new server |
-| PATCH/PUT | `mcp-servers/{id}/` | Update |
-| DELETE | `mcp-servers/{id}/` | Delete |
-| GET | `mcp-servers/oauth-find/` | Find a server by OAuth provider/service |
-
-**Create body:**
-
-```json
-{
-  "name": "Google Drive MCP",
-  "description": "Search and index Drive documents",
-  "url": "https://drive-mcp.example.com",
-  "transport": "sse",
-  "auth_type": "oauth2",
-  "is_featured": false,
-  "is_enabled": true
-}
-```
-
-- `transport`: `sse` | `websocket` | `streamable_http`
-- `auth_type`: `none` | `token` | `oauth2` — *how* credentials are presented
-- `auth_scope`: `platform` (default) | `mentor` | `user` — *whose*
-  credentials are used. `auth_type=oauth2` + `auth_scope=user` triggers
-  the in-chat OAuth handshake (see In-Chat MCP Events below).
-- For `auth_type=token`, set `credentials` to the full header value
-  (e.g. `"Bearer abc123"`).
-
-### 3. MCP Server Connections
-
-| Method | Path | Purpose |
-|---|---|---|
-| GET | `mcp-server-connections/` | List connections |
-| POST | `mcp-server-connections/` | Create a connection |
-| PATCH/PUT | `mcp-server-connections/{id}/` | Update / toggle `is_active` |
-| DELETE | `mcp-server-connections/{id}/` | Delete |
-
-**Token (platform scope):**
-
-```json
-{
-  "server": 9,
-  "scope": "platform",
-  "auth_type": "token",
-  "credentials": "Token super-secret",
-  "authorization_scheme": "Token",
-  "extra_headers": { "x-mcp-client": "mentor-ui" }
-}
-```
-
-**OAuth (user scope)** — requires an existing `ConnectedService` (see the
-OAuth connectors flow):
-
-```json
-{
-  "server": 9,
-  "scope": "user",
-  "auth_type": "oauth2",
-  "user": "alice",
-  "connected_service": 77
-}
-```
-
-**Agent scope** — bind credentials to a single agent while keeping the
-server reusable:
-
-```json
-{
-  "server": 9,
-  "scope": "mentor",
-  "auth_type": "token",
-  "mentor": 123,
-  "credentials": "Token scoped-to-mentor",
-  "authorization_scheme": "Token"
-}
-```
-
-Returned credentials are **masked** (e.g. `"******90"`); only send a new
-value when the user intentionally rotates the secret.
-
-### 4. Assign servers to an agent
-
-| Method | Path | Body |
-|---|---|---|
-| PUT | `mentors/{mentor}/settings/` | `{ "mcp_servers": [1, 2] }` |
-
-The `mcp_servers` array replaces the agent's current list. Pass `null` to
-leave unchanged; `[]` clears all servers.
-
-### Resolution order at runtime
-
-1. User-scoped connection (matching invoking user)
-2. Agent-scoped connection (matching active agent)
-3. Platform-scoped connection
-4. Featured server fallback (`is_featured=true` global platform)
-
-### Common errors
-
-- `400 Selected MCP server is not available to the current tenant.` — the
-  server belongs to another organization and is not `is_featured=true`.
-- `400 OAuth2 connections require a connected service.` — create the OAuth
-  connector first and pass `connected_service`.
-
-### UI hints by `auth_type`
-
-- `none`: informational only.
-- `token`: inputs for `credentials`, `authorization_scheme`, optional
-  header key–value pairs.
-- `oauth2`: `ConnectedService` picker filtered by provider/service. Hide
-  the Connect action until OAuth is completed, otherwise the API returns
-  `400`.
-
-## OAuth Connectors REST API
-
-For OAuth-backed MCP servers (`auth_type=oauth2`), each user must grant
-permission once per provider/service before a connection can reference a
-`ConnectedService`. All endpoints are under `${dmUrl}/api/accounts/`. Auth:
-`Authorization: Token {token}`.
-
-### Endpoints
-
-| Method | Path | Purpose |
-|---|---|---|
-| GET | `orgs/{org}/oauth-services/` | List enabled services across all providers |
-| GET | `orgs/{org}/oauth-services/{service_name}/scopes/` | Per-service scope breakdown |
-| GET | `connected-services/orgs/{org}/users/{user_id}/{provider}/{service}/` | Start flow — returns `{ auth_url }` |
-| GET | `connected-services/callback/?code=...&state=...` | Handle vendor redirect; persists `ConnectedService` |
-| GET | `connected-services/orgs/{org}/users/{user_id}/` | List the user's connected services |
-| DELETE | `connected-services/orgs/{org}/users/{user_id}/{id}/` | Revoke a connection |
-
-### Flow
-
-1. List services → discover what's available.
-2. Start flow → open returned `auth_url` in a new window/tab.
-3. Vendor redirects to the configured `redirect_uri`; relay
-   `code` + `state` to the callback endpoint **without modification**.
-4. Callback returns the persisted `ConnectedService` (id, provider, service,
-   `expires_at`, `scope`). Tokens auto-refresh server-side.
-
-### Prereqs (admin)
-
-Organization admin must store `auth_{provider}` credentials with `client_id`,
-`client_secret`, and `redirect_uri` in the credential store. A start
-endpoint returning `400 "No credentials found"` means this is missing.
-
-### Common errors
-
-- `400 "No credentials found"` — admin must configure `auth_{provider}`.
-- `Invalid state` — start and callback ran in different browser contexts
-  or state expired (>60 min).
-- `Could not exchange auth token` — provider rejected the code; verify
-  `redirect_uri` matches.
-
-## In-Chat MCP Events (WebSocket / SSE)
-
-When `auth_type=oauth2` + `auth_scope=user` and no user-scoped
-`MCPServerConnection` exists, the chat consumer pauses the active session
-and emits events on the existing chat socket. Parse JSON, switch on
-`type`.
-
-### `oauth_required`
-
-Backend is about to call an MCP server with no user connection. Show
-`auth_url` to the user; the backend now polls every 10s.
-
-```json
-{
-  "type": "oauth_required",
-  "server_name": "Google Drive MCP",
-  "server_id": 42,
-  "auth_url": "https://accounts.google.com/o/oauth2/v2/auth?...",
-  "message": "Authentication required for MCP server '...'."
-}
-```
-
-UI: open `auth_url` in a popup/new tab (providers block framing). Show a
-"waiting" indicator. Do NOT close the chat socket — resolution arrives on
-the same connection.
-
-### `oauth_connection_resolved`
-
-Polling detected the new connection; chat resumes automatically.
-
-```json
-{ "type": "oauth_connection_resolved", "server_name": "...", "server_id": 42, "message": "..." }
-```
-
-UI: dismiss the prompt. Optionally toast success.
-
-### `mcp_tools_retrieved`
-
-A tool fetch failed but a retry succeeded (up to 3 retries with 1s/2s/4s
-backoff). Informational only.
-
-```json
-{ "type": "mcp_tools_retrieved", "session_id": "...", "mentor_id": "..." }
-```
-
-### `warning`
-
-Non-OAuth MCP failure (server unreachable, bad config, retries exhausted).
-Chat continues without MCP tools.
-
-```json
-{ "type": "warning", "message": "...", "developer_error": "...", "code": 503 }
-```
-
-UI: non-blocking banner using `message`. Log `developer_error` (do NOT
-show to end users).
-
-### `error` (ChatValidationError)
-
-Terminates the turn. Three MCP-related cases:
-
-1. **OAuth timeout** (no completion within `MCP_OAUTH_MAX_WAIT_SECONDS` =
-   300s).
-2. **OAuth URL build failure** (missing credentials, unknown provider).
-3. **Missing connected service** (oauth2 connection record without linked
-   `ConnectedService`).
-
-```json
-{ "error": "Timed out waiting for OAuth authentication...", "status_code": 400 }
-```
-
-UI: display `error` (already user-safe). Offer Retry. WebSocket transports
-close after this; if the user finishes OAuth after the timeout, their next
-message will succeed because the connection is now in place.
-
-### Timing constants
-
-| Constant | Value |
-|---|---|
-| `MCP_OAUTH_MAX_WAIT_SECONDS` | 300 (5 min) |
-| `MCP_OAUTH_POLL_INTERVAL_SECONDS` | 10 |
+1. `pnpm build` -- passes, with no import of the removed names left.
+2. `pnpm test` -- vitest passes.
+3. Touch test in the browser as `/iblai-vibe-ops-test` says: no menu entry
+   or link leads to a Tools tab, and an old `/agents/<uuid>/tools` route is
+   gone or redirects to Settings; in `/agents/<uuid>/settings` › Capabilities turn
+   **Web Search** on, see "Web Search turned on", reload -- it stays on; in
+   the chat the `+` menu's Tools lists Web Search; turn it off again; read the
+   console; check the phone width.
+
+## Related skills
+
+- `/iblai-vibe-agent` -- the family index and the provider every tab needs.
+- `/iblai-vibe-agent-setting`, `/iblai-vibe-agent-dataset`,
+  `/iblai-vibe-agent-grader`, `/iblai-vibe-agent-support`,
+  `/iblai-vibe-agent-screenshare`, `/iblai-vibe-agent-mcp`,
+  `/iblai-vibe-agent-voice` -- the tabs that hold the switches.
+- `/iblai-vibe-agent-llm` -- the model decides which capabilities can be on.
+- `/iblai-vibe-workflow` -- the workflow builder, whose Agent step uses
+  `useToggleTools`.

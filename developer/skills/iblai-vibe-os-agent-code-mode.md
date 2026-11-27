@@ -198,7 +198,7 @@ Cowork on too, it also gets the screen tools.
    — `src-tauri/` with the template `lib.rs`, plus the Rust toolchain.
 2. **Sign-in** via [`/iblai-vibe-auth`](/developer/skills/iblai-vibe-auth)
    — Code reads the org key and session token from the SDK's auth storage.
-3. **`@iblai/iblai-js@^2.85.1`** (resolves `@iblai/web-containers` 1.81.1):
+3. **`@iblai/iblai-js@^3.1.0`** (resolves `@iblai/web-containers` 2.1.0):
    the SDK `<Chat>` renders the permission cards, the thinking and the tool
    activity itself, and takes the Code pill and the Approvals button
    through its `slots`.
@@ -443,4 +443,4 @@ Full rationale, on-disk layout, and the agent's environment:
 - [`/iblai-vibe-local-llm`](/developer/skills/iblai-vibe-local-llm) — on-device models Code can run against; also the `types/tauri.ts` probes.
 - [`/iblai-vibe-agent-chat`](/developer/skills/iblai-vibe-agent-chat) — the SDK chat surface whose transport carries Code turns.
 - [`/iblai-vibe-agent-skills`](/developer/skills/iblai-vibe-agent-skills) — the Agent Skills the sync hook materialises for the agent.
-- [`/iblai-vibe-agent-sandbox`](/developer/skills/iblai-vibe-agent-sandbox) — the *platform-side* sandbox kinds (Computing Runtime / VM Shell / Claw); Code mode is the *desktop-side* runtime and is independent of them.
+- [`/iblai-vibe-agent-sandbox`](/developer/skills/iblai-vibe-agent-sandbox) — the *platform-side* sandbox types (Calculator / Ephemeral Virtual Machine / Permanent Virtual Machine); Code mode is the *desktop-side* runtime and is independent of them.

@@ -12,14 +12,17 @@ here applies to every user of the agent. Two resources hold it:
 - **Agent settings** (`…/mentors/{mentor}/settings/`): the chat voice
   (`voice_provider` + `openai_voice` / `google_voice` / `iblai_voice`),
   `voice_instructions`, `transcription_language`,
-  `transcription_instructions`, and the `show_voice_call` /
-  `show_voice_record` switches.
+  `transcription_instructions`, and whether voice calls and dictation are
+  offered, one field per surface (`show_voice_call` / `embed_show_voice_call`,
+  `show_voice_record` / `embed_show_voice_record`).
 - **Call configuration** (`…/call-configurations/`, one row per agent): call
-  style, language, AI provider, call voice, and screen sharing
-  (`enable_video` + two prompts).
+  style, language, AI provider, call voice, document lookups
+  (`use_function_calling_for_rag`), and video in calls (`enable_video` + two
+  screen-sharing prompts).
 
-Endpoints verified against the live schema
-(`https://api.iblai.app/dm/api/docs/schema/`, version 4.411.0) on 2026-10-02.
+Screen sharing as a capability of the agent is the setting
+`capability_screen_share` (API version 4.467.0 or later), saved alone through the
+settings PUT — see `/iblai-api-agent-setting`.
 
 ## Auth & conventions
 
@@ -37,7 +40,8 @@ Endpoints verified against the live schema
 
 - **GET** `…/mentors/{mentor}/settings/` — current voice fields. The response
   also embeds the agent's `call_configuration` object, never `null`: its `id`
-  is `null` until a POST creates the row, so POST first. Voice fields come
+  is `null` until the row exists, so POST first. (A settings PUT that turns
+  `capability_screen_share` on also creates it.) Voice fields come
   back as voice **names** (e.g. `"alloy"`), not ids.
 - **GET** `…/voices/` — the voice catalog, plus any custom voices
   `{username}` created in this organization. Query: `provider`
@@ -65,10 +69,13 @@ Endpoints verified against the live schema
     "voice_instructions": "string (tone, pace, emotion; \"\" clears)",
     "transcription_language": "string (ISO 639-1, e.g. \"es\"; \"\" = auto-detect)",
     "transcription_instructions": "string (jargon, names; \"\" clears)",
-    "show_voice_call": "boolean (voice calls on/off)",
-    "show_voice_record": "boolean (dictation microphone on/off)"
+    "show_voice_call": "boolean (offer voice calls in the in-app chat)",
+    "embed_show_voice_call": "boolean (offer voice calls in the embed widget)",
+    "show_voice_record": "boolean (offer dictation in the in-app chat)",
+    "embed_show_voice_record": "boolean (offer dictation in the embed widget)"
   }
   ```
+  Each surface has its own field; send only the one you change.
   `voice_provider` picks which `*_voice` field applies; `browser` uses the
   listener's device and no voice id. `voice_instructions` reaches OpenAI as
   speech `instructions` and Google as a synthesis `prompt`; other providers
@@ -85,12 +92,16 @@ Endpoints verified against the live schema
     "stt_provider": "openai | google | deepgram | cartesia | azure_openai",
     "openai_voice_id": "number | null",
     "google_voice_id": "number | null",
-    "use_function_calling_for_rag": "boolean",
-    "enable_video": "boolean (screen sharing; realtime mode only)",
+    "use_function_calling_for_rag": "boolean (default false; see below)",
+    "enable_video": "boolean (video in realtime calls; see Notes)",
     "screensharing_system_prompt": "string",
     "screensharing_proactive_prompt": "string"
   }
   ```
+  `use_function_calling_for_rag` decides how an `inference` call reads the
+  agent's documents: `true` looks them up through a tool only when it needs
+  to, `false` searches them before every reply. `realtime` calls always use
+  the tool.
 - **PATCH** `…/call-configurations/{id}/` — change any of the fields above
   (send only the changed keys).
 - **PUT** `…/call-configurations/{id}/` — replace the row (send `mentor` too).
@@ -129,6 +140,10 @@ curl -X PATCH "$API/call-configurations/$ID/" \
   `null`.
 - **Screen sharing needs a live call:** `enable_video` only works in
   `realtime` mode, and only when `show_voice_call` is on.
+- **Two fields turn on screen guidance:** a `realtime` call gets the
+  screen-sharing prompt while either the agent's `capability_screen_share`
+  or `enable_video` is on, so set both to `false` to stop it. Chat clients
+  read `capability_screen_share` to decide whether to offer screen sharing.
 - **Default screen prompt:** a new call configuration starts with the
   platform's screen-guidance text in `screensharing_system_prompt`.
 - **Pricier OpenAI speech:** non-empty `voice_instructions` switches OpenAI
